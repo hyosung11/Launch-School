@@ -97,3 +97,13 @@ Hello, World!
 ```
 
 - As you can see, we declare the `foo` variable without giving it a value. Using that variable returns `undefined`. On the other hand, we declare `bar` with an initial value of `3`. Thus, using `bar` in an expression returns `3`.
+
+### Null
+- `null` represents the intentional absence of value, i.e., emptiness or nothing
+- `null` explicitly used; `undefined` can arise implicitly.
+
+```js
+> let foo = null
+```
+- `null` is specified as a literal value.
+
