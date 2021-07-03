@@ -99,11 +99,37 @@ Hello, World!
 - As you can see, we declare the `foo` variable without giving it a value. Using that variable returns `undefined`. On the other hand, we declare `bar` with an initial value of `3`. Thus, using `bar` in an expression returns `3`.
 
 ### Null
-- `null` represents the intentional absence of value, i.e., emptiness or nothing
+- `null` represents the intentional absence of value, i.e., emptiness or nothing.
 - `null` explicitly used; `undefined` can arise implicitly.
 
 ```js
 > let foo = null
 ```
 - `null` is specified as a literal value.
+
+### The typeof Operator
+- Every value in JS programs has a data type. 
+- Use `typeof` to see what type a particular value has. 
+- `typeof` returns a string that contains the type of its operand's value:
+
+```js
+> typeof 1
+= 'number'
+
+> typeof 'foo'
+= 'string'
+
+> typeof true
+= 'boolean'
+
+> typeof undefined
+= 'undefined'
+
+> typeof null
+= 'object'
+
+> typeof [1, 2, 3]
+= 'object'
+```
+
 
