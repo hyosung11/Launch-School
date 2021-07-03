@@ -47,3 +47,8 @@ Template Literals (backticks) enable an operation called **string interpolation*
 
 String interpolation syntax:
 `Blah ${expression} blah.`
+
+### Numbers
+- JavaScript has a single data type, Number, that represents all types of numbers. For the math whizzes out there, we mean real numbers.
+
+    1, 2, -3, 4.5, -6.77, 234891234 // Examples of numeric literals
