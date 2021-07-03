@@ -214,3 +214,6 @@ Hello, World!
 
 - As with `NaN`, `Infinity` and -`Infinity` are considered by JavaScript to be numbers.
 
+### Equality Comparison
+
+- To determine whether two values are identical, use the `===` operator. It compares two operands for equality and returns `true` or `false` as appropriate.
