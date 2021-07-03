@@ -24,26 +24,26 @@ Data type values can be represented by **literals**. A literal is any notation t
 ### Strings
 - note that the quotes are syntactic components, not part of the value.
 
-```> "He said, 'Hi there!'"    // with double quotes
-= "He said, 'Hi there!'"
+    > "He said, 'Hi there!'"    // with double quotes
+    = "He said, 'Hi there!'"
 
-> 'He said, \'Hi there!\''  // with single quotes and escaping
-= "He said, 'Hi there!'"```
+    > 'He said, \'Hi there!\''  // with single quotes and escaping
+    = "He said, 'Hi there!'"
 
 - Note that Node displays the return values with double quotes here. It ordinarily uses single quotes, but it switches to double quotes when the string's value contains any single quotes.
 
 A similar technique works when the string contains a double-quote character: put the entire string inside single quotes or escape the double-quote characters.
 
-```> 'He said, "Hi there!"'    // with single quotes
-= 'He said, "Hi there!"'
+    > 'He said, "Hi there!"'    // with single quotes
+    = 'He said, "Hi there!"'
 
-> "He said, \"Hi there!\""  // with double quotes and escaping
-= 'He said, "Hi there!"'```
+    > "He said, \"Hi there!\""  // with double quotes and escaping
+    = 'He said, "Hi there!"'
 - This time Node uses single quotes; that's the default.
 
 Template Literals (backticks `) enable an operation called **string interpolation**
-```> `5 plus 5 equals ${5 + 5}`
-= '5 plus 5 equals 10'```
+    > `5 plus 5 equals ${5 + 5}`
+    = '5 plus 5 equals 10'```
 
 String interpolation syntax:
 `Blah ${expression} blah.`
