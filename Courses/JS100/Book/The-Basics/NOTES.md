@@ -14,36 +14,44 @@ All other data types are **object type**. (ES6 introduces two additional primiti
 
 Data type values can be represented by **literals**. A literal is any notation that lets you represent a fixed value in source code. For instance, all of the following are literals in JavaScript:
 
-    'Hello, world!'     // string literal
-    3.141528            // numeric literal
-    true                // boolean literal
-    { a: 1, b: 2 }      // object literal
-    [ 1, 2, 3 ]         // array literal
-    undefined           // undefined literal
+```js
+'Hello, world!'     // string literal
+3.141528            // numeric literal
+true                // boolean literal
+{ a: 1, b: 2 }      // object literal
+[ 1, 2, 3 ]         // array literal
+undefined           // undefined literal
+```
 
 ### Strings
 - note that the quotes are syntactic components, not part of the value.
 
-    > 'He said, "Hi there!"'    // with single quotes
-    = 'He said, "Hi there!"'
+```js
+> 'He said, "Hi there!"'    // with single quotes
+= 'He said, "Hi there!"'
 
-    > "He said, \"Hi there!\""  // with double quotes and escaping
-    = 'He said, "Hi there!"'
+> "He said, \"Hi there!\""  // with double quotes and escaping
+= 'He said, "Hi there!"'
+```
 
 - Note that Node displays the return values with double quotes here. It ordinarily uses single quotes, but it switches to double quotes when the string's value contains any single quotes.
 
 A similar technique works when the string contains a double-quote character: put the entire string inside single quotes or escape the double-quote characters.
 
-    > 'He said, "Hi there!"'    // with single quotes
-    = 'He said, "Hi there!"'
+```js
+> 'He said, "Hi there!"'    // with single quotes
+= 'He said, "Hi there!"'
 
-    > "He said, \"Hi there!\""  // with double quotes and escaping
-    = 'He said, "Hi there!"'
+> "He said, \"Hi there!\""  // with double quotes and escaping
+= 'He said, "Hi there!"'
+```
 - This time Node uses single quotes; that's the default.
 
 Template Literals (backticks) enable an operation called **string interpolation**
-    > `5 plus 5 equals ${5 + 5}`
-    = '5 plus 5 equals 10'
+```js
+> `5 plus 5 equals ${5 + 5}`
+= '5 plus 5 equals 10'
+```
 
 String interpolation syntax:
 `Blah ${expression} blah.`
@@ -51,4 +59,13 @@ String interpolation syntax:
 ### Numbers
 - JavaScript has a single data type, Number, that represents all types of numbers. For the math whizzes out there, we mean real numbers.
 
-    1, 2, -3, 4.5, -6.77, 234891234 // Examples of numeric literals
+```js
+1, 2, -3, 4.5, -6.77, 234891234 // Examples of numeric literals
+```
+### Booleans
+- `true` or `false`
+
+### Undefined
+- the absence of value expressed as `undefined`
+- Can also explicitly use the literal `undefined`
+`setAgeFor('Omi', undefined);`
