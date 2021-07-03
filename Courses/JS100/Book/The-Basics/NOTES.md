@@ -180,3 +180,37 @@ Hello, World!
 > Object.is(value, NaN)
 = true
 ```
+
+### Infinity and -Infinity
+
+- `Infinity` is a number that is so large, it can't be written down.
+- `NaN`, on the other hand, is the result of an attempted mathematical operation that is neither a valid number nor an infinite number.
+- One common operation that results in `Infinity` is to divide a positive number by `0`.
+- `Infinity` has some other interesting, and sometimes puzzling, properties:
+
+```js
+> Infinity * Infinity
+= Infinity
+
+> Infinity + Infinity
+= Infinity
+
+> Infinity - Infinity
+= NaN
+
+> Infinity / Infinity
+= NaN
+
+> 1234567890 / Infinity
+= 0
+```
+
+- `Infinity` has a negative counterpart, `-Infinity`, that represents an infinite value that is less than 0. It most commonly arises when dividing a negative number by 0:
+
+```js
+> -1 / 0
+= -Infinity
+```
+
+- As with `NaN`, `Infinity` and -`Infinity` are considered by JavaScript to be numbers.
+
