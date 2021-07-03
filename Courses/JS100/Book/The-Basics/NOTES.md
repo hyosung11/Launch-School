@@ -151,4 +151,32 @@ Hello, World!
 - Since 16 divided by 5 equals 3 with a remainder of 1, this operation returns 1.
 
 - Note that JavaScript's `%` operator computes the **remainder** of dividing two numbers; it does not compute the modulo value, nor does it have any built-in methods that will compute the modulo value.
-- If you need to determine the modulo or remainder of two integers, try to work with positive integers exclusively. 
+- If you need to determine the modulo or remainder of two integers, try to work with positive integers exclusively.
+
+### NaN
+
+- Some operations, such as `0 / 0`, return the value `NaN`, which stands for "Not a Number." This special value signals an illegal operation on numbers such as `0 / 0`or `3 + undefined.
+- `typeof NaN = 'number'`
+- Undefined mathematical operations, such as dividing 0 by 0 or trying to take the square root of a negative number, return `NaN`. Note that _undefined_ here is a mathematical term: it doesn't refer to JavaScript's `undefined` value but to a mathematical operation that isn't defined.
+- Trying to convert a non-number value, such as `'hello'`, to a number can also return `NaN`.
+- To determine whether a value is `NaN`, you can't use the usual comparison operators in a simple way. As it happens, `NaN` is the only value in JavaScript that is not equal to itself:
+
+```js
+> let value = NaN;
+> value === NaN         // We'll talk about this in a few minutes
+= false
+
+> NaN === NaN
+= false
+```
+
+- Instead, you should use either `Number.isNaN` or `Object.is`:
+
+```js
+> let value = NaN;
+> Number.isNaN(value)
+= true
+
+> Object.is(value, NaN)
+= true
+```
