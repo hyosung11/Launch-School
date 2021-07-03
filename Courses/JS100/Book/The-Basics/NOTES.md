@@ -217,3 +217,22 @@ Hello, World!
 ### Equality Comparison
 
 - To determine whether two values are identical, use the `===` operator. It compares two operands for equality and returns `true` or `false` as appropriate.
+
+### String Concatenation
+
+- Use the `+` operator to join two strings and concatenate their values.
+
+```js
+> 'foo' + 'bar'
+= 'foobar'
+
+> '1' + '2' 
+= '12'
+
+> '1' + 2 // JS concatenates the two values as strings. Coerces the number 2 to a string and concatenates the result to the string '1'. Implicit type coercion
+= '12'
+
+> '5' - 3 // other arithmetic operation
+= 2
+```
+
