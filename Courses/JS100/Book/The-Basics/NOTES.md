@@ -132,4 +132,23 @@ Hello, World!
 = 'object'
 ```
 
+## Operations
 
+### Adding, Subtracting, and Multiplying numbers
+
+- `+`, `-`, `*`
+
+### Division and Remainder
+
+- `/` and `%`
+- JavaScript also has a **remainder operator**, `%.` It returns the remainder of a division operation.
+
+```js
+> 16 % 5
+= 1
+```
+
+- Since 16 divided by 5 equals 3 with a remainder of 1, this operation returns 1.
+
+- Note that JavaScript's `%` operator computes the **remainder** of dividing two numbers; it does not compute the modulo value, nor does it have any built-in methods that will compute the modulo value.
+- If you need to determine the modulo or remainder of two integers, try to work with positive integers exclusively. 
