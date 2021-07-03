@@ -10,7 +10,7 @@ JavaScript has five so-called **primitive data types:**
 4. Null
 5. Boolean
 
-All other data types are **object type**. (ES6 introduced two additional primitive types: Symbol and BigInt.)
+All other data types are **object type**. (ES6 introduces two additional primitive types: Symbol and BigInt.)
 
 Data type values can be represented by **literals**. A literal is any notation that lets you represent a fixed value in source code. For instance, all of the following are literals in JavaScript:
 
