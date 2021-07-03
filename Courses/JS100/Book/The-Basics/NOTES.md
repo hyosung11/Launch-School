@@ -54,7 +54,9 @@ Template Literals (backticks) enable an operation called **string interpolation*
 ```
 
 String interpolation syntax:
-`Blah ${expression} blah.`
+```js 
+Blah ${expression} blah.
+```
 
 ### Numbers
 - JavaScript has a single data type, Number, that represents all types of numbers. For the math whizzes out there, we mean real numbers.
@@ -68,4 +70,15 @@ String interpolation syntax:
 ### Undefined
 - the absence of value expressed as `undefined`
 - Can also explicitly use the literal `undefined`
-`setAgeFor('Omi', undefined);`
+```js
+setAgeFor('Omi', undefined);
+```
+- The `console.log` function is an example of a function that returns `undefined`:
+
+```js
+> console.log("Hello, World!")
+Hello, World!
+= undefined
+```
+- `undefined` also arises when declaring variables without an explicit value. `node` example:
+- 
