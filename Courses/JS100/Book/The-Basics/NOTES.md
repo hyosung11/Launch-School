@@ -81,4 +81,19 @@ Hello, World!
 = undefined
 ```
 - `undefined` also arises when declaring variables without an explicit value. `node` example:
-- 
+
+```js
+> let foo
+= undefined
+
+> foo
+= undefined
+
+> let bar = 3
+= undefined
+
+> bar
+= 3
+```
+
+- As you can see, we declare the `foo` variable without giving it a value. Using that variable returns `undefined`. On the other hand, we declare `bar` with an initial value of `3`. Thus, using `bar` in an expression returns `3`.
