@@ -121,9 +121,7 @@ In JavaScript, variables declared with the let or const keywords have **block** 
 if (expression) {  // block starts at {
   doSomething();   // block body
 }                  // block ends here
-```
 
-```js
 {
   // this is a block
   let foo = 42;
@@ -177,3 +175,12 @@ console.log(a);    // => 'bar'
 
 // If, on the other hand, you declare the variable outside the if block, the variable is available within the block as well as after the block ends.
 
+## A Common Gotcha 
+
+Be sure to always declare your variables and constants with `let` and `const`. JavaScript is a forgiving language, and one of the ways it demonstrates that occurs when you fail to declare a variable or constant. You can create them willy-nilly merely by assigning a variable to a value:
+
+```js
+p = 'foo';
+```
+
+That looks harmless, but JavaScript has some bizarre rules when working with undeclared variables. The most notable rule is that all undeclared variables have global scope: they ignore block and function scope entirely. If your program uses that same variable name in a different scope without declaring it, there's a good chance that it will step on the original variable by changing its content. You don't want that to happen: it's typically difficult to debug, and sometimes fixing it breaks other code.
