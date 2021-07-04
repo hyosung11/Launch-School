@@ -60,3 +60,39 @@ console.log(thousands); // => 4 */
 // console.log('The value of' + ' ' + `${Number('5')}` + 10 + ' is 15' ); Incorrect
 
 // console.log(`The value of 5 + 10 is ${Number('5') + 10}.`); // Correct
+
+// 7. Will an error occur if you try to access an array element with an index that is greater than or equal to the length of the array? For example:
+
+// let foo = ['a', 'b', 'c'];
+// console.log(foo.length);  // => 3
+// console.log(foo[3]);      // will this result in an error? => undefined 
+
+// 8. Create an array named names that contains a list of pet names.
+
+// let names = ['asta', 'butterscotch', 'pudding', 'neptune', 'darwin'];
+
+// 9. Create an object named pets that contains a list of pet names and the type of animal. 
+
+// let pets = {
+//   asta: 'dog',
+//   butterscotch: 'cat',
+//   pudding: 'cat',
+//   neptune: 'fish',
+//   darwin: 'lizard',
+// };
+
+// 10. What value does the following expression evaluate to?
+
+// "foo" === "Foo"; // => false
+
+// 11. What value does the following expression evaluate to?
+
+// parseInt("3.1415"); // => 3
+
+// 12. What value does the following expression evaluate to?
+
+"12" < "9"; // => true
+
+// This question is a bit tricky: the expression evaluates as true since the operands are strings, not numbers. When you compare two strings, JavaScript performs a character-by-character comparison going from left to right, so on the first comparison, it determines that '1' < '9', so '12' must be less than '9'.'
+
+// Had you used numbers instead, the expression would evaluate as false.
