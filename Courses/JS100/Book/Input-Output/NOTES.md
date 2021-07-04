@@ -1,6 +1,6 @@
 # INTRODUCTION TO PROGRAMMING: Input/Output
 
-## Command Line  Output
+## Command Line Output
 
 ```js
 let name = 'Jane';
