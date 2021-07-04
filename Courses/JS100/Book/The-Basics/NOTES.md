@@ -302,3 +302,32 @@ Hello, World!
   "Terry Jones", // The trailing comma on the last item in the list is optional, but a common practice. Try to be consistent in its use.
 ]
 
+### Objects
+
+- JS uses objects as a dictionary-like structure that matches keys with specific values. A JS object is a collection of key-value pairs.
+
+```js
+> { dog: 'barks' }
+= { dog: 'barks' }
+
+> { dog: 'barks', cat: 'meows', pig: 'oinks' }
+= { dog: 'barks', cat: 'meows', pig: 'oinks' }
+
+> ({ dog: 'barks', cat: 'meows', pig: 'oinks' })['cat']
+= 'meows' // Returns noise a cat makes by retrieving value by its key.
+
+// Object written in multi-line format.
+{
+  title: "Monty Python's Flying Circus",
+  cast: [
+    "Eric Idle",
+    "John Cleese",
+    "Terry Gilliam",
+    "Graham Chapman",
+    "Michael Palin",
+    "Terry Jones",
+  ],
+  firstSeason: 1969,
+  lastSeason: 1974, /* The trailing comma on the last property in the object is optional, but a common practice. Try to be consistent in its use. */
+}
+```
