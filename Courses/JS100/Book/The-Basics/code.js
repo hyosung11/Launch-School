@@ -43,6 +43,20 @@ console.log(thousands); // => 4 */
 
 // 4. Explain why this code logs '510' instead of 15.
 
-console.log('5' + 10);
+// console.log('5' + 10);
 
 // The code logs 510 because every + expression that has a string operand produces a string result no matter what the operand is. The Number 10 gets coerced to a String and then gets concatenated to the String '5' to produce '510'.
+
+// 5. Refactor the code from the previous exercise to use explicit coercion, so it logs 15 instead.
+
+// console.log(parseInt('5') + 10); // my answer
+
+// console.log(Number('5') + 10);
+
+// console.log(parseInt('5', 10) + 10);
+
+// 6. Use the template literal syntax along with the expression Number('5') + 10 to log the following sentence to the console:
+
+// console.log('The value of' + ' ' + `${Number('5')}` + 10 + ' is 15' ); Incorrect
+
+// console.log(`The value of 5 + 10 is ${Number('5') + 10}.`); // Correct
