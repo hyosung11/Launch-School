@@ -37,3 +37,6 @@ JavaScript has a bunch of other things that involve storing data in a named area
 * Class names
 
 The most significant difference in this list compared to the list of identifiers is that not all object properties are variables; only those on the global object.
+
+## Declaring and Assigning Variables
+
