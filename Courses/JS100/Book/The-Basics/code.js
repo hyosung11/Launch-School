@@ -1,8 +1,3 @@
-'1' + '2'
+let a = console.log("Howdy")
+// Howdy
 
-console.log('testing');
-
-1 + 2
-
-'1' + 2
-'12'

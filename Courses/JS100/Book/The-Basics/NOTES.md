@@ -331,3 +331,47 @@ Hello, World!
   lastSeason: 1974, /* The trailing comma on the last property in the object is optional, but a common practice. Try to be consistent in its use. */
 }
 ```
+
+## Expressions and Return Values
+
+- JS expressions are like expressions in math; they evaluate to values that you can use as part of another expression:
+
+```js
+> 7 + (5 + 2)
+= 14
+
+> console.log(5 + 2)
+7
+= undefined
+```
+
+- **return value** is the evaluated value of the expression.
+- Expressions don't have to involve operators: any value is an expression that evaluates to itself:
+
+```js
+> "hi"
+= 'hi'
+```
+
+### Printing (logging) vs returning values
+
+- **log** is a synonym for printing or displaying something on the console.
+
+```js
+> console.log('Howdy')
+Howdy // displayed on the console
+= undefined // this is return value of the expression that returned nothing
+
+> let a = console.log("Howdy")
+> a 
+```
+- What do we expect to happen here? The value returned by `console.log("Howdy")` is `undefined`, so that's the value to which `a` gets assigned. Therefore, `a` on the second line evaluates to `undefined`, and `node` shows it as the return value.
+
+```js
+let a = console.log("Howdy");
+> Howdy
+> undefined // This is the return value for me. It's different from above. Why?
+```
+
+- Output and return value are different concepts.
+
