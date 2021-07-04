@@ -400,3 +400,17 @@ console.log(3 * 5);
 console.log(let answer = 3 * 5); // SyntaxError: missing ) after argument list
 console.log(while (true) {});    // SyntaxError: Unexpected token 'while'
 ```
+
+### Statements in Practice
+
+- a **statement** is a line of code commanding a task. Every program consists of a sequence of statements.
+By this definition, every chunk of code that can be treated as a single unit is a statement. This includes:
+- variable, function, and class declarations
+- loops and `if` statements
+- `return` and `break` statements
+- assignments: `a = 3`;
+- standalone expressions: `console.log("Hello")`;
+
+Most developers use the term "statement" in the broader sense: any syntactic unit of code that expresses an action for the computer to perform.
+
+Expressions can be part of a statement, but not all statements can be part of an expression. The statements listed on the MDN page can't be part of an expression.
