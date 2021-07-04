@@ -273,3 +273,32 @@ Hello, World!
 > String(20)
 = '20'
 ```
+
+## Data Structures
+
+### Arrays
+
+- JS organizes information into ordered lists using **arrays**.
+- The order of the elements is significant.
+- Use index numbers to retrieve array elements.
+- Index numbers are non-negative integers starting from `0`.
+
+```js
+> [1, 2, 3, 4, 5]
+[ 1, 2, 3, 4, 5 ]
+
+> [1, 2, 3, 4, 5][0]
+= 1
+
+> [1, 2, 3, 4, 5][2]
+= 3
+
+[
+  "Eric Idle",
+  "John Cleese",
+  "Terry Gilliam",
+  "Graham Chapman",
+  "Michael Palin",
+  "Terry Jones", // The trailing comma on the last item in the list is optional, but a common practice. Try to be consistent in its use.
+]
+
