@@ -174,6 +174,7 @@ if (1 === 1) {
 console.log(a);    // => 'bar'
 
 // If, on the other hand, you declare the variable outside the if block, the variable is available within the block as well as after the block ends.
+```
 
 ## A Common Gotcha 
 
