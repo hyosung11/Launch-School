@@ -12,7 +12,7 @@
 // 3. tens place is 3
 // 4. ones place is 6
 
-let number = 4936;
+/* let number = 4936;
 
 let ones = number % 10;
 console.log(ones); // => 6
@@ -30,7 +30,19 @@ let hundreds = number % 10;
 console.log(hundreds); // => 9
 
 let thousands = (number - hundreds) / 10;
-console.log(thousands); // => 4
+console.log(thousands); // => 4 */
 
+// 3. Identify the data type for each of the following values:
 
+// 'true' => String
+// false => Boolean
+// 1.5 => Number
+// 2 => Number
+// undefined => Undefined
+// { foo: 'bar' }; => Object
 
+// 4. Explain why this code logs '510' instead of 15.
+
+console.log('5' + 10);
+
+// The code logs 510 because every + expression that has a string operand produces a string result no matter what the operand is. The Number 10 gets coerced to a String and then gets concatenated to the String '5' to produce '510'.
