@@ -262,8 +262,14 @@ Hello, World!
 > parseInt('3.1415')
 = 3 // Returns an integer when the string is a number with a fractional component.
 
+// parseFloat function
 > parseFloat('12.5foo')
 = 12.5 // Coerces a string to a floating-point (decimal) number.
 
+### Numbers to Strings
 
-
+```js
+// String function
+> String(20)
+= '20'
+```
