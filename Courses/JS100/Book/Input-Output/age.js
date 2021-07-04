@@ -30,7 +30,7 @@ let age = readlineSync.question('How old are you? ');
 age = parseInt(age)
 // let lastName = readlineSync.question('What is your last name? ');
 console.log(`You are ${age} years old.`);
-console.log(`In 10 years, you will be ${age + 10} years old.`)
+console.log(`In 10 years, you will be ${age + 10} years old.`);
 console.log(`In 10 years, you will be ${age + 20} years old.`);
 console.log(`In 10 years, you will be ${age + 30} years old.`);
 console.log(`In 10 years, you will be ${age + 40} years old.`);
