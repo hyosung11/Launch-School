@@ -238,3 +238,25 @@ Hello, World!
 
 ## Explicit Coercion
 
+- **explicit type coercion** lets you decide what you want to do, whereas implicit coercion lets the engine choose.
+
+### Strings to Numbers
+
+```js
+// Number function
+> Number('1') // The Number function coerces a string to a number.
+= 1 // Can perform arithmetic operations on the result.
+
+> Number('foo') // Number on a non-numeric string
+= NaN // Returns NaN in JS. Most other languages return an error.
+```
+
+```js
+// parseInt function
+> parseInt('12') // parses an integer from a string.
+= 12
+
+> parseInt('12xyz')
+= 12 // Stops converting and ignores everything else once it encounters an invalid character.
+
+
