@@ -259,4 +259,11 @@ Hello, World!
 > parseInt('12xyz')
 = 12 // Stops converting and ignores everything else once it encounters an invalid character.
 
+> parseInt('3.1415')
+= 3 // Returns an integer when the string is a number with a fractional component.
+
+> parseFloat('12.5foo')
+= 12.5 // Coerces a string to a floating-point (decimal) number.
+
+
 
