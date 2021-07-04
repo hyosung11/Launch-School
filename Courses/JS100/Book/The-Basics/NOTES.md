@@ -375,3 +375,28 @@ let a = console.log("Howdy");
 
 - Output and return value are different concepts.
 
+## MDN Statements
+
+- JavaScript also has statements. You can find a complete list of statements on MDN. Statements often include expressions as part of their syntax, but the statement itself is not an expression -- it's value cannot be captured and reused later in your code.
+- JavaScript applications consist of statements with an appropriate syntax. A single statement may span multiple lines. Multiple statements may occur on a single line if each statement is separated by a semicolon. This isn't a keyword, but a group of keywords.
+
+```js
+> let foo = 3; // The variable declaration is an example of a JS statement.
+
+// On the other hand, the value 3 to the right of the = is an expression. If you later decide to print the value of foo, then foo in that code is also an expression:
+
+> console.log(foo); 
+```
+
+- The key difference between a statement and an expression is that you can't capture a value from a statement. For instance, we can capture and print the value of the expression `3 * 5` in the following call to `console.log`:
+
+```js
+console.log(3 * 5);
+```
+
+- However, we can not replace `3 * 5` with a `let` declaration or a `while` loop since both are statements:
+
+```js
+console.log(let answer = 3 * 5); // SyntaxError: missing ) after argument list
+console.log(while (true) {});    // SyntaxError: Unexpected token 'while'
+```
