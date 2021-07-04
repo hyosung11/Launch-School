@@ -40,3 +40,51 @@ The most significant difference in this list compared to the list of identifiers
 
 ## Declaring and Assigning Variables
 
+```js
+> let firstName
+= undefined
+
+> firstName
+= undefined
+
+> let firstName = 'SungOh' // Initializer used in declaration.
+= undefined
+
+> firstName
+'SungOh'
+
+> console.log(`Your first name is ${firstName}`)
+'Your first name is SungOh'
+= undefined
+
+> firstName = 'Omi'
+= 'Joe'
+
+> firstName = 42
+= 42
+
+> let firstName = 'Sohee' // Declare and initialize variable with an explicit value on the same line.
+= undefined
+
+> firstName = 'Martha'
+= 'Martha'
+```
+
+* Note that regardless of whether we provide a value in a declaration, the variable is initialized. If we don't provide an explicit value, that initial value is undefined.
+
+* There is a subtle difference in terminology surrounding the = token. When used in a declaration, the = is just a syntactic token that tells JavaScript that you're going to supply an initial value for the variable. However, in an assignment, the = is called the **assignment operator**.
+
+```js
+> let a = 4
+= undefined
+
+> let b = a
+= undefined
+
+> a = 7
+= 7
+
+> b
+```
+
+* You'll notice that `b` retains the value `4`, even though a is now `7`. This example suggests that variables have values that aren't deeply-linked to each other. If you change one variable, it doesn't change other variables with the same value.
