@@ -88,3 +88,27 @@ The most significant difference in this list compared to the list of identifiers
 ```
 
 * You'll notice that `b` retains the value `4`, even though a is now `7`. This example suggests that variables have values that aren't deeply-linked to each other. If you change one variable, it doesn't change other variables with the same value.
+
+## Declaring constants
+
+```js
+> const firstName = 'Mitchell'
+= undefined
+
+> firstName
+= Mitchell
+
+const INTEREST_RATE = 0.0783;
+INTEREST_RATE = 0.0788; // Uncaught TypeError: Assignment to constant variable.
+
+let interest = amount * 0.0783;
+
+const INTEREST_RATE = 0.0783;
+let interest = amount * INTEREST_RATE; // easier to understand than the above code snippet
+```
+
+A standard convention when naming constants is to use all uppercase letters and digits in the name; if the name contains multiple words, use underscores to separate the words.
+
+```js
+const foo; // SyntaxError: Missing initializer in const declaration
+```
