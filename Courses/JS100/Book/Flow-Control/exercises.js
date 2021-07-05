@@ -105,13 +105,28 @@ function barCodeScanner(serial) {
 // 5. Refactor this statement to use an if statement instead.
 
 // ternary operator version
-return foo() ? 'bar' : qux();
+// return foo() ? 'bar' : qux();
 
 // if statement version
-if (foo()) {
-  return 'bar';
-} else {
-  return qux();
-}
+// if (foo()) {
+//   return 'bar';
+// } else {
+//   return qux();
+// }
 
 // Ternary operators are most useful when the values are simple expressions; anything more complicated than calling a function or accessing a variable or literal value can lead to unreadable code. Our original code is an excellent example of how to use the ternary operator; the refactoring merely demonstrates that you understand how it works.
+
+// 6. What does this code output to the console?
+
+function isArrayEmpty(arr) {
+  if (arr) {
+    console.log('Not Empty');
+  } else {
+    console.log('Empty');
+  }
+}
+
+isArrayEmpty([]); // => Not Empty
+
+// The output is Not Empty since, while the array is empty -- it has no elements and the length property is 0 -- it isn't falsy. Thus, JavaScript executes the first branch of the if statement.
+
