@@ -22,14 +22,14 @@ Programmers often talk about function **invocation** and **invoking** functions.
 
 The local variable names between parenthesis (`()`) are properly called **parameters**, not arguments. Arguments are the values you pass into the function for each of those parameters. The parameter values inside the function are also called arguments. You can think of parameters as placeholders, while arguments refer to the values that get stored in the placeholders.
 
-```js
+```js=
 function add(left, right) { // left & right are parameters here
   let sum = left + right;   // left & right are arguments here
   return sum;
 }
 
 let sum = add(3, 6); // 3 and 6 are arguments
-```
+```js=
 
 ## Return Values
 
