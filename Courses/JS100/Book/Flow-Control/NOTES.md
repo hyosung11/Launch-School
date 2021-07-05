@@ -529,6 +529,35 @@ if ((x || y) && z) {
 
 In this code,` x || y` gets evaluated first, and then `result && z`. That's a different result from the un-parenthesized expression. They help the computer and other programmers understand your intentions, you should strive to use parentheses in any expression that uses two or more different operators.
 
-JavaScript evaluates parentheses in the usual algebraic order: `it evaluates the expression in the innermost set of parentheses first, then works its way out to the outermost part of the expression. When multiple parenthesized subexpressions appear at the same depth, it evaluates them from left to right. Once it evaluates the parenthesized expressions, it evaluates the final expression value.
+JavaScript evaluates parentheses in the usual algebraic order: it evaluates the expression in the innermost set of parentheses first, then works its way out to the outermost part of the expression. When multiple parenthesized subexpressions appear at the same depth, it evaluates them from left to right. Once it evaluates the parenthesized expressions, it evaluates the final expression value.
 
 Short circuit evaluation doesn't change the precedence rules, but, if you try to think about it, you may end up confused. Wait until later before you try to understand how and why. For now, remember that short-circuit evaluation may prevent JavaScript from evaluating the expression to the right of the operator, but the precedence rules remain the same.
+
+## Ternary Operator
+
+The **ternary operator** is a quick and easy way to write a short, concise, and simple if/else conditional. It uses a combination of the `?` and `:` symbols and takes 3 operands (hence, the name "ternary"):
+
+```js
+> 1 == 1 ? 'this is true' : 'this is not true'
+= 'this is true'
+
+> 1 == 0 ? "this is true" : "this is not true"
+= 'this is not true'
+```
+
+JavaScript first evaluates the first operand (the comparisons). If it has a truthy result, JavaScript evaluates the second operand (`this is true`) and returns its value. Otherwise, it evaluates the third operand (`this is not true`) and returns its value.
+
+The chief advantage that the ternary operator has over an `if/else` statement is that the entire structure is an expression. What that means is that we can treat the ternary expression as a value: we can assign it to a variable, pass it as an argument, and so on. Since `if/else` is a statement, we can't capture its result to a variable.
+
+```js
+> let message = true ? 'this is true' : 'this is not true'
+= undefined
+
+> message
+= 'this is true'
+
+> console.log(false ? 'this is true' : 'this is not true')
+this is not true
+= undefined
+```
+
