@@ -64,3 +64,23 @@ say();        // => hello!
 ```
 
 You'll notice that `say()`—without arguments—logs "hello!" to the console. Since we've provided a default value for `words`, we can call our function without arguments. Nice!
+
+## Nested Functions
+
+Functions can be created anywhere, even nested in another function:
+
+```js
+function foo() {
+  function bar() {
+    console.log("BAR");
+  }
+
+  bar(); // => BAR
+  bar(); // => BAR
+}
+
+foo();
+bar(); // ReferenceError: bar is not defined
+```
+
+Here, the `bar` function is nested within the `foo` function. Such nested functions get created and destroyed every time the outer function runs. (This has a mostly negligible effect on performance.) They are also private functions since we can't access a nested function from outside the function where it is defined.
