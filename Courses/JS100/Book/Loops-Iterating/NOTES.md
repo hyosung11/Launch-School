@@ -81,6 +81,40 @@ while (counter <= 10) {
 }
 ```
 
+The **increment operator** (`++`) increments its operand by `1`; that is, it adds `1` to the existing value. There's a corresponding **decrement operator** (`--`) that decrements a variable's value by `1`. That is, it subtracts `1` from the value. JavaScript provides these operators since incrementing and decrementing by 1 are such commonplace operations.
+
+There are two forms of `++`: one that comes before the variable name (the pre-increment operator), and one that comes after (the post-increment operator). Both increment the variable, but they differ in what gets returned by the expression. The pre-increment form returns the new value of the variable, while the post-increment form returns the previous value of the variable.
+
+```js
+> let a = 1;
+> ++a;
+= 2
+
+> a
+= 2
+
+> a++
+= 2
+
+> a
+= 3
+
+// There are corresponding pre-decrement and post-decrement operators (e.g., --a and a--) that work in a similar way.
+```
+
+There's a growing sentiment among some developers that the increment and decrement operators are harmful. It's easy to mistype them in ways that can lead to strange bugs, especially if you're not mindful of the return values. They recommend using the `+=` and `-= `operators instead; it's only a few characters more to type.
+
+Most developers still use them in the increment clause of a `for` loop:
+
+```js
+// increment operator used in increment clause of for loop
+for (var index = 0; index < 5; ++index) {
+  // body of loop
+}
+
+// However, they shouldn't be used anywhere else.
+```
+
 
 
 
