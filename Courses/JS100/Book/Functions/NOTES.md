@@ -49,3 +49,18 @@ console.log(twoAndThree); // => 5
 JavaScript uses the `return` statement to return a value to the code that called the function: the **caller**. If you don't specify a value, it returns `undefined`. Either way, the `return` statement causes the function to stop running and returns control to the caller.
 
 Functions that always return a boolean value, i.e., `true` or `false`, are called **predicates**. You will almost certainly encounter this term in future readings and videos, so commit it to memory.
+
+## Default Parameters
+
+When you define a function, you sometimes want to structure it so that you can call it without an argument. Let's update `say` to use a default value when the caller doesn't provide an argument.
+
+```js
+function say(words = "hello") {
+  console.log(words + "!");
+}
+
+say("Howdy"); // => Howdy!
+say();        // => hello!
+```
+
+You'll notice that `say()`—without arguments—logs "hello!" to the console. Since we've provided a default value for `words`, we can call our function without arguments. Nice!
