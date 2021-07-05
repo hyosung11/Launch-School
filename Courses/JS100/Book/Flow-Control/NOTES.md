@@ -66,10 +66,10 @@ Examples 6 and 7 both behave the same way. Example 6 uses a nested `if` statemen
 
 ## Comparisons
 
-Comparison operators return a boolean value: `true` or `false`.
+Comparison operators return a boolean value: `true` or `false`.\
 The expressions or values that an operator uses are its **operands**. In comparisons, the expressions to the left and right of the operator are the operands.
 
-* `===`
+* `===`\
 The **strict equality operator**, also known as the **identity operator**, returns true when the operands have the same type _and_ value, **false** otherwise.
 
 ```js
@@ -101,7 +101,7 @@ The **strict equality operator**, also known as the **identity operator**, retur
 = false
 ```
 
-* `!==`
+* `!==`\
 The **strict inequality operator** returns `false` when the operands have the same type and value, `true` otherwise. Note that` !==` is the inverse of `===`: when `===` returns true, `!==` returns false, and vice versa.
 
 ```js
