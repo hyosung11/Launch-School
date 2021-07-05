@@ -500,3 +500,35 @@ In reality, `!!` isn't a separate operator in JavaScript. Instead, it's two cons
 = false
 ```
 
+## Operator Precedence
+
+JavaScript has a set of **precedence** rules it uses to evaluate expressions that use multiple operators and sub-expressions. The following is a list of the comparison operations from the highest precedence (top) to lowest (bottom).
+
+* `<=`, `<`, `>`, `>=` - Comparison
+* `===`, `!==`, `==`, `!=` - Equality
+* `&&` - Logical AND
+* `||` - Logical OR
+
+```js
+// With the precedence list in hand, we can look at the following expression and determine how to evaluate it:
+
+if (x || y && z) {
+  // do something
+}
+```
+
+For the moment, let's ignore the fact that both `||` and `&&` are short-circuit operators. The program first evaluates the `y && z` sub-expression since `&&` has higher precedence than `||`. It then takes the result of that evaluation and evaluates `x || result`.
+
+We can use parentheses to override the precedence: sub-expressions in parentheses get evaluated before un-parenthesized expressions at the same depth in the main expression (don't worry about what we mean by depth right now):
+
+```js
+if ((x || y) && z) {
+  // do something
+}
+```
+
+In this code,` x || y` gets evaluated first, and then `result && z`. That's a different result from the un-parenthesized expression. They help the computer and other programmers understand your intentions, you should strive to use parentheses in any expression that uses two or more different operators.
+
+JavaScript evaluates parentheses in the usual algebraic order. That is, it evaluates the expression in the innermost set of parentheses first, then works its way out to the outermost part of the expression. When multiple parenthesized subexpressions appear at the same depth, it evaluates them from left to right. Once it evaluates the parenthesized expressions, it evaluates the final expression value.
+
+Short circuit evaluation doesn't change the precedence rules, but, if you try to think about it, you may end up confused. Wait until later before you try to understand how and why. For now, remember that short-circuit evaluation may prevent JavaScript from evaluating the expression to the right of the operator, but the precedence rules remain the same.
