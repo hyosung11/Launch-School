@@ -84,3 +84,36 @@ bar(); // ReferenceError: bar is not defined
 ```
 
 Here, the `bar` function is nested within the `foo` function. Such nested functions get created and destroyed every time the outer function runs. (This has a mostly negligible effect on performance.) They are also private functions since we can't access a nested function from outside the function where it is defined.
+
+## Functions & Scope
+
+* **global** variables and **local** variable
+* Where you declare a `let` or `const` variable determines whether the variable is global or local.
+
+### Global variables
+
+Global variables have a global scope, which means that they are available everywhere within a program. You can read and reassign them at any time.
+Any variable declared inside a function or block is a local variable - everything else is a global variable.
+
+Global variables can be useful in some scenarios, e.g., application-wide configuration. However, most developers discourage their use since they often lead to bugs. In general, you should limit the scope of your variables as much as possible; smaller variable scopes limit the risk that an outer scope might misuse the variable.
+
+### Local Variables
+
+As the name suggests, local variables in JavaScript have a local scope, meaning that you can't access them outside the function that declares them. As with global variables, where you declare a local variable determines its scope.
+
+```js
+function greetPeople() {
+  let greetingMessage = "Good Morning!";
+  console.log(greetingMessage);
+}
+
+greetPeople();
+```
+
+The above code is functionally identical to the first example in the previous section. However, it doesn't use any global variables. The `greetPeople` function declares `greetingMessage` internally. It's accessible within the function, but a `ReferenceError` occurs if you try to use it elsewhere.
+
+That brings us to another important property of local variables. Local variables are short-lived; they go away when the function that corresponds to their scope stops running. When we invoke the function, we start a new scope. If the code within that scope declares a new variable, that variable belongs to the scope. When the last bit of code in that scope finishes running, the scope goes away, as do any local variables declared within it. JavaScript repeats this process each time we invoke a function.
+
+Thus far, we've talked about variables scoped to a function definition. Another way to scope variables locally is to use block-scoping. We've already discussed it in the Variables chapter, and we'll expand on it in the next. For now, block scoping occurs when you use `let` or `const` inside a block and confines the variable's scope to that block.
+
+Variable scoping is a crucial topic in programming. A solid grasp of the concept is essential to fluency with any programming language.
