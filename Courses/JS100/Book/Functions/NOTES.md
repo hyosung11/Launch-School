@@ -350,10 +350,10 @@ second();
 When this program starts running, the call stack initially has one item -- called a **stack frame** -- that represents the global (top-level) portion of the program. The initial stack frame is sometimes called the `main` function. JavaScript uses this frame to keep track of what part of the main program it is currently working on.
 
 |Call Stack|
-|-|
-|-|
-|-|
-|main|
+|:-:|
+|:-:|
+|:-:|
+|:main:|
 
 When program execution reaches the function invocation on line 10, it first updates the main stack frame with the current program location. JavaScript will use this location later to determine where execution should resume when second finishes running.
 
