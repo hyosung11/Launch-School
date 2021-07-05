@@ -117,3 +117,11 @@ That brings us to another important property of local variables. Local variables
 Thus far, we've talked about variables scoped to a function definition. Another way to scope variables locally is to use block-scoping. We've already discussed it in the Variables chapter, and we'll expand on it in the next. For now, block scoping occurs when you use `let` or `const` inside a block and confines the variable's scope to that block.
 
 Variable scoping is a crucial topic in programming. A solid grasp of the concept is essential to fluency with any programming language.
+
+## Functions vs. Methods
+
+Thus far, all our function calls used `functionName(obj)` syntax. We call a function by writing parentheses after its name and passing it zero or more arguments. If you want to convert a string to all uppercase letters, you might expect to use a function call like `toUpperCase(string)`. However, you need to use a different syntax called **method invocation**.
+
+Method invocation occurs when you prepend a variable name or value followed by a period (`.`) to a function invocation, e.g. `'xyzzy'.toUpperCase()`. We call such functions **methods**.  Think of the previous code as the method `toUpperCase` as returning a modified version of the string 'xyzzy'.
+
+It's unfortunate, but there is no easy way to determine whether you need to use a function or method call for any given function. You must read the documentation or study the source code.
