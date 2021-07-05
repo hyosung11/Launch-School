@@ -58,6 +58,6 @@ switch (a) {
     // executed if a is anything else
     console.log("a is not 5, 6, 7, 8, or 9");
     break;
-} // a is either 5, 6, or 7
+} // => a is either 5, 6, or 7
 
 
