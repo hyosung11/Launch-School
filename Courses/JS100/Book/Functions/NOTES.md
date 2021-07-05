@@ -235,13 +235,26 @@ add(subtract(80, 10), times(subtract(20, 6), add(30, 5))); // => 560
 
 Let's break down what this code does:
 
-1. First, we pass two arguments to add: subtract(80, 10) and times(subtract(20, 6), add(30, 5)).
-2. The first argument—the subtract function call—returns 70.
-3. The second argument, the times function call, furthermore has two arguments: subtract(20, 6) and add(30, 5).
-   * subtract(20, 6) returns 14
-   * add(30, 5) returns 35
-   * using the return values, the entire function call becomes times(14, 35)
-   * the overall value of the times call is 490
-4. Using the return values from steps 2 and 3, we get add(70, 490) which returns 560.
+1. First, we pass two arguments to `add`: `subtract(80, 10)` and `times(subtract(20, 6), add(30, 5))`.
+2. The first argument—the `subtract` function call—returns `70`.
+3. The second argument, the `times` function call, furthermore has two arguments: `subtract(20, 6)` and `add(30, 5)`.
+   * `subtract(20, 6)` returns `14`
+   * `add(30, 5)` returns `35`
+   * using the return values, the entire function call becomes `times(14, 35)`
+   * the overall value of the times call is `490`
+
+* 4. Using the return values from steps 2 and 3, we get `add(70, 490)` which returns `560`.
 
 We've seen that function calls always return a value, and we can pass that function call as an argument to another function call. Thus, it's vital to know what values our functions return. In the final analysis, those values get passed as arguments to other functions.
+
+## Three Ways to Define a Function
+
+```js
+function functionName(zeroOrMoreArguments...) {
+  // function body
+}
+
+In JavaScript, we call a function definition that looks like that a **function declaration**. A notable property of function declarations is that you can call the function before you declare it.
+```
+
+In JavaScript, we call a function definition that looks like that a **function declaration**. A notable property of function declarations is that you can call the function before you declare it.
