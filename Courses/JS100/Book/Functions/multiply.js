@@ -17,7 +17,7 @@ function multiply(firstNumber, secondNumber) {
 }
 
 function getNumber(prompt) {
-  let readlineSync = require("readline-sync");
+  let readlineSync = require('readline-sync');
   return parseFloat(readlineSync.question(prompt))
 }
 
