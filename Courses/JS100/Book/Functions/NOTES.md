@@ -349,8 +349,16 @@ second();
 
 When this program starts running, the call stack initially has one item -- called a **stack frame** -- that represents the global (top-level) portion of the program. The initial stack frame is sometimes called the `main` function. JavaScript uses this frame to keep track of what part of the main program it is currently working on.
 
+The Call Stack link below gives visual explanation:
+[https://launchschool.com/books/javascript/read/functions]
+
 The call stack has a limited size that varies based on the JavaScript implementation. That size is usually sufficient for more than 10000 stack entries. If the stack runs out of room, you will see a `RangeError` exception together with a message that mentions the stack.
 
 Call Stack by Colt Steele
 [https://www.youtube.com/watch?v=W8AeMrVtFLY]
 
+## Summary
+
+Functions and methods are fundamental concepts in JavaScript programming. Knowing what a function does is crucial to your development as a JavaScript programmer. You'll use them all the time, in programs both big and small.
+
+Understanding variable scope is essential towards becoming fluent with JavaScript. Function composition is something you'll use often, and understanding mutation helps you catch and avoid an entire class of bugs. There are multiple ways to declare functions: function declarations, function expressions, and arrow functions.
