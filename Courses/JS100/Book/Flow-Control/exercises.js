@@ -118,15 +118,39 @@ function barCodeScanner(serial) {
 
 // 6. What does this code output to the console?
 
-function isArrayEmpty(arr) {
-  if (arr) {
-    console.log('Not Empty');
-  } else {
-    console.log('Empty');
-  }
-}
+// function isArrayEmpty(arr) {
+//   if (arr) {
+//     console.log('Not Empty');
+//   } else {
+//     console.log('Empty');
+//   }
+// }
 
-isArrayEmpty([]); // => Not Empty
+// isArrayEmpty([]); // => Not Empty
 
 // The output is Not Empty since, while the array is empty -- it has no elements and the length property is 0 -- it isn't falsy. Thus, JavaScript executes the first branch of the if statement.
 
+// 7. Write a function that takes a string as an argument and returns an all-caps version of the string when the string is longer than 10 characters. Otherwise, it should return the original string. Example: change 'hello world' to 'HELLO WORLD', but don't change 'goodbye'.
+
+// if statement version
+function capsLong(string) {
+  if (string.length > 10) {
+    return string.toUpperCase();
+  } else {
+    return string;
+  }
+}
+
+console.log(capsLong('I ate the cookie'));
+console.log(capsLong('SungOh'));
+console.log(capsLong('onetwothree'));
+
+// ternary operator version 
+function capsLong(string) {
+  return ((string.length > 10) ? string.toUpperCase() : string);
+}
+
+console.log(capsLong("Sue Smith"));     // => Sue Smith
+console.log(capsLong("Sue Robertson")); // => SUE ROBERTSON
+console.log(capsLong("Joe Thomas"));    // => Joe Thomas
+console.log(capsLong("Joe Stevens"));   // => JOE STEVENS
