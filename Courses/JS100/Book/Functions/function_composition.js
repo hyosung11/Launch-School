@@ -40,3 +40,9 @@ function times(num1, num2) {
 add(subtract(80, 10), times(subtract(20, 6), add(30, 5))); // => 560
 
 console.log(add(subtract(80, 10), times(subtract(20, 6), add(30, 5))));
+
+greetPeople();
+
+function greetPeople() {
+  console.log("Good Morning!");
+}

@@ -253,8 +253,79 @@ We've seen that function calls always return a value, and we can pass that funct
 function functionName(zeroOrMoreArguments...) {
   // function body
 }
-
-// In JavaScript, we call a function definition that looks like that a **function declaration**. A notable property of function declarations is that you can call the function before you declare it.
 ```
 
 In JavaScript, we call a function definition that looks like that a **function declaration**. A notable property of function declarations is that you can call the function before you declare it.
+
+```js
+greetPeople(); // Invoking a function before declaring it
+
+function greetPeople() {
+  console.log("Good Morning!"); // => Good Morning!
+}
+```
+
+Let's see another way to define a function called a **function expression**.
+
+```js
+let greetPeople = function () { // space after function keyword not required
+  console.log("Good Morning!");
+};
+
+greetPeople();
+```
+
+Most of it looks like a standard function declaration. However, since we're saving it to a variable, it's a function expression instead. Function expressions have one key difference from a function declaration: you cannot invoke a function expression before it appears in your program.
+
+Our example declares a variable named `greetPeople` and assigns it to the function expression after the `=` sign. We can do that since JavaScript functions are f**irst-class functions**. The key feature of first-class functions is that you can treat them like any other value. In fact, **all JavaScript functions are objects**. Thus, you can assign them to variables, pass them as arguments to other functions, and return them from a function call. The implications are far-reaching.
+
+Any function definition that doesn't have the word `function` at the very beginning of a statement is a function expression. Even wrapping what looks like a function declaration in parentheses creates a function expression:
+
+```js
+(function greetPeople() { // This is a function expression, not a declaration
+  console.log("Good Morning!");
+});
+```
+
+Another common example of function expressions occur in higher-order functions, a concept we won't explore in this book, but should show:
+
+```js
+function makeGreeter(name) {
+  return function greeter() {
+    console.log(`Hello ${name}`);
+  };
+}
+```
+
+Look closely at the definition of the `greeter` function. That is not a function declaration -- it's a function expression.
+
+There's a third kind of function in JavaScript called an **arrow function**. Syntactically, arrow functions look radically different from function declarations and expressions. Let's look at one:
+
+```js
+let greetPeople = () => console.log("Good Morning!");
+greetPeople();
+```
+
+Arrow functions are similar to function expressions, but they use a different syntax. The differences are not merely syntactic, however.
+
+For now, let's look at one interesting property of arrow functions: _implicit returns_. First, we'll convert the add function from the previous section to use arrow function syntax:
+
+```js
+let add = (a, b) => a + b;
+```
+
+Note the lack of a `return` statement. We can omit it in arrow functions _when and only when the function body contains a single expression_ (the expression may have subexpressions, but the entire expression must evaluate to a single value). Suppose it contains two or more expressions or statements. In that case, you must explicitly return a value if you need it, and you must also use curly braces:
+
+```js
+let add = (a, b) => a + b;
+let getNumber = (text) => {
+  let input = prompt(text);
+  return Number(input);
+};
+
+let number1 = getNumber("Enter a number: ");
+let number2 = getNumber("Enter another number: ");
+console.log(add(number1, number2));
+```
+
+ Above we define an arrow function getNumber that requires one parameter. The parentheses around the parameter name are optional in this case and are often omitted.
