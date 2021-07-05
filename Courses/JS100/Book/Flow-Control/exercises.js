@@ -29,7 +29,27 @@
 
 // 2. Write a function, evenOrOdd, that determines whether its argument is an even number. If it is, the function should log 'even' to the console; otherwise, it should log 'odd'. For now, assume that the argument is always an integer.
 
+// function evenOrOdd(number) {
+//   if (number % 2 === 0) {
+//     console.log('even');
+//   } else {
+//     console.log('odd');
+//   }
+// }
+
+// evenOrOdd(3) // odd
+// evenOrOdd(4) // even
+
+// The solution uses the remainder operator (%) to determine whether the number is even. If the result of number % 2 is 0, the number is even.
+
+// 3. Let's improve our previous implementation of evenOrOdd. Add a validation check to ensure that the argument is an integer. If it isn't, the function should issue an error message and return.
+
 function evenOrOdd(number) {
+  if (!Number.isInteger(number)) {
+    console.log('Sorry, the value you passed is not an integer.');
+    return;
+  }
+
   if (number % 2 === 0) {
     console.log('even');
   } else {
@@ -37,7 +57,6 @@ function evenOrOdd(number) {
   }
 }
 
-evenOrOdd(3) // odd
-evenOrOdd(4) // even
-
-// The solution uses the remainder operator (%) to determine whether the number is even. If the result of number % 2 is 0, the number is even.
+evenOrOdd('tasty')
+evenOrOdd(1.55)
+evenOrOdd(45)
