@@ -6,7 +6,7 @@ Most languages have a feature called procedures that let you extract the code an
 
 Before you can use a function, you must first define it with the reserved keyword, `function`. After the word `function`, you write the function's name followed by a pair of parentheses (`()`). After the closing parenthesis, the code you want to associate with the function -- the **function body** -- gets placed between curly braces (`{}`).
 
-```js
+```js {attr.source='.numberLines'}
 function say() {
   console.log("Hi!");
 }
