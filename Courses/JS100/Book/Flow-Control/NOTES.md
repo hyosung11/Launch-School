@@ -266,3 +266,85 @@ The **greater than or equal to operator** returns `true` when the value of the l
 
 Of course, the `>=` operator works equally well with strings.
 
+## Logical Operators
+
+ The `!`, `&&`, and `||` **logical operators** provide the ability to combine conditions:
+
+ * `!`
+The **not operator** returns `true` when its operand is `false` and returns `false` when the operand is `true`. That is, it negates its operand. Note that, unlike most operators, `!` takes a single operand; the operand appears to the right of the operator.
+
+```js
+> !true
+= false
+
+> !false
+= true
+
+> !(4 === 4)
+= false
+
+> !(4 !== 4)
+= true
+```
+
+In these examples, JavaScript first evaluates the expression on the right, then applies `!` to the result, thus negating it. For instance, we know that `4 === 4` is `true`, so `!(4 === 4)` is `false`.
+
+* `&&`
+The **and operator** returns `true` when both operands are `true` and `false` when either operand is `false`.
+
+```js
+> true && true
+= true
+
+> true && false
+= false
+
+> false && true
+= false
+
+> false && false
+= false
+
+> (4 === 4) && (5 === 5)
+= true
+
+> (4 === 4) && (5 === 6)
+= false
+
+> (4 === 5) && (5 === 5)
+= false
+
+> (4 === 5) && (5 === 6)
+= false
+```
+
+* `||`
+The **or operator** returns `true` when either operand is `true` and `false` when both operands are `false`.
+
+```js
+> true || true
+= true
+
+> true || false
+= true
+
+> false || true
+= true
+
+> false || false
+= false
+
+> (4 === 4) || (5 === 5)
+= true
+
+> (4 === 4) || (5 === 6)
+= true
+
+> (4 === 5) || (5 === 5)
+= true
+
+> (4 === 5) || (5 === 6)
+= false
+```
+
+`&&` and `||` don't always return `true` or `false`, but they do when they operate on boolean values. A little later in this chapter we'll see what happens when we use `&&` and `||` with non-boolean values.
