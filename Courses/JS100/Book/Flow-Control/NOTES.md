@@ -415,3 +415,88 @@ When coercing a value to a boolean, JavaScript treats the following values as fa
 * NaN
 
 Everything else evaluates as true.
+
+The term **falsy** refers to values that evaluate as false, while the values that evaluate as true are **truthy**. These terms are used to distinguish between boolean `true` and `false` values. We can also discuss **truthiness**: whether something is a truthy or falsy value.
+
+Truthiness is exceptionally useful in JavaScript; there are plenty of situations where you want to treat the values `0` (all 3 variants), `''`, `undefined`, `null`, and `NaN` as though they were false. It helps make conditional expressions read more naturally, but it can also catch an unwary programmer by surprise. If you have experience with another language that uses falsy values, be wary; most languages don't share the same idea of what values are falsy. That's a constant headache for programmers that work with multiple languages.
+
+Let's return to the if `(x = 5)` example. When you see code like that, it's important to remember that `x = 5` is an assignment. It returns `5`, which, in turn, is a truthy value. You should avoid using assignments in conditionals: at first glance, `if (x = 5)` and `if (x == 5)` look identical. However, they have entirely different meanings and produce different results. That makes the code suspect: the assignment might be intentional, but it might also be a mistake, and mistakes are bugs waiting to bite the unwary. Worse yet, another programmer may come along and naively "fix" the code.
+
+The `&&` and `||` logical operators, as you'll recall, use short-circuit evaluation. These operators work with truthy and falsy values too, and they can also return truthy values instead of boolean values. When using `&&` and `||`, the return value is always the value of the operand evaluated last:
+
+```js
+// && - evaluates truthiness or falsiness
+
+> 3 && 'foo'  // last evaluated operand is 'foo'
+= 'foo'
+
+> 'foo' && 3  // last evaluated operand is 3
+= 3
+
+> 0 && 'foo'  // last evaluated operand is 0
+= 0
+
+> 'foo' && 0  // last evaluated operand is 0
+= 0
+
+> 3 || 'foo'  // last evaluated operand is 3
+= 3
+
+// ==============================================
+
+// || - evaluates truthiness or falsiness
+
+> 'foo' || 3  // last evaluated operand is 'foo'
+= 'foo'
+
+> 0 || 'foo'  // last evaluated operand is 'foo'
+= 'foo'
+
+> 'foo' || 0  // last evaluated operand is 'foo'
+= 'foo'
+
+> '' || 0     // last evaluated operand is 0
+= 0
+```
+
+Suppose you have an expression of some kind that returns a value that is either truthy or falsy, but isn't a boolean value:
+
+```js
+let foo = null;
+let bar = 'qux';
+let isOk = foo || bar;
+```
+
+In this code, `isOk` gets set to a truthy value of `"qux"`. In most cases, you can use "`qux`" as though it were actually a boolean `true` value. However, using a string value as though it is a boolean isn't the clearest way to write your code. It may even look like a mistake to another programmer who is trying to track down a bug. In some strange cases, it may even be a mistake.
+
+You can address this easily enough by using an `if` statement or a ternary expression:
+
+```js
+// ternary expression
+let isOk = (foo || bar) ? true : false;
+
+// if statement
+let isOk;
+if (foo || bar) {
+  isOk = true;
+} else {
+  isOk = false;
+}
+```
+
+Either of those snippets sets `isOk` to an appropriate boolean value. However, they do so in a somewhat wordy manner. Many JavaScript programmers use a more concise coercion by using what looks like a `!!` operator:
+
+```js
+let isOk = !!(foo || bar);
+```
+
+In reality, `!!` isn't a separate operator in JavaScript. Instead, it's two consecutive `!` operators. The expression `!!a` is equivalent to writing `!(!a)`. The inner `!` converts the value of `a` to `false` if it is truthy, or `true` if `a` is falsy. The outer `!` then flips `true` to `false` or `false` to `true`. In the end, we end up with a boolean value instead of a truthiness value:
+
+```js
+> !!3    // 3 is truthy, !3 is false, !false is true
+= true
+
+> !!''   // '' is falsy, !'' is true, !true is false
+= false
+```
+
