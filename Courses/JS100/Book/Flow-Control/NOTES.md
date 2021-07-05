@@ -361,3 +361,57 @@ The `&&` and `||` operators both use a mechanism called **short circuit evaluati
 The first expression returns `true` when `item` is both red and portable. If either condition is `false`, then the overall result must be false. Thus, if the program determines that `item` is not red, it doesn't have to check whether it is portable. JavaScript short-circuits the entire expression by terminating evaluation as soon as it determines that `item` isn't red. It doesn't need to call `isPortable()` since it already knows that the entire expression must be `false`.
 
 Similarly, the second expression returns `true` when `item` is either green or has wheels. When either condition is `true`, the overall result **must** be `true`. Thus, if the program determines that `item` is green, it doesn't have to check whether it has wheels. Again, JavaScript short-circuits the entire expression once it determines that `item` is green. The entire expression must be `true`.
+
+## Truthiness
+
+Notice that every `if` statement has an expression that evaluates as true or false. However, the expression doesn't have to be one of the boolean values, `true` and `false`. JavaScript can coerce any value to a boolean value, and that's what it does in conditional contexts like the `if` statement.
+
+```js
+// Example 1
+
+a = 5
+if (a) {
+  console.log("how can this be true?");
+} else {
+  console.log("it is not true");
+}
+
+// Example 2
+b = 0
+if (b) {
+  console.log("how can this be true?");
+} else {
+  console.log("it is not true");
+}
+```
+
+The first example logs "how can this be true?" while the second logs "it is not true." This works since JavaScript coerces the value `5` to `true`, and the value `0` to `false`. To repeat, JavaScript can coerce any value to a boolean. Thus, you can use any expression in a conditional expression. We often say that the expression **evaluates as** or **evaluates to** true or false.
+
+We can even write code like this:
+
+```js
+let x;
+
+if (x = 5) {
+  console.log("how can this be true?");
+} else {
+  console.log("it is not true");
+}
+```
+
+The above code doesn't test whether `x` is equal to `5`. Instead, it assigns the variable `x` to `5`, then evaluates the assignment's return value (`5`) as a boolean. Here, `5` evaluates as true when it appears in a boolean expression.
+
+When coercing a value to a boolean, JavaScript treats the following values as false:
+
+* `false`
+* The number `0`. This includes all 3 variations of zero in JavaScript:
+  * `0`: The ordinary zero value.
+  * `-0`: A negative zero. That's mathematical nonsense, but a real thing in JavaScript.
+  * `0n`: The `BigInt` version of zero.
+
+* An empty string ('')
+* undefined
+* null
+* NaN
+
+Everything else evaluates as true.
