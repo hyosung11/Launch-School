@@ -169,3 +169,100 @@ The rules that govern which operand `==` and `!=` coerces to the other are compl
 That advice is not universal. There are JavaScript developers, including some well-known ones, who will tell you to go ahead and use the loose operators, `==` and `!=`. Their reasoning is easy to understand: your code should not be attempting to compare different kinds of things, except in a few well-defined, isolated cases. Using the strict operators as a workaround is just masking bad code. They're not completely wrong! If you're comparing strings with arrays, your code almost certainly needs a redesign.
 
 That said, there are some edge cases that you need to be aware of with the loose operators. For that reason, the style we use at Launch School insists that you always use the strict operators. Doing so won't prevent you from having to fix bad code, but at this stage of your journey, it's less confusing to use the strict operators, and easier to debug.
+
+* `<`
+The **less than operator** returns `true` when the value of the left operand has a value that is less than the value of the right operand, `false` otherwise.
+
+```js
+> 4 < 5
+= true
+
+> 5 < 4
+= false
+
+> 5 < 5
+= false
+
+> "4" < "5"
+= true
+
+> "42" < "402"
+= false
+
+> "42" < "420"
+= true
+
+> "42" < 420
+= true
+```
+
+When comparing strings, the comparison is character-by-character. JavaScript moves from left-to-right in the strings looking for the first character that is different from its counterpart in the other string. Once it finds a character that differs, it compares that character with its counterpart, and makes a decision based on that. If both strings are equal up to the length of the shorter string as in the next to last example, then the shorter string is considered less than the longer string.
+
+The final example shows that if you use `<` with two different types, some sort of coercion will take place. In this case, "42" gets coerced to a number, so a numeric comparison takes place. Don't try to remember this.
+
+* `>`
+The greater than operator returns `true` when the value of the left operand has a value that is greater than the value of the right operand, `false` otherwise.
+
+```js
+// Compare with the `<` examples.
+
+> 4 > 5
+= false
+
+> 5 > 4
+= true
+
+> 5 > 5
+= false
+
+> "4" > "5"
+= false
+
+> "42" > "402"
+= true
+
+> "42" > "420"
+= false
+
+> "42" > 420
+= false
+```
+
+As with `<`, the `>` operator can be used to compare strings, and can even be used with mixed types (but with sometimes bizarre results).
+
+* `<=`
+The **less than or equal to operator** returns `true` when the value of the left operand has a value that is less than _or equal to_ the value of the right operand, `false` otherwise. Note that `=<` is not a valid comparison operator.
+
+```js
+// Compare with the `<=` examples.
+
+> 4 <= 5
+= true
+
+> 5 <= 4
+= false
+
+> 5 <= 5
+= true
+```
+
+Of course, the `<=` operator works equally well with strings.
+
+* `>=`
+The **greater than or equal to operator** returns `true` when the value of the left operand has a value that is greater than _or equal to_ the value of the right operand, `false` otherwise. Note that `=>` is not a valid comparison operator.
+
+```js
+// Compare with the `>` and `>=` examples.
+
+> 4 >= 5
+= false
+
+> 5 >= 4
+= true
+
+> 5 >= 5
+= true
+```
+
+Of course, the `>=` operator works equally well with strings.
+
