@@ -30,3 +30,22 @@ function add(left, right) { // left & right are parameters here
 
 let sum = add(3, 6); // 3 and 6 are arguments
 ```
+
+## Return Values
+
+Functions can perform an operation and **return** a result to the call location for later use. We do that with **return values** and the `return` statement.
+
+All JavaScript function calls evaluate to a value. By default, that value is `undefined`; this is the **implicit return value** of most JavaScript functions. However, when you use a `return` statement, you can return a specific value from a function. This is an **explicit return value**. Outside of the function, there is no distinction between implicit and explicit return values, but it's important to remember that all functions return something unless they raise an exception, even if they don't execute a `return` statement.
+
+```js
+function add(a, b) {
+  return a + b;
+}
+
+let twoAndThree = add(2, 3);
+console.log(twoAndThree); // => 5
+```
+
+JavaScript uses the `return` statement to return a value to the code that called the function: the **caller**. If you don't specify a value, it returns `undefined`. Either way, the `return` statement causes the function to stop running and returns control to the caller.
+
+Functions that always return a boolean value, i.e., `true` or `false`, are called **predicates**. You will almost certainly encounter this term in future readings and videos, so commit it to memory.

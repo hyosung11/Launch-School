@@ -28,11 +28,20 @@
 
 // As mentioned earlier, one benefit that functions give us is the ability to make changes in one location. Suppose we want to add a ! to the end of every string we send to say. All we have to do is change one line of code no matter how often we call say:
 
-function say(words) {
-  console.log(words + "!");
+// function say(words) {
+//   console.log(words + "!");
+// }
+
+// say("hello"); // => hello!
+// say("hi"); // => hi!
+// say("how are you"); // => how are you!
+// say("I'm fine"); // => I'm fine!
+
+function add(a, b) {
+  return a + b;
 }
 
-say("hello"); // => hello!
-say("hi"); // => hi!
-say("how are you"); // => how are you!
-say("I'm fine"); // => I'm fine!
+// add(2, 3); // returns 5
+
+let twoAndThree = add(2, 3);
+console.log(twoAndThree); // => 5
