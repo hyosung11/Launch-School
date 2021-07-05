@@ -22,14 +22,14 @@ Programmers often talk about function **invocation** and **invoking** functions.
 
 The local variable names between parenthesis (`()`) are properly called **parameters**, not arguments. Arguments are the values you pass into the function for each of those parameters. The parameter values inside the function are also called arguments. You can think of parameters as placeholders, while arguments refer to the values that get stored in the placeholders.
 
-```js=
+```js
 function add(left, right) { // left & right are parameters here
   let sum = left + right;   // left & right are arguments here
   return sum;
 }
 
 let sum = add(3, 6); // 3 and 6 are arguments
-```js=
+```
 
 ## Return Values
 
@@ -334,7 +334,7 @@ console.log(add(number1, number2));
 
 The call stack helps JavaScript keep track of what function is executing as well as where execution should resume when the function returns. To do that, it works like a stack of books: if you have a stack of books, you can put a new book on the top or remove the topmost book from the stack. In much the same way, the call stack puts information about the current function on the top of the stack, then removes that information when the function returns.
 
-```js
+```js=
 function first() {
   console.log("first function");
 }
@@ -345,7 +345,7 @@ function second() {
 }
 
 second();
-```
+```js=
 
 When this program starts running, the call stack initially has one item -- called a **stack frame** -- that represents the global (top-level) portion of the program. The initial stack frame is sometimes called the `main` function. JavaScript uses this frame to keep track of what part of the main program it is currently working on.
 
