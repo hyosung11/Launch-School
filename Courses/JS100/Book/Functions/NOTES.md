@@ -181,3 +181,67 @@ One non-obvious point here is that mutation is a concern when dealing with array
 How do you know which methods mutate the caller and which don't? It's useful to know that all primitive values are immutable, so this question never arises when dealing with them. However, there's no way to tell whether a function mutates an array or object. You have to use the documentation or memorize it through repetition.
 
 If you have experience programming in other languages and wonder whether JavaScript is a pass-by-value or pass-by-reference language, JavaScript is both! It uses pass-by-value when dealing with primitive values and pass-by-reference with objects and arrays.
+
+## Function Composition
+
+```js
+function add(a, b) {
+  return a + b;
+}
+
+function subtract(a, b) {
+  return a - b;
+}
+
+let sum = add(20, 45);
+console.log(sum); // => 65
+
+let difference = subtract(80, 10);
+console.log(difference); // => 70
+```
+
+This works fine. However, in a process called **function composition**, JavaScript lets us use a function call as an argument to another function. Stated differently, we're saying that we can pass `add(20, 45)` and `subtract(80, 10)` as arguments to another function:
+
+```js
+console.log(add(20, 45)); // => 65
+console.log(subtract(80, 10)); // => 70
+```
+
+Passing the function call's return value to `console.log` is the canonical example of function composition in JavaScript. It's useful but uninteresting. Life gets more interesting when you pass function call results to a function that does something more complicated:
+
+```js
+function times(num1, num2) {
+  return num1 * num2;
+}
+
+console.log(times(add(20, 45), subtract(80, 10))); // => 4550
+// 4550 == ((20 + 45) * (80 - 10))
+```
+
+Here, we pass the return values of `add(20, 45)` and `subtract(80, 10)` to the `times` function, and we pass the return value of `times` to `console.log`! It produces the same result as the following verbose code:
+
+```js
+let sum = add(20, 45);
+let difference = subtract(80, 10);
+let result = times(sum, difference);
+console.log(result);
+```
+
+Let's see an even more complicated example:
+
+```js
+add(subtract(80, 10), times(subtract(20, 6), add(30, 5))); // => 560
+```
+
+Let's break down what this code does:
+
+1. First, we pass two arguments to add: subtract(80, 10) and times(subtract(20, 6), add(30, 5)).
+2. The first argument—the subtract function call—returns 70.
+3. The second argument, the times function call, furthermore has two arguments: subtract(20, 6) and add(30, 5).
+* subtract(20, 6) returns 14
+* add(30, 5) returns 35
+* using the return values, the entire function call becomes times(14, 35)
+* the overall value of the times call is 490
+4. Using the return values from steps 2 and 3, we get add(70, 490) which returns 560.
+
+We've seen that function calls always return a value, and we can pass that function call as an argument to another function call. Thus, it's vital to know what values our functions return. In the final analysis, those values get passed as arguments to other functions.
