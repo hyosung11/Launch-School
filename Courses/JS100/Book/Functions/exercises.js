@@ -49,4 +49,4 @@ function scream(words) {
   return;
 }
 
-scream("Yipeee");
+scream("Yipeee"); // => Yipeee!!!!
