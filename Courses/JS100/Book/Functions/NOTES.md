@@ -125,3 +125,59 @@ Thus far, all our function calls used `functionName(obj)` syntax. We call a func
 Method invocation occurs when you prepend a variable name or value followed by a period (`.`) to a function invocation, e.g. `'xyzzy'.toUpperCase()`. We call such functions **methods**.  Think of the previous code as the method `toUpperCase` as returning a modified version of the string 'xyzzy'.
 
 It's unfortunate, but there is no easy way to determine whether you need to use a function or method call for any given function. You must read the documentation or study the source code.
+
+## Mutating the Caller
+
+Sometimes a method permanently alters the object that invokes the method: it **mutates the caller**. To contrast this with non-mutating methods, let's see an example:
+
+```js
+let name = "Pete Hanson";
+console.log(name.toUpperCase()); // => 'PETE HANSON'
+console.log(name);               // => 'Pete Hanson'
+```
+
+The `toUpperCase` string method performs a non-mutating (non-destructive) operation. It preserves the previous value of the string: `'Pete Hanson'`. Non-mutating methods like `toUpperCase()` often return a new value or object, but leave the caller unchanged.
+
+Some methods permanently alter the object. We'll use an array method to illustrate. We haven't talked about arrays in detail yet, but we have enough knowledge for this example:
+
+```js
+let oddNumbers = [1, 3, 5, 7, 9];
+oddNumbers.pop();
+console.log(oddNumbers); // => [1, 3, 5, 7]
+```
+
+The `pop()` method removes the last element from an array, but it does so **destructively**: the change is permanent. Where the String `toUpperCase` method returns a new value that's a changed version of the original string, `pop` alters the array in-place. In other words, it mutates its caller (the array).
+
+We can also talk about whether functions mutate their arguments. Let's create a function that illustrates this concept:
+
+```js
+function changeFirstElement(array) {
+  array[0] = 9;
+}
+
+let oneToFive = [1, 2, 3, 4, 5];
+changeFirstElement(oneToFive);
+console.log(oneToFive); // => [9, 2, 3, 4, 5]
+```
+
+This code uses the `[index]` syntax to change the first element of the array that we pass to the `changeFirstElement` function. When the function finishes running, we can see that the original array changed.
+
+Not all functions behave like that; none of our greeting functions alter the values we passed them. To see an example of a non-destructive array function, let's create a function that adds a new element to an array and returns the new array:
+
+```js
+function addToArray(array) {
+  return array.concat(10);
+}
+
+let oneToFive = [1, 2, 3, 4, 5];
+console.log(addToArray(oneToFive)); // => [1, 2, 3, 4, 5, 10]
+console.log(oneToFive);             // => [1, 2, 3, 4, 5]
+```
+
+The `concat` method returns a new array that contains a copy of the original array combined with the additional elements that we supply with the arguments. Since `concat` creates a copy of the original array and then mutates the copy, it leaves the original array intact, as shown on line #7.
+
+One non-obvious point here is that mutation is a concern when dealing with arrays and objects, but not with primitive values like numbers, strings, and booleans. Primitive values are **immutable**. That means their values never change: operations on immutable values always return new values. Operations on **mutable** values (arrays and objects) may or may not return a new value and may or may not mutate data.
+
+How do you know which methods mutate the caller and which don't? It's useful to know that all primitive values are immutable, so this question never arises when dealing with them. However, there's no way to tell whether a function mutates an array or object. You have to use the documentation or memorize it through repetition.
+
+If you have experience programming in other languages and wonder whether JavaScript is a pass-by-value or pass-by-reference language, JavaScript is both! It uses pass-by-value when dealing with primitive values and pass-by-reference with objects and arrays.

@@ -40,11 +40,14 @@
 
 // This discussion raises a question: how can we ask greetPeople to output a different greeting message if we've hard-coded our greeting message on line 2? The answer is function arguments, of course:
 
-function greetPeople(greetingMessage) {
-  console.log(greetingMessage);
-}
+// function greetPeople(greetingMessage) {
+//   console.log(greetingMessage);
+// }
 
-greetPeople("Good Morning!");
+// greetPeople("Good Morning!");
 
 // The greetingMessage parameter acts like a local variable. It is, in fact, a local variable. The chief difference is that we initialize it from the argument passed to the function. Parameters have local scope within a function.
 
+let name = "Pete Hanson";
+console.log(name.toUpperCase()); // => PETE HANSON
+console.log(name);               // => Pete Hanson
