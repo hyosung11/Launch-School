@@ -6,7 +6,7 @@ Most languages have a feature called procedures that let you extract the code an
 
 Before you can use a function, you must first define it with the reserved keyword, `function`. After the word `function`, you write the function's name followed by a pair of parentheses (`()`). After the closing parenthesis, the code you want to associate with the function -- the **function body** -- gets placed between curly braces (`{}`).
 
-```js
+```js {attr.source='.numberLines'}
 function say() {
   console.log("Hi!");
 }
@@ -334,7 +334,7 @@ console.log(add(number1, number2));
 
 The call stack helps JavaScript keep track of what function is executing as well as where execution should resume when the function returns. To do that, it works like a stack of books: if you have a stack of books, you can put a new book on the top or remove the topmost book from the stack. In much the same way, the call stack puts information about the current function on the top of the stack, then removes that information when the function returns.
 
-```js=
+```js
 function first() {
   console.log("first function");
 }
@@ -345,7 +345,7 @@ function second() {
 }
 
 second();
-```js=
+```
 
 When this program starts running, the call stack initially has one item -- called a **stack frame** -- that represents the global (top-level) portion of the program. The initial stack frame is sometimes called the `main` function. JavaScript uses this frame to keep track of what part of the main program it is currently working on.
 
