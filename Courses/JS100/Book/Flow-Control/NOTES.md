@@ -348,3 +348,16 @@ The **or operator** returns `true` when either operand is `true` and `false` whe
 ```
 
 `&&` and `||` don't always return `true` or `false`, but they do when they operate on boolean values. A little later in this chapter we'll see what happens when we use `&&` and `||` with non-boolean values.
+
+## Short Ciruits
+
+The `&&` and `||` operators both use a mechanism called **short circuit evaluation** to evaluate their operands. Consider these two expressions:
+
+```js
+> isRed(item) && isPortable(item)
+> isGreen(item) || hasWheels(item)
+```
+
+The first expression returns `true` when `item` is both red and portable. If either condition is `false`, then the overall result must be false. Thus, if the program determines that `item` is not red, it doesn't have to check whether it is portable. JavaScript short-circuits the entire expression by terminating evaluation as soon as it determines that `item` isn't red. It doesn't need to call `isPortable()` since it already knows that the entire expression must be `false`.
+
+Similarly, the second expression returns `true` when `item` is either green or has wheels. When either condition is `true`, the overall result **must** be `true`. Thus, if the program determines that `item` is green, it doesn't have to check whether it has wheels. Again, JavaScript short-circuits the entire expression once it determines that `item` is green. The entire expression must be `true`.
