@@ -63,3 +63,65 @@ if (x === 3)
 Based on the indentation, it looks like the programmer expects line 3 to execute when `x` is `3`, but not when it has some other value. However, line 3 is _not_ part of the `if` statement. It's a separate expression that follows the if statement. Though JavaScript allows this practice, you should avoid it in most cases. Blocks make your code more readable and reliable.
 
 Examples 6 and 7 both behave the same way. Example 6 uses a nested `if` statement in the `else` clause, while example 7 shows the result of removing the block. Here, we can ignore our suggestion to use blocks in `if` statements; `else if` is one place where omitting the block is preferable. It's easier to read and maintain example 7 since you don't have the syntactic clutter of extra braces and indentation.
+
+## Comparisons
+
+Comparison operators return a boolean value: `true` or `false`.
+The expressions or values that an operator uses are its **operands**. In comparisons, the expressions to the left and right of the operator are the operands.
+
+* `===`
+The **strict equality operator**, also known as the **identity operator**, returns true when the operands have the same type _and_ value, **false** otherwise.
+
+```js
+> 5 === 5
+= true
+
+> 5 === 4
+= false
+
+> 'abc' === 'abc'
+= true
+
+> 'abc' === 'abcd'
+= false
+
+> 'abc' === 'aBc'
+= false
+
+> '5' === '5'
+= true
+
+> '5' === '6'
+= false
+
+> 5 === '5'
+= false
+
+> '' === 0
+= false
+```
+
+* `!==`
+The **strict inequality operator** returns `false` when the operands have the same type and value, `true` otherwise. Note that` !==` is the inverse of `===`: when `===` returns true, `!==` returns false, and vice versa.
+
+```js
+// Compare with the `===` examples.
+
+> 5 !== 5
+= false
+
+> 5 !== 4
+= true
+
+> 4 !== 156
+= true
+
+> 'abc' !== 'def'
+= true
+
+> 'abc' !== 'aBc'
+= true
+
+> 5 !== '5'
+= true
+```
