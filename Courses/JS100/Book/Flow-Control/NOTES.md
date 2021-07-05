@@ -561,3 +561,87 @@ this is not true
 = undefined
 ```
 
+## Switch Statement
+
+The last conditional flow structure we want to discuss is the `switch` statement. A `switch` statement is similar to an `if` statement, but it has a different interface. It compares a single value against multiple values for strict equality (as with the `===` operator), whereas `if` can test multiple expressions with any condition.
+
+`switch` statements use the reserved words `switch`, `case`, `default`, and `break`.
+
+```js
+let a = 5;
+
+switch (a) {
+  case 5:
+    console.log('a is 5');
+    break;
+  case 6:
+    console.log('a is 6');
+    break;
+  default:
+    console.log('a is neither 5, nor 6');
+    break;
+} // => a is 5
+```
+
+This example is functionally identical to the following `if/else` statement:
+
+```js
+let a = 5;
+
+if (a === 5) {
+  console.log('a is 5');
+} else if (a === 6) {
+  console.log('a is 6');
+} else {
+  console.log('a is neither 5, nor 6');
+} // => a is 5
+```
+
+You can see how similar they are, but you can also see how they differ. The `switch` statement evaluates the expression, `a`, compares its value to the value in each `case` clause and then executes the statements and expressions associated with the first matching clause. In this example, the value of the expression is `5`; thus, the program executes the statements and expressions associated with the `case 5`: clause. The statements and expressions in the `default`: clause run when the expression doesn't match any of the `case` clauses; it acts like the final `else` in an `if` statement.
+
+The `break` statement in each `case` is crucial. Without a break, execution "falls through" to the next `case` clause.
+
+```js
+let a = 5;
+
+switch (a) {
+  case 5:
+    console.log('a is 5');
+  case 6:
+    console.log('a is 6');
+  default:
+    console.log('a is neither 5, nor 6');
+} // => a is 5
+  //    a is 6
+  //    a is neither 5, nor 6
+```
+
+This behavior is a little strange, and _almost_ always undesirable. In most cases, you want to avoid fall-throughs that lead to executing multiple `case` clauses for a single value. Code that falls through multiple cases like this is, by its nature, suspect; it looks like you forgot to use the `break` statement, which makes it look like a bug waiting to happen. Even if the code is correct, it looks wrong. Often, it is wrong.
+
+However, that doesn't mean that fall-throughs are never appropriate. There are use cases where they work well. For instance, suppose you want to execute the same action for two or more cases:
+
+```js
+let a = 5;
+
+switch (a) {
+  case 5:
+  case 6:
+  case 7:
+    // executed if a is 5, 6, or 7
+    console.log("a is either 5, 6, or 7");
+    break;
+  case 8:
+  case 9:
+    // executed if a is 8 or 9
+    console.log('a is 8 or 9');
+    break;
+  default:
+    // executed if a is anything else
+    console.log('a is not 5, 6, 7, 8, or 9');
+    break;
+}
+```
+
+Technically, this is fall-through, but, since each `case` executes a single clause, it's safe to use and doesn't suggest a possible error.
+
+There are plenty of uses for `case` statements. They're potent tools in JavaScript. If you're uncomfortable with them, spend some time modifying the ones we presented above and watch how they respond to your changes. Test their boundaries and learn their capabilities. Curiosity will serve you well in your journey towards mastering JavaScript. There is much to discover!
