@@ -220,7 +220,7 @@ This program functions in the same way as the version that uses `while`. The dif
 
 JavaScript uses the keywords `continue` and `break` to provide more control over loops. `continue` lets you start a new iteration of the loop, while `break` lets you terminate a loop early.
 
-### continue
+### `continue`
 
 Let's continue working with the names program. Suppose we want all the uppercase names in our `upperNames` array except `'Naveed'`. The continue statement can help us do that.
 
@@ -298,7 +298,7 @@ for (let i = 0; i < someNumber; i += 1) {
 
 Earlier, we said that you should always use blocks with `if` statements. A common exception to this rule occurs when using a `continue`, `break`, or `return` statement as the `if` clause. When changing the flow with these three statements, the single-line version of the `if` statement can make your code easier to read.
 
-### break
+### `break`
 
 You sometimes want to skip all remaining iterations of a loop. For instance, when you search an array for a specific value, you probably want to stop searching once you find it. There's no reason to keep searching if you don't need any subsequent matches.
 
@@ -335,6 +335,42 @@ console.log(indexOfFive);
 ```
 
 ## Array Iteration
+
+JavaScript arrays have several methods that iterate over the elements without using the looping syntax we've seen thus far.
+
+As you may recall, arrays are ordered lists. Suppose you have an array of names that you want to display on the console, one per line. How would you do that without using one of the loop structures we've seen so far?
+
+One way is to use the built-in `forEach` method for arrays:
+
+```js
+let names = ['Chris', 'Kevin', 'Naveed', 'Pete', 'Victor'];
+
+names.forEach(function(name) {
+  console.log(name);
+});
+```
+
+Isn't that nice! It's probably the most peculiar code you've seen so far. We've got some explaining to do.
+
+The most glaring item in need of explanation is that we seem to be passing a function definition as an argument to `forEach`. Think about that. How in the world could that be valid, or even useful?
+
+If you study this code long enough, you may recognize that the function definition is, in fact, a function expression: we talked about them back in the _Functions_ chapter. This function expression doesn't have a name: it's an **anonymous function**.
+
+That doesn't help, however. We still don't understand how the code works.
+
+One feature of JavaScript that sets it apart from most other languages is that it has first-class functions. That means that functions are values: you can assign them to variables, pass them around as arguments to other functions, and even use them as return values in other functions. In our example, we're passing the anonymous function as an argument to `forEach`. That explains why the code is valid.
+
+When you pass a function as an argument to another function, that other function can call the function represented by the argument. That's what `forEach` does, and it's why this code is useful. As its name suggests, `forEach` loops through each element in an array, in sequence, starting with the first element. For each name, `forEach` invokes the anonymous function with the name as an argument. The anonymous function can do whatever it needs to do with the argument. In this case, it merely logs the name.
+
+We can make the code more concise by using an arrow function:
+
+```js
+let names = ['Chris', 'Kevin', 'Naveed', 'Pete', 'Victor'];
+
+names.forEach(name => console.log(name));
+```
+
+Most JavaScript programmers prefer to use **array looping abstractions** like `forEach` to loop over arrays.
 
 ## Recursion
 
