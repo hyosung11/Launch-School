@@ -467,9 +467,4 @@ The fact that this code calls itself twice makes it more complicated than most r
 
 Every recursive function has a **baseline condition** that marks the end of the recursion (`number < 2` in our code) and some code that recursively calls the function with a new argument. In most cases, the baseline condition returns a concrete value that gets reused as the code "unwinds" the recursive calls. Each unwind step uses the previous return value(s) to calculate an intermediate result that gets returned in the next step. In our example, the last step evaluates `f(6)` as `f(5)` + `f(4)` which yields 8.
 
-
-
-## Summary
-
-## Exercises
-
+End
