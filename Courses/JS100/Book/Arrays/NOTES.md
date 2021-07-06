@@ -115,3 +115,18 @@ It's important to realize that `Object.freeze` only works one level deep in the 
 ```
 
 The `push` method appends its arguments to the caller (the array), which mutates the caller. It then returns the array's new length. Don't forget that methods and functions perform actions and return values. You must be careful to distinguish between these two things. `push` appends elements to the end of the caller array, but it returns the array's updated length. Note that it does not return the modified array! New JavaScript programmers often get confused over this difference and spend hours puzzling over why a function isn't returning the value they expect. Check the documentation if you have any doubt.
+
+### Adding Elements with `concat`
+
+The `concat` method is similar to `push`, but it doesn't mutate the caller. It concatenates two arrays and returns a brand new array that contains all the elements from the original array followed by all of the arguments passed to it:
+
+```js
+> array.concat(42, 'abc')
+= [ 1, 4, 3, 10, 'a', null, 'xyz', 42, 'abc' ]
+
+> array
+= [ 1, 4, 3, 10, 'a', null, 'xyz' ]
+```
+
+How do you know which methods mutate the caller and which ones don't? Most of the time, the documentation has this information; documentation for non-mutating methods may mention that they return a new array. However, don't count on it. The way to be sure is to use the method and examine the results.
+
