@@ -218,6 +218,88 @@ This program functions in the same way as the version that uses `while`. The dif
 
 ## Controlling Loops
 
+JavaScript uses the keywords `continue` and `break` to provide more control over loops. `continue` lets you start a new iteration of the loop, while `break` lets you terminate a loop early.
+
+### continue
+
+Let's continue working with the names program. Suppose we want all the uppercase names in our `upperNames` array except `'Naveed'`. The continue statement can help us do that.
+
+```js
+let names = ['Chris', 'Kevin', 'Naveed', 'Pete', 'Victor'];
+let upperNames = [];
+
+for (let index = 0; index < names.length; index += 1) {
+  if (names[index] === 'Naveed') {
+    continue;
+  }
+
+  let upperCaseName = names[index].toUpperCase();
+  upperNames.push(upperCaseName);
+}
+
+console.log(upperNames); // => ['CHRIS', 'KEVIN', 'PETE', 'VICTOR']
+```
+
+The `upperNames` array no longer contains `'NAVEED'`. When a loop encounters the `continue` keyword, it skips running the rest of the block and jumps ahead to the next iteration. In this example, we tell the loop to ignore `'Naveed'` and skip to the next iteration without adding `'NAVEED'` to `upperNames`.
+
+You can rewrite a loop that uses `continue` with a negated `if` conditional.
+
+```js
+let names = ['Chris', 'Kevin', 'Naveed', 'Pete', 'Victor'];
+let upperNames = [];
+
+for (let index = 0; index < names.length; index += 1) {
+  if (names[index] !== 'Naveed') {
+    let upperCaseName = names[index].toUpperCase();
+    upperNames.push(upperCaseName);
+  }
+}
+
+console.log(upperNames); // ['CHRIS', 'KEVIN', 'PETE', 'VICTOR']
+```
+
+This code behaves like the version that uses `continue`.
+
+If we can write looping logic without `continue`, why bother using it at all? You don't have to use continue, of course, but it often leads to a more elegant solution to a problem. Without `continue`, your loops get cluttered with nested conditional logic:
+
+```js
+for (let i = 0; i < someNumber; i += 1) {
+  if (someCondition) {
+    // execute 10 lines
+  }
+}
+
+for (let i = 0; i < someNumber; i += 1) {
+  if (someCondition) {
+    // some code here
+    if (anotherCondition) {
+      // some more code here
+    }
+  }
+}
+```
+
+We can use `continue` to rewrite those two loops without nesting:
+
+```js
+for (let i = 0; i < someNumber; i += 1) {
+  if (!someCondition) continue;
+  // execute 10 lines
+}
+
+for (let i = 0; i < someNumber; i += 1) {
+  if (!someCondition) continue;
+  // some code here
+
+  if (!anotherCondition) continue;
+  // some more code here
+}
+```
+
+Earlier, we said that you should always use blocks with `if` statements. A common exception to this rule occurs when using a `continue`, `break`, or `return` statement as the `if` clause. When changing the flow with these three statements, the single-line version of the `if` statement can make your code easier to read.
+
+
+
 ## Array Iteration
 
 ## Recursion
