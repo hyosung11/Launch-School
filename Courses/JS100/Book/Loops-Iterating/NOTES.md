@@ -298,7 +298,41 @@ for (let i = 0; i < someNumber; i += 1) {
 
 Earlier, we said that you should always use blocks with `if` statements. A common exception to this rule occurs when using a `continue`, `break`, or `return` statement as the `if` clause. When changing the flow with these three statements, the single-line version of the `if` statement can make your code easier to read.
 
+### break
 
+You sometimes want to skip all remaining iterations of a loop. For instance, when you search an array for a specific value, you probably want to stop searching once you find it. There's no reason to keep searching if you don't need any subsequent matches.
+
+```js
+let array = [3, 1, 5, 9, 2, 6, 4, 7];
+let indexOfFive = -1;
+
+for (let i = 0; i < array.length; i += 1) {
+  if (array[i] === 5) {
+    indexOfFive = i;
+  }
+}
+
+console.log(indexOfFive);
+```
+
+This program iterates over the elements of an array to find the element whose value is `5`. When it finds that value, it stores its index in the `indexOfFive` variable. It then logs the index of the found element to the console. Notice that we initialize `indexOfFive` to `-1`: we use this value when the array doesn't have the desired value.
+
+If you study this code, you should notice that the loop continues executing once it finds the element whose value is `5`. It iterates over every element in the array, even if `5` is the first element. That seems pointless and wasteful of precious CPU resources. That's where `break` steps in and saves the day:
+
+```js
+// The break statement on line 7 tells JavaScript to terminate the loop once we find the desired element.
+let array = [3, 1, 5, 9, 2, 6, 4, 7]
+let indexOfFive = -1;
+
+for (let i = 0; i < array.length; i += 1) {
+  if (array[i] === 5) {
+    indexOfFive = i;
+    break;
+  }
+}
+
+console.log(indexOfFive);
+```
 
 ## Array Iteration
 
