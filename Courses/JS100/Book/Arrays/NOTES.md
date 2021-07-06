@@ -130,3 +130,35 @@ The `concat` method is similar to `push`, but it doesn't mutate the caller. It c
 
 How do you know which methods mutate the caller and which ones don't? Most of the time, the documentation has this information; documentation for non-mutating methods may mention that they return a new array. However, don't count on it. The way to be sure is to use the method and examine the results.
 
+### Removing Elements with `pop`
+
+The inverse of `push` is `pop`. While `push` adds an element to the end of the array, `pop` removes and returns the last element of the array:
+
+```js
+> array.pop()
+= 'xyz'            // removed element value
+
+> array
+= [ 1, 4, 3, 10, 'a', null ]
+
+// pop mutates the caller
+```
+
+### Removing Elements with `splice`
+
+The `splice` method lets you remove one or more elements from an array, even those that aren't at the end of the array:
+
+```js
+// let array = [1, 4, 3, 10, 'a', null]
+> array.splice(3, 2)
+[ 10, 'a' ]
+
+> array
+= [ 1, 4, 3, null ]
+```
+
+In this example, we delete 2 elements starting at index position 3. `splice` mutates the original array and returns a new array that contains the deleted elements.
+
+`splice` can also add and insert elements, but we'll leave that for our JavaScript courses.
+
+
