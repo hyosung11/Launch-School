@@ -33,10 +33,10 @@
 
 // Note that we use let in the initialization clause of the loop to create and initialize an index variable. We can also write:
 
-let i;
-for (i = 0; i < 5; ) {
-  console.log((i += 1));
-}
+// let i;
+// for (i = 0; i < 5; ) {
+//   console.log((i += 1));
+// }
 
 // 1
 // 2
@@ -47,3 +47,38 @@ for (i = 0; i < 5; ) {
 // While these examples may seem identical at first glance - they both log the numbers 1 through 5 to the console - there is a subtle difference. In the first example, JavaScript limits the scope of the resulting variable to the for loop. Code outside of the loop can't access the value after the loop ends. In the latter example, using let before the loop creates a variable whose scope extends beyond the loop. In particular, code that appears after the loop can examine and use the value of the variable.
 
 // To avoid problems with name clashes, you should limit the scope of your variables to the smallest possible scope. As a result, some developers prefer to declare their index variable in the for initialization clause. However, the practice isn't universal; you'll understand why that is when you learn about the var statement.
+
+// 5. The following code uses a randomNumberBetween function to generate a number between its first and second arguments. It uses a while loop to try to generate a number greater than 2. Refactor the code so that you don't need to call randomNumberBetween from two different locations, lines 6 and 10. Do not change the arguments you pass to randomNumberBetween.
+
+function randomNumberBetween(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+let tries = 0;
+let result = randomNumberBetween(1, 6);
+tries += 1;
+
+while (result <= 2) {
+  result = randomNumberBetween(1, 6);
+  tries += 1;
+}
+
+console.log(
+  'It took ' + String(tries) + ' tries to get a number greater than 2'
+);
+
+// The ideal use case for do...while occurs when you need to execute some code at least once like we do here.
+
+function randomNumberBetween(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+let tries = 0;
+let result;
+
+do {
+  result = randomNumberBetween(1, 6);
+  tries += 1;
+} while (result <= 2);
+
+console.log('It took ' + String(tries) + ' tries to get a number greater 2');
