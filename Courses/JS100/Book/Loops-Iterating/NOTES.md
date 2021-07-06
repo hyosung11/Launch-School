@@ -115,6 +115,39 @@ for (var index = 0; index < 5; ++index) {
 // However, they shouldn't be used anywhere else.
 ```
 
+### Looping Over Arrays With while
+
+* Use loops in programming to iterate over an array's elements and perform some action on each element. 
+* **Iterate** means to process each element one at a time, in sequence from the first to the last element.
+* Arrays are fundamental structures in programming.
+* The ability to read and manipulate the elements of an array is a critical skill.
+
+Let's write a program that iterates over the names in an array of names and creates a new array with the names in uppercase:
+
+```js
+let names = ['Chris', 'Kevin', 'Naveed', 'Pete', 'Victor'];
+let upperNames = [];
+let index = 0;
+
+while (index < names.length) {
+  let upperCaseName = names[index].toUpperCase();
+  upperNames.push(upperCaseName);
+  index += 1;
+}
+
+console.log(upperNames); // => ['CHRIS', 'KEVIN', 'NAVEED', 'PETE', 'VICTOR']
+```
+
+A bit of explanation is in order here. The variable `names` holds an array of names. We want to convert every name to
+uppercase and append it to the empty `upperNames` array. Since array indexes are zero-based, we initialize an `index` variable with `0`.
+
+Next, we use a loop that executes as long as the number in `index` is smaller than the length of the `names` array. Line 8 increments the index by `1` after each iteration, which ensures that `index < names.length becomes` false after the loop handles the last element.
+
+Line 6 accesses the name stored at `names[index]` and uses it to call the `toUpperCase` method. That method returns the name in uppercase, which we assign to `upperCaseName`. It doesn't change the original name in the `names` array.
+
+Line 7 uses the `push` method for arrays to append the latest uppercase name to the `upperNames` array. Over the five iterations of the `names` array, line 7 appends five uppercase names to `upperNames`, one per iteration, in the same order that the loop processes them.
+
+Note that we initialized `names`, `upperNames`, and `index` before the loop. If we initialized them inside the loop, they would have block scope. Every loop iteration would create, initialize, and discard each variable. That wouldn't work well even if the code could run, which it would not.
 
 
 
