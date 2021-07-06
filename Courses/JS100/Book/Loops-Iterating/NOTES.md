@@ -442,10 +442,10 @@ console.log(fibonacci(6));  // => 8
 console.log(fibonacci(20)); // => 6765
 ```
 
+A diagram can help, as can walking through an example or two. For instance, We can use a tree-like structure to understand the mechanics of the Fibonacci program. The following diagram uses `f` to abbreviate `fibonacci` to save space:
 
 
-
-
+![fibonnaci recursion](/fibonnaci(6).png)
 
 ## Summary
 
