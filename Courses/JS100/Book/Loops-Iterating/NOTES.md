@@ -444,8 +444,30 @@ console.log(fibonacci(20)); // => 6765
 
 A diagram can help, as can walking through an example or two. For instance, We can use a tree-like structure to understand the mechanics of the Fibonacci program. The following diagram uses `f` to abbreviate `fibonacci` to save space:
 
+![fibonnaci recursion](fibonacci(6).png)
 
-![fibonnaci recursion](/Loops-Iterating/fibonnaci(6).png)
+Each time the `fibonacci` function runs, it recursively invokes itself twice, once with a number `1` less than the current number, and once with a number `2` less than the current number. For instance, let's calculate `f(6)` by hand. Find the `f(6)` box in the diagram and follow along:
+
+1. f(6) returns the value of f(5) + f(4).
+2. f(5) returns the value of f(4) + f(3).
+3. f(4) returns the value of f(3) + f(2).
+4. f(3) returns the value of f(2) + f(1).
+5. f(2) returns the value of f(1) + f(0).
+6. f(1) returns 1. The baseline condition number < 2 tells us this value.
+7. f(0) returns 0. The baseline condition number < 2 tells us this value.
+8. Plug the values from steps 6 and 7 into step 5 to determine that f(2) is 1.
+9. Plug the values from steps 5 and 6 into step 4 to determine that f(3) is 2.
+10. Plug the values from steps 4 and 5 into step 3 to determine that f(4) is 3.
+11. Plug the values from steps 3 and 4 into step 2 to determine that f(5) is 5.
+12. Plug the values from steps 2 and 3 into step 1 to determine that f(6) is 8.
+
+The recursive calls work their way down the tree: `f(6)` calls `f(5)` and `f(4)`; `f(5)` calls `f(4)` and `f(3)`. In the end, we reach the lowest level in the tree which always has a 1 or 0 return value in this algorithm. Once it reaches the bottom, the code starts adding return values and percolating back up the tree. When it works its way back to the top, it returns the final result.
+
+The fact that this code calls itself twice makes it more complicated than most recursive code. For instance, we must calculate `f(4)` twice: once on the left, once on the right. However, the principle behind recursion remains the same.
+
+Every recursive function has a **baseline condition** that marks the end of the recursion (`number < 2` in our code) and some code that recursively calls the function with a new argument. In most cases, the baseline condition returns a concrete value that gets reused as the code "unwinds" the recursive calls. Each unwind step uses the previous return value(s) to calculate an intermediate result that gets returned in the next step. In our example, the last step evaluates `f(6)` as `f(5)` + `f(4)` which yields 8.
+
+
 
 ## Summary
 
