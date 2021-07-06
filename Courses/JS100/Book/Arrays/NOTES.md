@@ -229,3 +229,21 @@ That works well enough, but the callback now has a side effect: it modifies the 
 The first 4 lines of this code have the same result as the previous example using `forEach`. However, map returns a new array that contains one element for each element in numbers, with each element set to the return value of the callback: the squares of the numbers in this case. This code is more compact than the `forEach` code, and, better yet, it has no side effects; the callback doesn't update `squares` (the return value of `map` does that), and we don't have to reset the variable if we rerun the same code.
 
 `forEach` and `map` are important methods, but they can confuse beginners. The main thing to remember is that `forEach` performs simple iteration and returns `undefined`, while `map` transforms an array's elements and returns a new array with the transformed values.
+
+### Filtering Arrays with `filter`
+
+The `filter` method is another array iteration method. It returns a new array that includes all elements from the calling array for which the callback returns a truthy value. That's a mouthful. Some code should help clarify what `filter` does:
+
+```js
+> let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2]
+> numbers.filter(num => num > 4)
+= [ 5, 6, 7, 8, 9, 10 ]
+
+> numbers
+= [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2 ]
+```
+
+`filter` iterates over the elements of the array. During each iteration, it invokes the callback function, using the value of the current element as an argument. If the callback returns a truthy value, `filter` appends the element's value to a new array. Otherwise, it ignores the element's value and does nothing. When `filter` finishes iterating, it returns the array of _selected_ elements: the elements for which the callback returned a truthy value. In our example, `filter` selects all of the elements with a value greater than 4.
+
+`filter` doesn't mutate the caller.
+
