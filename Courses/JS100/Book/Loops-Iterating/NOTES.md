@@ -168,6 +168,54 @@ Notice how `while` and the condition are now at the end of the loop. Since the t
 
 ## for Loops
 
+for loops have the same purpose as `while` loops, but they use a condensed syntax that works well when iterating over arrays and other sequences. A `for` loop combines variable initialization, a loop condition, and the variable increment/decrement expression all on the same line:
+
+```js
+for (initialization; condition; increment) {
+  // loop body
+}
+```
+
+This structure behaves almost the same as:
+
+```js
+initialization;
+while (condition) {
+  // loop body
+  increment;
+}
+```
+
+The sole difference between the two loops is the scope of any variables declared by the initialization clause. In the `while` statement, the scope includes the code that surrounds the loop; in the `for` statement, the scope is the `for` statement and its body.
+
+```js
+// names program rewritten with a for loop
+let names = ['Chris', 'Kevin', 'Naveed', 'Pete', 'Victor'];
+let upperNames = [];
+
+for (let index = 0; index < names.length; index += 1) {
+  let upperCaseName = names[index].toUpperCase();
+  upperNames.push(upperCaseName);
+}
+
+console.log(upperNames); // => ['CHRIS', 'KEVIN', 'NAVEED', 'PETE', 'VICTOR']
+```
+
+This program functions in the same way as the version that uses `while`. The difference is that we initialize the `index` variable, specify the loop condition, and increment the `index` variable all on the same line. When JavaScript runs this loop, it follows this sequence:
+
+1. Declare and initialize the `index` variable to 0.
+
+2. If `index` is not less than the array length, go to step 6.
+3. Execute the loop body.
+
+4. Increment `index`.
+
+5. Go back to step 2.
+
+6. Log the results.
+
+`for` loops let you see and understand the looping logic at a single glance. The syntax also lets you move the `index` variable from the global scope into the scope of the `for` statement, and it helps make your code cleaner and more organized.
+
 ## Controlling Loops
 
 ## Array Iteration

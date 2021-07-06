@@ -12,3 +12,13 @@ while (index < names.length) {
 
 console.log(upperNames); // => ['CHRIS', 'KEVIN', 'NAVEED', 'PETE', 'VICTOR']
 
+// Let's rewrite the names program with a for loop to better illustrate the difference:
+let names = ['Chris', 'Kevin', 'Naveed', 'Pete', 'Victor'];
+let upperNames = [];
+
+for (let index = 0; index < names.length; index += 1) {
+  let upperCaseName = names[index].toUpperCase();
+  upperNames.push(upperCaseName);
+}
+
+console.log(upperNames); // => ['CHRIS', 'KEVIN', 'NAVEED', 'PETE', 'VICTOR']
