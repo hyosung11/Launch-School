@@ -161,4 +161,30 @@ In this example, we delete 2 elements starting at index position 3. `splice` mut
 
 `splice` can also add and insert elements, but we'll leave that for our JavaScript courses.
 
+## Iteration Methods
+
+### Iterating with `forEach`
+
+To use forEach, you need a **callback** function that you pass to `forEach` as an argument. A callback function is a function that you pass to another function as an argument. The called function invokes the callback function when it runs. The forEach method invokes its callback once for each element, passing it the element's value as an argument. `forEach` always returns undefined.
+
+A callback is a function that you pass to another function as an argument. The called function subsequently invokes the callback function at certain times while it runs.
+
+```js
+let array = [1, 2, 3];
+array.forEach(function(num) {
+  console.log(num); // on first iteration  => 1
+                    // on second iteration => 2
+                    // on third iteration  => 3
+}); // returns `undefined`
+
+// We can also use an arrow function instead of a function expression, which makes our code compact and, when you're familiar with the syntax, more readable.
+let array = [1, 2, 3];
+array.forEach(num => console.log(num));
+
+// We can also perform more complex operations:
+let array = [1, 2, 3];
+array.forEach(num => console.log(num));
+```
+
+This code invokes the callback function once for each element in the array. `forEach`, during each iteration, invokes the callback with the element's value as an argument. The callback then logs it to the console. In the end, `forEach` returns `undefined`.
 
