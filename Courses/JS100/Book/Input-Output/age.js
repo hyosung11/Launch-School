@@ -15,7 +15,6 @@
 // console.log(`In 10 years, you will be ${age + 30} years old.`);
 // console.log(`In 10 years, you will be ${age + 40} years old.`);
 
-
 // 3. Modify the age.js program you wrote in the exercises for the Variables chapter. The updated code should ask the user to enter their age instead of hard-coding the age in the program. Here's an example run:
 
 // How old are you? 22
@@ -25,12 +24,25 @@
 // In 30 years, you will be 52 years old.
 // In 40 years, you will be 62 years old.
 
+// let readlineSync = require('readline-sync');
+// let age = readlineSync.question('How old are you? ');
+// age = parseInt(age)
+
+// console.log(`You are ${age} years old.`);
+// console.log(`In 10 years, you will be ${age + 10} years old.`);
+// console.log(`In 10 years, you will be ${age + 20} years old.`);
+// console.log(`In 10 years, you will be ${age + 30} years old.`);
+// console.log(`In 10 years, you will be ${age + 40} years old.`);
+
+// Loops & Iterating Exercises
+
+// 1. Modify the age.js program you wrote in the exercises for the Input/Output chapter. The updated code should use a for loop to display the future ages.
+
 let readlineSync = require('readline-sync');
 let age = readlineSync.question('How old are you? ');
-age = parseInt(age)
-// let lastName = readlineSync.question('What is your last name? ');
+age = parseInt(age);
 console.log(`You are ${age} years old.`);
-console.log(`In 10 years, you will be ${age + 10} years old.`);
-console.log(`In 10 years, you will be ${age + 20} years old.`);
-console.log(`In 10 years, you will be ${age + 30} years old.`);
-console.log(`In 10 years, you will be ${age + 40} years old.`);
+for(let future = 10; future <= 40; future +=10) {
+  console.log(`In ${future} years, you will be ${age + future} years old.`);
+}
+
