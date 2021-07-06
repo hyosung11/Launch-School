@@ -97,3 +97,21 @@ It's important to realize that `Object.freeze` only works one level deep in the 
 = [1, 2, 3, [4, 5, 6]]
 ```
 
+### Adding Elements with `push`
+
+```js
+// The push method adds one or more elements to the end of an array:
+> array.push('a')
+= 5               // the new length of the array
+
+> array
+= [ 1, 4, 3, 10, 'a' ]
+
+> array.push(null, 'xyz')
+= 7
+
+> array
+= [ 1, 4, 3, 10, 'a', null, 'xyz' ]
+```
+
+The `push` method appends its arguments to the caller (the array), which mutates the caller. It then returns the array's new length. Don't forget that methods and functions perform actions and return values. You must be careful to distinguish between these two things. `push` appends elements to the end of the caller array, but it returns the array's updated length. Note that it does not return the modified array! New JavaScript programmers often get confused over this difference and spend hours puzzling over why a function isn't returning the value they expect. Check the documentation if you have any doubt.
