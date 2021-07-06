@@ -32,3 +32,68 @@ You can refer to any element of an array by its index number. The syntax puts th
 // Note that we must use the array's name twice, and, since we must account for the element at index 0, we must subtract 1 from the length to get the last element's index. because of zero-based indexing.
 ```
 
+## Modifying Arrays
+
+### Replacing and Adding Elements with `[]`
+
+```js
+// To replace an element of an array, use brackets ([]) with the assignment operator:
+> let array = [1, 2, 3]
+> array[1] = 4
+= 4
+
+> array
+= [ 1, 4, 3 ]
+```
+
+```js
+// You can also use [] to add new elements to an array:
+> array[array.length] = 10
+= 10
+
+> array
+= [ 1, 4, 3, 10 ]
+
+// Note that array[array.length] = value adds a new value to the end of array since the previous ending element was at array[array.length - 1].
+```
+
+```js
+// Note that variables declared with const and initialized to an array are a little strange; while you can't change what array the variable refers to, you can modify the array's contents:
+
+> const MyArray = [1, 2, 3]
+> MyArray[1] = 5
+> MyArray
+= [1, 5, 3]
+
+> MyArray = [4, 5, 6] // Uncaught TypeError: Assignment to constant variable.
+```
+
+This type of behavior can be confusing. It stems from the "variables as pointers" concept that we discuss a little later. Essentially, a `const` declaration prohibits changing what thing the `const` points to, but it does not prohibit changing the content of that thing. Thus, we can change an element in a `const` array, but we can't change which array the `const` points to.
+
+```js
+// If you want the elements of the array to also be const, you can use the Object.freeze method:
+
+> const MyArray = Object.freeze([1, 2, 3])
+> MyArray[1] = 5
+> MyArray
+= [1, 2, 3]
+
+// Notice how the assignment on line 2 had no effect on the content of the array.
+```
+
+It's important to realize that `Object.freeze` only works one level deep in the array. If your array contains nested arrays or other objects, the values inside them can still be changed unless they are also frozen:
+
+```js
+> const MyArray = Object.freeze([1, 2, 3, [4, 5, 6]])
+> MyArray[3][1] = 0
+> MyArray
+= [1, 2, 3, [4, 0, 6]]
+
+// If you want the sub-array to be constant as well, you have to freeze it:
+
+> const MyArray = Object.freeze([1, 2, 3, Object.freeze([4, 5, 6])])
+> MyArray[3][1] = 0
+> MyArray
+= [1, 2, 3, [4, 5, 6]]
+```
+
