@@ -279,3 +279,98 @@ The second invocation of `reduce` computes the product of the numbers in the arr
 ```
 
 `reduce` does not mutate the caller. (It is possible that the callback might mutate the caller, but that's inadvisable, and not `reduce`'s fault.)
+
+## Arrays Can Be Odd
+
+JavaScript arrays have some odd properties that might catch you by surprise. 
+
+* indexes start at `0`. Most programming languages use zero-based indexes, so it's not too odd.
+
+* The `length` property always returns a number that is one greater than the greatest used index position of the array. For instance, if an element exists at index position `111` and there are no other elements with greater index values, then the array's `length` is 112.
+
+* **Arrays are objects**. One side effect of this is that the `typeof` operator doesn't return `'array'` when applied to an array:
+
+```js
+> let arr = [1, 2, 3]
+> typeof arr
+= 'object'
+```
+
+If you really need to detect whether a variable references an array, you need to use `Array.isArray` instead:
+
+```js
+> let arr = [1, 2, 3]
+> Array.isArray(arr)
+= true
+```
+
+* If you change an array's `length` property to a new, smaller value, the array gets truncated; JavaScript removes all elements beyond the new final element.
+
+```js
+let arr = [1, 2, 3, 4];
+arr.length = 3
+console.log(arr); // => [ 1, 2, 3 ]
+```
+
+* If you change an array's length property to a new, larger value, the array expands to the new size. The new elements **do not get initialized**, which leads to some strange behavior:
+
+```js
+> let arr = []
+> arr.length = 3
+> arr
+= [ <3 empty items> ]
+
+> arr[0]
+= undefined
+
+> arr.filter(element => element === undefined)
+= []
+
+> arr.forEach(element => console.log(element)) // no output
+= undefined
+
+> arr[1] = 3
+> arr
+= [ <1 empty item>, 3, <1 empty item> ]
+
+> arr.length
+= 3
+
+> arr.forEach(element => console.log(element))
+= 3
+
+> Object.keys(arr)
+= ['1']
+```
+
+In general, JS treats unset array elements as missing, but the `length` property includes the unset elements.
+
+* You can create array "elements" with indexes that use negative or non-integer values, or even non-numeric values:
+
+```js
+> arr = [1, 2, 3]
+= [ 1, 2, 3 ]
+
+> arr[-3] = 4
+= 4
+
+> arr
+= [ 1, 2, 3, '-3': 4 ]
+
+> arr[3.1415] = 'pi'
+= 'pi'
+
+> arr["cat"] = 'Fluffy'
+= 'Fluffy'
+
+> arr
+= [ 1, 2, 3, '-3': 4, '3.1415': 'pi', cat: 'Fluffy' ]
+```
+
+These "elements" aren't true elements; they are properties on the array object, which we'll discuss later. Only index values (0, 1, 2, 3, and so on) count toward the length of the array.
+
+```js
+> arr.length
+= 3
+```
+

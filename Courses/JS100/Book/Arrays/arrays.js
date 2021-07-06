@@ -17,4 +17,11 @@ allCaps = strings.reduce((accumulator, element) => {
   return accumulator + element.toUpperCase()
 }, '')
 
-console.log(allCaps); // => ABCD
+// console.log(allCaps); // => ABCD
+
+// If you change an array's length property to a new, smaller value, the array gets truncated; JavaScript removes all elements beyond the new final element.
+
+let arr = [1, 2, 3, 4];
+arr.length = 3
+console.log(arr); // => [ 1, 2, 3 ]
+
