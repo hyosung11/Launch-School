@@ -374,6 +374,79 @@ Most JavaScript programmers prefer to use **array looping abstractions** like `f
 
 ## Recursion
 
+**Recursive** functions are functions that call themselves. Such code doesn't look much like a loop, but there's a close relationship between loops and recursion. The relationship is close enough that we say that recursion is another way to create loops in JavaScript.
+
+### A Simple Example
+
+Suppose you want to know the result of doubling a number, then the result of doubling that number, and so on until the number reaches some predefined maximum, such as 50. You might begin with the following function:
+
+```js
+function doubler(number) {
+  console.log(number * 2);
+}
+
+// You can use it like this, stopping when you get a result greater than 50.
+> doubler(1)     // => 2
+> doubler(2)     // => 4
+> doubler(4)     // => 8
+> doubler(8)     // => 16
+> doubler(16)    // => 32
+> doubler(32)    // => 64
+
+// That's a bit clumsy, and the code doesn't lend itself to reuse.
+
+// Let's refactor doubler to use recursion instead:
+function doubler(number) {
+  console.log(number);
+
+  if (number <= 50) {
+    doubler(number * 2);
+  }
+}
+
+doubler(5); // => 5
+            // => 10
+            // => 20
+            // => 40
+            // => 80
+```
+
+Our `doubler` function code calls itself on line 5. Each invocation of `doubler` logs a new number, then calls itself with a new value twice that of the input number. To make sure the "loop" stops, we skip the recursive call when the number is greater than 50.
+
+### A Complex Example
+
+Let's create a function that uses recursion to calculate the nth number in the _Fibonacci sequence_. Each number in this sequence is the sum of the previous two numbers in the sequence:
+
+* `fibonacci(0) = 0`
+* `fibonacci(1) = 1`
+* `fibonacci(2) = fibonacci(1) + fibonacci(0) = 1 + 0 = 1`
+* `fibonacci(3) = fibonacci(2) + fibonacci(1) = 1 + 1 = 2`
+* `fibonacci(4) = fibonacci(3) + fibonacci(2) = 2 + 1 = 3`
+* `fibonacci(5) = fibonacci(4) + fibonacci(3) = 3 + 2 = 5`
+* `fibonacci(6) = fibonacci(5) + fibonacci(4) = 5 + 3 = 8`
+* `fibonacci(7) = fibonacci(6) + fibonacci(5) = 8 + 5 = 13`
+
+```js
+// key expression to solve fibonacci sequence
+fibonacci(0) = 0 // by definition
+fibonacci(1) = 1 // by definition
+fibonacci(n) = fibonacci(n - 1) + fibonacci(n - 2) // for all n >= 2
+
+// fibonacci sequence
+function fibonacci(number) {
+  if (number < 2) return number; // 0 if number is 0, 1 if number is 1
+  return fibonacci(number - 1) + fibonacci(number - 2);
+}
+
+console.log(fibonacci(6));  // => 8
+console.log(fibonacci(20)); // => 6765
+```
+
+
+
+
+
+
 ## Summary
 
 ## Exercises
