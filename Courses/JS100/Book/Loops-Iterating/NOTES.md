@@ -149,7 +149,22 @@ Line 7 uses the `push` method for arrays to append the latest uppercase name to 
 
 Note that we initialized `names`, `upperNames`, and `index` before the loop. If we initialized them inside the loop, they would have block scope. Every loop iteration would create, initialize, and discard each variable. That wouldn't work well even if the code could run, which it would not.
 
+### do/while Loop
 
+A do/while loop differs visibly from a `while` loop, but its behavior is almost identical. The crucial difference is that `do/while` always executes the code in the block at least once. A `while` loop can't make that guarantee since the initial condition may be falsy; if it is, the loop body doesn't run. In a `do/while` loop, the conditional check occurs at the end of the loop instead of the beginning which allows it to run the code at least once, even if the condition is falsy when the loop begins.
+
+Let's write some code that illustrates how `do/while` works. We'll ask the user whether he wants to repeat an action, and then repeat the question if he enters y.
+
+```js
+let answer;
+do {
+  answer = prompt("Do you want to do that again?");
+} while (answer === 'y');
+```
+
+When you run this code in a browser, it displays a `Do you want to do that again?` prompt. If you enter the lowercase letter `y`, it displays the prompt again. It repeats this process until you enter something other than `y`, at which point the loop ends and control moves to the first statement or expression after the loop.
+
+Notice how `while` and the condition are now at the end of the loop. Since the test occurs at the end of the loop, the loop always executes at least once.
 
 ## for Loops
 
