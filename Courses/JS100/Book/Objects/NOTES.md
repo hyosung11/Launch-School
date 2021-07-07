@@ -242,6 +242,28 @@ for (let prop in obj2) {
   //    4
 ```
 
+### Object.keys
+
+The `Object.keys` static method returns an object's keys as an array. You can iterate over that array using any technique that works for arrays. For instance:
+
+```js
+let person = {
+  name: 'Bob',
+  age: 30,
+  height: '6 ft'
+};
+
+let personKeys = Object.keys(person);
+console.log(personKeys);          // => ['name', 'age', 'height']
+personKeys.forEach(key => {
+  console.log(person[key])
+});                               // => Bob
+                                  //    30
+                                  //    6 ft
+
+// Note that `Object.keys` returns the object's own keys: it does not include any keys from the prototype objects.
+```
+
 
 ## Common Operations
 
