@@ -211,3 +211,23 @@ console.log(qux); // => hello
 // ['a', ['b', false]]
 // ['b', false]
 // {}
+
+// The outermost set of brackets defines an array (an object) that contains 5 elements. The elements with values 1, 2, and null are all primitive values, while ["a", ["b", false]] is a nested array, and {} is a nested object. The nested array has 2 elements, one of which is a primitive value ("a"), while the other is yet another nested array. Finally, this innermost array contains two elements, "b" and false, both of which are primitive values.
+
+// 11. Write some code to replace the value 6 in the following object with 606:
+
+let obj = {
+  foo: { a: 'hello', b: 'world' },
+  bar: ['example', 'mem', null, { xyz: 6 }, 88],
+  qux: [4, 8, 12],
+};
+
+// You don't have to search the object. Just write an assignment that replaces the 6.
+
+// dot notation
+obj.bar[3].xyz = 606;
+
+// bracket notation
+obj['bar'][3]['xyz'] = 606;
+
+console.log(obj);
