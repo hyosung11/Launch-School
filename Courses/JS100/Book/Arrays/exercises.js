@@ -186,16 +186,27 @@ function sumOfSquares(number) {
 
 let arr = ['a', 'abcd', 'abcde', 'abc', 'ab'];
 
-
 function oddLengths(strings) {
   return strings.reduce((filteredNumbersArray, letters) => {
     let length = letters.length;
     if (length % 2 === 1) {
-      filteredNumbersArray.push(length)
+      filteredNumbersArray.push(length);
     }
-    
+
     return filteredNumbersArray;
-  }, [])
+  }, []);
 }
 
-console.log(oddLengths(arr)); // => [1, 5, 3]
+// console.log(oddLengths(arr)); // => [1, 5, 3]
+
+// 9. Without using a `for`, `while`, or `do/while` loop, write some code that checks whether the number 3 appears inside these arrays:
+
+let numbers1 = [1, 3, 5, 7, 9, 11];
+let numbers2 = [];
+let numbers3 = [2, 4, 6, 8];
+
+// The `includes` method determines whether an array includes a given element.
+
+console.log(numbers1.includes(3)) // true
+console.log(numbers2.includes(3)); // false
+console.log(numbers3.includes(3)); // false
