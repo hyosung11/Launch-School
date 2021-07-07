@@ -99,40 +99,80 @@
 
 // 7. Add a `qux` property with value `3` to the `myObj` object we created in the previous exercise. Now, examine the following code snippets:
 
-let myProtoObj = {
-  foo: 1,
-  bar: 2,
-};
+// let myProtoObj = {
+//   foo: 1,
+//   bar: 2,
+// };
 
-let myObj = Object.create(myProtoObj);
+// let myObj = Object.create(myProtoObj);
 
-myObj.qux = 3;
+// myObj.qux = 3;
 
 // console.log(myObj);
 
 // Snippet 1
 // Snippet 1 iterates solely over myObj's "own" properties - that is, those defined directly on the object, not its prototype. Thus, it logs:
 
-let objKeys = Object.keys(myObj);
-objKeys.forEach(function (key) {
-  console.log(key);
-});
+// let objKeys = Object.keys(myObj);
+// objKeys.forEach(function (key) {
+//   console.log(key);
+// });
 // => qux
 
 // Snippet 2
 // Both snippets iterate over the keys of myObj. However, for..in iterates over all of the object's keys, including those in the prototype object, myProtoObj. Thus, snippet 2 logs:
 
-for (let key in myObj) {
-  console.log(key);
-}
+// for (let key in myObj) {
+//   console.log(key);
+// }
 // => qux
 // => foo
 // => bar
 
 // We can add a conditional to snippet 2 to get the same output from for..in: all we need to do is check whether the key is myObj's own property:
 
-for (let key in myObj) {
-  if (myObj.hasOwnProperty(key)) {
-    console.log(key);
+// for (let key in myObj) {
+//   if (myObj.hasOwnProperty(key)) {
+//     console.log(key);
+//   }
+// }
+
+// 8. Create a function that creates and returns a copy of an object. The function should take two arguments: the object to copy and an array of the keys that you want to copy. Do not mutate the original object.
+
+// The function should let you omit the array of keys argument when calling the function. If you do omit the argument, the function should copy all of the existing keys from the object.
+
+// Here are some examples for your reference:
+
+let objToCopy = {
+  foo: 1,
+  bar: 2,
+  qux: 3,
+};
+
+// let newObj = copyObj(objToCopy);
+// console.log(newObj);        // => { foo: 1, bar: 2, qux: 3 }
+
+// let newObj2 = copyObj(objToCopy, [ 'foo', 'qux' ]);
+// console.log(newObj2);       // => { foo: 1, qux: 3 }
+
+// let newObj3 = copyObj(objToCopy, [ 'bar' ]);
+// console.log(newObj3);       // => { bar: 2 }
+
+// Solution
+function copyObj(sourceObject, keys) {
+  let destinationObject = {};
+
+  if(keys) {
+    keys.forEach(function(key) {
+      destinationObject[key] = sourceObject[key];
+    });
+
+    return destinationObject;
+  } else {
+    return Object.assign(destinationObject, sourceObject);
   }
 }
+
+console.log(objToCopy);
+
+// I need to study this one a few times to understand it.
