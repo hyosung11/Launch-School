@@ -278,8 +278,73 @@ It's tempting to rely on this predictable order, but the order isn't straightfor
 
 In the end, it's not wise to make any assumptions about the iteration order for object property keys. You can't depend on it.
 
-
 ## Common Operations
+
+Most operations on objects involve iterating over the properties or their values. More often than not, you'll reach for methods that extract the keys or values of an object and then iterate over the resulting array.
+
+### Object.values
+
+```js
+// This static method extracts the values from every own property in an object to an array:
+let person = { name: 'Bob', age: 30, height: '6ft' };
+let personValues = Object.values(person);
+
+console.log(personValues); // => [ 'Bob', 30, '6ft' ]
+
+// Be careful: remember that you can't predict the order of the values in the returned array.
+```
+
+### Object.entries
+
+```js
+// While `Object.keys` and `Object.values` return the keys and values of an object, respectively, the `Object.entries` static method returns an array of nested arrays. Each nested array has two elements: one of the object's keys and its corresponding value:
+
+let person = { name: 'Bob', age: 30, height: '6ft' };
+
+console.log(Object.entries(person)); // => [[ 'name', 'Bob' ], [ 'age', 30 ], [ 'height', '6ft' ]]
+```
+
+### Object.assign
+
+```js
+// You may sometimes want to merge two or more objects, i.e., combine the key-value pairs into a single object. The `Object.assign` static method provides this functionality:
+
+> let objA = { a: 'foo' }
+= undefined
+
+> let objB = { b: 'bar' }
+= undefined
+
+> Object.assign(objA, objB)
+= { a: 'foo', b: 'bar' }
+
+// `Object.assign` mutates the first object. In the above example, the properties from the `objB` object get added to the `objA` object, altering `objA` permanently in the process:
+
+> objA
+= { a: 'foo', b: 'bar' }
+
+> objB
+= { b: 'bar' }
+
+// Note that `objB` isn't mutated. If you need to create a new object, use an empty object as `Object.assign`'s first argument. Note that `Object.assign` can take more than two arguments:
+
+> objA = { a: 'foo' }
+= undefined
+
+> objB = { b: 'bar' }
+= undefined
+
+> Object.assign({}, objA, objB)
+= { a: 'foo', b: 'bar' }
+
+> objA
+= { a: 'foo' }
+
+> objB
+= { b: 'bar' }
+
+// This code mutates neither objA nor objB and returns an entirely new object.
+```
 
 ## Objects vs. Arrays
 
