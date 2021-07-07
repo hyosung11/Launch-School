@@ -179,6 +179,70 @@ Since `studentBob` inherits from `bob`, we can use the `name` property even thou
 
 ## Iteration
 
+Since most objects have multiple properties, you may want to iterate over an object's keys, values, or both. There are several ways to perform these operations in JavaScript.
+
+### The for/in loop
+
+* The `for/in` loop behaves similarly to an ordinary `for` loop.
+* The syntax and semantics are easier to understand since you don't need an initializer, ending condition, or increment clause.
+* Instead, the loop iterates over all the keys in the object. 
+* In each iteration, it assigns the key to a variable which you then use to access the object's values.
+
+```js
+let person = {
+  name: 'Bob',
+  age: 30,
+  height: '6 ft'
+};
+
+for (let prop in person) {
+  console.log(person[prop]);
+}                             // => Bob
+                              //    30
+                              //    6 ft
+```
+
+In the above example, we iterate over the `person` object using the `for/in` loop. Line 7 declares a variable `prop` which, in each iteration, receives a key from the object until the object runs out of key-value pairs. We use `prop` inside the loop body to access and log the corresponding value.
+
+Note that we use bracket notation within the loop. We can't use dot notation here since `prop` is a variable that contains a property name. The name `prop` is not the actual property name. That distinction is subtle, so stop a moment to think about it.
+
+For instance, in the second iteration of the loop, `prop` will be set to `age`. If we try to use `person.prop`, though, it will evaluate to undefined since prop is not one of the property names in the `person` object. We actually want `person.age`, but we can't use that since we'll want a different property name during each iteration. When we write `person[prop]`, `prop` gets evaluated as a variable. Thus, `person[prop]` gets evaluated as `person['age']`, and that returns the value of the desired property.
+
+One feature—or downside, depending on how you look at it—of `for/in` is that it iterates over the properties of an object's prototypes as well:
+
+```js
+let obj1 = { a: 1, b: 2 }
+let obj2 = Object.create(obj1);
+obj2.c = 3;
+obj2.d = 4;
+
+for (let prop in obj2) {
+  console.log(obj2[prop]);
+}         // => 3
+          //    4
+          //    1
+          //    2
+```
+
+The first two items output by the above code are the "own properties" of `obj2`, and those are followed by the properties of the prototype object (`obj1`).
+
+This behavior is undesirable when you want to limit iteration to an object's **own properties**, i.e., properties it defined for itself, not properties it inherited. We can use the `hasOwnProperty` method to get around that problem. It takes the name of a property and returns `true` if it is the name of one of the calling object's own properties, `false` if it is not.
+
+```js
+let obj1 = { a: 1, b: 2 }
+let obj2 = Object.create(obj1);
+obj2.c = 3;
+obj2.d = 4;
+
+for (let prop in obj2) {
+  if (obj2.hasOwnProperty(prop)) {
+    console.log(obj2[prop]);
+  }
+} // => 3
+  //    4
+```
+
+
 ## Common Operations
 
 ## Objects vs. Arrays
