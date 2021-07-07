@@ -157,6 +157,26 @@ Note that variables and other identifiers have or reference objects or primitive
 
 ## Prototypes
 
+* JS objects can **inherit** from other objects.
+* When an object `a` inherits from object `b`, we say that `b` is the **prototype** of `a`. 
+* The practical implication is that `a` now has access to properties defined on `b` even though it doesn't define those properties itself.
+
+Object prototypes and inheritance have a great deal of relevance in Object Oriented Programming (OOP). We discuss these concepts here since it is relevant to our discussion of iterating over object properties in the next section. All you need to know right now is that inheritance lets one object use the properties defined by another object and that prototypes implement inheritance in JavaScript.
+
+The static method` Object.create` provides a simple way to create a new object that inherits from an existing object:
+
+```js
+let bob = { name: 'Bob', age: 22 };
+let studentBob = Object.create(bob);
+studentBob.year = 'Senior';
+
+console.log(studentBob.name); // => 'Bob'
+```
+
+`Object.create` creates a new object and sets the prototype for that object to the object passed in as an argument. Our example creates a new object named `studentBob` that uses `bob` as its prototype. That is, it creates an inheritance relationship from `studentBob`, the **child** object, to `bob`, the **parent** object.
+
+Since `studentBob` inherits from `bob`, we can use the `name` property even though `studentBob` doesn't explicitly define it. `Object.create` is one way to use inheritance in JavaScript.
+
 ## Iteration
 
 ## Common Operations
