@@ -535,3 +535,15 @@ console.log(arraysEqual([1, 2, 3], [1, 2, 3, 4])); // => false
 = true
 ```
 
+### `sort`
+
+* Use the `sort` method to rearrange the elements of an array in sequence. It returns a sorted array.
+* `sort` is destructive. It mutates the caller.
+
+```js
+> let a = ["e", "c", "h", "b", "d", "a"]
+> a.sort()
+= [ 'a', 'b', 'c', 'd', 'e', 'h' ]
+> a
+= [ 'a', 'b', 'c', 'd', 'e', 'h' ]
+```
