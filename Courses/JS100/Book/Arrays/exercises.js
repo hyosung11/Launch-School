@@ -159,11 +159,23 @@ let arr = ['a', 'abcd', 'abcde', 'abc', 'ab'];
 
 // Note that it is possible to solve this problem without using map. However, our intent is to show how you can combine multiple functions to achieve a desired result.
 
-function oddLengths(strings) {
-  let lengths = strings.map((letters) => letters.length);
-  let oddLengths = lengths.filter((number) => number % 2 === 1);
-  return oddLengths;
+// function oddLengths(strings) {
+//   let lengths = strings.map((letters) => letters.length);
+//   let oddLengths = lengths.filter((number) => number % 2 === 1);
+//   return oddLengths;
+// }
+
+// console.log(oddLengths(arr));
+
+// 7. Use `reduce` to compute the sum of the squares of all of the numbers in an array:
+
+let array = [3, 5, 7];
+// console.log(sumOfSquares(array)); // => 83
+
+function sumOfSquares(number) {
+  return number.reduce((accumulator, number) => {
+    return accumulator + number * number
+  }, 0)
 }
 
-
-console.log(oddLengths(arr));
+console.log(sumOfSquares(array))
