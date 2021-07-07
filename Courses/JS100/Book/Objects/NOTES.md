@@ -348,6 +348,14 @@ console.log(Object.entries(person)); // => [[ 'name', 'Bob' ], [ 'age', 30 ], [ 
 
 ## Objects vs. Arrays
 
+When you need to choose between an object or an array to store some data, ask yourself a few questions:
+
+* Do the individual values have names or labels? If yes, use an **object**. If the data doesn't have a natural label, an **array** should suffice.
+
+* Does order matter? If yes, use an **array**.
+
+* Do I need a stack or queue structure? **Arrays** are good at mimicking simple "last-in-first-out" stacks and "first-in-first-out" queues.
+
 ## Summary
 
 ## Exercises
