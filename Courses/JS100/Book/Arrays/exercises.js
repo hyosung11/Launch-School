@@ -144,10 +144,26 @@ let things = [1, 'a', '1', 3, NaN, 3.1415, -4, null, false];
 
 // You can use `Number.isInteger(value)` to determine whether a numeric `value` is an integer. It returns `true` if the value is an integer, `false` otherwise.
 
-function findIntegers(array) {
-  return array.filter(function(element) {
-    return Number.isInteger(element);
-  });
+// function findIntegers(array) {
+//   return array.filter(function(element) {
+//     return Number.isInteger(element);
+//   });
+// }
+
+// console.log(findIntegers(things))
+
+// 6. Use `map` and `filter` to first determine the lengths of all the elements in an array of string values, then discard the even values (keep the odd values).
+
+let arr = ['a', 'abcd', 'abcde', 'abc', 'ab'];
+// console.log(oddLengths(arr)); // => [1, 5, 3]
+
+// Note that it is possible to solve this problem without using map. However, our intent is to show how you can combine multiple functions to achieve a desired result.
+
+function oddLengths(strings) {
+  let lengths = strings.map((letters) => letters.length);
+  let oddLengths = lengths.filter((number) => number % 2 === 1);
+  return oddLengths;
 }
 
-console.log(findIntegers(things))
+
+console.log(oddLengths(arr));
