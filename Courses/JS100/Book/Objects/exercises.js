@@ -199,4 +199,15 @@ console.log(qux); // => hello
 // Solution
 // The program logs 'hi' and 'hello' The reason behind this is that objects are mutable; strings and other primitives are not. Also, variable reassignment, such as that on line 10, doesn't mutate the original object even when the object is mutable. Thus, line 9 mutates the foo by assigning its a property to a new value ('hi'). Therefore, the code on line 15 logs hi. On the other hand, line 10 reassigns the argument2 variable, but it doesn't mutate the string represented by qux. Thus, line 16 logs hello: the original value of the qux variable.
 
+// 10. How many primitive values are there in the following expression? Identify them. How many objects are there in the expression? Identify those objects.
 
+[1, 2, ['a', ['b', false]], null, {}];
+
+// Primitive Values
+// 1, 2, 'a', 'b', false, null
+
+// Objects
+// [1, 2, ['a', ['b', false]], null, {}]
+// ['a', ['b', false]]
+// ['b', false]
+// {}
