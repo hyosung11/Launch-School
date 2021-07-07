@@ -120,18 +120,34 @@ let myArray = [
 
 // With a `for` loop
 
-let newArray = [];
+// let newArray = [];
 
-for (let i = 0; i < myArray.length; i += 1) {
-  let value = myArray[i];
-  if (value % 2 === 0) {
-    newArray.push('even')
-  } else {
-    newArray.push('odd')
-  }
-}
+// for (let i = 0; i < myArray.length; i += 1) {
+//   let value = myArray[i];
+//   if (value % 2 === 0) {
+//     newArray.push('even')
+//   } else {
+//     newArray.push('odd')
+//   }
+// }
 
-console.log(newArray);
+// console.log(newArray);
 
 // Our approach is again straightforward: we iterate over all the elements in the array and check whether each element is even. If it's even, we either return 'even' from the function we passed to map, or push 'even' onto the newArray. Otherwise, we return or push a value of 'odd'.
 
+// 5. Write a `findIntegers` function that takes an array argument and returns an array that contains only the integers from the input array. Use the `filter` method in your function.
+
+// Example
+let things = [1, 'a', '1', 3, NaN, 3.1415, -4, null, false];
+// let integers = findIntegers(things);
+// console.log(integers); // => [1, 3, -4]
+
+// You can use `Number.isInteger(value)` to determine whether a numeric `value` is an integer. It returns `true` if the value is an integer, `false` otherwise.
+
+function findIntegers(array) {
+  return array.filter(function(element) {
+    return Number.isInteger(element);
+  });
+}
+
+console.log(findIntegers(things))
