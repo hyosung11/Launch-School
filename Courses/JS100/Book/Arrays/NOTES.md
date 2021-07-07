@@ -510,3 +510,28 @@ console.log(arraysEqual([1, 2, 3], [1, 2, 3, 4])); // => false
 = false
 ```
 
+## Other Array Methods
+
+### `includes`
+
+```js
+// The `includes` method determines whether an array includes a given element.
+> let a = [1, 2, 3, 4, 5]
+> a.includes(2)
+= true
+
+> a.includes(10)
+= false
+
+// Internally, `includes` uses === to compare elements of the array with the argument. That means we can't use `includes` to check for the existence of a nested array or an object unless we have the same object or array we're looking for:
+
+> let inner = [3, 4];
+> let a = [1, 2, inner, 5]
+
+> a.includes([3, 4])
+= false
+
+> a.includes(inner)
+= true
+```
+
