@@ -53,11 +53,11 @@
 
 // 4. Create an array from the keys of the object `obj` below, with all of the keys converted to uppercase. Your implementation must not mutate `obj`.
 
-let obj = {
-  b: 2,
-  a: 1,
-  c: 3,
-};
+// let obj = {
+//   b: 2,
+//   a: 1,
+//   c: 3,
+// };
 
 // let objKeys = Object.keys(obj);
 // let upperKeys = objKeys.map((key) => key.toUpperCase());
@@ -69,22 +69,22 @@ let obj = {
 
 // We can also use `forEach`, though it requires a bit more effort:
 
-let upperKeys = [];
-let objKeys = Object.keys(obj);
-objKeys.forEach(function(key) {
-  upperKeys.push(key.toUpperCase());
-});
+// let upperKeys = [];
+// let objKeys = Object.keys(obj);
+// objKeys.forEach(function(key) {
+//   upperKeys.push(key.toUpperCase());
+// });
 
 // console.log(upperKeys); // => [ 'B', 'A', 'C' ]
 
 // 5. Create a new object named `myObj` that uses `myProtoObj` as its prototype.
 
-let myProtoObj = {
-  foo: 1,
-  bar: 2,
-};
+// let myProtoObj = {
+//   foo: 1,
+//   bar: 2,
+// };
 
-let myObj = Object.create(myProtoObj);
+// let myObj = Object.create(myProtoObj);
 
 // 6. Which of the following values are primitive values? Which are objects? Which are neither?
 
@@ -97,4 +97,42 @@ let myObj = Object.create(myProtoObj);
 // undefined - primitive
 // { a: 1, b: 2 } - object
 
+// 7. Add a `qux` property with value `3` to the `myObj` object we created in the previous exercise. Now, examine the following code snippets:
 
+let myProtoObj = {
+  foo: 1,
+  bar: 2,
+};
+
+let myObj = Object.create(myProtoObj);
+
+myObj.qux = 3;
+
+// console.log(myObj);
+
+// Snippet 1
+// Snippet 1 iterates solely over myObj's "own" properties - that is, those defined directly on the object, not its prototype. Thus, it logs:
+
+let objKeys = Object.keys(myObj);
+objKeys.forEach(function (key) {
+  console.log(key);
+});
+// => qux
+
+// Snippet 2
+// Both snippets iterate over the keys of myObj. However, for..in iterates over all of the object's keys, including those in the prototype object, myProtoObj. Thus, snippet 2 logs:
+
+for (let key in myObj) {
+  console.log(key);
+}
+// => qux
+// => foo
+// => bar
+
+// We can add a conditional to snippet 2 to get the same output from for..in: all we need to do is check whether the key is myObj's own property:
+
+for (let key in myObj) {
+  if (myObj.hasOwnProperty(key)) {
+    console.log(key);
+  }
+}
