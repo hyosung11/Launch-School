@@ -25,28 +25,54 @@
 // 3. Use object literal syntax (e.g., { key: value, ... } notation) to create an object that behaves as an array in a for statement. The object should contain at least 3 elements. You should place your code between the braces in the let statement:
 
 // my solution
-let familyArray = {
-  0: 'HyoSung',
-  1: 'Sohee',
-  2: 'Omi',
-  3: 'SungOh',
-  length: 4,
-};
+// let familyArray = {
+//   0: 'HyoSung',
+//   1: 'Sohee',
+//   2: 'Omi',
+//   3: 'SungOh',
+//   length: 4,
+// };
 
-for (let i = 0; i < familyArray.length; i += 1) {
-  console.log(familyArray[i]);
-}
+// for (let i = 0; i < familyArray.length; i += 1) {
+//   console.log(familyArray[i]);
+// }
 
-// Launch School solution
-let myArray = {
-  0: 'a',
-  1: 'b',
-  2: 'c',
-  length: 3,
-};
+// // Launch School solution
+// let myArray = {
+//   0: 'a',
+//   1: 'b',
+//   2: 'c',
+//   length: 3,
+// };
 
-for (let i = 0; i < myArray.length; i += 1) {
-  console.log(myArray[i]);
-}
+// for (let i = 0; i < myArray.length; i += 1) {
+//   console.log(myArray[i]);
+// }
 
 // Our array-like object isn't a perfect mimic of a regular JavaScript array, however. In particular, it doesn't modify the length property when you add or delete elements. It also doesn't support methods like forEach, filter, and push.
+
+// 4. Create an array from the keys of the object `obj` below, with all of the keys converted to uppercase. Your implementation must not mutate `obj`.
+
+let obj = {
+  b: 2,
+  a: 1,
+  c: 3,
+};
+
+// let objKeys = Object.keys(obj);
+// let upperKeys = objKeys.map((key) => key.toUpperCase());
+
+// console.log(upperKeys); // => [ 'B', 'A', 'C' ]
+// console.log(obj); // => { b: 2, a: 1, c: 3 }
+
+// The challenge of this exercise is to figure out how to iterate through the properties of obj. We showed two ways in this chapter: for/in with hasOwnProperty() and Object.keys(). The former involves a bit more work, so we use Object.keys() combined with map() to extract and uppercase the keys into an array.
+
+// We can also use `forEach`, though it requires a bit more effort:
+
+let upperKeys = [];
+let objKeys = Object.keys(obj);
+objKeys.forEach(function(key) {
+  upperKeys.push(key.toUpperCase());
+});
+
+// console.log(upperKeys); // => [ 'B', 'A', 'C' ]
