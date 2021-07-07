@@ -108,10 +108,52 @@ As with arrays, this behavior can be confusing, and it occurs because of the sam
 
 As with arrays, `Object.freeze` only works one level deep in the object. If your object contains nested arrays or other objects, the values inside them can still be changed unless they are also frozen.
 
-
-
-
 ## Objects vs. Primitives
+
+You may remember that JavaScript has two categories of data types: primitives and objects. The primitive types are strings, numbers, booleans, `null`, and `undefined`, bigints, and symbols. Primitive types are the simplest, most basic types in JavaScript.
+
+Objects include, but aren't limited to, the following types:
+* Simple Objects
+* Arrays
+* Dates
+* Functions
+
+We learned about simple objects in the previous section; they're structures that contain multiple named values. Arrays are also objects, but they use integer indexes instead of keys. We learn about Date and Function objects in the Core Curriculum.
+
+Objects are complex values composed of primitive values or other objects. For example, an array object (remember: arrays **are** objects) has a `length` property that contains a number: a primitive value. Objects are usually (but not always) _mutable_: you can add, remove, and change their various component values.
+
+Primitive values are always _immutable_; they don't have parts that one can change. Such values are said to be `atomic`; they're indivisible. If a variable contains a primitive value, all you can do to that variable is use it in an expression or _reassign_ it: give it an entirely new value. All operations on primitive values evaluate as new values. Even something like` 0 + 0` evaluates to a new value of `0`.
+
+```js
+> let number = 20
+> let newNumber = number + 1
+> newNumber
+= 21
+
+> number
+= 20
+
+> let object = { a: 1, b: 2, c: 3 }
+> object.c = object.c + 1
+= 4
+
+> object
+= { a: 1, b: 2, c: 4 }
+```
+
+The above example illustrates the difference between an immutable primitive value and a mutable object. The `+` operation on line 2 returns a new value (`21`), and assigns it to `newNumber`; the original value of `number` (`20`), remains unchanged. In contrast, writing a new value to the `object`'s `c` property on line 10 changes the object's value. Note, however, that the `c` property has an entirely new number in it, precisely like what happened on line 2.
+
+### What Things Aren't Objects or Primitives?
+
+Objects and primitive values are the data and functions that you use in your program. Anything that isn't data or a function is neither a primitive value nor an object. That includes:
+
+* variables and other identifiers such as function names
+* statements such as `if`, `return`, `try`, `while`, and `break`
+* keywords such as `new`, `function`, `let`, `const`, and `class`
+* comments
+* anything else that is neither data nor a function
+
+Note that variables and other identifiers have or reference objects or primitive values, but the names, by themselves, are not.
 
 ## Prototypes
 
