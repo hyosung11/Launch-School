@@ -436,3 +436,20 @@ While the `length` property of Array includes unset values in the count, `Object
 = 3
 ```
 
+## Nested Arrays
+
+Array elements can contain anything, including other arrays. You can create arrays with arrays inside them and even arrays inside those inner arrays. Suppose you want to track all of the teams playing in a mixed doubles tennis tournament. You might create an array like this:
+
+```js
+> let teams = [['Joe', 'Jennifer'], ['Frank', 'Molly'], ['Dan', 'Sarah']]
+
+// find teams by index:
+> teams[2]
+= [ 'Dan', 'Sarah' ]
+
+// If you want to retrieve the second element of teams[2], you can append [1] to the expression:
+> teams[2][1]
+= 'Sarah'
+```
+
+
