@@ -264,6 +264,20 @@ personKeys.forEach(key => {
 // Note that `Object.keys` returns the object's own keys: it does not include any keys from the prototype objects.
 ```
 
+### Order of Object Properties
+
+Older versions of the ECMAScript standard (prior to ES6) don't guarantee the iteration order for an object's property keys. Many JavaScript engines took advantage of this non-guarantee. In older versions of JavaScript, you can't rely on any particular iteration order. Even in the same engine, you might get different results in separate runs of a program.
+
+Modern versions of the standard (ES6+) do guarantee the iteration order for an object's property keys. However, this order is somewhat complex. The order is based on:
+
+* the types of the property keys (strings come before symbols)
+* the values of the keys (non-negative integers come first), and
+* the order in which the keys were added to the object.
+
+It's tempting to rely on this predictable order, but the order isn't straightforward except in the simplest cases.
+
+In the end, it's not wise to make any assumptions about the iteration order for object property keys. You can't depend on it.
+
 
 ## Common Operations
 
