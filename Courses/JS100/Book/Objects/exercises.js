@@ -85,3 +85,16 @@ let myProtoObj = {
 };
 
 let myObj = Object.create(myProtoObj);
+
+// 6. Which of the following values are primitive values? Which are objects? Which are neither?
+
+// "foo" - primitive
+// 3.1415 - primitive
+// [ 'a', 'b', 'c' ] - object (arrays are objects)
+// false - primitive
+// foo - identifier (Identifiers are used to name things that have values, such as variables and functions, but they are not values by themselves. Thus, they are neither primitive values nor objects.)
+// function bar() { return "bar"; } - object (functions are objects)
+// undefined - primitive
+// { a: 1, b: 2 } - object
+
+
