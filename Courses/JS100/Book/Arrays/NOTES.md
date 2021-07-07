@@ -572,3 +572,37 @@ console.log(arraysEqual([1, 2, 3], [1, 2, 3, 4])); // => false
   * (Contrast this detail with how splice treats its second argument: _inclusive_) 
 * If you don't provide any arguments at all, slice returns a copy of the entire array: that is, it returns a new array with the same elements as the original. 
   * That's useful when you need to use a destructive method on an array that you don't want to modify.
+
+### `reverse`
+
+* `reverse` method reverses the order of an array
+
+```js
+> let numbers = [1, 2, 3, 4]
+> numbers.reverse()
+= [ 4, 3, 2, 1 ]
+
+// `reverse` is destructive: it mutates the array
+> numbers
+= [ 4, 3, 2, 1 ]
+```
+
+* `reverse` is destructive: it mutates the array.
+  * use `slice` with no arguments if you don't want to mutate the original array:
+
+```js
+> let numbers = [1, 2, 3, 4]
+> let copyOfNumbers = numbers.slice();
+> let reversedNumbers = copyOfNumbers.reverse()
+> reversedNumbers
+= [ 4, 3, 2, 1 ]
+
+> numbers
+= [ 1, 2, 3, 4 ]
+```
+
+## Summary
+
+Arrays are a valuable data structure. You'll see them all the time in real-world programs; nearly every useful program uses arrays at some point. JavaScript's array type has plenty of built-in methods that can perform the basic operations that programmers need every day.
+
+End
