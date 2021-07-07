@@ -356,6 +356,4 @@ When you need to choose between an object or an array to store some data, ask yo
 
 * Do I need a stack or queue structure? **Arrays** are good at mimicking simple "last-in-first-out" stacks and "first-in-first-out" queues.
 
-## Summary
-
-## Exercises
+End
