@@ -184,7 +184,7 @@ function sumOfSquares(number) {
 
 // Write a function similar to the oddLengths function from Exercise 6, but don't use map or filter. Instead, try to use the reduce method.
 
-let arr = ['a', 'abcd', 'abcde', 'abc', 'ab'];
+// let arr = ['a', 'abcd', 'abcde', 'abc', 'ab'];
 
 function oddLengths(strings) {
   return strings.reduce((filteredNumbersArray, letters) => {
@@ -207,6 +207,25 @@ let numbers3 = [2, 4, 6, 8];
 
 // The `includes` method determines whether an array includes a given element.
 
-console.log(numbers1.includes(3)) // true
-console.log(numbers2.includes(3)); // false
-console.log(numbers3.includes(3)); // false
+// console.log(numbers1.includes(3)) // true
+// console.log(numbers2.includes(3)); // false
+// console.log(numbers3.includes(3)); // false
+
+// 10. Write some code to replace the value 6 in the following array with 606:
+
+let arr = [
+  ['hello', 'world'],
+  ['example', 'mem', null, 6, 88],
+  [4, 8, 12],
+];
+
+// You don't have to search the array. Just write an assignment that replaces the 6.
+
+arr[1][3] = 606;
+
+console.log(arr);
+// [
+//   [ 'hello', 'world' ],
+//   [ 'example', 'mem', null, 606, 88 ],
+//   [ 4, 8, 12 ]
+// ]
