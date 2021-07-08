@@ -499,12 +499,11 @@ function foo(number) {
 }
 ```
 
-The `throw` keyword raises an exception of the type specified as an argument, which is usually given as `new` followed by one of the [Error types described on this page(https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error). In this case, we use a `TypeError` to indicate that we were expecting a different type for the `number` argument.
+The `throw` keyword raises an exception of the type specified as an argument, which is usually given as `new` followed by one of the [Error types described on this page](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error). In this case, we use a `TypeError` to indicate that we were expecting a different type for the `number` argument.
 
 Don't raise exceptions for preventable conditions. Exceptions are for **exceptional circumstances**: situations that your program can't control very easily, such as not being able to connect to a remote site in a web application. The example shown above that tests the argument type is probably not something that you want to do in a real application. Instead, your code should never call `foo` with a non-numeric argument, or you should return some sort of error indicator like `null` or `undefined`.
 
 For now, all you need to understand is that you **can** anticipate and handle errors that may occur in your program; a single unexpected input or other issue doesn't have to crash your entire application or introduce subtle bugs.
-
 
 ### SyntaxError
 
@@ -591,5 +590,19 @@ We'll return to the call stack shortly. For now, the takeaway is that JavaScript
 A word of advice: use your stack traces. Make sure you understand what they are saying, and look at the code that it identifies as the failure point. If you don't use the trace, you may introduce more problems in the code, or worse yet, "fix" code that already works. _The stack trace lets you focus on the right part of the program._
 
 ## ES6 and beyond
+
+Most professionals call the language we've been learning JavaScript, but the official name is ECMAScript. The JavaScript name exists for historical reasons.
+
+The language has seen numerous revisions and experienced a host of changes since its initial version. **ECMAScript 6**, or **ES6** as it's commonly known, is a recent version of the language specification that added a variety of modern features. You may also encounter the name **ES2015**.
+
+The `let` and `const` keywords we've used in this book are part of ES6. Before ES6, JavaScript didn't have block scopes. All JavaScript variables were either locally scoped to a function or globally scoped to the program. These keywords solve an entire class of problems having to do with scope and how JavaScript translates code into something it can run.
+
+Another ES6 feature that we learned about in this book is _arrow functions_. Among other benefits, they solve a problem called **lost execution context**, or, more plainly, **context loss**.
+
+In addition to these features, ES6 introduced a host of other useful features intended to make the language more expressive, secure, and easier to use. The language doesn't stop at ES6, however. ECMAScript is an evolving language. The committee that oversees the evolution of the language accepts proposals from everywhere and adds the features that they think are useful.
+
+The continuous evolution of JavaScript means that some JavaScript environments may not be up-to-date, and may lack some recent features. This situation has led to the development of tools that let you write code using the latest language features and then run it—after a suitable translation step—in a less current environment. **Babel** is one such tool. You can try an [online version](https://babeljs.io/repl#?browsers=defaults%2C%20not%20ie%2011%2C%20not%20ie_mob%2011&build=&builtIns=false&corejs=3.6&spec=false&loose=false&code_lz=Q&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=env%2Creact%2Cstage-2&prettier=false&targets=&version=7.14.7&externalPlugins=) that lets you write and convert programs online.
+
+We introduce more ES6 features in our Core Curriculum at Launch School.
 
 End
