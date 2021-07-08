@@ -364,3 +364,21 @@ The moral of this story is that mixing `/g` and `test` may lead to surprising re
 
 A regex can, in a single-line, solve problems that may require dozens of lines using other techniques. If you encounter a string matching problem that needs more than a simple substring search using the `indexOf` or `includes` method, remember to look into using regex. However, don't get carried away: don't use regex because you can; use them when they yield simpler and more understandable solutions.
 
+## The Math Object
+
+ The JavaScript `Math` object provides a collection of methods and values that you can use without a complete understanding of how they work.
+
+ ```js
+ // Math.sqrt()
+> Math.sqrt(36)
+= 6
+
+> Math.sqrt(2)
+= 1.4142135623730951
+
+// Math.PI
+> Math.PI
+= 3.141592653589793
+ ```
+
+ 
