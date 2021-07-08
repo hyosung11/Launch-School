@@ -381,4 +381,40 @@ A regex can, in a single-line, solve problems that may require dozens of lines u
 = 3.141592653589793
  ```
 
- 
+## Dates
+
+`Date` constructor creates objects that represent a time and date. The objects provide methods that let you work with those values. In particular, it's not hard to determine the day of the week that corresponds to a date:
+
+```js
+> let date = new Date('December 25, 2012')
+> date.getDay()
+= 2
+```
+
+`getDay` returns a number for the day of the week: 0 represents Sunday, 1 represents Monday, and so on. In this case, we see that December 25, 2012, occurred on a Tuesday.
+
+```js
+// Getting a day name:
+function getDayOfWeek(date) {
+  let daysOfWeek = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
+
+  return daysOfWeek[date.getDay()];
+}
+
+let date = new Date('December 25, 2012');
+console.log(getDayOfWeek(date)); // => Tuesday
+```
+
+The `getDay` method is one of a host of convenient date methods, far more than you'll probably ever use. They can be a bit tricky to use at times, but you'll be happy to learn about them when you need them: working with dates and times is hard enough without compounding the problem by having to write your own code.
+
+After seeing that we had to implement `getDayOfWeek()`, you might think that JavaScript's developers somehow forgot to include such a useful method. They did, at least in the earliest versions of JavaScript. These days, you can use the `toLocaleDateString` method of the `Date` type. It's a bit awkward to use, but it has multi-language support and a host of other features. However, full support may be lacking in some browsers.
+
+
