@@ -546,8 +546,49 @@ There are some situations where JavaScript can throw a `SyntaxError` after a pro
 JSON.parse('not really JSON');  // SyntaxError: Unexpected token i in JSON at position 0
 ```
 
-
 ## Stack Traces
+
+In the previous section, we saw that JavaScript exceptions issue error messages that look something like this:
+
+```js
+TypeError: Cannot read property 'length' of undefined
+    at names.forEach (repl:2:42)
+    at Array.forEach (<anonymous>)
+```
+
+This error message is a stack trace: it reports the type of error that occurred, where it occurred, and how it got there. Such error messages rely on JavaScript's call stack, which we discussed in the Functions chapter.
+
+Let's look at a simpler example. Create a file named error.js with the following content:
+
+```js
+function foo() {
+  console.log(bar);
+}
+
+foo();
+```
+
+```js
+// error message
+$ node error.js
+/Users/wolfy/tmp/x.js:2
+  console.log(bar);
+
+ReferenceError: bar is not defined
+    at foo (error.js:2:15)
+    at Object.<anonymous> (error.js:5:1)
+    ...
+```
+
+In this example, JavaScript raises a `ReferenceError` exception since the variable `bar` doesn't exist when you try to write it to the log. From the stack trace, we can see that JavaScript detected the error at character 15 on line 2 -- that's where we mention the `bar` variable -- in the `foo` function. The rest of the trace tells us that we called `foo` on line 5 from an anonymous function: one with no name. The trace treats code at the global level as belonging to an anonymous function, so don't worry about the fact that your code doesn't actually have an anonymous function.
+
+If your program uses libraries like Handlebars and jQuery, the stack trace may contain hundreds of lines. Even using `node` to run this simple program adds around 10 additional lines to the trace. In most cases, you can limit your attention to the lines that mention your JavaScript code file(s) by name: `error.js` in this case. Each filename in the trace includes a location specified as a line number and column number. The file name, line number, and column number together pinpoint the specific location where the failure occurred and how the program reached that point. Take note of the locations that pertain to your code.
+
+We call this type of output a stack trace since the JavaScript (and most other languages) handle the mechanics of calling functions with a data structure known as the call stack. Each time the program calls a function, JavaScript places some information about the current program location on the top of the call stack. When the program finishes running the function, it removes the corresponding item from the top of the stack and uses it to return to the calling location. The stack trace is a readable version of the call stack's content at the point an exception occurred.
+
+We'll return to the call stack shortly. For now, the takeaway is that JavaScript uses it to display the stack trace when an exception occurs. Knowing how to use this information is invaluable when you have to debug a program.
+
+A word of advice: use your stack traces. Make sure you understand what they are saying, and look at the code that it identifies as the failure point. If you don't use the trace, you may introduce more problems in the code, or worse yet, "fix" code that already works. _The stack trace lets you focus on the right part of the program._
 
 ## ES6 and beyond
 
