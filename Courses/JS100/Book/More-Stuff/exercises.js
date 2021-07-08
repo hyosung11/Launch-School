@@ -92,16 +92,33 @@ function allMatches(words, pattern) {
   return matches;
 }
 
-console.log(allMatches(words, /lab/)); // => ['laboratory', 'flab', 'elaborate']
+// console.log(allMatches(words, /lab/)); // => ['laboratory', 'flab', 'elaborate']
 
 // Solution 2
 function allMatches(words, pattern) {
   return words.filter((word) => pattern.test(word));
 }
 
-console.log(allMatches(words, /lab/)); // => ['laboratory', 'flab', 'elaborate']
+// console.log(allMatches(words, /lab/)); // => ['laboratory', 'flab', 'elaborate']
 
 // 7. What is exception handling and what problem does it solve?
 
 // Exception handling is a process that deals with errors in a manageable and predictable manner. It uses the try/catch statement to catch exceptions that the code in the try block raises, and lets the programmer deal with the problem in a way that makes sense and perhaps prevents a catastrophic failure or nasty bug.
+
+// 8. Challenging Exercise This exercise has nothing to do with this chapter. Instead, it uses concepts you learned earlier in the book. If you can't figure out the answer, don't worry: this question can stump developers with more experience than you have.
+
+// Earlier, we learned that Number.isNaN(value) returns true if value is the NaN value, false otherwise. You can also use Object.is(value, NaN) to make the same determination.
+
+// console.log(Number.isNaN(NaN)); => true
+// console.log(Object.is(5, NaN)); => false
+
+// Without using either of those methods, write a function named isNotANumber that returns true if the value passed to it as an argument is NaN, false if it is not.
+
+function isNotaNumber(value) {
+  return value !== value;
+}
+
+console.log(isNotaNumber(0)); // => false
+
+// This works since NaN is the only JS value that is not === to itself.
 
