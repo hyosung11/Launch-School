@@ -417,4 +417,138 @@ The `getDay` method is one of a host of convenient date methods, far more than y
 
 After seeing that we had to implement `getDayOfWeek()`, you might think that JavaScript's developers somehow forgot to include such a useful method. They did, at least in the earliest versions of JavaScript. These days, you can use the `toLocaleDateString` method of the `Date` type. It's a bit awkward to use, but it has multi-language support and a host of other features. However, full support may be lacking in some browsers.
 
+## Exceptions
 
+Applications that interact with the real world encounter a significant degree of unpredictability. If a user enters incorrect information or a file gets corrupted, your program must know how to respond. If it doesn't, it may crash or, worse yet, produce incorrect results.
+
+JavaScript is a forgiving language. It doesn't issue error messages in scenarios that most other languages do. Instead, it "fails silently" by returning a value like `NaN`, `undefined`, `null`, or even `-1`.
+
+Silent failures are both useful and dangerous. A programmer can take advantage of silent errors to simplify some code; often, you don't have to deal with the silent error right away, but can postpone handling it or even ignore it entirely. Ultimately, though, you need to deal with errors somehow, even silent errors.
+
+Not all errors in JavaScript are silent. There are some situations where JavaScript is less forgiving; that's where **exceptions** come into play. In such cases, JavaScript **raises an error**, or **throws an exception**, then halts the program if the program does not **catch** the exception.
+
+**Exception handling** is a process that deals with errors in a manageable and predictable manner. For now, you should be familiar with how exception handling works and what it looks like in a program. The reserved words `try` and `catch` (and sometimes `finally`) often occur in real-world JavaScript programs, so you should learn enough to understand what they do.
+
+JavaScript's `try/catch` statement provides the means to handle exceptions. The basic structure looks like this:
+
+```js
+try {
+  // perform an operation that may produce an error
+} catch (exception) {
+  // an error occurred. do something about it.
+  // for example, log the error
+} finally {
+  // Optional 'finally' block; not used often
+  // Executes regardless of whether an exception occurs.
+}
+```
+
+We don't discuss or use the finally clause in this book. You can read about it at [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch).
+
+Let's look at a typical situation. One common JavaScript error occurs when we call a method on the values `undefined` or `null`. Look at the following code and test it in Node or your browser's console:
+
+```js
+let names = ['bob', 'joe', 'steve', undefined, 'frank'];
+names.forEach(name => {
+  console.log(`${name}'s name has ${name.length} letters in it.`);
+}); // => bob's name has 3 letters in it.
+    //    joe's name has 3 letters in it.
+    //    steve's name has 5 letters in it.
+    //    TypeError: Cannot read property 'length' of undefined
+    //        at names.forEach (repl:2:42)
+    //        at Array.forEach (<anonymous>)
+```
+
+This program raises an error when it tries to access the `length` property on the `undefined` value at `names[3]`. It then prints a stack trace and halts program execution; it ignores the last entry in the array.
+
+Let's add some exception handling to this program:
+
+```js
+let names = ['bob', 'joe', 'steve', undefined, 'frank'];
+
+names.forEach(name => {
+  try {
+    console.log(`${name}'s name has ${name.length} letters in it.`);
+  } catch (exception) {
+    console.log('Something went wrong');
+  }
+}); // => bob's name has 3 letters in it.
+    //    joe's name has 3 letters in it.
+    //    steve's name has 5 letters in it.
+    //    Something went wrong
+    //    frank's name has 5 letters in it.
+```
+
+To handle the possibility of an exception within the callback to `forEach`, we place the `try` block inside the callback. We can put any amount of code in the `try` block, but most often you want to focus on one or two statements.
+
+When we try to use the `length` property on `undefined`, JavaScript raises an error like it did before. This time, though, it catches the exception and executes the `catch` block. When the `catch` block ends, the program resumes running with the code that follows the entire `try/catch` statement.
+
+Note that JavaScript runs the `catch` block when an exception occurs, but not when an exception doesn't occur. Either way, execution ultimately resumes with the code after the `try/catch` statement.
+
+Don't try to catch every possible exception. If you can't do anything useful with the exception, let it go. Mishandling an exception is usually far more catastrophic than just letting the program fail.
+
+It's also possible to raise your own exceptions. For instance:
+
+```js
+function foo(number) {
+  if (typeof number !== "number") {
+    throw new TypeError("expected a number");
+  }
+
+  // we're guaranteed to have a number here
+}
+```
+
+The `throw` keyword raises an exception of the type specified as an argument, which is usually given as `new` followed by one of the [Error types described on this page(https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error). In this case, we use a `TypeError` to indicate that we were expecting a different type for the `number` argument.
+
+Don't raise exceptions for preventable conditions. Exceptions are for **exceptional circumstances**: situations that your program can't control very easily, such as not being able to connect to a remote site in a web application. The example shown above that tests the argument type is probably not something that you want to do in a real application. Instead, your code should never call `foo` with a non-numeric argument, or you should return some sort of error indicator like `null` or `undefined`.
+
+For now, all you need to understand is that you **can** anticipate and handle errors that may occur in your program; a single unexpected input or other issue doesn't have to crash your entire application or introduce subtle bugs.
+
+
+### SyntaxError
+
+A special kind of exception occurs if the code can't be handled as valid JavaScript. Such errors cause JavaScript to raise a `SyntaxError`. A `SyntaxError` is special in that it occurs immediately after loading a JavaScript program, but before it begins to run. Unlike a `TypeError` exception that is dependent upon runtime conditions, JavaScript detects syntax errors based solely on the text of your program. Since they are detected before execution begins, you can't use a `try/catch` statement to catch one.
+
+Here's some code that will cause a syntax error:
+
+```js
+console.log("hello");
+
+function foobar()
+  // some code here
+}
+
+foobar();
+```
+
+```js
+// output
+}
+^
+
+SyntaxError: Unexpected token '}'
+```
+
+Since the `SyntaxError` gets raised before the program starts running, the `console.log` on line 1 never gets executed. In addition, the `foobar` function never gets invoked. As soon as JavaScript spots the error, it raises the `SyntaxError` exception.
+
+There are three major takeaways from the above example:
+
+1. A `SyntaxError` usually has nothing to do with the values of any of your variables. You can almost always spot the error visually.
+
+2. A `SyntaxError` can occur long after the point where the error was. In the above example, the error is on line 3 (a missing `{`), but the problem is reported on line 5. There can be many hundreds of lines between the point where the error is and the point where JavaScript detects it. Unfortunately, that's more common than you might think, so be prepared for it.
+
+3. The code before and after the error does not run. That's because `SyntaxError`s are detected before a program begins running. This also shows that there are at least two phases in the life of a program -- a preliminary phase that checks for syntax errors, and an execution phase.
+
+There are some situations where JavaScript can throw a `SyntaxError` after a program begins running. For instance, this code raises a `SyntaxError` at runtime:
+
+```js
+JSON.parse('not really JSON');  // SyntaxError: Unexpected token i in JSON at position 0
+```
+
+
+## Stack Traces
+
+## ES6 and beyond
+
+End

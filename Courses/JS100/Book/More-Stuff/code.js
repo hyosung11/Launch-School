@@ -18,19 +18,22 @@
 // console.log(date); // => 1968-09-11T04:00:00.000Z
 
 // Get a day name
-function getDayOfWeek(date) {
-  let daysOfWeek = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ];
+// function getDayOfWeek(date) {
+//   let daysOfWeek = [
+//     'Sunday',
+//     'Monday',
+//     'Tuesday',
+//     'Wednesday',
+//     'Thursday',
+//     'Friday',
+//     'Saturday',
+//   ];
 
-  return daysOfWeek[date.getDay()];
-}
+//   return daysOfWeek[date.getDay()];
+// }
 
-let date = new Date('September 11, 1968');
-console.log(getDayOfWeek(date)); // => Wednesday
+// let date = new Date('September 11, 1968');
+// console.log(getDayOfWeek(date)); // => Wednesday
+
+// SyntaxError at runtime
+JSON.parse('not really JSON');  // SyntaxError: Unexpected token i in JSON at position 0
