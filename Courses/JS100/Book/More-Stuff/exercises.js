@@ -161,5 +161,27 @@ function isNegativeZero(value) {
   return (value === 0) && (1 / value === -Infinity)
 }
 
-console.log(isNegativeZero(-0));
+console.log(isNegativeZero(-5));
 // While this is a little more complex, it clearly shows that we're only interested in numbers that are 0 (or -0), which also helps eliminate unwanted division operations, which may be needed for performance reasons.
+
+// 10. Challenging Exercise 
+
+// Consider this code: 
+let x = "5"
+x = x + 1
+
+console.log(x) // => 51
+
+// Now, consider this code:
+let y = '5'
+y++
+
+console.log(y)  // => 5
+
+// What gets returned by y++ in the second snippet, and why?
+
+// The return value is the numeric value 5.
+
+// If you apply ++ to a string, JavaScript coerces it into a number. In this case, "5" gets coerced to the number 5. After coercion, it then increments the value to 6. However, the return value is 5 since the post-increment operator (y++) returns the original value of y, not the incremented value.
+
+// This shows that x++ is not the same thing as x = x + 1.
