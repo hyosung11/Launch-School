@@ -106,3 +106,31 @@ The use of pointers has a curious effect when you assign a variable that referen
 With `e` and `f` pointing to the same array, line 3 uses the pointer in the `e` variable to access and mutate the array by appending `3` and `4` to its original value. Since `f` also points to that same array, both `e` and `f` reflect the updated contents of the array. Some developers call this aliasing: `e` and `f` are aliases for the same value.
 
 Okay, that's good. What happens if we mutate a primitive value? Oops! You can't do that: all primitive values are immutable. Two variables can have the same primitive value. However, since primitive values are stored in the memory address allocated for the variable, they can never be aliases. If you give one variable a new primitive value, it doesn't affect the other.
+
+### Gotcha
+
+If you've followed along so far, you may think that reassignment never mutates anything. As the following code demonstrates, however, that isn't always true:
+
+```js
+> let g = ['a', 'b', 'c']
+> let h = g
+> g[1] = 'x'
+> g
+= [ 'a', 'x', 'c' ]
+
+> h
+= [ 'a', 'x', 'c' ]
+```
+
+Don't let this confuse you. The key thing to observe here is that we're reassigning a _specific element_ in the array, not the array itself. This code doesn't mutate the element, but it does mutate the array. Reassignment applies to the item you're replacing, not the object or array that contains that item.
+
+### Takeaway
+
+The takeaway of this section is that JavaScript stores primitive values in variables, but it uses _pointers_ for non-primitive values like arrays and other objects. Pointers can lead to surprising and unexpected behavior when two or more variables reference the same object in the heap. Primitive values don't have this problem.
+
+When using pointers, it's also important to keep in mind that some operations mutate objects, while others don't. For instance, `push` mutates an array, but `map` does not. In particular, you must understand how something like `x = [1, 2, 3]` and `x[2] = 4` differ: both are reassignments, but the second mutates x while the first does not.
+
+The idea that JavaScript stores primitive values directly in variables is an _oversimplification_ of how it works in the real world, but it mirrors reality well enough to serve as a mental model for almost all situations.
+
+## for/in and for/of
+
