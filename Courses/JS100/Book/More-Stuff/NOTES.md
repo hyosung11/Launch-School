@@ -134,3 +134,69 @@ The idea that JavaScript stores primitive values directly in variables is an _ov
 
 ## for/in and for/of
 
+Two useful variants for the `for` loop are the `for/in` and `for/of` loops. These loops use a variant syntax to loop easily over object properties.
+
+The `for/in` statement iterates over all enumerable properties of an object including any properties inherited from another object. For now, you don't need to know anything about inheritance or enumerable properties -- `for/in` will usually do what you want.
+
+```js
+let obj = { foo: 1, bar: 2, qux: 'c' };
+for (let key in obj) {
+  console.log(key);
+}
+// Output:  foo
+//          bar
+//          qux
+```
+
+As we learned earlier, arrays are also objects, so we can use `for/in` to iterate over arrays. However, the results may not be exactly what you expect:
+
+```js
+let arr = [ 10, 20, 30 ]
+for (let value in arr) {
+  console.log(value);
+}
+// Output:  0
+//          1
+//          2
+```
+
+As you can see, it iterates over the _index values_ -- those are the keys from the array (as strings!). 
+
+Fortunately, you can use the index values to access the values:
+
+```js
+let arr = [ 10, 20, 30 ]
+for (let index in arr) {
+  console.log(arr[index]);
+}
+// Output:  10
+//          20
+//          30
+```
+
+A more direct way to iterate over the values in an array is to use `for/of`:
+
+```js
+let arr = [ 10, 20, 30 ]
+for (let value of arr) {
+  console.log(value);
+}
+// Output:  10
+//          20
+//          30
+```
+
+`for/of` is similar to `for/in`, but it iterates over the values of any "iterable" collection. For our purposes, the only iterable collections are arrays and strings. Let's see what happens when we pass a string to `for/of`:
+
+```js
+let str = "abc";
+for (let char of str) {
+  console.log(char);
+}
+// Output: a
+//         b
+//         c
+```
+
+The `for/in` statement has been in JavaScript since its earliest days, so is available in all but a handful of ancient JS implementations. The `for/of` statement was added in ES6, so is only available in relatively modern implementations.
+
