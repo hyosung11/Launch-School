@@ -630,4 +630,101 @@ let isMoving = brakingForce < acceleration && (speed > 0 || acceleration > 0);
 console.log(isMoving); // true
 ```
 
+## Functions 1
+
+### Sum
+
+```js
+function sum(num1, num2) {
+  return num1 + num2;
+}
+
+console.log(sum(22, 10));
+// 32
+```
+
+### Log Quote
+
+```js
+function brendanEichQuote() {
+  console.log('Always bet on JavaScript.');
+}
+
+brendanEichQuote();
+// logs:
+// Always bet on JavaScript.
+```
+
+### Cite the Author
+
+```js
+// using a template literal
+function cite(author, quote) {
+  console.log(`${author} said: "${quote}"`);
+}
+
+cite('Brendan Eich', 'Always bet on JavaScript.');
+// logs:
+// Brendan Eich said: "Always bet on JavaScript."
+```
+
+### Squared Number
+
+```js
+function squaredNumber(num) {
+  return num ** 2;
+}
+
+squaredNumber(3); // 9
+```
+
+### Display Division
+
+```js
+function multiplesOfThree() {
+  let divisor = 1;
+
+  for (let dividend = 3; dividend <= 30; dividend += 3) {
+    console.log(dividend + ' / ' + divisor + ' = 3');
+    divisor += 1;
+  }
+}
+
+// append parentheses to the function to invoke it
+multiplesOfThree();
+```
+
+### Three-way comparison
+
+```js
+function compareByLength(str1, str2) {
+  if (str1.length < str2.length) {
+    return -1;
+  } else if (str1.length > str2.length) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+compareByLength('patience', 'perseverance'); // -1
+compareByLength('strength', 'dignity');      //  1
+compareByLength('humor', 'grace');           //  0
+```
+
+### Transformation
+
+Use JavaScript's string methods on the string '`Captain Ruby'` to produce the string `'Captain JavaScript'`.
+
+```js
+'Captain Ruby'.replace('Ruby', 'JavaScript');
+
+'Captain Ruby'.substring(0, 8) + 'JavaScript';
+
+'Captain Ruby'.split(' ')[0] + ' JavaScript';
+```
+
+
+
+
 
