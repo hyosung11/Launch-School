@@ -190,10 +190,125 @@ let trees = ['birch', 'pine', 'sequoia', 'palm tree'];
 //   counter -= 1;
 // }
 
-let counter = 0;
+// let counter = 0;
 
-do {
-  console.log('Woooot!');
-  counter -= 1;
-} while (counter > 0); 
+// do {
+//   console.log('Woooot!');
+//   counter -= 1;
+// } while (counter > 0); 
 // Woooot!
+
+
+// Write an if statement that logs 'Yes!' if randomNumber is 1, and 'No.' if randomNumber is 0.
+
+let randomNumber = Math.round(Math.random());
+
+// if (randomNumber === 1) {
+//   console.log('Yes!');
+// } else {
+//   console.log('No')
+// }
+
+// Take your code from the previous exercise and rewrite the conditional so that it uses the ternary if-then-else operator.
+
+// version 1
+// let randomNumber = Math.round(Math.random());
+
+// randomNumber ? console.log('Yes!') : console.log('No');
+
+// version 2
+// let randomNumber = Math.round(Math.random());
+
+// console.log(randomNumber ? 'Yes!' : 'No.');
+
+// Initialize a variable weather with a string value being "sunny", "rainy", or anything else.
+
+// Write an if statement that logs:
+
+// "It's a beautiful day!" if weather is assigned to the string "sunny",
+// "Grab your umbrella." if weather is assigned to the string "rainy", and
+// "Let's stay inside." otherwise.
+// Test your code with different values for weather.
+
+// let weather = 'sunny';
+
+// if (weather === 'sunny') {
+//   console.log("It's a beautiful day!");
+// } else if (weather === 'rainy') {
+//   console.log('Grab your umbrella');
+// } else {
+//   console.log("Let's stay inside.");
+// }
+
+// switch
+
+// let animal = 'horse';
+
+// switch (animal) {
+//   case 'duck':
+//     console.log('quack');
+//   case 'squirrel':
+//     console.log('nook nook');
+//   case 'horse':
+//     console.log('neigh');
+//   case 'bird':
+//     console.log('tweet tweet');
+//   default:
+//     console.log('*cricket*');
+// }
+
+// neigh
+// tweet tweet
+// *cricket*
+
+// corrected with break statements
+// let animal = 'horse';
+
+// switch (animal) {
+//   case 'duck':
+//     console.log('quack');
+//     break;
+//   case 'horse':
+//     console.log('neigh');
+//     break;
+//   case 'bird':
+//     console.log('tweet tweet');
+//     break;
+//   default:
+//     console.log('*crickets*');
+// }
+
+// Check the Weather, Part 2 using switch
+
+// let weather = 'windy';
+
+// switch (weather) {
+//   case 'sunny':
+//     console.log("It's a beautiful day!");
+//     break;
+//   case 'rainy':
+//     console.log('Grab your umbrella');
+//     break;
+//   case 'windy':
+//     console.log('It feels great on my face.');
+//     break;
+//   default:
+//     console.log("Let's stay inside.");
+// }
+
+// if (false || true) {
+//   console.log('Yes!');
+// } else {
+//   console.log('No...');
+// }
+
+let speed = 0;
+let acceleration = 24;
+let brakingForce = 19;
+
+let isMoving = brakingForce < acceleration && (speed > 0 || acceleration > 0);
+
+console.log(isMoving); // true
+```
+
+

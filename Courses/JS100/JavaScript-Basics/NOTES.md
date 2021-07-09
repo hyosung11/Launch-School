@@ -455,3 +455,179 @@ do {
 } while (counter > 0);
 // 'Woooot!'
 ```
+
+## Conditionals
+
+### Truthy vs Falsy
+
+In JavaScript, there are only eight values that are falsy: 
+
+1. `false`
+2. `null`
+3. `undefined`
+4. `0`
+5. `NaN`
+6. `''` or `""`
+7. `-0` (negative zero)
+8. `0n` (BigInt zero)
+
+### Yes? No? Part 1
+
+Write an `if` statement that logs `'Yes!`' if `randomNumber` is 1, and `'No.'` if `randomNumber` is 0.
+
+```js
+let randomNumber = Math.round(Math.random());
+
+if (randomNumber) {
+  console.log('Yes!');
+} else {
+  console.log('No');
+}
+```
+Recall that that `0` is falsy in Javascript, while `1` is truthy. Our `if` statement will execute the code on line 4 if the condition provided on line 3 (`randomNumber`) is truthy; otherwise it will execute the code on line 6.
+
+### Yes? No? Part 2 (ternary operator)
+
+```js
+// syntactical structure of the ternary operator
+condition ? expression1 : expression2
+```
+
+Take your code from the previous exercise and rewrite the conditional so that it uses the ternary if-then-else operator.
+
+```js
+let randomNumber = Math.round(Math.random());
+
+console.log(randomNumber ? 'Yes!' : 'No.');
+```
+
+### Check the Weather, Part 1
+
+```js
+let weather = 'snow storm'; // 'sunny', 'rainy', ...
+
+if (weather === 'sunny') {
+  console.log("It's a beautiful day!");
+} else if (weather === 'rainy') {
+  console.log('Grab your umbrella.');
+} else {
+  console.log("Let's stay inside.");
+}
+```
+
+### Switch
+
+```js
+let animal = 'horse';
+
+switch (animal) {
+  case 'duck':
+    console.log('quack');
+  case 'squirrel':
+    console.log('nook nook');
+  case 'horse':
+    console.log('neigh');
+  case 'bird':
+    console.log('tweet tweet');
+  default:
+    console.log('*cricket*');
+}
+
+neigh
+tweet tweet
+*cricket*
+```
+
+The `switch` statement evaluates the provided expression (`animal` in our case) and will execute the statement associated with the case that matches, _as well as the statements in all cases following the matching case_ until reaching either the end of the `switch` statement or a `break`.
+
+In the provided code, this means that after finding a matching case (`'horse'`), JavaScript will execute c`onsole.log('neigh')` as well as the `console.log` invocations in all following clauses.
+
+In order to avoid this "fall through" behavior, we can place a `break` statement in each clause of our `switch` statement, as seen below:
+
+```js
+let animal = 'horse';
+
+switch (animal) {
+  case 'duck':
+    console.log('quack');
+    break;
+  case 'horse':
+    console.log('neigh');
+    break;
+  case 'bird':
+    console.log('tweet tweet');
+    break;
+  default:
+    console.log('*crickets*');
+}
+```
+
+### Check the Weather, Part 2
+
+Rewrite as a `switch` statement
+
+```js
+let weather = 'windy';
+
+switch (weather) {
+  case 'sunny':
+    console.log("It's a beautiful day!");
+    break;
+  case 'rainy':
+    console.log('Grab your umbrella');
+    break;
+  case 'windy':
+    console.log('It feels great on my face.');
+    break;
+  default:
+    console.log("Let's stay inside.");
+}
+
+// It feels great on my face.
+```
+
+### Logical Conditionals 1
+
+```js
+// Output always 'Yes!'
+if (false || true) {
+  console.log('Yes!');
+} else {
+  console.log('No...');
+}
+```
+### Logical Conditions 2
+
+```js
+// Output always 'No...'
+if (true && false) {
+  console.log('Yes!');
+} else {
+  console.log('No...');
+}
+```
+
+### Logical Conditions 3
+
+```js
+let sale = true;
+let admissionPrice = !sale ? 5.25 : 3.99;
+
+console.log('$' + admissionPrice);
+
+// $3.99
+```
+
+### Are we moving?
+
+```js
+let speed = 0;
+let acceleration = 24;
+let brakingForce = 19;
+
+let isMoving = brakingForce < acceleration && (speed > 0 || acceleration > 0);
+
+console.log(isMoving); // true
+```
+
+
