@@ -724,7 +724,85 @@ Use JavaScript's string methods on the string '`Captain Ruby'` to produce the st
 'Captain Ruby'.split(' ')[0] + ' JavaScript';
 ```
 
+### Internationalization 1
 
+Write a function that takes an ISO 639-1 language code and returns a greeting in that language. You can take the examples below or add whatever languages you like.
+
+```js
+function greet(languageCode) {
+  switch (languageCode) {
+    case 'en': return 'Hi!';
+    case 'fr': return 'Salut!';
+    case 'pt': return 'Olá!';
+    case 'de': return 'Hallo!';
+    case 'sv': return 'Hej!';
+    case 'af': return 'Haai!';
+  }
+}
+
+greet('en'); // 'Hi!'
+greet('fr'); // 'Salut!'
+greet('pt'); // 'Olá!'
+greet('de'); // 'Hallo!'
+greet('sv'); // 'Hej!'
+greet('af'); // 'Haai!'
+
+// Example:
+console.log(greet('sv'));
+```
+
+Note that if we use `return` statements in the clauses, we don't need to include additional `break` statements, because `return` will immediately exit from the function anyway.
+
+### Locale Part 1
+
+Write a function that extracts the language code from a locale. A locale is a combination of a language code, a region, and usually also a character set, e.g `en_US.UTF-8`.
+
+```js
+function extractLanguage(locale) {
+  return locale.split('_')[0];
+}
+
+// Examples:
+console.log(extractLanguage('en_US.UTF-8')); // 'en'
+console.log(extractLanguage('en_GB.UTF-8')); // 'en'
+console.log(extractLanguage('ko_KR.UTF-16')); // 'ko'
+```
+
+### Locale Part 2
+
+Similar to the previous exercise, now write a function that extracts the region code from a locale. For example:
+
+```js
+function extractRegion(locale) {
+  return locale.split('.')[0]
+               .split('_')[1];
+}
+
+// Examples:
+console.log(extractRegion('en_US.UTF-8')); // 'US'
+console.log(extractRegion('en_GB.UTF-8')); // 'GB'
+console.log(extractRegion('ko_KR.UTF-16')); // 'KR'
+```
+
+### Internationalization 2
+
+Building on your solutions from the previous exercises, write a function `localGreet` that takes a locale as input, and returns a greeting. The locale allows us to greet people from different countries differently also when they share the language, for example:
+
+```js
+localGreet('en_US.UTF-8'); // 'Hey!'
+localGreet('en_GB.UTF-8'); // 'Hello!'
+localGreet('en_AU.UTF-8'); // 'Howdy!'
+```
+
+Distinguish greetings for English speaking countries like the US, UK, Canada, or Australia in your implementation, and feel free to fall back on the language-specific greetings in all other cases, for example:
+
+```js
+localGreet('fr_FR.UTF-8'); // 'Salut!'
+localGreet('fr_CA.UTF-8'); // 'Salut!'
+localGreet('fr_MA.UTF-8'); // 'Salut!'
+```
+
+When implementing localGreet, make sure to re-use your extractLanguage, extractRegion and greet functions from the previous exercises.
 
 
 

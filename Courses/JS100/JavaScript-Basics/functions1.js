@@ -68,8 +68,51 @@
 
 // Use JavaScript's string methods on the string 'Captain Ruby' to produce the string 'Captain JavaScript'.
 
-console.log('Captain Ruby'.replace('Ruby', 'JavaScript'));
+// console.log('Captain Ruby'.replace('Ruby', 'JavaScript'));
 
-console.log('Captain Ruby'.substring(0, 8) + 'JavaScript');
+// console.log('Captain Ruby'.substring(0, 8) + 'JavaScript');
 
-console.log('Captain Ruby'.split(' ')[0] + ' JavaScript');
+// console.log('Captain Ruby'.split(' ')[0] + ' JavaScript');
+
+// Write a function that takes an ISO 639-1 language code and returns a greeting in that language. You can take the examples below or add whatever languages you like.
+
+function greet(languageCode) {
+  switch (languageCode) {
+    case 'en': return 'Hi!';
+    case 'fr': return 'Salut!';
+    case 'pt': return 'Olá!';
+    case 'de': return 'Hallo!';
+    case 'sv': return 'Hej!';
+    case 'af': return 'Haai!';
+  }
+}
+
+// console.log(greet('en')); // 'Hi!'
+// console.log(greet('fr')); // 'Salut!'
+// console.log(greet('pt')); // 'Olá!'
+// console.log(greet('de')); // 'Hallo!'
+// console.log(greet('sv')); // 'Hej!'
+// console.log(greet('af')); // 'Haai!'
+
+// Write a function that extracts the language code from a locale. A locale is a combination of a language code, a region, and usually also a character set, e.g en_US.UTF-8.
+
+function extractLanguage(locale) {
+  return locale.split('_')[0];
+}
+
+// console.log(extractLanguage('en_US.UTF-8'));
+// console.log(extractLanguage('en_GB.UTF-8'));
+// console.log(extractLanguage('ko_KR.UTF-16'));
+
+// Similar to the previous exercise, now write a function that extracts the region code from a locale. For example:
+
+function extractRegion(locale) {
+  return locale.split('_')[1].split('.')[0];
+}
+
+console.log(extractRegion('en_US.UTF-8'));  // 'US'
+console.log(extractRegion('en_GB.UTF-8'));  // 'GB'
+console.log(extractRegion('ko_KR.UTF-16')); // 'KR'
+
+// Building on your solutions from the previous exercises, write a function localGreet that takes a locale as input, and returns a greeting. The locale allows us to greet people from different countries differently also when they share the language, for example:
+
