@@ -103,13 +103,13 @@ We can think of the mental model as our summary view of the “entire problem.�
 Here’s a simple mental model for this problem:
 
 ```js
-Determine a list of all multiples of a set of factors up to a target value, then filter the list of multiples to the unique values. Finally, compute and return the sum of the unique multiples.
+// Determine a list of all multiples of a set of factors up to a target value, then filter the list of multiples to the unique values. Finally, compute and return the sum of the unique multiples.
 ```
 
 Here’s another mental model:
 
 ```js
-Incrementally build a list of numbers that are multiples of a set of one or more factors. Add a multiple to the list only if it is not yet on the list. Finally, compute and return the sum of the numbers on the list.
+// Incrementally build a list of numbers that are multiples of a set of one or more factors. Add a multiple to the list only if it is not yet on the list. Finally, compute and return the sum of the numbers on the list.
 ```
 
 ### Examples / Test Cases
@@ -118,62 +118,64 @@ In this step, our objective is to come up with examples that validate our unders
 
 Our examples will be in the form of tests that show the expected outputs given certain inputs:
 
-#### Validation
+### Validation
+#### Example 1
+**Inputs:**
+* Target number: 20
+* Factors: [3, 5]
 
-Example 1
-
-Inputs: 
-- Target number: 20
-- Factors: [3, 5]
-
-Output
-- 78
-
+**Output**
+* 78
 ---
+#### Example 2
+**Inputs:**
+* Target number: 20
+* Factors: [3]
 
-Example 2
-
-Inputs:
-- Target number: 20
-- Factors: [3]
-
-Output
-- 63
-
+**Output**
+* 63
 ---
+#### Example 3
+**Inputs:**
+* Target number: 20
+* Factors: [5]
 
-Example 3
-
-Inputs:
-- Target number: 20
-- Factors: [5]
-
-Output
-- 30
-
+**Output**
+* 30
 ---
+#### Example 4
+**Inputs:**
+* Target number: 20
+* Factors: []
 
-Example 4
-
-Inputs:
-- Target number: 20
-- Factors []
-
-Output
-- 78
-
+**Output**
+* 78
 ---
+#### Example 5
+**Inputs:**
+* Target number: 1
+* Factors: []
 
-Example 5
+**Output**
+* 0
 
-Inputs:
-- Target number: 1
-- Factors: []
+#### Edge Cases
 
-Output
-- 0
+In addition to test cases based on our rules, we should also provide test cases that handle any edge cases we can find. Edge cases are inputs at the “edges” of the problem description that may be mishandled if we aren’t careful. 
+- For instance, problems that involve iterating over numbers have edge cases at one or both ends of the range. If you’re not careful, you may get incorrect answers at these edges. 
+- Typical edge cases can involve working with negative numbers, the number zero, or extremely high values (if performance is a requirement). 
+- When working with collections, it’s normally a good idea to find test cases that deal with zero, one or multiple elements in the collection.
 
+This example problem has one significant edge case: what happens if the last number before the target value is a multiple of one or more of the factors?
 
+In each of our test cases above, the last number added to the sum is either `18` or `15`. That leaves `19` (the last value checked) out of the sum, which is the right thing to do. Suppose, though, that `19` should be included in the sum, which it should if `19` is one of the factors. Since `19` is the last possible number to check (given a target of `20`), it’s at the “edge” of the range of values that get summed. To be certain we include `19` in the sum, we need to provide a test case that handles it.
 
+### Validation
+#### Example 6
+**Inputs:**
+* Target number: 20
+* Factors: [19]
 
+**Output**
+* 19
 
