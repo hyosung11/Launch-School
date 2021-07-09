@@ -291,6 +291,7 @@ Don’t be alarmed if, after doing all the steps above, you still have to circle
 
 Here’s a Ruby implementation of the algorithm we designed for the first mental model:
 
+```rb
 def sum_of_multiples(target, factors)
   multiples = []
   factors = [3, 5] if factors.length == 0
@@ -313,9 +314,11 @@ sum_of_multiples(20, [5])     # returns 30
 sum_of_multiples(20, [])      # returns 78
 sum_of_multiples(1, [])       # returns 0
 sum_of_multiples(20, [19])    # returns 19
+```
 
 Here’s the JavaScript implementation using the algorithm we designed for the second mental model:
 
+```js
 function sumOfMultiples(targetNumber, factors) {
   var multiples = [];
   if (factors.length === 0) {
@@ -342,6 +345,7 @@ sumOfMultiples(20, [5]);     // returns 30
 sumOfMultiples(20, []);      // returns 78
 sumOfMultiples(1, []);       // returns 0
 sumOfMultiples(20, [19]);    // returns 19
+```
 
 Either Ruby or JavaScript would work for both mental models. However, the first model is slightly better suited for Ruby since Ruby has a method for returning unique values in an Array; JavaScript does not.
 
