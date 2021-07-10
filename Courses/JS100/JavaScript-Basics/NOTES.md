@@ -819,3 +819,186 @@ function localGreet(locale) {
 }
 ```
 
+## Variable Scope
+
+### What's my value? (Part 1)
+
+What will the following code log to the console and why? Don't run it until you have tried to answer.
+
+```js
+console.log(greeting);
+
+var greeting = 'Hello world!';
+
+// undefined
+```
+
+Discussion
+All variables in JavaScript declared with `var` are hoisted, meaning they are virtually moved to the beginning of the scope. This means that our code snippet above behaves like the following one:
+
+```js
+var greeting;
+
+console.log(greeting);
+
+greeting = 'Hello world!'
+```
+
+When a `var` variable is declared but not assigned a value, like on line 1, it is initialized to the value `undefined`. For that reason, the code logs `undefined` to the console.
+
+### What's my value (Part 2)
+
+What will the following code log to the console and why?
+
+```js
+console.log(greeting);
+
+let greeting = 'Hello world!';
+
+// ReferenceError: Cannot access 'greeting' before initialization
+```
+
+In contrast to `var` variables, `let` variables are not accessible before they are declared. For that reason the above code raises an error.
+
+### What's my value? (Part 3)
+
+What will the following code log to the console and why?
+
+```js
+if (true) {
+  let myValue = 20;
+}
+
+console.log(myValue);
+// ReferenceError: myValue is not defined
+```
+
+Variables declared with `let` are block scoped. This means that when we declare the variable `myValue` within a block on line 2, that variable is not accessible outside of the block on line 5, and a `ReferenceError` is raised.
+
+### What's my value? (Part 4)
+
+What will the following code log to the console and why? 
+
+```js
+function myFunction() {
+  let a = 1;
+
+  if (true) {
+    console.log(a);
+  }
+}
+
+myFunction();
+// 1
+```
+
+Variables declared in an outer scope can be accessed in any inner scope. In our case, the variable `a` is declared in the function definition and then accessed in the body of the _if_ statement. For that reason, line 4 logs the value `1` when `myFunction` is invoked.
+
+### What's my value? (Part 5)
+
+What will the following code log to the console and why?
+
+```js
+function myFunction() {
+  let a = 1;
+
+  if (true) {
+    console.log(a);
+    let a = 2;
+    console.log(a);
+  }
+}
+
+myFunction();
+// ReferenceError: Cannot access 'a' before initialization
+```
+
+Your initial hunch might have been that this code should output the numbers `1` (on line 5) and `2` (on line 7). The reason that doesn't happen is that variables declared by let aren't available until the code runs. Therefore, the `let` statement on line 6 creates a new variable `a` that isn't available on line 5. Since we try to log `a` before assigning it a value, a `ReferenceError` is raised.
+
+Technically, the scope of `a` is the entire block. JavaScript does hoist the variables defined by `let`, but, when it does, it creates a "temporal dead zone" in which the variable exists but doesn't have a value -- not even a value of `undefined`. We talk more about the temporal dead zone in a later course.
+
+Note that the variable `a` defined on line 6 shadows the variable `a` defined on line 2.
+
+### What's my value? (Part 6)
+
+```js
+let a = 5;
+let b = false;
+
+if (a > 4) {
+  let b = true;
+}
+
+console.log(b);
+// false
+```
+
+The situation is similar to that of the previous exercise: The variable `b` declared on line 2 and the variable b declared on line 5 in the body of the `if` statement have the same name, but they are two different variables. Important to note is that the `b` that we reference on line 8 refers to the variable declared on line 2. This is because the scope of `b` declared on line 5 is the body of the `if` statement, and it is not accessible in any outer scope.
+
+### What's my value? (Part 7)
+
+```js
+let a = 1;
+
+function myFunction() {
+  console.log(a);
+}
+
+myFunction(); // 1
+```
+
+The variable `a` declared in the `let` statement on line 1 is declared at the very top level of our code, so it is accessible from everywhere in the code (outer scope), including from within the body of `myFunction`.
+
+### What's my value? (Part 8)
+
+```js
+let a = 1;
+
+function myFunction(a) {
+  console.log(a); // 1
+}
+
+let b = 2;
+
+myFunction(b); // 2
+```
+
+This is another example of _variable shadowing_: The parameter `a` of `myFunction` shadows the variable `a` declared on line 1. The `a` we reference within the function body, on line 4, therefore refers to whatever argument is passed to the function, in our case the value of `b`, which is then logged.
+
+### What's my value? (Part 9)
+
+```js
+const a = 1;
+
+function myFunction() {
+  a = 2;
+}
+
+myFunction(a);
+// TypeError: Assignment to constant variable.
+```
+
+Variables declared by `const` are block scoped, similar to variables declared by `let`, but their value cannot be changed through re-assignment. So when we try to re-assign `a` to a new value on line 4, we get an error.
+
+Note that passing `a` as an argument to `myFunction` on line 7 has no effect, as the function does not declare any parameters. It is an excess argument that is simply ignored in the function body.
+
+### What's my value? (Part 10)
+
+```js
+const a = {
+  firstName: 'John',
+  lastName: 'Doe'
+};
+
+function myFunction() {
+  a.firstName = 'Jane';
+}
+
+myFunction();
+
+console.log(a);
+// { firstName: 'Jane', lastName: 'Doe' }
+```
+
+The fact that `const` variables cannot be re-assigned does not mean that the value they hold is immutable. As we see in the example above, objects that are assigned to `const` variables can be _mutated_.
+
