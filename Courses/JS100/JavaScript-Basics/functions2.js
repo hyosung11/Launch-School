@@ -84,8 +84,20 @@ function catAge(humanYears) {
 
 
   // for example:
-console.log(catAge(0)); // 0
-console.log(catAge(1)); // 15
-console.log(catAge(2)); // 24
-console.log(catAge(3)); // 28
-console.log(catAge(4)); // 32
+// console.log(catAge(0)); // 0
+// console.log(catAge(1)); // 15
+// console.log(catAge(2)); // 24
+// console.log(catAge(3)); // 28
+// console.log(catAge(4)); // 32
+
+// Remove Last Char
+
+// Create a function `removeLastChar` that takes a string as an argument, and returns the string without the last character.
+
+function removeLastChar(string){
+  return string.substring(0, string.length - 1);
+}
+
+console.log(removeLastChar('ciao!')); // 'ciao'
+console.log(removeLastChar('hello')); // 'hell'
+console.log(removeLastChar('Site')); // 'Sit'
