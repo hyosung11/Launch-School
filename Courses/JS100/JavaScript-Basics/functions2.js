@@ -46,20 +46,46 @@
 // greet() // 'Good morning, Launch School!'
 
 // Calculate BMI
-
 // Create a function that calculates a person's body mass index (BMI). It should take two parameters: someone's height (in cm) and weight (in kg). The formula for calculating the BMI is as follows:
-
-
 
 // Note that formula requires a height in meters, but the function takes the height in centimeters (1 meter is equivalent to 100 centimeters).
 
 // Return the result as a string rounded to two decimals. For example:
 
-function calculateBMI(heightInCentimeters, weightInKilograms) {
-  let heightInMeters = heightInCentimeters / 100;
-  let bmi = weightInKilograms / heightInMeters ** 2;
+// function calculateBMI(heightInCentimeters, weightInKilograms) {
+//   let heightInMeters = heightInCentimeters / 100;
+//   let bmi = weightInKilograms / heightInMeters ** 2;
   
-  return bmi.toFixed(2);
+//   return bmi.toFixed(2);
+// }
+
+// console.log(calculateBMI(180, 80)); // "24.69"
+
+// Calculate Cat Age
+
+// Implement a function `catAge` that takes a number of human years as input and converts them into cat years. Cat years are calculated as follows:
+
+// * The first human year corresponds to 15 cat years.
+// * The second human year corresponds to 9 cat years.
+// * Every subsequent human year corresponds to 4 cat years.
+
+function catAge(humanYears) {
+  switch(humanYears) {
+    case 0:
+      return 0;
+    case 1:
+      return 15;
+    case 2:
+      return 24
+    default:
+      return 24 + (humanYears - 2) * 4
+  }
 }
 
-console.log(calculateBMI(180, 80)); // "24.69"
+
+  // for example:
+console.log(catAge(0)); // 0
+console.log(catAge(1)); // 15
+console.log(catAge(2)); // 24
+console.log(catAge(3)); // 28
+console.log(catAge(4)); // 32
