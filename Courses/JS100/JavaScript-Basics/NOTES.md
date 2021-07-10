@@ -1316,3 +1316,124 @@ let array2 = array1;
 
 console.log(array1 === array2); // true
 ```
+
+### Type
+
+How can you check whether a variable holds a value that is an array? For example, imagine you start writing a function and want to check whether its argument is an array:
+
+```js
+function filter(input) {
+  // Is input an array?
+}
+```
+
+```js
+// Use the Array.isArray() method.
+let someValue1 = [0, 1, 0, 0, 1];
+let someValue2 = 'I leave you my Kingdom, take good care of it.';
+
+Array.isArray(someValue1); // true
+Array.isArray(someValue2); // false
+```
+
+Note that the `typeof` operator returns `'object'` for arrays, because arrays are objects. Therefore it does not distinguish between arrays and other objects.
+
+### Travel
+
+The `destinations` array contains a list of travel destinations.
+
+```js
+let destinations = ['Prague', 'London', 'Sydney', 'Belfast', 'Rome',
+  'Aruba', 'Paris', 'Bora Bora', 'Barcelona', 'Rio de Janeiro',
+  'Marrakesh', 'New York City'];
+```
+
+Write a function that checks whether or not a particular destination is included within `destinations`, without using the built-in method `Array.prototype.includes()`.
+
+For example: When checking whether `'Barcelona'` is contained in destinations, the expected output is `true`, whereas the expected output for `'Nashville'` is `false`.
+
+```js
+contains('Barcelona', destinations); // true
+contains('Nashville', destinations); // false
+```
+
+```js
+function contains(element, list) {
+  for (let i = 0; i < list.length; i++) {
+    if (list[i] === element) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+// Or
+function contains(element, list) {
+  return list.indexOf(element) >= 0;
+}
+```
+
+Our first solution iterates over all elements in the input array. As soon as an element equals the input string, it returns `true`. If we have iterated over all elements without returning `true`, it means that there is no element that equals the input string and we return `false`.
+
+Our second solution leverages the built-in method `Array.prototype.indexOf()`, which returns the index of an element in the array, and returns -1 if the element is not in the array.
+
+### Passcode
+
+We generated parts of a passcode and now want to combine them into a string. Write some code that returns a string, with each portion of the passcode separated by a hyphen (`-`).
+
+```js
+let passcode = ['11', 'jZ5', 'hQ3f*', '8!7g3', 'p3Fs'];
+
+// Write some code here.
+passcode.join('-'); // '11-jZ5-hQ3f*-8!7g3-p3Fs'
+// Expected return value: '11-jZ5-hQ3f*-8!7g3-p3Fs'
+```
+
+The `Array.prototype.join()` method easily allows us to join all elements of an array into a new string, with a custom separator.
+
+```js
+let passcode = ['11', 'jZ5', 'hQ3f*', '8!7g3', 'p3Fs'];
+let joinedPasscode = '';
+
+for (let i = 0; i < passcode.length; i += 1) {
+  if (i > 0) {
+    joinedPasscode += '-';
+  }
+
+  joinedPasscode += passcode[i];
+}
+
+console.log(joinedPasscode); // '11-jZ5-hQ3f*-8!7g3-p3Fs'
+```
+
+The main difference between both solutions is that `Array.prototype.join()` provides a higher level of abstraction: it hides the iteration and string building behind a simple method call. This makes it easier to see at one glance what the solution code does with `passcode`.
+
+### Checking items off the grocery list
+
+We have made a grocery list, and as we check off items on that list, we would like to remove them.
+
+Write code that removes the items from `'groceryList'` one by one, until it is empty. If you log the elements you remove, the expected behavior would look as follows.
+
+```js
+let groceryList = ['paprika', 'tofu', 'garlic', 'quinoa', 'carrots', 'broccoli', 'hummus'];
+
+while (groceryList.length > 0) {
+  let checkedItem = groceryList.shift();
+
+  console.log(checkedItem);
+}
+
+// logs:
+// paprika
+// tofu
+// garlic
+// quinoa
+// carrots
+// broccoli
+// hummus
+
+groceryList; // []
+```
+
+The `Array.prototype.shift()` method removes and returns the first element of the calling array. This method permanently modifies the array, which can be seen by logging `groceryList` to the console after removing elements.
