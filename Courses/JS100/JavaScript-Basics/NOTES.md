@@ -143,6 +143,7 @@ Here are the guidelines that were not followed in the original code snippet:
 ### Data Types
 
 There are seven primitive data types (immutable):
+
 1. Number
 2. String
 3. Boolean
@@ -152,6 +153,7 @@ There are seven primitive data types (immutable):
 7. BigInt (ES9)
 
 One non-primitive data type:
+
 * Object (which comprises arrays) (mutable by adding or removing elements)
 
 ### Largest Number
@@ -177,8 +179,6 @@ This means that when using parentheses for grouping, the expression is equivalen
 ### Date
 
 The `Date.now()` method returns the number of milliseconds elapsed since January 1, 1970 00:00:00 UTC.
-
-
 
 ```js
 console.log(Date.now()); // 1536562500455
@@ -397,6 +397,7 @@ for (let i = 0; ; i += 1) {
   break;
 }
 ```
+
 ### That's Odd
 
 Write a while loop that logs all odd natural numbers between 1 and 40.
@@ -460,7 +461,7 @@ do {
 
 ### Truthy vs Falsy
 
-In JavaScript, there are only eight values that are falsy: 
+In JavaScript, there are only eight values that are falsy:
 
 1. `false`
 2. `null`
@@ -484,6 +485,7 @@ if (randomNumber) {
   console.log('No');
 }
 ```
+
 Recall that that `0` is falsy in Javascript, while `1` is truthy. Our `if` statement will execute the code on line 4 if the condition provided on line 3 (`randomNumber`) is truthy; otherwise it will execute the code on line 6.
 
 ### Yes? No? Part 2 (ternary operator)
@@ -596,6 +598,7 @@ if (false || true) {
   console.log('No...');
 }
 ```
+
 ### Logical Conditions 2
 
 ```js
@@ -805,6 +808,7 @@ localGreet('fr_MA.UTF-8'); // 'Salut!'
 When implementing localGreet, make sure to re-use your extractLanguage, extractRegion and greet functions from the previous exercises.
 
 Solution
+
 ```js
 function localGreet(locale) {
   let language = extractLanguage(locale);
@@ -877,7 +881,7 @@ Variables declared with `let` are block scoped. This means that when we declare 
 
 ### What's my value? (Part 4)
 
-What will the following code log to the console and why? 
+What will the following code log to the console and why?
 
 ```js
 function myFunction() {
@@ -1066,7 +1070,7 @@ console.log(rhyme);
 // Trim the sails and roam the sea!
 ```
 
-Special characters can be encoded in a string via [escape notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#escape_notation). For example, quotes can be included in strings as` \'` and `\"`:
+Special characters can be encoded in a string via [escape notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#escape_notation). For example, quotes can be included in strings as`\'` and `\"`:
 
 * `'I\'m a mighty pirate!'`
 * `"\"It'll be fun\", they said."`
@@ -1135,7 +1139,7 @@ The `String.prototype.trim()` method removes whitespaces from both ends of a str
 
 Write code that capitalizes the words in the string `'launch school tech & talk'`, so that you get the string `'Launch School Tech & Talk'`.
 
-```js 
+```js
 let string = 'launch school tech & talk';
 let words = string.split(' ');
 let capitalizedWords = [];
@@ -1152,3 +1156,100 @@ capitalizedWords.join(' '); // 'Launch School Tech & Talk'
 In our solution, we capitalize one word after the other. We use `string.split(' ')` to split the input string into words, then iterate over these words, collecting their capitalized version in the array `capitalizedWords`, and finally join the capitalized words into the final string.
 
 Capitalization of a word can be achieved by taking the first character (`word[0]`), transform it to upper case, and then concatenate it with the rest of the word (`word.slice(1)`). If we come across a word that is only one character long, `word.slice(1)` is the empty string. This is the case for `&`. Note that `'&'`.`toUpperCase()` returns `'&'` (as would `'&'.toLowerCase()`), because `'&'` does not distinguish upper and lower case.
+
+## Arrays
+
+### First Element
+
+Write a function that returns the first element of an input array.
+
+```js
+function first(array) {
+  return array[0];
+}
+
+first(['Earth', 'Moon', 'Mars']); // 'Earth'
+```
+
+What would you return if the input array was empty?
+
+With this implementation, `first` returns `undefined` if the input array is empty. It is the same behavior you get for trying to access an index that is outside the bounds of the array.
+
+### Last Element
+
+Write a function that returns the last element of an input array. For example:
+
+```js
+function last(array) {
+  return array[array.length - 1];
+}
+
+last(['Earth', 'Moon', 'Mars']); // 'Mars'
+```
+
+As in the previous exercise, `last` returns undefined if the input array is empty.
+
+Because arrays in JavaScript have a zero-based index, the last element of an array is at an index position one less than its length. For example, in an array with three elements, the elements are at index positions 0 (the first element), 1, and 2 (the last element).
+
+### Add + Delete
+
+We are given the following array of energy sources.
+
+```js
+let energy = ['fossil', 'solar', 'wind', 'tidal', 'fusion'];
+```
+
+Remove `'fossil'` from the array, then add `'geothermal'` to the end of the array.
+
+```js
+// adding an element at the end
+energy.push('geothermal');
+
+// adding an element at the beginning
+energy.unshift('nuclear')
+
+// remove first element. changes original array
+energy.shift();
+
+// return a new array containing all elements from index 1 to to the end; doesn't change original array; re-assigns `energy` to the new array returned by `slice`.
+energy = energy.slice(1);
+
+// removes 1 element from energy, starting at index 0.  Use to remove any other element of an array, not just the first one.
+energy.splice(0, 1);
+```
+
+### Alphabet
+
+Split the string `alphabet` into an array of characters.
+
+```js
+let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+// solution 1
+alphabet.split('');
+
+// solution 2
+Array.from(alphabet);
+```
+
+When `String.prototype.split()` is used with an empty string as separator, it splits the string it is invoked on between each character. (To be precise, it splits the string between each UTF-16 code unit, which in our case amounts to the same thing.)
+
+### Filter
+
+Count the number of elements in `scores` that are 100 or above.
+
+```js
+let scores = [96, 47, 113, 89, 100, 102];
+let count = 0;
+
+for (let i = 0; i < scores.length; i += 1) {
+  if (scores[i] >= 100) {
+    count += 1;
+  }
+}
+
+console.log(count); // 3
+```
+
+The solution makes use of a `counter` variable, that we initialize as 0. We then iterate over all elements in the `scores` array, and for each element that is greater than or equal to 100, we increase the `counter` by 1.
+
