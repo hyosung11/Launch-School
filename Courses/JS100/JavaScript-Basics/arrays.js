@@ -60,4 +60,36 @@ for (let i = 0; i < scores.length; i++) {
   }
 }
 
-console.log(count); // 3
+// console.log(count); // 3
+
+// Vocabulary
+// We've been given an array of vocabulary words grouped into sub-arrays by meaning. This is a two-dimensional array or a nested array. Write some code that iterates through the sub-arrays and logs each vocabulary word to the console.
+
+let vocabulary = [
+  ['happy', 'cheerful', 'merry', 'glad'],
+  ['tired', 'sleepy', 'fatigued', 'drained'],
+  ['excited', 'eager', 'enthused', 'animated']
+];
+
+for (let vocabularyIdx = 0; vocabularyIdx < vocabulary.length; vocabularyIdx++) {
+  let synonyms = vocabulary[vocabularyIdx];
+
+  for(let synonymIdx = 0; synonymIdx < synonyms.length; synonymIdx++) {
+    console.log(synonyms[synonymIdx]);
+  }
+}
+
+// Expected output:
+// happy
+// cheerful
+// merry
+// etc...
+
+// Equality
+
+// Predict the output of the below code. When you run the code, do you see what you expected? Why or why not?
+
+let array1 = [2, 6, 4];
+let array2 = [2, 6, 4];
+
+console.log(array1 === array2); // false

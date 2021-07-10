@@ -116,6 +116,22 @@ console.log(extractRegion('ko_KR.UTF-16')); // 'KR'
 
 // Building on your solutions from the previous exercises, write a function localGreet that takes a locale as input, and returns a greeting. The locale allows us to greet people from different countries differently also when they share the language, for example:
 
+function localGreet(locale) {
+  let language = extractLanguage(locale);
+  let region = extractRegion(locale);
+
+  switch (region) {
+    case 'US':
+      return 'Hey!';
+    case 'GB':
+      return 'Hello!';
+    case 'AU':
+      return 'Howdy!';
+    default:
+      return greet(language);
+  }
+}
+
 /* PEDAC
 
 Problem

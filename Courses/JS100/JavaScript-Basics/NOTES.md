@@ -1253,3 +1253,66 @@ console.log(count); // 3
 
 The solution makes use of a `counter` variable, that we initialize as 0. We then iterate over all elements in the `scores` array, and for each element that is greater than or equal to 100, we increase the `counter` by 1.
 
+### Vocabulary
+
+We've been given an array of vocabulary words grouped into sub-arrays by meaning. This is a two-dimensional array or a nested array. Write some code that iterates through the sub-arrays and logs each vocabulary word to the console.
+
+```js
+let vocabulary = [
+  ['happy', 'cheerful', 'merry', 'glad'],
+  ['tired', 'sleepy', 'fatigued', 'drained'],
+  ['excited', 'eager', 'enthused', 'animated']
+];
+
+let vocabulary = [
+  ['happy', 'cheerful', 'merry', 'glad'],
+  ['tired', 'sleepy', 'fatigued', 'drained'],
+  ['excited', 'eager', 'enthused', 'animated']
+];
+
+for (let vocabularyIdx = 0; vocabularyIdx < vocabulary.length; vocabularyIdx++) {
+  let synonyms = vocabulary[vocabularyIdx];
+
+  for(let synonymIdx = 0; synonymIdx < synonyms.length; synonymIdx++) {
+    console.log(synonyms[synonymIdx]);
+  }
+}
+
+// Expected output:
+// happy
+// cheerful
+// merry
+// etc...
+```
+
+Our solution uses nested `for` loops to iterate through each sub-array of the `vocabulary` array. We access each inner element by its index on line 11, and output it using `console.log()`.
+
+### Equality
+
+Predict the output of the below code. When you run the code, do you see what you expected? Why or why not?
+
+```js
+let array1 = [2, 6, 4];
+let array2 = [2, 6, 4];
+
+console.log(array1 === array2); // false
+```
+
+The output of the sample code is `false`.
+
+Primitives, like strings or numbers, are compared by their _value_. For example, the two strings below are strictly equal:
+
+```js
+console.log('2, 6, 4' === '2, 6, 4'); // true
+```
+
+Arrays, however, are objects and not primitives. JavaScript compares whether two objects are strictly equal by checking whether they are the same object, i.e. _whether they reference the same location in memory._ Since we constructed two array objects, one on line 1 and one on line 2, they don't have the same reference.
+
+Note that if we alter our original code so that array2 references the same object as array1, our comparison logs `true`:
+
+```js
+let array1 = [2, 6, 4];
+let array2 = array1;
+
+console.log(array1 === array2); // true
+```
