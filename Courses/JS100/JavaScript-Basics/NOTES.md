@@ -1437,3 +1437,58 @@ groceryList; // []
 ```
 
 The `Array.prototype.shift()` method removes and returns the first element of the calling array. This method permanently modifies the array, which can be seen by logging `groceryList` to the console after removing elements.
+
+## Functions 2
+
+### Greet 1
+
+How can we alter the function definition of greet so that the parameter `greeting` is assigned a default value of `'Hello'` when no argument is passed to the function invocation?
+
+```js
+function greet(greeting = 'Hello') {
+  console.log(greeting + ', world!');
+}
+
+greet('Salutations'); // logs: Salutations, world!
+
+greet();              // logs: undefined, world!
+                      // should log: Hello, world!
+```
+
+Default parameters are a great way to assign a default value to a parameter. This default value is used in case the parameter is `undefined`, which is the case if `greet` is called without an argument.
+
+### Greet 2
+
+Change the function `greet` from the previous exercise, so that it takes two arguments: a greeting with `'Hello'` as default value, and a recipient with `'world'` as default value. The behavior should then be as follows:
+
+```js
+function greet(greeting = 'Hello', recipient = 'world') {
+  console.log(`${greeting}, ${recipient}!`);
+}
+
+greet(); // logs: Hello, world!
+greet('Salutations'); // logs: Salutations, world!
+greet('Good morning', 'Launch School'); // logs: Good morning, Launch School!
+```
+
+### Greet 3
+
+Now we are going to outsource the greeting and recipient to functions. Change the function greet from the previous exercise, so that it doesn't take any arguments, and instead calls the functions greeting and recipient defined below.
+
+```js
+// Calling greet() should log Good morning, Launch School! to the console.
+
+function greeting() {
+  return 'Good morning';
+}
+
+function recipient() {
+  return 'Launch School';
+}
+
+function greet() {
+  console.log(`${greeting()}, ${recipient()}!`);
+}
+
+greet() // 'Good morning, Launch School!'
+```
