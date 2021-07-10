@@ -1002,3 +1002,153 @@ console.log(a);
 
 The fact that `const` variables cannot be re-assigned does not mean that the value they hold is immutable. As we see in the example above, objects that are assigned to `const` variables can be _mutated_.
 
+## Strings
+
+### Length
+
+Determine the length of the string `"These aren't the droids you're looking for."`.
+
+```js
+let string = "These aren't the droids you're looking for.";
+
+string.length; // 43
+```
+
+Determine the length of a string using the `length` property. An empty string will have a length of 0.
+
+### ALL CAPS
+
+Take the string `'confetti floating everywhere'` and transform it to upper case.
+
+```js
+let string = 'confetti floating everywhere';
+
+string.toUpperCase(); // CONFETTI FLOATING EVERYWHERE
+```
+
+Our solution leverages the `String.prototype.toUpperCase()` method. This method returns a new string, with the calling string's characters converted to uppercase. To see that this method returns a new string rather than mutating the original one, log `string` to the console after line 3.
+
+### Repeat
+
+Implement a function repeat that repeats an input string a given number of times, as shown in the example below; without using the pre-defined string method String.prototype.repeat().
+
+```js
+function repeat(num, string) {
+  let repetitions = ''
+
+  while (num > 0) {
+    repetitions += string;
+    num -= 1;
+  }
+
+  return repetitions;
+}
+
+console.log(repeat(3, 'ha')); // 'hahaha'
+```
+
+### Multiline String
+
+Take the following rhyme:
+
+```js
+A pirate I was meant to be!
+Trim the sails and roam the sea!
+```
+
+How can you assign this string to a single variable, preserving the line break?
+
+```js
+let rhyme = 'A pirate I was meant to be!\nTrim the sails and roam the sea!'
+
+console.log(rhyme);
+// A pirate I was meant to be!
+// Trim the sails and roam the sea!
+```
+
+Special characters can be encoded in a string via [escape notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#escape_notation). For example, quotes can be included in strings as` \'` and `\"`:
+
+* `'I\'m a mighty pirate!'`
+* `"\"It'll be fun\", they said."`
+
+Tabs can be written as `\t`, and `\n` is the newline character.
+
+### Case-insensitive Equality
+
+Given strings like the following, how can you check whether they're equal irrespective of whether the characters they contain are upper or lower case?
+
+```js
+let string1 = 'Polar Bear';
+let string2 = 'Polar bear';
+let string3 = 'Penguin';
+
+// Solution
+string1.toLowerCase() === string2.toLowerCase(); // true
+string1.toLowerCase() === string3.toLowerCase(); // false
+```
+
+A very simple way to check case-insensitive equality of strings is to first turn them to all lower or upper case and then compare them.
+
+### Contains Character
+
+Write code that checks whether the string `byteSequence` contains the character `x`.
+
+```js
+let byteSequence = 'TXkgaG92ZXJjcmFmdCBpcyBmdWxsIG9mIGVlbHMu';
+
+console.log(byteSequence.includes('x')); // true
+```
+
+### Blank? Version 1
+
+Write a function that checks whether a string is empty or not. For example:
+
+```js
+function isBlank(string) {
+  return string.length === 0;
+}
+
+isBlank('mars'); // false
+isBlank('  ');   // false
+isBlank('');     // true
+```
+
+A string is empty if it does not contain any characters. The easiest way to check this is to look at the length of the string.
+
+### Blank? Version 2
+
+Change your `isBlank` function from the previous exercise to return `true` if the string is empty or only contains whitespace. For example:
+
+```js
+function isBlank(string) {
+  return string.trim().length === 0;
+}
+
+isBlank('mars'); // false
+isBlank('  ');   // true
+isBlank('');     // true
+```
+
+The `String.prototype.trim()` method removes whitespaces from both ends of a string. Once we removed those whitespaces, we can use the same strategy as in the previous exercise.
+
+### Capitalize Words
+
+Write code that capitalizes the words in the string `'launch school tech & talk'`, so that you get the string `'Launch School Tech & Talk'`.
+
+```js 
+let string = 'launch school tech & talk';
+let words = string.split(' ');
+let capitalizedWords = [];
+
+for (let i = 0; i < words.length; i++) {
+  let word = words[i];
+
+  capitalizedWords.push(word[0].toUpperCase() + word.slice(1));
+}
+
+capitalizedWords.join(' '); // 'Launch School Tech & Talk'
+```
+
+In our solution, we capitalize one word after the other. We use `string.split(' ')` to split the input string into words, then iterate over these words, collecting their capitalized version in the array `capitalizedWords`, and finally join the capitalized words into the final string.
+
+Capitalization of a word can be achieved by taking the first character (`word[0]`), transform it to upper case, and then concatenate it with the rest of the word (`word.slice(1)`). If we come across a word that is only one character long, `word.slice(1)` is the empty string. This is the case for `&`. Note that `'&'`.`toUpperCase()` returns `'&'` (as would `'&'.toLowerCase()`), because `'&'` does not distinguish upper and lower case.
