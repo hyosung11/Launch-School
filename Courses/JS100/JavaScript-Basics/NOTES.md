@@ -804,5 +804,18 @@ localGreet('fr_MA.UTF-8'); // 'Salut!'
 
 When implementing localGreet, make sure to re-use your extractLanguage, extractRegion and greet functions from the previous exercises.
 
+Solution
+```js
+function localGreet(locale) {
+  let language = extractLanguage(locale);
+  let region = extractRegion(locale);
 
+  switch (region) {
+    case 'US': return 'Hey!';
+    case 'GB': return 'Hello!';
+    case 'AU': return 'Howdy!';
+    default: return greet(language);
+  }
+}
+```
 
