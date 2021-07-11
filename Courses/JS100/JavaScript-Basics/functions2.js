@@ -157,5 +157,6 @@ let initGame = () => ({
 
 let game = initGame();
 
-console.log('Level: ' + game.level);
-console.log('Score: ' + game.score);
+// console.log('Level: ' + game.level);
+// console.log('Score: ' + game.score);
+

@@ -1638,5 +1638,343 @@ let initGame = () => { level: 1, score: 0 };
 
 The reason is that the JavaScript engine does not interpret a statement starting with a brace as an object literal, but as a block statement. So if you want to force it to treat the statement as an object literal, you need to make sure that the statement doesn't start with a brace. The easiest way to do this, without changing the meaning or behavior of the statement, is by adding parentheses.
 
+## Objects
+
+### Retrieve a Value (Part 1)
+
+Write the code necessary to retrieve the value of the courses property of our student object.
+
+```js
+let student = {
+  name: 'Carmen',
+  age: 14,
+  grade: 10,
+  courses: ['biology', 'algebra', 'composition', 'ceramics'],
+  gpa: 3.75,
+};
+
+// dot notation
+student.courses; // ["biology", "algebra", "composition", "ceramics"]
+
+// bracket notation
+student['courses']; // ["biology", "algebra", "composition", "ceramics"]
+```
+
+We can access the property value using either dot notation or bracket notation. JavaScript style guides typically recommend using dot notation when possible.
+
+What is returned if you attempt to access an object property that does not exist? Try it out for yourself, for example calling student.locker with the above example object. Especially notice that no exception is raised.
+
+### Retrieve a Value (Part 2)
+
+Given the below object `jane`, write code that retrieves the country in which Jane is located.
+
+```js
+let jane = {
+  firstName: 'Jane',
+  lastName: 'Harrelson',
+  age: 32,
+  location: {
+    country: 'Denmark',
+    city: 'Aarhus'
+  },
+  occupation: 'engineer',
+};
+
+// dot notation
+jane.location.country; // Denmark
+
+// bracket notation
+jane['location']['country'] // Denmark
+```
+
+In order to retrieve the country value, we first need to retrieve the value of `'location'`, which we can do using either dot notation (`jane.location`) or bracket notation (`jane['location']`). The value of the property `'location'` is another object, and we can retrieve the value for this object's property `'country'` again using either dot notation or bracket notation.
+
+Add a Property
+Below is a simple object representing our dog, Fido. On lines 8 and 9, write code to add properties 'age' and 'favorite food' to the fido object.
+
+```js
+let fido = {
+  name: 'Fido',
+  species: 'Labrador retriever',
+  color: 'brown',
+  weight: 16,
+};
+
+fido['age'] = 2;
+fido['favorite food'] = 'peanut butter';
+// Add property 'age'.
+// Add property 'favorite food'.
+```
+
+To define a new object property (or to re-assign the value of an existing property), we can again use either dot notation or bracket notation, together with simple assignment syntax to set the desired value.
+
+Note that dot notation, however, has restrictions: As soon as the property name contains reserved characters like whitespaces, dots, or brackets, we need to use bracket notation. That is, while you can write` fido.age`, you cannot write `fido.favorite food`.
+
+### Greetings From Jane
+
+Add a property to the below object, jane, so that the code on line 13 logs 'Hej, Bobby!' to the console.
+
+```js
+let jane = {
+  firstName: 'Jane',
+  lastName: 'Harrelson',
+  age: 32,
+  location: {
+    country: 'Denmark',
+    city: 'Aarhus'
+  },
+  occupation: 'engineer',
+  greet: function(name) {
+    console.log(`Hej, ${name}!`);
+  },
+};
+
+jane.greet('Bobby'); // Hej, Bobby!
+```
+
+A property value can be any valid expression, including a function expression. When the value is a function and it is invoked with an explicit caller, as seen on line 13, it is called _method_ invocation.
+
+### Dot Notation vs Bracket Notation
+
+Before running any code, determine what difference there will be in the output of the two code snippets below (if any).
+
+```js
+// Snippet 1: dot notation
+let ocean = {};
+let prefix = 'Indian';
+
+ocean.prefix = 'Pacific';
+
+console.log(ocean); // { prefix: 'Pacific' }
+
+// Snippet 2: bracket notation
+let ocean = {};
+let prefix = 'Indian';
+
+ocean[prefix] = 'Pacific';
+
+console.log(ocean); // { Indian: 'Pacific' }
+```
+
+One important difference between bracket notation and dot notation is that *bracket notation accepts expressions, including variables.* So `while ocean.prefix` in Snippet 1 adds a property `'prefix'` to the `ocean` object, this is different on line 4 of Snippet 2. There we don't use the string `'prefix'` but the variable `prefix` as key. That is, JavaScript looks up the value of `prefix` and uses it as the name of the property. Since the value of `prefix` is `'Indian'`, we are adding the property `'Indian'` to the object. If we wanted to add a property `'prefix'` using bracket notation, we would need to write `ocean['prefix']`.
+
+### Is it true?
+
+We are experimenting with some code to get more comfortable working with objects. Run the snippet below and explain why "It's true!" is never output.
+
+```js
+let obj = {
+  num: 42,
+  'property name': 'string value',
+  true: false,
+  fun: function() {
+    console.log('Harr Harr!');
+  },
+};
+
+for (let prop in obj) {
+  if (prop === true) {
+    console.log("It's true!");
+  }
+}
+```
+
+The condition of our `if` statement on line 11 returns `false` for all properties, because property names are always strings, while the body of our `for` loop looks for the Boolean value `true`.
+
+_Object property names are always strings._ When we omit quotes around our property names, JavaScript implicitly converts the name to a string. So `true` is not a property defined on `obj`, but `'true'` is. You can check this for example as follows:
+
+```js
+for (let prop in obj) {
+  console.log(`${prop} (${typeof prop})`);
+}
+
+// logs:
+// num (string)
+// property name (string)
+// true (string)
+// fun (string)
+
+// In order for our code to log "It's true!", we need to compare obj's properties to 'true':
+
+for (let prop in obj) {
+  if (prop === 'true') {
+    console.log("It's true!");
+  }
+}
+```
+
+### Car Keys
+
+Write code that stores all of the vehicle property names in an array called keys.
+
+```js
+let vehicle = {
+  manufacturer: 'Tesla',
+  model: 'Model X',
+  year: 2015,
+  range: 295,
+  seats: 7
+};
+
+// Use Object.keys() method, which returns an array of a given object's own properties.
+let keys = Object.keys(vehicle);
+
+console.log(keys);
+// ['manufacturer', 'model', 'year', 'range', 'seats']
+
+// Use a for...in loop, pushing each object key into an array:
+let keys = [];
+
+for (let property in vehicle) {
+  keys.push(property);
+}
+```
+
+### Convert an object to a nested array
+
+Convert the `person` object into a nested array `nestedPerson`, containing the same key-value pairs.
+
+```js
+let person = {
+  title: 'Duke',
+  name: 'Nukem',
+  age: 33
+};
+
+let nestedPerson = Object.entries(person);
+
+console.log(nestedPerson);
+// [['title', 'Duke'], ['name', 'Nukem'], ['age', 33]]
+```
+
+Our solution leverages the `Object.entries()` method, which returns an array of a given's object key/value pairs. You can achieve the same using a `for...in` loop:
+
+```js
+let nestedPerson = [];
+
+for (let property in person) {
+  nestedPerson.push([property, person[property]]);
+}
+```
+
+### ...and vice versa
+
+Write code that does the reverse, starting from a nested array of pairs and building an object.
+
+```js
+let nestedArray = [['title', 'Duke'], ['name', 'Nukem'], ['age', 33]];
+
+// Expected output:
+// { title: 'Duke', name: 'Nukem', age: 33 }
+
+let person = {};
+
+for (let i = 0; i < nestedArray.length; i++) {
+  let pair = nestedArray[i];
+
+  person[pair[0]] = pair[1];
+}
+
+console.log(person);
+// { title: 'Duke', name: 'Nukem', age: 33 }
+
+// Alternative Solution
+let person = Object.fromEntries(nestedArray);
+console.log(person);
+// { title: 'Duke', name: 'Nukem', age: 33 }
+```
+
+Our solution simply iterates over the array and adds each two-element array to the object, using the first element as property name and the second element as value.
+
+Our alternative solution uses `Object.fromEntries`, which was added to JavaScript in ES2019 (ES10).
+
+### Cloning a Person
+
+Write a function `clone` that takes an object as argument and returns a shallow copy of that argument. A shallow copy returns a new object that is a copy of the original object. However, only the object itself and any properties with primitive values are duplicated. Properties that are themselves objects are copied "by reference" -- that is, only a pointer to the object is copied.
+
+For instance, consider the following object:
+
+```js
+let obj = {
+  number: 1,
+  string: 'abc',
+  array: [1, 2, 3],
+};
+```
+
+If we make a shallow copy of obj, we'll create a new object that has the same 3 properties as obj:
+
+```js
+let objCopy = clone(obj);
+console.log(objCopy); // { number: 1, string: 'abc', array: [ 1, 2, 3 ] }
+```
+
+Note that all 3 properties have the same value. However, what happens if we modify these values in one of the two objects and then inspect both objects?
+
+```js
+objCopy.number = 2;
+objCopy.string = 'xyz';
+objCopy.array.push(4);
+console.log(obj);     // { number: 1, string: 'abc', array: [ 1, 2, 3, 4 ] }
+console.log(objCopy); // { number: 2, string: 'xyz', array: [ 1, 2, 3, 4 ] }
+```
+
+As you might expect, the values for the `number` and `string` keys changed in `objCopy`, but not in `obj`. However, when we mutated the value of `objCopy.array`, it also mutated that value of `obj.array`. That's because a shallow copy only copies pointers for nested objects; since arrays are objects, the shallow copy just copied the pointer to the original array to `objCopy`. If you're wondering why this happens, you might want to review [Variables as Pointers](https://launchschool.com/books/javascript/read/more_stuff#variablesaspointers) section in the Introduction to JavaScript book.
+
+```js
+function clone(obj) {
+  // TODO
+}
+
+let person = {
+  title: 'Duke',
+  name: {
+    value: 'Nukem',
+    isStageName: true
+  },
+  age: 33
+};
+
+let clonedPerson = clone(person);
+person.age = 34;
+
+console.log(person.age);       // 34
+console.log(clonedPerson.age); // 33
+
+person.name.isStageName = false;
+console.log(person.name.isStageName);       // false
+console.log(clonedPerson.name.isStageName); // false
+```
+
+Solution
+
+```js
+function clone(obj) {
+  return Object.assign({}, obj);
+}
+```
+
+There are different ways to clone an object. The arguably easiest one is to use the Object.assign method. Note that this method only creates a shallow copy, which means that if you mutate one of the values in person, they will be mutated in clonedPerson as well. For example:
+
+```js
+let person = {
+  title: 'Duke',
+  name: {
+    value: 'Nukem',
+    isStageName: true
+  },
+  age: 33
+};
+
+let clonedPerson = clone(person);
+person.age = 34;
+
+console.log(person.age);       // 34
+console.log(clonedPerson.age); // 33
+
+person.name.isStageName = false;
+console.log(person.name.isStageName);       // false
+console.log(clonedPerson.name.isStageName); // false
+```
 
 
