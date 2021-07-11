@@ -28,6 +28,20 @@ On May 21, 2021, I was involuntarily terminated from my position as Project Mana
 
 The termination has been a blessing in disguise. In the weeks since being laid off, I have returned to programming. My original journey into programming began as a child when I dabbled with the BASIC programming language while my mother studied computer science. I remember the fascination of writing code on a TRS-80 computer and watching the output on the monitor. I loved that feedback loop. That journey ended in childhood as I moved on to other subjects in my educational development. But I planted a seed.
 
+The software engineering seed began to grow two years ago when I decided to make another career change. After college, I began my first career as a teacher and professor. This career spanned thirteen years and included working with students from kindergarten through college adults. Ready for a new challenge, I enrolled in law school. After law school, I worked as an attorney for ten years.
+
+In the spring of 2019, I first read about Blockchain. It piqued my curiosity, especially the concept of smart contracts. 
+
+law school  as a teacher for thirteen 
+
+in being a software engineer is the third iteration of my career. prior i was a teacher/professor and an attorney
+
+coding bootcamp GA
+
+
+
+===
+
 After my termination, I spent the end of May and the beginning of June applying to project manager positions with mixed emotions. I felt like I get a job fast. csm certification. what do I really want to do. started coding again. talked to GA bootcamp friends. help. be so good they can't ignore you cal newport
 
 
