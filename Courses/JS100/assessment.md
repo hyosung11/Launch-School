@@ -49,11 +49,11 @@ In the weeks since my termination, I have had time to ruminate on what I want to
 
 * Your goal after finishing Launch School.
 
-  * After finishing Launch School, I plan to apply for and earn a role as a professional software engineer at a small to mid-size company working on a product that meshes with my values to provide a service that helps people ...
+  * After finishing Launch School, my goal is to work as a professional software engineer. I want to work at a company developing a product that meshes with my values. In this role, I want to apply my specific knowledge with absolute accountability. By leveraging this at scale, I hope to help billions of people. If all goes well, I would like to achieve financial freedom for my family.
 
 * How you discovered Launch School.
 
-  * In an email message I received from `<Learn to Code with Me>` the author mentioned Launch School as an alternative to a coding bootcamp. I followed the link and down the rabbit hole. 
+  * In an email message I received from "<Learn to Code with Me>" the author mentioned Launch School as an alternative to a coding bootcamp. I followed the link and down the rabbit hole. 
 
 * What is your impression of the Prep courses that you just completed? Which parts were easy for you? Which were difficult? What did you enjoy? What didn't you like?
 
