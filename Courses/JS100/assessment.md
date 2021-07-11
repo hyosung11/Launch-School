@@ -6,13 +6,16 @@ Before you start the paid courses, please write an email to `hello@launchschool.
 
 Please include the following in your email:
 
-* Your name. => Introduction
+* Your name.
+
+INTRODUCTION
 
   * My full name is HyoSung Jonathon Bidol-Lee. You can call me 'H'. I live in Ridgewood, NJ, USA, a suburb of New York City. I'm married and the father of two children.
 
-* Your education and professional background, especially any _prior programming experience_. Please don't send a 1- or 2-sentence answer to this item. We will ask for more information if you do. => Education and Professional Background
+EDUCATION AND PROFESSIONAL BACKGROUND
+* Your education and professional background, especially any _prior programming experience_. Please don't send a 1- or 2-sentence answer to this item. We will ask for more information if you do.
 
-  * laid off from Catalogic
+  * ~~laid off from Catalogic~~
   * MA in Teaching
   * JD from NYLS
   * BA in History from UM
@@ -21,6 +24,12 @@ Please include the following in your email:
   * Udemy courses
   * hacker dabbler obsessive master 
 
+On May 21, 2021, I was involuntarily terminated from my position as Project Manager/Scrum Master at Catalogic Software. The company decided to sell its OEM database product to IBM. IBM had been leasing the product for many years prior to the sale. As the project manager on the product, my primary responsibility was to coordinate and communicate with project managers and offering management on the IBM side. Most of the engineering team from my company moved to IBM. IBM didn't hire me as my role was redundant once the product was sold. Since I lacked the technical skills and experience to work as a software engineer at Catalogic, which would have made me indispensable, I was let go.
+
+The termination has been a blessing in disguise. In the weeks since being laid off, I have returned to programming. My original journey into programming began as a child when I dabbled with the BASIC programming language while my mother studied computer science. I remember the fascination of writing code on a TRS-80 computer and watching the output on the monitor. I loved that feedback loop. That journey ended in childhood as I moved on to other subjects in my educational development. But I planted a seed.
+
+After my termination, I spent the end of May and the beginning of June applying to project manager positions with mixed emotions. I felt like I get a job fast. csm certification. what do I really want to do. started coding again. talked to GA bootcamp friends. help. be so good they can't ignore you cal newport
+
 
 * Your goal after finishing Launch School.
 
@@ -28,7 +37,7 @@ Please include the following in your email:
 
 * How you discovered Launch School.
 
-  * In an email message I received from <Learn to Code with Me> the author mentioned Launch School as an alternative to a coding bootcamp. I followed the link and down the rabbit hole. 
+  * In an email message I received from `<Learn to Code with Me>` the author mentioned Launch School as an alternative to a coding bootcamp. I followed the link and down the rabbit hole. 
 
 * What is your impression of the Prep courses that you just completed? Which parts were easy for you? Which were difficult? What did you enjoy? What didn't you like?
 
