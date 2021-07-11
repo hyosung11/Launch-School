@@ -24,7 +24,7 @@ EDUCATION AND PROFESSIONAL BACKGROUND
   * ~~Udemy courses~~
   *~~ hacker dabbler obsessive master ~~
 
-On May 21, 2021, I was involuntarily terminated from my position as Project Manager/Scrum Master at Catalogic Software. The company decided to sell its OEM database product to IBM. IBM had been leasing the product for many years prior to the sale. As the project manager on the product, my primary responsibility was to coordinate and communicate with project managers and offering management on the IBM side. Most of the engineering team from my company moved to IBM. IBM didn't hire me as my role was redundant once the product was sold. Since I lacked the technical skills and experience to work as a software engineer at Catalogic, which would have made me indispensable, I was let go.
+On May 21, 2021, I was involuntarily terminated from my position as Project Manager/Scrum Master at Catalogic Software. The company decided to sell its OEM database product to IBM. IBM had been leasing the product for many years prior to the sale. As the project manager on the product, my primary responsibility was to coordinate and communicate with project managers and offering management on the IBM side. Most of the engineering team from my company moved to IBM. IBM didn't hire me as my role was redundant once the product was sold. Since I lacked the technical skills and experience to continue to work at Catalogic, which would have made me indispensable, I was let go.
 
 The termination has been a blessing in disguise. In the weeks since being laid off, I have returned to programming. My original journey into programming began as a child when I dabbled with the BASIC programming language while my mother studied computer science. I remember the fascination of writing code on a TRS-80 computer and watching the output on the monitor. I loved that feedback loop. That journey ended in childhood as I moved on to other subjects in my educational development. But I planted a seed.
 
@@ -38,11 +38,13 @@ Coding bootcamp ended. I felt like an impostor. I applied to software engineer p
 
 I wanted to "be so good they can't ignore you." I watched the beginning of Harvard's CS50 course. I bought Udemy courses. I copied the code line by line of the Udemy courses. I added the projects to my github profile. I went back to freeCodeCamp and did more modules. I attempted coding challenges on different platforms. I obsessed over data structures and algorithms. I went an inch deep and a mile wide, far from mastery.
 
+In the meantime, I kept applying to software engineer positions, and other technical roles in software companies. After applying for a QA engineer position at Catalogic Software, the COO checked out my LinkedIn profile. I messaged him. He asked to meet me. We met and talked. The COO said I might make a good solutions engineer. He arranged an onsite interview with his team. I submitted an online coding challenge. I did four interviews in one day for a solutions engineer position. I got the job. I had no knowledge of IT Infrastructure. I struggled daily to learn basic technical concepts of system administration, networking, and virtualization to implement them in my job. I lacked foundational knowledge. I didn't have a scaffold from which I could create my competence. Six months into the job, the COO asked me to become the project manager, and I switched roles.
 
+In the weeks since my termination, I have had time to ruminate on what I want to do for work. I want to work as a software engineer. Through my self-reflection, I realize I need to master the fundamental of programming. I believe that materials beat methods. The Launch School curriculum and platform provides a great path to mastery.
 
-===
+~~love technology. Technology is the engine of human progress. I want ~~
 
-After my termination, I spent the end of May and the beginning of June applying to project manager positions with mixed emotions. I felt like I get a job fast. csm certification. what do I really want to do. started coding again. talked to GA bootcamp friends. help. be so good they can't ignore you cal newport
+~~After my termination, I spent the end of May and the beginning of June applying to project manager positions with mixed emotions. I felt like I get a job fast. csm certification. what do I really want to do. started coding again. talked to GA bootcamp friends. help. be so good they can't ignore you cal newport~~
 
 
 * Your goal after finishing Launch School.
