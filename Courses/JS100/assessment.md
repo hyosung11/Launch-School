@@ -10,33 +10,33 @@ Please include the following in your email:
 
 INTRODUCTION
 
-  * My full name is HyoSung Jonathon Bidol-Lee. You can call me 'H'. I live in Ridgewood, NJ, USA, a suburb of New York City. I'm married and the father of two children.
+  * My full name is HyoSung Jonathon Bidol-Lee. You can call me "H". I live in Ridgewood, NJ, USA, a suburb of New York City. I'm married and the father of two children.
 
 EDUCATION AND PROFESSIONAL BACKGROUND
 * Your education and professional background, especially any _prior programming experience_. Please don't send a 1- or 2-sentence answer to this item. We will ask for more information if you do.
 
   * ~~laid off from Catalogic~~
-  * MA in Teaching
-  * JD from NYLS
-  * BA in History from UM
-  * GA coding bootcamp
-  * freeCodeCamp
-  * Udemy courses
-  * hacker dabbler obsessive master 
+  * ~~MA in Teaching~~
+ ~~ * JD from NYLS~~
+  *~~ BA in History from UM~~
+  * ~~GA coding bootcamp~~
+  * ~~freeCodeCamp~~
+  * ~~Udemy courses~~
+  *~~ hacker dabbler obsessive master ~~
 
 On May 21, 2021, I was involuntarily terminated from my position as Project Manager/Scrum Master at Catalogic Software. The company decided to sell its OEM database product to IBM. IBM had been leasing the product for many years prior to the sale. As the project manager on the product, my primary responsibility was to coordinate and communicate with project managers and offering management on the IBM side. Most of the engineering team from my company moved to IBM. IBM didn't hire me as my role was redundant once the product was sold. Since I lacked the technical skills and experience to work as a software engineer at Catalogic, which would have made me indispensable, I was let go.
 
 The termination has been a blessing in disguise. In the weeks since being laid off, I have returned to programming. My original journey into programming began as a child when I dabbled with the BASIC programming language while my mother studied computer science. I remember the fascination of writing code on a TRS-80 computer and watching the output on the monitor. I loved that feedback loop. That journey ended in childhood as I moved on to other subjects in my educational development. But I planted a seed.
 
-The software engineering seed began to grow two years ago when I decided to make another career change. After college, I began my first career as a teacher and professor. This career spanned thirteen years and included working with students from kindergarten through college adults. Ready for a new challenge, I enrolled in law school. After law school, I worked as an attorney for ten years.
+The software engineering seed began to grow two years ago when I decided to make another career change. After college, I began my first career as a teacher and professor. This career spanned thirteen years and included working with students from kindergarten through college adults. Ready for a new challenge, I enrolled in law school. After law school, I worked as an attorney for ten years, primarily in civil litigation of employment matters.
 
-In the spring of 2019, I first read about Blockchain. It piqued my curiosity, especially the concept of smart contracts. 
+In the spring of 2019, I read about Blockchain. It piqued my curiosity, especially the concept of smart contracts. In _Blockchain: The Next Everything_, Stephen Williams writes: "Blockchain is software. It's as simple as that." I wanted to learn more. So, I bought the book *Coding for Beginners* and started hacking away. I didn't finish the book. I decided to go online and started freeCodeCamp. I liked the format and once again the feedback loop, but I didn't understand what I was doing. Hooked by coding, I realized I wanted professional help and live human interaction.
 
-law school  as a teacher for thirteen 
+Jumping all in, I considered my options to continue coding. I quickly dismissed the path through a traditional computer science degree as taking too long and being too expensive. Serendipitously, or so I thought at the time, I found out about coding bootcamps. I researched my options and chose the General Assembly Software Engineering Immersive Remote program. I learned a lot. I loved interacting with my cohort. I appreciated the support and feedback of the instructors. I built a couple of fullstack web apps. But the program moved too fast from fundamentals through fullstack web applications. I didn't have time to process what I was learning before we moved onto the next topic. I felt frustrated and lost at times as I worked through the course material and didn't understand the basics well enough to turn the bricks into a building. I was copying code without knowing what I was doing and why.
 
-in being a software engineer is the third iteration of my career. prior i was a teacher/professor and an attorney
+Coding bootcamp ended. I felt like an impostor. I applied to software engineer positions. Almost all of my applications were rejected. I got one phone interview. The company asked me to come for an onsite interview. I fumbled answers to easy computer science questions. I couldn't complete a simple whiteboard coding challenge. I didn't get the job.
 
-coding bootcamp GA
+I wanted to "be so good they can't ignore you." I watched the beginning of Harvard's CS50 course. I bought Udemy courses. I copied the code line by line of the Udemy courses. I added the projects to my github profile. I went back to freeCodeCamp and did more modules. I attempted coding challenges on different platforms. I obsessed over data structures and algorithms. I went an inch deep and a mile wide, far from mastery.
 
 
 
