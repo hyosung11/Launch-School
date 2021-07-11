@@ -46,6 +46,7 @@ In the weeks since my termination, I have had time to ruminate on what I want to
 
 ~~After my termination, I spent the end of May and the beginning of June applying to project manager positions with mixed emotions. I felt like I get a job fast. csm certification. what do I really want to do. started coding again. talked to GA bootcamp friends. help. be so good they can't ignore you cal newport~~
 
+LAUNCH SCHOOL QUESTIONS
 
 * Your goal after finishing Launch School.
 
@@ -53,19 +54,28 @@ In the weeks since my termination, I have had time to ruminate on what I want to
 
 * How you discovered Launch School.
 
-  * In an email message I received from "<Learn to Code with Me>" the author mentioned Launch School as an alternative to a coding bootcamp. I followed the link and down the rabbit hole. 
+  * In an email message I received from "Learn to Code with Me" the author mentioned Launch School as an alternative to a coding bootcamp. I followed the link and down the rabbit hole.
 
 * What is your impression of the Prep courses that you just completed? Which parts were easy for you? Which were difficult? What did you enjoy? What didn't you like?
+
+I enjoyed working through the Prep courses. The courses provided a good review of the basics that I had learned prior in my coding bootcamp and online courses. I found the presentation and sequence of the material to be well-thought. Doing the Prep courses solidified previous knowledge and filled in gaps of knowledge.
+
+The high level review of concepts seemed easy and enjoyable for me. I liked encountering things I previously knew and affirming that I understood the concepts. 
+
+I still find implementing concepts into code with precision challenging. I like this challenge and welcome it on the road to mastery. I realize I need to slow down and break an exercise down step-by-step. I like PEDAC. It reminds me of IRAC from law school where we had to approach a case sequentially by examining the Issue, delineating the Rule, Applying the law, to ascertain the Conclusion.
+
+In some sections I wanted more examples to illustrate the concept. This would be in addition to the exercises at the end of each chapter and the ones in JavaScript Basics.
 
   * thorough fun hard fundamental good review liked it well-thought out. clear what I have been looking for 
     * easy - review of concepts
     * difficult - slowing my mind down enough to really master the concepts and then actually code them out correctly
     * enjoy the learning process; the feedback loop still
     * didn't like 
+    * more exercises in the lecture section as well
 * 
 * How long did it take you to complete the Prep courses end-to-end?
 
-  * I started the Prep course on July 2 and finished on July 11. I worked more than eight hours a day on the material. Most of the material was a review and refresher of content I had already learned in my coding bootcamp and from self-learning through Udemy Courses, freeCodeCamp, and other sources.
+  * I started the Prep courses on July 2 and finished on July 12. I worked more than eight hours a day on the material. Most of the material was a review and a refresher of content I had already learned in my coding bootcamp and from self-learning through Udemy Courses, freeCodeCamp, and other sources.
 
 CONFIRMATIONS
 
