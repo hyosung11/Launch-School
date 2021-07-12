@@ -330,3 +330,5 @@ The answers you've clicked "saved" on are stored. You can go back to the quiz by
 #### Can I skip quizzes?
 
 No, you can't. You must complete the quiz before you can proceed to the next assignment/lesson.
+
+End
