@@ -143,3 +143,111 @@ Each lesson has a discussion forum that is accessible via the "Discussions" tab 
 You may also see threads pinned to the top of the lesson forums. Pinned threads are important or helpful discussions. They often answer frequently asked questions and may help you avoid common pitfalls. Take the time to read all of the pinned threads in the discussion forum for each lesson.
 
 After completing a course assignment, you may request a code review in the lesson discussion forum. Please read through our [Code Review Guidelines](https://launchschool.com/gists/8bbb0e2a).
+
+## 11. Study Sessions
+
+Studying with others — both through formal and informal study groups — is not a requirement of the Launch School curriculum. We do, however, encourage you to consider it.
+
+### Why should I study with others?
+
+Although Launch School is self-paced, the projects in your future career probably won't be. Working with and learning alongside others will likely be an important part of your job.
+
+Additionally, you will be required in the future to code in front of other people, even to be evaluated. This is common in software engineering interviews and even after accepting a job. It's also one of the key reasons we have interview assessments: we want you to get used to thinking and coding under pressure.
+
+A great way to practice for these future opportunities is by coding in front of and with other people. Although the assessments are still a few lessons away, it's never too early to start meeting and practicing what you know with other students.
+
+### **Formal Study Groups**
+
+Launch School TAs host several formal study groups each week. They range in topics from introductory content to preparing for various assessments (both written and interview).
+
+At this stage, any of the **JS100/101** study groups would be good to join. They're a great way to meet fellow students in a low-pressure and friendly environment. The TAs and study group leads are there to help you, answer questions you have about the topic, and give you an opportunity to practice discussing code and coding concepts with other people.
+
+Each study group has space for five students at a time, and you can sign up for these groups by going to the Forum page of the website (events are typically pinned posts at the top). If you're not sure what time the event is in your local timezone, visit the Events page to see it converted for you.
+
+### **Informal Study Groups**
+
+In addition to the formal study groups, we encourage you to practice one-on-one or in peer-led groups with other students. There are lots of way that you can meet other students to study with. You can meet potential study partners in the formal study groups. There are also a number of Slack channels focused on particular parts of the curriculum. These are a great place to encounter other students who are at the same place in the curriculum.
+
+The structure and focus of your study session can vary depending on a number of things, such as where you are in the curriculum or any particular learning objectives you have. Here's a few ideas you can try:
+
+* **Topic Presentation**. Pick a particular topic or programming concept, and briefly present on that topic to the rest of the group using a combination of explanations and/or code examples. Have the rest of the group ask questions and give feedback.
+* **Code Example Questions**. Have each student in the study group prepare a few code examples which illustrate or explore a particular concept. Take turns to ask the rest of the group about your examples, e.g. 'what will happen when this code is run?', 'what will line 5 output?', etc.
+* **Pair Problem Solving**. With a study partner, pick a coding problem that neither of you have solved before and solve it together. Discuss the problem and approach to solving it, and iterate on an approach.
+* **Live Coding Practice**. With a study partner, both of you choose a problem that the other has not seen before and solve it ahead of time. Then, on a call, your partner can give you a problem (that is new to you) to solve, and you can then give them a problem (that is new to them) to solve. Practice explaining your thought process, why you're choosing certain methods, etc.
+* **Flash-card Quiz**. Prepare a flash card deck on a particular topic or concept. Use these cards in the session to quiz your study partner or study group.
+
+#### Logistics
+
+* When organizing a meet up time, agree on how you will meet. Two good options are Slack calls and Zoom.
+* It's also important to see each other's code live. A few options: use [Coderpad](https://coderpad.io/) (which allows for 2 free pads a month with the free version), use [coderpad.io/sandbox](https://app.coderpad.io/sandbox) (switching the language to JavaScript) and share your screen, or use [repl.it](https://replit.com/~).
+* You can choose practice problems from throughout the curriculum lessons, in addition to the Small Problems and Basic Problems, depending on what your goals are.
+* Depending on your goals, study sessions can range from 30 min-1 hour or so. Seek to agree at the beginning how long you both can spend so as to manage expectations.
+* For focused study sessions, we suggest keeping the groups small (5 or less). If practicing shorter problems/concepts, it will be easier to accommodate more than 1 partner at a time; whereas with more focused practice, it's better to stick to 1 partner at a time.
+
+The overarching goal at this point is to gain confidence and communication skills in discussing coding and coding concepts covered in the Launch School curriculum. The Launch School curriculum is structured the way it is for a reason, and we'd recommend sticking to the learning path we've outlined. This [article](https://medium.com/launch-school/the-speed-of-mastery-my-pacing-at-launch-school-3493f251a6ad) discusses one student's approach to studying at Launch School, and trusting the curriculum as part of that approach (although the article refers to the Ruby courses, the points it makes are equally applicable to the JavaScript track).
+
+"The Speed of Mastery: My Pacing at Launch School" by Callie Buruchara
+
+- take well-organized notes in Notion.
+- get the gist the first time.
+- after finishing the course, go over notes again to seek mastery.
+- trust the LS curriculum
+
+## 12. Exercises: Small Problems
+
+While you're working through this course, you should concurrently work through the _Small Problems_ exercises from the Exercises tab:
+
+* Do around 20 exercises (or 2 sets) after each lesson.
+* The Advanced exercises sets if any are present are optional; think of those as challenges.
+* In most cases, the Small Problems should each take around 10-30 minutes to complete, though some may take significantly more time. 
+* You may want to space out the 20 exercises, tackling a couple per day.
+* If you encounter an exercise that requires knowledge that we haven't introduced yet, feel free to skip it and work on it later. 
+  * Don't get frustrated by a question that seems to draw too much on things you haven't seen yet.
+* The goal of this task isn't to complete exactly 20 exercises after each lesson. 
+  * We suggest that you complete all of the easy and medium exercises as part of your preparation for the first interview; 
+  * 20 questions per lesson helps spread that work out.
+  * Going into the interview, you should return to these questions and make sure that you've completed all the easy and medium exercises. 
+  * You may still encounter topics you haven't seen yet, and that's fine: try to use a search engine to help you find the solution anyway.
+
+Before working on the Small Problems, take time to read through our blog article about [The Two-Layer Problem](). This article addresses the challenge of solving a problem while simultaneously learning a new programming language.
+
+"The Two-Layer Problem" by Launch School
+
+* learning to solve problems while simultaneously memorizing the syntax of a particular language.
+
+> Write a program that finds all the words in the english language (anagrams) that can be formed by using the letters in a given string.
+
+* If you’re a programming beginner and find some elementary coding problems too difficult, it’s very likely caused by trying to code too soon.
+* Divide the problem into two sub-problems:
+  1. Identifying the logical steps of finding all anagrams of a string in a dictionary
+  2. Representing that logic with a programming language
+
+Formulating the logic is the more challenging and important layer of the problem. This step requires you try to reduce the problem to its essence — its most abstract form. Rather than reach for books on logic and philosophy here, we want to stay in the practical, programming realm and come up with a step-by-step algorithm that we can readily convert to a working program.
+#### PEDAC
+| Objective | Step | Description|
+| :--- | :---  | :-----      |
+| Process the Problem | Understand the Problem | <ul><li>Identify expected input and output</li><li>Make the requirements explicit</li><li>Identify rules</li><li>Mental model of the problem (optional)</li></ul> |
+| | Examples/Test Case | Validate understanding of the problem |
+| | Data Structure | How we represent data that we will work with when converting the input to output. |
+| | Algorithm | Steps for converting input to output |
+| Code with Intent | Code | Implementation of Algorithm |
+{"mode":"full","isActive":false}
+
+Beginner programmers often find problem solving difficult because they must struggle with two concerns at the same time.
+
+  * Finding a process that lets you separate the logic concern from the syntax concern greatly helps in reducing the difficulty. 
+  * It also helps develop a problem-solving process that’s independent of any particular language.
+
+_You may find it helpful to work some exercises multiple times to explore their depth and to allow the exercise to sink in fully._
+
+[JS101 Small Problems Exercises](https://launchschool.com/exercises#js101_small_problems)
+
+## 13. Summary
+
+You're almost ready to start the next lesson! First, though, there is a short quiz on some of the topics we've covered in this lesson. You should:
+
+* Mark this assignment as complete, then click on "Quiz" to go to the quiz.
+* Answer all of the questions in the quiz and submit your answers.
+* Once you've submitted your answers, you'll receive a score, and a "Take me to the next lesson" button will appear.
+* If you're ready to move on, click on the button to access the next lesson.
+* The quizzes in this course can be a useful indicator of topics you may want to review before moving on to a subsequent lesson.
