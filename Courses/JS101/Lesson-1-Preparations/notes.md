@@ -251,3 +251,26 @@ You're almost ready to start the next lesson! First, though, there is a short qu
 * Once you've submitted your answers, you'll receive a score, and a "Take me to the next lesson" button will appear.
 * If you're ready to move on, click on the button to access the next lesson.
 * The quizzes in this course can be a useful indicator of topics you may want to review before moving on to a subsequent lesson.
+
+[Some Advice to Those at the Beginning of Launch School](https://medium.com/launch-school/some-advice-to-those-at-the-beginning-of-launch-school-a6ff0b655a5d)
+
+* A place to write an outline of the course
+  * outline the course to serve as a _highly-functional and searchable table of contents_.
+  * Having your own outline lets you reference all the course material much more efficiently at any time you would like to reference it in the future, especially while preparing for assessments. 
+  * the outline for the entire course (e.g. RB101) should be in one document, not several.
+
+* The ability to use Anki reasonably well
+  * start every study session with Anki
+
+* A study buddy you get along with well for weekly sessions
+
+* A project management tool to keep track of to-dos (e.g. Trello)
+
+* The ability to carve out times of total focus on what you set out to do
+
+This means you are as thorough as possible the first time. One advantage of doing this all upfront is that it lets the information sink in over time, especially the Anki cards, which you’ll have more time to review and begin to build into your long-term memory.
+
+[A Few Tips on Using Anki for Learning To Code](https://medium.com/nerd-for-tech/a-few-tips-on-using-anki-for-learning-to-code-4ad01f2080a3)
+
+## 14. Lesson 1 Quiz 1
+
