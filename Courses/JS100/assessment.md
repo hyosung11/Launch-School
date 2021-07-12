@@ -99,8 +99,12 @@ CONFIRMATIONS
 
   * I confirm that I understand that Launch School does not issue refunds. I am ready to start the subscription/paid courses at Launch School.
 
-Please use the same email address that you use to log in to Launch School. If you do use a different email address, let us know your Launch School login.
+~~Please use the same email address that you use to log in to Launch School. If you do use a different email address, let us know your Launch School login.
 
 You will not be able to subscribe until we review your introduction email. Please give us at least 1 business day to reply. If you do not receive a reply within 3 business days, please send a follow up email. Please do not ask in the Chat Room or send follow up emails sooner than 3 business days. Thank you.
 
-Thank you! We will be in touch! Please skip the rest of this assignment.
+Thank you! We will be in touch! Please skip the rest of this assignment.~~
+
+Emailed an edited version of this Assessment.
+
+End
