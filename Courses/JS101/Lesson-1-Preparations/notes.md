@@ -86,3 +86,60 @@ There are videos in some parts of our program. Some are long while others are sh
 
 ## 9. Good vs Bad Questions
 
+We may not always be able to answer questions that go beyond what we cover in this program.
+
+### Bad Questions
+
+Here's an example of a bad question:
+
+> Can I assign a new value to a variable that's defined outside the current function?
+
+This question is bad since it's **easily testable**. We want to encourage you to try things yourself. Create a new `.js` file and give it a shot:
+
+```js
+let number = 5;
+
+function test() {
+  number = 3;
+}
+
+test();
+console.log(number);
+// => 3
+```
+
+### Good Questions
+
+A better question would be to observe this behavior and then make a small change. A good question, in this case, is to ask why the behavior is so different. For instance:
+
+> Why is it that I can assign a new value to a variable defined outside the current function, but it doesn't work when I use that variable as a parameter to the function?
+
+```js
+let number = 5;
+
+function test(number) {
+  number = 3;
+}
+
+test(number);
+console.log(number);
+// => 5
+```
+
+This question shows that you played with the code and observed an unexpected difference in behavior. We encourage you to ask these types of questions. Most "how does it work in JavaScript?" questions can be answered by experimenting in Node or by playing with the code in your editor. The trick to memorizing all the rules in JavaScript is **don't** -- you need to be able to _refresh_ your memory by experimenting with code. You should try to develop this habit early.
+
+If you do ask a "bad" question, we'll probably ask you to try it in Node or your editor. Don't be offended by responses like these; they're meant to help you in the long run. We may even ask you to try things in Node when you've asked a good question -- sometimes, the best way to answer a question is to help the person asking the question find the answer on their own.
+
+Side note: the reason that the second code snippet doesn't change the value of `number` defined on line 1 is that the `number` parameter on line 3 _shadows_ the `number` variable by creating a separate and independent variable with the same name, but with the scope limited to the function.
+
+### Let Us Know If You Figure It Out!
+
+If you ask a question, and then later figure out the answer on your own, please let us know! Not every question can be answered quickly, and may require some time and research. Save the person who answers your question that time and effort if you manage to answer your own question, and post what you found out.
+
+## 10. Lesson Discussion Forums
+
+Each lesson has a discussion forum that is accessible via the "Discussions" tab on the lesson's home page. These forums contain discussion threads initiated by other students to ask questions about course concepts, request code reviews, and get help debugging common errors. You are encouraged to use the existing threads as a learning tool. Feel free to read through them and use the search function at the top of the page. Please open a new discussion if you want to ask a question, however, even if it's related to the original question.
+
+You may also see threads pinned to the top of the lesson forums. Pinned threads are important or helpful discussions. They often answer frequently asked questions and may help you avoid common pitfalls. Take the time to read all of the pinned threads in the discussion forum for each lesson.
+
+After completing a course assignment, you may request a code review in the lesson discussion forum. Please read through our [Code Review Guidelines](https://launchschool.com/gists/8bbb0e2a).
