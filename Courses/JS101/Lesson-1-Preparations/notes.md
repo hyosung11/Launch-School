@@ -1,6 +1,6 @@
 # Lesson 1: Preparations Notes
 
-## Welcome
+## 1. Welcome
 
 ### Discussions vs General Forums
 
@@ -29,3 +29,40 @@ One of the benefits of going through a program like this is the other motivated 
 Feel free to ask questions, but go beyond "it doesn't work" or "I'm having issues." Take time to describe what isn't working, what the steps are to reproduce it, and any debugging steps you've already taken, and include a link to the code. Doing so will lead to faster, more helpful responses.
 
 ### Submitting Assignments
+
+## 2. Set Up Your Profile Image
+
+* Changed my GitHub Profile picture.
+* [Gravatar](https://en.gravatar.com/) a 3rd party profile image provider
+
+### 3. Using Markdown
+
+*  [GitHub-flavored Markdown](https://github.github.com/gfm/)
+*  Make sure that you surround code with backticks (`), not apostrophes ('). 
+   *  The backtick character is usually in the top left of your keyboard. 
+* Also make sure that you use the Preview functionality to double check that the output looks as you expect, especially if you copy/paste code or console output.
+
+### 4. - [x] Finish Prep Course
+
+### 5. System Check
+
+- [x] Node.js version 10.0.0 or higher installed.
+- [x] v16.4.1
+
+### 6. Differences Between JavaScript Versions
+
+* Be aware that differences exist.
+* With new releases of JavaScript, features are sometimes added, deprecated, or removed entirely.
+* When using the JavaScript documentation, be sure to check the compatibility charts.
+
+### 7. Git and GitHub
+
+Make sure your GitHub repositories are public so that we can see your code. We'll talk about code hygiene and working with teams much later in the program. For now, please follow these guidelines:
+
+* Make frequent commits to your local repository.
+* Push your code to the remote repository often.
+* Make sure that you push all your work-in-progress work to the remote repository when asking for help or a code review. It's how we can see your work and help you.
+* In this course, it's ok to use a single git repository for all of the assignments. Make sure to create a new directory for each lesson so that we don't have to go hunting through your code.
+* Do not create a nested git repository within another git repository. For instance, if you have a git repository in your js_101 directory, don't put another in js_101/tic-tac-toe. It's fine to put multiple small programs in separate directories within the repository, but don't create repositories inside those directories.
+* When we move on to web development projects, you should use a separate repository for each project, but that is not a requirement for now. It won't hurt if you do; creating new repositories will help you learn how to use git.
+* Much later, we may demonstrate places where you'd want to create a separate git repository to organize code. When you do that, make sure that you don't nest git repositories.
