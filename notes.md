@@ -20,4 +20,17 @@ a little tired and scattered at the moment. i had trouble sleeping last night as
 what type of role and in what kind of company do I want to work?
 look at LS95 again
 
+tired today. skipped the first quiz. I want to make my anki cards for the Prep courses and do at least one small problems set
 
+
+[Six Rules for Good Git Hygiene](https://betterprogramming.pub/six-rules-for-good-git-hygiene-5006cf9e9e2)
+
+Always `pull` before a `push`.
+`pull` frequently.
+`push` frequently.
+Commit frequently.
+* Commit small, single changes with carefully crafted commit messages that tell what the small, discrete change is.
+* If you need to use the word 'and', you are not committing enough.
+
+Merge `forward` frequently.
+Create `pull requests` infrequently.
