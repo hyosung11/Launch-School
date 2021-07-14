@@ -129,3 +129,5 @@ aa
 bb
 cc
 ```
+
+13:36 - reviewing my notes and code from the Intro to PEDAC study session. Time to take a break and go outside.
