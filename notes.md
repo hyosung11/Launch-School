@@ -82,10 +82,14 @@ Daily Scrum Questions
    1. Created Trello Agile Sprint Board
    2. Reviewed Prep course material and made Anki cards
 2. What will you do today?
-   1. Review Anki cards
-   2. Do one problem set
-   3. Participate in PEDAC session
-   4. Do more problem sets
-   5. Take Quiz 1
+   - [x] 1. Review Anki cards
+   - [ ] 2. Review [JS100 - JavaScript Basics](https://launchschool.com/exercises#js100_javascript_basics)
+   - [ ] 3. Participate in PEDAC session
+   - [ ] 4. Do more problem sets
+   - [ ] 5. Take Quiz 1
 3. Are there any blockers or impediments preventing you from doing your work?
    1. I'm good right now
+
+09:36 - pretty much finished Anki card review. I think 100 cards is too much for one review. 
+09:50 - doing more cards, but am going to take a break for ten minutes and start working on 
+10:10 - added speed focus mode to anki cards and finished 100 cards.
