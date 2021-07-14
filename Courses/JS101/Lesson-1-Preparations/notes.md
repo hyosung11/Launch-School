@@ -38,14 +38,14 @@ Feel free to ask questions, but go beyond "it doesn't work" or "I'm having issue
 ## 3. Using Markdown
 
 *  [GitHub-flavored Markdown](https://github.github.com/gfm/)
-*  Make sure that you surround code with backticks (`), not apostrophes ('). 
-   *  The backtick character is usually in the top left of your keyboard. 
+*  Make sure that you surround code with backticks (`), not apostrophes (').
+   *  The backtick character is usually in the top left of your keyboard.
 * Also make sure that you use the Preview functionality to double check that the output looks as you expect, especially if you copy/paste code or console output.
 
 ## 4. Finish Prep Course
 
-- [x] finish prep course
-- [ ] review prep course
+* [x] finish prep course
+* [x] review prep course
 
 ## 5. System Check
 

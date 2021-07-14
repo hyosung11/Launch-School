@@ -64,3 +64,11 @@ spent a lot of time reviewing the anki cards I made yesterday. I want to make mo
 17:55 I think reviewing the fundamentals will pay off later.
 
 20:33 Finished Anki cards on arrays.
+
+20210714 - 0:20 
+
+done for the day
+got through all the Intro to Programming book with Anki cards
+
+Review JS100 JavaScript Basics and/or start
+JS101 Small Problems
