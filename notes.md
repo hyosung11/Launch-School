@@ -4,7 +4,9 @@ Started the Prep courses and finished on Sunday, 20210711.
 Wrote and sent Assessment email on 20210711
 Accepted and enrolled on Monday, 20210712
 
-## 20210712
+---
+
+20210712 월요일
 
 Still trying to figure out how best to use Anki cards.
 What about agile/scrum development processes to go through the core curriculum?
@@ -35,15 +37,17 @@ Commit frequently.
 Merge `forward` frequently.
 Create `pull requests` infrequently.
 
-## 20210713 Tuesday
+---
 
-### Daily Scrum Questions
+20210713 화요일
+
+Daily Scrum Questions
 
 1. What did you do yesterday?
    1. Completed all of JS101 Lesson 1 except the quiz
    2. Reviewed Prep course material and made Anki cards
 2. What will you do today?
-   1. Review Anki cards [x]
+   1. Review Anki cards
    2. Continue to review Prep course material
    3. Make Anki cards for prep course material
    4. Do one problem set
@@ -65,10 +69,23 @@ spent a lot of time reviewing the anki cards I made yesterday. I want to make mo
 
 20:33 Finished Anki cards on arrays.
 
-20210714 - 0:20 
+---
+
+20210714 - 수요일 0:20 
 
 done for the day
 got through all the Intro to Programming book with Anki cards
 
-Review JS100 JavaScript Basics and/or start
-JS101 Small Problems
+Daily Scrum Questions
+
+1. What did you do yesterday?
+   1. Created Trello Agile Sprint Board
+   2. Reviewed Prep course material and made Anki cards
+2. What will you do today?
+   1. Review Anki cards
+   2. Do one problem set
+   3. Participate in PEDAC session
+   4. Do more problem sets
+   5. Take Quiz 1
+3. Are there any blockers or impediments preventing you from doing your work?
+   1. I'm good right now
