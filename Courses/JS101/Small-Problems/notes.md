@@ -36,41 +36,47 @@ Knowing how to solve computing problems and practicing those techniques will tak
   * Note: these videos aren't accessible until you get to Lesson 4
   * Use the problem-solving techniques described in the videos.
   * Try not to method hunt. Method hunting is searching for the perfect pre-built method to do what you need.
-      * Don't be afraid to use basic looping mechanisms like `while` and `for`.
-      * After you have code that works, you can think about simplifying it. However, that isn't the point of these exercises. It is good practice if you're up to the challenge, though.
+    * Don't be afraid to use basic looping mechanisms like `while` and `for`.
+    * After you have code that works, you can think about simplifying it. However, that isn't the point of these exercises. It is good practice if you're up to the challenge, though.
 
   * If something doesn't work right:
-      * Think about why it doesn't work.
-      * Study any error messages you receive.
-      * Use the debugger or console.log to explore what's happening.
-      * Don't try something else and hope it works; think about what needs to change, then change it.
+    * Think about why it doesn't work.
+    * Study any error messages you receive.
+    * Use the debugger or console.log to explore what's happening.
+    * Don't try something else and hope it works; think about what needs to change, then change it.
 
 * If you can't solve a problem at first, take a break and come back to it later.
 * If you can't solve the problem after a pause, take a quick look behind the Solution button.
-If there is an Approach/Algorithm section, read it and then try the problem again.
-Take a quick look at the answer to get a general feel for what it does, then try again.
-Read the Discussion section and study the solution until you feel you understand it.
-Type the presented code in and run it. Use the node debugger or some console.log statements to study how it works.
-Close the solution and try to build your own without referring back to ours.
-Once you have a working program, compare it to our solution and discussion.
-Don't worry if our solution looks different from yours.
-Ask yourself, what does our solution do differently than yours?
-Why do you think we did it the way we did it?
-Does your program miss some of the "edge cases"?
-In some cases, we show short, concise solutions; some are "one-liners." You are not expected to come up with such succinct code yourself, so don't feel intimidated or discouraged if your solution is considerably longer. That's normal and expected.
-Focus on writing code that is clear to you.
-Strive to understand our "one-liner" solutions, but your answer doesn't need to look like them. Some of our solutions are hard to follow at this stage, but they introduce useful techniques and methods for the future.
-A lot of JavaScript programmers write code in this compact manner, or worse, so you must learn to at least read it.
-Compare your solution with solutions posted by other students.
-See if you can use those solutions to make your code easier to understand.
-See something interesting? Read about it in the documentation.
-Post your answer if it differs notably from other solutions.
-After working through the exercises, go back to those that gave you difficulty. Keep going back until you believe you understand both the problem and the solution.
-The Further Exploration sections try to make you think about the exercise from a different perspective. Some of these Further Explorations are at the same difficulty level as the original, but some are considerably harder.
-Don't attempt the Further Explorations until you fully understand the original problem.
-Do try the Further Explorations once you fully understand the original. These problems are optional but recommended to improve your skills.
-Don't worry if you can't solve the Further Explorations! These problems are more about thinking than about writing code; that is why we don't supply solutions.
-Feel free to post your Further Exploration solutions with the other exercise solutions (make sure you identify it as a Further Exploration solution).
-Feel free to open a regular Forum post about a Further Exploration to discuss it (but try to avoid posting answers!)
+  * If there is an Approach/Algorithm section, read it and then try the problem again.
+  * Take a quick look at the answer to get a general feel for what it does, then try again.
+  * Read the Discussion section and study the solution until you feel you understand it.
+    * Type the presented code in and run it. Use the node debugger or some console.log statements to study how it works.
+    * Close the solution and try to build your own without referring back to ours.
+
+* Once you have a working program, compare it to our solution and discussion.
+  * Don't worry if our solution looks different from yours.
+    * Ask yourself, what does our solution do differently than yours?
+    * Why do you think we did it the way we did it?
+    * Does your program miss some of the "edge cases"?
+
+  * In some cases, we show short, concise solutions; some are "one-liners." You are not expected to come up with such succinct code yourself, so don't feel intimidated or discouraged if your solution is considerably longer. That's normal and expected.
+    * Focus on writing code that is clear to you.
+    * Strive to understand our "one-liner" solutions, but your answer doesn't need to look like them. Some of our solutions are hard to follow at this stage, but they introduce useful techniques and methods for the future.
+    * A lot of JavaScript programmers write code in this compact manner, or worse, so you must learn to at least read it.
+
+* Compare your solution with solutions posted by other students.
+  * See if you can use those solutions to make your code easier to understand.
+  * See something interesting? Read about it in the documentation.
+  * Post your answer if it differs notably from other solutions.
+
+* After working through the exercises, go back to those that gave you difficulty. Keep going back until you believe you understand both the problem and the solution.
+* The Further Exploration sections try to make you think about the exercise from a different perspective. Some of these Further Explorations are at the same difficulty level as the original, but some are considerably harder.
+  * Don't attempt the Further Explorations until you fully understand the original problem.
+  * Do try the Further Explorations once you fully understand the original. These problems are optional but recommended to improve your skills.
+  * Don't worry if you can't solve the Further Explorations! These problems are more about thinking than about writing code; that is why we don't supply solutions.
+  * Feel free to post your Further Exploration solutions with the other exercise solutions (make sure you identify it as a Further Exploration solution).
+  * Feel free to open a regular Forum post about a Further Exploration to discuss it (but try to avoid posting answers!)
+
+End
 
 
