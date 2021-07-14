@@ -43,7 +43,7 @@ Create `pull requests` infrequently.
    1. Completed all of JS101 Lesson 1 except the quiz
    2. Reviewed Prep course material and made Anki cards
 2. What will you do today?
-   1. Review Anki cards
+   1. Review Anki cards [x]
    2. Continue to review Prep course material
    3. Make Anki cards for prep course material
    4. Do one problem set
@@ -56,3 +56,11 @@ Anki cards
 Daily Scrum
 study buddy
 spent a lot of time reviewing the anki cards I made yesterday. I want to make more cards today before I do problems and take the quiz
+
+14:28 still reviewing the Introduction to Programming book and making Anki cards. This is beneficial.
+
+16:12 More review. God, I need to work on the problems instead of just looking at the answer.
+
+17:55 I think reviewing the fundamentals will pay off later.
+
+20:33 Finished Anki cards on arrays.
