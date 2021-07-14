@@ -124,7 +124,7 @@ What exactly are we missing out on by not having a peer group who we study with?
 line-numbers
 You can enable line number for a code block by adding line-numbers class.
 
-```js {.line-numbers}
+```javascript {.line-numbers} {highlight=2}
 aa
 bb
 cc
