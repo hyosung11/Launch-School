@@ -130,8 +130,9 @@ bb
 cc
 ```
 
-- this doesn't show up in GitHub
+* this doesn't show up in GitHub
 
 13:36 - reviewing my notes and code from the Intro to PEDAC study session. Time to take a break and go outside.
 
-15:28 I looked at the PEDAC problem again. I need to train in coding cleanly over and over again. 
+15:28 I looked at the PEDAC problem again. I need to train in coding cleanly over and over again.
+
