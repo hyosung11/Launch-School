@@ -116,3 +116,16 @@ What exactly are we missing out on by not having a peer group who we study with?
   * A future network of talented friends
   * Fulfillment from assisting other students
   * Getting unstuck quicker
+
+---
+
+[Markdown Preview Enhanced](https://shd101wyy.github.io/markdown-preview-enhanced/#/markdown-basics?id=line-numbers)
+
+line-numbers
+You can enable line number for a code block by adding line-numbers class.
+
+```js {.line-numbers}
+aa
+bb
+cc
+```
