@@ -231,8 +231,8 @@ firstName + ' ' + lastName;
 
 ### SyntaxError
 
-```js
-// SyntaxError 
+```js {.line-numbers}
+// SyntaxError
 let speedLimit = 60;
 let currentSpeed = 80;
 
@@ -257,7 +257,7 @@ if ((currentSpeed > speedLimit) && ((currentSpeed - speedLimit) > 5)) {
 
 ### TypeError
 
-```js
+```js {.line-numbers}
 let tweet = 'Woohoo! :-)';
 
 if (tweet.length() > 140) {
@@ -497,7 +497,7 @@ condition ? expression1 : expression2
 
 Take your code from the previous exercise and rewrite the conditional so that it uses the ternary if-then-else operator.
 
-```js
+```js {.line-numbers}
 let randomNumber = Math.round(Math.random());
 
 console.log(randomNumber ? 'Yes!' : 'No.');
@@ -902,7 +902,7 @@ Variables declared in an outer scope can be accessed in any inner scope. In our 
 
 What will the following code log to the console and why?
 
-```js
+```js {.line-numbers}
 function myFunction() {
   let a = 1;
 
