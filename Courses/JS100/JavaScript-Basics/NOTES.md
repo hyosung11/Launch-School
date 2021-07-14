@@ -231,7 +231,7 @@ firstName + ' ' + lastName;
 
 ### SyntaxError
 
-```js
+```js {.line-numbers}
 // SyntaxError 
 let speedLimit = 60;
 let currentSpeed = 80;
