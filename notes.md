@@ -136,3 +136,6 @@ cc
 
 15:28 I looked at the PEDAC problem again. I need to train in coding cleanly over and over again.
 
+17:22 worked through some JavaScript Basics exercises. Time to make dinner. I wonder if I should disable some of these extensions?
+
+19:52 made dinner, went for bike ride with SungOh and did Easy 1 > Isn't it Odd? exercise. It was fun to figure out by researching the `Math.abs()` function
