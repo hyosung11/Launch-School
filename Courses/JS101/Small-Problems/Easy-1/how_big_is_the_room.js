@@ -54,17 +54,55 @@ ALGORITHM
 
 CODE
 */
-// require readlineSync
+
+// // require readlineSync
+// let readlineSync = require('readline-sync');
+
+// // Ask for user input
+// let length = readlineSync.question('Enter the length of the room in meters: ');
+
+// let width = readlineSync.question('Enter the width of the room in meters: ');
+
+// // calculat area
+// let area = (length * width);
+// let areaSquareFeet = (area * 10.7639);
+
+// // return result
+// console.log(`The area of the room is ${area.toFixed(2)} square meters (${areaSquareFeet.toFixed(2)}) square feet.`);
+
+// Enter the length of the room in meters: 5
+// Enter the width of the room in meters: 4
+// The area of the room is 20.00 square meters (215.28) square feet.
+
+// LS Solution
 let readlineSync = require('readline-sync');
 
-// Ask for user input
-let length = readlineSync.question('Enter the length of the room in meters: ');
+const SQMETERS_TO_SQFEET = 10.7639;
 
-let width = readlineSync.question('Enter the width of the room in meters: ');
+console.log("Enter the length of the room in meters:");
+let length = readlineSync.prompt();
+length = parseInt(length, 10);
 
-// calculat area
-let area = length * width;
-let areaSquareFeet = area * 10.7639;
+console.log("Enter the width of the room in meters:");
+let width = readlineSync.prompt();
+width = parseInt(width, 10);
 
-// return result
-console.log(`The area of the room is ${area} square meters (${areaSquareFeet.toFixed(2)}) square feet.`);
+let areaInMeters = (length * width);
+let areaInFeet = (areaInMeters * SQMETERS_TO_SQFEET);
+
+console.log(`The area of the room is ${areaInMeters.toFixed(2)} square meters (${areaInFeet.toFixed(2)}) square feet.`)
+
+/*
+Discussion
+
+The approach is straightforward. It makes use of two readlineSync.prompt calls to get the length and width respectively, performs the computation, and then logs the results to the console. The solution does not check if the user input appropriate values.
+
+Some key things to note:
+
+- Notice that the constant, SQMETERS_TO_SQFEET, is written in ALL_CAPS. This follows the idiomatic naming convention for constants.
+- The readlineSync.prompt method returns a string. The parseInt function converts that string to an integer with radix 10.
+- The Number.prototype.toFixed method returns a string. You can read more about this method here. Essentially, toFixed() method formats a number. An argument can be also passed to the method call (we passed number 2 in our example) and that signifies the number of digits to appear after the decimal point. This argument is optional, and if it is omitted, it is treated as 0.
+
+Further Exploration
+
+Modify the program so that it asks the user for the input type (meters or feet). Compute for the area accordingly, and log it and its conversion in parentheses.

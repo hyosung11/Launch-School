@@ -252,3 +252,5 @@ Practice Process
 11:54 solved the `how_big_is_the_room.js` exercise without glancing at the solution. Woot Woot. Used PEDAC. This is fun.
 
 12:00 lunch break then look at the LS solution and other solutions.
+
+12:46 back after lunch.ls looking at my trello board at the moment.
