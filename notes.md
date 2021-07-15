@@ -139,3 +139,9 @@ cc
 17:22 worked through some JavaScript Basics exercises. Time to make dinner. I wonder if I should disable some of these extensions?
 
 19:52 made dinner, went for bike ride with SungOh and did Easy 1 > Isn't it Odd? exercise. It was fun to figure out by researching the `Math.abs()` function
+
+21:52 submitted odd_numbers.js solution and looked at the other solutions.
+
+22:10 submitted even_numbers.js solution which was super similar to odd_numbers.js
+
+22:31 started How Big is the room with setup of readline-sync, but going to sleep now.
