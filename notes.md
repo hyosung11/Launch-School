@@ -162,8 +162,87 @@ Daily Scrum Questions
    * [x] 3. Participated in PEDAC session
    * [x] 4. JS101 - Small Problems > Easy 1 > 1-3
 2. What will you do today?
-   * [ ] 1. Review Anki cards
+   * [x] 1. Review Anki cards
    * [ ] 2. JS101 Small Problems > Easy 4-11
    * [ ] 3. Take Quiz 1
 3. Are there any blockers or impediments preventing you from doing your work?
    1. No
+
+09:00 I asked Byron to do a daily scrum/standup at 11:00. We'll see if he responds. I also asked Alex to do a study session tomorrow morning. 
+
+09:05 Study Tips from Mandy Cheang (TA)  09:00
+
+Good morning!
+My best tips would probably be:
+
+* mindset, have a growth mindset
+* be kind and patient to yourself, take breaks and rest when you need. Your brain also is working in the backend when you're resting. (diffuse mode)
+* be self aware, iterate through your process of learning, get feedback, and ask structure questions when you don't understand. So "I tried this and that, my mental model is currently is this. But I don't know what is happening when the output is X, when I expect it to be Y." 
+* active recall, flash cards, teaching, but have some way to evaluate yourself or something else to evaluate you
+* mistakes are opportunities
+* try to make as MANY mistakes as you can and figure out the gaps in your knowledge before the assessment / interview
+* I use to "highlight and re-read" all the time, it's not effective.
+* I do take notes but I take notes in question form and convert them to anki flash cards
+* If you are struggling, don't try to tackle everything at once, break it down to the pieces and tackle each piece incrementally. Then everything will come together as a whole. Ex. You can't solve a coding problem within 20 minutes. It's not very effective if you keep coding with other students without working on yourself and the individual pieces your struggling with. In order to get faster, practice being familiar at the methods you can use, be rock solid on loops and iterations, then practice breaking down the problem, practice the algorithm. These are all pieces you can practice individually and be aware which pieces your struggling with and try to tackle that. It's like weight-lifting or playing a sport. If you want to have a strong full body or your training for a sport, you work on biceps for a while, then you work on legs, then everything comes together as a whole.
+* Don't worry about learning how to study, it's not a detriment of actually studying. I spent months iterating and learning more on how to learn. It pays dividends and your efforts will compound overtime. Learning how to learn effectively has been the best investment in my life.
+* Ok that was a lot. I have more resources for you if you're interested in taking a look. These things have helped me:
+* One last great tip is, study with others. If you haven't already, check out the #the-spot you can find a lot of other students on the same course, same path.
+
+---
+
+[How to Create and Practice Flashcards Like a Boss](https://medium.com/@iDoRecall/https-medium-com-idorecall-how-to-create-and-practice-flashcards-like-a-boss-b7efb5a53293)
+
+* flashcards are utilized for building easy recall of the things that you’ve already learned.
+* Create your flashcards while consuming your learning content. (When I use the word content, I’m referring to the academic materials that you can read, watch or listen to.)
+* read things only once.
+* The only active approach is to _practice retrieving what you learn from memory_.
+* Read once and create flashcards as you work your way through the material:
+  * capture all the concepts and facts you want to remember
+  * Once you have processed that piece of learning content, meaning once you have read it in its entirety and created the necessary flashcards, mark it as completed. 
+  * Then use the flashcards and retrieval practice as your primary tools for remembering the key concepts and facts forever.
+* When you create a flashcard, draft the question and answer from memory.
+* On every flashcard, ask only one question and whenever possible, only one answer.
+* the most challenging flashcards are the ones where you have to retrieve a large collection of items from memory.
+* keep the question concise but make it just long enough to be explicit and clear
+* carefully craft your question to elicit the best and most complete answer
+  * think like a trial attorney who is examining a witness
+* it's better for a question to be longer than the answer
+* keep answers short, simple and specific to stimulate synpatic strengthening.
+* use a combination of words and images -- dual coding -- to encode the question because it's easier to retrieve from memory
+* You can use an image as the question
+* Use colors and rich text formatting to make the text more memorable
+* use humor, narrative and personal examples to make flashcards more interesting
+* create flashcards for the most important facts that represent the core material you'll be expected to know (don't make cards for unimportant things)
+* create flashcards for both directions
+* use screengrabs (screenshots) liberally
+* break it down into its component parts and test your comprehension
+* use tags to organize your recalls (sessions) and library items
+* append a metacognitive question to the end of the answer
+* use cloze deletion questions
+* Open-ended questions are more challenging than cloze deletion type or multiple-choice questions.
+* use flashcards answers as an opportunity to build associations with other parts of your knowledgebase
+* craft why questions - deeper level of knowledge of understanding
+  * what is cancer (shallow) vs why does cancer exist in nature (deeper)
+* create multiple flashcards for the same concept that examine it from different viewpoints
+* use mnemonic devices
+  * acronyms
+  * rhymes too
+  * memory palace, especially for enumerations
+
+Practice Process
+
+* make a solid effort to retrieve the answer from memory first (retrieval practice, duh)
+  * if unsuccessful, admit that you don't recall the answer
+* tag each course and use additional tags for different topics within a subject
+  * use interleaving to enhance the power of practice
+* use spaced-repetition and manual study
+* respond out loud - talk to yourself to promote metacognition
+* edit cards during practice to fix errors, add new learning and highlight areas of struggle
+* go back to source content to refresh your memory if you struggle with an answer
+* study in new contexts - time and location
+* practice before you sleep to take advantage of sleep's memory consolidation powers
+* break up practice sessions into several pieces to make them less tedious
+
+---
+
+10:45 time for a break and to see if Byron and I connect today.
