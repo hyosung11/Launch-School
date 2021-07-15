@@ -166,7 +166,7 @@ Daily Scrum Questions
    * [ ] 2. JS101 Small Problems > Easy 4-11
    * [ ] 3. Take Quiz 1
 3. Are there any blockers or impediments preventing you from doing your work?
-   1. No
+   * No
 
 09:00 I asked Byron to do a daily scrum/standup at 11:00. We'll see if he responds. I also asked Alex to do a study session tomorrow morning. 
 
@@ -246,3 +246,9 @@ Practice Process
 ---
 
 10:45 time for a break and to see if Byron and I connect today.
+
+11:09 nothing from Byron. I want to find a study partner and/or group.
+
+11:54 solved the `how_big_is_the_room.js` exercise without glancing at the solution. Woot Woot. Used PEDAC. This is fun.
+
+12:00 lunch break then look at the LS solution and other solutions.
