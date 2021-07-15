@@ -83,9 +83,9 @@ Daily Scrum Questions
    2. Reviewed Prep course material and made Anki cards
 2. What will you do today?
    - [x] 1. Review Anki cards
-   - [ ] 2. Review [JS100 - JavaScript Basics](https://launchschool.com/exercises#js100_javascript_basics)
-   - [ ] 3. Participate in PEDAC session
-   - [ ] 4. Do more problem sets
+   - [x] 2. Review [JS100 - JavaScript Basics](https://launchschool.com/exercises#js100_javascript_basics)
+   - [x] 3. Participate in PEDAC session
+   - [x] 4. Do more problem sets
    - [ ] 5. Take Quiz 1
 3. Are there any blockers or impediments preventing you from doing your work?
    1. I'm good right now
@@ -145,3 +145,25 @@ cc
 22:10 submitted even_numbers.js solution which was super similar to odd_numbers.js
 
 22:31 started How Big is the room with setup of readline-sync, but going to sleep now.
+
+23:08 Jordan Whistler demonstrated Live Share for VS Code wtih me.
+
+---
+
+20210715 목요일
+
+07:23 Back at my MBP. Listening to LS podcast. Ready to do Anki cards.
+
+Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Reviewed Anki cards
+   * [x] 2. Reviewed [JS100 - JavaScript Basics](https://launchschool.com/exercises#js100_javascript_basics)
+   * [x] 3. Participated in PEDAC session
+   * [x] 4. JS101 - Small Problems > Easy 1 > 1-3
+2. What will you do today?
+   * [ ] 1. Review Anki cards
+   * [ ] 2. JS101 Small Problems > Easy 4-11
+   * [ ] 3. Take Quiz 1
+3. Are there any blockers or impediments preventing you from doing your work?
+   1. No
