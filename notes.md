@@ -280,8 +280,14 @@ Daily Scrum Questions
    * [x] 4. JS101 - Small Problems > Easy 1 > 4-5
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [ ] 2. Review Anki cards
+   * [x] 2. Review Anki cards
    * [ ] 3. JS101 Small Problems > Easy 6-11
    * [ ] 3. Take Quiz 1
 3. Are there any blockers or impediments preventing you from doing your work?
    * Eyes felt tired from all the screen time yesterday. I need to do some eye diverging exercises regularly.
+
+10:18 looked at LS solution for `sum_or_product.js` and refactored it a little. I decided not to go through other examples or do the further discussion prompt right now. Baby steps baby! 
+
+Prior, I reviewed and edited about 35 Anki cards.
+
+10:46 submitted `short_long_short.js` solution. Seemed easy and I was able to catch my mistake and fix it.

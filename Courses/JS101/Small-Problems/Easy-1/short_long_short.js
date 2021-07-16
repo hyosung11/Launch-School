@@ -42,7 +42,7 @@ CODE
 Implementation of Algorithm
 */
 
-// declare function
+// declare function (same as LS solution)
 function shortLongShort(string1, string2) {
   if (string1.length > string2.length) {
     return string2 + string1 + string2;
@@ -54,3 +54,16 @@ function shortLongShort(string1, string2) {
 console.log(shortLongShort('abc', 'defgh')); // "abcdefghabc"
 console.log(shortLongShort('abcde', 'fgh')); // "fghabcdefgh"
 console.log(shortLongShort('', 'xyz')); // "xyz"
+
+/* Discussion
+This solution takes advantage of the fact that JavaScript automatically coerces string primitives to String objects when needed.
+
+Notice how string1 and string2 can both use the .length property, even though they both reference string primitive values and not String objects. It's as if both values were created using the new String() function (i.e., new String('abc')).
+*/
+
+// Eamon O Callaghan
+function shortLongShort(string1, string2) {
+  return string1.length < string2.length
+    ? string1 + string2 + string1
+    : string2 + string1 + string2;
+}
