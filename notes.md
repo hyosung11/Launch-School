@@ -259,3 +259,14 @@ Practice Process
 
 16:09 finished `tip_calculator.js` and see different ways to write the solution. much to learn young padawan. much to learn.
 
+16:42 I took a break and did some Anki cards. I also got a snack. I'm a little tired.
+
+19:08 started `sum_or_product.js`
+
+---
+
+20210715 Friday
+
+05:51 getting setup for study session with Alex
+
+07:16 finished study session with Alex. Very helpful. I need to engage in the struggle and confusion.
