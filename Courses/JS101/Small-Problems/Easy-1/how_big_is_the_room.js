@@ -36,7 +36,7 @@ Identify rules:
 - use readlineSync prompt to gather user input
 
 Edge Cases:
-- can disregard because don't neet to validate user input
+- can disregard because don't need to validate user input
 
 EXAMPLES
 - see above in problem description

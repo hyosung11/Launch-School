@@ -25,13 +25,17 @@ Identify rules
 EXAMPLES / TEST CASES
 Validate understanding of the problem
 Edge Cases?
-1. -----------------------------------------
+-----------------------------------------
+Example 1
+
 Please enter an integer greater than 0: 5
 Enter "s" to compute the sum, or "p" to compute the product. s
 
 The sum of the integers between 1 and 5 is 15.
 
-2. ------------------------------------------
+------------------------------------------
+Example 2
+
 Please enter an integer greater than 0: 6
 Enter "s" to compute the sum, or "p" to compute the product. p
 
