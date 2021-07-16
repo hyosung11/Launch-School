@@ -270,3 +270,18 @@ Practice Process
 05:51 getting setup for study session with Alex
 
 07:16 finished study session with Alex. Very helpful. I need to engage in the struggle and confusion.
+
+Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Reviewed Anki cards
+   * [x] 2. Read and took notes on making flashcards
+   * [x] 3. Read blogs about learning to learn
+   * [x] 4. JS101 - Small Problems > Easy 1 > 4-5
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. Review Anki cards
+   * [ ] 3. JS101 Small Problems > Easy 6-11
+   * [ ] 3. Take Quiz 1
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Eyes felt tired from all the screen time yesterday. I need to do some eye diverging exercises regularly.
