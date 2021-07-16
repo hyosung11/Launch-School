@@ -258,3 +258,7 @@ Practice Process
 14:40 making slow progress and sharpening my use of PEDAC.
 
 16:09 finished `tip_calculator.js` and see different ways to write the solution. much to learn young padawan. much to learn.
+
+16:42 I took a break and did some Anki cards. I also got a snack. I'm a little tired.
+
+19:08 started `sum_or_product.js`
