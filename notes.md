@@ -98,27 +98,6 @@ Use a` \` to create a line break.
 
 ---
 
-[De-Isolate Your Studying](https://medium.com/launch-school/de-isolate-your-studying-104b87667b16)
-
-- construct a meaningful learning environment
-  - [Social Constructivism](https://en.wikipedia.org/wiki/Social_constructivism)
-    - interaction with others in the construction of knowledge
-    - integrated contexts
-    - social interaction
-      - meaning-making through negotiating with the ideas of others promotes retention
-
-**The Benefits of Peers**
-What exactly are we missing out on by not having a peer group who we study with?
-  * Deeper understanding of the material
-  * A more developed ability to demonstrate skills
-  * An increased ability to cope with anxiety
-  * Faster recall of useful information
-  * A future network of talented friends
-  * Fulfillment from assisting other students
-  * Getting unstuck quicker
-
----
-
 [Markdown Preview Enhanced](https://shd101wyy.github.io/markdown-preview-enhanced/#/markdown-basics?id=line-numbers)
 
 line-numbers
@@ -170,7 +149,9 @@ Daily Scrum Questions
 
 09:00 I asked Byron to do a daily scrum/standup at 11:00. We'll see if he responds. I also asked Alex to do a study session tomorrow morning. 
 
-09:05 Study Tips from Mandy Cheang (TA)  09:00
+09:05 Study Tips from Mandy Cheang (TA)  09:00 => check `mandy_cheang_study_tips.md`
+
+# Mandy Cheang Study Tips from Slack Message
 
 Good morning!
 My best tips would probably be:
@@ -187,8 +168,6 @@ My best tips would probably be:
 * Don't worry about learning how to study, it's not a detriment of actually studying. I spent months iterating and learning more on how to learn. It pays dividends and your efforts will compound overtime. Learning how to learn effectively has been the best investment in my life.
 * Ok that was a lot. I have more resources for you if you're interested in taking a look. These things have helped me:
 * One last great tip is, study with others. If you haven't already, check out the #the-spot you can find a lot of other students on the same course, same path.
-
----
 
 [How to Create and Practice Flashcards Like a Boss](https://medium.com/@iDoRecall/https-medium-com-idorecall-how-to-create-and-practice-flashcards-like-a-boss-b7efb5a53293)
 
@@ -293,3 +272,7 @@ Prior, I reviewed and edited about 35 Anki cards.
 10:46 submitted `short_long_short.js` solution. Seemed easy and I was able to catch my mistake and fix it.
 
 11:13 lower back feels tight from sitting. I'm going to my standing desk now.
+
+13:17 After lunch, I submitted `leap_years1.js` solution. Yipee!
+
+13:50 Studying more learning how to learn material. Created directory `Learning-to-Learn`
