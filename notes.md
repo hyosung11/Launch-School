@@ -253,8 +253,9 @@ Practice Process
 
 12:00 lunch break then look at the LS solution and other solutions.
 
-12:46 back after lunch.ls looking at my trello board at the moment.
+12:46 back after lunch.looking at my trello board at the moment.
 
 14:40 making slow progress and sharpening my use of PEDAC.
 
 16:09 finished `tip_calculator.js` and see different ways to write the solution. much to learn young padawan. much to learn.
+
