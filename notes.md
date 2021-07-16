@@ -286,8 +286,10 @@ Daily Scrum Questions
 3. Are there any blockers or impediments preventing you from doing your work?
    * Eyes felt tired from all the screen time yesterday. I need to do some eye diverging exercises regularly.
 
-10:18 looked at LS solution for `sum_or_product.js` and refactored it a little. I decided not to go through other examples or do the further discussion prompt right now. Baby steps baby! 
+10:18 looked at LS solution for `sum_or_product.js` and refactored it a little. I decided not to go through other examples or do the further discussion prompt right now. Baby steps baby!
 
 Prior, I reviewed and edited about 35 Anki cards.
 
 10:46 submitted `short_long_short.js` solution. Seemed easy and I was able to catch my mistake and fix it.
+
+11:13 lower back feels tight from sitting. I'm going to my standing desk now.

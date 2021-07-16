@@ -17,6 +17,7 @@ Make the requirements explicit
 
 Identify rules (problem domain; implicit concepts)
 - assume strings are different lengths
+- one or more of the strings may be empty
 - remember to test code along the way
 
 EXAMPLES / TEST CASES
@@ -29,7 +30,8 @@ EXAMPLES / TEST CASES
 
 DATA STRUCTURE
 How we represent data that we will work with when converting the input to output.
-- none
+- function with two strings as input
+- two variables: shorter string and longer string
 
 ALGORITHM
 Steps for converting input to output
