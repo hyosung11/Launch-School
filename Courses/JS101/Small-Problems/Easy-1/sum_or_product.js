@@ -70,40 +70,94 @@ Steps for converting input to output
 
 CODE
 */
-// require readlineSync
+// // require readlineSync
+// let readlineSync = require('readline-sync');
+
+// // ask user for an integer greater than 0
+// console.log("Please enter an integer greater than 0");
+// let number = parseInt(readlineSync.prompt(), 10);
+
+// // ask user to compute the sum or compute the product
+// console.log("Enter 's' to compute the sum, or 'p' to compute the product.");
+// let operation = readlineSync.prompt();
+
+// // evaluate the user response
+// if (operation === 's') {
+//   console.log(`The sum of the integers between 1 and ${number} is ${sum(number)}.`);
+// } else if (operation === 'p') {
+//   console.log(`The product of the integers between 1 and ${number} is ${product(number)}.`);
+// } else {
+//   console.log("Oops. Unknown operation.");
+// }
+
+// function sum(number) {
+//   let sum = 0;
+//   while (number > 0) {
+//     sum += number
+//     number -= 1;
+//   }
+//   return sum;
+// }
+
+// function product(number) {
+//   let product = 1;
+//   while (number > 0) {
+//     product *= number;
+//     number -= 1;
+//   }
+//   return product;
+// }
+
+// the UX of the input is unclear. What does the prompt want? There's no context.
+
+// LS Solution
+// sum function
+function computeSum(targetNumber) {
+  let total = 0;
+  for (let number = 0; number <= targetNumber; number += 1) {
+    total += number;
+  }
+
+  return total;
+}
+// product function
+function computeProduct(targetNumber) {
+  let total = 1;
+  for (let number = 1; number <= targetNumber; number += 1) {
+    total *= number;
+  }
+
+  return total;
+}
+// require readline-sync
 let readlineSync = require('readline-sync');
 
-// ask user for an integer greater than 0
-console.log("Please enter an integer greater than 0");
+// ask user for integer
+console.log("Please enter an integer greater than 0: ");
 let number = parseInt(readlineSync.prompt(), 10);
 
-// ask user to compute the sum or compute the product
-console.log("Enter 's' to compute the sum, or 'p' to compute the product.");
+// ask user for operation
+console.log("Enter 's' to compute the sum, or 'p' to compute the product: ");
 let operation = readlineSync.prompt();
 
-// evaluate the user response
+// follow response to call correct function
 if (operation === 's') {
-  console.log(`The sum of the integers between 1 and ${number} is ${sum(number)}.`);
+  let sum = computeSum(number);
+  console.log(`The sum of the integers between 1 and ${number} is ${sum}.`)
 } else if (operation === 'p') {
-  console.log(`The product of the integers between 1 and ${number} is ${product(number)}.`);
+  let product = computeProduct(number);
+  console.log(`The product of the integers between 1 and ${number} is ${product}.`);
 } else {
-  console.log("Oops. Unknown operation.");
+  console.log("Sorry, unknown operation. Terminating ...")
 }
 
-function sum(number) {
-  let sum = 0;
-  while (number > 0) {
-    sum += number
-    number -= 1;
-  }
-   return sum;
-}
+/*
+Discussion
+For brevity and simplicity, our solution doesn't try too hard to validate the user input. Your own solution should probably try to validate input and issue error messages as needed.
 
-function product(number) {
-  let product = 1;
-  while (number > 0) {
-    product *= number;
-    number -= 1;
-  }
-  return product;
-}
+The solution defines two helper functions: computeSum and computeProduct. Which one will be used depends on the input that is provided by the user ('p' or 's'). Note the starting value for total in both of these functions. It is 1 for computeProduct, instead of 0; otherwise the value returned would always be 0.
+
+Further Exploration
+What if the input was an array of integers instead of just a single integer? How would your computeSum and computeProduct functions change? Given that the input is an array, how might you make use of the Array.prototype.reduce() method?
+*/
+
