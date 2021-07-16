@@ -276,3 +276,7 @@ Prior, I reviewed and edited about 35 Anki cards.
 13:17 After lunch, I submitted `leap_years1.js` solution. Yipee!
 
 13:50 Studying more learning how to learn material. Created directory `Learning-to-Learn`
+
+16:16 completed `multiples_of_3_and_5.js` with Laurent.
+
+16:38 created `pedac_template.md` for future use.

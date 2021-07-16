@@ -50,17 +50,22 @@ Return the total
 CODE
 Implementation of Algorithm
 */
-function multisum(number) {
-  let total = 0;
 
-  for (let integer = 0; integer <= number; integer += 1) {
-    if (integer % 3 === 0 || integer % 5 === 0) {
-      total += integer;
-    }
+// version with Laurent
+// function multisum(number) {
+//   let total = 0;
 
-  }
-  return total;
-}
+//   for (let integer = 0; integer <= number; integer += 1) {
+//     if (integer % 3 === 0 || integer % 5 === 0) {
+//       total += integer;
+//     }
+
+//   }
+//   return total;
+// }
+
+// LS solution
+
 
 console.log(multisum(3));       // 3
 console.log(multisum(5));       // 8
