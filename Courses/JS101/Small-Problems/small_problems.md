@@ -14,12 +14,12 @@ The problems are classified as Easy, Medium, and Advanced. These classifications
 
 Ideally, you should be able to *solve most Easy exercises without leaning too heavily on the JavaScript documentation*. That doesn't mean that you shouldn't use it; however, you should be familiar enough with JavaScript's:
 
-* syntax, 
-* conditionals, 
-* loops, 
-* method definitions, 
+* syntax,
+* conditionals,
+* loops,
+* method definitions,
 * fundamental data types
-* most often-used methods. 
+* most often-used methods.
 
  If you need to look up information too often, you may spend more time reading than you do writing code. Keep practicing until you build up some "muscle memory."
 

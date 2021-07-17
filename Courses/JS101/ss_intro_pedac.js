@@ -64,9 +64,7 @@ loop through the collection of strings one by one
   after we iterate through a single string, push counter to result array
   -after we iterate through the collection of strings
   - return result array
-*/
 
-/*
 Byron's Algorithm
 
 Given a collections of strings
@@ -90,11 +88,14 @@ function countMatchingIndices(array) {
   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
   let resultArray = [];
 
-  for (let index = 0; index < array.length; index++) {
+  // loop through the array
+  for (let indexOfArray = 0; indexOfArray < array.length; indexOfArray += 1) {
     let count = 0;
-    let word = array[index];
-    for (let stringIndex = 0; stringIndex < word.length; stringIndex++) {
-      if (word[stringIndex].toLowerCase() === alphabet[stringIndex]) {
+    let word = array[indexOfArray];
+
+    // loop through string
+    for (let indexOfString = 0; indexOfString < word.length; indexOfString += 1) {
+      if (word[indexOfString].toLowerCase() === alphabet[indexOfString]) {
         count += 1;
       }
     }
@@ -104,6 +105,27 @@ function countMatchingIndices(array) {
 
   return resultArray;
 }
+
+
+// function countMatchingIndices(array) {
+//   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+//   let resultArray = [];
+
+//   for (let index = 0; index < array.length; index++) {
+//     let count = 0;
+//     let word = array[index];
+
+//     for (let stringIndex = 0; stringIndex < word.length; stringIndex++) {
+//       if (word[stringIndex].toLowerCase() === alphabet[stringIndex]) {
+//         count += 1;
+//       }
+//     }
+
+//     resultArray.push(count);
+//   }
+
+//   return resultArray;
+// }
 
 // countMatchingIndices()
 // Version 1
