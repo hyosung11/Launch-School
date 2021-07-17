@@ -2,6 +2,7 @@ PEDAC => process the problem (PEDA) and code with intent (C)
 
 PROBLEM
 Identify expected input and output
+
 - input:
 - output:
 
@@ -23,8 +24,14 @@ Edge Cases?
 DATA STRUCTURE
 How we represent the data that we will work with when converting the input to output.
 
+- input
+- intermediary
+- output
+
 ALGORITHM
 Steps for converting input to output
 
 CODE
 Implementation of Algorithm
+
+- test code while programming
