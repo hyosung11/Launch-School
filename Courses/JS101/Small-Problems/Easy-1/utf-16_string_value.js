@@ -1,10 +1,6 @@
 /* JS101 - Small Problems > Easy 1 > 11. UTF-16 String Value
 
-Write a function that determines and returns the UTF-16 string value of a string 
-passed in as an argument. The UTF-16 string value is the sum of the UTF-16 
-values of every character in the string. 
-(You may use String.prototype.charCodeAt() to determine the UTF-16 value of a 
-character.)
+Write a function that determines and returns the UTF-16 string value of a string passed in as an argument. The UTF-16 string value is the sum of the UTF-16 values of every character in the string. (You may use String.prototype.charCodeAt() to determine the UTF-16 value of a character.)
 
 
 PEDAC => process the problem (PEDA) and code with intent (C)
@@ -15,8 +11,7 @@ Identify expected input and output
 - output: number
 
 Make the requirements explicit (clarifying questions)
-- input a string and return the sum of the values of each character in the 
-string as a UTF-16 string value
+- input a string and return the sum of the values of each character in the string as a UTF-16 string value
 
 Identify rules
 - use String.prototype.charCodeAt() for the value of a character
@@ -42,8 +37,7 @@ utf16Value(OMEGA + OMEGA + OMEGA);  // 2811
 Edge Cases?
 
 DATA STRUCTURE
-How we represent the data that we will work with
-when converting the input to output.
+How we represent the data that we will work with when converting the input to output.
 - string into number
 
 ALGORITHM
@@ -59,16 +53,53 @@ Steps for converting input to output
 CODE
 Implementation of Algorithm
 */
-function utf16Value(string) {
-  let totalValue = 0;
-  for (let character = 0; character < string.length; character += 1) {
-    let characterValue = string[character].charCodeAt();
-    totalValue += characterValue;
-  }
-  return totalValue;
-}
+
+// solution with Laurent
+// function utf16Value(string) {
+//   let totalValue = 0;
+//   for (let character = 0; character < string.length; character += 1) {
+//     let characterValue = string[character].charCodeAt();
+//     totalValue += characterValue;
+//   }
+//   return totalValue;
+// }
+
+// LS Solution
+// function utf16Value(string) {
+//   let sum = 0;
+
+//   for (let index = 0; index < string.length; index += 1) {
+//     sum += string.charCodeAt(index);
+//   }
+
+//   return sum;
+// }
 
 console.log(utf16Value('Four score'));         // 984
 console.log(utf16Value('Launch School'));      // 1251
 console.log(utf16Value('a'));                  // 97
 console.log(utf16Value(''));                   // 0
+
+// code works with non-ASCII characters from the UTF-16
+// character set
+
+const OMEGA = "\u03A9"; // UTF-16 character 'Ω' (omega)
+
+console.log(utf16Value(OMEGA)); // 937
+console.log(utf16Value(OMEGA + OMEGA + OMEGA)); // 2811
+
+/* Discussion
+
+The solution initializes the sum to 0 (which takes care of the empty string test case, in addition to giving us a starting value), then adds the UTF-16 character code value for every character to that sum. Finally, it returns the sum.
+*/
+
+// Mel Truong version
+function utf16Value(string) {
+  let array = [];
+
+  for (let index = 0; index < string.length; index += 1) {
+    array.push(string.charCodeAt(index));
+  }
+
+  return array.reduce((accumulator, element) => accumulator + element, 0);
+}

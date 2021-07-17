@@ -310,3 +310,9 @@ Prior, I reviewed and edited about 35 Anki cards.
 10:57 completed two JS101-Small Problems > Easy 1 & Easy 2. Time for a short break.
 
 11:25 switching to the dining room table on my MBP.
+
+11:41 at the kitchen table. I need to learn git better. Human mind over computer mind.
+
+12:44 Studied and edited 35 Anki cards. Time to make lunch
+
+16:52 took NJSIAA Soccer Referee exam and passed with 84% correct. Yikes. Need to focus for Launch School quizzes and assessments!
