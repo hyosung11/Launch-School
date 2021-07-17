@@ -10,14 +10,13 @@
 
 ### 4. Notification Settings
 
-### 5.	Read: Pages from the Website
+### 5. Read: Pages from the Website
 
-### 6.What is Software Development?	completed
+### 6.What is Software Development? completed
 
 ### 7.How to launch a career as a Software Developer
 
 [What is Code?](https://www.bloomberg.com/graphics/2015-paul-ford-what-is-code/)
-
 
 ### 8. What language should I learn?
 
@@ -34,7 +33,7 @@ Issues in Learning First Language:
 * How to evaluate code
 * How to collaborate with other developers
 
-### 9.	Our Learning Goals
+### 9.Our Learning Goals
 
 The core of our learning goals is centered around five principles:
 
@@ -44,7 +43,7 @@ The core of our learning goals is centered around five principles:
 4. Circular Learning
 5. The Slow Path
 
-### 10.	Mastery Based Learning
+### 10. Mastery Based Learning
 
 Salman Khan of Khan Academy about Mastery:
 
@@ -52,11 +51,11 @@ Salman Khan of Khan Academy about Mastery:
 
 ### 11. How Long Will This Take?
 
-### 12.	Read: Article by Peter Norvig
+### 12. Read: Article by Peter Norvig
 
 [Teach Yourself Programming in Ten Years](https://norvig.com/21-days.html)
 
-### 13.	Read: Mastery by George Leonard
+### 13. Read: Mastery by George Leonard
 
 ### 14. How Not To Learn
 
@@ -70,31 +69,32 @@ Salman Khan of Khan Academy about Mastery:
 
 [De-Isolate Your Studying, by Nathan Worden](https://medium.com/launch-school/de-isolate-your-studying-104b87667b16)
 
-### 18.	Launch School Podcast
+### 18. Launch School Podcast
 
-### 19.	How Computers Work
+### 19. How Computers Work
 
 [Crash Course Computer Science Preview](https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo)
-### 20.	Summary
+
+### 20. Summary
 
 ---
 
 ## II. Getting Ready to Program
 
-### 1.	Introduction
+### 1. Introduction
 
-### 2	Your Operating System
+### 2 Your Operating System
 
-### 3	Using a Cloud Based Development Environment or WSL
+### 3 Using a Cloud Based Development Environment or WSL
 
-### 4	Book: Introduction to the Command Line
+### 4 Book: Introduction to the Command Line
 
-### 5	Select an Editor
+### 5 Select an Editor
 
-### 6	Set Your Editor Indentation
+### 6 Set Your Editor Indentation
 
-### 7	Book: Git and GitHub
+### 7 Book: Git and GitHub
 
-### 8	Selecting Your Track
+### 8 Selecting Your Track
 
 End
