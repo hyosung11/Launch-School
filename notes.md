@@ -147,7 +147,7 @@ Daily Scrum Questions
 3. Are there any blockers or impediments preventing you from doing your work?
    * No
 
-09:00 I asked Byron to do a daily scrum/standup at 11:00. We'll see if he responds. I also asked Alex to do a study session tomorrow morning. 
+09:00 I asked Byron to do a daily scrum/standup at 11:00. We'll see if he responds. I also asked Alex to do a study session tomorrow morning.
 
 09:05 Study Tips from Mandy Cheang (TA)  09:00 => check `mandy_cheang_study_tips.md`
 
@@ -286,3 +286,23 @@ Prior, I reviewed and edited about 35 Anki cards.
 21:12 submitted `leapyears2.js` solution. pretty easy to add an additional if statement at the top of the function.
 
 21:22 submitted `multiples_of_3_and_5.js` LS solution and discussion.
+
+---
+
+20210717 Saturday
+
+09:00 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [X] 2. Reviewed, Edited and Created Anki cards
+   * [x] 3. JS101 Small Problems > Easy 6-10
+   * [x] 3. Read blogs about learning to learn
+   * [x] 4. Study Session with Laurent
+2. What will you do today?
+   * [x] 1. Listen to Launch School podcast episode
+   * [ ] 2. Review Anki cards
+   * [ ] 3. JS101 - Small Problems > Easy 1 > 11
+   * [ ] 4. Take Quiz 1
+3. Are there any blockers or impediments preventing you from doing your work?
+   * None
