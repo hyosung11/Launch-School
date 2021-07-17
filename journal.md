@@ -320,3 +320,7 @@ Prior, I reviewed and edited about 35 Anki cards.
 15:51 took a short nap and am now going to do the NJSIAA referee soccer exam.
 
 16:52 took NJSIAA Soccer Referee exam and passed with 84% correct. Yikes. Need to focus for Launch School quizzes and assessments!
+
+18:48 After dinner looking at the exercise from the Intro to PEDAC session with Juliette. I want to code it from the algorithm.
+
+19:05 I need to practice, practice, practice. Still gaps in my knowledge of looping and returnin from arrays.
