@@ -312,3 +312,5 @@ Prior, I reviewed and edited about 35 Anki cards.
 11:25 switching to the dining room table on my MBP.
 
 11:41 at the kitchen table. I need to learn git better. Human mind over computer mind.
+
+12:44 Studied and edited 35 Anki cards. Time to make lunch
