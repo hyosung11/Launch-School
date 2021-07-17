@@ -10,17 +10,26 @@ The JavaScript Small Problems exercises are a set of programming problems that h
 
 ### Difficulty Levels
 
-The problems are classified as Easy, Medium, and Advanced. These classifications are somewhat fluid, though, which means that some exercises may seem easier or harder than you might expect. To pass the assessment, you should be able to solve problems that have a difficulty level similar to those in the Medium groups. For complete mastery, you should be able to handle most of the Advanced level exercises, though you won't find anything of that level on the assessment.
+The problems are classified as Easy, Medium, and Advanced. These classifications are somewhat fluid, though, which means that some exercises may seem easier or harder than you might expect. To pass the assessment, you should be able to **solve problems that have a difficulty level similar to those in the Medium groups**. *For complete mastery, you should be able to handle most of the Advanced level exercises*, though you won't find anything of that level on the assessment.
 
-Ideally, you should be able to solve most Easy exercises without leaning too heavily on the JavaScript documentation. That doesn't mean that you shouldn't use it; however, you should be familiar enough with JavaScript's syntax, conditionals, loops, method definitions, and so on, that you don't need it. You should also be familiar with the fundamental data types and the most often-used methods. If you need to look up information too often, you may spend more time reading than you do writing code. Keep practicing until you build up some "muscle memory."
+Ideally, you should be able to *solve most Easy exercises without leaning too heavily on the JavaScript documentation*. That doesn't mean that you shouldn't use it; however, you should be familiar enough with JavaScript's:
+
+* syntax, 
+* conditionals, 
+* loops, 
+* method definitions, 
+* fundamental data types
+* most often-used methods. 
+
+ If you need to look up information too often, you may spend more time reading than you do writing code. Keep practicing until you build up some "muscle memory."
 
 Expect to spend more time with the documentation when you get to the Medium and Advanced level exercises. When you get to this stage, you will be pushing the boundaries of your knowledge, and a little light reading will help you over them into the next level.
 
-Some exercises (chiefly those in the Medium and Advanced groups) introduce new topics that we don't discuss in the course material. That can make some problems seem much harder than they are. That's intentional: the inclusion of such exercises teaches you how to find information on your own. Feel free to use the documentation and your favorite search engine. If the problem is still too hard, don't worry; study the solution and discussion, then come back to it later.
+Some exercises (chiefly those in the Medium and Advanced groups) introduce new topics that we don't discuss in the course material. That can make some problems seem much harder than they are. That's **intentional**: the inclusion of such exercises teaches you how to find information on your own. Feel free to use the documentation and your favorite search engine. If the problem is still too hard, don't worry; study the solution and discussion, then come back to it later.
 
 ### Solving Problems
 
-Before you attempt to work any of these exercises, take a few minutes to read over [this short article on what we call the PEDAC process](https://medium.com/launch-school/solving-coding-problems-with-pedac-29141331f93f) (we'll explore this process in more detail as we move through RB101). This article walks you through a problem-solving approach that will help as you encounter exercises of increasing difficulty.
+Before you attempt to work any of these exercises, take a few minutes to read over [this short article on what we call the PEDAC process](https://medium.com/launch-school/solving-coding-problems-with-pedac-29141331f93f) (we'll explore this process in more detail as we move through JS101). This article walks you through a problem-solving approach that will help as you encounter exercises of increasing difficulty.
 
 Use these steps for every problem, even if it seems too simple. Don't attempt to hack and slash your way through a program. You can get away with doing that with simple problems, but with every small increase in complexity, the harder it is to hack-and-slash your way to a solution. You should code with intent every time. You'll know you're doing it right when you spend more time getting ready to code than you spend coding. (That won't be true all the time, but, when your preparation is thorough, the code almost writes itself.)
 
@@ -28,7 +37,7 @@ Knowing how to solve computing problems and practicing those techniques will tak
 
 ### Exercise Tips
 
-* Put your solutions in separate files, and push them to GitHub for future reference.
+* Put your solutions in *separate files*, and push them to GitHub for future reference.
 * Work the problems in the order presented.
 * Keep track of which exercises give you difficulty or that you have trouble understanding.
 * If necessary, go back to the [JavaScript Basics Exercises](https://launchschool.com/exercises?#js_basics) and work the appropriate exercises first.
@@ -37,7 +46,7 @@ Knowing how to solve computing problems and practicing those techniques will tak
   * Use the problem-solving techniques described in the videos.
   * Try not to method hunt. Method hunting is searching for the perfect pre-built method to do what you need.
     * Don't be afraid to use basic looping mechanisms like `while` and `for`.
-    * After you have code that works, you can think about simplifying it. However, that isn't the point of these exercises. It is good practice if you're up to the challenge, though.
+    * After you have code that works, you can *think about simplifying it*. However, that isn't the point of these exercises. It is good practice if you're up to the challenge, though.
 
   * If something doesn't work right:
     * Think about why it doesn't work.
@@ -78,5 +87,3 @@ Knowing how to solve computing problems and practicing those techniques will tak
   * Feel free to open a regular Forum post about a Further Exploration to discuss it (but try to avoid posting answers!)
 
 End
-
-
