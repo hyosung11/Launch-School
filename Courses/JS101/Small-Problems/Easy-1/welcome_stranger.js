@@ -12,16 +12,22 @@ PEDAC => process the problem (PEDA) and code with intent (C)
 
 PROBLEM
 Identify expected input and output
-- input: 
-- output:
+- input:
+  - an array: with two or more elements
+  - an object: two keys and their respective values
 
-Problem Domain (including implicit requirements)
+- output: string
 
 Make the requirements explicit (clarifying questions)
+- array contains two or more elements; combined with adjoining spaces to 
+produce a person's first and last name (as well as middle name)
+- object's keys are title and occupation with appropriate values
+- function returns greeting of person's full name and title
 
 Identify rules
-
-Mental model of the problem (optional)
+- join the elements of the array in the order they are given
+- join the values of tile and occupation in this order
+- return string
 
 EXAMPLES / TEST CASES
 Validate understanding of the problem
@@ -32,13 +38,35 @@ console.log(
 );
 // logs Hello, John Q Doe! Nice to have a Master Plumber around.
 
-Edge Cases?
-
 DATA STRUCTURE
 How we represent the data that we will work with when converting the input to output.
+- string
+- array
+- object
 
 ALGORITHM
 Steps for converting input to output
+1. declare function that with two parameters: an array, and an object
+2. The array takes two or more string arguments
+3. The object takes two key-value pairs: key of title and key of occupation
+4. join the strings in the array with the adjoining spaces
+5. get values from the object's keys
+6. object returns values from the keys
+7. return a string with greeting messages
+  - "Hello" and "Nice to have a X around."
 
 CODE
 Implementation of Algorithm
+*/
+function greetings(array, object) {
+  let stringFromArray = array.join(" ");
+  let stringFromObject = object.title + " " + object.occupation
+
+  return `Hello, ${stringFromArray}! Nice to have a ${stringFromObject} around.`;
+}
+
+
+console.log(
+  greetings(["John", "Q", "Doe"], { title: "Master", occupation: "Plumber" })
+);
+// => Hello, John Q Doe! Nice to have a Master Plumber around.
