@@ -280,3 +280,9 @@ Prior, I reviewed and edited about 35 Anki cards.
 16:16 completed `multiples_of_3_and_5.js` with Laurent.
 
 16:38 created `pedac_template.md` for future use.
+
+20:43 after movie night's viewing of The Lego Movie 2, back to coding.
+
+21:12 submitted `leapyears2.js` solution. pretty easy to add an additional if statement at the top of the function.
+
+21:22 submitted `multiples_of_3_and_5.js` LS solution and discussion.
