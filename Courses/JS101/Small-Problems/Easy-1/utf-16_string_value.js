@@ -42,8 +42,8 @@ utf16Value(OMEGA + OMEGA + OMEGA);  // 2811
 Edge Cases?
 
 DATA STRUCTURE
-How we represent the data that we will work with when converting the input to 
-output.
+How we represent the data that we will work with
+when converting the input to output.
 - string into number
 
 ALGORITHM
