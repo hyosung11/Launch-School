@@ -302,9 +302,13 @@ Prior, I reviewed and edited about 35 Anki cards.
 2. What will you do today?
    * [x] 1. Listen to Launch School podcast episode
    * [ ] 2. Review Anki cards
-   * [ ] 3. JS101 - Small Problems > Easy 1 > 11
+   * [x] 3. JS101 - Small Problems > Easy 1 > 11 & Easy 2 > 1 (with Laurent)
    * [ ] 4. Take Quiz 1
 3. Are there any blockers or impediments preventing you from doing your work?
    * None
 
 10:57 completed two JS101-Small Problems > Easy 1 & Easy 2. Time for a short break.
+
+11:25 switching to the dining room table on my MBP.
+
+11:41 at the kitchen table. I need to learn git better. Human mind over computer mind.
