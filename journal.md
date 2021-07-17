@@ -1,4 +1,4 @@
-# Launch School Mastery Based Learning Journey Notes
+# Launch School Mastery Based Learning Journey Journal
 
 Started the Prep courses and finished on Sunday, 20210711.
 Wrote and sent Assessment email on 20210711
@@ -313,4 +313,8 @@ Prior, I reviewed and edited about 35 Anki cards.
 
 11:41 at the kitchen table. I need to learn git better. Human mind over computer mind.
 
-12:44 Studied and edited 35 Anki cards. Time to make lunch
+12:44 Studied and edited 35 Anki cards. Time to make lunch.
+
+13:50 I'm a little tired. I'm going to review some more Anki cards now.
+
+15:51 took a short nap and am now going to do the NJSIAA referee soccer exam.
