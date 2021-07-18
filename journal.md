@@ -365,3 +365,17 @@ Prior, I reviewed and edited about 35 Anki cards.
 14:48 Finished Sprint 1 Review. Working on Sprint 1 Retrospective.
 
 15:27 Finished Sprint 2 Planning session. Now I need to make cards in Trello for Sprint 2. I enjoy this.
+
+15:58 Watching Mandy Cheang's video [Use what you know: A journey into metacognition ...](https://www.youtube.com/watch?v=6bWY8zSMFOo)
+
+Summary
+
+* Metacognition can deepen learning
+* Understand what you need from your study tools
+* Typora is a markdown editor
+* Anki is a spaced repetition flashcard program
+* Retrieval practice helps with retaining information
+* It's OK to not know what you need at first
+* Learning how to learn is a process
+
+18:15 Finished Lesson 2 Assignments 1-4.
