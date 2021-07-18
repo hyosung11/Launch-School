@@ -12,7 +12,7 @@ Please read this [quiz guide](https://launchschool.com/gists/9376eab7) before st
 
 Assignment: Lesson 1 Quiz 1\
 Student Name: HyoSung Bidol-Lee\
-Time Started: 10:56AM EDT\
+Time Started: 10:56AM EDT
 
 A number of the questions in this quiz depend on the information you learned about in [Introduction to Programming with JavaScript book](https://launchschool.com/books/javascript).
 
@@ -20,7 +20,7 @@ A number of the questions in this quiz depend on the information you learned abo
 
 What is the difference between Git and GitHub?
 
-Your Answer
+Your Answer === correct.
 
 A
 ~~Nothing. They're the same thing, but offered by different companies; both are cloud-based remote repositories for code versioning and collaboration. BitBucket and GitLab are other examples.~~
@@ -37,20 +37,18 @@ D
 Discussion
 
 * BitBucket, GitLab (and others) are alternatives to GitHub, but Git itself is distinct from these services.
-
 * Git and GitHub are both used for FOSS and commercial software.
-
 * Both Git and GitHub allow branching and merging.
 
 ## Question 2
 
 When should you nest Git repositories?
 
-Your Answer
+Your Answer === correct
 
 - [ ] A. Only when directed to by the course material.
 
-- [ ]B. Only if the two repositories are for related topics.
+- [ ] B. Only if the two repositories are for related topics.
 
 - [x] C. You should not nest Git repositories.
 
@@ -60,7 +58,7 @@ Your Answer
 
 Which of the following should you do as part of an *active learning approach* to using the video resources at Launch School?
 
-Your Answer
+Your Answer === correct
 
 - [x] A. Take notes.
 
@@ -78,7 +76,7 @@ All the choices are correct. Other things that you can do are to *visualize your
 
 When asking for help, what might be considered a *bad* question?
 
-Your Answer
+Your Answer === correct
 
 - [ ] A. A question about JavaScript syntax where you can't find the answer on MDN or Google.
 
@@ -100,7 +98,7 @@ Sometimes, we may not answer a question because it's outside the course scope. D
 
 Which of the following are built-in JavaScript data types?
 
-Your Answer
+Your Answer === correct
 
 - [x] A. Undefined
 
@@ -136,7 +134,7 @@ Identify data types by the `typeof` operator. Variables don't have types, but th
 
 Select the statement about JS's **primitive values** that are correct:
 
-Your Answer
+Your Answer === wrong
 
 - [x] A. `undefined` is a primitive value.
 
@@ -150,7 +148,6 @@ Discussion
 
 * Primitive values are not mutable.
 * `NaN` is a number in JavaScript, so it is a primitive value.
-
 * `undefined` is a *primitive value*
 * You **can't** *mutate* a *primitive value* after creating it.
 
@@ -162,7 +159,7 @@ Which of the following statements are **true** about the following code snippet?
 let myNumber = 3;
 ```
 
-Your Answer
+Your Answer === wrong
 
 - [x] A. The code snippet contains only a statement. *Wrong answer!*
 
@@ -209,11 +206,11 @@ let myVariable = 'Hello, World';
 myVariable = 23;
 ```
 
-Your Answer
+Your Answer === wrong
 
 - [ ] A. The last line produces an error since `myVariable` already references a `string`. Once you create a variable, you can't assign a different type to that variable.
 
-- [x] B. The two `myVariables` are different. One stores a `string`, the other a `number`. *Wrong answer. Don't select this one.*
+- [x] B. The two `myVariables` are different. One stores a `string`, the other a `number`. **Wrong answer. Don't select this one.**
 
 - [x] C. This code works. Once you can create a variable, you can reassign it to a different value.
 
@@ -259,7 +256,7 @@ Assignment: Lesson 1 Quiz 1\
 Student Name: HyoSung Bidol-Lee\
 Submitted at: about a minute ago\
 Time taken: 0.84 hour(s)\
-Score: 6/9 (66.67%)\
+Score: 6/9 (66.67%)
 
 Your quiz was graded.
 
