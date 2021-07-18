@@ -383,3 +383,10 @@ Summary
 18:57 Back at my office work station, but my legs feel tired.I think this retina display monitor is better though.
 
 19:46 Finished `calculator.js` following the video. Up for children's bedtime now.
+
+**VS Code Git Status Colors**
+
+* Change a line and it goes blue.
+* Add a new line and it goes green.
+* Do either of these and your file turns yellow in the Explorer.
+* Commit and all the colours disappear again.
