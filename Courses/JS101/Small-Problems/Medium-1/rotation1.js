@@ -88,7 +88,7 @@ Implementation of Algorithm
 //   }
 // }
 
-// LS Solutions
+// LS Solution - no Discussion
 function rotateArray(array) {
   if (!Array.isArray(array)) {
     return undefined;
@@ -117,3 +117,4 @@ console.log(rotateArray(1));                        // undefined
 let array = [1, 2, 3, 4];
 rotateArray(array);                    // [2, 3, 4, 1]
 console.log(array);                                 // [1, 2, 3, 4]
+
