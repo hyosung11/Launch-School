@@ -21,14 +21,44 @@ A number of the questions in this quiz depend on the information you learned abo
 What is the difference between Git and GitHub?
 
 Your Answer
+
+A
+~~Nothing. They're the same thing, but offered by different companies; both are cloud-based remote repositories for code versioning and collaboration. BitBucket and GitLab are other examples.~~
+
+B
+~~Both are version control systems, but Git is used for Free and Open Source Software (FOSS) projects, whereas GitHub is for commercial software.~~
+
+C
 Git is a distributed version control system which was designed to be used locally without a main central repository. GitHub is a cloud-based remote repository which acts as a centralized repository for Git to enable collaboration.
+
+D
+~~Git uses a branch-and-merge workflow. Since branches can't exist on remote repositories, GitHub doesn't allow branching.~~
+
+Discussion
+
+* BitBucket, GitLab (and others) are alternatives to GitHub, but Git itself is distinct from these services.
+
+* Git and GitHub are both used for FOSS and commercial software.
+
+* Both Git and GitHub allow branching and merging.
 
 ## Question 2
 
 When should you nest Git repositories?
 
 Your Answer
-You should not nest Git repositories.
+
+A
+Only when directed to by the course material.
+
+B
+Only if the two repositories are for related topics.
+
+C
+- [x] You should not nest Git repositories.
+
+D
+Only when the nested repository is for an application that isn't part of Launch School's curriculum.
 
 ## Question 3
 
@@ -36,21 +66,66 @@ Which of the following should you do as part of an *active learning approach* to
 
 Your Answer
 
-- Take notes.
-- Eliminate external distractions.
-- Look up concepts you don't understand.
-- Review your notes to make sure you captured the key concepts.
+A
+Take notes.
+
+B
+Eliminate external distractions.
+
+C
+Look up concepts you don't understand.
+
+D
+Review your notes to make sure you captured the key concepts.
+
+Discussion
+
+
+All the choices are correct. Other things that you can do are to *visualize yourself in a classroom while watching the video* or, when you've finished the video, try to *articulate the concepts in your own words*.
 
 ## Question 4
 
 When asking for help, what might be considered a *bad* question?
 
 Your Answer
-A question that you can easily test.
+
+A. A question about JavaScript syntax where you can't find the answer on MDN or Google.
+
+B. - [x] A question that you can easily test.
+
+C. A question about an assignment that you haven't completed.
+
+D. A question about an error in your code.
+
+Discussion
+
+Questions that you can test easily usually aren't good questions, so B is the correct answer.
+
+We encourage questions and want to create an environment where students feel comfortable asking all kinds of questions about the course material. However, we also want students to try things themselves. If you ask a question like "What happens when I run this code?," we might well tell you to run the code and see what happens. We may even ask you to explain the answer.
+
+Sometimes, we may not answer a question because it's outside the course scope. Don't get discouraged if this happens to you. Such questions often mean that you're thinking deeply about the material.
 
 ## Question 5
 
 Which of the following are built-in JavaScript data types?
+
+Your Answer
+
+- [x] A Undefined
+
+- [ ] B Integer
+
+- [ ] C Float
+
+- [x] D Null
+
+- [x] E String
+
+Discussion
+
+* JavaScript doesn't have Integer and Floats as data types.
+* All JavaScript numeric values have type Number.
+* It represents all numbers using a floating point system.
 
 JavaScript has seven built-in data types:
 
@@ -70,11 +145,23 @@ Identify data types by the `typeof` operator. Variables don't have types, but th
 
 Select the statement about JS's **primitive values** that are correct:
 
-- `undefined` is a *primitive value*
-- You **can't** *mutate* a *primitive value* after creating it.
+Your Answer
 
-- ~~Primitive values are mutuable.~~
-- ~~`NaN` is a primitive value.~~
+- [x] A. `undefined` is a primitive value.
+
+- [x] B. You can't mutate a primitive value after creating it.
+
+- [ ] C. Primitive values are mutable.
+
+- [] D. `NaN` is a primitive value. *I missed this one. NaN is a primitive value*
+
+Discussion
+
+* Primitive values are not mutable.
+* NaN is a number in JavaScript, so it is a primitive value.
+
+* `undefined` is a *primitive value*
+* You **can't** *mutate* a *primitive value* after creating it.
 
 ## Question 7
 
@@ -84,12 +171,22 @@ Which of the following statements are **true** about the following code snippet?
 let myNumber = 3;
 ```
 
+Your Answer
+
+- [x] A. The code snippet contains only a statement. *Wrong answer!*
+
+- [ ] B. The code snippet contains only an expression.
+
+**- [ ] C. The code snippet contains both a statement and an expression.** Right answer.
+
+- [ ] D. The code snippet contains neither a statement nor an expression.
+
 The code snippet contains:
 
-- only a *statement*
-~~- only an *expression*
-- both a *statement* and an *expression*
-- neither a *statement* or nor an *expression*~~
+Discussion
+
+* `let` with a **variable name** and optional assignment *forms* a **JavaScript statement**.
+* The **value** 3 is an **expression**. (Code appearing to the *right* of an `=` in a *declaration* is an *expression*.
 
 **Statement**: a unit of code representing one instruction or more, usually starts with a language reserved keyword and ends, *explicitly* or *implicitly*, with a **statement terminator**. Examples of statements:
 
@@ -123,14 +220,18 @@ myVariable = 23;
 
 Your Answer
 
-- [ ] The last line produces an error since `myVariable` already references a `string`. Once you create a variable, you can't assign a different type to that variable.
+- [ ] A. The last line produces an error since `myVariable` already references a `string`. Once you create a variable, you can't assign a different type to that variable.
 
-- [x] The two `myVariables` are different. One stores a `string`, the other a `number`.
+- [x] B. The two `myVariables` are different. One stores a `string`, the other a `number`. *Wrong answer. Don't select this one.*
 
-- [x] This code works. Once you can create a variable, you can reassign it to a different value.
+- [x] C. This code works. Once you can create a variable, you can reassign it to a different value.
 
-- [ ] All of the above are **false**.
+- [ ] D. All of the above are **false**.
 
+Discussion
+
+* Reassigning a variable to a different type is legal.
+* The code contains only one variable: `myVariable`
 
 ## Question 9
 
@@ -138,13 +239,22 @@ Which of the following statements about the `==` (loose equality / non-strict eq
 
 Your Answer
 
-- [x] When comparing a `number` and a `string`, JavaScript coerces the `string` to a `number`.
+A. - [x] When comparing a `number` and a `string`, JavaScript coerces the `string` to a `number`.
 
-- [ ] When comparing a `number` and a `string`, JavaScript coerces the `string` to a `number` if it's on the left-hand side; it doesn't if it's on the right.
+B. - [ ] When comparing a `number` and a `string`, JavaScript coerces the `string` to a `number` if it's on the left-hand side; it doesn't if it's on the right.
 
-- [ ] When comparing a `number` and a `string`, JavaScript coerces the `string` to a `number` if it's value is numeric (i.e., 1 or 1.0).
+C. - [ ] When comparing a `number` and a `string`, JavaScript coerces the `string` to a `number` if it's value is numeric (i.e., 1 or 1.0).
 
-- [ ] When comparing a `number` and a `string`, JavaScript coerces the `number` to a `string` and then performs a lexicographic (natural alphabetic) comparison.
+D. - [ ] When comparing a `number` and a `string`, JavaScript coerces the `number` to a `string` and then performs a lexicographic (natural alphabetic) comparison.
+
+
+Discussion
+
+* Even if a string isn't a number, JavaScript coerces it to a number when a string and a number are mixed with `==`.
+* It doesn't matter which side of the `==` contains the string operand.
+* If the string contains a non-numeric value, JavaScript coerces it to `NaN`.
+
+---
 
 11:15 Finish first pass through questions.
 
@@ -163,3 +273,5 @@ Score: 6/9 (66.67%)
 Your quiz was graded.
 
 11:48 WTF. Damn. I thought I had 100%. Ugh. I need to review the answers.
+
+12:18 Reviewed the answers. Understand the mistakes I made.
