@@ -355,3 +355,7 @@ Prior, I reviewed and edited about 35 Anki cards.
 09:00 Planning and scheduling this morning. Next study Anki cards for an hour and then take JS101 Lesson 1 Quiz 1.
 
 10:01 Studied 22 Anki cards in 4.56 minutes today (12.43s/card). This doesn't account for the many other minutes editing cards as I studied.
+
+10:49 Took a break and did Nerf Wars with SungOh and drawing with Omi. I enjoyed playing with my kids. Ready to start Quiz 1.
+
+12:20 Okay, take a deep breath. I got 6/9 on the first quiz. Made some careless mistakes thinking I was sure of the answer. Understand the questions!
