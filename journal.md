@@ -323,4 +323,8 @@ Prior, I reviewed and edited about 35 Anki cards.
 
 18:48 After dinner looking at the exercise from the Intro to PEDAC session with Juliette. I want to code it from the algorithm.
 
-19:05 I need to practice, practice, practice. Still gaps in my knowledge of looping and returnin from arrays.
+19:05 I need to practice, practice, practice. Still gaps in my knowledge of looping and returning from arrays.
+
+20:21 Kids put to bed. Time to work on Anki cards.
+
+21:13 Reviewed and Edited Anki cards.
