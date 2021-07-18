@@ -328,3 +328,30 @@ Prior, I reviewed and edited about 35 Anki cards.
 20:21 Kids put to bed. Time to work on Anki cards.
 
 21:13 Reviewed and Edited Anki cards.
+
+---
+
+20210718 Sunday
+
+07:49 reviewing the two exercises that Alex and I did this morning.
+
+07:50 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Listen to Launch School podcast episodes
+   * [x] 2. Review Anki cards
+   * [x] 3. JS101 - Small Problems > Easy 1 > 11 & Easy 2 > 1 (with Laurent)
+2. What will you do today?
+   * [x] 1. Study Session with Alex Easy 2 > 2 and Medium 1 > 1
+   * [x] 2. Review and Edit Anki cards
+   * [ ] 3. Take Quiz 1
+   * [ ] 4. Sprint Review
+   * [ ] 5. Sprint Retrospective
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Even if I understand the algorithm, I still don't know the precise syntax. Remember "the slow path to proficiency".
+
+08:02 time for family breakfast
+
+09:00 Planning and scheduling this morning. Next study Anki cards for an hour and then take JS101 Lesson 1 Quiz 1.
+
+10:01 Studied 22 Anki cards in 4.56 minutes today (12.43s/card). This doesn't account for the many other minutes editing cards as I studied.
