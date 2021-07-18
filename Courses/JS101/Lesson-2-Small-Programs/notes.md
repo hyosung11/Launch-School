@@ -445,4 +445,68 @@ if (name === "") {
 }
 ```
 
+## 5. Walk-through: Calculator
 
+Our first program in this course will be a command line calcultor program that will:
+
+1. Ask the user for two numbers.
+2. Ask the user for the type of operation to perform: add, subtract, multiply or divide.
+3. Perform the calculation and display the result.
+
+**Getting Ready to Code**
+
+Let's start writing the first version of the calculator. Open your terminal and navigate to the directory you created for this lesson and create a file named c`alculator.js` in that directory:
+
+```js
+touch calculator.js
+```
+
+Go ahead and open the newly created file in your favorite editor. We'll start coding soon.
+
+Before we begin, though, we must install a **library** called `readline-sync` in our *working directory*. This library provides a simple way to retrieve user input from the command line. Node's built-in way to retrieve command line input requires a basic understanding of **asynchronous programming** which we're not ready to deal with right now.
+
+To install `readline-sync`, run the following command from your lesson directory:
+
+```js
+npm install readline-sync --save
+```
+
+The output from this command may contain warnings; ignore them for now. You should be good to go as long as the output includes a line similar to the following towards the end:
+
+```js
+added 1 package from 1 contributor and audited 1 package in 3.561s
+```
+
+If successful, this command should create a directory called `node_modules` inside your lesson directory. Confirm that it's there and that it contains a `readline-sync` subdirectory. If both directories are there, then you're ready to use the `readline-sync` library and can start writing the calculator program.
+
+**Starting to Code**
+
+Some folks are visual learners, and really enjoy seeing complex topics covered as videos. Application walkthroughs, like the one we're about to do, often work well as videos, so we've provided a video walkthrough of this project that you can watch if you want.
+
+[Video Version](https://launchschool.com/lessons/64655364/assignments/e3733b97)
+
+Even if you watch the video, you may still want to read through the text version of the walkthrough below. The **repetition** can help you understand things better.
+
+Let's begin by writing out the steps, in plain English, that our program must perform. Try to make a habit of writing some **pseudocode** before you start writing code. You can use comments to write your pseudocode directly in the `calculator.js file`.
+
+```js
+// calculator.js
+// Ask the user for the first number.
+// Ask the user for the second number.
+// Ask the user for an operation to perform.
+// Perform the operation on the two numbers.
+// Print the result to the terminal.
+```
+
+Let's write some code. We begin by welcoming the user to our program:
+
+```js
+console.log('Welcome to Calculator!');
+```
+
+Save the file and run the program with the command n`ode calculator.js`. You should see the welcome message logged to the console.
+
+```js
+$ node calculator.js
+Welcome to Calculator!
+```
