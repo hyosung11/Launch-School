@@ -24,13 +24,13 @@ look at LS95 again
 
 tired today. skipped the first quiz. I want to make my anki cards for the Prep courses and do at least one small problems set
 
-
 [Six Rules for Good Git Hygiene](https://betterprogramming.pub/six-rules-for-good-git-hygiene-5006cf9e9e2)
 
 Always `pull` before a `push`.
 `pull` frequently.
 `push` frequently.
 Commit frequently.
+
 * Commit small, single changes with carefully crafted commit messages that tell what the small, discrete change is.
 * If you need to use the word 'and', you are not committing enough.
 
@@ -71,7 +71,7 @@ spent a lot of time reviewing the anki cards I made yesterday. I want to make mo
 
 ---
 
-20210714 - 수요일 0:20 
+20210714 - 수요일 0:20
 
 done for the day
 got through all the Intro to Programming book with Anki cards
@@ -82,11 +82,11 @@ Daily Scrum Questions
    1. Created Trello Agile Sprint Board
    2. Reviewed Prep course material and made Anki cards
 2. What will you do today?
-   - [x] 1. Review Anki cards
-   - [x] 2. Review [JS100 - JavaScript Basics](https://launchschool.com/exercises#js100_javascript_basics)
-   - [x] 3. Participate in PEDAC session
-   - [x] 4. Do more problem sets
-   - [ ] 5. Take Quiz 1
+   * [x] 1. Review Anki cards
+   * [x] 2. Review [JS100 - JavaScript Basics](https://launchschool.com/exercises#js100_javascript_basics)
+   * [x] 3. Participate in PEDAC session
+   * [x] 4. Do more problem sets
+   * [ ] 5. Take Quiz 1
 3. Are there any blockers or impediments preventing you from doing your work?
    1. I'm good right now
 
@@ -94,7 +94,7 @@ Daily Scrum Questions
 09:50 - doing more cards, but am going to take a break for ten minutes and start working on exercises.\
 10:10 - added speed focus mode to anki cards and finished 100 cards.
 
-Use a` \` to create a line break.
+Use a`\` to create a line break.
 
 ---
 
@@ -151,14 +151,14 @@ Daily Scrum Questions
 
 09:05 Study Tips from Mandy Cheang (TA)  09:00 => check `mandy_cheang_study_tips.md`
 
-# Mandy Cheang Study Tips from Slack Message
+## Mandy Cheang Study Tips from Slack Message
 
 Good morning!
 My best tips would probably be:
 
 * mindset, have a growth mindset
 * be kind and patient to yourself, take breaks and rest when you need. Your brain also is working in the backend when you're resting. (diffuse mode)
-* be self aware, iterate through your process of learning, get feedback, and ask structure questions when you don't understand. So "I tried this and that, my mental model is currently is this. But I don't know what is happening when the output is X, when I expect it to be Y." 
+* be self aware, iterate through your process of learning, get feedback, and ask structure questions when you don't understand. So "I tried this and that, my mental model is currently is this. But I don't know what is happening when the output is X, when I expect it to be Y."
 * active recall, flash cards, teaching, but have some way to evaluate yourself or something else to evaluate you
 * mistakes are opportunities
 * try to make as MANY mistakes as you can and figure out the gaps in your knowledge before the assessment / interview
@@ -177,7 +177,7 @@ My best tips would probably be:
 * The only active approach is to _practice retrieving what you learn from memory_.
 * Read once and create flashcards as you work your way through the material:
   * capture all the concepts and facts you want to remember
-  * Once you have processed that piece of learning content, meaning once you have read it in its entirety and created the necessary flashcards, mark it as completed. 
+  * Once you have processed that piece of learning content, meaning once you have read it in its entirety and created the necessary flashcards, mark it as completed.
   * Then use the flashcards and retrieval practice as your primary tools for remembering the key concepts and facts forever.
 * When you create a flashcard, draft the question and answer from memory.
 * On every flashcard, ask only one question and whenever possible, only one answer.
@@ -360,4 +360,8 @@ Prior, I reviewed and edited about 35 Anki cards.
 
 12:20 Okay, take a deep breath. I got 6/9 on the first quiz. Made some careless mistakes thinking I was sure of the answer. Understand the questions!
 
-13:38 After making fried rice with Omi and eating it together. I still need to sit sometimes. 
+13:38 After making fried rice with Omi and eating it together. I still need to sit sometimes.
+
+14:48 Finished Sprint 1 Review. Working on Sprint 1 Retrospective.
+
+15:27 Finished Sprint 2 Planning session. Now I need to make cards in Trello for Sprint 2. I enjoy this.
