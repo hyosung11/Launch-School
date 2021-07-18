@@ -324,3 +324,24 @@ Prior, I reviewed and edited about 35 Anki cards.
 18:48 After dinner looking at the exercise from the Intro to PEDAC session with Juliette. I want to code it from the algorithm.
 
 19:05 I need to practice, practice, practice. Still gaps in my knowledge of looping and returnin from arrays.
+
+---
+
+20210718 Sunday
+
+07:49 reviewing the two exercises that Alex and I did this morning.
+
+07:50 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Listen to Launch School podcast episodes
+   * [x] 2. Review Anki cards
+   * [x] 3. JS101 - Small Problems > Easy 1 > 11 & Easy 2 > 1 (with Laurent)
+2. What will you do today?
+   * [x] 1. Study Session with Alex Easy 2 > 2 and Medium 1 > 1
+   * [ ] 2. Review and Edit Anki cards
+   * [ ] 3. Take Quiz 1
+3. Are there any blockers or impediments preventing you from doing your work?
+   * None
+
+08:02 time for family breakfast
