@@ -10,9 +10,9 @@ Please read this [quiz guide](https://launchschool.com/gists/9376eab7) before st
 
 20210718 10:56 Start the Quiz
 
-Assignment: Lesson 1 Quiz 1
-Student Name: HyoSung Bidol-Lee
-Time Started: 10:56AM EDT
+Assignment: Lesson 1 Quiz 1\
+Student Name: HyoSung Bidol-Lee\
+Time Started: 10:56AM EDT\
 
 A number of the questions in this quiz depend on the information you learned about in [Introduction to Programming with JavaScript book](https://launchschool.com/books/javascript).
 
@@ -48,17 +48,13 @@ When should you nest Git repositories?
 
 Your Answer
 
-A
-Only when directed to by the course material.
+- [ ] A. Only when directed to by the course material.
 
-B
-Only if the two repositories are for related topics.
+- [ ]B. Only if the two repositories are for related topics.
 
-C
-- [x] You should not nest Git repositories.
+- [x] C. You should not nest Git repositories.
 
-D
-Only when the nested repository is for an application that isn't part of Launch School's curriculum.
+- [ ] D. Only when the nested repository is for an application that isn't part of Launch School's curriculum.
 
 ## Question 3
 
@@ -66,20 +62,15 @@ Which of the following should you do as part of an *active learning approach* to
 
 Your Answer
 
-A
-Take notes.
+- [x] A. Take notes.
 
-B
-Eliminate external distractions.
+- [x] B. Eliminate external distractions.
 
-C
-Look up concepts you don't understand.
+- [x] C. Look up concepts you don't understand.
 
-D
-Review your notes to make sure you captured the key concepts.
+- [x] D. Review your notes to make sure you captured the key concepts.
 
 Discussion
-
 
 All the choices are correct. Other things that you can do are to *visualize yourself in a classroom while watching the video* or, when you've finished the video, try to *articulate the concepts in your own words*.
 
@@ -89,13 +80,13 @@ When asking for help, what might be considered a *bad* question?
 
 Your Answer
 
-A. A question about JavaScript syntax where you can't find the answer on MDN or Google.
+- [ ] A. A question about JavaScript syntax where you can't find the answer on MDN or Google.
 
-B. - [x] A question that you can easily test.
+- [x] B. A question that you can easily test.
 
-C. A question about an assignment that you haven't completed.
+- [ ] C. A question about an assignment that you haven't completed.
 
-D. A question about an error in your code.
+- [ ] D. A question about an error in your code.
 
 Discussion
 
@@ -111,15 +102,15 @@ Which of the following are built-in JavaScript data types?
 
 Your Answer
 
-- [x] A Undefined
+- [x] A. Undefined
 
-- [ ] B Integer
+- [ ] B. Integer
 
-- [ ] C Float
+- [ ] C. Float
 
-- [x] D Null
+- [x] D. Null
 
-- [x] E String
+- [x] E. String
 
 Discussion
 
@@ -153,12 +144,12 @@ Your Answer
 
 - [ ] C. Primitive values are mutable.
 
-- [] D. `NaN` is a primitive value. *I missed this one. NaN is a primitive value*
+- [ ] D. `NaN` is a primitive value. *I missed this one. NaN is a primitive value*
 
 Discussion
 
 * Primitive values are not mutable.
-* NaN is a number in JavaScript, so it is a primitive value.
+* `NaN` is a number in JavaScript, so it is a primitive value.
 
 * `undefined` is a *primitive value*
 * You **can't** *mutate* a *primitive value* after creating it.
@@ -177,16 +168,16 @@ Your Answer
 
 - [ ] B. The code snippet contains only an expression.
 
-**- [ ] C. The code snippet contains both a statement and an expression.** Right answer.
+- [ ] C. **The code snippet contains both a statement and an expression.** **Right answer.**
 
 - [ ] D. The code snippet contains neither a statement nor an expression.
-
-The code snippet contains:
 
 Discussion
 
 * `let` with a **variable name** and optional assignment *forms* a **JavaScript statement**.
 * The **value** 3 is an **expression**. (Code appearing to the *right* of an `=` in a *declaration* is an *expression*.
+
+---
 
 **Statement**: a unit of code representing one instruction or more, usually starts with a language reserved keyword and ends, *explicitly* or *implicitly*, with a **statement terminator**. Examples of statements:
 
@@ -237,15 +228,15 @@ Discussion
 
 Which of the following statements about the `==` (loose equality / non-strict equality) operator are true?
 
-Your Answer
+Your Answer === correct
 
-A. - [x] When comparing a `number` and a `string`, JavaScript coerces the `string` to a `number`.
+- [x] A. When comparing a `number` and a `string`, JavaScript coerces the `string` to a `number`.
 
-B. - [ ] When comparing a `number` and a `string`, JavaScript coerces the `string` to a `number` if it's on the left-hand side; it doesn't if it's on the right.
+- [ ] B. When comparing a `number` and a `string`, JavaScript coerces the `string` to a `number` if it's on the left-hand side; it doesn't if it's on the right.
 
-C. - [ ] When comparing a `number` and a `string`, JavaScript coerces the `string` to a `number` if it's value is numeric (i.e., 1 or 1.0).
+- [ ] C. When comparing a `number` and a `string`, JavaScript coerces the `string` to a `number` if it's value is numeric (i.e., 1 or 1.0).
 
-D. - [ ] When comparing a `number` and a `string`, JavaScript coerces the `number` to a `string` and then performs a lexicographic (natural alphabetic) comparison.
+- [ ] D. When comparing a `number` and a `string`, JavaScript coerces the `number` to a `string` and then performs a lexicographic (natural alphabetic) comparison.
 
 
 Discussion
@@ -264,11 +255,11 @@ Your answer was saved. You still need to submit the quiz by clicking the 'Submit
 
 11:47 Result
 
-Assignment: Lesson 1 Quiz 1
-Student Name: HyoSung Bidol-Lee
-Submitted at: about a minute ago
-Time taken: 0.84 hour(s)
-Score: 6/9 (66.67%)
+Assignment: Lesson 1 Quiz 1\
+Student Name: HyoSung Bidol-Lee\
+Submitted at: about a minute ago\
+Time taken: 0.84 hour(s)\
+Score: 6/9 (66.67%)\
 
 Your quiz was graded.
 
