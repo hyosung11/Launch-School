@@ -45,7 +45,7 @@ How we represent the data that we will work with when converting the input to ou
 
 ALGORITHM
 Steps for converting input to output
-install readline-sync
+- install readline-sync
 -ask user for name
 -capture user input as var name
 if name ends with '!', log Hello name, why are we screaming in all caps
@@ -58,14 +58,31 @@ Implementation of Algorithm
 
 */
 
+// let readlineSync = require('readline-sync');
+
+// let name = readlineSync.question('What is your name? ');
+// // name.endsWith('1')
+// if (name[name.length - 1] === '!') {
+//   console.log(`HELLO ${name.toUpperCase()} WHY ARE WE SCREAMING?`);
+// } else {
+//   console.log(`Hello ${name}.`);
+// }
+
+// LS Solution
 let readlineSync = require('readline-sync');
 
-let name = readlineSync.question('What is your name? ');
+let name = readlineSync.question("What is your name?\n");
 
-if (name[name.length - 1] === '!') {
-  console.log(`HELLO ${name.toUpperCase()} WHY ARE WE SCREAMING?`);
+if (name[name.length - 1] === "!") {
+  name = name.slice(0, -1);
+  console.log(`HELLO ${name.toUpperCase()}. WHY ARE WE SCREAMING?`);
 } else {
-  console.log(`Hello ${name}.`);
+  console.log(`Hello ${name}.`)
 }
 
-// name.endsWith('1')
+/*
+Discussion
+We begin by requiring readline-sync and then asking for and obtaining the user's name. Then, we test the last character of the user's name (name[name.length - 1]) to see if it is an exclamation mark.
+
+If the last character of the name is an exclamation mark, we remove that exclamation mark from the name by using slice() and then log the SHOUTING version of the greeting. Otherwise, we just log a normal greeting.
+*/
