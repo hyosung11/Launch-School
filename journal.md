@@ -378,4 +378,8 @@ Summary
 * It's OK to not know what you need at first
 * Learning how to learn is a process
 
-18:15 Finished Lesson 2 Assignments 1-4.
+18:15 Finished Lesson 2 Assignments 1-4. Going to eat dinner. Quiche that Sohee made. Yum.
+
+18:57 Back at my office work station, but my legs feel tired.I think this retina display monitor is better though.
+
+19:46 Finished `calculator.js` following the video. Up for children's bedtime now.
