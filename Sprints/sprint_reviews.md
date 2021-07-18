@@ -1,4 +1,6 @@
-# Sprint 1 Review, 20210712 - 20210718
+# Sprint Reviews
+
+## Sprint 1, 20210712 - 20210718
 
 The purpose of the Sprint Review is to inspect the outcome of the Sprint and determine future adaptations. The Scrum Team presents the results of their work to key stakeholders and progress toward the Product Goal is discussed.
 
@@ -54,7 +56,7 @@ The Sprint Review includes the following elements:
 
 * The entire group collaborates on what to do next, so that the Sprint Review provides valuable input to subsequent Sprint Planning;
   * work on lesson 2
-  * work on small problems 
+  * work on small problems
   * study sessions
 
 * Review of the timeline, budget, potential capabilities, and marketplace for the next anticipated releases of functionality and capability of the product.
