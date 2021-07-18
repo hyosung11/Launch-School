@@ -359,3 +359,5 @@ Prior, I reviewed and edited about 35 Anki cards.
 10:49 Took a break and did Nerf Wars with SungOh and drawing with Omi. I enjoyed playing with my kids. Ready to start Quiz 1.
 
 12:20 Okay, take a deep breath. I got 6/9 on the first quiz. Made some careless mistakes thinking I was sure of the answer. Understand the questions!
+
+13:38 After making fried rice with Omi and eating it together. I still need to sit sometimes. 
