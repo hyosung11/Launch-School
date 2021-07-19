@@ -401,4 +401,12 @@ Summary
 3. Are there any blockers or impediments preventing you from doing your work?
    * Think of this as training. Repeat to remember. Remember to repeat.
 
-End
+08:21 Start Anki cards
+
+09:08 Studied 8 cards, but edited each one. Back from breakfast and ready to get to the next assignement.
+
+09:38 write out the code blocks myself instead of just copying them!
+
+10:04 Trying to disable extensios that code complete or suggest, but can't figure it out.
+
+10:22 I think I found and disabled the extensions that I want to disable, but I will restart now.

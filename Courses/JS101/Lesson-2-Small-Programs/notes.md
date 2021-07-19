@@ -659,6 +659,7 @@ console.log('What operation would you like to perform?\n1) Add 2) Subtract 3) Mu
 let operation = readline.question();
 
 let output;
+
 if (operation === '1') { // '1' represents addition
   output = Number(number1) + Number(number2);
 }
@@ -693,10 +694,12 @@ if (operation === '1') { // '1' represents addition
 
 console.log(`The result is: ${output}`);
 ```
+
 Run this program and make sure you get the right output.
 
 We can follow the same template to take care of the last two operations, multiplication and division:
 
+```js
 const readline = require('readline-sync');
 
 console.log('Welcome to Calculator!');
@@ -722,9 +725,140 @@ if (operation === '1') { // '1' represents addition
 }
 
 console.log(`The result is: ${output}`);
+```
 
 Our calculator app is now complete! Play around with it using different numbers and operations to see that it covers all cases.
 
-Our calculator app is now complete! Play around with it using different numbers and operations to see that it covers all cases.
+## 6. Pseudocode
 
-End
+When you write programming code, you're writing it for other programs to process. When you write JavaScript, you are writing for the JavaScript engine/interpreter to process. If you *make a syntax error*, the JavaScript interpreter will complain, saying it doesn't know how to process the broken syntax. If there are no errors, the interpreter can parse and execute the code. Since programming code must be **error-free**, you must follow a rigid format when programming. A missing period or an additional comma may cause the entire program to break.
+
+Pseudocode, on the other hand, is for humans -- machines or programs can't read it (at least, not yet!), so its format is relaxed. Human brains are far more flexible and powerful than programming language interpreters or compilers.
+
+For example, here's some pseudocode for a function that determines which number in a collection has the greatest value.
+
+```js
+Given a collection of numbers.
+
+Iterate through the collection one by one.
+  - save the first value as the starting value.
+  - for each iteration, compare the saved value with the current value.
+  - if the current number is greater
+    - reassign the saved value as the current value
+  - otherwise, if the current value smaller or equal
+    - move to the next value in the collection
+
+After iterating through the collection, return the saved value.
+```
+
+This approach is one that we can use to solve the problem. We don't start writing code from the beginning, but instead try to **load the problem into our brain first**.
+
+When you first approach any problem, it's important to try to **understand** it well. To do that, you must spend some time to load the problem into your brain. Only then can you start to dissect it, understand it, and come up with an execution path to solve it.
+
+Unfortunately, loading the problem into your brain takes some effort, and you must turn the problem over and over before it gets fully absorbed by your brain. Doing this while working with a programming language is hard since your train of thought gets interrupted time and again by having to deal with syntax issues. Instead of thinking about the logic and dissecting the problem, you're searching for specific language syntax issues to please the interpreter, which has nothing to do with the logical aspect of solving a problem.
+
+Therefore, there are two layers to solving any problem:
+
+- The logical problem domain layer.
+- The syntactical programming language layer.
+
+When you're not yet fluent in a programming language, doing both at the same time can be very difficult and frustrating.
+
+Pseudocode comes in to play at this point. Using pseudocode lets us focus on the logical problem domain layer without dragging us down to the programming language layer.
+
+The problem with pseudocode, however, is that *we cannot verify its logic*. The above pseudocode that we wrote earlier, for example, seems about right. However, how can we be sure? To verify the logic, we must translate the pseudocode into programming code, which is where you can focus on programming language syntax issues without having it interrupt your flow.
+
+### Formal Pseudocode
+
+Before we can take our pseudocode and translate it to program code, we must formalize the pseudocode a little more. We'll still use English, but we'll use some keywords to help us break down the program logic into concrete commands, which makes translating to code more natural.
+
+We'll use the below keywords to assist us, along with their meaning.
+
+| Keyword | Meaning |
+| ------- |-------- |
+| START | start of the program |
+| SET | set a variable that we can use for later |
+| GET | retrieve input from user |
+| PRINT | display output to user |
+| READ | retrieve a value from a variable |
+| IF/ELSE IF/ELSE | show conditional branches in logic |
+| WHILE | show looping logic |
+| END | end of the program |
+
+We can use the above keywords to act as a pseudo-programming language, but one that's still written in English, which lets us be more relaxed about the precision of the syntax. Here's a stab at translating to formal pseudocode:
+
+```js
+START
+
+Given a collection of integers called "numbers"
+
+SET iterator = 1
+SET savedNumber = value within numbers collection at space 1
+
+WHILE iterator <= length of numbers
+  SET currentNumber = value within numbers collection at space "iterator"
+  IF currentNumber > savedNumber
+    savedNumber = currentNumber
+  ELSE
+    skip to next iteration
+  
+  iterator = iterator + 1
+
+PRINT savedNumber
+
+END
+```
+
+Note that we're using PRINT to show the final return value. This translation almost looks like program code, but it's not. The advantage of this additional step is to give more structure to the pseudocode and to let us think at a more detailed level, yet still not worry about a programming language syntax. Though detailed it may be, this pseudocode still suffers from the same problem -- *we can't verify that this logic is sound*. Finally, to test the logic, we need to translate it into program code.
+
+### Translating Pseudocode to Program Code
+
+We're using JavaScript, so here's a stab at it in JavaScript. Note that we *eschew **explicit** iteration over the more idiomatic **implicit** iteration using* `forEach`. That's a language-specific choice. If we were to write this program in some other language, we might choose to iterate using a `for` loop instead. Even in JavaScript, you can use a `for` loop if that's the style of programming you prefer.
+
+```js
+function findGreatest(numbers) {
+  let savedNumber = numbers[0];
+
+  numbers.forEach(num => {
+    if (num > savedNumber) {
+      savedNumber = num;
+    }
+  });
+
+  return savedNumber;
+}
+```
+
+If we run the above code, we can show that our pseudocode logic works!
+
+Now, let's look at the working code, and start to improve it from a lower layer -- at the programming language level. For instance, what should we do if `numbers` is `undefined`? Perhaps we can use a **guard** clause that returns `undefined`, like this: `if (numbers === undefined) return;`. Now that we have the general logic and code in place, there are other small improvements we can make.
+
+In this example, the function we wanted to write was straightforward. We were able to write a few lines of pseudocode, move it to a more formal pseudocode, and then translate it to JavaScript. However, most problems you encounter will be more difficult than this example. You won't be able to take the same approach. That is, you won't be able to detail out the entire problem first in pseudocode, then translate all of it into JavaScript. If you did, you'd likely discover that a lot of your logic or assumptions in the pseudocode is incorrect, and you'll need to make some changes that ripple across the entire program, forcing you to start over time and again. Remember, *pseudocode is a guess at the solution*; there's no verification that the logic is correct. You can't do that until you translate it to program code.
+
+For more sophisticated problems, we need to *take a piecemeal approach when writing pseudocode*, then translate that pseudocode to JavaScript. Once we verify that the logic is correct, we can move to the next piece of the problem. Step-by-step, we slowly **load the problem into our brain**, verifying the logic each step along the way.
+
+We'll show you how to use **flowcharts** to help with this in the next assignment. For now, try a few practice rounds using pseudocode to guide your problem-solving logic. For example, write out pseudocode (both casual and formal) that does the following:
+
+- a function that returns the sum of two numbers
+- a function that takes an array of strings, and returns a string that is all those strings concatenated together
+- a function that takes an array of integers, and returns a new array with every other element
+
+You don't need to write any JavaScript code here; just practice writing the logic in English.
+
+You don't need to use pseudocode for every bit of code you write, especially once you get down to the function level. However, it's a good idea to always use it here in this course and the associated Small Problem exercises. This will help you overcome problems in the short term, and prepare you for the interview assessment later on.
+
+For brevity, we won't use pseudocode extensively in this course. However, we will use it for the more complicated problems and when we feel that it most helpful to see the pseudocode for a problem.
+
+20210719 10:38 Assignment Complete
+
+## Flowchart
+
+Using a flowchart helps us map out the logical sequence of a possible solution in a visual way. We'll take a stab at drafting a flowchart for the same problem we saw in the previous assignment. First, though, let's take a look at the components at our disposal in a flowchart.
+
+![Flowchart Components](flowchart_components.jpg)
+
+Using the components above, here's what a flowchart would look like for our approach to finding the largest number in a collection.
+
+![Flowchart Largest Number](flowchart_largest.jpg)
+
+
