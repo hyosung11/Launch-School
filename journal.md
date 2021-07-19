@@ -423,3 +423,47 @@ Summary
 
 17:35 I went down a wormhole because I can't get ESLint to work in Node. I'm going to let it go and make dinner. I have a linter for VS Code.
 
+18:35 Back after preparing and making dinner. Dictation works in VS Code or VSC.
+
+18:52 Giving up on getting ESLint to work in Node. I keep getting the error
+
+```js
+
+➜  Easy-2 git:(main) ✗ npx eslint hello.js
+
+Oops! Something went wrong! :(
+
+ESLint: 7.31.0
+
+No files matching the pattern "hello.js" were found.
+Please check for typing mistakes in the pattern.
+
+➜  Easy-2 git:(main) ✗ ls
+arithmetic_integer.js multiply.js           penultimate_word.js
+exclusive_or.js       node_modules          square.js
+greeting_a_user.js    package-lock.json     welcome_stranger.js
+➜  Easy-2 git:(main) ✗ npx square.js    
+npx: installed 1 in 1.771s
+command not found: square.js
+➜  Easy-2 git:(main) ✗ npx eslint square.js
+
+Oops! Something went wrong! :(
+
+ESLint: 7.31.0
+
+Error: Failed to load parser 'babel-eslint' declared in '../../../.eslintrc.yml': Cannot find module 'babel-eslint'
+Require stack:
+- /Users/hyosung11/Launch-School/Courses/.eslintrc.yml
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:927:15)
+    at Function.resolve (node:internal/modules/cjs/helpers:99:19)
+    at Object.resolve (/Users/hyosung11/Launch-School/Courses/JS101/Small-Problems/Easy-2/node_modules/@eslint/eslintrc/lib/shared/relative-module-resolver.js:28:50)
+    at ConfigArrayFactory._loadParser (/Users/hyosung11/Launch-School/Courses/JS101/Small-Problems/Easy-2/node_modules/@eslint/eslintrc/lib/config-array-factory.js:929:45)
+    at ConfigArrayFactory._normalizeObjectConfigDataBody (/Users/hyosung11/Launch-School/Courses/JS101/Small-Problems/Easy-2/node_modules/@eslint/eslintrc/lib/config-array-factory.js:724:43)
+    at _normalizeObjectConfigDataBody.next (<anonymous>)
+    at ConfigArrayFactory._normalizeObjectConfigData (/Users/hyosung11/Launch-School/Courses/JS101/Small-Problems/Easy-2/node_modules/@eslint/eslintrc/lib/config-array-factory.js:665:20)
+    at _normalizeObjectConfigData.next (<anonymous>)
+    at ConfigArrayFactory.loadInDirectory (/Users/hyosung11/Launch-School/Courses/JS101/Small-Problems/Easy-2/node_modules/@eslint/eslintrc/lib/config-array-factory.js:511:28)
+    at CascadingConfigArrayFactory._loadConfigInAncestors (/Users/hyosung11/Launch-School/Courses/JS101/Small-Problems/Easy-2/node_modules/@eslint/eslintrc/lib/cascading-config-array-factory.js:379:46)
+```
+
+19:31 Worked through the `exclusive_or.js` exercise again by sketching in pencil the values as they get evaluated and change. It helped me to understand what is happening better.
