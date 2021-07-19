@@ -352,7 +352,9 @@ Prior, I reviewed and edited about 35 Anki cards.
 
 15:27 Finished Sprint 2 Planning session. Now I need to make cards in Trello for Sprint 2. I enjoy this.
 
-15:58 Watching Mandy Cheang's video [Use what you know: A journey into metacognition ...](https://www.youtube.com/watch?v=6bWY8zSMFOo)
+15:58 Watching Mandy Cheang's video
+
+[Use what you know: A journey into metacognition ...](https://www.youtube.com/watch?v=6bWY8zSMFOo)
 
 Summary
 
@@ -378,5 +380,25 @@ Summary
 * Commit and all the colours disappear again.
 
 21:00 Finished coding the `calculator.js` app again using the text instead of the video this time. Getting off now to watch TV with Sohee. Good night for now. I enjoyed today.
+
+## 20210719 Monday (Happy 13th Anniversary)
+
+07:57 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex Easy 2 > 2 and Medium 1 > 1
+   * [x] 2. Review and Edit Anki cards
+   * [x] 3. Take Quiz 1
+   * [x] 4. Sprint Review
+   * [x] 5. Sprint Retrospective
+   * [x] 6. Sprint 2 Planning
+   * [x] 7. JS101 Lesson 2 > 1-5
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Review Anki cards
+   * [x] 3. JS101 - Lesson 2: Small Programs > Assignments 6-10
+   * [x] 4. LS Podcast S2E1
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Think of this as training. Repeat to remember. Remember to repeat.
 
 End
