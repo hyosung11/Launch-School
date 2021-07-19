@@ -420,3 +420,6 @@ Summary
 14:00 study session with Laurent
 
 15:14 Did two exercises with Laurent. I have things to learn.
+
+17:35 I went down a wormhole because I can't get ESLint to work in Node. I'm going to let it go and make dinner. I have a linter for VS Code.
+
