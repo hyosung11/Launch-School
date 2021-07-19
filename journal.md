@@ -410,3 +410,7 @@ Summary
 10:04 Trying to disable extensios that code complete or suggest, but can't figure it out.
 
 10:22 I think I found and disabled the extensions that I want to disable, but I will restart now.
+
+12:37 Back from anniversary brunch and dunkin' donuts. ready to program more.
+
+13:24 Finished Flowchart Assignment.
