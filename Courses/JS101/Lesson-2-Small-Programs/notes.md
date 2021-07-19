@@ -510,3 +510,219 @@ Save the file and run the program with the command n`ode calculator.js`. You sho
 $ node calculator.js
 Welcome to Calculator!
 ```
+
+**Asking for the Numbers**
+
+Next, we want to ask the user to input the first number. Asking a question is easy; just log the query to the console:
+
+```js
+console.log('Welcome to Calculator!');
+
+console.log("What's the first number?");
+```
+
+If you run this program, you'll see that it asks the user for the first number, but it immediately stops running. The program doesn't wait for the user to input something. We need `readline-sync` and it's `question` function to obtain the user's response.
+
+To use `readline-sync`, we need to require it at the top of our calculator program:
+
+```js
+const readline = require('readline-sync');
+
+console.log('Welcome to Calculator!');
+
+console.log("What's the first number?");
+```
+
+The first line uses the built-in Node function `require` to look for the `readline-sync` library in the `node_modules` folder. The **function** returns the library in the form of an **object** that we can assign to the `readline` variable. The variable name doesn't have to be `readline`; you can choose any name you want, but it makes sense to use a name that helps you remember what the variable contains.
+
+We'll use the `question` method from the r`eadline-sync` library to get input from the user. To do so, we need to *refer* to the **method** as `readline.question`, where `readline` is the name of the variable that contains the library object.
+
+```js
+const readline = require('readline-sync');
+
+console.log('Welcome to Calculator!');
+
+console.log("What's the first number?");
+readline.question();
+```
+
+The `question` **method** causes the program to wait for some keyboard input. It *returns the input as a string* when the user presses the Return key. Let's try it:
+
+```js
+$ node calculator.js
+Welcome to Calculator!
+What's the first number?
+```
+
+After logging `What's the first number?`, the program pauses and waits for you to type something. Type a number and press the Return key. The program should exit when you do that.
+
+Great! We now have a way to capture keyboard input from the user. Right now, though, we aren't doing anything with that input. Let's assign the return value of `readline.question`, a string, to a variable and display that string to make sure we're getting the input from the user:
+
+```js
+const readline = require('readline-sync');
+
+console.log('Welcome to Calculator!');
+
+console.log("What's the first number?");
+let number1 = readline.question();
+
+console.log(number1);
+```
+
+Run this program and verify that it works correctly. It'll redisplay whatever you type at the prompt.
+
+We can do something similar with the second number and log both numbers:
+
+```js
+const readline = require('readline-sync');
+
+console.log('Welcome to Calculator!');
+
+console.log("What's the first number?");
+let number1 = readline.question();
+
+console.log("What's the second number?");
+let number2 = readline.question();
+
+console.log(`${number1} ${number2}`);
+```
+
+After running this program and entering two numbers, you'll see them both printed next to each other on the same line.
+
+**Performing the Operation**
+
+So far, so good. However, we want to do something with these two numbers. We need to either add, subtract, multiply or divide them based on what the user requests. First, we need to ask the user what they want to do:
+
+```js
+const readline = require('readline-sync');
+
+console.log('Welcome to Calculator!');
+
+console.log("What's the first number?");
+let number1 = readline.question();
+
+console.log("What's the second number?");
+let number2 = readline.question();
+
+console.log('What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide');
+let operation = readline.question();
+```
+
+The `\n` in that string is an **escape sequence** that tells Node to start a newline at that point in the output. We call this escape sequence a **newline** character.
+
+Here, we ask the user to enter `1` if they want to perform addition, `2` if they want to perform subtraction, `3` if they want to perform multiplication, and `4` if they want to perform division on the two numbers. Run the program to verify that it works as expected.
+
+We can now use our knowledge of `if/else` statement to perform arithmetic operations based on what the user requested. We'll cover the addition operation first:
+
+```js
+const readline = require('readline-sync');
+
+console.log('Welcome to Calculator!');
+
+console.log("What's the first number?");
+let number1 = readline.question();
+
+console.log("What's the second number?");
+let number2 = readline.question();
+
+console.log('What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide');
+let operation = readline.question();
+
+let output;
+if (operation === '1') { // '1' represents addition
+  output = number1 + number2;
+}
+
+console.log(`The result is: ${output}`);
+```
+
+Here, we declare an `output` variable to receive the result of the arithmetic operation. We'll assign the value conditionally based on which operation the user requests. For instance, here we test whether `operation` holds the string value `'1'`, i.e., the user wants to perform addition. If that's the case, we add the two numbers and assign the result to `output`. The last line then logs the output to the console.
+
+Since `readline.question` always returns a string, we must compare the `operation` variable with the string `'1'`, not the number `1`. The number version of the comparison won't evaluate to true unless you use the loose equality operator (`==`). Since `==` can coerce one or both values to a different type, its behavior may be confusing. We strongly recommend that you always use `===`, not `==`, to avoid these confusing behaviors; **explicit coercions** more clearly show what's happening.
+
+Let's run the program and see what happens. Ask the program to add `3` and `3`. In light of what we just said about the use of strings, it should come as no surprise that the output is `33` instead of `6`. The `+` operator *always performs concatenation* if one of its arguments is a string, so the result is `33`.
+
+To get around this behavior, we need a way to *convert the strings to numbers* before adding them. The JavaScript `Number` function does that. Let's convert `number1` and `number2` to numbers and then add them:
+
+```js
+const readline = require('readline-sync');
+
+console.log('Welcome to Calculator!');
+
+console.log("What's the first number?");
+let number1 = readline.question();
+
+console.log("What's the second number?");
+let number2 = readline.question();
+
+console.log('What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide');
+let operation = readline.question();
+
+let output;
+if (operation === '1') { // '1' represents addition
+  output = Number(number1) + Number(number2);
+}
+
+console.log(`The result is: ${output}`);
+```
+
+You should get the correct output this time.
+
+Let's add an `else if` clause to our if statement to take care of the subtraction operation:
+
+```js
+const readline = require('readline-sync');
+
+console.log('Welcome to Calculator!');
+
+console.log("What's the first number?");
+let number1 = readline.question();
+
+console.log("What's the second number?");
+let number2 = readline.question();
+
+console.log('What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide');
+let operation = readline.question();
+
+let output;
+if (operation === '1') { // '1' represents addition
+  output = Number(number1) + Number(number2);
+} else if (operation === '2') { // '2' represents subtraction
+  output = Number(number1) - Number(number2);
+}
+
+console.log(`The result is: ${output}`);
+```
+Run this program and make sure you get the right output.
+
+We can follow the same template to take care of the last two operations, multiplication and division:
+
+const readline = require('readline-sync');
+
+console.log('Welcome to Calculator!');
+
+console.log("What's the first number?");
+let number1 = readline.question();
+
+console.log("What's the second number?");
+let number2 = readline.question();
+
+console.log('What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide');
+let operation = readline.question();
+
+let output;
+if (operation === '1') { // '1' represents addition
+  output = Number(number1) + Number(number2);
+} else if (operation === '2') { // '2' represents subtraction
+  output = Number(number1) - Number(number2);
+} else if (operation === '3') { // 3 represents multiplication
+  output = Number(number1) * Number(number2);
+} else if (operation === '4') { // 4 represents division
+  output = Number(number1) / Number(number2);
+}
+
+console.log(`The result is: ${output}`);
+
+Our calculator app is now complete! Play around with it using different numbers and operations to see that it covers all cases.
+
+End
