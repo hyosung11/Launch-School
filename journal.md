@@ -390,3 +390,7 @@ Summary
 * Add a new line and it goes green.
 * Do either of these and your file turns yellow in the Explorer.
 * Commit and all the colours disappear again.
+
+21:00 Finished coding the `calculator.js` app again using the text instead of the video this time. Getting off now to watch TV with Sohee. Good night for now. I enjoyed today.
+
+End

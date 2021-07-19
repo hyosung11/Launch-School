@@ -725,4 +725,6 @@ console.log(`The result is: ${output}`);
 
 Our calculator app is now complete! Play around with it using different numbers and operations to see that it covers all cases.
 
+Our calculator app is now complete! Play around with it using different numbers and operations to see that it covers all cases.
+
 End
