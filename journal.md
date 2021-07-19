@@ -408,3 +408,5 @@ Summary
 09:38 write out the code blocks myself instead of just copying them!
 
 10:04 Trying to disable extensios that code complete or suggest, but can't figure it out.
+
+10:22 I think I found and disabled the extensions that I want to disable, but I will restart now.

@@ -22,5 +22,15 @@ END
 */
 
 function greatestNumber(numbers) {
-  let savedNu
+  let savedNumber = numbers[0];
+
+  numbers.forEach(num => {
+    if (num > savedNumber) {
+      savedNumber = num;
+    }
+  })
+
+  return savedNumber;
 }
+
+console.log(greatestNumber([1, 11, 34, 12, 556])) // 556
