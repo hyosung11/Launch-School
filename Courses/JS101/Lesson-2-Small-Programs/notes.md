@@ -861,4 +861,126 @@ Using the components above, here's what a flowchart would look like for our appr
 
 ![Flowchart Largest Number](flowchart_largest.jpg)
 
+The above flowchart uses the non-idiomatic name **saved_number**. *This is a mistake*. The idiomatic version of this name should be `savedNumber`.
 
+Note that the decision (the diamond) component should only have **two branches**. *If you have a decision condition that has 3 (or more) branches, use separate diamonds for each branch.*
+
+Note that the arrows show the logic "flow" and that we're taking great pains to **specify the iteration logic**. That helps us map out the step-by-step logic our program would need to solve this problem. It's called the ***imperative*** or ***procedural*** way to solve a problem. In many higher level programming languages, basic concepts such as iterating over a collection are encapsulated into a method. In JavaScript, for example, we have a handy `forEach` method that lets us iterate over an Array collection. Using `forEach` is the **declarative** way to solve a problem.
+
+When working with flowcharts, we are going to be **imperative** in our approach, and we'll visually show how to loop manually, rather than using any declarative constructs built into the language. Doing things this way *forces you to understand the logic much better*, and also *forces you to "think like a computer*," which helps you debug logical errors in your code. Over time, as you get better at thinking like a computer, you can reach for the higher-level declarative syntax.
+
+### A Larger Problem
+
+Now, let's suppose that the above flowchart is mapping out a solution to part of a more complex problem. Let's suppose that we need to ask the user to enter N collections of numbers and that we want to find and display the largest number from each collection. How would we approach coming up with a solution here?
+
+Let's try to high-level pseudocode this.
+
+```js
+/*
+while the user wants to keep going
+  - ask the user for a collection of numbers
+  - extract the largest one from the collection and save it
+  - ask the user if they want to input another collection
+
+return the saved list of numbers
+*/
+```
+
+That seems reasonable, but you can see that the line `extract the largest one from that collection` is a sub-process that itself contains much logic. That functionality is self-contained, so it's a great candidate for a **sub-process**. We can, of course, turn that sub-process into a function. Let's not think about functions yet, though. Instead, let's keep our train of thought at the logical level and not think about code.
+
+Now, you may be thinking that we were only able to see the "extract the largest one from that collection" as a sub-process because we did the previous assignment first. If we were tackling this larger problem first, it might not be apparent. That's a fair point. In that scenario, we probably must include the full pseudocode from the previous assignment, like this:
+
+```js
+/*
+while the user wants to keep going
+  - ask the user for a collection of numbers
+  - iterate through the collection one by one
+    - save the first value as the starting value
+    - for each iteration, compare the saved value with the current value
+    - if the saved value is greater than or equal to the current number
+      - move to the next value in the collection
+    -otherwise, if the current value is greater than the saved value
+      - reassign the saved value as the current value
+
+  - after iterating through the collection, save the largest value into the list
+  - ask the user if they want to import another collection
+
+return the saved list of numbers
+```
+
+When pseudocode gets long, it becomes difficult to trust the accuracy of the logic (remember, you can only verify the logic by running the actual program code). Therefore, it's prudent to extract a logical grouping into a sub-process and tackle the various pieces separately.
+
+Let's take our shortened pseudocode from the beginning and translate this into formal pseudocode.
+
+```js
+/*
+START
+
+SET largeNumbers = []
+SET keepGoing = true
+
+WHILE keepGoing === true
+  GET "enter a collection"
+  SET collection
+  SET largestNumber = SUBPROCESS "extract the largest one from the collection"
+  largeNumbers.push(largestNumber)
+  GET "enter another collection?"
+  IF "yes"
+    keepGoing = true
+  ELSE
+    keepGoing = false
+
+PRINT largeNumbers
+
+END
+*/
+```
+
+Notice that we have a `SUBPROCESS` keyword to show that some other thing will extract the largest number from a collection. As before, we could have included the entire formal pseudocode from the previous assignment, but that would have made it very long. Our confidence in a large block of pseudocode can't be very high. Extracting logic into sub-processes lets us focus on a well-defined, narrowly-scoped set of pseudocode.
+
+Next, we'll try to use a flowchart to help us organize the logical flow a bit more.
+
+![Flow Chart of `largeNumbers`](flowchart_large_numbers.jpeg)
+
+The interesting part of this flowchart is the processing square in the middle `num = findLargest(collection)`. It's our sub-process. You can think of this square as the zoomed-out high-level view of the very first flowchart from the top of this assignment.
+
+Interestingly, when we move logic to sub-processes, we use a *declarative* type of syntax, rather than *imperative*. In other words, we can say "findLargest," rather than outline step by step how the logic should be. Thinking about how the high-level logic flows lets you create sub-processes to narrow the scope of your application. From a high level, writing declarative code fragments our program into logical sections, letting us focus on one section at a time. For example, if we wanted to add a validation feature to our program, we could have a sub-process that returns `true` or `false` given an input. We can call it `validateInput` and represent it as a square in our flowchart, without having to lay out the step-by-step imperative logic that's required to validate the user's input. From a high level, we can trust that this sub-process will do its job -- it only returns true or false. When we're ready to work on the logic in that `validateInput` sub-process, we can focus on the responsibilities of this sub-process and ignore the rest of the program.
+
+As you use pseudocode and flowcharts to help you dissect the logic of a problem, you always need to think about how detailed the chart and words should be, and what you can extract to sub-processes. A programmer must always think about that when designing the solution to a problem. You won't get it right the first time.
+
+*Start at a high level*, using **declarative** syntax. For example, if you're working on a calculator, you can start with something like this:
+
+```js
+/*
+
+- Get the first number
+  - Make sure it's valid, otherwise, ask for another
+- Get the second number
+  - Make sure it's valid, otherwise, ask for another
+- Get the operator
+  - Make sure it's valid, otherwise, ask again
+
+- Perform the operation on the two numbers
+- Display the result
+- Ask whether the user wants to do another calculation
+
+*/
+```
+
+In the above, you're not yet outlining exactly how to validate the inputs. No specifics or imperative style pseudocode yet. Once you have the high-level steps, it's time to drill down a level into imperative pseudocode and outline specifics.
+
+In the long term, you may not need pseudocode or flowcharts at all. ***However, on our interview coding assessments, we expect you to lay out your logic before you begin coding.*** Pseudocode is the most straightforward way to do that, so take time to practice pseudocode before you take those assessments.
+
+### Flowcharting the Calculator
+
+Taking the high-level pseudocode above, we can come up with a flowchart that looks something like this.
+
+![Flowcharting the Calculator](flowchart_calculator.jpg)
+
+The above flowchart uses the **non-idiomatic names** `valid_number`, `valid_operator`, and `find_result`. This is a mistake. The names should be `numberValid`, `operatorValid`, and `findResult`. We use the corrected names below and in later assignments.
+
+We're only able to come up with this high-level flowchart by introducing three sub-processes: `numberValid`, `operatorValid`, and `findResult`. By not worrying about the low-level details of how those sub-processes will work, we can think at a higher level about our overall application logic. When we're ready to dive into how each of those sub-processes should work, we can create the detailed pseudocode and flowcharts for each of them.
+
+Hopefully, this gives you an idea of one way to approach tackling the logical side of problem-solving.
+
+20210719 13:22 Assignment Complete

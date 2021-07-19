@@ -1,4 +1,6 @@
-/* Pseudocode
+/* Courses > JS101 Programming Foundations with JavaScript > Lesson 2: Small Programs > 6. Pseudocode
+
+Pseudocode
 
 START
 
@@ -33,4 +35,4 @@ function greatestNumber(numbers) {
   return savedNumber;
 }
 
-console.log(greatestNumber([1, 11, 34, 12, 556])) // 556
+console.log(greatestNumber([1, 11, 34, 765, 556])) // 765
