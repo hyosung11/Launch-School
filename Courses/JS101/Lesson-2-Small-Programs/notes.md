@@ -830,3 +830,25 @@ function findGreatest(numbers) {
 ```
 
 If we run the above code, we can show that our pseudocode logic works!
+
+Now, let's look at the working code, and start to improve it from a lower layer -- at the programming language level. For instance, what should we do if `numbers` is `undefined`? Perhaps we can use a **guard** clause that returns `undefined`, like this: `if (numbers === undefined) return;`. Now that we have the general logic and code in place, there are other small improvements we can make.
+
+In this example, the function we wanted to write was straightforward. We were able to write a few lines of pseudocode, move it to a more formal pseudocode, and then translate it to JavaScript. However, most problems you encounter will be more difficult than this example. You won't be able to take the same approach. That is, you won't be able to detail out the entire problem first in pseudocode, then translate all of it into JavaScript. If you did, you'd likely discover that a lot of your logic or assumptions in the pseudocode is incorrect, and you'll need to make some changes that ripple across the entire program, forcing you to start over time and again. Remember, *pseudocode is a guess at the solution*; there's no verification that the logic is correct. You can't do that until you translate it to program code.
+
+For more sophisticated problems, we need to *take a piecemeal approach when writing pseudocode*, then translate that pseudocode to JavaScript. Once we verify that the logic is correct, we can move to the next piece of the problem. Step-by-step, we slowly **load the problem into our brain**, verifying the logic each step along the way.
+
+We'll show you how to use **flowcharts** to help with this in the next assignment. For now, try a few practice rounds using pseudocode to guide your problem-solving logic. For example, write out pseudocode (both casual and formal) that does the following:
+
+- a function that returns the sum of two numbers
+- a function that takes an array of strings, and returns a string that is all those strings concatenated together
+- a function that takes an array of integers, and returns a new array with every other element
+
+You don't need to write any JavaScript code here; just practice writing the logic in English.
+
+You don't need to use pseudocode for every bit of code you write, especially once you get down to the function level. However, it's a good idea to always use it here in this course and the associated Small Problem exercises. This will help you overcome problems in the short term, and prepare you for the interview assessment later on.
+
+For brevity, we won't use pseudocode extensively in this course. However, we will use it for the more complicated problems and when we feel that it most helpful to see the pseudocode for a problem.
+
+20210719 10:38 Assignment Complete
+
+
