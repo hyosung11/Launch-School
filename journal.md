@@ -4,9 +4,7 @@ Started the Prep courses and finished on Sunday, 20210711.
 Wrote and sent Assessment email on 20210711
 Accepted and enrolled on Monday, 20210712
 
----
-
-20210712 월요일
+## 20210712 월요일
 
 Still trying to figure out how best to use Anki cards.
 What about agile/scrum development processes to go through the core curriculum?
@@ -37,9 +35,7 @@ Commit frequently.
 Merge `forward` frequently.
 Create `pull requests` infrequently.
 
----
-
-20210713 화요일
+## 20210713 화요일
 
 Daily Scrum Questions
 
@@ -69,9 +65,7 @@ spent a lot of time reviewing the anki cards I made yesterday. I want to make mo
 
 20:33 Finished Anki cards on arrays.
 
----
-
-20210714 - 수요일 0:20
+## 20210714 - 수요일 0:20
 
 done for the day
 got through all the Intro to Programming book with Anki cards
@@ -127,9 +121,7 @@ cc
 
 23:08 Jordan Whistler demonstrated Live Share for VS Code wtih me.
 
----
-
-20210715 목요일
+## 20210715 목요일
 
 07:23 Back at my MBP. Listening to LS podcast. Ready to do Anki cards.
 
@@ -242,9 +234,7 @@ Practice Process
 
 19:08 started `sum_or_product.js`
 
----
-
-20210715 Friday
+## 20210715 Friday
 
 05:51 getting setup for study session with Alex
 
@@ -287,9 +277,7 @@ Prior, I reviewed and edited about 35 Anki cards.
 
 21:22 submitted `multiples_of_3_and_5.js` LS solution and discussion.
 
----
-
-20210717 Saturday
+## 20210717 Saturday
 
 09:00 Daily Scrum Questions
 
@@ -329,9 +317,7 @@ Prior, I reviewed and edited about 35 Anki cards.
 
 21:13 Reviewed and Edited Anki cards.
 
----
-
-20210718 Sunday
+## 20210718 Sunday
 
 07:49 reviewing the two exercises that Alex and I did this morning.
 
