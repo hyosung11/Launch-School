@@ -851,4 +851,14 @@ For brevity, we won't use pseudocode extensively in this course. However, we wil
 
 20210719 10:38 Assignment Complete
 
+## Flowchart
+
+Using a flowchart helps us map out the logical sequence of a possible solution in a visual way. We'll take a stab at drafting a flowchart for the same problem we saw in the previous assignment. First, though, let's take a look at the components at our disposal in a flowchart.
+
+![Flowchart Components](flowchart_components.jpg)
+
+Using the components above, here's what a flowchart would look like for our approach to finding the largest number in a collection.
+
+![Flowchart Largest Number](flowchart_largest.jpg)
+
 
