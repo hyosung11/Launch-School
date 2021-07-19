@@ -21,6 +21,15 @@ function square(number) {
   return multiply(number, number);
 }
 
-
 console.log(square(5));
 console.log(square(-8));
+
+/*
+Discussion
+
+Our implementation relies on the previous exercise's multiply() function. The return value of multiply() is the result of multiplying the two arguments we pass to it, so we can simply pass in the same number twice, which will return the squared value. Our square() function is implicitly returning the return value from multiply(number, number).
+
+Further Exploration
+
+What if we wanted generalize this function to a "power to the n" type function: cubed, to the 4th power, to the 5th, etc. How would we go about doing so while still using the multiply() function?
+*/
