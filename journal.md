@@ -395,9 +395,9 @@ Summary
    * [x] 7. JS101 Lesson 2 > 1-5
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [x] 2. Review Anki cards
-   * [x] 3. JS101 - Lesson 2: Small Programs > Assignments 6-10
-   * [x] 4. LS Podcast S2E1
+   * [ ] 2. Review Anki cards
+   * [ ] 3. JS101 - Lesson 2: Small Programs > Assignments 6-10
+   * [ ] 4. LS Podcast S2E1
 3. Are there any blockers or impediments preventing you from doing your work?
    * Think of this as training. Repeat to remember. Remember to repeat.
 
