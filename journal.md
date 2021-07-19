@@ -414,3 +414,9 @@ Summary
 12:37 Back from anniversary brunch and dunkin' donuts. ready to program more.
 
 13:24 Finished Flowchart Assignment.
+
+13:47 submitted `multiply.js` solution.
+
+14:00 study session with Laurent
+
+15:14 Did two exercises with Laurent. I have things to learn.

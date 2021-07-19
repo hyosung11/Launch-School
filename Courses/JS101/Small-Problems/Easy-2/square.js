@@ -15,14 +15,14 @@ console.log(square(-8) === 64); // logs true
 //   return num1 * num2;
 // }
 
-const multiply = (num1, num2) => num1 * num2;
+// const multiply = (num1, num2) => num1 * num2;
 
-function square(number) {
-  return multiply(number, number);
-}
+// function square(number) {
+//   return multiply(number, number);
+// }
 
-console.log(square(5));
-console.log(square(-8));
+// console.log(square(5));
+// console.log(square(-8));
 
 /*
 Discussion
@@ -33,3 +33,4 @@ Further Exploration
 
 What if we wanted generalize this function to a "power to the n" type function: cubed, to the 4th power, to the 5th, etc. How would we go about doing so while still using the multiply() function?
 */
+
