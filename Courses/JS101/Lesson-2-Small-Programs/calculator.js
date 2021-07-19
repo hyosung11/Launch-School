@@ -54,6 +54,7 @@ console.log("What operation do you want to perform?\n 1) Add, 2) Subtract, 3) Mu
 let operation = readline.question();
 
 let output;
+
 if (operation === '1') { // '1' represents addition
   output = Number(number1) + Number(number2);
 } else if (operation === '2') { // '2' represents subtraction
