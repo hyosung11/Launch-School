@@ -2189,3 +2189,46 @@ In all 3 cases, `1 / 0` *never gets executed*, even though operator precedence w
 Really. Don't rely on the precedence rules when you're mixing operators; use parentheses whenever you mix operators in an expression. If you don't bother with the parentheses, you'll eventually decide to work from memory. Sooner or later you'll misremember the rule, and introduce a nice little bug into your code. Someone reading your code may not be as familiar with the precedence rules as you. They will either have to look up the rules, or assume that you knew what you were doing when you wrote the code. If they assume that you knew what you were doing, they will miss the bug.
 
 20210720 17:23 Precedence Assignment completed.
+
+## Assignment: Calculator Bonus Features
+
+As you program more, you'll soon realize that there's no such thing as a program that's "done." Here are a couple of bonus features you can tackle if you're up to it. They're optional, so if you're in a rush, you don't have to do them.
+
+### 1. Asking the user for another calculation
+
+Currently, our calculator asks the user for two numbers and an operation and then exits after displaying the result. Wouldn't it be nice if we could ask the user if they wanted to perform another calculation and start a new calculation when they respond with yes?
+
+```js
+const readline = require('readline-sync');
+
+function prompt(message) {
+  console.log(`=> ${message}`);
+}
+
+function invalidNumber(number) {
+  return number.trimStart() === '' || Number.isNaN(Number(number));
+}
+
+prompt('Welcome to Calculator!');
+
+while (true) {
+  // ask for two numbers
+  // ask for operation
+  // perform operation and display results
+
+  prompt('Would you like to perform another operation? (y/n)');
+  let answer = readline.question();
+
+  if (answer !== 'y') break;
+}
+```
+
+We nest the main part of our program in a `while (true)` loop and, at the end of the loop body, we ask the user if they want to perform another calculation. If the user inputs anything other than `'y'`, we break out of the loop with the `break` statement. That looks good so far, but suppose the user enters an uppercase `'Y'` or the word `'yes'` instead of `'y'`. What happens then? We can take care of those cases with the following change:
+
+```js
+while (true) {
+  // code omitted for brevity
+
+  if (answer[0].toLowerCase() !== 'y') break;
+}
+```
