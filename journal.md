@@ -508,3 +508,6 @@ $ npm install eslint@4.x babel-eslint@8 --save-dev
 $ yarn add eslint@4.x babel-eslint@8 -D
 ```
 
+09:49 Took a poop break. I'm going to read a little from *Mastery* before I do a few Anki cards. I also finished listening to LS Podcast S2E2
+
+10:33 Studied 8 Anki cards.
