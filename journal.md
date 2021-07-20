@@ -428,7 +428,6 @@ Summary
 18:52 Giving up on getting ESLint to work in Node. I keep getting the error
 
 ```js
-
 ➜  Easy-2 git:(main) ✗ npx eslint hello.js
 
 Oops! Something went wrong! :(
@@ -468,4 +467,6 @@ Require stack:
 
 19:31 Worked through the `exclusive_or.js` exercise again by sketching in pencil the values as they get evaluated and change. It helped me to understand what is happening better.
 
-20:!8 I still can't get ESLint to work on either machine. Ugh.
+20:18 I still can't get ESLint to work on either machine. Ugh.
+
+21:16 Done for tonight with `calculator.js` version 2 via video walkthrough.
