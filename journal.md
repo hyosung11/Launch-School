@@ -467,3 +467,5 @@ Require stack:
 ```
 
 19:31 Worked through the `exclusive_or.js` exercise again by sketching in pencil the values as they get evaluated and change. It helped me to understand what is happening better.
+
+20:!8 I still can't get ESLint to work on either machine. Ugh.
