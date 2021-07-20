@@ -1294,3 +1294,247 @@ Some folks are visual learners, and really enjoy seeing complex topics covered a
 [Video Version](https://launchschool.com/lessons/64655364/assignments/bfb3a9f2)
 
 Even if you watch the video, you may still want to read through the text version of the walkthrough below. The repetition can help you understand things better.
+
+### Adding a Distinctive Prompt
+
+One thing you'll notice about the calculator program is that the messages are dull and lack distinctiveness; everything, both inputs and outputs, looks the same:
+
+```sh
+$ node calculator.js
+Welcome to calculator!
+What's the first number?
+5
+What's the second number?
+7
+```
+
+We want to give it a more distinctive look that separates it from the usual terminal output. Maybe we can prefix each message with a `=>` marker:
+
+```sh
+=> Welcome to calculator!
+=> What's the first number?
+5
+=> What's the second number?
+7
+```
+
+That sounds easy. We can prepend the marker to the front of each output string we pass to `console.log`, right? That's certainly one way to do it, but we must remember to do it for every output message in our program. Instead, let's *extract* this functionality to a function named `prompt`:
+
+```js
+const readline = require('readline-sync');
+
+function prompt(message) {
+  console.log(`=> ${message}`);
+}
+
+// rest of the program omitted
+```
+
+The `prompt` function prepends the marker to the front of the string that it logs to the console. All we have to do now is *replace* our `console.log` calls with prompt calls.
+
+```js
+const readline = require('readline-sync');
+
+function prompt(message) {
+  console.log(`=> ${message}`);
+}
+
+prompt("Welcome to Calculator!");
+
+prompt("What's the first number?");
+
+prompt("What's the second number?");
+let number1 = readline.question();
+
+// rest of program omitted
+```
+
+Make the change to the calculator program, then run it to verify that it works as expected.
+
+#### Switch Statement
+
+Our program currently uses this `if/else` statement to compare the user's choice of operator with the valid possibilities:
+
+```js
+let output;
+if (operation === '1') {
+  output = Number(number1) + Number(number2);
+} else if (operation === '2') {
+  output = Number(number1) - Number(number2);
+} else if (operation === '3') {
+  output = Number(number1) * Number(number2);
+} else if (operation === '4') {
+  output = Number(number1) / Number(number2);
+}
+```
+
+Each comparison compares the variable `operation` with a different value. This kind of logic is the use-case that the `switch` statement was designed to handle, so let's replace the `if/else` with a `switch` statement:
+
+```js
+let output;
+switch (operation) {
+  case '1':
+    output = Number(number1) + Number(number2);
+    break;
+  case '2':
+    output = Number(number1) - Number(number2);
+    break;
+  case '3':
+    output = Number(number1) * Number(number2);
+    break;
+  case '4':
+    output = Number(number1) / Number(number2);
+    break;
+}
+```
+
+Run the program after you make the change to see whether it still works correctly.
+
+Remember: it's crucial to include `break` statements in each `case` unless you use a `return` statement at the end of that `case`. If you don't include a `break` statement, JavaScript *falls through* and evaluates the rest of the `case` clauses until it reaches the end of the `switch` statement or it encounters a `break` or `return` statement.
+
+This code isn't as concise as the `if/else` version. The code reads a little better, but we had to add 3 more lines of code. It's a tradeoff, but the *improved readability makes it worthwhile*.
+
+#### Validating User Input
+
+For this refactoring, we'll use a flow-chart diagram to show the intended behavior of the program:
+
+![Validating User Input](flowchart_calculator_js.jpg)
+
+As you can see, all three user inputs use looping logic. We take the input from the user, check whether it is valid, continue if it is, and redo the loop if it isn't. There are several ways we can implement this logic, but we'll use a simple `while` loop. The loop terminates when the input is valid. Let's add some code to handle this logic for the first input number:
+
+```js
+prompt("What's the first number?");
+let number1 = readline.question();
+
+while (invalidNumber(number1)) {
+  prompt("Hmm ... that doesn't look like a valid number.");
+  number1 = readline.question();
+}
+```
+
+We'll write the `invalidNumber` function soon. For now, though, the overall logic looks like this: we ask the user for input and assign that input to the variable `number1`. We start a loop that:
+
+- checks whether the input is valid.
+- the loop ends if the input is valid.
+- tells the user that the input is invalid.
+- waits for the next input.
+- jumps back to the top of the loop.
+
+We can now complete the `invalidNumber` function:
+
+```js
+function invalidNumber(number) {
+  return Number.isNaN(Number(number));
+}
+```
+
+The `Number.isNaN()` method takes any JavaScript value and returns the boolean `true` if the value is `NaN`, `false` if it is not. We check whether `Number(number)` is `NaN` since calling `Number()` on a non-numeric string evaluates to `NaN`. Thus, `number` is invalid if the conversion results in `NaN`. Note that `Number()` *ignores leading whitespace* in the `number` string, so `Number(' 34')` returns `34`.
+
+Add the above code to your program and give it a test run. If you enter some non-numeric input like `abc`, you'll be prompted to enter a valid number.
+
+There's one problem with `invalidNumber`. Suppose you don't enter any input: you'll find that the program continues to run without prompting you to re-enter the input. The `readline.question` method returns an empty string when the user doesn't provide any input, and `Number` returns `0` when given an empty string or a string that contains nothing but whitespace. Thus, if the user doesn't enter anything, `invalidNumber` treats it as the valid number `0` and returns false.
+
+We can observe this behavior in the node console:
+
+```sh
+> Number('')
+0
+> Number('   ') // leading spaces are ignored!
+0
+```
+
+This behavior means that we must change our `invalidNumber` function to treat empty and whitespace strings as invalid input. We can use the `String.prototype.trimStart` method to get a copy of the `number` string with leading whitespace removed:
+
+```js
+function invalidNumber(number) {
+  return number.trimStart() === ''|| Number.isNaN(Number(number));
+}
+```
+
+Now that we can validate input numbers, let's add the same validation looping logic for the second number:
+
+```js
+prompt("What's the second number?");
+let number2 = readline.question();
+
+while(invalidNumber(number2)) {
+  prompt("Hmm ... that doesn't look like a valid number.");
+  number2 = readline.question();
+}
+```
+
+Rerun the program. This time, you'll see that it asks for the input again when either input is invalid.
+
+We should also validate the operation requested by the user. The only valid inputs for the operation are '1', '2', '3' and '4', so all we need to do is check whether the input is one of those four strings.
+
+```js
+prompt("What operation do you want to perform? 1) Add 2)Subtract 3)Multiply 4) Divide")
+let operation = readline.question();
+
+while(!['1', '2', '3', '4'].includes(operation)) {
+  prompt("Please choose 1, 2, 3, or 4");
+  operation readline.question();
+}
+```
+
+The above code says that as long as the input isn't one of the values `1`, `2`, `3`, or `4`, keep asking the user for a valid operation number. `Array.prototype.includes` returns `true` when the given element exists in the array, `false` otherwise.
+
+**Completed Program**
+
+```js
+const readline = require('readline-sync');
+
+function prompt(message) {
+  console.log(`=> ${message}`);
+}
+
+function invalidNumber(number) {
+  return number.trimStart() === '' || Number.isNaN(Number(number));
+}
+
+prompt('Welcome to Calculator!');
+
+prompt("What's the first number?");
+let number1 = readline.question();
+
+while (invalidNumber(number1)) {
+  prompt("Hmm... that doesn't look like a valid number.");
+  number1 = readline.question();
+}
+
+prompt("What's the second number?");
+let number2 = readline.question();
+
+while (invalidNumber(number2)) {
+  prompt("Hmm... that doesn't look like a valid number.");
+  number2 = readline.question();
+}
+
+prompt('What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide');
+let operation = readline.question();
+
+while (!['1', '2', '3', '4'].includes(operation)) {
+  prompt('Must choose 1, 2, 3 or 4')
+  operation = readline.question();
+}
+
+let output;
+switch (operation) {
+  case '1':
+    output = Number(number1) + Number(number2);
+    break;
+  case '2':
+    output = Number(number1) - Number(number2);
+    break;
+  case '3':
+    output = Number(number1) * Number(number2);
+    break;
+  case '4':
+    output = Number(number1) / Number(number2);
+    break;
+}
+
+prompt(`The result is: ${output}`);
+```
+
+20210720 12:05 Assignment complete.
