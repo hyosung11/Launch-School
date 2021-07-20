@@ -1686,3 +1686,144 @@ We'd still have the original error in the `getModel` function, but, depending on
 Finally, after implementing a fix, make sure that you verify that the code fixed the problem by using a similar set of tests from step #2. After you learn about automated testing, you'll want to add an automated test to prevent regression. For now, you can test manually.
 
 ### Techniques for Debugging
+
+1. **Line by line**
+
+Your best debugging tool is your **patience**, which is why we mentioned temperament first in this article. Most bugs in your code come from overlooking a detail, rather than a complete misunderstanding of a concept. Being careful, patient and developing a habit of reading code line-by-line, word-by-word, character-by-character is your most useful programming skill. If you are naturally impatient or like to gloss over details, you must train yourself to behave differently when programming. All other debugging tips and tools won't matter if you aren't **detail oriented**.
+
+2. **Rubber Duck**
+
+[Rubber Duck Debugging](https://en.wikipedia.org/wiki/Rubber_duck_debugging) sounds crazy, but it is so useful that it has its own Wikipedia page. The process centers around using some object, like a rubber duck, as a sounding board when faced with a hard problem. The idea is that when you explain the problem to a rubber duck, you force yourself to articulate the problem, detail by detail. That often leads to discovering the root of the problem. Of course, the object doesn't have to be a rubber duck -- it can be anything, including another human being. The point is to focus your mind on walking through the code, line by line, and in that process, noticing a small detail that may reveal a deeper problem. If you've never experienced this phenomenon, we encourage you to try this out yourself next time you're stuck on a bug.
+
+3. **Walking Away**
+
+Another interesting debugging technique is to go for a walk. Some have claimed a swim, jog or even a shower helps too. The idea is that this technique works since it activates a different part of your brain. When you walk away from the computer, your brain is still working on the problem in the background. Note that this is only effective *if you first spend time loading the problem in your brain*. You cannot just walk away when you first encounter a problem and expect this technique to work. Once you've loaded the problem in your brain, your brain may work on the problem even while you're sleeping! Also, our brains get tired too, so it's ok to step away and come back to it with fresh eyes and a refreshed brain.
+
+4. **Inspecting with a Debugger**
+
+Node.js comes with a debugger that lets you pause the program during execution and perform various actions from that point in the program execution, such as inspecting values at runtime.
+
+To use the debugger, run the node command with the `inspect` argument. Let's inspect a program with a simple while loop using the node debugger:
+
+```js
+// debug.js
+
+let counter = 1;
+
+while (counter <=5 ) {
+  console.log(counter);
+  counter += 1;
+}
+```
+
+Save this code in a file called `debug.js` and run it like so:
+
+```sh
+> node inspect debug.js
+```
+
+You'll see a prompt with some output like the following:
+
+```sh
+< Debugger listening on ws://127.0.0.1:9229/5c08d9ea-1d25-4fa8-8ddb-3ab96ea3ac5b
+< For help, see: https://nodejs.org/en/docs/inspector
+< Debugger attached.
+Break on start in debug.js:3
+  1 // debug.js
+  2
+> 3 let counter = 1;
+  4
+  5 while (counter <= 5) {
+debug>
+```
+
+Ignore the first three lines of the output for now. They're not relevant to our discussion here. The 4th line says "Break on start in debug.js:3", which means that *program execution stopped on line 3*.
+
+The debugger will automatically pause program execution, usually at the first expression or function call that it encounters in your code. In our case that's the line l`et counter = 1`; on line 3. Notice also the `>` next to line 3, which indicates the line at which execution has been paused.
+
+We can access the value of any variables that are in scope at that point in execution by using the `exec` command followed by the name of the variable, for example `exec counter`. If we try accessing `counter` at the current point in program execution, however, it will return `undefined` since the expression has not yet been evaluated and so the assignment to `1` has not taken place.
+
+Instead let's continue execution to the *next* expression. We can do this by using the `next` command, or its shorthand version `n`. Entering either `next` or `n` from the current point will continue execution and then pause at the start of the `while` loop on line 5. If we run `exec counter` now, we should get 1.
+
+```sh
+debug> n
+break in app.js:5
+  3 let counter = 1;
+  4
+> 5 while (counter <= 5) {
+  6   console.log(counter);
+  7   counter += 1;
+debug> exec counter
+1
+debug>
+```
+
+If your program contains quite a few lines of code, using `n` / `next` to cycle through each expression or function call to get to a particular point in the program can be a bit of a pain. Here's where another command, `c` combined with a `debugger` statement, comes in useful.
+
+What the `c` (or `cont`) command does is effectively 'un-pause' the program execution, and *continue* it to the end (or until you experience an error). If we execute the c command from our current paused location, the program will just run as normal.
+
+```sh
+< 1
+< 2
+< 3
+< 4
+< 5
+< Waiting for the debugger to disconnect...
+debug>
+```
+
+We get our expected output from each loop, and a `Waiting for the debugger to disconnect...` message followed by a `debug>` prompt. At this point, we can either start program execution again from the beginning using the `run` or `restart` commands, or exit the debugger using `.exit` (or hitting `CTRL+C` or `CTRL+SHIFT+C` twice, or `CTRL+D`; this can vary across systems/ environments).
+
+On its own, the `c` command may not seem that useful, but it becomes more useful when combined with a `debugger` statement. The [debugger statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger) is valid JavaScript syntax, that:
+
+> invokes any available debugging functionality, such as setting a breakpoint. If no debugging functionality is available, this statement has no effect.
+
+We'll come back to that word, *breakpoint*, in a moment. Let's exit the debugger and edit our `debug.js` file. Add a `debugger;` statement inside the `while` loop, after `console.log(counter)` but before `counter += 1;`:
+
+```js
+// debug.js
+
+let counter = 1;
+
+while (counter <= 5) {
+  console.log(counter);
+  debugger;
+  counter += 1;
+}
+```
+
+If we run `node inspect debug.js` once more, the debugger runs and pauses at line 3 as before. If we now use the `c` command, the debugger pauses execution at the `debugger` statement. Another way to think about this is that there is a *break* at that *point* in the program's execution. Setting a `debugger` statement like this is often referred to as a *breakpoint*.
+
+```sh
+debug> c
+< 1
+break in app.js:7
+  5 while (counter <= 5) {
+  6   console.log(counter);
+> 7   debugger;
+  8   counter += 1;
+  9 }
+debug>
+```
+
+We can access variables as usual using the `exec` command.
+
+```sh
+debug> exec counter
+1
+```
+
+We can keep using `c` to pause on the `debugger` statement for each iteration of the `while` loop. We can also `.exit` at any point. This approach is particularly useful when you need to debug a problem that occurs in a loop, and you want to check how certain values change on each iteration of that loop.
+
+The node debugger can be an extremely useful and powerful tool, and something that we recommend becoming familiar with. There's still a place for using `console.log()` for debugging though, for example when debugging a very simple piece of code. Also, you may be working with an IDE or environment where you can't run a debugger (CoderPad for example). It's good to be familiar with a number of different tools and approaches when debugging, but probably the most important thing is your **temperament** and **mind-set**.
+
+5. **Advanced Debugging**
+
+The node debugger has a lot of other helpful features. It has mechanisms to step into functions and more systematically step through the code. We won't cover that yet. For now, we just want to introduce the concept of a debugger, and cover some of the basic usage. This should be sufficient to help debug small programs.
+
+### Summary
+
+In summary, **debugging is arguably the most vital skill you must learn as a programmer**. Focus on developing a patient, systematic temperament; carefully read error messages; use all the resources at your disposal. You should approach debugging in sequential steps and use the techniques we covered above -- especially the debugger.
+
+20210720 14:18 Assignment Complete
+
