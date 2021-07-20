@@ -515,3 +515,7 @@ $ yarn add eslint@4.x babel-eslint@8 -D
 12:07 Finished `calculator.js` second time via the book.
 
 12:28 Back after lunch and ordering Misfits Market box. They're website has good UX and UI.
+
+12:56 ESLint Assignment was short and completed.
+
+13:31 Working on Debugging Assignment and going to move to office workstation.
