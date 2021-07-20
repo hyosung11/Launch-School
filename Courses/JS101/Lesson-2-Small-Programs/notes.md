@@ -1973,3 +1973,219 @@ We have only four major cases here, but more complex functions can have many mor
 Note that our list of use cases ignores the problem of invalid data types passed as arguments (for instance, passing a Number when a function expects a String). You can check argument types when this is a real possibility, but doing so in every function is unneeded and difficult to maintain.
 
 20210720 15:34 Preventing Errors Assignment completed.
+
+## 14. Catching Errors
+
+It's not possible to prevent all errors. For example, some built-in JavaScript functions can throw exceptions, but there is no practical way to predict and avoid those errors. Consider the built-in `JSON.parse` method: this method takes a single String argument that contains some data in JSON format, and converts it to an object. If you pass a String to `JSON.parse` that isn't a valid JSON value, all `JSON.parse` can do is throw an exception:
+
+```js
+let data = 'not valid JSON';
+
+JSON.parse(data);  // throws SyntaxError: Unexpected token i in JSON at position 0
+```
+
+JSON strings look a lot like JavaScript object literals. The main differences are that we **double quote the keys**, and the literal value appears inside a String:
+
+```js
+let object = { "name": "Ferdinand", "age": 13 };  // object literal
+let json = '{ "name": "Ferdinand", "age": 13 }';  // JSON string
+```
+
+We'll learn more about JSON later when we learn how to use JavaScript to connect to servers.
+
+The only way to prevent errors in `JSON.parse` is to parse the input string. That is, we need to build a method that can parse JSON Strings. However, that's what `JSON.parse` does. We surely don't want to reimplement it just to avoid errors. Thus, avoiding errors simply isn't realistic here.
+
+Instead of trying to avoid errors, we can just let `JSON.parse` throw a `SyntaxError`, and **catch** it with a `try/catch/finally` block. This is syntactically similar to `if/else` blocks:
+
+```js
+try {
+  // Do something that might fail here and throw an exception.
+} catch (error) {
+  // This code only runs if something in the try clause throws an exception.
+  // "error" contains the exception object.
+} finally {
+  // This code always runs even if the above code throws an exception.
+}
+```
+
+The `finally` clause is optional; you can omit it if you don't need it, just as you can omit the `else` clause in an if statement.
+
+Let's use `try/catch/finally` to handle `JSON.parse` errors:
+
+```js
+function parseJSON(data) {
+  let result;
+
+  try {
+    result = JSON.parse(data);  // Throws an exception if "data" is invalid
+  } catch (e) {
+    // We run this code if JSON.parse throws an exception
+    // "e" contains an Error object that we can inspect and use.
+    console.log('There was a', e.name, 'parsing JSON data:', e.message);
+    result = null;
+  } finally {
+    // This code runs whether `JSON.parse` succeeds or fails.
+    console.log('Finished parsing data.');
+  }
+
+  return result;
+}
+
+let data = 'not valid JSON';
+
+parseJSON(data);    // Logs "There was a SyntaxError parsing JSON data:
+                    //       Unexpected token i in JSON at position 0"
+                    // Logs "Finished parsing data."
+                    // Returns null
+```
+
+### When to Use Try/Catch
+
+Only use `try/catch/finally` blocks when the following conditions are both **true**:
+
+- A built-in JavaScript function or method can throw an exception and you need to handle or prevent that exception.
+- A simple guard clause is impossible or impractical to prevent the exception.
+
+### Further Reading
+
+You may check out [this article](https://medium.com/launch-school/javascript-weekly-graceful-error-handling-2f4045262df) by one of our students for an additional perspective on errors in JavaScript and what to do about them.
+
+#### JavaScript Weekly: Graceful Error Handling
+
+- coding is about expecting the unexpected
+- sources of errors
+  - source code errors
+  - edge case errors
+  - uncontrolled input errors
+- error situatons
+  - error at compilation
+  - error at runtime
+
+JavaScript defines 8 types of errors:
+
+1. generic `Error`
+2. `TypeError`
+3. `ReferenceError`
+4. `SyntaxError`
+5. `RangeError`
+6. `InternalError`
+7. `EvalError`
+8. `URIError`
+
+Errors share two common properties:
+
+- `name`
+- `message`
+
+16:21 I didn't finish the article. I need to put in my Trello queue.
+
+20210720 16:23 Catching Errors Assignment completed.
+
+## 15. Precedence
+
+What do you think `3 + 5 * 7` returns? Which operation gets evaluated first - `7 * 5` or `5 + 3`? If `7 * 5`, then we get a return value of `38`. Otherwise, we get `56`. It turns out that `7 * 5` gets computed first. But why?
+
+The meaning of an expression in JavaScript is determined by what is called **operator precedence**. It’s a set of [rules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence) that dictate how JavaScript determines what **operands** each operator takes. Operands are simply values -- the results of evaluating expressions -- that are used by the operator.
+
+For most operators, there are two operands; however, there are also "unary" and "ternary" operators that take one or three operands:
+
+```js
+2 + 5 // Two operands (2 and 5)
+!true // Unary: One operand (true)
+value ? 1 : 2 // Ternary: Three operands (value, 1, 2)
+```
+
+Each operand can be the result of evaluating some other operator and its operands. Consider this expression:
+
+```js
+> 3 + 5 * 7
+```
+
+Here we have 2 operators (`+` and `*`), each of which takes 2 numbers as operands. However, there are only 3 numbers here. What gives? Furthermore, what does this expression evaluate to?
+
+The answer lies in how operator precedence works. Precedence determines whether the `+` operator uses `3` and `5` as operands or `3` and `35` (`5 * 7`). Likewise, it determines whether `*` uses `5` and `7` as operands or `8` (`3 + 5`) and `7`. In short, precedence determines the *meaning* of an expression.
+
+In an expression, operators with higher precedence are prioritized over those with lower precedence. In `3 + 5 * 7`, `*` has higher precedence than `+`, so `*` gets passed `5` and `7` as operands, which returns `35` as a result. Subsequently, `3` and `35` get passed to `+` for a final result of `38`. It's as though JavaScript inserted a pair of **parentheses** around `5` * `7`:
+
+```js
+> 3 + (5 * 7) // => 38
+```
+
+Suppose we wanted to prioritize `3` + `5` instead of `5 * 7`? The solution is as simple as using our own set of parentheses:
+
+```js
+> (3 + 5) * 7 // => 56
+```
+
+Parentheses override the default evaluation order and have the highest possible precedence.
+
+Another way to think of precedence is that it *controls the order of evaluation*. Operations involving operators with high precedence get evaluated before operations involving low precedence. When two operations involve operators of the same precedence, the operations occur left-to-right (or right-to-left in some cases). However, thinking of precedence in this way can sometimes lead to unexpected results when using the `||` and `&&` **short-circuit operators** or the **ternary operator** (`a ? b : c`). It's safer to think of precedence as the mechanism used by JavaScript to determine which operands get passed to each operator.
+
+Don't rely too much on precedence. It's easy to forget the precedence order and get confused by an unexpected result. If you're using 2 or more different operators in an expression, *use parentheses to explicitly define the meaning*. Even relying on left-to-right evaluation is subject to problems - for instance, multiple `=` and `**` operators evaluate right-to-left.
+
+An operator that has higher precedence than another is said to **bind** more tightly to its operands. In the expression `3 + 5 * 7`, the `*` operator binds more tightly to its operands, `5` and `7`, than does the `+` operator. Thus, `+` binds to `3` and the return value of `5 * 7` instead of `3` and `5`.
+
+Don't confuse "bind" and "bound" as used in this assignment as having anything to do with the `bind` method discussed in JS120. They are not related.
+
+### Evaluation Order
+
+From time to time, you may hear or read somebody saying that precedence determines the order in which expressions get evaluated. The evaluation process is more complicated than just determining what gets evaluated first, though. In fact, precedence in JavaScript is only part of the story; the other parts are either left-to-right evaluation, right-to-left evaluation, short-circuiting, and ternary expressions.
+
+Consider this code and the output it displays:
+
+```js
+function value(n) {
+  console.log(n);
+  return n;
+}
+
+console.log(value(3) + value(5) * value(7));
+```
+
+```sh
+3
+5
+7
+38
+```
+
+From the first 3 lines of output, you might conclude that JavaScript is evaluating the expression left-to-right. However, the final result says otherwise -- you can only get that result if `value(5) * value(7)` gets evaluated before `value(3) + value(5)`. Which is it?
+
+It's a little of both. The issue here is that operators like `+` and `*` need values that they can work with. Function invocations like `value(5)` and `value(7)` are not values. We can't invoke the `*` operator until we know what values those functions return. In an arithmetic expression, JavaScript first goes through an expression left-to-right and evaluates everything it can without calling any operators. Thus, here it evaluates `value(3)`, `value(5)`, and `value(7)` first, in that order. JavaScript re-evaluates the result with the precedence rules only after it has those values.
+
+*Right-to-left evaluation* occurs when you do multiple assignments or multiple `**` operators:
+
+```sh
+> a = b = c = 3
+> 5 ** 3 ** 2 // 1953125 (same as 5 ** (3 ** 2) = 5 ** 9 = 5 * 5 * 5 * 5 * 5 * 5 * 5 * 5 * 5)
+```
+
+Neither of these are good practice in JavaScript, so we won't discuss them further.
+
+The ternary operator (`?:`) and the short-circuit operators `&&` and `||` are a common source of unexpected behavior where precedence is concerned. Consider the following expressions:
+
+```sh
+> 3 ? 1 / 0 : 1 + 2  // Infinity
+> 5 && 1 / 0         // Infinity
+> null || 1 / 0      // Infinity
+```
+
+What happens, though, if we modify things so that `1 / 0` isn't needed?
+
+```sh
+> null ? 1 / 0 : 1 + 2 // 3
+> null && 1 / 0        // null
+> 5 || 1 / 0           // 5
+```
+
+In all 3 cases, `1 / 0` *never gets executed*, even though operator precedence would suggest that it should be evaluated first.
+
+- In the first expression, `1 / 0` isn't evaluated since its the truthy operand for the `?:` - it only gets run when the value to the left of `?` is truthy. Instead, the code returns `3` `(1 + 2)`.
+- The other two expressions don't evaluate `1 / 0` due to short-circuiting. 
+- In all 3 expressions, this is simply the way JavaScript works - it treats `?:`, `&&`, and `||` differently from other operators and doesn't evaluate subexpressions unless it needs them.
+
+### Use Parentheses!
+
+Really. Don't rely on the precedence rules when you're mixing operators; use parentheses whenever you mix operators in an expression. If you don't bother with the parentheses, you'll eventually decide to work from memory. Sooner or later you'll misremember the rule, and introduce a nice little bug into your code. Someone reading your code may not be as familiar with the precedence rules as you. They will either have to look up the rules, or assume that you knew what you were doing when you wrote the code. If they assume that you knew what you were doing, they will miss the bug.
+
+20210720 17:23 Precedence Assignment completed.
