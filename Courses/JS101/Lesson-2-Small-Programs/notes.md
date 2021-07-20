@@ -1274,6 +1274,14 @@ The two error lines also show the names of the rules that apply to those errors:
 
 ESLint is available in most code editors as a plugin. Using a plugin is the most convenient way to use it -- you can easily configure your editor to run ESLint automatically, either as you type or when you save or open a file. If your editor allows plugins, don't forget to search the plugins for one that lets you integrate ESLint into your workflow. The plugin needs to be smart enough to handle a local installation of ESLint or it won't work.
 
-End
+## Walk-through: Refactoring Calculator
 
+In this assignment, we'll continue to work on the calculator program from before. We'll refactor parts of it and add some new functionality. Let's get into it.
 
+**Starting to Code**
+
+Some folks are visual learners, and really enjoy seeing complex topics covered as videos. Refactoring walkthroughs, like the one we're about to do, often work well as videos, so we've provided a video walkthrough of this project that you can watch if you want.
+
+[Video Version](https://launchschool.com/lessons/64655364/assignments/bfb3a9f2)
+
+Even if you watch the video, you may still want to read through the text version of the walkthrough below. The repetition can help you understand things better.
