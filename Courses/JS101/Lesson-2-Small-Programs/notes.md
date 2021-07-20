@@ -2232,3 +2232,46 @@ while (true) {
   if (answer[0].toLowerCase() !== 'y') break;
 }
 ```
+
+### 2. Extracting messages in the program to a configuration file.
+
+There are several messages sprinkled throughout the program. Can we move them into some configuration file and access them by key? That would let us manage the messages more easily, and we could even internationalize the messages.
+
+Hints
+
+- Use the JSON format to store messages in a file called `calculator_messages.json`. Here's a [quick description](https://developers.squarespace.com/what-is-json) of what JSON is.
+  - JSON, or JavaScript Object Notation, is a minimal, readable format for structuring data. It is used primarily to transmit data between a server and web application, as an alternative to XML.
+- Use require('./calculator_messages.json') to load the file into your program as an object.
+- Access the messages from that object with object property access syntax.
+
+Solution
+
+First, we need to extract the messages into a configuration file. We can use any format, from plain text files to YAML to CSV. Npm has libraries that can help with parsing those formats, but we're not yet ready to tackle npm libraries. Most JavaScript developers prefer the JSON format, so we'll use that. We'll extract our messages into a file named `calculator_messages.json`. Make sure this file is in the same directory as your calculator program.
+
+```json
+{
+  "welcome": "Welcome to Calculator! Enter your name:",
+  "validName": "Make sure to enter a valid name."
+}
+
+```
+
+As you can see, our JSON configuration is just a list of key/value pairs like a JavaScript object. We only show two key-value pairs, but you can add more. Just be sure to follow the syntax shown.
+
+Next, we'll load this file into our program:
+
+```js
+// at the top of the file
+
+const MESSAGES = require('./calculator_messages.json);
+```
+
+This line will load the contents of the `calculator_messages.jso`n file in the form of an object and assign it to the `MESSAGES` constant. Since it's an ordinary object, we don't have to do anything before we use it. We can just start accessing its properties as needed:
+
+```js
+// replace this:
+prompt("Welcome to Calculator! Enter your name:");
+
+// with this:
+prompt(MESSAGES['welcome']);
+```
