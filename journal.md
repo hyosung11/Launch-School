@@ -372,7 +372,7 @@ Summary
 
 19:46 Finished `calculator.js` following the video. Up for children's bedtime now.
 
-**VS Code Git Status Colors**
+### VS Code Git Status Colors
 
 * Change a line and it goes blue.
 * Add a new line and it goes green.
@@ -497,7 +497,7 @@ Require stack:
 Ensure that you have substituted the correct version lock for `eslint` and `babel-eslint` into this command:
 
 ```sh
-$ npm install eslint eslint-cli babel-eslint --save-dev
+npm install eslint eslint-cli babel-eslint --save-dev
 ```
 
 Use these version in my environment. Do I also need to install eslint-cli? What about using it as a VSC extension?
@@ -513,3 +513,5 @@ $ yarn add eslint@4.x babel-eslint@8 -D
 10:33 Studied 8 Anki cards.
 
 12:07 Finished `calculator.js` second time via the book.
+
+12:28 Back after lunch and ordering Misfits Market box. They're website has good UX and UI.

@@ -72,55 +72,6 @@ This naming style is called **SCREAMING_SNAKE_CASE**.
 
 JavaScript also allows a `$` in names, but this should only be used when working with a library that uses `$` names, such as jQuery, which we discuss towards the end of the Core Curriculum. For our purposes, though, you should treat names with `$` as *non-idiomatic*; they're legal, but not used except in certain cases.
 
-
-CoursesJS101 Programming Foundations with JavaScriptLesson 2: Small Programs2. Style Guide
-Style Guide
-The JavaScript community has some stylistic guidelines that help make JavaScript code easier to read and write. Not all of the guidelines agree on all points, but there's plenty of overlap. Adhering to the style conventions of a programming language is helpful and meaningful even if you don't agree with every convention. You probably won't be the sole person developing and maintaining a software project; adhering to a particular style convention helps your teammates and future maintainers understand your code. It's hard enough to understand code written by someone else; don't make it harder with unusual or non-standard stylistic choices.
-
-The conventions we'll discuss in this section are specific to the JavaScript community. Other programming languages—and even some JavaScript sub-communities—may have different preferences about each guideline.
-
-Here's a short list of guidelines that we recommend. They will help you write readable code, and smooth the process of asking for code reviews at Launch School.
-
-Set your text editor to use space characters—not tabs—for indentation. The editor should also insert spaces if you press the Tab key on your keyboard.
-
-Set your text editor to use 2 spaces for indentation and when converting tab characters to spaces.
-
-Try to limit lines to 80 characters. This limit isn't a universal preference, but it helps readability. Not all developers have massive screens or good eyesight.
-
-JavaScript uses the character sequence // to mark the beginning of a comment. The comment runs through the end of the line. You can also use /* and */ for multiline comments and comments that appear in the middle of a line. Programmers use comments to leave notes for other programmers or themselves at a later point in time; however, don't overdo your comments. Let your code do the talking instead.
-
-Use camelCase formatting for variable and function names. Such names begin with a lowercase letter. If the name contains multiple words, each subsequent word should begin with an uppercase letter:
-
-Copy Code
-// declaring and initializing a variable
-let answerToUltimateQuestion = 42;
-
-// defining a function
-function fourScoreAndSevenYearsAgo() {
-  // do something
-}
-Some special functions called constructor functions use PascalCase names (also called CamelCase -- note the capitalization). For instance:
-
-Copy Code
-// defining a function
-function DomesticCat(name) {
-  // do something
-}
-
-let cat = new DomesticCat('Fluffy');
-We discuss constructors briefly a little later, and in more detail in a later course.
-
-Use uppercase names with underscores to represent const values: values that don't change.
-
-Copy Code
-const INTEREST_RATE = 0.0525;
-const FOUR = 'four';
-This naming style is called SCREAMING_SNAKE_CASE.
-
-All names—variables and constants as well as functions—should use alphabetic (a-z, A-Z without umlauts, accents, and so on) and numeric characters only. The first character must be alphabetic. Constants may use underscores within the name, but should not use consecutive underscores, nor may they begin or end with an underscore.
-
-JavaScript also allows a $ in names, but this should only be used when working with a library that uses $ names, such as jQuery, which we discuss towards the end of the Core Curriculum. For our purposes, though, you should treat names with $ as non-idiomatic; they're legal, but not used except in certain cases.
-
 - When writing code with curly braces, such as functions and `if` statements, write the opening brace on the same line as the function name or conditional expression. Use a single space before the opening brace:
 
 ```js
@@ -172,7 +123,7 @@ let sum=x+5;
 let sum = x + 5;
 ```
 
-- Use *semicolons* to terminate each logical line of code unless the line ends with `{`,` }`, or `:`. See the discussion in our [Introduction to Programming With JavaScript](https://launchschool.com/books/javascript/read/preparations#stylishjavascript) book for details.
+- Use *semicolons* to terminate each logical line of code unless the line ends with `{`,`}`, or `:`. See the discussion in our [Introduction to Programming With JavaScript](https://launchschool.com/books/javascript/read/preparations#stylishjavascript) book for details.
 
 That covers the essential style conventions you need to get started. If you want more information about JavaScript styling, we recommend [Airbnb's JavaScript style guide](https://github.com/airbnb/javascript). Check it out, but don't try to memorize all of the rules; ESLint, which we'll discuss soon, will help you remember the most important rules.
 
@@ -390,7 +341,7 @@ Notice that we've repeatedly used the phrases *evaluated as true* and *evaluated
 
 - You can also use the terms **truthy** and **falsy** to describe the nature of the values.
 - Be careful to make the same distinction in your own written and spoken communications.
-- Saying that an expression returns `true` or `false` is not the same as saying that it returns a truthy or falsy value, or that it evaluates as true or false. 
+- Saying that an expression returns `true` or `false` is not the same as saying that it returns a truthy or falsy value, or that it evaluates as true or false.
 - The terms true and false refer to the **Boolean** values `true` and `false`; the other phrases refer to *truthiness*, that is, a **truthy** or **falsy** value.
 
 **Truthiness** means that we can use any condition or logical expression:
@@ -453,7 +404,7 @@ Our first program in this course will be a command line calcultor program that w
 2. Ask the user for the type of operation to perform: add, subtract, multiply or divide.
 3. Perform the calculation and display the result.
 
-**Getting Ready to Code**
+### Getting Ready to Code
 
 Let's start writing the first version of the calculator. Open your terminal and navigate to the directory you created for this lesson and create a file named c`alculator.js` in that directory:
 
@@ -479,7 +430,7 @@ added 1 package from 1 contributor and audited 1 package in 3.561s
 
 If successful, this command should create a directory called `node_modules` inside your lesson directory. Confirm that it's there and that it contains a `readline-sync` subdirectory. If both directories are there, then you're ready to use the `readline-sync` library and can start writing the calculator program.
 
-**Starting to Code**
+### Starting to Code
 
 Some folks are visual learners, and really enjoy seeing complex topics covered as videos. Application walkthroughs, like the one we're about to do, often work well as videos, so we've provided a video walkthrough of this project that you can watch if you want.
 
@@ -511,7 +462,7 @@ $ node calculator.js
 Welcome to Calculator!
 ```
 
-**Asking for the Numbers**
+### Asking for the Numbers
 
 Next, we want to ask the user to input the first number. Asking a question is easy; just log the query to the console:
 
@@ -589,7 +540,7 @@ console.log(`${number1} ${number2}`);
 
 After running this program and entering two numbers, you'll see them both printed next to each other on the same line.
 
-**Performing the Operation**
+### Performing the Operation
 
 So far, so good. However, we want to do something with these two numbers. We need to either add, subtract, multiply or divide them based on what the user requests. First, we need to ask the user what they want to do:
 
@@ -801,7 +752,7 @@ WHILE iterator <= length of numbers
     savedNumber = currentNumber
   ELSE
     skip to next iteration
-  
+
   iterator = iterator + 1
 
 PRINT savedNumber
@@ -851,7 +802,7 @@ For brevity, we won't use pseudocode extensively in this course. However, we wil
 
 20210719 10:38 Assignment Complete
 
-## Flowchart
+## 7. Flowchart
 
 Using a flowchart helps us map out the logical sequence of a possible solution in a visual way. We'll take a stab at drafting a flowchart for the same problem we saw in the previous assignment. First, though, let's take a look at the components at our disposal in a flowchart.
 
@@ -985,9 +936,9 @@ Hopefully, this gives you an idea of one way to approach tackling the logical si
 
 20210719 13:22 Assignment Complete
 
-## ESLint
+## 8. ESLint
 
-**Coding Style**
+### Coding Style
 
 Coding style is mostly a matter of opinion, but most JavaScript developers have a set of conventions that they follow. Typically, developers use a **style guide** to describe the conventions they follow. Choosing and following a style guide will:
 
@@ -1023,7 +974,7 @@ Some of the most crucial rules in the best practice category apply to function l
 ESLint is a Node package, so you install it like any other Node package. While it is possible to install it globally (with the `-g` option), the *ESLint team does not recommend it*. Therefore, you should install ESLint and all related packages locally as a development dependency:
 
 ```sh
-$ npm install eslint eslint-cli babel-eslint --save-dev
+npm install eslint eslint-cli babel-eslint --save-dev
 ```
 
 Install this version in my environment:
@@ -1048,7 +999,7 @@ The eslint command takes a JavaScript file as an argument. For example, if you h
 The following code won't work since we don't yet have a test.js file.
 
 ```sh
-$ npx eslint test.js
+npx eslint test.js
 ```
 
 #### Configuring ESLint
@@ -1287,7 +1238,7 @@ ESLint is available in most code editors as a plugin. Using a plugin is the most
 
 In this assignment, we'll continue to work on the calculator program from before. We'll refactor parts of it and add some new functionality. Let's get into it.
 
-**Starting to Code**
+### Starting to Code 2
 
 Some folks are visual learners, and really enjoy seeing complex topics covered as videos. Refactoring walkthroughs, like the one we're about to do, often work well as videos, so we've provided a video walkthrough of this project that you can watch if you want.
 
@@ -1479,7 +1430,7 @@ while(!['1', '2', '3', '4'].includes(operation)) {
 
 The above code says that as long as the input isn't one of the values `1`, `2`, `3`, or `4`, keep asking the user for a valid operation number. `Array.prototype.includes` returns `true` when the given element exists in the array, `false` otherwise.
 
-**Completed Program**
+### Completed Program
 
 ```js
 const readline = require('readline-sync');
