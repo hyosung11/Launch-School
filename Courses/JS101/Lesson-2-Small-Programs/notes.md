@@ -1022,8 +1022,16 @@ Some of the most crucial rules in the best practice category apply to function l
 
 ESLint is a Node package, so you install it like any other Node package. While it is possible to install it globally (with the `-g` option), the *ESLint team does not recommend it*. Therefore, you should install ESLint and all related packages locally as a development dependency:
 
-```js
+```sh
 $ npm install eslint eslint-cli babel-eslint --save-dev
+```
+
+Install this version in my environment:
+
+```sh
+$ npm install eslint@4.x babel-eslint@8 --save-dev
+# or
+$ yarn add eslint@4.x babel-eslint@8 -D
 ```
 
 Note that you **must** install these 3 packages for every project where you need to use ESLint.
@@ -1039,7 +1047,7 @@ The eslint command takes a JavaScript file as an argument. For example, if you h
 
 The following code won't work since we don't yet have a test.js file.
 
-```js
+```sh
 $ npx eslint test.js
 ```
 
@@ -1251,7 +1259,7 @@ console.log(helloWorld)
 
 Now, run ESLint on this file.
 
-```js
+```sh
 $ npx eslint hello.js
 
 /Users/wolfy/hello.js
@@ -1261,20 +1269,21 @@ $ npx eslint hello.js
 ✖ 2 problems (2 errors, 0 warnings)
   1 error and 0 warnings potentially fixable with the `--fix` option.
 ```
+
 The output you see may be different -- don't worry if it is.
 
 Let's break it down a bit:
 
 - The first non-blank line tells you the full path name of the file that ESLint checked.
 - The next two lines show the two errors that ESLint found in the code. The first error involves an undefined `helloWorld` variable at line 1, column 13. The second error shows a missing semi-colon on line 1, column 24.
-The two error lines also show the names of the rules that apply to those errors: here, the `no-undef` and `semi` rules. You can read about a specific rule by searching Google for "eslint" and the name of the rule. For instance, searching for "eslint semi" returns a link to the documentation for the "semi" rule. The documentation describes the rule and almost always shows a variety of different situations in which code triggers the rule, and also shows you code that doesn't trigger it. That's usually all you need to figure out how to fix the problem.
+- The two error lines also show the names of the rules that apply to those errors: here, the `no-undef` and `semi` rules. You can read about a specific rule by searching Google for "eslint" and the name of the rule. For instance, searching for "eslint semi" returns a link to the documentation for the "semi" rule. The documentation describes the rule and almost always shows a variety of different situations in which code triggers the rule, and also shows you code that doesn't trigger it. That's usually all you need to figure out how to fix the problem.
 - Finally, the last 2 lines report some simple statistics about what ESLint found: 2 separate problems, both of which it classified as errors instead of warnings. It also says that you can fix one of the problems by running `eslint --fix hello.js` -- that's a quick and dirty way to fix a lot of small problems, but it's possible that some fixes may not work, so be careful.
 
 #### Using ESLint with Your Editor
 
 ESLint is available in most code editors as a plugin. Using a plugin is the most convenient way to use it -- you can easily configure your editor to run ESLint automatically, either as you type or when you save or open a file. If your editor allows plugins, don't forget to search the plugins for one that lets you integrate ESLint into your workflow. The plugin needs to be smart enough to handle a local installation of ESLint or it won't work.
 
-## Walk-through: Refactoring Calculator
+## 9. Walk-through: Refactoring Calculator
 
 In this assignment, we'll continue to work on the calculator program from before. We'll refactor parts of it and add some new functionality. Let's get into it.
 
