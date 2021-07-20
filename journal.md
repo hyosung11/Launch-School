@@ -470,3 +470,41 @@ Require stack:
 20:18 I still can't get ESLint to work on either machine. Ugh.
 
 21:16 Done for tonight with `calculator.js` version 2 via video walkthrough.
+
+## 20210720 Tuesday
+
+08:39 Getting started after soccer and family breakfast. Got the ESLint issue on my mind. I want to get it working. But I need to time-box it to 30 minutes.
+
+08:40 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Review and Edit Anki cards
+   * [x] 3. JS101 Lesson 2 > Assignments 6-8
+   * [x] 4. Study Session with Laurent > Small Problems
+   * [x] 5. LS Podcast S2E1
+2. What will you do today?
+   * [ ] 1. Review Anki cards
+   * [ ] 2. JS101 - Lesson 2: Small Programs > Assignments 9-12
+   * [ ] 3. JS101 - Small Problems > Easy 2 > 8. Odd Lists
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I can't get ESLint to work in my environment because of `Error: Failed to load parser 'babel-eslint' declared in '../../../.eslintrc.yml': Cannot find module 'babel-eslint'`
+
+09:17 Figured it out by reading the documentation. I needed to use an earlier version of ESLint and babel-eslint.
+
+### Install `babel-eslint`
+
+Ensure that you have substituted the correct version lock for `eslint` and `babel-eslint` into this command:
+
+```sh
+$ npm install eslint eslint-cli babel-eslint --save-dev
+```
+
+Use these version in my environment. Do I also need to install eslint-cli? What about using it as a VSC extension?
+
+```sh
+$ npm install eslint@4.x babel-eslint@8 --save-dev
+# or
+$ yarn add eslint@4.x babel-eslint@8 -D
+```
+
