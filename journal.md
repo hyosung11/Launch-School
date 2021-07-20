@@ -484,8 +484,12 @@ Require stack:
    * [x] 4. Study Session with Laurent > Small Problems
    * [x] 5. LS Podcast S2E1
 2. What will you do today?
-   * [ ] 1. Review Anki cards
-   * [ ] 2. JS101 - Lesson 2: Small Programs > Assignments 9-12
+   * [x] 1. Review Anki cards
+   * [x] 2. JS101 - Lesson 2: Small Programs > Assignments 9-12
+     * [x] 9.
+     * [x] 10.
+     * [x] 11.
+     * [x] 12.
    * [ ] 3. JS101 - Small Problems > Easy 2 > 8. Odd Lists
 3. Are there any blockers or impediments preventing you from doing your work?
    * I can't get ESLint to work in my environment because of `Error: Failed to load parser 'babel-eslint' declared in '../../../.eslintrc.yml': Cannot find module 'babel-eslint'`
@@ -523,3 +527,6 @@ $ yarn add eslint@4.x babel-eslint@8 -D
 
 14:19 Finished the Debugging Assignment. It's cool. So many tools and features to programming. I love it.
 
+15:03 Finished Errors Assignment.
+
+16:00 Finished Preventing Errors Assignment.
