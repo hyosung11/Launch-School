@@ -124,7 +124,7 @@ while (invalidNumber(number2)) {
 prompt("What operation do you want to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide");
 let operation = readline.question();
 
-while(!['1', '2', '3', '4'].includes(operation)) {
+while (!['1', '2', '3', '4'].includes(operation)) {
   prompt("Please choose 1, 2, 3, or 4");
   operation = readline.question();
 }
@@ -146,4 +146,6 @@ switch (operation) {
     break;
 }
 
-prompt(`The result is ${output}.`)
+prompt(`The result is ${output}.`);
+
+

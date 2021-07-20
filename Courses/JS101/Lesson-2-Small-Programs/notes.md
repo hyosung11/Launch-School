@@ -1489,3 +1489,200 @@ prompt(`The result is: ${output}`);
 ```
 
 20210720 12:05 Assignment complete.
+
+## ESLint Calculator
+
+Now that we've refactored our calculator program, it's time to run it through ESLint to check it for styling and other issues. Run the following command from the terminal:
+
+```sh
+npx eslint calculator.js
+```
+
+ESLint scans your program statically and outputs any issues it finds. If your program has styling issues or potential logic problems, it may output something like the following:
+
+```sh
+$ npx eslint calculator.js
+
+/Users/wolfy/lesson_2/calculator.js
+  33:37  error  Missing semicolon  semi
+
+✖ 1 problem (1 error, 0 warnings)
+  1 error and 0 warnings potentially fixable with the `--fix` option.
+```
+
+Here, it looks like we're missing a semicolon on line 33 at column 37. If we go back to the program and add the semicolon, we should see no output after the fix.
+
+The missing semicolon was harmless in this code, but that won't always be the case. There are situations where the missing semicolon can cause serious bugs, some of which may not be noticed until much later. *Running ESLint on your program is an excellent habit to develop*: it'll help you avoid potential bugs and enforces the style guidelines that should make your programs easier for both you and other programmers to read.
+
+20210720 12:54 Assignment Complete.
+
+## 11. Debugging
+
+Debugging is really at the core of what we do as programmers. While the glory and marketing go to shipping a finished application, the fact is that most of the day-to-day life of a programmer is spent stuck on some problem. Programmers can get through the trivial code rather quickly, so the majority of their time is spent analyzing and understanding a problem, experimenting or coming up with an approach, or debugging bugs in the code.
+
+In this assignment, we'll talk about the general act of debugging, and not working with a specific debugger tool.
+
+### Temperament
+
+When thinking about what attributes that make a good programmer, one thing comes to mind: temperament. If the key to programming is debugging, then the key to debugging is a logical mind and patient temperament. Think Spock from Star Trek. Some people naturally possess this temperament, and that's an advantage when learning to program. Some people do not, so they must learn to develop this temperament. Natural intelligence helps, but, from our experience, most people have the intellectual capacity to become an application developer. What they need to do is develop a systematic, patient temperament when faced with a problem.
+
+When debugging is required, something must be broken. When things break, it doesn't make you feel good. Programming is dealing with a constant stream of broken things and learning to deal with those ill feelings. Therefore, it's essential to gauge how you usually respond to problems. For example, if you're walking to the bus stop and the bus leaves right before you get there, what's your natural reaction? Someone who has the programmer temperament should figure out 1) when the next one comes, or 2) if there's an alternative path of transfers you can take, or 3) other alternative forms of transportation. If your reaction is a sinking feeling and frustration, you'll have to learn to deal with that, then transition to a systematic search for a solution. Fortunately, this can be learned, but remember to stay even-keeled and be systematic.
+
+Dealing with feelings of frustration is a critical aspect of learning to program.
+
+### Reading Error Messages
+
+When you run into an error, you'll probably see a wall of text that looks like gibberish. This wall is the **stack trace**; it's crucial in determining where to begin debugging. One of the first things you must get used to is learning how to *carefully* read the stack trace. Embedded within it is the error message, which is your first hint at where to start looking.
+
+For example, click the button to see an example stack trace.
+
+```sh
+TypeError: Cannot read property 'filter' of undefined
+    at app.get (/Users/nf/Desktop/meadowlark/meadowlark.js:8:13)
+    at Layer.handle [as handle_request] (/Users/nf/Desktop/meadowlark/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/nf/Desktop/meadowlark/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/nf/Desktop/meadowlark/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/nf/Desktop/meadowlark/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/nf/Desktop/meadowlark/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/nf/Desktop/meadowlark/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/nf/Desktop/meadowlark/node_modules/express/lib/router/index.js:275:10)
+    at expressInit (/Users/nf/Desktop/meadowlark/node_modules/express/lib/middleware/init.js:40:5)
+    at Layer.handle [as handle_request] (/Users/nf/Desktop/meadowlark/node_modules/express/lib/router/layer.js:95:5)
+```
+
+That's a real stack trace from a project. Can you spot the error message? It's at the very top: `TypeError: Cannot read property 'filter' of undefined`. The trick is to train your eye to look for the relevant parts of the stack trace, and over time, you'll be able to spot the error faster and faster. Every language and library has a specific pattern to their stack trace. The more you work with a language or library, the easier it becomes to understand the trace. When you see a large stack trace for the first time, don't despair. Study it carefully, and try to extract the meaningful bits.
+
+### Online Resources
+
+1. **Search Engine**
+
+Once you've identified the error, it's time to take action. Study the error message, and try to walk backward through the code to understand how the program flow arrived at the error condition. Think about all the data in use at the error location, and how missing or incorrect data might have caused the problem. Finally, use a search engine to look up the error message.
+
+The entire error message is `TypeError: Cannot read property 'filter' of undefined`; it's probably OK to search for that entire phrase. Make sure that you don't include terms that are specific to your computer or program when searching. For example, *don't include* /`Users/nf/Desktop` in your search term since that's specific to your machine. Search results often pick up generic search terms, so be selective: don't copy and paste the entire stack trace.
+
+Finally, if you see many results in a different programming language, you may want to preface "JavaScript" in front of the search phrase. Other languages sometimes use similar terms for common errors, so you may need to focus your search on JavaScript specifically.
+
+1. **Stack Overflow**
+
+[Stack Overflow](https://stackoverflow.com/) is a rich treasure trove of answers to common problems. Many of their answers rank highly in search engines, but sometimes it's worth searching on SO directly.
+
+1. **Documentation**
+
+Finally, don't hesitate to consult the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) for the core JavaScript language. Make sure you're looking at the documentation for core JavaScript, and not a library or framework specific documentation. That's very important, as some frameworks provide functionality that isn't available in pure JavaScript.
+
+### Steps to Debugging
+
+The debugging process varies tremendously from person to person, but below are some steps you can follow until you've developed and honed habits of your own.
+
+1. **Reproduce the Error**
+
+The first step in debugging any problem is usually reproducing the problem. Programmers need a deterministic way to reproduce the problem consistently, and only then can they start to isolate the root cause. There's an old joke where programmers say that "it works on my machine" since they can't reproduce an error that occurs in the production environment. Reproducing the problem becomes more critical as you build more sophisticated applications with various external dependencies and moving parts. Reproducing the exact error is often more than half the battle in many tricky situations.
+
+1. **Determine the Boundaries of the Error**
+
+Once you can consistently reproduce the problem, it's time to tweak the data that caused the error. For example, the stack trace earlier was generated by this code data.users().getAll().push(newUser). Does calling data.users().getAll() cause the issue? What about just calling data.users()? What happens if we try to append a different object, like this: data.users().getAll().push(anotherUser)? How does modifying the data affect the program behavior? Do we get expected errors, or does a new error occur that sheds light on the underlying problem?
+
+What we're trying to do is modify the data or code to get an idea of the scope of the error and determine the boundaries of the problem. This approach leads to a deeper understanding of the problem, and help us implement a better solution. Most problems can be solved in many ways; a deeper understanding of the problem leads to more holistic solutions.
+
+1. **Trace the Code**
+
+Once you understand the boundaries of the problem, it's time to trace the code. Let's use a new example.
+
+```js
+function car(newCar) {
+  let make = getMake(newCar);
+  let model = getModel(newCar);
+  return [make, model];
+}
+
+function getMake(newCar) {
+  return newCar.split(' ')[0];
+}
+
+function getModel(newCar) {
+  return newCar.split(' ')[2];
+}
+
+let [ make, model ] = car('Ford Mustang');
+console.log(make === 'Ford');   // => true
+console.log(model[0] === 'M');  // => TypeError: Cannot read property '0' of undefined
+```
+
+This code is relatively straightforward. One aspect of it that's a bit tricky is the return value of the car function and the assignment from that function to local variables `make` and `model`. The construct used on line 15 is called array destructuring.
+
+When an array gets assigned to two or more variables wrapped in opening and closing brackets, the first element gets assigned to the first variable, the second element gets assigned to the second variable, and so on. On line 15, the first array element gets assigned to `make` and the second gets assigned to `model`.
+
+We will discuss array destructuring in a later course.
+
+On line 17, we get an error when we try to see whether the value `model` begins with the character `'M'`. It looks like we have a bug. The first step is to try to reproduce the problem consistently:
+
+```js
+[make, model] = car('Mitsubishi Mirage');
+console.log(model[0] === 'M');  // => TypeError: Cannot read property '0' of undefined
+
+[make, model] = car('Chevy Malibu');
+console.log(model[0] === 'M');  // => TypeError: Cannot read property '0' of undefined
+
+[make, model] = car('Toyota Corolla');
+console.log(model[0] === 'M');  // => TypeError: Cannot read property '0' of undefined
+```
+
+It seems we can reproduce the problem consistently. Furthermore, it even seems to fail in the same way when we provide an input that wouldn't match the test. We can also see that `model` appears to be `undefined` in every case. That's certainly a bug.
+
+Let's trace the code backward. When you call `car`, a string gets passed in as an argument. The string represented by the local variable `newCar` gets passed to the two helper functions, `getMake` and `getModel`. Inside each helper, we try to split `newCar` into two new strings: `'Ford'` and `'Mustang'`. The `getMake` function should return `Ford` and `getModel` function should return `Mustang`. In this case, `getMake` returns the correct value, but `getModel` does not; in fact, it returns `undefined`. Based on these observations, we know that the bug in this code originates in the `getModel` function. Identifying the area where an error originates is called *trapping the error*.
+
+1. **Understand the Problem Well**
+
+After we narrow the source of the bug to `getModel`, it's time to analyze the function's code. We know that the return value of this function is always `undefined`, so let's inspect the values at each step within the function:
+
+```js
+function getModel(newCar) {
+  return newCar; // => "Ford Mustang"
+}
+```
+
+That's the expected value of newCar, so we have no issues thus far. Let's go a step further.
+
+```js
+function getModel(newCar) {
+  return newCar.split(' '); // => ["Ford", "Mustang"]
+}
+```
+
+The return value here is an array that contains the strings `"Ford"` and `"Mustang"`. Based on our knowledge of how Array.prototype.split works, that's the correct result. So, let's now look at the last step:
+
+```js
+function getModel(newCar) {
+  return newCar.split(' ')[2]; // => undefined
+}
+```
+
+Aha! It looks like the unexpected return value here is the result of accessing the element at index `2` in `['Ford', 'Mustang']`. Since the array only has two elements, its largest index is 1. Trying to access index `2` returns `undefined` since there is no element at that location in the array. We need to use the index `1` to access the desired array element:
+
+```js
+function getModel(newCar) {
+  return newCar.split(' ')[1]; // => "Mustang"
+}
+```
+
+1. **Implement a Fix**
+
+There are often multiple ways and multiple layers in which you can make the fix. For example, we could suppress the error from being thrown with this code:
+
+```js
+try {
+  return model[0] === 'M';
+} catch {
+  return false;
+}
+```
+
+We'd still have the original error in the `getModel` function, but, depending on where the problem lies, a solution like that may be all you can do. If you're using a library or code that you can't modify, for instance, you have little choice but to deal with edge cases in your code. Since this is our code, we can and probably should fix the offending code in `getModel`.
+
+**Fix one problem at a time**. You may notice other edge cases or problems while implementing a fix, but you should resist trying to fix them all at once. When you try to work on multiple fixes at once, it's easy to become confused and make the situation even worse than it was. Make a note of the issues you notice, finish fixing the one you're working on, then return to your list of issues and work them one at a time as well.
+
+1. **Test the Fix**
+
+Finally, after implementing a fix, make sure that you verify that the code fixed the problem by using a similar set of tests from step #2. After you learn about automated testing, you'll want to add an automated test to prevent regression. For now, you can test manually.
+
+### Techniques for Debugging
