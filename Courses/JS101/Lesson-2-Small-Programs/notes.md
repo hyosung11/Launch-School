@@ -1827,3 +1827,149 @@ In summary, **debugging is arguably the most vital skill you must learn as a pro
 
 20210720 14:18 Assignment Complete
 
+## 12. Errors
+
+JavaScript's flexibility lets a developer use it in many ways, but it also lets you easily write code that fails to function when run. There are many situations where the JavaScript interpreter cannot continue executing a program. Instead, it creates an *Error* object that describes the problem and stops the program.
+
+As a developer, you want to do your best to avoid errors when your programs run. Let's look at the most common types of errors that can arise. In the next few assignments, we'll learn techniques to prevent and handle errors that you can't avoid.
+
+### Terminology
+
+When an error occurs in a JavaScript program, we say that it *throws* an Error. Some programming languages use the term *exceptions* to describe errors; JavaScript uses this terminology too, so we'll use it often. Similarly, some languages talk of *raising* an exception, so you may hear other developers talk of exceptions being raised in JavaScript programs. Don't let these terminological differences confuse you: the terms exception and Error are synonymous, as are raise and throw.
+
+### ReferenceError
+
+A `ReferenceError` occurs when you attempt to use a variable or function that **doesn't exist**.
+
+```js
+a;    // Referencing a variable that doesn't exist results in a ReferenceError.
+a();  // The same is true of attempting to call a function that doesn't exist.
+```
+
+### TypeError
+
+A `TypeError` occurs in a variety of different ways. Some of the most common situations that lead to a `TypeError` include:
+
+- accessing a property on a value that does not have any properties, such as `null` or `undefined`
+- trying to call something that isn't a function can also raise a `TypeError`
+- trying to reassign a `const` variable:
+
+```js
+> let a;       // a is declared but is empty, as it has not been set to a value.
+> typeof(a);
+= "undefined"
+
+> a.name;      // TypeError: Cannot read property 'name' of undefined
+
+> a = 1;
+> a();         // TypeError: Property 'a' is not a function
+
+> const b = 42;
+> b = 3.14;    // TypeError: Assignment to constant variable.
+```
+
+### SyntaxError
+
+A `SyntaxError` is special in that it almost always occurs immediately after loading a JavaScript program, but before it begins to run. Unlike `ReferenceError` and `TypeError`, which are dependent upon specific variables and values encountered at runtime, JavaScript detects `SyntaxErrors` solely from the text of your program.
+
+```js
+function ( {} // SyntaxError: Unexpected token (
+```
+
+There are several cases where JavaScript can throw a `SyntaxError` while a program is running. For instance, this code raises a SyntaxError at runtime.
+
+```js
+JSON.parse('not really JSON'); // SyntaxError: Unexpected token i in JSON at position 0
+```
+
+There are a few other errors that can occur in a JavaScript program, including `RangeError`, `URIError`, among others; these tend to be rarer.
+
+20210720 14:53 Errors Assignment complete.
+
+## 13. Preventing Errors
+
+The best way to handle errors is to prevent them from happening by paying attention to where they can occur. For example, consider a naive implementation of a function that returns the first letter of a word in lowercase:
+
+```js
+function lowerInitial(word) {
+  return word[0].toLowerCase();
+}
+```
+
+This implementation works well with simple words:
+
+```js
+lowerInitial('Joe); // "j"
+lowerInitial('Karen'); // "k"
+```
+
+However, what happens if we pass it an empty String?
+
+```js
+lowerInitial(''); // TypeError: Cannot read property 'toLowerCase' of undefined
+```
+
+Errors typically occur where **assumptions** are made in code; here, we assume that the word always has a non-zero length (that is, it contains one or more characters). This code violates that assumption by passing an empty String to `lowerInitial`.
+
+An error like this *halts execution* of the program entirely. It's easy to think of ways that we can receive an empty string in this function. For example, if the value comes from a form element on a web page, the user might not have entered any data. Alternatively, the data may come from a database that contains missing data.
+
+### Guard Clause
+
+One way to avoid this type of error is to use a *guard clause*. A guard clause is code that guarantees data meets certain preconditions before it gets used. In `lowerInitial`, we can check whether `word` contains any characters before we try to use it:
+
+```js
+function lowerInitial(word) {
+  if (word.length === 0) { // If word contains an empty String
+    return '-';            // return a dash instead of proceeding.
+  }
+
+  return word[0].toLowerCase(); // word is guaranteed to have at least
+                                // 1 character, so word[0] never evaluates
+                                // as undefined.
+}
+```
+
+### When to Use Guard Clauses
+
+Guard clauses are best used when a f*unction can't trust that its arguments are valid*. Invalid arguments can have incorrect types, structures, values, or properties. Usually, though, your program should be able to trust itself to do the right thing; you should be able to trust that it always calls its methods with valid values. For example, if you can trust that your program always calls `lowerInitial` with a non-empty String, you don't need the guard clause.
+
+### Detecting Edge Cases
+
+Most error prevention work stems from examining the **assumptions** inherent in your code. Think about whether your program can violate your assumptions. What happens when they are? We call these situations ***edge cases*** because they often involve values at the extreme end of the range of possible values. In `lowerInitial`, the shortest possible String (`''`) is an edge case.
+
+To identify the edge cases that can break your program, start by considering the code's inputs. For a function, these are usually the arguments. Each data type has its own set of values that can cause undesired behavior.
+
+For example, consider an argument that should be numeric. Will the code still work if the argument is *negative* or *zero*? Suppose you're expecting a whole number and instead receive a value with a *fractional component*? These are common places where a valid Number object can violate expectations in your code and cause unintentional behavior and bugs.
+
+In `lowerInitial`, we saw that *empty Strings* can be a problem if your function doesn't expect one. There are many other types of Strings that can be troublesome, such as those that start or end with spaces, contain only spaces, or contain special characters.
+
+Finally, it is a good idea to think about how particular combinations of values can create unexpected conditions.
+
+### Planning Your Code
+
+While you can't account for every possible permutation of arguments, it does pay to plan ahead. One good way to do this is to write out the common use cases of a new function, and check how your function handles them. This is a great way to identify edge cases.
+
+Let's say we are writing a function that inserts a new element to an Array in its proper alphabetically sorted position:
+
+```js
+let countries = ['Australia', 'Cuba', 'Senegal'];
+
+alphaInsert(countries, 'Brazil');
+
+console.log(countries.join(', ')); // Logs "Australia, Brazil, Cuba, Senegal"
+```
+
+Let's think about some use cases; we want to ensure that alphaInsert can handle:
+
+```js
+alphaInsert([], 'Brazil'); // Inserting in an empty Array
+alphaInsert(['Brazil], 'Australia'); // At the beginning of an Array
+alphaInsert(['Brazil'], 'Cuba') // At the end of an Array
+alphaInsert(['Brazil'], 'Brazil'); // Duplicate entry
+```
+
+We have only four major cases here, but more complex functions can have many more cases. It may get to be a bit too much to handle. Instead, focus on the "happy path" -- the most basic use case(s). Then revisit your complete list of use cases, and verify that your implementation works well in each case. If a particular case fails, address it and then check the use cases again.
+
+Note that our list of use cases ignores the problem of invalid data types passed as arguments (for instance, passing a Number when a function expects a String). You can check argument types when this is a real possibility, but doing so in every function is unneeded and difficult to maintain.
+
+20210720 15:34 Preventing Errors Assignment completed.
