@@ -123,7 +123,8 @@
 //   number2 = readline.question();
 // }
 
-// prompt("What operation do you want to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide");
+// prompt("What operation do you want to perform?\n1) Add 2) Subtract
+// 3) Multiply 4) Divide");
 // let operation = readline.question();
 
 // while (!['1', '2', '3', '4'].includes(operation)) {
@@ -153,7 +154,10 @@
 /*
  Asking for another calculation
 
- Currently, our calculator asks the user for two numbers and an operation and then exits after displaying the result. Wouldn't it be nice if we could ask the user if they wanted to perform another calculation and start a new calculation when they respond with yes?
+Currently, our calculator asks the user for two numbers and an operation and
+then exits after displaying the result. Wouldn't it be nice if we could ask
+the user if they wanted to perform another calculation and start a new
+calculation when they respond with yes?
 */
 
 // ================================================
@@ -314,7 +318,7 @@ const LANGUAGE = 'en';
 
 const readline = require('readline-sync');
 
-function messages(message, lang='en') {
+function messages(message, lang = 'en') {
   return MESSAGES[lang][message];
 }
 
@@ -343,9 +347,6 @@ function invalidNumber(number) {
 
 
 while (true) {
-  // ask for two numbers
-  // ask for operation
-  // perform operation and display results
 
   prompt('firstNumber');
   let number1 = readline.question();
@@ -388,11 +389,10 @@ while (true) {
       break;
   }
 
-  prompt('result');
+  console.log(`==> The result is ${output}.`);
 
-  prompt('Do you want to perform another operation? (y/n)');
+  prompt("anotherOperation");
   let answer = readline.question();
 
   if (answer[0].toLowerCase() !== 'y') break;
 }
-

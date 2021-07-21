@@ -556,14 +556,14 @@ $ yarn add eslint@4.x babel-eslint@8 -D
      * [x] 15.
      * [x] 16.
 2. What will you do today?
-   * [ ] 1. Study Session with Alex => Small Problems Easy 3 > 1 and 2
-   * [ ] 2. Review Anki cards
-   * [ ] 3. JS101 - Lesson 2: Small Programs > Assignments 17-19
-     * [ ] 17. Explicit Type Coercion
-     * [ ] 18. Implicit Type Coercion
+   * [x] 1. Study Session with Alex => Small Problems Easy 3 > 1 and 2
+   * [x] 2. Review Anki cards
+   * [x] 3. JS101 - Lesson 2: Small Programs > Assignments 17-19
+     * [x] 17. Explicit Type Coercion
+     * [x] 18. Implicit Type Coercion
      * [ ] 19. Assignment: Mortgage / Car Loan Calculator
-   * [ ] 3. JS101 - Small Problems > Easy 2 > 8. Odd Lists
-   * [ ] 4. Study Session with Laurent
+   * [x] 3. JS101 - Small Problems > Easy 2 > 8. Odd Lists
+   * [x] 4. Study Session with Laurent
    * [ ] 5. LS Podcast S2E3
 3. Are there any blockers or impediments preventing you from doing your work?
    * I couldn't get `calculator.js` with Internationalization to work. I don't think you can evaluation expressions in `JSON`.
@@ -594,9 +594,28 @@ $ yarn add eslint@4.x babel-eslint@8 -D
 
 13:17 taking a break to play ping pong
 
+13:33 Not playing ping pong because Louis has his sister over at his house.
+
+13:34 [35+ Mac Text-Editing Keyboard Shortcuts to Speed Up Typing](https://www.howtogeek.com/681662/35-mac-text-editing-keyboard-shortcuts-to-speed-up-typing/)
+
+Moving the Cursor
+
+You can use the arrow keys to move the cursor around and press Enter to start a new paragraph. Using the Option and Command keys as modifiers, you can move the cursor in the following ways:
+
+* Option+Left Arrow: To the beginning of the previous word.
+* Option+Right Arrow: To the beginning of the next word.
+* Command+Left Arrow: To the beginning of the current line.
+* Command+Right Arrow: To the end of the current line.
+* Option+Up Arrow: To the beginning of the current paragraph.
+* Option+Down Arrow: To the end of current paragraph.
+* Shift+Enter: Starts a new line in apps like Messages, Slack, or WYSIWYG editors.
+
 13:59 Back to work.
 
 14:30 took a short nap.
 
 14:39 Implicit Type Coercion assignment complete.
 
+16:25 Did Odd Lists exercise with Laurent after he looked at my code for `calculator.js`.
+
+16:36 I'm shutting down my office work station after making all my commits. Going to check email and messages and then review the Small Problems I did today with Alex and Laurent. I'm not sure about playing soccer tomorrow morning as my hamstring still feels tight.
