@@ -226,26 +226,122 @@
 // Version 5 - Configuration File
 
 // at the top of the file
+// const MESSAGES = require('./calculator_messages.json');
+
+// const readline = require('readline-sync');
+
+// function prompt(message) {
+//   console.log(`=> ${message}`);
+// }
+
+// function invalidNumber(number) {
+//   return number.trimStart() === '' || Number.isNaN(Number(number));
+// }
+
+// prompt(MESSAGES['welcome']);
+
+// while (true) {
+//   // ask for two numbers
+//   // ask for operation
+//   // perform operation and display results
+
+//   prompt(MESSAGES['firstNumber']);
+//   let number1 = readline.question();
+
+//   while (invalidNumber(number1)) {
+//     prompt("Hmm ... that doesn't look like a valid first number.");
+//     number1 = readline.question();
+//   }
+
+//   prompt(MESSAGES['secondNumber']);
+//   let number2 = readline.question();
+
+//   while (invalidNumber(number2)) {
+//     prompt("Hmm ... that doesn't look like a valid second number.");
+//     number2 = readline.question();
+//   }
+
+//   prompt(
+//     'What operation do you want to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide'
+//   );
+//   let operation = readline.question();
+
+//   while (!['1', '2', '3', '4'].includes(operation)) {
+//     prompt('Please choose 1, 2, 3, or 4');
+//     operation = readline.question();
+//   }
+
+//   let output;
+
+//   switch (operation) {
+//     case '1':
+//       output = Number(number1) + Number(number2);
+//       break;
+//     case '2':
+//       output = Number(number1) - Number(number2);
+//       break;
+//     case '3':
+//       output = Number(number1) * Number(number2);
+//       break;
+//     case '4':
+//       output = Number(number1) / Number(number2);
+//       break;
+//   }
+
+//   prompt(`The result is ${output}.\n`);
+
+//   prompt('Do you want to perform another operation? (y/n)');
+//   let answer = readline.question();
+
+//   if (answer[0].toLowerCase() !== 'y') break;
+// }
+
+// ==============================
+
+// Version 6 Internationalization
+
+// at the top of the file
 const MESSAGES = require('./calculator_messages.json');
+
+// top of calculator.js
+const LANGUAGE = 'en';
 
 const readline = require('readline-sync');
 
-function prompt(message) {
+function messages(message, lang='en') {
+  return MESSAGES[lang][message];
+}
+
+function prompt(key) {
+  let message = messages(key, LANGUAGE);
   console.log(`=> ${message}`);
 }
+
+prompt('welcome');
+// english
+// prompt(messages('welcome')); // => Welcome to Calculator! Enter your name:
+
+// english
+// prompt(messages('welcome', 'en')); // => Welcome to Calculator! Enter your name:
+
+// spanish
+// prompt(messages('welcome', 'es')); // => Bienvenido a la calculadora! Entre su nombre:
+
+// prompt(messages('welcome', LANGUAGE));
 
 function invalidNumber(number) {
   return number.trimStart() === '' || Number.isNaN(Number(number));
 }
 
-prompt(MESSAGES['welcome']);
+// prompt(MESSAGES['welcome']);
+
 
 while (true) {
   // ask for two numbers
   // ask for operation
   // perform operation and display results
 
-  prompt(MESSAGES['firstNumber']);
+  prompt('firstNumber');
   let number1 = readline.question();
 
   while (invalidNumber(number1)) {
@@ -253,7 +349,7 @@ while (true) {
     number1 = readline.question();
   }
 
-  prompt(MESSAGES['secondNumber']);
+  prompt('secondNumber');
   let number2 = readline.question();
 
   while (invalidNumber(number2)) {
@@ -261,9 +357,7 @@ while (true) {
     number2 = readline.question();
   }
 
-  prompt(
-    'What operation do you want to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide'
-  );
+  prompt('operation');
   let operation = readline.question();
 
   while (!['1', '2', '3', '4'].includes(operation)) {
@@ -288,7 +382,7 @@ while (true) {
       break;
   }
 
-  prompt(`The result is ${output}.\n`);
+  prompt('result');
 
   prompt('Do you want to perform another operation? (y/n)');
   let answer = readline.question();

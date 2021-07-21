@@ -2241,7 +2241,7 @@ Hints
 
 - Use the JSON format to store messages in a file called `calculator_messages.json`. Here's a [quick description](https://developers.squarespace.com/what-is-json) of what JSON is.
   - JSON, or JavaScript Object Notation, is a minimal, readable format for structuring data. It is used primarily to transmit data between a server and web application, as an alternative to XML.
-- Use require('./calculator_messages.json') to load the file into your program as an object.
+- Use `require('./calculator_messages.json')` to load the file into your program as an object.
 - Access the messages from that object with object property access syntax.
 
 Solution
@@ -2275,3 +2275,85 @@ prompt("Welcome to Calculator! Enter your name:");
 // with this:
 prompt(MESSAGES['welcome']);
 ```
+
+### 3. Internationalization
+
+Your calculator program is a hit, and it's being used all over the world! The problem is, not everyone speaks English. You now need to internationalize the messages in your calculator. You've already done the hard work of extracting all the messages to a configuration file. Now, all you have to do is send that configuration file to translators and call the right translation in your code.
+
+Hints
+
+Modify your JSON file to use nested structures; the outermost structure should use a key to identify the language, while the inner structures should contain the messages that pertain to that language.
+
+Solution
+
+First, we must reorganize our JSON configuration a little bit to account for different languages. We'll nest the message keys under a top-level language, thereby organizing all the values. Here's an example:
+
+```json
+{
+  "en": {
+    "welcome": "Welcome to Calculator! Enter your name:",
+    "validName": "Make sure to enter a valid name."
+  },
+  "es": {
+    "welcome": "Bienvenido a la calculadora! Entre su nombre:",
+    "validName": "Asegúrese de entrar un nombre válido."
+  }
+}
+```
+
+Note that we're using two top-level keys here to distinguish between English messages and Spanish messages. We could have as many top-level keys as we want to -- one for each language our program supports.
+
+Next, we have to study how this change affects our `MESSAGES` object. If we do a `console.log(MESSAGES)` in our program, we'll see that it's still an object, except it's now a nested one. That means we must use a language key first, then the message. For example, we can get the Spanish welcome message like this:
+
+```js
+MESSAGES['es']['welcome'];
+```
+
+Because we'll need the language key every time we reference the message, let's move that to a function that we can call. That way, we can pass in the language to the method, which can then reference the `MESSAGES` object.
+
+```js
+function messages(message, lang='en') {
+  return MESSAGES[lang][message];
+}
+```
+This now means we can do this in our program:
+
+```js
+// english
+prompt(messages('welcome'));       // => Welcome to Calculator! Enter your name:
+
+// english
+prompt(messages('welcome', 'en')); // => Welcome to Calculator! Enter your name:
+
+// spanish
+prompt(messages('welcome', 'es')); // => Bienvenido a la calculadora! Entre su nombre:
+```
+
+The last piece is setting a default language for your program.
+
+```js
+// top of calculator.js
+
+const LANGUAGE = 'en';
+```
+
+Finally, whenever you call the prompt, you can do this:
+
+```js
+prompt(messages('welcome', LANGUAGE));
+```
+
+If you think that's too verbose, you could move the code around a bit and modify the `prompt` method:
+
+```js
+function prompt(key) {
+  let message = messages(key, LANGUAGE);
+  console.log(`=> ${message}`);
+}
+
+// now you can just do:
+prompt('welcome')
+```
+
+Now, when non-English users want to use your calculator, all they have to do is change the LANGUAGE setting, provided you have translated the messages for them already.
+
