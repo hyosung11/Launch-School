@@ -555,7 +555,6 @@ $ yarn add eslint@4.x babel-eslint@8 -D
      * [x] 14.
      * [x] 15.
      * [x] 16.
-~~   * [ ] 3. JS101 - Small Problems > Easy 2 > 8. Odd Lists~~
 2. What will you do today?
    * [ ] 1. Study Session with Alex => Small Problems Easy 3 > 1 and 2
    * [ ] 2. Review Anki cards
@@ -569,6 +568,8 @@ $ yarn add eslint@4.x babel-eslint@8 -D
 3. Are there any blockers or impediments preventing you from doing your work?
    * I couldn't get `calculator.js` with Internationalization to work. I don't think you can evaluation expressions in `JSON`.
 
+07:43 Going to read a little from *Mastery* before breakfast with the kids.
+
 08:04 finished mastery chapter on instruction. ready for breakfast with the kids. Sohee went back to work.
 
 08:06 breakfast delayed to 8:30. Start Anki cards now.
@@ -577,3 +578,4 @@ $ yarn add eslint@4.x babel-eslint@8 -D
 
 09:18 Read Eamon O'Callaghan [JS109]'s article.
 
+09:33 Back at the standing desk work station.
