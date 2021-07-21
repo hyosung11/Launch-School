@@ -2749,4 +2749,87 @@ Our advice to avoid `==` and `!=` isn't universal. There are JavaScript develope
 
 That said, you need to be aware of some edge cases with the loose operators. For that reason, the style we use at Launch School insists that you always use the strict operators. Doing so won't prevent you from fixing bad code, but at this stage of your journey, it's less confusing to use the strict operators, and easier to debug.
 
-13:17 taking a break to play ping pong
+### Implicit Coercion with the Binary `+` operator
+
+In the previous assignment, we saw that the unary `+` operator could coerce strings to numbers. That's a form of implicit type coercion, but it's so commonplace that some people regard it as explicit type coercion.
+
+```js
+// implicit coercion and the + operator
+> 'number ' + 1
+'number 1'
+```
+
+Here, the number `1` is coerced into the string `'1'` and then concatenated with the string `'number '`. The general rule is that whenever one of the operands of the ``+` operator is a string, the other operand is also coerced to a string and concatenated with the string:
+
+```js
+> '' + [1, 2, 3]
+'1,2,3'
+>'' + true
+'true'
+> '' + undefined
+'undefined'
+> '' + {}
+'[object Object]'
+```
+
+When both operands are a combination of numbers, booleans, `null`s, or `undefined`s, they are converted to numbers and added together:
+
+```js
+1 + true; // 2
+1 + false; // 1
+true + false; // 1
+null + false; // 0
+null + null; // 0
+1 + undefined; // NaN
+```
+
+When one of the operands is an object, both operands are converted to strings and concatenated together:
+
+```js
+[1] + 2;    // '12'
+[1] + '2';  // '12'
+[1, 2] + 3; // '1,23
+[] + 5;     // '5'
+[] + true;  // 'true'
+42 + {}     // '42[object Object]`
+```
+
+### Relational Operators
+
+The relational operators, `<`, `>`, `<=`, and `>=` are defined for numbers (numeric comparison) and strings (lexicographic order).
+
+```js
+> 1 < 2
+true
+> 'b' > 'a'
+true
+```
+
+There are no strict versions of these operators. When both operands are strings, JavaScript compares them lexicographically. Otherwise, JavaScript converts both operands to numbers before comparing them.
+
+```js
+11 > '9';         // true -- '9' is coerced to 9
+'11 > 9;          // true -- '11' is coerced to 11
+123 > 'a';        // false -- 'a' is coerced to NaN; any comparison with NaN is false
+123 <= 'a';       // also false
+true > null;      // true -- becomes 1 > 0
+null <= false;    // true -- becomes 0 <= 0
+undefined >= 1;    // false -- becomes NaN >= 1
+```
+
+### Best Practices
+
+Understanding JavaScript's implicit type coercions is important when you're debugging code. When you write your programs, though, it's best to:
+
+- **Always use explicit type coercions** (covered in the previous assignment)
+- **Always use strict equality and inequality operators** (=== and !==).
+
+There are two exceptions to the advice to always use explicit coercion:
+
+- Don't use `String()` or `toString()` inside `${...}` expressions in template literals.
+- Feel free to use the unary `+` operator to convert strings to numbers.
+
+Follow these guidelines even if you think that you understand the rules of implicit coercion. This part of JavaScript is opaque and not well understood. Clearly show your intentions and be explicit. These best practices will save you and future developers much grief.
+
+202010721 14:39 Implicit Type Coercion assignment complete.
+
