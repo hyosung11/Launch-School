@@ -593,3 +593,10 @@ $ yarn add eslint@4.x babel-eslint@8 -D
 13:02 Working on Implicit Type Coercion. Really enjoying this.
 
 13:17 taking a break to play ping pong
+
+13:59 Back to work.
+
+14:30 took a short nap.
+
+14:39 Implicit Type Coercion assignment complete.
+
