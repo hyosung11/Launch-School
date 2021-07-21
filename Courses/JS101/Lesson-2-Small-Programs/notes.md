@@ -2485,6 +2485,7 @@ The `parseFloat` function, like `parseInt`, coerces strings to numbers, but it w
 >parseFloat('12.223 grams')
 12.223
 ```
+
 Unlike `parseInt`, `parseFloat` *does not accept a radix argument*.
 
 #### Coercing to Numbers using the + operator
@@ -2616,3 +2617,136 @@ Inside template literals, JavaScript implicitly coerces interpolation expression
 Type coercion is a very common operation in programs and JavaScript provides numerous ways to convert values of one type to another. Make sure you understand the difference between the various methods of coercing values and the relative advantages and disadvantages of each method. JavaScript sometimes tries to be helpful and coerces values for us even when we may not want the conversion. This behavior is ill-advised and something that we'll look at in the next assignment.
 
 20210721 12:31 Explicit Type Coercion assignment completed.
+
+## Implicit Type Coercion
+
+Implicit type coercion happens when you perform an operation involving values of two different types and JavaScript coerces the values to have the same type; that type varies based on the specific combination of types involved in the original expression. JavaScript was initially designed to be a beginner-friendly language, and some of these features were designed to make a developer's life easier. The intentions were good, but this is now considered, for the most part, to be a poor design decision that leads to confusing and buggy code. Nevertheless, these features aren't going to go away, so it's important to understand them if only to learn to avoid relying on them.
+
+How different values get coerced depends on the operation. The most common operations in this context are `==` and `+`, but we'll discuss some other operations as well:
+
+### Implicit Coercion with the `==` Operator
+
+The non-strict equality operator, `==`, works identically to the strict equality operator, `===`, when the *operands have the same type*. Their behavior is wildly different, though, when the values have different types. You'll have noticed that, thus far, we've been using the `===` operator exclusively in our programs when we need to perform equality comparison. The reason for this is that `==` operator implicitly coerces one of its operands when the operands have different types.
+
+The most common case occurs when comparing a string with a number:
+
+The most common case occurs when comparing a string with a number:
+
+```js
+> '1' === 1 // strict equality
+false
+> '1' == 1 // non-strict equality
+true
+```
+
+- The strict equality operator compares the two values directly. It returns `false` here since the two values have different types, so they aren't identical values.
+- The non-strict equality operator, though, coerces the string `'1'` into a number and then compares it with the `1` on the right-hand side. We get the same result if we swap the two operands:
+
+```js
+> 1 == '1'
+true
+```
+
+Such behavior should be unexpected since a string and a number should never be equal to each other. That's why you should use `===` exclusively. Even if you understand what you're doing, other readers of your program may not be familiar with this subtlety.
+
+Strings and numbers aren't the only types that the `==` operator coerces. Let's see what happens when we compare booleans with numbers:
+
+```js
+// (boolean 1 => true) == true
+> 1 == true
+true
+// (boolean 3 => false) == true
+> 3 == true
+false
+// (boolean 0 => false) == false
+> 0 == false
+true
+```
+
+- Had we used `===` here, all 3 expressions would return `false`.
+- By using `==`, though, two of them return `true`.
+- When comparing a boolean with any value, `==` coerces `true` and `false` to their number equivalents, which are `1` and `0` respectively. Thus, the first and last expressions above return `true`.
+
+```js
+// compare boolean with a string
+> '1' == true
+true
+```
+
+Here, the boolean `true` is coerced to the number `1`, and the comparison becomes `'1' == 1`. From our previous investigations, we know that this expression evaluates as true since the string `'1'` gets coerced to the number `1`.
+
+Another situation occurs when comparing `undefined` and `null`. The `==` operator considers them equal:
+
+```js
+> undefined == null
+true
+```
+
+One can argue that this behavior is useful since we sometimes want to test whether a value is either `null` or `undefined`. A conditional like the following
+
+```js
+let val == getAValueFromSomewhere();
+
+if (val === undefined || val === null) {
+  // do one thing
+} else {
+  // do another thing
+}
+
+// shortened from above to the following, without any effect on its behavior:
+let val = getAValueFromSomewhere();
+
+if (val === undefined) {
+  // do one thing
+} else {
+  // do another thing
+}
+
+// However, the first version is superior since it is more explicit and clear.
+```
+
+Thus far, we've only looked at cases where both operands are primitive values. We'll now explore how == behaves when the operands are objects (including arrays). When both operands are objects, == behaves exactly like the === operator; that is, it considers two objects equal only when they're the same object:
+
+```js
+> let arr = []
+> arr == []
+false
+> arr == arr
+true
+```
+
+However, when one of the operands is an object and the other a primitive, `==` coerces the object to a primitive before making the comparison. Let's see a few examples:
+
+```js
+> '' == {}
+false
+> '[object Object]' == {}
+true
+> [] == ''
+true
+```
+
+- The plain object `{}` in the above example is coerced into to the string `'[object Object]'`. That's why the comparison with '[object Object]' evaluates as true.
+- An empty array, on the other hand, is coerced into an empty string (''). A consequence of this is that the following comparison also holds:
+
+```js
+> [] == 0
+true
+```
+
+- The array is coerced into the string `''`, and then compared with `0` again.
+- At this point our comparison becomes `'' == 0`. We know from a previous rule that `==` converts the string to a number when the comparison is between strings and numbers.
+- The empty string is coerced to the number `0`, and the resulting comparison becomes `0 == 0`.
+
+Go ahead and try out different combinations of comparisons between objects and primitives. The goal here is not to memorize all possible cases. That's almost impossible. You can always open up the node console and verify for yourself when you need to. The things to remember from this discussion are:
+
+1. When a number is compared with a string using `==`, the string is coerced into a number.
+2. When a boolean is compared with any other value, it is coerced into a number and compared again using the `==` operator.
+3. When an object is compared with a primitive value, the *object is coerced into a primitive value* and compared again using the `==` operator.
+4. A `==` comparison of `undefined` with `null` evaluates as true.
+
+Our advice to avoid `==` and `!=` isn't universal. There are JavaScript developers, including some well-known ones, who will tell you to go ahead and use the loose operators, `==` and `!=`; some even recommend preferring it. Their reasoning is easy to understand: your code should not be attempting to compare different kinds of things, except in a few well-defined, isolated cases. Using the strict operators as a workaround is just masking bad code. They're not wrong! If you're comparing strings with arrays, your code is almost certainly needs a redesign.
+
+That said, you need to be aware of some edge cases with the loose operators. For that reason, the style we use at Launch School insists that you always use the strict operators. Doing so won't prevent you from fixing bad code, but at this stage of your journey, it's less confusing to use the strict operators, and easier to debug.
+
+13:17 taking a break to play ping pong
