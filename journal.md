@@ -579,3 +579,14 @@ $ yarn add eslint@4.x babel-eslint@8 -D
 09:18 Read Eamon O'Callaghan [JS109]'s article.
 
 09:33 Back at the standing desk work station.
+
+10:00 Working on Explicit Type Coercion assignment.
+
+10:34 Emailed resume draft to Christine at NJDOL for our meeting tomorrow.
+
+11:33 Got an interview with Encora for a TPM position. I have to research it.
+
+12:21 Scheduled interview with Encora. I need to research the company.
+
+12:33 Finished Explicit Type Coercion.
+
