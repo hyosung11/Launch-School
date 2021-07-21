@@ -524,7 +524,6 @@ $ yarn add eslint@4.x babel-eslint@8 -D
 
 13:31 Working on Debugging Assignment and going to move to office workstation.
 
-
 14:19 Finished the Debugging Assignment. It's cool. So many tools and features to programming. I love it.
 
 15:03 Finished Errors Assignment.
