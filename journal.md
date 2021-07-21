@@ -537,3 +537,33 @@ $ yarn add eslint@4.x babel-eslint@8 -D
 20:59 16. Assignment: Calculator Bonus Features 2/3 completed. Still working on Internationalization.
 
 21:59 Final commit for tonight. Watching NBA finals game 6 and going to bed to sleep before early study session with Alex tomorrow morning.
+
+## 20210721 Wednesday
+
+05:58 About to start study session with Alex.
+
+07:16 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Reviewed Anki cards
+   * [x] 2. JS101 - Lesson 2: Small Programs > Assignments 9-16
+     * [x] 9.
+     * [x] 10.
+     * [x] 11.
+     * [x] 12.
+     * [x] 13.
+     * [x] 14.
+     * [x] 15.
+     * [x] 16.
+~~   * [ ] 3. JS101 - Small Problems > Easy 2 > 8. Odd Lists~~
+2. What will you do today?
+   * [ ] 1. Study Session with Alex => Small Problems Easy 3 > 1 and 2
+   * [ ] 2. Review Anki cards
+   * [ ] 2. JS101 - Lesson 2: Small Programs > Assignments 17-19
+     * [ ] 17. Explicit Type Coercion
+     * [ ] 18. Implicit Type Coercion
+     * [ ] 19. Assignment: Mortgage / Car Loan Calculator
+   * [ ] 3. JS101 - Small Problems > Easy 2 > 8. Odd Lists
+   * [ ] 4. Study Session with Laurent
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I couldn't get Calculator with Internationalization to work. I don't think you can evaluation expressions in `JSON`.
