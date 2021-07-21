@@ -2398,3 +2398,221 @@ NaN
 As expected, we get a value of `NaN`, which, if you recall from the book, is of type "number," but it isn't a meaningful number. It represents a number that cannot be represented.
 
 ```js
+// convert to empty string
+Number('')
+0
+```
+
+`Number()` converts empty strings and strings with only whitespace to `0`. That may seem odd, and you may even argue about whether it's appropriate, but it is what it is. You'll sometimes come across such unintuitive behaviors in JavaScript.
+
+Thus far, we've talked about converting strings to numbers. What about other types? Can we, for example, convert objects, arrays, booleans, `undefined` or `null` to numbers? The answer is an interesting one here. Examine this code:
+
+```js
+> Number({})
+NaN
+> Number([])
+0
+> Number([4])
+4
+> Number([undefined])
+NaN
+> Number(null)
+0
+```
+
+If these conversions have you scratching your head, you're not alone. You'll find many such inconsistencies in JavaScript. The critical thing here is to be aware that these inconsistencies exist, and to ensure that your code accounts for them. When you need to determine whether an operation works the way you expect, hop into `node` and try some examples; don't try to memorize what each coercion does.
+
+Converting booleans to a number makes a certain amount of sense. `Number()` coerces the boolean values `true` and `false` to the numbers `1` and `0`, respectively:
+
+```js
+> Number(true)
+1
+> Number(false)
+0
+```
+
+`parseInt` and `parseFloat`
+
+- Both `parseInt` and `parseFloat` also coerce strings to numbers:
+  - `parseInt` *converts strings to integers*, while
+  - `parseFloat` coerces strings to floating point numbers.
+- both functions operate on **strings**; they don't work with other types.
+
+```js
+// parseInt
+> parseInt('12')
+12
+```
+
+`parseInt` takes a string as an argument and tries to parse an integer number from it. Note that we used the word **integer** and not ~~number~~. Even if the string contains a floating point number, parseInt returns an integer and ignores the fractional part:
+
+```js
+// ignores fractional part:
+> parseInt('12.52')
+12
+```
+
+An unusual feature of `parseInt` is that *it converts strings to numbers even when the string contains non-numeric characters*. As long as the string begins with a digit -- optionally preceded by a + or - sign -- parseInt returns a number:
+
+```js
+> parseInt('12oz')
+12
+> parseInt('+12oz')
+12
+
+// parseInt vs Number:
+> Number('12oz')
+NaN
+```
+
+`parseInt` also differs from `Number` in that it accepts a second argument called the **radix**. It specifies the base of the number contained in the string. For example, `10101` in the binary numbering system (base-2) represents the number 21 in decimal (base-10). Thus:
+
+```js
+// radix base-2 as second argument
+> parseInt('10101', 2)
+21
+```
+
+`parseInt` supports radices from 2 to 36. See the [documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt) for more info.
+
+The `parseFloat` function, like `parseInt`, coerces strings to numbers, but it works with floating point numbers. Like `parseInt`, `parseFloat` parses the numeric part of the string, and stops parsing once it finds a character that can't be part of a number.
+
+```js
+> parseFloat('12 grams')
+12
+> parseFloat('12.2 grams')
+12.2
+>parseFloat('12.223 grams')
+12.223
+```
+Unlike `parseInt`, `parseFloat` *does not accept a radix argument*.
+
+#### Coercing to Numbers using the + operator
+
+Most operators in JavaScript work with two values: we call such operators **binary operators**. JavaScript also supplies a **ternary operator** that works with 3 values. It also has operators that work with a single value, such as the `!` logical operator, which are called **unary operators**. Some operators, such as the `+` and `-` operators do double duty: they can apply to either two values or one. Thus, `5 - 3` is a binary `-` operator that subtracts `3` from `5`, but the expression `-4` uses a unary `-` operator to obtain the negative of the number `4`.
+
+The **unary** `+` operator *attempts to coerce a value to a number*. It works like the `Number` function, but is more succinct:
+
+```js
+> +""
+0
+> +'1'
+1
+> +'2.3'
+2.3
+> +[]
+0
+> +'abc'
+NaN
+```
+
+The **unary** `+` operator is concise and easy to use, but at first, it may lack clarity. Feel free to use it if you want, but if you find the notation confusing, use the `Number` function instead. `Number` *makes your intent clear* and leaves no room for the ambiguity that can sometimes arise with unary operators.
+
+#### Coercing values to strings
+
+Coercing values to strings is another common form of type coercion in JavaScript. There are several ways to perform this type of coercion. We'll discuss each below.
+
+##### The `toString` method
+
+You can use the `toString` method on all JavaScript data types except `null` and `undefined`. It returns a string representation of the value. Let's see an example:
+
+```js
+> let number = 42
+> number.toString()
+'42'
+```
+
+Since JavaScript doesn't let you call a method directly on a number literal, we first assign `42` to a variable before we call `toString()`. The reason for this is that JavaScript interprets the `.` as part of a floating point number:
+
+```js
+> 42.toString()
+42.toString()
+^^^
+
+Uncaught SyntaxError: Invalid or unexpected token
+```
+
+Another way to avoid this syntax error is to wrap the number in parentheses:
+
+```js
+> (42).toString()
+'42'
+```
+
+You can also use two . characters instead, though it looks a bit strange:
+
+```js
+> 42..toString()
+'42'
+```
+
+You probably won't see this syntax often.
+
+When used on booleans, `toString` returns either the string `'true'` or `'false'`, depending on the value:
+
+```js
+> true.toString()
+'true'
+> false.toString()
+'false'
+```
+
+`Array.prototype.toString` converts every element of an array to a string, then concatenates them all with a `,` between each string:
+
+```js
+> [1, 2, 3].toString()
+'1,2,3'
+```
+
+Note that `Array.prototype.toString` treats `null` and `undefined` elements as empty values:
+
+```js
+> [1, null, 2, undefined, 3].toString()
+'1,,2,,3'
+```
+
+The default implementation of `toString` on objects is much less useful than the one on arrays:
+
+```js
+> let obj = {a: 'foo', b: 'bar'}
+> obj.toString()
+'[object Object]'
+```
+
+By default, `Object.prototype.toString` returns the string `'[object Object]'`. However, you can override that behavior with custom objects. We'll discuss that in another course.
+
+One limitation of `toString` is that you can't use it on `undefined` and `null` since it's illegal to call a method on either of these types.
+
+#### The `String` function
+
+Another way to coerce values to strings is by using the `String` function. It works in much the same way as `toString`.
+
+```js
+> String(42)
+'42'
+> String([1, 2, 3])
+'1,2,3'
+> String({a: 'foo', b: 'bar'})
+'[object Object]
+```
+
+One advantage that `String` has over `toString` is that it works with `null` and `undefined`.
+
+```js
+> String(null)
+'null'
+> String(undefined)
+'undefined'
+```
+
+This behavior is useful since using `toString` can lead to a program-halting error if the value turns out to be `undefined` or `null`.
+
+#### Template Literals
+
+Inside template literals, JavaScript implicitly coerces interpolation expressions like `${something}` to string values. ***Don't write*** `${something.toString()}` or `${String(something)}`.
+
+### Conclusion
+
+Type coercion is a very common operation in programs and JavaScript provides numerous ways to convert values of one type to another. Make sure you understand the difference between the various methods of coercing values and the relative advantages and disadvantages of each method. JavaScript sometimes tries to be helpful and coerces values for us even when we may not want the conversion. This behavior is ill-advised and something that we'll look at in the next assignment.
+
+20210721 12:31 Explicit Type Coercion assignment completed.
