@@ -2357,3 +2357,18 @@ prompt('welcome')
 
 Now, when non-English users want to use your calculator, all they have to do is change the LANGUAGE setting, provided you have translated the messages for them already.
 
+20210720 20:59 16. Assignment: Calculator Bonus Features 2/3 completed. Still working on Internationalization.
+
+## 17. Explicit Type Coercion
+
+**Type coercion** is the conversion of one type of value into another. All programming languages have mechanisms for coercion, but type coercion in JavaScript has some eccentric behaviors. New JavaScript programmers are often baffled by this part of the language. In this assignment, we'll discuss how type coercion in JavaScript works and point out some of the quirky behavior.
+
+There are two kinds of type coercion in JavaScript:
+
+1. **Explicit type coercion**
+2. **Implicit type coercion**
+
+In this assignment, we'll talk about the various ways to explicitly coerce a value of one type to another. We'll discuss implicit coercion in the next assignment.
+
+### Explicit type coercion
+

@@ -534,3 +534,7 @@ $ yarn add eslint@4.x babel-eslint@8 -D
 17:59 Finished 13. Preventing Errors, 14. Catching Errors, 15. Precedence, and 16. Assignment: Calculator Bonus Features part 1.
 
 19:42 Added configuration file to `calculator.js` at `calculator_messages.json`. This is fun and cool.
+
+20:59 16. Assignment: Calculator Bonus Features 2/3 completed. Still working on Internationalization.
+
+21:59 Final commit for tonight. Watching NBA finals game 6 and going to bed to sleep before early study session with Alex tomorrow morning.

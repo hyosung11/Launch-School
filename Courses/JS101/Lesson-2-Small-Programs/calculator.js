@@ -92,6 +92,8 @@
 
 // prompt(`The result is ${output}.`);
 
+// =============================================
+
 // Version 3 via book
 // const readline = require('readline-sync');
 
@@ -153,6 +155,8 @@
 
  Currently, our calculator asks the user for two numbers and an operation and then exits after displaying the result. Wouldn't it be nice if we could ask the user if they wanted to perform another calculation and start a new calculation when they respond with yes?
 */
+
+// ================================================
 
 // Version 4
 // const readline = require('readline-sync');
@@ -222,6 +226,8 @@
 
 //   if (answer[0].toLowerCase() !== 'y') break;
 // }
+
+// ==============================
 
 // Version 5 - Configuration File
 
@@ -389,3 +395,4 @@ while (true) {
 
   if (answer[0].toLowerCase() !== 'y') break;
 }
+
