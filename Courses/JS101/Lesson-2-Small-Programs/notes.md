@@ -2369,6 +2369,32 @@ There are two kinds of type coercion in JavaScript:
 1. **Explicit type coercion**
 2. **Implicit type coercion**
 
-In this assignment, we'll talk about the various ways to explicitly coerce a value of one type to another. We'll discuss implicit coercion in the next assignment.
+In this assignment, we'll talk about the various ways to *explicitly* coerce a value of one type to another. We'll discuss implicit coercion in the next assignment.
 
 ### Explicit type coercion
+
+Explicit type coercion happens when the programmer intentionally uses one of the many built-in functions and operators to coerce one type of value to another. In the calculator program we worked on earlier, we used the `Number` function to convert strings to numbers before we could perform arithmetic. Using `Number` in this manner is one of the most common explicit type coercions in JavaScript programs. String to number conversions come up in all kinds of applications. Since user inputs typically come into our programs as strings, we sometimes need to coerce those strings to numbers. Let's run through some scenarios.
+
+#### Coercing values to numbers
+
+The `Number` function takes a string, converts it to a number if it can, then returns that number. If it can't convert the string to a number, it returns the value `NaN`.
+
+```sh
+> let one = Number(1)
+> one
+1
+> typeof one
+'number'
+```
+
+Here, we convert the string `'1'` to the number `1` by using the `Number` function. We then use the `typeof` operator to ensure that the value held by the `one` variable is, in fact, a number. Sure enough, it returns the string `'number'`.
+
+```js
+// string not convertible to a number:
+> Number("cat")
+NaN
+```
+
+As expected, we get a value of `NaN`, which, if you recall from the book, is of type "number," but it isn't a meaningful number. It represents a number that cannot be represented.
+
+```js

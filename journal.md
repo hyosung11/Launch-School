@@ -559,11 +559,21 @@ $ yarn add eslint@4.x babel-eslint@8 -D
 2. What will you do today?
    * [ ] 1. Study Session with Alex => Small Problems Easy 3 > 1 and 2
    * [ ] 2. Review Anki cards
-   * [ ] 2. JS101 - Lesson 2: Small Programs > Assignments 17-19
+   * [ ] 3. JS101 - Lesson 2: Small Programs > Assignments 17-19
      * [ ] 17. Explicit Type Coercion
      * [ ] 18. Implicit Type Coercion
      * [ ] 19. Assignment: Mortgage / Car Loan Calculator
    * [ ] 3. JS101 - Small Problems > Easy 2 > 8. Odd Lists
    * [ ] 4. Study Session with Laurent
+   * [ ] 5. LS Podcast S2E3
 3. Are there any blockers or impediments preventing you from doing your work?
-   * I couldn't get Calculator with Internationalization to work. I don't think you can evaluation expressions in `JSON`.
+   * I couldn't get `calculator.js` with Internationalization to work. I don't think you can evaluation expressions in `JSON`.
+
+08:04 finished mastery chapter on instruction. ready for breakfast with the kids. Sohee went back to work.
+
+08:06 breakfast delayed to 8:30. Start Anki cards now.
+
+08:36 Studied 11 cards in 1.88 minutes today (10.24s/card) with 30 minutes total of editing them.
+
+09:18 Read Eamon O'Callaghan [JS109]'s article.
+
