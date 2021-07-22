@@ -689,3 +689,4 @@ I think this means I can use the latest ESLint version.
 
 14:54 Now I have a different problem in that it seems I don't have NPM installed and working. Ugh.
 
+16:12 After study session with Laurent. He figured it out completely differently than the LS solution. Bravo.
