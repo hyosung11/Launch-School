@@ -10,8 +10,6 @@ For now, do not worry about leading + or - signs, nor should you worry about inv
 
 You may not use any of the standard conversion methods available in JavaScript, such as String() and Number(). Your function should do this the old-fashioned way and calculate the result by analyzing the characters in the string.
 
-
-
 PROBLEM
 Input: String of numbers
 Output: Number
@@ -66,4 +64,7 @@ function stringToInteger(string) {
 console.log(stringToInteger("4321")); // === 4321); // logs true
 console.log(stringToInteger("570")); // === 570); // logs true
 
+/*
 
+
+*/
