@@ -2880,3 +2880,323 @@ Hints:
 - You can use [this loan calculator](https://www.calculator.net/loan-calculator.html) to check your results.
 
 Possible Solution
+
+## 20. Coding Tips
+
+We perform many code reviews, so we see a wide variety of code. We want to mention a few specific items we've seen come up over and over in doing reviews that may help you on your journey.
+
+We perform many code reviews, so we see a wide variety of code. We want to mention a few specific items we've seen come up over and over in doing reviews that may help you on your journey.
+
+### Dramatic Experience and Retaining Knowledge
+
+A Launch School graduate was talking about how far he's come since starting from the first course and how much he's learned and how much has stuck with him. However, there were also some mistakes that he continues to make, despite having learned about them early on.
+
+After chatting a bit, we concluded that he was still making those basic mistakes since he hadn't been burned badly enough. On the flip side, the things he always remembered were usually due to problems that caused him a major headache in the past. Any time those issues came up, the burn was fresh in his mind, and that helped him avoid repeating the mistake.
+
+Part of our goal at Launch School is to help people realize that programming isn't all that hard. Unfortunately, it does require repetition. Maybe it takes you 2 to 3 hours to debug a small problem, and then you realize "Oh, I just missed a comma" - that's your **burn**.
+
+When you first start learning to program, it seems like there are too many rules to remember. It's hard to understand which ones are crucial, and which ones aren't worth memorizing. Most of the time, when you come across yet another suggestion to follow, the reaction is "Yea, OK! Another rule I need to remember. I'll file it away... somewhere." Until you burn a couple of hours on that rule, you won't retain it for the long haul.
+
+The only way to retain information is to pay with time. Debugging an issue for hours and hours ensures that the problem gets burned into long term memory. You pay for those burns with time, but they pay you back with interest. If you spend 3 hours debugging, those hours weren't wasted -- you won't make that mistake again. Think about debugging from that perspective -- embrace your burns and remember their lessons.
+
+If you are serious about programming and you want to do it for years and maybe decades from today, then the hours you put into debugging little things are going to help you retain knowledge for the long haul.
+
+You're more likely to remember things that took you a long time to solve or that caused you some embarrassment. You decide how to pay for the experience, either through time or repetition.
+
+### Naming Things
+
+Many people try to save on characters by using very short variable or function names. There's no need to save on characters. Choose descriptive names. For example, we see code like this often:
+
+```js
+let p = getUserInput();
+```
+
+What is `p`? It's easy to see that we're collecting some user input here, but what, exactly, does `p` contain? The next time we use `p` may be much later in the program. By then, you may no longer remember what it contains. That's especially true when you return to a program months or years after you wrote it.
+
+Variable names should describe the content of the variable. If the name doesn't reflect that information, it adds another mental check that you must perform every time you see `p`. We could name it `yesOrNo`, but another problem arises if you later decide to allow a "maybe" response from the user. Typically, you don't want to hardcode possible values into a variable name because of future uncertainty. Instead, try to capture the intent of the variable. For example, if we're trying to capture a response to determine whether the user wants to play a game again, a better name would be `playAgain`. It's both descriptive and future-proof.
+
+In programming, naming things is **hard**. Unfortunately, this problem isn't apparent when you write small programs, but it impedes flow when you're working on large programs. Try to develop good habits now; try to *use descriptive names at all times*.
+
+One small exception to using descriptive names is when you have a tiny block of code -- as in 2 or 3 lines of code, at most. It's less of a problem there since the scope of the name is confined to a small area. Even here, though, the best practice is to use descriptive names.
+
+### Naming Conventions
+
+Names that follow the naming conventions in the [Naming Conventions section of the JavaScript Book](https://launchschool.com/books/javascript/read/preparations#namingconventions) are referred to as **idiomatic names**. In particular, whether a name is idiomatic or not depends on what kind of name we're describing. The following tables show which names are and aren't idiomatic in the various categories (we'll talk about constructors and classes later) and when.
+
+#### Idiomatic Names
+
+Category | Name | Note
+---------|----------|---------
+ Non-constant variables and object properties |  `employee` |
+  | `number` |
+  | `fizzBuzz` |
+  | `speedOfLght` |
+  | `destinationURL` | URL is an acronym
+  | `m00n` |
+ Constructor functions and clases | `Cat` |
+  | `BoxTurtle` |
+  | `Flightless Bird` |
+ Other functions | `parseURL` | URL is an acronym
+  | `goFaster` |
+ Configuration and magic constants | `ABSOLUTE_PATH` |
+  | `TODAY`
+  Other `const` names | `employeeOfMonth` | Local style
+  | `HairyCat` | Local style
+  | `ABSOLUTE_PATH` | Local style
+
+#### Valid but Non-Idiomatic Names
+
+Category | Name | Notes
+---------|------| -----
+ Universally non-idiomatic | `$number` | Begins with $
+ | `fizz_buzz` | snake_case not allowed
+ | `fizzBUZZ` | BUZZ is not an acronym
+ | `_hello` | Begins with _
+ | `goodbye_` | Ends with _
+ | `milesperhour` | Undifferentiated words
+ | `MILESPERHOUR` | Undifferentiated words
+ Non-constant variables and object properties | Employee Begins with capital letter
+ `fizzBUZZ` | BUZZ is not an acronym
+ `FIZZ_BUZZ` | SCREAMING_SNAKE_CASE
+ Constructor functions and classes | cat | Begins with lowercase letter
+ | `makeTurtle` | Begins with lowercase letter
+ | `FIZZ_BUZZ` | SCREAMING_SNAKE_CASE
+ Other functions | `ParseURL` | Begings with capital letter
+ | `FIZZ_BUZZ` | SCREAMING_SNAKE_CASE
+ Configuration and magic constants | `absolutePath` | Not SCREAMING_SNAKE_CASE
+ | `Today` | Not SCREAMING_SNAKE_CASE
+
+Note that non-idiomatic names are not invalid names. Non-idiomatic names are commonly used by external libraries to provide names that are easy to type yet unlikely to conflict with names in other libraries. For instance, the jQuery library uses a function named `$` as well as variables whose name begins with `$`, while the underscore.js library leans heavily on a variable named `_`.
+
+#### Invalid Names
+
+Name | Notes
+-----|-------
+ 42ndStree | Begins with number
+ fizz-buzz | Hyphen not allowed
+ fizz.buzz | Looks like property reference
+
+### Avoid Magic Numbers
+
+A **magic number** is a number (or other simple value) that appears in your program without any information that describes what that number represents. For instance, a card game in which each player is dealt 5 cards may use the number `5` at various points in the program, such as a loop that deals the cards or when determining how many cards a player should receive to get back to the 5-card level. If you just use the number `5` in your program, there's no way to tell by just looking at the code why you are using that particular number. The situation becomes even more confusing when you use the same number in other contexts. For instance, your game may also use a best-of-five approach to determine the overall winner.
+
+The way to avoid magic numbers is to use constants.
+
+```js
+const NUMBER_CARDS_IN_HAND = 5;
+
+function dealHand() {
+  let hand = [];
+  for (let cardNumber = 0; cardNumber < NUMBER_CARDS_IN_HAND; ++cardNumber) {
+    hand.push(dealCard());
+  }
+
+  return hand;
+}
+```
+
+Typically, magic number constants are set at the top level of a program as shown above, though you can also declare them inside a function.
+
+Another consideration when declaring constants is whether the meaning of the number is clear. For instance, in some programs, you may need to know the **Unicode code points** (sometimes erroneously referred to as the ASCII character-code values) for the characters `a` and `z`. You could define those constants like this:
+
+```js
+const FIRST_CHARACTER_CODE = 97;
+const LAST_CHARACTER_CODE = 122;
+```
+
+This code works, but it's still not clear what `97` and `122` mean in the context of your program. Instead, you can use some more explicit code by calculating the values directly from the characters:
+
+```js
+const FIRST_CHARACTER_CODE = 'a'.charCodeAt();
+const LAST_CHARACTER_CODE = 'z'.charCodeAt();
+```
+
+In this last code fragment, `'a'.charCodeAt()` returns the Unicode code point of the character `a`, while `'z'.charCodeAt()` does the same thing for `z`. The resulting declaration is now much clearer and also less error-prone.
+
+### Formatting
+
+When using curly braces, if your block is multiple lines, the opening brace is on the same line as the initial statement and the ending brace is on its own line. If your block contains just a single-line statement or expression, you may condense it to one line. However, watch your line length when you do this; long lines are difficult to read. The longer the line, the more difficult it is to scan the code quickly.
+
+```js
+if (myObject.myNumber > 26) {
+  console.log('Number is greater than 26');
+} else {
+  console.log('Number is less than or equal to 26');
+}
+```
+
+Semicolons should *always* terminate each statement or expression that is not a brace-delimited block.
+
+```js
+let someValue = firstValue + secondValue + thirdValue;
+```
+
+With no semicolon to separate them, JavaScript sometimes sees the next statement or expression as part of the previous line, which leads to undesired behavior.
+
+```js
+function foo() {
+  // ... some code here
+  return
+    42
+}
+```
+
+The code above returns `undefined` from `foo`. However, the presence of the indented `42` suggests that we wanted to return `42`. Instead, JavaScript decided to assume that `return` is what we wanted, not `return 42`.
+
+`if`, `for`, and `while` statements always use spaces between the keywords and following opening parenthesis, and between the closing parenthesis and opening brace. This prevents confusion between statements and function calls. You should also place space characters before and after operators and the equals symbol.
+
+```js
+// Bad
+let counter=0;
+while(counter<15){
+  counter+=1;
+}
+
+// Good
+let counter = 0;
+while (counter < 15) {
+  counter += 1;
+}
+```
+
+Use one `let`, `const`, or `var` declaration per variable. It avoids thinking about whether to swap out a `;` for a `,`.
+
+```js
+// Bad
+let firstName = 'Shane',
+    lastName = 'Riley',
+    dogs = ['Josie', 'Libby'];
+
+// Good
+let firstName = 'Shane';
+let lastName = 'Riley';
+let dogs = ['Josie', 'Libby'];
+```
+
+### Mutating Constants
+
+Many developers speak of `const` declarations as declaring a constant: a value that can never be changed. For instance:
+
+```js
+const FOO = 4;
+FOO = 5; // TypeError: Assignment to constant variable.
+```
+
+However, there's a *subtle complication* here: `const` merely declares a variable that can't be reassigned. That is, once initialized, the variable can't be assigned to a new value. However, it does not mean that the value can't be mutated. Consider the following code:
+
+```js
+const CARDS = [1, 2, 3];
+
+CARDS.push(4);
+console.log(CARDS); // [1, 2, 3, 4]
+
+CARDS[1] = 'changed';
+console.log(CARDS); // [1, 'changed', 3, 4]
+
+CARDS.shift();
+console.log(CARDS); // ['changed', 3, 4]
+
+CARDS = [5, 6, 7]   // TypeError: Assignment to constant variable.
+```
+
+Here, we add a new element to the array object given by `CARDS`, replace an element with a new value, and remove an element from the array. All 3 operations are honored by JavaScript since they merely mutate the array. However, it raises an error on line 12 since reassignment of `const` variables is not allowed.
+
+At best, mutating a value assigned to a `const` variable is misleading and should be avoided. However, it's not illegal to do so and not always observed in practice. Some developers have naming conventions that distinguish between true constants and constants whose values can be mutated.
+
+You can use [Object.freeze](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze) to freeze an object so that its value can not be changed in any way. Using `Object.freeze` is good practice with any constant that must never be modified.
+
+```js
+const CARDS = Object.freeze([1, 2, 3]);
+CARDS.push(4); // TypeError: Cannot add property 3, object is not extensible
+```
+
+### Function Guidelines
+
+The instinct to extract code to a function is good. However, make sure that the function does one thing, and that its responsibility is limited. That implies that your functions should be short (say, 10 lines or less). If it's more than 15 lines long, consider splitting it into 2 or more functions.
+
+A function is said to have **side effects** if it does any of the following:
+
+1. It reassigns any non-local variable. Reassigning a variable in the outer scope would be a side effect.
+
+2. It mutates the value of any object referenced by a non-local variable. Mutating an array or object argument, for instance, would be a side effect.
+
+3. It reads from or writes to a file, network connection, browser, or the system hardware. **Side effects like this include writing to the console log and reading input from the terminal.**
+
+4. It raises an exception without handling it.
+
+5. It calls another function that has side effects.
+
+The following functions have side effects:
+
+```js
+// side effect: logs output to the console
+// returns: undefined
+
+function displayTotal(num1, num2) {
+  console.log(num1 + num2);
+}
+
+// side effect: mutates the passed-in array
+// returns: updated array
+
+function append(targetArr, valueToAppend) {
+  targetArr.push(valueToAppend);
+  return targetArr;
+}
+```
+
+Here's an example of a function with no side effects:
+
+```js
+// side effect: none
+// returns: a new number
+
+function computeTotal(num1, num2) {
+  return num1 + num2;
+}
+```
+
+Most functions should return a useful value or they should have a side effect, but not both. In the above examples, `append` both returns a useful value and has a side effect. If you write functions that do both, you may have trouble remembering one of those -- either you'll forget about the side effect, or you'll forget that there's a return value that you need to examine.
+
+By "useful value," we mean that the function returns a value that has meaning to the calling code. For instance, a `computeTotal` function should probably return a number that contains the result of adding some numbers together. A function that returns an arbitrary value or that always returns the same value (such as `undefined`) is not usually returning a useful value.
+
+There are exceptions to this rule about mixing side effects and useful return values. For instance, if you read something from a database, you almost certainly have to return a value. If you read some input from the user's keyboard, you probably need to display a prompt, read the input from the terminal, then return a value. Accessing a database and reading and writing from the terminal are side effects, but you may still need a return value.
+
+Function names should reflect whether side effects may occur. For instance, you can use a name like `displayTotal` as the name of a function that displays a total on the console. The term "display" implies that you're going to do some output -- a side effect -- rather than attempting to just calculate and return the total. On the other hand, you would probably name the function that computes the total something like `computeTotal`. In this case, "compute" implies that you're going to return the value of a computation.
+
+#### Functions should be at the same level of abstraction
+
+This guideline is a little hard in the beginning since you have to develop a feel for it over time.
+
+Usually, functions take some input and return an output. We should be able to copy and paste the function into the REPL and test it. When working with a function, you should mentally extract the function from the program and work with it in isolation. You should be able to feed it inputs and expect it to produce some outputs. When you have a function like that, you can use it without thinking about the implementation. Working this way helps compartmentalize your focus, an important skill when working on large codebases.
+
+If the functions in your program are correctly compartmentalized, it makes programming much simpler, especially on large programs. You can see this when you read good code; the functions are all at the same layer of abstraction.
+
+For example, given the four functions below, which one stands out?
+
+- `deal()`
+- `hit()`
+- `stay()`
+- `iterateThroughCards()`
+
+The last one, `iterateThroughCards`, is not at the same abstraction level as the other functions. The other functions are in the language of the game — verbs that are used only for this game. They all specify "what" to do, but leave the implementation details to the actual function. You shouldn't care about the implementation when you use the function. The last function is a programmer concern — iterating through cards. It's "how" you perform the task.
+
+Again, this is going to be hard in the beginning, but pay attention to how you organize your functions, and whether you can look at a list of functions a week later and still understand how to use them without studying their implementations.
+
+### Function Names Should Reflect What They Do
+
+Function names should reflect whether side effects may occur:
+
+```js
+function updateTotal(total, cards) {
+  // ... some code here
+}
+```
+
+When we see a function called `updateTotal`, we assume that it mutates something -- perhaps one of the arguments or something else in the program. We wouldn't expect the return value to have any significance. If it does, then you might have a problem. The less you have to remember, and the less other people have to remember while looking at your code, the better. Use naming conventions, even in your own code, to signify which types of functions mutate vs. which functions return values.
+
+The more you have to think about a function, the harder it is to use it. If it has side effects and returns a value, it makes debugging and using the function difficult.
+
+One corollary of this rule is that you should avoid functions that print things to the console and return a useful value. For instance, a `getAndDisplayTotal` function might display a total value and also return it. Those are two distinct actions that you may not always want to do together. However, if they're combined, then you probably need to repeat yourself somewhere.
+
+There are exceptions to the "don't print and return" guideline. One exception is a function that requests some input from the user and then returns that input. Logically, that's a single operation: "get input from the user." A simple example of such a function is the `question` function from `readline-sync`.
