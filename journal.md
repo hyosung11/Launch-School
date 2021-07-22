@@ -635,3 +635,27 @@ You can use the arrow keys to move the cursor around and press Enter to start a 
 I think this means I can use the latest ESLint version.
 
 21:52 I tried to uninstall ESLint globally, but I still have two versions and I can't seem to figure out how to get rid of them.
+
+## 20210722 Thursday
+
+9:02 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex => Small Problems Easy 3 > 1 and 2
+   * [x] 2. Reviewed Anki cards
+   * [x] 3. JS101 - Lesson 2: Small Programs > Assignments 17-18
+     * [x] 17. Explicit Type Coercion
+     * [x] 18. Implicit Type Coercion
+   * [x] 4. JS101 - Small Problems > Easy 2 > 8. Odd Lists
+   * [x] 5. Study Session with Laurent
+   * [x] 6. LS Podcasts S2E3, S2E4, S2E5
+2. What will you do today?
+   * [ ] 1. Anki cards
+   * [ ] 2. Review Assignment: Calculator
+   * [ ] 3. Assignment: Mortgage / Car Loan Calculator
+   * [ ] 4. Study Session with Laurent
+   * [ ] 5. LS Podcast S2E6
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Troubleshooting ESLint - it seems like the LS `.eslintrc.yml` file isn't being read by my instance of ESLint in VSC. 
+   * Feeling a little tired and increasing eye strain and forearm tension. Pace myself.
+   * Remember [On Pace and Productivity](https://www.calnewport.com/blog/2021/07/21/on-pace-and-productivity/)
