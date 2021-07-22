@@ -673,3 +673,19 @@ I think this means I can use the latest ESLint version.
 11:50 Ready to practice the Assignment: Calculaor.
 
 13:14 So much to learn about Node, NPM, ESLint, config files. ESLint is not reading my `.eslintrc.yml` file. Eyes are strained and my legs are tired. I am going to the dining room table now.
+
+13:56 I notice that my mind is much sharper since I have been programming every day. I really want everything in my life to be organized well and so I am running algorithms on everything from the way that my wallet is organized to my external environment. This is so much fun to do all of this.
+
+14:14 I finished Walk-through: Refactoring Calculator assignment with `calculator_practice.js`.
+
+14:26 The Launch School curriculum is definitely the slow path to proficiency. I have spent the day going back through the Calculator assignment to do it again.
+
+14:41 Good tips from Jordan Whistler
+
+* `npm list`
+* `npm ls -g` to see if it's installed globally
+* `npm uninstall eslint -g`
+* put the `yaml` file in the root folder there.
+
+14:54 Now I have a different problem in that it seems I don't have NPM installed and working. Ugh.
+
