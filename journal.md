@@ -667,3 +667,9 @@ I think this means I can use the latest ESLint version.
 10:01 Studied 8 cards in 1.46 minutes today (10.92s/card). I edited all 8 cards.
 
 10:27 Chatting with Saro about Dr. Riotto. Going to push a commit here and then go to the office workstation. I will do the Walk-through: Calculator assignment again to practice before starting the Mortgage Calculator. This is still fun and interesting and challenging and what I want to be doing.
+
+11:45 Did resume review with Christine Denning and scheduled an interview prep for Monday. Listening to music is great. I cleaned up the office and it feels good to be in here.
+
+11:50 Ready to practice the Assignment: Calculaor.
+
+13:14 So much to learn about Node, NPM, ESLint, config files. ESLint is not reading my `.eslintrc.yml` file. Eyes are strained and my legs are tired. I am going to the dining room table now.
