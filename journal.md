@@ -679,3 +679,13 @@ I think this means I can use the latest ESLint version.
 14:14 I finished Walk-through: Refactoring Calculator assignment with `calculator_practice.js`.
 
 14:26 The Launch School curriculum is definitely the slow path to proficiency. I have spent the day going back through the Calculator assignment to do it again.
+
+14:41 Good tips from Jordan Whistler
+
+* `npm list`
+* `npm ls -g` to see if it's installed globally
+* `npm uninstall eslint -g`
+* put the `yaml` file in the root folder there.
+
+14:54 Now I have a different problem in that it seems I don't have NPM installed and working. Ugh.
+
