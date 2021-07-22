@@ -76,12 +76,12 @@ Implementation of Algorithm
 // }
 
 // LS solution is great!
-function xor(value1, value2) {
-  if ((value1 && !value2) || (value2 && !value1)) {
-    return true;
-  }
-  return false;
-}
+// function xor(value1, value2) {
+//   if ((value1 && !value2) || (value2 && !value1)) {
+//     return true;
+//   }
+//   return false;
+// }
 
 // LS shorter version
 function xor(value1, value2) {
@@ -109,7 +109,7 @@ function xor(value1, value2) {
 Some of you may be tempted to use the `^` operator for this exercise. The ^ operator is a bit-wise operator for performing exclusive-or bit operations. In some cases, you can use `^` as an exclusive-or operator. However, it only works properly when both values are numeric or both are boolean -- anything else may lead to unexpected results. For instance, you might expect the following expression to return a truthy value:
 */
 
-'a' ^ false
+// 'a' ^ false;
 
 /*
 It doesn't. Instead, it returns a falsy value (`0`).
