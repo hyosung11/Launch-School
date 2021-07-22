@@ -650,12 +650,20 @@ I think this means I can use the latest ESLint version.
    * [x] 5. Study Session with Laurent
    * [x] 6. LS Podcasts S2E3, S2E4, S2E5
 2. What will you do today?
-   * [ ] 1. Anki cards
+   * [x] 1. Anki cards
    * [ ] 2. Review Assignment: Calculator
    * [ ] 3. Assignment: Mortgage / Car Loan Calculator
    * [ ] 4. Study Session with Laurent
    * [ ] 5. LS Podcast S2E6
 3. Are there any blockers or impediments preventing you from doing your work?
-   * Troubleshooting ESLint - it seems like the LS `.eslintrc.yml` file isn't being read by my instance of ESLint in VSC. 
+   * Troubleshooting ESLint - it seems like the LS `.eslintrc.yml` file isn't being read by my instance of ESLint in VSC.
    * Feeling a little tired and increasing eye strain and forearm tension. Pace myself.
    * Remember [On Pace and Productivity](https://www.calnewport.com/blog/2021/07/21/on-pace-and-productivity/)
+
+09:22 Trying to settle down. I will read *Mastery* a bit after I poo and before I do some Anki cards.
+
+09:38 Read a section of *Mastery* in the practice chapter. Ready to do some Anki cards.
+
+10:01 Studied 8 cards in 1.46 minutes today (10.92s/card). I edited all 8 cards.
+
+10:27 Chatting with Saro about Dr. Riotto. Going to push a commit here and then go to the office workstation. I will do the Walk-through: Calculator assignment again to practice before starting the Mortgage Calculator. This is still fun and interesting and challenging and what I want to be doing.
