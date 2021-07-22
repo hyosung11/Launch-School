@@ -1,6 +1,6 @@
 # Last update: 05 Oct 2020
 root: true
-parser: babel-eslint
+#parser: babel/eslint-parser
 parserOptions:
   ecmaVersion: 6
   ecmaFeatures:
@@ -58,6 +58,7 @@ rules:
     - error
     - code: 80
       tabWidth: 2
+      ignoreComments: true
       ignoreRegExpLiterals: false
       ignoreStrings: true
       ignoreTemplateLiterals: true

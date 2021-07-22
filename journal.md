@@ -621,3 +621,17 @@ You can use the arrow keys to move the cursor around and press Enter to start a 
 16:36 I'm shutting down my office work station after making all my commits. Going to check email and messages and then review the Small Problems I did today with Alex and Laurent. I'm not sure about playing soccer tomorrow morning as my hamstring still feels tight.
 
 19:27 I can't get ESLint to work properly in VSC. Not sure what's going on. It's a project unto itself as is Git.
+
+19:51 Time to put the kids to bed and return to this later.
+
+21:18 playing around with ESLint and I think I fixed it. I commented out the #parser and ignoreComments: true
+
+```yml
+3 #parser: babel/eslint-parser
+
+61      ignoreComments: true
+```
+
+I think this means I can use the latest ESLint version.
+
+21:52 I tried to uninstall ESLint globally, but I still have two versions and I can't seem to figure out how to get rid of them.
