@@ -757,8 +757,10 @@ console.log(thousands); // => 4 */
 
 12:13 After study session with Mandy.
 
-15:22 Tired. Took a short nap. Played ping pong with Louis. We were tied at 4-4 and then won four straight. Ugh.
+15:22 Tired. Took a short nap. Played ping pong with Louis. We were tied at 4-4 and then he won four straight. Ugh.
 
 17:13 Finished Variable Scope Assignment.
 
 17:15 Take some time to read Pro Git.
+
+17:37 Markdown coloring looks wrong and I can't use font features.
