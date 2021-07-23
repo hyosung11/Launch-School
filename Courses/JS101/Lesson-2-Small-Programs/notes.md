@@ -3510,3 +3510,79 @@ If you run the above example, you'll see that only one exception gets raised: `R
 Understanding variable scope is one of the most challenging and important aspects of learning to program. Make sure you know how variable scope works with regards to functions and blocks. Play around with various scenarios until you feel comfortable. It's likely you'll forget these rules, but the most important thing is to be able to quickly jump in the node REPL or open up your editor and refresh your memory.
 
 20210723 17:10 Variable Scope Assignment completed
+
+## 22. Re-read: Objects vs Primitive Values
+
+Now is a good time to refresh your memory about [Objects vs. Primitive values](https://launchschool.com/books/javascript/read/objects#objectsvsprimitives) from the book.
+
+### Objects vs Primitives
+
+You may remember that JavaScript has two categories of data types: **primitives** and **objects**. The primitive types are strings, numbers, booleans, `null`, and `undefined`, bigints, and symbols. Primitive types are the simplest, most basic types in JavaScript.
+
+Objects include, but aren't limited to, the following types:
+
+- Simple Objects
+- Arrays
+- Dates
+- Functions
+
+Primitives | Objects
+---------|----------
+ string | Simple Objects
+ numbers | Arrays
+ booleans | Dates
+ `null` | Functions
+ `undefined` |
+ bigints |
+ symbols |
+
+We learned about simple objects in the previous section; they're structures that contain multiple named values. Arrays are also objects, but they use integer indexes instead of keys. We learn about Date and Function objects in the Core Curriculum.
+
+Objects are complex values composed of primitive values or other objects. For example, an array object (remember: arrays **are** objects) has a `length` property that contains a number: a primitive value. Objects are usually (but not always) mutable: you can add, remove, and change their various component values.
+
+Primitive values are always immutable; they don't have parts that one can change. Such values are said to be **atomic**; they're indivisible. If a variable contains a primitive value, all you can do to that variable is use it in an expression or reassign it: give it an entirely new value. *All operations on primitive values evaluate as new values.* Even something like `0 + 0` evaluates to a new value of `0`.
+
+```js
+> let number = 20
+> let newNumber = number + 1
+> newNumber
+= 21
+
+> number
+= 20
+
+> let object = { a: 1, b: 2, c: 3 }
+> object.c = object.c + 1
+= 4
+
+> object
+= { a: 1, b: 2, c: 4 }
+```
+
+The above example illustrates the difference between an immutable primitive value and a mutable object. The `+` operation on line 2 returns a new value (`21`), and assigns it to `newNumber`; the original value of `number` (`20`), remains unchanged. In contrast, writing a new value to the `object`'s `c` property on line 10 changes the object's value. Note, however, that the `c` property has an entirely new number in it, precisely like what happened on line 2.
+
+### What Things Aren't Objects or Primitives?
+
+Objects and primitive values are the data and functions that you use in your program. Anything that isn't data or a function is neither a primitive value nor an object. That includes:
+
+- variables and other identifiers such as function names
+- statements such as `if`, `return`, `try`, `while`, and `break`
+- keywords such as `new`, `function`, `let`, `const`, and `class`
+- comments
+- anything else that is neither data nor a function
+
+Note that variables and other identifiers have or reference objects or primitive values, but the names, by themselves, are not.
+
+---
+
+Make sure you fully understand the following concepts after re-reading that section of the book:
+
+1. Every value in JavaScript is either a primitive or an object
+2. Primitives are atomic values
+3. Objects are "compound" values made up of primitives or other objects
+4. Primitive values are immutable. In other words, you can't add to, remove from or otherwise change a primitive value. Any operation performed on a primitive value returns a new primitive value.
+5. Objects are mutable. That is, certain operations on objects can change the object in place. All variables that have a reference to that object will see that change.
+
+Understanding the difference between objects and primitive values is essential to understanding JavaScript. Specifically, understanding the concepts of "pass-by-reference" vs. "pass-by-value" is crucial. That's the topic of discussion in the next assignment.
+
+20210723 19:53 Re-read: Objects vs Primitive Values assignment completed
