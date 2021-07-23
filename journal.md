@@ -718,7 +718,7 @@ I think this means I can use the latest ESLint version.
    * [ ] 2. Assignment: Calculator Bonus Features
    * [x] 3. Study Session
    * [ ] 4. Assignment: Mortgage / Car Loan Calculator
-   * [x] 5. LS Podcast S2E7
+   * [x] 5. LS Podcast S2E7, S2E8, S2E9
 3. Are there any blockers or impediments preventing you from doing your work?
    * Dialing in studiousness. On a roll, so keep on going.
 
@@ -756,3 +756,7 @@ console.log(thousands); // => 4 */
 10:32 Back from Dr. Riotto's with a healing hamstring. Working on Lesson 2 Assignment 21 on Variable Scope in the backyard. The cicadas are loud.
 
 12:13 After study session with Mandy.
+
+15:22 Tired. Took a short nap. Played ping pong with Louis. We were tied at 4-4 and then won four straight. Ugh.
+
+17:13 Finished Variable Scope Assignment.
