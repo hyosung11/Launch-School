@@ -3200,3 +3200,70 @@ The more you have to think about a function, the harder it is to use it. If it h
 One corollary of this rule is that you should avoid functions that print things to the console and return a useful value. For instance, a `getAndDisplayTotal` function might display a total value and also return it. Those are two distinct actions that you may not always want to do together. However, if they're combined, then you probably need to repeat yourself somewhere.
 
 There are exceptions to the "don't print and return" guideline. One exception is a function that requests some input from the user and then returns that input. Logically, that's a single operation: "get input from the user." A simple example of such a function is the `question` function from `readline-sync`.
+
+Your goal should be to build small functions that are like LEGO blocks: they should be stand-alone pieces of functionality that you can use to piece together larger structures. You don't want these functions to be mentally taxing to use. Interesting structures comprise hundreds or thousands of individual LEGO pieces. Likewise, large programs combine hundreds or thousands of small functions. (Later, we'll talk about organizing functions into classes and objects).
+
+Some functions are convoluted since the logic is complex. It's a sign that you don't quite understand the problem well enough to break it down into well-compartmentalized pieces. That's fine at first. However, your understanding should grow as you dig deeper into the code. When it does, refactor your code to reflect that increased clarity.
+
+This process is similar to writing. Your first draft is almost exploratory, dumping out ideas all over the place. As your narrative comes into focus, the structure of your piece becomes more organized and clean.
+
+### Displaying Output
+
+Some functions only display information. For example:
+
+```js
+function welcome() {
+  console.log('welcome');
+}
+```
+
+That's fine, but it's not clear whether a function named `welcome` returns a string or outputs a string. One way to resolve this is to help yourself remember and prefix functions that output values with something like `print`, `say` or `display`. That requires some discipline, and it's vital that you only output values in these functions. Don't mutate arguments or return values.
+
+Functions are like black boxes. It takes some stuff (input) and returns some value (output) to you. They should be self-contained; you should know what they do without looking at the implementation. Coding is much easier if you follow these general guidelines.
+
+Remember that code not only must work correctly, but must also be easy to read, both by others as well as your future self.
+
+### Miscellaneous Tips
+
+- Watch your indentation. Use 2 spaces, not tabs. This violation burns JavaScript programmers' eyes. Verify your indentation after you've pushed to GitHub. (Some JavaScript style guides recommend 4 spaces, but we use 2 spaces at Launch School.)
+
+- Name your functions from the perspective of *using them later*. That is, think first about how you want to invoke them; think about the implementation later. For example, if you have an array of cards, and you want to write a function to find the ace, your function should be called `findAce`, and you can use it like this: `let ace = findAce(cards)`;. You shouldn't name it `findAceFromCards`, because you'd be invoking it like this: `findAceFromCards(cards)`. When the reader sees a function like that, they think "What else can you find an ace from other than cards? Tiles?" The easier it is to read your code, the easier it is to debug and maintain.
+
+- Know when to use a regular `while` loop vs a generic `while (true)` loop. Here's an example:
+
+```js
+while (answer.toLowerCase() !== 'n') {
+  console.log('Continue? (y/n)');
+  let answer = readline.question();
+}
+```
+
+When running this code, JavaScript will throw an exception of "ReferenceError: answer is not defined". To correct it, we must declare and initialize `answer` before the `while` statement, like this:
+
+```js
+let answer = '';
+while (answer.toLowerCase() !== 'n') {
+  console.log('Continue? (y/n)');
+  let answer = readline.question();
+}
+```
+
+That would certainly work, but another implementation would be to use a generic loop with a `break` statement:
+
+```js
+while (true) {
+  console.log('Continue? (y/n)');
+  let answer = readline.question();
+  if (answer.toLowerCase() === 'n') break;
+}
+```
+
+Here, *all the code is contained in the loop*, and it's slightly easier to reason about it. You could even do without the answer variable and use the user's input (i.e., `readline.question`) in the `if` condition directly, but using `answer` is fine -- remember, clarity over terseness.
+
+### Approach to Learning
+
+Learning to program takes focus and attention. It takes plenty of repetition over a long period. One of the surprising aspects of learning to program is that it's not a sequential process. You can't master JavaScript, then master Node.js and Express, and then master testing. You'll likely revisit topics over and over, and, through experience, the most important information will get burned into your long term memory.
+
+The first time you encounter a topic, it can be daunting. However, the more often you see it, the easier it becomes to understand and use it. The tips mentioned here may not make sense now, but that's ok. Over time, many of these topics will resurface, and it'll make more sense the second time around. Don't be demoralized if you do it once and you can't remember most of it. That's normal. Keep moving forward, and don't be afraid to spend time gaining valuable experience.
+
+20210721 20:35 Coding Tips assignment completed.
