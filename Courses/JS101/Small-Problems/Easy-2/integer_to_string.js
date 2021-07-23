@@ -9,7 +9,7 @@ Write a function that converts a non-negative integer value (e.g., 0, 1, 2, 3, a
 You may not use any of the standard conversion functions available in JavaScript, such as String(), Number.prototype.toString, or an expression such as '' + number. Your function should do this the old-fashioned way and construct the string by analyzing and manipulating the number.
 
 ALGORITHM
-1. 
+1.
 */
 
 function stringToInteger(string) {
