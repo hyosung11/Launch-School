@@ -3505,7 +3505,7 @@ aFunc();
 
 If you run the above example, you'll see that only one exception gets raised: `ReferenceError: c is not defined` even though we expect three exceptions. That's how exceptions work in JavaScript; they halt the execution of the program *immediately*. Once execution reaches line 14, it raises an error and immediately stops executing the rest of the code. The point of the example is to show that the variable `c` will not be accessible outside the inner `if` block and variables `b` and `c` will not be accessible outside the outer `if` block.
 
-### Summary
+### Variable Scope Summary
 
 Understanding variable scope is one of the most challenging and important aspects of learning to program. Make sure you know how variable scope works with regards to functions and blocks. Play around with various scenarios until you feel comfortable. It's likely you'll forget these rules, but the most important thing is to be able to quickly jump in the node REPL or open up your editor and refresh your memory.
 
