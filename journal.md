@@ -441,7 +441,7 @@ Please check for typing mistakes in the pattern.
 arithmetic_integer.js multiply.js           penultimate_word.js
 exclusive_or.js       node_modules          square.js
 greeting_a_user.js    package-lock.json     welcome_stranger.js
-➜  Easy-2 git:(main) ✗ npx square.js    
+➜  Easy-2 git:(main) ✗ npx square.js
 npx: installed 1 in 1.771s
 command not found: square.js
 ➜  Easy-2 git:(main) ✗ npx eslint square.js
@@ -696,3 +696,8 @@ I think this means I can use the latest ESLint version.
 20:35 Coding Tips assignment completed.
 
 20:42 Slow and steady today. I understand the calculator assignment much better now. I like learning new material. I need to enjoy the small problems exercises too. Taking a break to watch 'Never Have I Ever' with Sohee.
+
+22:26 Watched two episodes of Never Have I Ever. Installed Firefox Developer Edition on both machines and my phone. It's faster than Safari and Chrome.
+
+
+23:07 I have to go to sleep. I have a study session with Alex tomorrow at 6:00.
