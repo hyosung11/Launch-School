@@ -716,9 +716,9 @@ I think this means I can use the latest ESLint version.
 2. What will you do today?
    * [ ] 1. Anki cards
    * [ ] 2. Assignment: Calculator Bonus Features
-   * [ ] 3. Study Session
+   * [x] 3. Study Session
    * [ ] 4. Assignment: Mortgage / Car Loan Calculator
-   * [ ] 5. LS Podcast S2E7
+   * [x] 5. LS Podcast S2E7
 3. Are there any blockers or impediments preventing you from doing your work?
    * Dialing in studiousness. On a roll, so keep on going.
 
@@ -754,3 +754,5 @@ console.log(thousands); // => 4 */
 ```
 
 10:32 Back from Dr. Riotto's with a healing hamstring. Working on Lesson 2 Assignment 21 on Variable Scope in the backyard. The cicadas are loud.
+
+12:13 After study session with Mandy.
