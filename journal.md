@@ -699,5 +699,56 @@ I think this means I can use the latest ESLint version.
 
 22:26 Watched two episodes of Never Have I Ever. Installed Firefox Developer Edition on both machines and my phone. It's faster than Safari and Chrome.
 
-
 23:07 I have to go to sleep. I have a study session with Alex tomorrow at 6:00.
+
+## 20210723 Friday
+
+07:09 Did study session with Alex, but ended abruptly when SungOh woke up. We'll meet again on Sunday.
+
+07:10 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Anki cards
+   * [x] 2. Review Assignment: Calculator
+   * [x] 3. JS101 Lesson 2: Small Programs > 20. Coding Tips
+   * [x] 4. Study Session with Laurent > Small Problems > Easy 2 > 9. Convert a String to a Number!
+   * [x] 5. LS Podcast S2E6
+2. What will you do today?
+   * [ ] 1. Anki cards
+   * [ ] 2. Assignment: Calculator Bonus Features
+   * [ ] 3. Study Session
+   * [ ] 4. Assignment: Mortgage / Car Loan Calculator
+   * [ ] 5. LS Podcast S2E7
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Dialing in studiousness. On a roll, so keep on going.
+
+INTRODUCTION TO PROGRAMMING: The Basics: Exercise
+
+Use the arithmetic operators to determine the individual digits of a 4-digit number like 4936:
+
+1. thousands place is 4
+2. hundreds place is 9
+3. tens place is 3
+4. ones place is 6
+
+```js
+let number = 4936;
+
+let ones = number % 10;
+console.log(ones); // => 6
+
+number = (number - ones) / 10;
+console.log(number); // => 493
+
+let tens = number % 10;
+console.log(tens) // => 3
+
+number = (number - tens) / 10;
+console.log(number); // => 49
+
+let hundreds = number % 10;
+console.log(hundreds); // => 9
+
+let thousands = (number - hundreds) / 10;
+console.log(thousands); // => 4 */
+```
