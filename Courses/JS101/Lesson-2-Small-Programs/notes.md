@@ -3267,3 +3267,78 @@ Learning to program takes focus and attention. It takes plenty of repetition ove
 The first time you encounter a topic, it can be daunting. However, the more often you see it, the easier it becomes to understand and use it. The tips mentioned here may not make sense now, but that's ok. Over time, many of these topics will resurface, and it'll make more sense the second time around. Don't be demoralized if you do it once and you can't remember most of it. That's normal. Keep moving forward, and don't be afraid to spend time gaining valuable experience.
 
 20210721 20:35 Coding Tips assignment completed.
+
+## Variable Scope
+
+20210723 10:11
+
+One of the trickiest things to understand for a beginner is the concept of **scope** and how it pertains to accessing variables. A variable's scope is the part of the program that can access that variable by name. This is true in all programming languages. Specifically, variable scoping rules describe how and where the language finds previously declared variables.
+
+In JavaScript, we have two different types of scope: **global** (outer) and **local** (inner).
+
+Before we discuss variable scope in a bit more detail, refresh your memory by re-reading the [Variable Scope](https://launchschool.com/books/javascript/read/functions#variablescope) section from the book.
+
+### The Global Scope
+
+Very small JavaScript programs with no functions or blocks exist entirely within a single scope called the global scope:
+
+```js
+// global scope
+let name = "Sohee";
+console.log(name);
+```
+
+Here, we declare the `name` variable on the first line. After this line runs, `name` is available from that point to the end of the program. Running this code writes `Sohee` to the console log.
+
+The concept of global scope is a little more nuanced when you compare JavaScript in the browser to JavaScript in Node.js. In Node.js, a global variable is only available in the file/module you declare it in. If you want variables to be available in another module, you'll have to explicitly import and export them in modules. We'll talk more about this in another course when we discuss node modules. For now, you can *think of global variables as variables that are available across your program.* You can use them anywhere in the program, either globally or from inside a function or a block.
+
+### Local Scope
+
+Local Scope comes in two forms:
+
+- **function scope**
+- **block scope**
+
+**Rule 1:** outer scope variables can be accessed by the inner scope:
+
+```js
+let a = 1; // outer scope variable
+
+function logA() {
+  console.log(a); // => 1
+  a += 1; // a is reassigned to a new value
+}
+
+logA();
+// console.log(a); // => 2 'a' was reassigned in the inner scope
+```
+
+This code demonstrates two things. The first is that inner scope can access outer scope variables. The second, and less intuitive, concept is that you can change variables from an inner scope and have that change affect the outer scope. For example, when we re-assigned the variable in the inner scope with `a += 1`, that reassignment was visible in the outer scope.
+
+This means that when we instantiate variables in an inner scope, we have to be very careful that we're not accidentally re-assigning an existing variable in an outer scope. That's a big reason to *avoid single-letter variable names.*
+
+**Rule 2:** inner scope variables cannot be accessed in outer scope:
+
+```js
+function aFunc() {
+  let a = 1;
+}
+
+aFunc();
+console.log(a); // ReferenceError: as is not defined
+```
+
+Here, the **outer scope** is the **global scope**, and it does not have an `a` variable. Remember that where a variable is declared determines its scope. In the above code, `a` is declared in an inner scope and thus cannot be accessed from an outer scope.
+
+Note that a *local variable only comes into existence when you call that function.* The mere act of defining a function doesn't create any variables. The function declaration does, however, *define* the scope of the variables. For example, in the `aFunc` function above, the function body defines where variable `a`, when created, will be accessible. However, the variable `a` doesn't get created and assigned a value unless we invoke the function. When we call the function on line 5, a variable `a` is created, assigned the value `1` and *immediately discarded* once the function finishes execution and control returns to the main flow of the program.
+
+Because of this, when we talk about the scope of a variable, it doesn't matter whether we ever execute the code. For instance, suppose we had the following complete program:
+
+```js
+function aFunc() {
+  let foo = 1;
+}
+```
+
+Though we never invoke `aFunc` and never create the `foo` variable, we still talk of it as in scope within `aFunc`.
+
