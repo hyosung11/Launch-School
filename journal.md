@@ -690,3 +690,9 @@ I think this means I can use the latest ESLint version.
 14:54 Now I have a different problem in that it seems I don't have NPM installed and working. Ugh.
 
 16:12 After study session with Laurent. He figured it out completely differently than the LS solution. Bravo.
+
+20:18 My last note was over four hours ago? I'm slipping. I had went for a short bike ride with SungOh, had dinner, did some more coding, picked up Omi and Claudia from MacKenzie Redmond's birthday party at Graydon, put the kids to bed and am back.
+
+20:35 Coding Tips assignment completed.
+
+20:42 Slow and steady today. I understand the calculator assignment much better now. I like learning new material. I need to enjoy the small problems exercises too. Taking a break to watch 'Never Have I Ever' with Sohee.
