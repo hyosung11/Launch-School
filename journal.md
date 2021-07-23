@@ -752,3 +752,5 @@ console.log(hundreds); // => 9
 let thousands = (number - hundreds) / 10;
 console.log(thousands); // => 4 */
 ```
+
+10:32 Back from Dr. Riotto's with a healing hamstring. Working on Lesson 2 Assignment 21 on Variable Scope in the backyard. The cicadas are loud.
