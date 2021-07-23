@@ -3342,3 +3342,171 @@ function aFunc() {
 
 Though we never invoke `aFunc` and never create the `foo` variable, we still talk of it as in scope within `aFunc`.
 
+**Rule 3:** peer scopes do not conflict:
+
+```js
+function funcA() {
+  let a = 'hello';
+  console.log(a);
+}
+
+function funcB() {
+  console.log(a); // ReferenceError: a is not defined
+}
+
+funcA();
+funcB();
+```
+
+Executing `console.log(a)` on line 7 throws an error since `a` is not in scope in `funcB`. The declaration on line 2 does declare a variable named `a`, but that variable's scope is confined to `funcA`. `funcB` can't see the variable at all. That also means that we could declare a separate `a` variable in `funcB` if we wanted. The two a variables would have different local scopes and would also be independent of each other.
+
+**Rule 4:** nested functions have their own variable scope:
+
+Nested functions follow the same rules of inner and outer scoped variables. When dealing with nested functions, our usage of what's "outer" or "inner" is going to be relative. We'll switch vocabulary and talk about the "first level," "second level," and "third level."
+
+```js
+let a = 1; // first level variable
+
+function foo() { // second level variable
+  let b = 2;
+
+  function bar() { // third level
+  let c = 3;
+  console.log(a); // => 1
+  console.log(b); // => 2
+  console.log(c); // => 3
+  }
+
+  bar();
+
+  console.log(a) // => 1
+  console.log(b) // => 2
+  console.log(c) // => ReferenceError
+}
+
+foo();
+```
+
+If some of the outputs above surprise you, you should study the code carefully and make sure you understand the rules around inner scope versus outer scope.
+
+One potentially surprising thing is that we can define functions within other functions in JavaScript. This is not true of all languages. It's likely that you've used this feature of JavaScript before. If you've used an array iteration method such as `forEach` inside a method, you've defined a function inside another function.
+
+```js
+function logElements(array) {
+  array.forEach(function(element) {
+    console.log(element);
+  });
+}
+
+logElements([1, 2, 3]);
+```
+
+Here, we're defining a new function and passing it to the `forEach` method. That's a function definition within another function. Thus far, we've only passed arrow functions into iteration methods like `forEach`. This example uses the `function` syntax just to emphasize the point that you can define a function inside other functions. We'll discuss this practice in detail in another course.
+
+**Rule 5:** inner scope variables can ***shadow*** outer scope variables
+
+Take a look at the following code:
+
+```js
+[1, 2, 3].forEach(number => {
+  console.log(number);
+});
+```
+
+Here, `number` is a parameter that represents a value that the callback function expects when it is invoked. It represents each element as the `forEach` method iterates through the array. *Parameters are also local variables* and the same scoping rules apply to them.
+
+Suppose we had a variable named `number` in the outer scope, though. We know that the inner scope has access to the outer scope, so we'd essentially have two local variables in the inner scope with the same name. When that happens, it's called **variable shadowing**, and it *prevents access to the outer scope local variable*. See this example:
+
+```js
+let number = 10;
+
+[1, 2, 3].forEach(number => {
+  console.log(number);
+});
+```
+
+The `console.log(number)` will use the parameter `number` and discard the outer scoped local variable. Variable shadowing also prevents us from making changes to the outer scoped `number`.
+
+Variable shadowing isn't limited to callback functions. Whenever you have one scope nested within another, ***variables in the inner scope** will shadow variables in the outer scope having the same name.*
+
+```js
+let a = 1;
+
+function doit(a) {
+  console.log(a); // => 3
+}
+
+doit(3);
+console.log(a); // => 1
+```
+
+Note that, in this case, it's the parameter `a` that is shadowing the global variable a. Most names -- variables, parameters, function names, or class names -- can shadow names from the outer scope. The only names that don't get involved in shadowing are property names for objects.
+
+You want to avoid shadowing since it's almost never what you intended. *Choosing long and descriptive variable names is one simple way to ensure that you don't run into any of these weird scoping issues*. If you do run into these issues, you'll have a much better chance of debugging it if you have clear variable names.
+
+#### Block Scope
+
+In JavaScript, blocks are segments of one or more statements and expressions grouped by opening and closing curly braces (`{}`). Each pair of braces in the constructs like `if/else` and the `for` and `while` loops define new block scopes. The rules for block scopes are identical to those for function scopes.
+
+1. Outer blocks cannot access variables from inner scopes.
+2. Inner blocks can access variables from outer scopes.
+3. Variables defined in an inner block can shadow variables from outer scopes.
+
+Not all code between **curly braces** is a block.
+
+- For instance, the code inside a function definition is not technically a block, but is, instead, called the **function body**.
+  - Although blocks and function bodies are very similar, there are subtle differences that you will encounter in a later course.
+- There are also other types of things between curly braces that are not considered blocks:
+  - class definitions (introduced in a later course) and
+  - object literals are not blocks.
+  - The differences are more substantial with these constructs than with function bodies.
+
+```js
+// Examples:
+
+// 1. outer blocks cannot access variables from inner scope
+if (true) {
+  let a = 'foo'
+}
+
+console.log(a); // ReferenceError
+
+// 2. inner blocks can access variables from outer scope
+let a = 'foo';
+
+if (true) {
+  console.log(a); // => 'foo'
+}
+
+// 3.
+function aFunc() {
+  let a = 'foo';
+
+  if (true) {
+    let b = 'bar';
+    console.log(a); // => 'foo'
+
+    if (true) {
+      let c = 'baz';
+    }
+
+    console.log(a); // => 'foo'
+    console.log(b); // => 'bar'
+    console.log(c); // => ReferenceError
+  }
+
+  console.log(a); // => 'foo'
+  console.log(b); // ReferenceError
+  console.log(c); // ReferenceError
+}
+
+aFunc();
+```
+
+If you run the above example, you'll see that only one exception gets raised: `ReferenceError: c is not defined` even though we expect three exceptions. That's how exceptions work in JavaScript; they halt the execution of the program *immediately*. Once execution reaches line 14, it raises an error and immediately stops executing the rest of the code. The point of the example is to show that the variable `c` will not be accessible outside the inner `if` block and variables `b` and `c` will not be accessible outside the outer `if` block.
+
+### Summary
+
+Understanding variable scope is one of the most challenging and important aspects of learning to program. Make sure you know how variable scope works with regards to functions and blocks. Play around with various scenarios until you feel comfortable. It's likely you'll forget these rules, but the most important thing is to be able to quickly jump in the node REPL or open up your editor and refresh your memory.
+
+20210723 17:10 Variable Scope Assignment completed
