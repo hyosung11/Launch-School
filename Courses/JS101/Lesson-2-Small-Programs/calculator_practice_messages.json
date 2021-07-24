@@ -1,10 +1,22 @@
 {
+  "en-us": {
   "welcome": "Welcome to Calculator!",
   "number1": "What is the first number?",
   "number2": "What is the second number?",
   "invalidNumber": "Not a valid number. Please try again.",
   "operation": "What operation do you want to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide",
   "operationChoice": "Please choose 1, 2, 3 or 4.",
-  "anotherCalculation": "Do you want to perform another calculation? (y/n)",
+  "anotherCalculation": "Do you want to perform another calculation? ( y / n )",
   "thanks": "Thank you for using Calculator!"
+  },
+  "ko": {
+    "welcome": "계산기에 환영합니다!",
+    "number1": "첫 번째 숫자는 무엇입니까?",
+    "number2": "두 번째 숫자는 무엇입니까?",
+    "invalidNumber": "유효한 숫자가 아닙니다. 다시 시도해 주세요.",
+    "operation": "어떤 연산을 수행하시겠습니까?\n1) 더하기 2) 빼기 3) 곱하기 4) 나누기",
+  "operationChoice": "1, 2, 3 또는 4를 선택하십시오.",
+  "anotherCalculation": "다른 계산을 수행하시겠습니까? (y 예 / n 아니요)",
+  "thanks": "계산기를 이용해 주셔서 감사합니다!"
+  }
 }
