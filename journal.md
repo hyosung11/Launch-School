@@ -809,3 +809,9 @@ console.log(thousands); // => 4 */
 11:24 Just took a dump. I'm tired and my body feels sore. I want to take a nap. Okay, read *Mastery* chapter now.
 
 11:47. I was writing in the wrong file. I hope this works. I am now writing in the right file.
+
+11:51 Good job H. I got rid of the older `journal_20210723.md file`
+
+11:52 I read the next chapter in *Mastery*. I like using Markdown in VS Code.
+
+12:39 Fixed the `undefined` errors in my calculator assignment to add the config file. This is fun!
