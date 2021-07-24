@@ -815,3 +815,17 @@ console.log(thousands); // => 4 */
 11:52 I read the next chapter in *Mastery*. I like using Markdown in VS Code.
 
 12:39 Fixed the `undefined` errors in my calculator assignment to add the config file. This is fun!
+
+13:41 Back after prepping lunch and eating family lunch. I'm workig on the internationalization of the calculator assignment. It's fun. I made a Korean, ko version.
+
+14:35 I need to create some conditional logic to change the output to Korean, but I'm not sure how to do it as I get a TypeError:
+
+```sh
+/Users/hyosung11/Launch-School/Courses/JS101/Lesson-2-Small-Programs/calculator_practice.js:153
+  if (LANGUAGE = 'ko') {
+               ^
+
+TypeError: Assignment to constant variable.
+```
+
+I need to create a function that sets the language for the entire program. Not hardcode it like I am doing now.
