@@ -3823,7 +3823,45 @@ Visually, you can quickly see where the name variable is declared. You can also 
 
 ### Name functions appropriately
 
+- choose good function names to help you remember what each function does
+- preface functions that output values with `display` or `print`
+  - e.g., a function named `printTotal` outputs a total and doesn't return anything
+- follow this convention to save yourself from repeatedly having to look at the implementation to recall how to use the function
+
+> If you find yourself looking at a function's implementation every time you use it, it's a sign that the function needs to be improved.
+
+Two bits of advice:
+
+1. a function should do one thing and be named appropriately.
+2. if you can treat a function as a "black box", then it's a well-designed function
+
+For example:
+
+- you should be able to use a function named `total` and understand that it returns a value
+- you should be able to use a function named `printTotal` and realize it returns `undefined` without looking at either implementation
+
+Separate concerns. Don't mix up those concerns. Write a function that only does **one** of these things:
+
+- mutate a value
+- output something
+- return a meaningful value
+
 ### Don't mutate the caller during iteration
+
+> Don't mutate a collection while iterating through it. The behavior may not be what you expect.
+
+Suppose we have an array of strings and we want to iterate over that array and print out each element. We could do something like this:
+
+```js
+let words = ['scooby', 'do', 'on', 'channel', 'two'];
+
+words.forEach(word => {
+  console.log(word);
+});
+```
+
+That's very typical code. Now suppose we want to remove each element as we're iterating:
+
 
 ### Variable shadowing
 
