@@ -805,3 +805,7 @@ console.log(thousands); // => 4 */
     * `@octocat :+1: This PR looks great - it's ready to merge! :shipit:`
     * ![emoji-rendered](emoji-rendered.png)
   * [Emoji Cheat Sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)
+
+11:24 Just took a dump. I'm tired and my body feels sore. I want to take a nap. Okay, read *Mastery* chapter now.
+
+11:47. I was writing in the wrong file. I hope this works. I am now writing in the right file.
