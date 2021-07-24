@@ -3763,3 +3763,73 @@ Now is a good time to re-read the section [Variables as Pointers](https://launch
 21:19 stop
 
 20210724 09:03
+
+## Walk-through: Rock Paper Scissors
+
+## Coding Tips 2
+
+### Using blank lines to organize code
+
+- ESLint looks for extraneous lines in your code
+- blank lines are important visual cues in your code
+- organize chunks of code to make it easier to read
+
+> Making your code readable is of paramount importance, not only for others but for your future self.
+
+- develop a feel for using blank lines in your programs
+- blank lines are essential if you read a lot of existing code
+
+Example:
+
+```js
+// bad - needs blank lines to separate different concerns in the code
+
+const readline = require('readline-sync');
+console.log('Enter your name');
+let name = readline.question();
+while (name.trim() === '') {
+  console.log("That's an invalid name. Try again:");
+  name = readline.question();
+}
+console.log(`Welcome ${name}!`);
+console.log("What would you like to do?");
+```
+
+Use some blank lines to separate the different concerns in the code.
+
+```js
+// better
+
+const readline = require('readline-sync');
+
+console.log('Enter your name');
+let name = readline.question();
+
+while (name.trim() === '') {
+  console.log("That's an invalid name. Try again:");
+  name = readline.question();
+}
+
+console.log(`Welcome ${name}!`);
+console.log("What would you like to do?");
+```
+
+Visually, you can quickly see where the name variable is declared. You can also see that this small code snippet is roughly divided into 4 parts:
+
+- constant and variable declaration and initialization
+- initial user input
+- input validation
+- using the variable
+
+### Name functions appropriately
+
+### Don't mutate the caller during iteration
+
+### Variable shadowing
+
+### Don't use assignment in a conditional
+
+### Use underscore for unused callback parameters
+
+### Gain experience through struggling
+
