@@ -3761,3 +3761,5 @@ This similarity is a useful mental model. However, it's incorrect to speak of as
 Now is a good time to re-read the section [Variables as Pointers](https://launchschool.com/books/javascript/read/more_stuff#variablesaspointers). Understanding this will help explain why JavaScript exhibits the behavior we have talked about in this assignment.
 
 21:19 stop
+
+20210724 09:03
