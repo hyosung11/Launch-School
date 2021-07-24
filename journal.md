@@ -804,7 +804,7 @@ console.log(thousands); // => 4 */
   * You can add emoji to your writing by typing `:EMOJICODE:`.
     * `@octocat :+1: This PR looks great - it's ready to merge! :shipit:`
     * ![emoji-rendered](emoji-rendered.png)
-  * [Emoji Cheat Sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)
+* [Emoji Cheat Sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)
 
 11:24 Just took a dump. I'm tired and my body feels sore. I want to take a nap. Okay, read *Mastery* chapter now.
 
@@ -829,3 +829,7 @@ TypeError: Assignment to constant variable.
 ```
 
 I need to create a function that sets the language for the entire program. Not hardcode it like I am doing now.
+
+15:40 Took a short nap. I'm still tired. My eyes feel strained. Eye divergence exercises needed.
+
+17:36 needed a nap and a break. ready to make dinner. i'll be back after dinner.

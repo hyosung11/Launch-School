@@ -27,6 +27,5 @@
    - repeat this process for all of the sections in your assigned reading
    - take breaks between sections to help keep focused while reading
 6. Summarize the reading
-   - write a few sentences at the end of your notes to summarize what contents of the chapter
+   - write a few sentences at the end of your notes to summarize the contents of the chapter
    - when reviewing for a test, reading your summary will help trigger your memory for the concepts covered in the chapter
-

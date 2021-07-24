@@ -1,4 +1,4 @@
-PEDAC => process the problem (PEDA) and code with intent (C)
+# PEDAC => process the problem (PEDA) and code with intent (C)
 
 PROBLEM
 Identify expected input and output
