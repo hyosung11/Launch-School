@@ -12,7 +12,7 @@ Make the requirements explicit (clarifying questions)
 - no duplicate characters
 
 Identify rules
-- if char doesnt equal the char after it, add it to the new string
+- if char doesn't equal the char after it, add it to the new string
 - if string is empty return an empty string
 
 EXAMPLES / TEST CASES

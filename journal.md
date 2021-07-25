@@ -838,3 +838,40 @@ I need to create a function that sets the language for the entire program. Not h
 
 21:12 Working through Coding Tips 2. Taking a break to watch Ted Lasso with Sohee.
 
+## 20210725 Sunday
+
+07:40 After study session with Alex > Small Problems > Easy 3 > 3. Stringy Strings
+
+08:03 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Anki cards
+   * [x] 2. Learning to Learn - taking notes on textbooks
+   * [x] 3. JS101 > Lesson 2 > 23. Coding Tips 2 (partially)
+   * [x] 4. LS Podcast S3E2
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. Anki cards
+   * [ ] 3. JS101 > Lesson 2 > 25. Coding Tips
+   * [ ] 4. Assignment: Mortgage / Car Loan Calculator
+   * [ ] 5. Sprint 2 Review
+   * [ ] 6. Sprint 2 Retrospective
+   * [ ] 7. Sprint 3 Planning
+   * [ ] 8. Learning to Learn session
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Still struggling with pace through the course. I can't fully let it go and dwell in "it's going to take as long as it takes".
+
+[Vim Basics in 8 Minutes](https://www.youtube.com/watch?v=ggSyF1SVFr4)
+
+Vim dumps you into command mode to start
+
+* `:q` to quit Vim
+* `w` writes to the file
+* `:wq` to write and quit
+* `q!` quit without saving changes
+* `I` - `INSERT` mode
+* `esc` switches back to command mode
+* `set number` turns on line numbering
+* `dd` deletes a line
+
+08:23 Added Vim basic commands notes. Next time I have a Git problem, handle it better.
