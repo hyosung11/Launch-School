@@ -882,3 +882,6 @@ Vim dumps you into command mode to start
 
 10:34 Took a break to play Nerf adventure with SungOh. It was fun. Now back to Lesson 2 > 25. Coding Tips 2
 
+11:38 I'm tired again and my eyes feel strained as well as my right forearm. I switched my track pad to the left. Use dictation more? Am I just fueled by caffeine and I don't have any today so I don't feel as peppy? That's not true I actually did have one cup of coffee this morning.
+
+11:49 I finished the "Gain experience through struggling" section of Coding Tips 2.
