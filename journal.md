@@ -885,3 +885,7 @@ Vim dumps you into command mode to start
 11:38 I'm tired again and my eyes feel strained as well as my right forearm. I switched my track pad to the left. Use dictation more? Am I just fueled by caffeine and I don't have any today so I don't feel as peppy? That's not true I actually did have one cup of coffee this morning.
 
 11:49 I finished the "Gain experience through struggling" section of Coding Tips 2.
+
+13:42 I'm tired but more energized after lunch. I'm ready to do Sprint Review, Sprint Retrospective and Sprint Planning. I still haven't gone back to the Assignment: Mortgage / Car Loan Calculator. I did start listening to *A Mind for Numbers* by Barbara Oakley as an audiobook.
+
+15:50 Finished Sprint Review, Sprint Retrospective, and Sprint Planning. The Sprint Planning went faster than last week. Time for a break.
