@@ -4021,8 +4021,34 @@ names.forEach((_, index) => {
 });
 
 // logs
-
+// => 1: Got a name!
+// => 2: Got a name!
+// => 3: Got a name!
 ```
 
 ### Gain experience through struggling
 
+The final tip in this assignment is about dealing with struggling. There are two things that beginners feel at this stage:
+
+- that they must know the "best" or "right" way to do something, so they feel they must learn "best practice".
+- that they waste too much time debugging and not doing things correctly the first time.
+
+To the first point: it's less impactful to learn "best practices" without first learning why they are best practices. That leads to the second point, which is that you must learn to be ok with struggling through the "bad" or sub-optimal practices first. That's not wasting time, that's getting experience. Becoming a good developer means experiencing and solving a lot of weird issues.
+
+In other words, don't memorize "best practices," but spend enough time programming to the point where you understand the context for those practices. If you do that, you'll be able to lean on your experience rather than try to retrieve a bullet list from something you read months or years ago.
+
+Therefore, don't fear violating rules or be afraid to make mistakes. However, keep an eye out for improvements. Coding is like writing -- there are syntactical rules, but there are also creative ways of expression.
+
+We can't say this enough:
+
+- spend time programming.
+- Learn to debug problems,
+  - struggle with them,
+  - search for the right terms,
+  - play around with the code,
+
+and you'll be able to transform into a professional developer. That's what professional developers do every day.
+
+20210725 11:45 Coding Tips 2 assignment completed.
+
+## End
