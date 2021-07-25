@@ -62,3 +62,72 @@ The Sprint Review includes the following elements:
 * Review of the timeline, budget, potential capabilities, and marketplace for the next anticipated releases of functionality and capability of the product.
 
 The result of the Sprint Review is a revised Product Backlog that defines the probable Product Backlog items for the next Sprint. The Product Backlog may also be adjusted overall to meet new opportunities.
+
+## Sprint 2, 20210719 - 20210725
+
+The Sprint Review includes the following elements:
+
+* Attendees include the Scrum Team and key stakeholders invited by the Product Owner;
+
+* The Product Owner explains what Product Backlog items have been “Done” and what has not been “Done”;
+  * Done
+    * JS101 Lesson 2 > 1-18, 20-23, 25
+    * Small Problems > Easy 2 > 3-9
+    * Small Problems > Easy 3 > 1-3
+    * Small Problems > Medium 1 > 1
+    * Anki cards reviewed and edited a few cards daily
+    * Answered Daily Scrum Questions
+    * Study Sessions with Alex, Laurent and Launch School
+  * Remaining
+    * JS101 Lesson 2: Small Programs
+      * 19. Assignment: Mortgage / Car Loan Calculator
+      * 24. Walk-through: Rock Paper Scissors
+      * 26. RPS Bonus Features
+      * 27. Lesson 2 Quiz 1
+    * JS101 - Small Problems
+      * Easy 2 > 10-12
+      * Easy 3 > 4-10
+      * Easy 4 > 1-10
+
+* The Developers discuss *what went well* during the Sprint, *what problems it ran into*, and *how those problems were solved*;
+  * What went well?
+    * Studied curriculum daily
+    * Worked on exercises daily
+    * Study Sessions daily either with Alex or Laurent or both
+    * Refining my learning to learn process
+    * Answer daily scrum questions and post to Byron on Slack
+    * reviewing and editing my Anki cards
+    * Read chapters from *Mastery* daily
+  * What problems?
+    * eye strain
+    * strain in right forearm - carpal tunnel mild case
+    * short bouts of exhaustion that I need to acknowledge to take breaks
+      * adjusted by timeout app to strict pomodoro process
+    * Minor and short bouts of anxiety about slower than anticipated progrees
+      * Need to remember to "abandon any hope of fruition" and stay in the moment
+  * What problems did I solve?
+    * Getting better at Git and GitHub
+    * Able to work with ESLint in Node and adjust my `.eslintrc.yml` configuration file to work in the right directory
+    * Learned basic Vim editor commands
+    * Improved overall proficiency in coding out basic syntax
+
+* The **Developers** demonstrate the work that it has “Done” and answers questions about the Increment;
+  * Practice basic JavaScript syntax while taking notes on assignments
+  * Getting clearer about how to use PEDAC
+  * Improving problem-solving skills in the exercises
+
+* The **Product Owner** discusses the Product Backlog as it stands. He or she projects likely target and delivery dates based on progress to date (if needed);
+  * Plan to finish JS101 Programming Foundations with JavaScript before the end of Sprint 3
+  * Take Lesson 2 Quiz 1 before end of Sprint 3
+
+* The entire group collaborates on what to do next, so that the Sprint Review provides valuable input to subsequent Sprint Planning;
+  * Finish Lesson 2 Assignments
+  * Work on small problems
+  * Study sessions
+  * Take Lesson 2 Quiz 1
+
+* Review of the timeline, budget, potential capabilities, and marketplace for the next anticipated releases of functionality and capability of the product.
+
+The result of the Sprint Review is a revised Product Backlog that defines the probable Product Backlog items for the next Sprint. The Product Backlog may also be adjusted overall to meet new opportunities.
+
+20210725 14:30 End Sprint 2 Review

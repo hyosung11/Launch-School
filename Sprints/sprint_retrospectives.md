@@ -31,3 +31,34 @@ This question allows us to capture things that happened but leave us feeling unc
 
    - can't seem to get syntax
    - think I understand something and then when I try to code it out, I get lost and can't remember what to do next.
+
+## Sprint 2, 20210719 - 20210725
+
+1. **What went well?**\
+In other words, what took place that we want to recognise and acknowledge as having gone well?
+
+   - Studied everyday using a logical process that I'm fine-tuning as I go along
+   - Tweaking my notetaking process to challenge myself to recall more as I read
+   - Disciplining myself to write out the code examples in the assignments instead of just copying and pasting them into my notes
+   - Listened to Launch School podcasts for information and inspiration everyday
+
+1. **What didn’t go so well?**\
+  What took place that didn’t go as we would have liked?
+
+   - some anxiety about what seems to be slower than expected progress
+   - still gaps in my problem-solving process as demonstrated in the algorithm I presented at the JS101 Study Session
+   - resistance to doing the Assignments in Lesson 2
+
+1. **What did I learn?**\
+We want to think about what we’ve learned about how we worked together. It’s less about the content and more about the process.
+
+   - I don't eat the frog first
+   - Taking active breaks to move my body and use kettlebells makes a difference to my energy and concentration levels
+   - What about listening to music while studying?
+
+1. **What still puzzles me?**\
+This question allows us to capture things that happened but leave us feeling unclear or puzzled.
+
+   - I'm not sure how deep I need to go with understanding:
+     - e.g., researching `Number(value)` and it has so much material on MDN
+   - I still make syntactic mistakes and get lost as I code out the algorithms as to what I'm doing in a particular step
