@@ -3766,6 +3766,23 @@ Now is a good time to re-read the section [Variables as Pointers](https://launch
 
 ## Walk-through: Rock Paper Scissors
 
+In this assignment, we'll build a Rock Paper Scissors game. Rock Paper Scissors is a simple game played between two opponents. Both the opponents choose an item from rock, paper, and scissors. The winner is decided according to the following rules:
+
+1. If player a chooses rock and player b chooses scissors, player a wins.
+2. If player a chooses paper and player b chooses rock, player a wins.
+3. If player a chooses scissors and player b chooses paper, player a wins.
+4. If both players choose the same item, neither player wins. It's a tie.
+
+Our version of the game lets the user play against the computer. The game flow should go like this:
+
+1. The user makes a choice.
+2. The computer makes a choice.
+3. The winner is displayed.
+
+[Video Walkthrough](https://launchschool.com/lessons/64655364/assignments/2ecb7012)
+
+
+
 ## Coding Tips 2
 
 ### Using blank lines to organize code
