@@ -3862,8 +3862,58 @@ words.forEach(word => {
 
 That's very typical code. Now suppose we want to remove each element as we're iterating:
 
+```js
+let words = ['scooby', 'do', 'on', 'channel', 'two'];
+
+words.forEach(word => {
+  console.log(word); // logs: scooby, on, two (in that order)
+  words.shift();
+});
+```
+
+The `Array.prototype.shift` method removes the first element of an array. Since we're iterating through the array and calling shift in each iteration, we expect all elements to be removed by the end of the iteration. However, let's log the words array after the iteration to see whether that is indeed what happens:
+
+```js
+let words = ['scooby', 'do', 'on', 'channel', 'two'];
+
+words.forEach(word => {
+  console.log(word);
+  words.shift();
+});
+
+console.log(words); // logs: ['channel', 'two']
+```
+
+That is very strange -- shouldn't every element be deleted? We're expecting an empty array, but the final value is `['channel', 'two']`, which may result in some confusion. To understand what's happening, let's walk through this code one thing at a time.
+
+
+- In the first iteration, `word` points to the first element of `words`, namely, `'scooby'`. That word gets logged to the console, and it is then removed from `words`.
+- At this point, `words` contains `['do', 'on', 'channel', 'two']`
+- In the second iteration, `word` now points to the second element of `words`, which is now `'on'`. Thus, at this point, we log `''on'`. However, when we call `words.shift()`, it's the first element (`'do'`) that gets removed.
+- At this point, `words` contains `['on', 'channel', 'two']`
+- In the third iteration, `word` now points to the third element of `words`, which is now `'two'`. Thus, at this point, we log '`'two'`. However, when we call `words.shift()`, it's the first element (`'on'`) that gets removed.
+- At this point, `words` contains `['channel', 'two']`
+- JavaScript now attempts to do a fourth iteration. However, since `words` now only contains two elements, iteration ends.
+
+The lesson here is:
+
+> Don't mutate a collection while iterating through it. The behavior may not be what you expect.
+
+Note, however, that you **can** mutate the individual elements within that collection, just not the collection itself.
+
+```js
+let pairs = [[6, 'scooby'], [2, 'do'], [2, 'on'], [7, 'channel'], [3, 'two']];
+
+pairs.forEach(pair => {
+  pair.shift();
+});
+
+console.log(pairs); // logs [['scooby'], ['do'], ['on'], ['channel'], ['two']]
+```
 
 ### Variable shadowing
+
+
 
 ### Don't use assignment in a conditional
 
