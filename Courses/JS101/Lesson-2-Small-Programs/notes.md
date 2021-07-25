@@ -3833,12 +3833,12 @@ Visually, you can quickly see where the name variable is declared. You can also 
 Two bits of advice:
 
 1. a function should do one thing and be named appropriately.
-2. if you can treat a function as a "black box", then it's a well-designed function
+2. if you can treat a function as a "black box", then it's a well-designed function.
 
 For example:
 
-- you should be able to use a function named `total` and understand that it returns a value
-- you should be able to use a function named `printTotal` and realize it returns `undefined` without looking at either implementation
+- use a function named `total` and understand that it returns a value
+- use a function named `printTotal` and realize it returns `undefined` without looking at either implementation
 
 Separate concerns. Don't mix up those concerns. Write a function that only does **one** of these things:
 
@@ -3942,6 +3942,59 @@ Be careful about choosing appropriate variable names when working with callback 
 That's another reason that you should *run ESLint on your code*; it'll catch this error for you.
 
 ### Don't use assignment in a conditional
+
+- never use assignment in a conditional
+- It's not clear whether you meant to use `==` or `===`, or if you indeed meant to do an assignment.
+
+```js
+// bad
+let someVariable;
+
+if (someVariable = getAValueFromSomewhere()) {
+  console.log(someVariable);
+}
+
+// good
+let someVariable = getAValueFromSomewhere();
+
+if (someVariable) {
+  console.log(someVariable);
+}
+```
+
+The first `if` statement works, but it's incredibly confusing, and others reading your code won't be 100% confident whether it's a bug or intentional. **Avoid this practice.**
+
+However, you will encounter this type of code in the wild. Some experienced programmers do it all the time, especially programmers that have been around for a long time. For example, here's a while loop that iterates through a collection:
+
+```js
+let numbers = [1, 2, 3, 4, 5];
+let num;
+
+while (num = numbers.shift()) {
+  console.log(num);
+}
+
+console.log(numbers); // []
+```
+
+`Array.prototype.shift` removes and returns the first element in the array. When there's nothing left to remove, `shift` returns `undefined`. This loop takes advantage of that fact to serve as the loop termination condition.
+
+While it works, this code is hard to read, and future programmers (including yourself) can't be 100% confident that this was intentional. Did you mean `num == numbers.shift()`? Is this a bug or is it intentional?
+
+As a convention, if you must do this, wrap the assignment in parentheses. This will signify to future programmers that you know what you're doing and this is done on purpose.
+
+```js
+let numbers = [1, 2, 3, 4];
+let num;
+
+while ((num = numbers.shift())) {
+  console.log(num);
+}
+
+console.log(numbers);
+```
+
+However, we still recommend that you don't do this.
 
 ### Use underscore for unused callback parameters
 

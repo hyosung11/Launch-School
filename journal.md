@@ -851,7 +851,7 @@ I need to create a function that sets the language for the entire program. Not h
    * [x] 4. LS Podcast S3E2
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [ ] 2. Anki cards
+   * [x] 2. Anki cards
    * [ ] 3. JS101 > Lesson 2 > 25. Coding Tips
    * [ ] 4. Assignment: Mortgage / Car Loan Calculator
    * [ ] 5. Sprint 2 Review
@@ -861,7 +861,7 @@ I need to create a function that sets the language for the entire program. Not h
 3. Are there any blockers or impediments preventing you from doing your work?
    * Still struggling with pace through the course. I can't fully let it go and dwell in "it's going to take as long as it takes".
 
-[Vim Basics in 8 Minutes](https://www.youtube.com/watch?v=ggSyF1SVFr4)
+### [Vim Basics in 8 Minutes](https://www.youtube.com/watch?v=ggSyF1SVFr4)
 
 Vim dumps you into command mode to start
 
@@ -879,3 +879,6 @@ Vim dumps you into command mode to start
 08:43 Feeling resistance to doing the Anki cards. Why? Do them while notetaking? That doesn't make sense. I think it's read and take notes and then make cards, but that's not what the doctor recommends.
 
 10:02 Worked on Anki cards. Slow and steady progress.
+
+10:34 Took a break to play Nerf adventure with SungOh. It was fun. Now back to Lesson 2 > 25. Coding Tips 2
+
