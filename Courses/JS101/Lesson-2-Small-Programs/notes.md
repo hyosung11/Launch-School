@@ -3998,5 +3998,31 @@ However, we still recommend that you don't do this.
 
 ### Use underscore for unused callback parameters
 
+Suppose you have an array of names, and you want to print out a string for every name in the array, but you don't care about the actual names. In those situations, use an underscore to signify that we don't care about this particular callback parameter.
+
+```js
+let names = ['sohee', 'omi', 'sungoh'];
+names.forEach(_ => {
+  console.log('Got a name!');
+});
+
+// Got a name!
+// Got a name!
+// Got a name!
+```
+
+Another example is when you need the second parameter but don't need the first one. You can use `_` to indicate that the first parameter is not being used by the callback:
+
+```js
+let names = ['oscar', 'pete', 'omar'];
+
+names.forEach((_, index) => {
+  console.log(`${index + 1}: got a name!`);
+});
+
+// logs
+
+```
+
 ### Gain experience through struggling
 
