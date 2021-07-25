@@ -891,3 +891,5 @@ Vim dumps you into command mode to start
 15:50 Finished Sprint Review, Sprint Retrospective, and Sprint Planning. The Sprint Planning went faster than last week. Time for a break.
 
 16:35 Taking a break after starting the Walk-through Rock, Paper, Scissors assignment.
+
+16:55 Finished Walk-through Rock Paper Scissors video version.
