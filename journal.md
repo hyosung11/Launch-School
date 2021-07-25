@@ -875,3 +875,7 @@ Vim dumps you into command mode to start
 * `dd` deletes a line
 
 08:23 Added Vim basic commands notes. Next time I have a Git problem, handle it better.
+
+08:43 Feeling resistance to doing the Anki cards. Why? Do them while notetaking? That doesn't make sense. I think it's read and take notes and then make cards, but that's not what the doctor recommends.
+
+10:02 Worked on Anki cards. Slow and steady progress.

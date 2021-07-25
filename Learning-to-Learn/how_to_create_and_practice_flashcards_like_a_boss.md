@@ -6,7 +6,7 @@
 * The only active approach is to _practice retrieving what you learn from memory_.
 * Read once and create flashcards as you work your way through the material:
   * capture all the concepts and facts you want to remember
-  * Once you have processed that piece of learning content, meaning once you have read it in its entirety and created the necessary flashcards, mark it as completed. 
+  * Once you have processed that piece of learning content, meaning once you have read it in its entirety and created the necessary flashcards, mark it as completed.
   * Then use the flashcards and retrieval practice as your primary tools for remembering the key concepts and facts forever.
 * When you create a flashcard, draft the question and answer from memory.
 * On every flashcard, ask only one question and whenever possible, only one answer.
@@ -15,7 +15,7 @@
 * carefully craft your question to elicit the best and most complete answer
   * think like a trial attorney who is examining a witness
 * it's better for a question to be longer than the answer
-* keep answers short, simple and specific to stimulate synpatic strengthening.
+* keep answers short, simple and specific to stimulate synaptic strengthening.
 * use a combination of words and images -- dual coding -- to encode the question because it's easier to retrieve from memory
 * You can use an image as the question
 * Use colors and rich text formatting to make the text more memorable
@@ -30,7 +30,8 @@
 * Open-ended questions are more challenging than cloze deletion type or multiple-choice questions.
 * use flashcards answers as an opportunity to build associations with other parts of your knowledgebase
 * craft why questions - deeper level of knowledge of understanding
-  * what is cancer (shallow) vs why does cancer exist in nature (deeper)
+  * what is cancer (shallow) vs
+  * why does cancer exist in nature (deeper)
 * create multiple flashcards for the same concept that examine it from different viewpoints
 * use mnemonic devices
   * acronyms
