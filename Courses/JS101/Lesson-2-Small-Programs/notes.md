@@ -3763,3 +3763,187 @@ Now is a good time to re-read the section [Variables as Pointers](https://launch
 21:19 stop
 
 20210724 09:03
+
+## Walk-through: Rock Paper Scissors
+
+## Coding Tips 2
+
+### Using blank lines to organize code
+
+- ESLint looks for extraneous lines in your code
+- blank lines are important visual cues in your code
+- organize chunks of code to make it easier to read
+
+> Making your code readable is of paramount importance, not only for others but for your future self.
+
+- develop a feel for using blank lines in your programs
+- blank lines are essential if you read a lot of existing code
+
+Example:
+
+```js
+// bad - needs blank lines to separate different concerns in the code
+
+const readline = require('readline-sync');
+console.log('Enter your name');
+let name = readline.question();
+while (name.trim() === '') {
+  console.log("That's an invalid name. Try again:");
+  name = readline.question();
+}
+console.log(`Welcome ${name}!`);
+console.log("What would you like to do?");
+```
+
+Use some blank lines to separate the different concerns in the code.
+
+```js
+// better
+
+const readline = require('readline-sync');
+
+console.log('Enter your name');
+let name = readline.question();
+
+while (name.trim() === '') {
+  console.log("That's an invalid name. Try again:");
+  name = readline.question();
+}
+
+console.log(`Welcome ${name}!`);
+console.log("What would you like to do?");
+```
+
+Visually, you can quickly see where the name variable is declared. You can also see that this small code snippet is roughly divided into 4 parts:
+
+- constant and variable declaration and initialization
+- initial user input
+- input validation
+- using the variable
+
+### Name functions appropriately
+
+- choose good function names to help you remember what each function does
+- preface functions that output values with `display` or `print`
+  - e.g., a function named `printTotal` outputs a total and doesn't return anything
+- follow this convention to save yourself from repeatedly having to look at the implementation to recall how to use the function
+
+> If you find yourself looking at a function's implementation every time you use it, it's a sign that the function needs to be improved.
+
+Two bits of advice:
+
+1. a function should do one thing and be named appropriately.
+2. if you can treat a function as a "black box", then it's a well-designed function
+
+For example:
+
+- you should be able to use a function named `total` and understand that it returns a value
+- you should be able to use a function named `printTotal` and realize it returns `undefined` without looking at either implementation
+
+Separate concerns. Don't mix up those concerns. Write a function that only does **one** of these things:
+
+- mutate a value
+- output something
+- return a meaningful value
+
+### Don't mutate the caller during iteration
+
+Suppose we have an array of strings and we want to iterate over that array and print out each element. We could do something like this:
+
+```js
+let words = ['scooby', 'do', 'on', 'channel', 'two'];
+
+words.forEach(word => {
+  console.log(word);
+});
+```
+
+That's very typical code. Now suppose we want to remove each element as we're iterating:
+
+```js
+let words = ['scooby', 'do', 'on', 'channel', 'two'];
+
+words.forEach(word => {
+  console.log(word); // logs: scooby, on, two (in that order)
+  words.shift();
+});
+```
+
+The `Array.prototype.shift` method removes the first element of an array. Since we're iterating through the array and calling shift in each iteration, we expect all elements to be removed by the end of the iteration. However, let's log the words array after the iteration to see whether that is indeed what happens:
+
+```js
+let words = ['scooby', 'do', 'on', 'channel', 'two'];
+
+words.forEach(word => {
+  console.log(word);
+  words.shift();
+});
+
+console.log(words); // logs: ['channel', 'two']
+```
+
+That is very strange -- shouldn't every element be deleted? We're expecting an empty array, but the final value is `['channel', 'two']`, which may result in some confusion. To understand what's happening, let's walk through this code one thing at a time.
+
+- In the first iteration, `word` points to the first element of `words`, namely, `'scooby'`. That word gets logged to the console, and it is then removed from `words`.
+- At this point, `words` contains `['do', 'on', 'channel', 'two']`
+- In the second iteration, `word` now points to the second element of `words`, which is now `'on'`. Thus, at this point, we log `''on'`. However, when we call `words.shift()`, it's the first element (`'do'`) that gets removed.
+- At this point, `words` contains `['on', 'channel', 'two']`
+- In the third iteration, `word` now points to the third element of `words`, which is now `'two'`. Thus, at this point, we log '`'two'`. However, when we call `words.shift()`, it's the first element (`'on'`) that gets removed.
+- At this point, `words` contains `['channel', 'two']`
+- JavaScript now attempts to do a fourth iteration. However, since `words` now only contains two elements, iteration ends.
+
+The lesson here is:
+
+> Don't mutate a collection while iterating through it. The behavior may not be what you expect.
+
+Note, however, that you **can** mutate the individual elements within that collection, just not the collection itself.
+
+```js
+let pairs = [[6, 'scooby'], [2, 'do'], [2, 'on'], [7, 'channel'], [3, 'two']];
+
+pairs.forEach(pair => {
+  pair.shift();
+});
+
+console.log(pairs); // logs [['scooby'], ['do'], ['on'], ['channel'], ['two']]
+```
+
+### Variable shadowing
+
+Variable shadowing occurs when you choose a variable in an inner scope that shares the same name as a variable in an outer scope. It essentially prevents access to the outer scope variable from an inner scope.
+
+Example of an array of names where we want to append a last name to each of them:
+
+```js
+let name = 'johnson';
+
+['kim', 'joe', 'sam'].forEach(name => {
+  // uh-oh, we cannot access the outer scoped "name"!
+  console.log(`${name} ${name}`);
+});
+```
+
+The problem is that we've shadowed the outer scoped `name` variable. Within the `forEach` callback function, the `name` variable represents the elements in the array - `"kim"`, `"joe"`, or `"sam"`.
+
+Note that the following is not variable shadowing:
+
+```js
+let name = 'johnson';
+
+['kim', 'joe', 'sam'].forEach(fname => {
+  name = fname;
+});
+```
+
+The above code is accessing the `name` variable from the outer scope and re-assigning it. After the `forEach` method runs, the name will be set to `'sam'`.
+
+Be careful about choosing appropriate variable names when working with callback functions. If you pick a name that is identical to an outer scope variable, variable shadowing will prevent you from using the outer scope variable.
+
+That's another reason that you should *run ESLint on your code*; it'll catch this error for you.
+
+### Don't use assignment in a conditional
+
+### Use underscore for unused callback parameters
+
+### Gain experience through struggling
+
