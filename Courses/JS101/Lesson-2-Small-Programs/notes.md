@@ -3848,8 +3848,6 @@ Separate concerns. Don't mix up those concerns. Write a function that only does 
 
 ### Don't mutate the caller during iteration
 
-> Don't mutate a collection while iterating through it. The behavior may not be what you expect.
-
 Suppose we have an array of strings and we want to iterate over that array and print out each element. We could do something like this:
 
 ```js
@@ -3886,7 +3884,6 @@ console.log(words); // logs: ['channel', 'two']
 
 That is very strange -- shouldn't every element be deleted? We're expecting an empty array, but the final value is `['channel', 'two']`, which may result in some confusion. To understand what's happening, let's walk through this code one thing at a time.
 
-
 - In the first iteration, `word` points to the first element of `words`, namely, `'scooby'`. That word gets logged to the console, and it is then removed from `words`.
 - At this point, `words` contains `['do', 'on', 'channel', 'two']`
 - In the second iteration, `word` now points to the second element of `words`, which is now `'on'`. Thus, at this point, we log `''on'`. However, when we call `words.shift()`, it's the first element (`'do'`) that gets removed.
@@ -3913,7 +3910,36 @@ console.log(pairs); // logs [['scooby'], ['do'], ['on'], ['channel'], ['two']]
 
 ### Variable shadowing
 
+Variable shadowing occurs when you choose a variable in an inner scope that shares the same name as a variable in an outer scope. It essentially prevents access to the outer scope variable from an inner scope.
 
+Example of an array of names where we want to append a last name to each of them:
+
+```js
+let name = 'johnson';
+
+['kim', 'joe', 'sam'].forEach(name => {
+  // uh-oh, we cannot access the outer scoped "name"!
+  console.log(`${name} ${name}`);
+});
+```
+
+The problem is that we've shadowed the outer scoped `name` variable. Within the `forEach` callback function, the `name` variable represents the elements in the array - `"kim"`, `"joe"`, or `"sam"`.
+
+Note that the following is not variable shadowing:
+
+```js
+let name = 'johnson';
+
+['kim', 'joe', 'sam'].forEach(fname => {
+  name = fname;
+});
+```
+
+The above code is accessing the `name` variable from the outer scope and re-assigning it. After the `forEach` method runs, the name will be set to `'sam'`.
+
+Be careful about choosing appropriate variable names when working with callback functions. If you pick a name that is identical to an outer scope variable, variable shadowing will prevent you from using the outer scope variable.
+
+That's another reason that you should *run ESLint on your code*; it'll catch this error for you.
 
 ### Don't use assignment in a conditional
 
