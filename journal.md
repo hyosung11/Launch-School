@@ -889,3 +889,5 @@ Vim dumps you into command mode to start
 13:42 I'm tired but more energized after lunch. I'm ready to do Sprint Review, Sprint Retrospective and Sprint Planning. I still haven't gone back to the Assignment: Mortgage / Car Loan Calculator. I did start listening to *A Mind for Numbers* by Barbara Oakley as an audiobook.
 
 15:50 Finished Sprint Review, Sprint Retrospective, and Sprint Planning. The Sprint Planning went faster than last week. Time for a break.
+
+16:55 Finished Walk-through Rock Paper Scissors video version.
