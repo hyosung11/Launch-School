@@ -929,3 +929,9 @@ Vim dumps you into command mode to start
 09:27 I still need to figure out how to make keyboard shortcuts in VS Code.
 
 09:59 I studied 7 cards today. Edited each one as I went.
+
+12:31 Finished helpful Interview Prep session with Christine Denning. I still don't want the job or any job right now. I'll work on the 'Walk-through: Rock Paper Scissors' text version after ping pong with Louis. I might do some more Anki cards right now.
+
+14:25 Finally got 'Stringy Strings' solution to work. Little things that I need to pay attention to better.
+
+14:35 Reviewed the LS solution to 'Stringy Strings'. I'm hungry now. Time to grab a snack.
