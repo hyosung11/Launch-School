@@ -935,3 +935,11 @@ Vim dumps you into command mode to start
 14:25 Finally got 'Stringy Strings' solution to work. Little things that I need to pay attention to better.
 
 14:35 Reviewed the LS solution to 'Stringy Strings'. I'm hungry now. Time to grab a snack.
+
+14:56 Before study session with Laurent.
+
+15:32 Going through Mochi cards that Laurent made. The six falsy values are 0FUNN'' - 0, false, NaN, Null and empty string. The red highlighting stopped.
+
+16:19 Back from break pulling weeds in the backyard and got bit multiple times by mosquitoes. Ugh.
+
+17:02 Good to take the breaks today. I opened up the Productivity Planner and think I will use it going forward despite doing the Daily Scrum Questions. Taking a break to make dinner now. I'll return to the rest of the Rock Paper Scissors assignment after dinner.

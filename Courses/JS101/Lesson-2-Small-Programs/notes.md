@@ -3854,6 +3854,97 @@ Looking at the code, we can spot another place to use our `VALID_CHOICES` variab
 prompt(`Choose one: ${VALID_CHOICES.join(', ')}`);
 let choice = readline.question();
 ```
+
+The `Array.prototype.join` **method** takes a string delimiter and joins the elements of the array into a string where the elements are separated by the delimiter provided. In this case, we provide the delimiter `', '` and it gives us the string `rock, paper, scissors`. Note that our delimiter contains a space after the comma. Had we omitted the space, the string would come out as `rock,paper,scissors`.
+
+With that small refactoring, let's write the code that makes a choice for the computer. How do we do that? It seems like we need to randomly select one of the choices from `VALID_CHOICES`. We can do that by choosing a random index between `0` and `2` and using that index to access one of the choices from the `VALID_CHOICES` array. The `Math.random` function seems promising here. Experiment with the `Math.random function` to see what results you get.
+
+Unfortunately, the `Math.random` function, on its own, is not enough to obtain a useful random number for our purpose. `Math.random` returns a floating-point number between 0 (inclusive) and 1 (exclusive). Here's a few examples of the `Math.random` function in action:
+
+```js
+> Math.random()
+0.7305672222347017
+> Math.random()
+0.5160455941041489
+> Math.random()
+0.10666450363202995
+> Math.random()
+0.999373357765498
+```
+
+We need an integer (whole number) from 0 up to, but not including, the length of the `VALID_CHOICES` array. That is, we need a number between 0 and 2, both inclusive. To start with, we'll multiply the random number we get from `Math.random` with the length of the array:
+
+```sh
+> const VALID_CHOICES = ['rock', 'paper', 'scissors']
+
+> Math.random() * VALID_CHOICES.length
+> 0.36042334225099504
+```
+
+Your result will most likely differ, but it'll be a floating point number between 0 and 3. To get an integer from 0 up to 2, we need to discard the fractional part of the number. The `Math.floor` function does precisely that; it rounds down a floating point number to the nearest integer.
+
+```js
+> Math.floor(Math.random() * VALID_CHOICES.length)
+> 2
+```
+
+Try the above expression a few times in the node console until you get all three numbers. We can now use the above expression to make a choice for the computer:
+
+```js
+// code omitted
+
+while (!VALID_CHOICES.includes(choice)) {
+  prompt("That's not a valid choice");
+  choice = readline.question();
+}
+
+let randomIndex = Math.floor(Math.random() * VALID_CHOICES.length);
+let computerChoice = VALID_CHOICES[randomIndex];
+```
+
+It's time to let the user know about what the two choices are:
+
+```js
+// code omitted
+
+let randomIndex = Math.floor(Math.random() * VALID_CHOICES.length);
+let computerChoice = VALID_CHOICES[randomIndex];
+
+prompt(`You chose ${choice}, computer chose ${computerChoice}`);
+```
+
+This is how our code looks so far:
+
+```js
+const readline = require('readline-sync');
+const VALID_CHOICES = ['rock', 'paper', 'scissors'];
+
+function prompt(message) {
+  console.log(`=> ${message}`);
+}
+
+prompt(`Choose one: ${VALID_CHOICES.join(', ')}`);
+let choice = readline.question();
+
+while (!VALID_CHOICES.includes(choice)) {
+  prompt("That's not a valid choice");
+  choice = readline.question();
+}
+
+let randomIndex = Math.floor(Math.random() * VALID_CHOICES.length);
+let computerChoice = VALID_CHOICES[randomIndex];
+
+prompt(`You chose ${choice}, computer chose ${computerChoice}`);
+```
+
+Run the program to verify that it works so far.
+
+That brings us to the meat of this program: deciding the winner based on the conditions we outlined in the start. Let's begin by writing the conditional for the case where the user wins:
+
+If you want, you can now watch the rest of the video walkthrough now:
+
+[Video Version Continued](https://launchschool.com/lessons/64655364/assignments/2ecb7012)
+
 ## Coding Tips 2
 
 ### Using blank lines to organize code
