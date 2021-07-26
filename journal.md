@@ -913,7 +913,7 @@ Vim dumps you into command mode to start
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [x] 2. Anki cards (7)
-   * [ ] 3. JS101 > L2 > 24. Walk-through: RPS book version
+   * [x] 3. JS101 > L2 > 24. Walk-through: RPS book version
    * [ ] 4. Assignment: Mortgage / Car Loan Calculator
    * [ ] 5. JS101 > L2 > 26 > RPS Bonus Features
 
@@ -943,3 +943,7 @@ Vim dumps you into command mode to start
 16:19 Back from break pulling weeds in the backyard and got bit multiple times by mosquitoes. Ugh.
 
 17:02 Good to take the breaks today. I opened up the Productivity Planner and think I will use it going forward despite doing the Daily Scrum Questions. Taking a break to make dinner now. I'll return to the rest of the Rock Paper Scissors assignment after dinner.
+
+19:27 Back at my office workstation after dinner and cleanup. SungOh was sick and threw up but he feels better now. I completed the Concussion in Sports and emailed my completion certificate to Keith at BCSOA. Now trying to integrate the Productivity Planner into my work.
+
+19:38 Wrote work items for tomorrow in the Productivity Planner. Going up to get ready for bed with the kids. Making a journal commit now. I might work more on Rock Paper Scissors after putting the kids to bed and before watching TV with Sohee.
