@@ -905,10 +905,10 @@ Vim dumps you into command mode to start
    * [x] 2. Vim Basics tutorial
    * [x] 3. JS101 > Lesson 2 > 24. Walk-through: Rock Paper Scissors
    * [x] 4. JS101 > Lesson 2 > 25. Coding Tips 2
-   * [ ] 5. Sprint 2 Review
-   * [ ] 6. Sprint 2 Retrospective
-   * [ ] 7. Sprint 3 Planning
-   * [ ] 8. *Mind for Numbers* audiobook
+   * [x] 5. Sprint 2 Review
+   * [x] 6. Sprint 2 Retrospective
+   * [x] 7. Sprint 3 Planning
+   * [x] 8. *Mind for Numbers* audiobook
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
@@ -920,3 +920,5 @@ Vim dumps you into command mode to start
 3. Are there any blockers or impediments preventing you from doing your work?
    * I need to research Encora for my interview tomorrow and I have an interview prep session, so I won't have as much time to work on Launch School today.
    * I feel really tired this morning.
+
+07:54 My right hamstring still feels strained. I'm tired. My eyes are tired. Maybe I need to walk to the cemetary for memento mori? Or some ping pong?
