@@ -920,3 +920,11 @@ Vim dumps you into command mode to start
 3. Are there any blockers or impediments preventing you from doing your work?
    * I need to research Encora for my interview tomorrow and I have an interview prep session, so I won't have as much time to work on Launch School today.
    * I feel really tired this morning.
+
+08:52 After breakfast with the kids and telling a story using Nerf Guns as characters to engage SungOh. That was fun.
+
+09:20 Checked email efficiently and took some notes on the right kind of coffee to drink as suggested by T-Nation. I miss training heavy at the gym. Going to start Anki cards now. I don't want a job right now as I want to devote my time and energy to studying the Launch School core curriculum. This reminds me that I want to check when certification for UI benefits is scheduled for me this week.
+
+09:27 I still need to figure out how to make keyboard shortcuts in VS Code.
+
+09:59 I studied 7 cards today. Edited each one as I went.
