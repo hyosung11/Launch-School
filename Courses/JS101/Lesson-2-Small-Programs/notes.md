@@ -3779,10 +3779,81 @@ Our version of the game lets the user play against the computer. The game flow s
 2. The computer makes a choice.
 3. The winner is displayed.
 
-[Video Walkthrough](https://launchschool.com/lessons/64655364/assignments/2ecb7012)
+### [Video Walkthrough](https://launchschool.com/lessons/64655364/assignments/2ecb7012)
 
+### Book Version
 
+Let's get to it. Create a `rock_paper_scissors.js` file and type along!
 
+The first thing we'll need to do, of course, is require the `readline-sync` library so we can get user input.
+
+```js
+const readline = require('readline-sync');
+```
+
+The `prompt` function has served us well so far in our command line programs. Let's implement that from the start because we know we'll be using it:
+
+```js
+const readline = require('readline-sync');
+
+function prompt(message) {
+  console.log(`=> ${message}`);
+}
+```
+
+The next task is to write code that asks the user to choose one of rock, paper or scissors.
+
+```js
+// code omitted
+
+prompt('Choose one: rock, paper, scissors');
+let choice = readline.question();
+
+while (!['rock', 'paper', 'scissors'].includes(choice)) {
+  prompt("That's not a valid choice");
+  choice = readline.question();
+}
+```
+
+Here, we're saying that if the array `['rock', 'paper', 'scissors']` doesn't include the user choice, keep on displaying the error message and asking for input.
+
+Using the array literal `['rock', 'paper', 'scissors']` directly in our conditional like that makes our code less readable. Let's extract it out to a constant. That way, we can use the constant anywhere in our program that we need the three choices.
+
+```js
+const readline = require('readline-sync');
+const VALID_CHOICES = ['rock', 'paper', 'scissors'];
+
+function prompt(message) {
+  console.log(`=> ${message}`);
+}
+
+// code omitted
+```
+
+Note that we're using uppercase letters to write our `VALID_CHOICES` constant. It's a JavaScript convention to write constants that are used globally throughout a program/file in uppercase letters. Another convention is that global constants get defined near the top of the program file, usually just after any `require` calls.
+
+Let's use `VALID_CHOICES` in our `while` condition:
+
+```js
+// code omitted
+
+prompt('Choose one: rock, paper, scissors');
+let choice = readline.question();
+
+while (!VALID_CHOICES.includes(choice)) {
+  prompt("That's not a valid choice");
+  choice = readline.question();
+}
+```
+
+That looks much nicer. Also, if we later extend our game to accept more choices, we can add it to the `VALID_CHOICES` array.
+
+Looking at the code, we can spot another place to use our `VALID_CHOICES` variable in—the `'Choose one: rock, paper, scissors'` string we pass to the `prompt` function. We can use string interpolation and the array `join` method to do that:
+
+```js
+prompt(`Choose one: ${VALID_CHOICES.join(', ')}`);
+let choice = readline.question();
+```
 ## Coding Tips 2
 
 ### Using blank lines to organize code
