@@ -912,7 +912,7 @@ Vim dumps you into command mode to start
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [ ] 2. Anki cards
+   * [x] 2. Anki cards (7)
    * [ ] 3. JS101 > L2 > 24. Walk-through: RPS book version
    * [ ] 4. Assignment: Mortgage / Car Loan Calculator
    * [ ] 5. JS101 > L2 > 26 > RPS Bonus Features
