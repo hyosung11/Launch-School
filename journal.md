@@ -898,3 +898,25 @@ Vim dumps you into command mode to start
 
 07:15 Tired after study session with Alex on 'Fibonacci Number Location By Length'. I know I have uncommitted changes on my MBP. Remember to pull first.
 
+07:38 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Anki cards
+   * [x] 2. Vim Basics tutorial
+   * [x] 3. JS101 > Lesson 2 > 24. Walk-through: Rock Paper Scissors
+   * [x] 4. JS101 > Lesson 2 > 25. Coding Tips 2
+   * [ ] 5. Sprint 2 Review
+   * [ ] 6. Sprint 2 Retrospective
+   * [ ] 7. Sprint 3 Planning
+   * [ ] 8. *Mind for Numbers* audiobook
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. Anki cards
+   * [ ] 3. JS101 > L2 > 24. Walk-through: RPS book version
+   * [ ] 4. Assignment: Mortgage / Car Loan Calculator
+   * [ ] 5. JS101 > L2 > 26 > RPS Bonus Features
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I need to research Encora for my interview tomorrow and I have an interview prep session, so I won't have as much time to work on Launch School today.
+   * I feel really tired this morning.
