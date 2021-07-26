@@ -893,3 +893,8 @@ Vim dumps you into command mode to start
 16:35 Taking a break after starting the Walk-through Rock, Paper, Scissors assignment.
 
 16:55 Finished Walk-through Rock Paper Scissors video version.
+
+## 20210726 Monday
+
+07:15 Tired after study session with Alex on 'Fibonacci Number Location By Length'. I know I have uncommitted changes on my MBP. Remember to pull first.
+
