@@ -17,7 +17,7 @@ Problem Domain (including implicit requirements)
 Make the requirements explicit (clarifying questions)
 
 Identify rules
--return of length number that alternates between 1 and 0 for the entire length of the string, starting with 1
+- return of length number that alternates between 1 and 0 for the entire length of the string, starting with 1
 
 Mental model of the problem (optional)
 
@@ -54,21 +54,24 @@ Implementation of Algorithm
 - test code while programming
 
 */
-function stringy(value) {
-  let result = '';
 
-  for (let index = 0; index < value; index += 1) {
+function stringy(integer) {
+  let numberString = '';
+
+  for (let index = 0; index < integer; index += 1) {
     if (index % 2 === 0) {
-      result += '1';
+      numberString += '1';
     } else {
-      result += '0';
+      numberString += '0';
     }
   }
 
-  return result;
+  return numberString;
 }
 
 console.log(stringy(9));    // "101010101"
 console.log(stringy(4));    // "1010"
 console.log(stringy(6));    // "101010"
 console.log(stringy(7));    // "1010101"
+
+
