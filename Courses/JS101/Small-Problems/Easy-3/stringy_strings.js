@@ -55,18 +55,30 @@ Implementation of Algorithm
 
 */
 
-function stringy(integer) {
-  let numberString = '';
+// function stringy(integer) {
+//   let numberString = '';
 
-  for (let index = 0; index < integer; index += 1) {
-    if (index % 2 === 0) {
-      numberString += '1';
-    } else {
-      numberString += '0';
-    }
+//   for (let index = 0; index < integer; index += 1) {
+//     if (index % 2 === 0) {
+//       numberString += '1';
+//     } else {
+//       numberString += '0';
+//     }
+//   }
+
+//   return numberString;
+// }
+
+// LS solution
+function stringy(size) {
+  let result = '';
+
+  for (let idx = 0; idx < size; idx++) {
+    let number = ((idx % 2) === 0) ? 1 : 0;
+    result += number;
   }
 
-  return numberString;
+  return result;
 }
 
 console.log(stringy(9));    // "101010101"
@@ -74,4 +86,8 @@ console.log(stringy(4));    // "1010"
 console.log(stringy(6));    // "101010"
 console.log(stringy(7));    // "1010101"
 
+/*
+Discussion
 
+The solution makes use of a `for` loop to incrementally build the `result` string. At every iteration of the loop, the solution checks to see if the index position is even. If so, the solution appends a `'1'` to the initially empty result string, or `'0'` otherwise.
+*/
