@@ -988,3 +988,9 @@ Vim dumps you into command mode to start
 11:18 Back to Launch School after the screening interview with Elias at Encora. I think it went well. I have made it to the next round. I need to research Agile/Scrum before the next interview. What is this resistance to doing the Mortgage Calculator assignment?
 
 11:47 Okay, I started the Mortgage Calculator assignment. Now getting ready for the Algorithm Writing Clinic.
+
+13:03 That was informative and showed my path to proficiency.
+
+15:02 Back from ping pong and picking up Omi from Graydon.
+
+17:40 After study session with Laurent. I need to spend some solo time working on exercises to train my problem-solving skills. Omi's warm but okay.

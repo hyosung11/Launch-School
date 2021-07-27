@@ -7,6 +7,8 @@
 # If you have any trouble interpreting their algorithm, ask them to adjust it
 # Good luck!!
 
+ANAGRAM
+
 # Given a string and array of subarrays that could contain string elements, return an integer representing the number of times an anagram of the given string occurs in the collection. Two words are anagrams if they contain the same letters in the same quantities; in other words, to create an anagram from a word, you must scramble the word’s letters but not add or delete any letters. Note that two words are not considered anagrams if they are the same word.
 
 # Javascript test cases:
@@ -86,7 +88,6 @@ For each element (word) of the subarray that is an anagram, increase the count b
   - Else return false
 5. Return the count as an integer representing the number of anagrams in the array.
 
-
 CODE
 Implementation of Algorithm
 
@@ -108,7 +109,9 @@ console.log(anagramCounter('VEIL', [['VILE', 'vile', 'evil'], []]) == 3);
 console.log(anagramCounter('veil', [['VILE', 'evil'], []]) == 2);
 */
 
-/* Stan's Exercise
+/* PUNCTUATION ALGORITHM
+
+Stan's Exercise
 
 # Use the PEDAC process to get a start on solving the problem below...
 # ... but STOP when you finish writing your algorithm.

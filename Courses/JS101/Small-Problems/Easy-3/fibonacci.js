@@ -40,7 +40,7 @@ Identify expected input and output
 
 Make the requirements explicit (clarifying questions)
 
-We are going add the 2 last numbers of the series until the result 
+We are going add the 2 last numbers of the series until the result
 matches the number of digits given as input.
 result.length === input
 
