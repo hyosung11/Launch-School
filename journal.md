@@ -994,3 +994,68 @@ Vim dumps you into command mode to start
 15:02 Back from ping pong and picking up Omi from Graydon.
 
 17:40 After study session with Laurent. I need to spend some solo time working on exercises to train my problem-solving skills. Omi's warm but okay.
+
+18:08 Checking my gitconfig file:
+
+[core]
+	excludesfile = ~/.gitignore
+	legacyheaders = false # >git 1.5
+	quotepath = false
+
+[user]
+#	name = your name
+#	email = your@name
+
+[mergetool]
+	keepBackup = true
+
+[push]
+	default = simple # [ matching | simple ]
+
+[color]
+	ui = auto
+	interactive = auto
+
+[repack]
+	usedeltabaseoffset = true # >git 1.5
+
+[alias]
+	s = status
+	a = !git add . && git status
+	au = !git add -u . && git status
+	aa = !git add . && git add -u . && git status
+	c = commit
+	cm = commit -m
+	ca = commit --amend # careful
+	ac = !git add . && git commit
+	acm = !git add . && git commit -m
+	l = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+	ll = log --stat --abbrev-commit
+	lg = log --color --graph --pretty=format:'%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	llg = log --color --graph --pretty=format:'%C(bold white)%H %d%Creset%n%s%n%+b%C(bold blue)%an <%ae>%Creset %C(bold green)%cr (%ci)' --abbrev-commit
+	d = diff
+	master = checkout master
+	spull = svn rebase
+	spush = svn dcommit
+	alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+
+[include]	# as of 1.7.10 https://github.com/git/git/commit/9b25a0b52e09400719366f0a33d0d0da98bbf7b0
+	path = ~/.gitcinclude
+	path = .githubconfig
+	path = .gitcredential
+
+#[github]
+#	user =
+#	token =
+
+[diff]
+	# git does copy/rename *detection*. if you want it to track copies/renames:
+	# http://stackoverflow.com/questions/1043388/record-file-copy-operation-with-git
+	# renames = copies
+
+[diff "exif"]
+	textconv = exif
+[credential]
+	helper = osxkeychain
+
+---
