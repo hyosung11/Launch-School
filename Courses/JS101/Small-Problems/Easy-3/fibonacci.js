@@ -38,9 +38,14 @@ Identify expected input and output
 - input: number (length of fibonacci output)
 - output:number (index that gives that length )
 
+Make the requirements explicit (clarifying questions)
+
+We are going add the 2 last numbers of the series until the result 
+matches the number of digits given as input.
+result.length === input
+
 Problem Domain (including implicit requirements)
 
-Make the requirements explicit (clarifying questions)
 
 Identify rules
 - the integer is always
@@ -63,39 +68,35 @@ Edge Cases?
 DATA STRUCTURE
 How we represent the data that we will work with when converting the input to output.
 
-- input
-- intermediary
-- output
+- input: number (bigInt)
+- intermediary: array?
+- output: number (bigInt)
 
 ALGORITHM
 Steps for converting input to output
+1. Declare a function that takes a bigInt integer as an argument
+2. Initialize an array to store the fibonacci results
+3. loop through fibonacci series until the length of the result matches the input.
+
 
 CODE
 Implementation of Algorithm
 
 - test code while programming
 */
+function findFibonacciIndexByLength(digits) {
+  let results = [1n, 1n];
 
-// fibonacci sequence
-function fibonacci(number) {
-  if (number < 2) return number; // 0 if number is 0, 1 if number is 1
-  return fibonacci(number - 1) + fibonacci(number - 2);
-}
-
-
-// console.log(fibonacci(6)); // => 8
-// console.log(fibonacci(20)); // => 6765
-
-function findFibonacciIndexByLength (size) {
-  let input = 2n;
-  let array = [];
-
-  while (String(fibonacci(input)).length < size) {
-    array.push(fibonacci(input));
-    input += 1;
+  while (true) {
+    let length = BigInt(results.length);
+    let newResult = results[length - 2n] + results[length - 1n];
+    let newResultString = "" + newResult;
+    if (BigInt(newResultString.length) === digits) {
+      return (length + 1n);
+      break;
+    }
+    results.push(newResult);
   }
-  console.log(array);
-  return array.length;
 }
 
 
@@ -107,3 +108,26 @@ console.log(findFibonacciIndexByLength(3n)) === 12n; // 1 1 2 3 5 8 13 21 34 55 
 // console.log(findFibonacciIndexByLength(100n)) === 476n;
 // console.log(findFibonacciIndexByLength(1000n)) === 4782n;
 // console.log(findFibonacciIndexByLength(10000n)) === 47847n;
+
+// ======
+// // fibonacci sequence
+// function fibonacci(number) {
+//   if (number < 2) return number; // 0 if number is 0, 1 if number is 1
+//   return fibonacci(number - 1) + fibonacci(number - 2);
+// }
+
+
+// // console.log(fibonacci(6)); // => 8
+// // console.log(fibonacci(20)); // => 6765
+
+// function findFibonacciIndexByLength (size) {
+//   let input = 2n;
+//   let array = [];
+
+//   while (String(fibonacci(input)).length < size) {
+//     array.push(fibonacci(input));
+//     input += 1;
+//   }
+//   console.log(array);
+//   return array.length;
+// }
