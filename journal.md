@@ -947,3 +947,5 @@ Vim dumps you into command mode to start
 19:27 Back at my office workstation after dinner and cleanup. SungOh was sick and threw up but he feels better now. I completed the Concussion in Sports and emailed my completion certificate to Keith at BCSOA. Now trying to integrate the Productivity Planner into my work.
 
 19:38 Wrote work items for tomorrow in the Productivity Planner. Going up to get ready for bed with the kids. Making a journal commit now. I might work more on Rock Paper Scissors after putting the kids to bed and before watching TV with Sohee.
+
+20:46 Added features to Rock Paper Scissors through the video version. I'll do the text version later. Time to watch some TV with Sohee.

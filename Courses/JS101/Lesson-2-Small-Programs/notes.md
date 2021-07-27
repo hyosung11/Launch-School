@@ -3945,6 +3945,8 @@ If you want, you can now watch the rest of the video walkthrough now:
 
 [Video Version Continued](https://launchschool.com/lessons/64655364/assignments/2ecb7012)
 
+Remember to read the text version to get the most out of this assignment.
+
 ## Coding Tips 2
 
 ### Using blank lines to organize code
