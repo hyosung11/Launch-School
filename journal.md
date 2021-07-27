@@ -949,3 +949,17 @@ Vim dumps you into command mode to start
 19:38 Wrote work items for tomorrow in the Productivity Planner. Going up to get ready for bed with the kids. Making a journal commit now. I might work more on Rock Paper Scissors after putting the kids to bed and before watching TV with Sohee.
 
 20:46 Added features to Rock Paper Scissors through the video version. I'll do the text version later. Time to watch some TV with Sohee.
+
+## 20210727 화요일
+
+06:37 Awake and reading. I didn't play soccer this morning because I want to heal my hamstring. Alex declined to meet, so I have some free time this morning to read and write and do some work before my interview at 10:30. All is well.
+
+06:59 *Mastery*: liberation comes through the acceptance of limits (129).
+
+07:11 Need to do physical training everyday. My hamstring still feels strained. Dr. Riotto tomorrow?
+
+07:44 I'm still reading *Learn Like a Pro* first chapter. Have a *ready-to-resume* plan before engaging a distraction.
+
+07:57 Study between 6 ~ 8 hours per day in addition to classes. More than 8 hours per day doesn't improve grades. *Learn Like a Pro*, 9. What's the proper citation method? Don't listen to music, including binaural beats. It slows down learning.
+
+09:11 After family breakfast and playing outside with SungOh.
