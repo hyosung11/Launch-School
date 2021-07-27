@@ -119,7 +119,7 @@ cc
 
 22:31 started How Big is the room with setup of readline-sync, but going to sleep now.
 
-23:08 Jordan Whistler demonstrated Live Share for VS Code wtih me.
+23:08 Jordan Whistler demonstrated Live Share for VS Code with me.
 
 ## 20210715 목요일
 
@@ -963,3 +963,28 @@ Vim dumps you into command mode to start
 07:57 Study between 6 ~ 8 hours per day in addition to classes. More than 8 hours per day doesn't improve grades. *Learn Like a Pro*, 9. What's the proper citation method? Don't listen to music, including binaural beats. It slows down learning.
 
 09:11 After family breakfast and playing outside with SungOh.
+
+09:15 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Anki cards (7)
+   * [x] 3. Study Session with Laurent > Mochi cards
+   * [x] 3. JS101 > L2 > 24. Walk-through: RPS video version part 2
+
+2. What will you do today?
+   * [ ] 1. Prepare for Interview
+   * [ ] 2. Do Interview
+   * [ ] 3. Assignment: Mortgage / Car Loan Calculator
+   * [ ] 4. Algorithm Writing Clinic
+   * [ ] 5. Anki cards
+   * [ ] 6. Study Session with Laurent
+   * [ ] 7. JS101 > L2 > 26 > RPS Bonus Features
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   1. I need to prepare for and do interview for Technical Project Manager position at Encora, so that will take most of the morning.
+   2. Remember to take breaks and practice the fundamental human movements!
+
+11:18 Back to Launch School after the screening interview with Elias at Encora. I think it went well. I have made it to the next round. I need to research Agile/Scrum before the next interview. What is this resistance to doing the Mortgage Calculator assignment?
+
+11:47 Okay, I started the Mortgage Calculator assignment. Now getting ready for the Algorithm Writing Clinic.
