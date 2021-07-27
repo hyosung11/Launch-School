@@ -938,7 +938,7 @@ Vim dumps you into command mode to start
 
 14:56 Before study session with Laurent.
 
-15:32 Going through Mochi cards that Laurent made. The six falsy values are 0FUNN'' - 0, false, NaN, Null and empty string. The red highlighting stopped.
+15:32 Going through Mochi cards that Laurent made. The six falsy values are 0FUNN'' - 0, false,undefined, NaN, Null and empty string. The red highlighting stopped.
 
 16:19 Back from break pulling weeds in the backyard and got bit multiple times by mosquitoes. Ugh.
 
