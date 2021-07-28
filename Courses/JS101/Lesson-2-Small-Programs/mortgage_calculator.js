@@ -49,11 +49,59 @@ function prompt(message) {
   console.log(`=> ${message}`);
 }
 
-function invalidNumber(number) {
-  return number.trimStart() === '' || Number.isNaN(Number(number));
+function isInvalidNumber(number) {
+  return number.trim() === '' ||
+         Number(number) < 0 ||
+         Number.isNaN(Number(number));
 }
 
 prompt("Welcome to the Mortgage Calculator!");
 
-prompt("Please enter the loan amount:");
-let loanAmount = readline.question();
+while (true) {
+  prompt("***********************************")
+
+
+  prompt("Please enter the loan amount:");
+  let loanAmount = readline.question();
+  while (isInvalidNumber(loanAmount)) {
+    prompt("Please enter a positive number:");
+    loanAmount = readline.question();
+  }
+
+  prompt("Please enter the interest rate:");
+  prompt("Examples: 4 for 4% or 2.75 for 2.75%")
+  let interestRate = readline.question();
+
+  while (isInvalidNumber(interestRate)) {
+    prompt("Please enter a positive number:");
+    interestRate = readline.question();
+  }
+
+  prompt("Please enter the loan duration in years:")
+  let years = readline.question();
+
+  while (isInvalidNumber(years)) {
+    prompt('Please enter a positive number:');
+    years = readline.question();
+  }
+
+  let annualInterestRate = Number(interestRate) / 100;
+  let monthlyInterestRate = annualInterestRate / 12;
+  let months = Number(years) * 12;
+
+  let monthlyPayment = Number(loanAmount) * (monthlyInterestRate / (1 - Math.pow((1 + monthlyInterestRate), (-Number(months)))));
+
+  prompt(`The monthly payment is $${monthlyPayment.toFixed(2)}`);
+
+  prompt("Do you want to do another calculation?");
+  let answer = readline.question().toLowerCase();
+  while (answer[0] !== 'n' && answer[0] !== 'y') {
+    prompt("Please enter 'y' or 'n'.");
+    answer = readline.question().toLowerCase();
+  }
+
+  if(answer[0] === 'n') break;
+}
+
+
+

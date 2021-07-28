@@ -1094,11 +1094,13 @@ renames = copies
 
 2. What will you do today?
    * [x] 1. Study Session with Alex > "Double Doubles"
-   * [x] 2. Assignment: Mortgage / Car Loan Calculator
-   * [x] 3. JS101 > L2 > 26 > RPS Bonus Features
-   * [x] 4. Study Session with Laurent
-   * [x] 5. Anki cards
+   * [ ] 2. Assignment: Mortgage / Car Loan Calculator
+   * [ ] 3. JS101 > L2 > 26 > RPS Bonus Features
+   * [ ] 4. Study Session with Laurent
+   * [ ] 5. Anki cards
 
 3. Are there any blockers or impediments preventing you from doing your work?
-   1. Our nanny has an interview this morning, so I will have a little less time to do Launch School.
-   2. Sometimes, it could be quieter with fewer distractions as my office is open and right next to the living room where most family activity occurs.
+   * Our nanny has an interview this morning, so I will have a little less time to do Launch School.
+   * Sometimes, it could be quieter with fewer distractions as my office is open and right next to the living room where most family activity occurs.
+
+09:32 [Super Memory](http://super-memory.com/articles/20rules.htm)
