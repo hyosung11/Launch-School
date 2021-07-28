@@ -1111,4 +1111,7 @@ renames = copies
 
 13:59 Was AFK for ping pong where I got slaughtered today by Louis and then ate lunch and took a cold shower. My right elbow feels irritated even though I changed my trackpad to the left side. I feel tired and am going to take a nap.
 
-14:38 Took a short nap and read *Kettlebell Simple & Sinister*. 
+14:38 Took a short nap and read *Kettlebell Simple & Sinister*.
+
+16:45 Made Anki cards from JS101 > JavaScript Basics > Reading Documentation 1. Good good good. I have to pee and then go outside for a few minutes before making dinner.
+
