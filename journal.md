@@ -1110,3 +1110,5 @@ renames = copies
 11:49 Made Anki cards from the questions at the end of the Mortgage Calculator assignment.
 
 13:59 Was AFK for ping pong where I got slaughtered today by Louis and then ate lunch and took a cold shower. My right elbow feels irritated even though I changed my trackpad to the left side. I feel tired and am going to take a nap.
+
+14:38 Took a short nap and read *Kettlebell Simple & Sinister*. 

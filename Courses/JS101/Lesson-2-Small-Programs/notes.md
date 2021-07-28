@@ -4390,4 +4390,22 @@ and you'll be able to transform into a professional developer. That's what profe
 
 20210725 11:45 Coding Tips 2 assignment completed.
 
-## End
+## RPS Bonus Features
+
+Here are a couple of bonus features for the Rock Paper Scissors program.
+
+1. **Lizard Spock** This game is a variation on the Rock Paper Scissors game that adds two more options - Lizard and Spock. The full explanation and rules are [here](https://web.archive.org/web/20181217114425/http://www.samkass.com/theories/RPSSL.html). There's also a hilarious Big Bang Theory video about it [here](https://www.youtube.com/watch?v=x5Q6-wMx-K8).
+
+The goal of this bonus is to add Lizard and Spock to your game.
+
+1. **Shortened Input** Typing the full word "rock" or "lizard" is tiring. Update the program so the user can type "r" for "rock," "p" for "paper," and so on. Note that if you do bonus #1, you'll have two words that start with "s." How do you resolve that?
+
+1. **Best of 5** Keep score of the player's and computer's wins. When either the player or computer reaches three wins, the match is over, and the winning player becomes the grand winner. Don't add your incrementing logic to `displayWinner`. Keep your functions simple; they should perform one logical task — no more, no less.
+
+1. **ESLint complaints** Run your program through ESLint to see what problems it identifies, and try to fix them.
+
+1. **Consider asking for a code review** Be sure to ask questions about any part of your code that you're uncertain about.
+
+## Lesson 2 Quiz 1
+
+End
