@@ -99,7 +99,6 @@ function findFibonacciIndexByLength(digits) {
   }
 }
 
-
 // Examples:
 console.log(findFibonacciIndexByLength(2n)) === 7n; // 1 1 2 3 5 8 13
 console.log(findFibonacciIndexByLength(3n)) === 12n; // 1 1 2 3 5 8 13 21 34 55 89 144
@@ -109,25 +108,29 @@ console.log(findFibonacciIndexByLength(3n)) === 12n; // 1 1 2 3 5 8 13 21 34 55 
 // console.log(findFibonacciIndexByLength(1000n)) === 4782n;
 // console.log(findFibonacciIndexByLength(10000n)) === 47847n;
 
+// console.log(fibonacci(6)); // => 8
+// console.log(fibonacci(20)); // => 6765
+
 // ======
-// // fibonacci sequence
-// function fibonacci(number) {
-//   if (number < 2) return number; // 0 if number is 0, 1 if number is 1
-//   return fibonacci(number - 1) + fibonacci(number - 2);
-// }
+// fibonacci sequence
+function fibonacci(number) {
+  if (number < 2n) return number; // 0 if number is 0, 1 if number is 1
+  return fibonacci(number - 1n) + fibonacci(number - 2n);
+}
 
+// Alex's Version
+function findFibonacciIndexByLength (size) {
+  let input = 0n;
+  // let array = [];
+  let count = 0n;
 
-// // console.log(fibonacci(6)); // => 8
-// // console.log(fibonacci(20)); // => 6765
+  while (String(fibonacci(input)).length < size) {
+    input += 1n;
+    // array.push(fibonacci(input));
+    count += 1n;
 
-// function findFibonacciIndexByLength (size) {
-//   let input = 2n;
-//   let array = [];
+  }
 
-//   while (String(fibonacci(input)).length < size) {
-//     array.push(fibonacci(input));
-//     input += 1;
-//   }
-//   console.log(array);
-//   return array.length;
-// }
+  // return BigInt(array.length);
+  return count;
+}

@@ -82,4 +82,6 @@ use the approach given to you by your partner
 - language agnostic
 - ruby left / javascript right
 
+Algorithm Clinic
+
 End
