@@ -3947,6 +3947,164 @@ If you want, you can now watch the rest of the video walkthrough now:
 
 Remember to read the text version to get the most out of this assignment.
 
+```js
+prompt(`You chose ${choice}, the computer chose ${computerChoice}`);
+
+if ((choice === 'rock' && computerChoice === 'scissors') ||
+    (choice === 'paper' && computerChoice === 'rock') ||
+    (choice === 'scissors' && computerChoice === 'paper')) {
+  prompt('You win!);
+}
+```
+
+Hopefully, the code above is self-explanatory. You can compare it with the winning conditions at the top of the assignment to verify. The next step is to add the logic for the computer winning:
+
+```js
+if ((choice === 'rock' && computerChoice === 'scissors') ||
+    (choice === 'paper' && computerChoice === 'rock') ||
+    (choice === 'scissors' && computerChoice === 'paper')) {
+  prompt('You win!');
+} else if ((choice === 'rock' && computerChoice === 'paper') ||
+           (choice === 'paper' && computerChoice === 'scissors') ||
+           (choice === 'scissors' && computerChoice === 'rock')) {
+  prompt('Computer wins!');
+}
+```
+
+Finally, we need to add another `else` clause for the case when it's a tie.
+
+```js
+if ((choice === 'rock' && computerChoice === 'scissors') ||
+    (choice === 'paper' && computerChoice === 'rock') ||
+    (choice === 'scissors' && computerChoice === 'paper')) {
+  prompt('You win!');
+} else if ((choice === 'rock' && computerChoice === 'paper') ||
+           (choice === 'paper' && computerChoice === 'scissors') ||
+           (choice === 'scissors' && computerChoice === 'rock')) {
+  prompt('Computer wins!');
+} else {
+  prompt("It's a tie.");
+}
+```
+
+At this point, our game is mainly done. Run it a few times with the node command until you get all three results.
+
+All we need to add now is the ability for the program to ask the user if they want to play another game. We'll do that by adding an outer while loop as we did with our calculator programs:
+
+```js
+const readline = require('readline-sync');
+const VALID_CHOICES = ['rock', 'paper', 'scissors'];
+
+function prompt(message) {
+  console.log(`=> ${message}`);
+}
+
+while (true) {
+  prompt(`Choose one: ${VALID_CHOICES.join(', ')}`);
+  let choice = readline.question();
+
+  while (!VALID_CHOICES.includes(choice)) {
+    prompt("That's not a valid choice");
+    choice = readline.question();
+  }
+
+  let randomIndex = Math.floor(Math.random() * VALID_CHOICES.length);
+  let computerChoice = VALID_CHOICES[randomIndex];
+
+  prompt(`You chose ${choice}, computer chose ${computerChoice}`);
+
+  if ((choice === 'rock' && computerChoice === 'scissors') ||
+      (choice === 'paper' && computerChoice === 'rock') ||
+      (choice === 'scissors' && computerChoice === 'paper')) {
+    prompt('You win!');
+  } else if ((choice === 'rock' && computerChoice === 'paper') ||
+             (choice === 'paper' && computerChoice === 'scissors') ||
+             (choice === 'scissors' && computerChoice === 'rock')) {
+    prompt('Computer wins!');
+  } else {
+    prompt("It's a tie!");
+  }
+
+  prompt('Do you want to play again (y/n)?');
+  let answer = readline.question().toLowerCase();
+  while (answer[0] !== 'n' && answer[0] !== 'y') {
+    prompt('Please enter "y" or "n".');
+    answer = readline.question().toLowerCase();
+  }
+
+  if (answer[0] !== 'y') break;
+}
+```
+
+You'll remember this outer loop from our previous programs. We start the `while` loop with a condition that is always true. We break out of the loop when the user responds with input that doesn't begin with 'y'.
+
+There's one small improvement we can make here that'll make our code a little easier to read. If we extract out the `if/else` logic for deciding the winner of the game to a function, our code becomes a little easier to parse. Here's our code after the function extraction:
+
+```js
+const readline = require('readline-sync');
+const VALID_CHOICES = ['rock', 'paper', 'scissors'];
+
+function prompt(message) {
+  console.log(`=> ${message}`);
+}
+
+function displayWinner(choice, computerChoice) {
+  prompt(`You chose ${choice}, computer chose ${computerChoice}`);
+
+  if ((choice === 'rock' && computerChoice === 'scissors') ||
+      (choice === 'paper' && computerChoice === 'rock') ||
+      (choice === 'scissors' && computerChoice === 'paper')) {
+    prompt('You win!');
+  } else if ((choice === 'rock' && computerChoice === 'paper') ||
+             (choice === 'paper' && computerChoice === 'scissors') ||
+             (choice === 'scissors' && computerChoice === 'rock')) {
+    prompt('Computer wins!');
+  } else {
+    prompt("It's a tie!");
+  }
+}
+
+while (true) {
+  prompt(`Choose one: ${VALID_CHOICES.join(', ')}`);
+  let choice = readline.question();
+
+  while (!VALID_CHOICES.includes(choice)) {
+    prompt("That's not a valid choice");
+    choice = readline.question();
+  }
+
+  let randomIndex = Math.floor(Math.random() * VALID_CHOICES.length);
+  let computerChoice = VALID_CHOICES[randomIndex];
+
+  displayWinner(choice, computerChoice);
+
+  prompt('Do you want to play again (y/n)?');
+  let answer = readline.question().toLowerCase();
+  while (answer[0] !== 'n' && answer[0] !== 'y') {
+    prompt('Please enter "y" or "n".');
+    answer = readline.question().toLowerCase();
+  }
+
+  if (answer[0] !== 'y') break;
+}
+```
+
+That might not seem like a useful refactoring, but it does improve the readability and maintainability of our program. We've encapsulated the logic for deciding and displaying the winner inside the `displayWinner` function. If you want to read, change, or debug the main flow of the program, you can do so without having to worry about the relatively complicated logic of displaying the winner. On the other hand, you can limit your focus to the `displayWinner` function if you want to examine that specific piece of the puzzle.
+
+### Things to consider
+
+Things to consider
+
+1. Notice how the `displayWinner` function calls the `prompt` function. What happens if you move the `displayWinner` function definition above the `prompt` function definition? Does it still work?
+
+2. How would you use the `displayWinner` function differently if it returned a string, as opposed to outputting the string directly?
+
+3. We used the `Math` object to generate a random number and round down a floating point number. Skim through the documentation for the `Math` object and see what other functions from the object you may find useful. Specifically, read the pages for `Math.round` and `Math.ceil`. How would you rewrite the random index expression if you were to use one of these two methods instead of `Math.floor`?
+
+Conventionally, methods on the `Math` object are called functions. There doesn't seem to be any good reason for that, but it is what it is.
+
+We used a `while` loop with an always-true condition and a `break` statement to decide whether to replay the game. Can you rewrite the loop so that we don't need to use the `break` statement to stop the loop?
+
 ## Coding Tips 2
 
 ### Using blank lines to organize code
