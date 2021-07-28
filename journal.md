@@ -997,6 +997,7 @@ Vim dumps you into command mode to start
 
 18:08 Checking my gitconfig file:
 
+```
 [core]
  excludesfile = ~/.gitignore
  legacyheaders = false # >git 1.5
@@ -1060,6 +1061,7 @@ renames = copies
  textconv = exif
 [credential]
  helper = osxkeychain
+```
 
 ---
 
@@ -1079,3 +1081,24 @@ renames = copies
 
 08:57 Getting ready to start my work day with daily scrum.
 
+09:11 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Prepare for Interview
+   * [x] 2. Do Interview
+   * [x] 3. Assignment: Mortgage / Car Loan Calculator
+   * [x] 4. Algorithm Writing Clinic
+   * [x] 5. Anki cards
+   * [x] 6. Study Session with Laurent
+   * [x] 7. JS101 > L2 > 26 > RPS Refactoring
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex > "Double Doubles"
+   * [x] 2. Assignment: Mortgage / Car Loan Calculator
+   * [x] 3. JS101 > L2 > 26 > RPS Bonus Features
+   * [x] 4. Study Session with Laurent
+   * [x] 5. Anki cards
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   1. Our nanny has an interview this morning, so I will have a little less time to do Launch School.
+   2. Sometimes, it could be quieter with fewer distractions as my office is open and right next to the living room where most family activity occurs.
