@@ -15,5 +15,8 @@
     "titleBar.inactiveBackground": "#130c0299",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.color": "#130c02"
+  "peacock.color": "#130c02",
+  "cSpell.words": [
+    "milesperhour"
+  ]
 }
