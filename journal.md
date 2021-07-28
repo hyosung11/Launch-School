@@ -1071,4 +1071,11 @@ renames = copies
 
 21:01 Finished refactoring the Rock Paper Scissors assignment.
 
-21:23 Cleaned up spelling mistakes an unknown words.
+21:23 Cleaned up spelling mistakes and unknown words.
+
+## 20210728 수요일
+
+07:20 After study session with Alex. I need to rep each problem multiple times. Even if I know the algorithm, I don't know the method or methods to use in JavaScript syntax. So much more to learn.
+
+08:57 Getting ready to start my work day with daily scrum.
+
