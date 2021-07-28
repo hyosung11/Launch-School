@@ -1104,3 +1104,7 @@ renames = copies
    * Sometimes, it could be quieter with fewer distractions as my office is open and right next to the living room where most family activity occurs.
 
 09:32 [Super Memory](http://super-memory.com/articles/20rules.htm)
+
+11:05 Got my mortgage calculator working with almost 100% copying of the LS solution. Baby steps. Step by step. Progress not perfection. Ready for a longer break.
+
+11:49 Made Anki cards from the questions at the end of the Mortgage Calculator assignment.
