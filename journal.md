@@ -178,7 +178,7 @@ My best tips would probably be:
 * carefully craft your question to elicit the best and most complete answer
   * think like a trial attorney who is examining a witness
 * it's better for a question to be longer than the answer
-* keep answers short, simple and specific to stimulate synpatic strengthening.
+* keep answers short, simple and specific to stimulate synaptic strengthening.
 * use a combination of words and images -- dual coding -- to encode the question because it's easier to retrieve from memory
 * You can use an image as the question
 * Use colors and rich text formatting to make the text more memorable
@@ -191,7 +191,7 @@ My best tips would probably be:
 * append a metacognitive question to the end of the answer
 * use cloze deletion questions
 * Open-ended questions are more challenging than cloze deletion type or multiple-choice questions.
-* use flashcards answers as an opportunity to build associations with other parts of your knowledgebase
+* use flashcards answers as an opportunity to build associations with other parts of your knowledge base
 * craft why questions - deeper level of knowledge of understanding
   * what is cancer (shallow) vs why does cancer exist in nature (deeper)
 * create multiple flashcards for the same concept that examine it from different viewpoints
@@ -403,11 +403,11 @@ Summary
 
 08:21 Start Anki cards
 
-09:08 Studied 8 cards, but edited each one. Back from breakfast and ready to get to the next assignement.
+09:08 Studied 8 cards, but edited each one. Back from breakfast and ready to get to the next assignment.
 
 09:38 write out the code blocks myself instead of just copying them!
 
-10:04 Trying to disable extensios that code complete or suggest, but can't figure it out.
+10:04 Trying to disable extensions that code complete or suggest, but can't figure it out.
 
 10:22 I think I found and disabled the extensions that I want to disable, but I will restart now.
 
@@ -670,7 +670,7 @@ I think this means I can use the latest ESLint version.
 
 11:45 Did resume review with Christine Denning and scheduled an interview prep for Monday. Listening to music is great. I cleaned up the office and it feels good to be in here.
 
-11:50 Ready to practice the Assignment: Calculaor.
+11:50 Ready to practice the Assignment: Calculator.
 
 13:14 So much to learn about Node, NPM, ESLint, config files. ESLint is not reading my `.eslintrc.yml` file. Eyes are strained and my legs are tired. I am going to the dining room table now.
 
@@ -816,7 +816,7 @@ console.log(thousands); // => 4 */
 
 12:39 Fixed the `undefined` errors in my calculator assignment to add the config file. This is fun!
 
-13:41 Back after prepping lunch and eating family lunch. I'm workig on the internationalization of the calculator assignment. It's fun. I made a Korean, ko version.
+13:41 Back after prepping lunch and eating family lunch. I'm working on the internationalization of the calculator assignment. It's fun. I made a Korean, ko version.
 
 14:35 I need to create some conditional logic to change the output to Korean, but I'm not sure how to do it as I get a TypeError:
 
@@ -828,7 +828,7 @@ console.log(thousands); // => 4 */
 TypeError: Assignment to constant variable.
 ```
 
-I need to create a function that sets the language for the entire program. Not hardcode it like I am doing now.
+I need to create a function that sets the language for the entire program. Not hard code it like I am doing now.
 
 15:40 Took a short nap. I'm still tired. My eyes feel strained. Eye divergence exercises needed.
 
@@ -876,7 +876,7 @@ Vim dumps you into command mode to start
 
 08:23 Added Vim basic commands notes. Next time I have a Git problem, handle it better.
 
-08:43 Feeling resistance to doing the Anki cards. Why? Do them while notetaking? That doesn't make sense. I think it's read and take notes and then make cards, but that's not what the doctor recommends.
+08:43 Feeling resistance to doing the Anki cards. Why? Do them while note taking? That doesn't make sense. I think it's read and take notes and then make cards, but that's not what the doctor recommends.
 
 10:02 Worked on Anki cards. Slow and steady progress.
 
@@ -994,3 +994,88 @@ Vim dumps you into command mode to start
 15:02 Back from ping pong and picking up Omi from Graydon.
 
 17:40 After study session with Laurent. I need to spend some solo time working on exercises to train my problem-solving skills. Omi's warm but okay.
+
+18:08 Checking my gitconfig file:
+
+[core]
+ excludesfile = ~/.gitignore
+ legacyheaders = false # >git 1.5
+ quotepath = false
+
+[user]
+
+name = your name
+
+email = your@name
+
+[mergetool]
+ keepBackup = true
+
+[push]
+ default = simple # [ matching | simple ]
+
+[color]
+ ui = auto
+ interactive = auto
+
+[repack]
+ usedeltabaseoffset = true # >git 1.5
+
+[alias]
+ s = status
+ a = !git add . && git status
+ au = !git add -u . && git status
+ aa = !git add . && git add -u . && git status
+ c = commit
+ cm = commit -m
+ ca = commit --amend # careful
+ ac = !git add . && git commit
+ acm = !git add . && git commit -m
+ l = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+ ll = log --stat --abbrev-commit
+ lg = log --color --graph --pretty=format:'%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+ llg = log --color --graph --pretty=format:'%C(bold white)%H %d%Creset%n%s%n%+b%C(bold blue)%an <%ae>%Creset %C(bold green)%cr (%ci)' --abbrev-commit
+ d = diff
+ master = checkout master
+ spull = svn rebase
+ spush = svn dcommit
+ alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+
+[include] # as of 1.7.10 <https://github.com/git/git/commit/9b25a0b52e09400719366f0a33d0d0da98bbf7b0>
+ path = ~/.gitcinclude
+ path = .githubconfig
+ path = .gitcredential
+
+[github]
+
+user =
+
+token =
+
+[diff]
+git does copy/rename *detection*. if you want it to track copies/renames: <http://stackoverflow.com/questions/1043388/record-file-copy-operation-with-git>
+renames = copies
+
+[diff "exif"]
+ textconv = exif
+[credential]
+ helper = osxkeychain
+
+---
+
+19:16 After delicious dinner that Sohee made of chicken fajitas. My eyes are tired. I will do some Anki cards now.
+
+19:46 Did 5 Anki cards. Slow and steady.
+
+20:21 Working on the text version of RPS assignment.
+
+21:01 Finished refactoring the Rock Paper Scissors assignment.
+
+21:23 Cleaned up spelling mistakes and unknown words.
+
+## 20210728 수요일
+
+07:20 After study session with Alex. I need to rep each problem multiple times. Even if I know the algorithm, I don't know the method or methods to use in JavaScript syntax. So much more to learn.
+
+08:57 Getting ready to start my work day with daily scrum.
+

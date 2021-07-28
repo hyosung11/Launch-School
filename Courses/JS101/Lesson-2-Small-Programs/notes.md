@@ -135,7 +135,7 @@ Within your new git repo, create a new directory for this lesson. Call it `lesso
 
 ## 4. Truthiness
 
-The ability to express **true** or **false** is vital in any programming language. It helps us build c*onditional logic* and to understand the state of an object or expression. Typically, we capture the notion of whether a value is true or false in a **boolean** data type. A boolean is an **object** whose only purpose is to *convey whether it is true or false*.
+The ability to express **true** or **false** is vital in any programming language. It helps us build *conditional logic* and to understand the state of an object or expression. Typically, we capture the notion of whether a value is true or false in a **boolean** data type. A boolean is an **object** whose only purpose is to *convey whether it is true or false*.
 
 JavaScript uses the `true` and `false` *primitive values* as booleans. You can print them, assign them to variables, pass them around, and test them:
 
@@ -283,7 +283,7 @@ You can *chain* as many sub-expressions as you'd like with `&&`; the sub-express
 
 #### Short-Circuit Operators
 
-Both `&&` and `||` exhibit a behavior called **short-circuiting**. That means that JavaScript stops evaluating sub-expressions once it can determine the final value. In the case of `&&`, JavaScript short-circuits when it realizes that the entire expression can't be true; that is, when it *encounters a false sub-expression*. With `||`, it short-circuits when it r*ealizes that the expression can't be false*; that is, at least one sub-expression is true.
+Both `&&` and `||` exhibit a behavior called **short-circuiting**. That means that JavaScript stops evaluating sub-expressions once it can determine the final value. In the case of `&&`, JavaScript short-circuits when it realizes that the entire expression can't be true; that is, when it *encounters a false sub-expression*. With `||`, it short-circuits when it r*realizes that the expression can't be false*; that is, at least one sub-expression is true.
 
 Consider `&&`: it short-circuits when it encounters the first sub-expression (from left-to-right) that evaluates as false:
 
@@ -398,7 +398,7 @@ if (name === "") {
 
 ## 5. Walk-through: Calculator
 
-Our first program in this course will be a command line calcultor program that will:
+Our first program in this course will be a command line calculator program that will:
 
 1. Ask the user for two numbers.
 2. Ask the user for the type of operation to perform: add, subtract, multiply or divide.
@@ -406,7 +406,7 @@ Our first program in this course will be a command line calcultor program that w
 
 ### Getting Ready to Code
 
-Let's start writing the first version of the calculator. Open your terminal and navigate to the directory you created for this lesson and create a file named c`alculator.js` in that directory:
+Let's start writing the first version of the calculator. Open your terminal and navigate to the directory you created for this lesson and create a file named c`calculator.js` in that directory:
 
 ```js
 touch calculator.js
@@ -432,7 +432,7 @@ If successful, this command should create a directory called `node_modules` insi
 
 ### Starting to Code
 
-Some folks are visual learners, and really enjoy seeing complex topics covered as videos. Application walkthroughs, like the one we're about to do, often work well as videos, so we've provided a video walkthrough of this project that you can watch if you want.
+Some folks are visual learners, and really enjoy seeing complex topics covered as videos. Application walkthrough, like the one we're about to do, often work well as videos, so we've provided a video walkthrough of this project that you can watch if you want.
 
 [Video Version](https://launchschool.com/lessons/64655364/assignments/e3733b97)
 
@@ -486,7 +486,7 @@ console.log("What's the first number?");
 
 The first line uses the built-in Node function `require` to look for the `readline-sync` library in the `node_modules` folder. The **function** returns the library in the form of an **object** that we can assign to the `readline` variable. The variable name doesn't have to be `readline`; you can choose any name you want, but it makes sense to use a name that helps you remember what the variable contains.
 
-We'll use the `question` method from the r`eadline-sync` library to get input from the user. To do so, we need to *refer* to the **method** as `readline.question`, where `readline` is the name of the variable that contains the library object.
+We'll use the `question` method from the `readline-sync` library to get input from the user. To do so, we need to *refer* to the **method** as `readline.question`, where `readline` is the name of the variable that contains the library object.
 
 ```js
 const readline = require('readline-sync');
@@ -2057,7 +2057,7 @@ You may check out [this article](https://medium.com/launch-school/javascript-wee
   - source code errors
   - edge case errors
   - uncontrolled input errors
-- error situatons
+- error situations
   - error at compilation
   - error at runtime
 
@@ -2930,10 +2930,10 @@ Category | Name | Note
  Non-constant variables and object properties |  `employee` |
   | `number` |
   | `fizzBuzz` |
-  | `speedOfLght` |
+  | `speedOfLight` |
   | `destinationURL` | URL is an acronym
   | `m00n` |
- Constructor functions and clases | `Cat` |
+ Constructor functions and classes | `Cat` |
   | `BoxTurtle` |
   | `Flightless Bird` |
  Other functions | `parseURL` | URL is an acronym
@@ -2961,7 +2961,7 @@ Category | Name | Notes
  Constructor functions and classes | cat | Begins with lowercase letter
  | `makeTurtle` | Begins with lowercase letter
  | `FIZZ_BUZZ` | SCREAMING_SNAKE_CASE
- Other functions | `ParseURL` | Begings with capital letter
+ Other functions | `ParseURL` | Begins with capital letter
  | `FIZZ_BUZZ` | SCREAMING_SNAKE_CASE
  Configuration and magic constants | `absolutePath` | Not SCREAMING_SNAKE_CASE
  | `Today` | Not SCREAMING_SNAKE_CASE
@@ -2972,7 +2972,7 @@ Note that non-idiomatic names are not invalid names. Non-idiomatic names are com
 
 Name | Notes
 -----|-------
- 42ndStree | Begins with number
+ 42ndStreet | Begins with number
  fizz-buzz | Hyphen not allowed
  fizz.buzz | Looks like property reference
 
@@ -3622,7 +3622,7 @@ From the previous example, it's natural to conclude that JavaScript is pass-by-v
 ```js
 function capitalize(names) {
   for (let index = 0; index < names.length; index +=1) {
-    names[index] = names[index][0].toUppeCase() + names[index].slice(1);
+    names[index] = names[index][0].toUpperCase() + names[index].slice(1);
   }
 }
 
@@ -3946,6 +3946,164 @@ If you want, you can now watch the rest of the video walkthrough now:
 [Video Version Continued](https://launchschool.com/lessons/64655364/assignments/2ecb7012)
 
 Remember to read the text version to get the most out of this assignment.
+
+```js
+prompt(`You chose ${choice}, the computer chose ${computerChoice}`);
+
+if ((choice === 'rock' && computerChoice === 'scissors') ||
+    (choice === 'paper' && computerChoice === 'rock') ||
+    (choice === 'scissors' && computerChoice === 'paper')) {
+  prompt('You win!);
+}
+```
+
+Hopefully, the code above is self-explanatory. You can compare it with the winning conditions at the top of the assignment to verify. The next step is to add the logic for the computer winning:
+
+```js
+if ((choice === 'rock' && computerChoice === 'scissors') ||
+    (choice === 'paper' && computerChoice === 'rock') ||
+    (choice === 'scissors' && computerChoice === 'paper')) {
+  prompt('You win!');
+} else if ((choice === 'rock' && computerChoice === 'paper') ||
+           (choice === 'paper' && computerChoice === 'scissors') ||
+           (choice === 'scissors' && computerChoice === 'rock')) {
+  prompt('Computer wins!');
+}
+```
+
+Finally, we need to add another `else` clause for the case when it's a tie.
+
+```js
+if ((choice === 'rock' && computerChoice === 'scissors') ||
+    (choice === 'paper' && computerChoice === 'rock') ||
+    (choice === 'scissors' && computerChoice === 'paper')) {
+  prompt('You win!');
+} else if ((choice === 'rock' && computerChoice === 'paper') ||
+           (choice === 'paper' && computerChoice === 'scissors') ||
+           (choice === 'scissors' && computerChoice === 'rock')) {
+  prompt('Computer wins!');
+} else {
+  prompt("It's a tie.");
+}
+```
+
+At this point, our game is mainly done. Run it a few times with the node command until you get all three results.
+
+All we need to add now is the ability for the program to ask the user if they want to play another game. We'll do that by adding an outer while loop as we did with our calculator programs:
+
+```js
+const readline = require('readline-sync');
+const VALID_CHOICES = ['rock', 'paper', 'scissors'];
+
+function prompt(message) {
+  console.log(`=> ${message}`);
+}
+
+while (true) {
+  prompt(`Choose one: ${VALID_CHOICES.join(', ')}`);
+  let choice = readline.question();
+
+  while (!VALID_CHOICES.includes(choice)) {
+    prompt("That's not a valid choice");
+    choice = readline.question();
+  }
+
+  let randomIndex = Math.floor(Math.random() * VALID_CHOICES.length);
+  let computerChoice = VALID_CHOICES[randomIndex];
+
+  prompt(`You chose ${choice}, computer chose ${computerChoice}`);
+
+  if ((choice === 'rock' && computerChoice === 'scissors') ||
+      (choice === 'paper' && computerChoice === 'rock') ||
+      (choice === 'scissors' && computerChoice === 'paper')) {
+    prompt('You win!');
+  } else if ((choice === 'rock' && computerChoice === 'paper') ||
+             (choice === 'paper' && computerChoice === 'scissors') ||
+             (choice === 'scissors' && computerChoice === 'rock')) {
+    prompt('Computer wins!');
+  } else {
+    prompt("It's a tie!");
+  }
+
+  prompt('Do you want to play again (y/n)?');
+  let answer = readline.question().toLowerCase();
+  while (answer[0] !== 'n' && answer[0] !== 'y') {
+    prompt('Please enter "y" or "n".');
+    answer = readline.question().toLowerCase();
+  }
+
+  if (answer[0] !== 'y') break;
+}
+```
+
+You'll remember this outer loop from our previous programs. We start the `while` loop with a condition that is always true. We break out of the loop when the user responds with input that doesn't begin with 'y'.
+
+There's one small improvement we can make here that'll make our code a little easier to read. If we extract out the `if/else` logic for deciding the winner of the game to a function, our code becomes a little easier to parse. Here's our code after the function extraction:
+
+```js
+const readline = require('readline-sync');
+const VALID_CHOICES = ['rock', 'paper', 'scissors'];
+
+function prompt(message) {
+  console.log(`=> ${message}`);
+}
+
+function displayWinner(choice, computerChoice) {
+  prompt(`You chose ${choice}, computer chose ${computerChoice}`);
+
+  if ((choice === 'rock' && computerChoice === 'scissors') ||
+      (choice === 'paper' && computerChoice === 'rock') ||
+      (choice === 'scissors' && computerChoice === 'paper')) {
+    prompt('You win!');
+  } else if ((choice === 'rock' && computerChoice === 'paper') ||
+             (choice === 'paper' && computerChoice === 'scissors') ||
+             (choice === 'scissors' && computerChoice === 'rock')) {
+    prompt('Computer wins!');
+  } else {
+    prompt("It's a tie!");
+  }
+}
+
+while (true) {
+  prompt(`Choose one: ${VALID_CHOICES.join(', ')}`);
+  let choice = readline.question();
+
+  while (!VALID_CHOICES.includes(choice)) {
+    prompt("That's not a valid choice");
+    choice = readline.question();
+  }
+
+  let randomIndex = Math.floor(Math.random() * VALID_CHOICES.length);
+  let computerChoice = VALID_CHOICES[randomIndex];
+
+  displayWinner(choice, computerChoice);
+
+  prompt('Do you want to play again (y/n)?');
+  let answer = readline.question().toLowerCase();
+  while (answer[0] !== 'n' && answer[0] !== 'y') {
+    prompt('Please enter "y" or "n".');
+    answer = readline.question().toLowerCase();
+  }
+
+  if (answer[0] !== 'y') break;
+}
+```
+
+That might not seem like a useful refactoring, but it does improve the readability and maintainability of our program. We've encapsulated the logic for deciding and displaying the winner inside the `displayWinner` function. If you want to read, change, or debug the main flow of the program, you can do so without having to worry about the relatively complicated logic of displaying the winner. On the other hand, you can limit your focus to the `displayWinner` function if you want to examine that specific piece of the puzzle.
+
+### Things to consider
+
+Things to consider
+
+1. Notice how the `displayWinner` function calls the `prompt` function. What happens if you move the `displayWinner` function definition above the `prompt` function definition? Does it still work?
+
+2. How would you use the `displayWinner` function differently if it returned a string, as opposed to outputting the string directly?
+
+3. We used the `Math` object to generate a random number and round down a floating point number. Skim through the documentation for the `Math` object and see what other functions from the object you may find useful. Specifically, read the pages for `Math.round` and `Math.ceil`. How would you rewrite the random index expression if you were to use one of these two methods instead of `Math.floor`?
+
+Conventionally, methods on the `Math` object are called functions. There doesn't seem to be any good reason for that, but it is what it is.
+
+We used a `while` loop with an always-true condition and a `break` statement to decide whether to replay the game. Can you rewrite the loop so that we don't need to use the `break` statement to stop the loop?
 
 ## Coding Tips 2
 
