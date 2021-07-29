@@ -1151,3 +1151,6 @@ renames = copies
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Not a blocker, but I've slowed way down and am applying the learning to learn principles to the Launch School core curriculum.
+
+09:33 Starting Anki cards now.
+
