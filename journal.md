@@ -1118,3 +1118,9 @@ renames = copies
 16:45 Made Anki cards from JS101 > JavaScript Basics > Reading Documentation 1. Good good good. I have to pee and then go outside for a few minutes before making dinner.
 
 21:18 Made Anki cards from JS100 - JavaScript Basics > Reading Documentation 2
+
+21:20 Start with JS100 - JavaScript Basics > Loops > Loop and Log tomorrow.
+
+## 20210729 목요일
+
+06:17 I bought and am reading Kettlebell Simple & Sinister Revised and Updated. Birds chirping loudly.
