@@ -1114,3 +1114,7 @@ renames = copies
 14:38 Took a short nap and read *Kettlebell Simple & Sinister*. 
 
 14:55 I read through the RPS Bonus Features and watched the Big Bang Theory clip. I have to pee and take a five minute power break.
+
+16:45 Made Anki cards from JS101 > JavaScript Basics > Reading Documentation 1. Good good good. I have to pee and then go outside for a few minutes before making dinner.
+
+21:18 Made Anki cards from JS100 - JavaScript Basics > Reading Documentation 2
