@@ -1125,3 +1125,29 @@ renames = copies
 
 06:17 I bought and am reading Kettlebell Simple & Sinister Revised and Updated. Birds chirping loudly.
 
+06:20 Something unpleasant is going on with my skin. It's bumpy and oozing and then crusting. Is it a mild case of shingles? I'm just guessing. Oh, I had another screening interview yesterday and will have a second interview with them next week. The company is called Triveni, I think.
+
+08:21 Did the full KSS and feel great afterwards. I even did the stretches and the hanging from a pullup bar. Now time to enjoy some Omar hazelnut coffee and read before family breakfast.
+
+08:33 read *Mastery* chapter. Now family breakfast.
+
+09:21 Getting to Daily Scrum questions a little later today.
+
+09:23 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex > "Double Doubles"
+   * [x] 2. Assignment: Mortgage / Car Loan Calculator
+   * [x] 3. JS101 > L2 > 26 > RPS Bonus Features
+   * [x] 4. Anki cards from JS100 - JavaScript Basics > Reading Documentation 1
+   * [x] 5. Anki cards from JS100 - JavaScript Basics > Reading Documentation 2
+
+2. What will you do today?
+   * [ ] 1. Anki cards from JS100 - JavaScript Basics > Loops
+   * [ ] 2. Anki cards from JS100 - JavaScript Basics > Conditionals
+   * [ ] 3. Anki cards from JS100 - JavaScript Basics > Functions 1
+   * [ ] 4. Read *Learn Like a Pro* chapter
+   * [ ] 5. Read *The Pragmatic Programmer* chapter
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Not a blocker, but I've slowed way down and am applying the learning to learn principles to the Launch School core curriculum.
