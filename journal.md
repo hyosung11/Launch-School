@@ -1124,3 +1124,9 @@ renames = copies
 ## 20210729 목요일
 
 06:17 I bought and am reading Kettlebell Simple & Sinister Revised and Updated. Birds chirping loudly.
+
+06:20 Something unpleasant is going on with my skin. It's bumpy and oozing and then crusting. Is it a mild case of shingles? I'm just guessing. Oh, I had another screening interview yesterday and will have a second interview with them next week. The company is called Triveni, I think.
+
+08:21 Did the full KSS and feel great afterwards. I even did the stretches and the hanging from a pullup bar. Now time to enjoy some Omar hazelnut coffee and read before family breakfast.
+
+08:33 read *Mastery* chapter. Now family breakfast.
