@@ -1154,3 +1154,29 @@ renames = copies
 
 09:33 Starting Anki cards now.
 
+10:13 Current Anki add-ons on MBP
+
+* Color Confirmation
+* Large and Colorful Buttons
+* Mini Format Pack
+* ReviewHeatmap
+* Speed Focus Mode auto-alert auto-reveal auto-fail
+
+10:20 Added the above add-ons to iMac.
+
+10:25 Correspondence time.
+
+10:58 It always takes longer than expected. I bought some stuff from Storelli. I want new cleats soon as well. Time to do some soccer practice.
+
+11:19 Did soccer 10' ball mastery today.
+
+12:01 Taking a break to sit with the family for lunch.
+
+12:23 Continuing to work through JS100 - JavaScript Basics > Loops
+
+12:40 Feeling a little tired and hot and sweaty right now.
+
+12:49 Playing around with `cities.js` in node and it's fun to see how I can return different things by changing the arguments for `console.log`.
+
+14:49 I finished Anki cards for JS100 - JavaScript Basics > Loops. I feel tired and want to take a short nap and skip the study session with Laurent. I will check Slack and see if he messaged me back.
+
