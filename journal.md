@@ -1239,3 +1239,5 @@ renames = copies
 15:42 Time to go for PT with Dr. Riotto. Ready-to-return to Functions 1 > 6. Three-way comparison.
 
 16:47 Back from Dr. Riotto where he reset my wrists and worked on my right hamstring.
+
+16:55 Listened to *A Mind for Numbers* chapter 7 on Audible in the car.
