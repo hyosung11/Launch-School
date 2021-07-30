@@ -1213,7 +1213,7 @@ renames = copies
    * [x] 1. Study Session with Alex > Easy 3 > 9. Clean up the words
    * [ ] 2. Anki cards from JS100 - JavaScript Basics > Conditionals
    * [ ] 3. Anki cards from JS100 - JavaScript Basics > Functions 1
-   * [ ] 4. Read *Mastery* final chapter
+   * [x] 4. Read *Mastery* final chapter
    * [ ] 5. Read *Learn Like a Pro* chapter
    * [ ] 6. Read *The Pragmatic Programmer* chapter
 
@@ -1221,3 +1221,9 @@ renames = copies
    * None
 
 09:45 Got sucked into reviewing and editing the Anki cards I had already made. I did this for 30 minutes. Now take a short break and go to conditionals.
+
+10:29 Working through JS100 - JavaScript Basics > Conditionals > 7. Logical Conditionals 1. Time for some correspondence.
+
+10:46 Going down a rabbit hole with [Franz](https://www.techrepublic.com/article/the-best-chat-software-for-linux-macos-and-windows-isnt-slack/?ftag=TRE20d3f17&bhid=30012978669592638273478151313052&mid=13455020&cid=2426660554)
+
+11:28 Finished *Mastery*. I skimmed the part about breathing and energy and ki. No ping pong with Louis. I want to practice soccer drills in my cleats and maybe even outside later during my siesta. I have a partial mind to move to my laptop now. Not sure that I will.
