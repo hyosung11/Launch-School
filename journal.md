@@ -1193,3 +1193,31 @@ renames = copies
 20:19 Kids in bed. I finished my chapter of *Learn Like a Pro*.
 
 20:56 End study for today. Ready to resume at JS100 - JavaScript Basics > Conditionals > 4. Check the Weather, Part 1.
+
+## 20210730 금요일
+
+06:06 Study session with Alex
+
+08:29 Finished Kettlebell Simple & Sinister a little more quickly than yesterday. It feels good to get the kinks moving in my body. Time for breakfast.
+
+08:57 After breakfast. I didn't get reading time, so I'll read *Mastery* a little later. I will put it on my work list. I'm not sure I love the word task.
+
+09:00 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Anki cards from JS100 - JavaScript Basics > Loops
+   * [x] 2. Anki cards from Lesson 1 Quiz 1 questions
+   * [x] 3. Read *Learn Like a Pro* chapter
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex > Easy 3 > 9. Clean up the words
+   * [ ] 2. Anki cards from JS100 - JavaScript Basics > Conditionals
+   * [ ] 3. Anki cards from JS100 - JavaScript Basics > Functions 1
+   * [ ] 4. Read *Mastery* final chapter
+   * [ ] 5. Read *Learn Like a Pro* chapter
+   * [ ] 6. Read *The Pragmatic Programmer* chapter
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * None
+
+09:45 Got sucked into reviewing and editing the Anki cards I had already made. I did this for 30 minutes. Now take a short break and go to conditionals.
