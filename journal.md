@@ -1229,3 +1229,13 @@ renames = copies
 11:28 Finished *Mastery*. I skimmed the part about breathing and energy and ki. No ping pong with Louis. I want to practice soccer drills in my cleats and maybe even outside later during my siesta. I have a partial mind to move to my laptop now. Not sure that I will.
 
 12:28 Finished Anki cards from JS100 - JavaScript Basics > Conditionals. I started reading *Learn Like a Pro* but feel tired now.
+
+14:18 Took a long siesta today as I felt kind of tired. All is well.
+
+14:29 Finished *Learn Like a Pro* chapter 4 on "How to Maximize Working Memory - and Take Better Notes".
+
+14:50 Working on Function 1.
+
+15:42 Time to go for PT with Dr. Riotto. Ready-to-return to Functions 1 > 6. Three-way comparison.
+
+16:47 Back from Dr. Riotto where he reset my wrists and worked on my right hamstring.
