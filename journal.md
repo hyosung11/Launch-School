@@ -997,7 +997,7 @@ Vim dumps you into command mode to start
 
 18:08 Checking my gitconfig file:
 
-```
+```sh
 [core]
  excludesfile = ~/.gitignore
  legacyheaders = false # >git 1.5
@@ -1111,7 +1111,7 @@ renames = copies
 
 13:59 Was AFK for ping pong where I got slaughtered today by Louis and then ate lunch and took a cold shower. My right elbow feels irritated even though I changed my trackpad to the left side. I feel tired and am going to take a nap.
 
-14:38 Took a short nap and read *Kettlebell Simple & Sinister*. 
+14:38 Took a short nap and read *Kettlebell Simple & Sinister*.
 
 14:55 I read through the RPS Bonus Features and watched the Big Bang Theory clip. I have to pee and take a five minute power break.
 
@@ -1180,3 +1180,16 @@ renames = copies
 
 14:49 I finished Anki cards for JS100 - JavaScript Basics > Loops. I feel tired and want to take a short nap and skip the study session with Laurent. I will check Slack and see if he messaged me back.
 
+15:19 Feeling tired. This the low energy part of the day. I just saw Kristy walk by with her dog.
+
+15:22 My lower back feels tight right now.
+
+16:43 Took a break and ordered some chalk for kettlebells and looked at soccer cleats but didn't purchase any. I also took a short nap on the couch while SungOh watched "Unspeakable" on youtube.com.
+
+17:24 Finished making Anki cards from Lesson 1 Quiz 1 questions.
+
+19:41 I vacuumed the entire house and it took more than 30 minutes. Checking messages and email. Children's bedtime now.
+
+20:19 Kids in bed. I finished my chapter of *Learn Like a Pro*.
+
+20:56 End study for today. Ready to resume at JS100 - JavaScript Basics > Conditionals > 4. Check the Weather, Part 1.
