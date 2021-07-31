@@ -1241,3 +1241,28 @@ renames = copies
 16:47 Back from Dr. Riotto where he reset my wrists and worked on my right hamstring.
 
 16:55 Listened to *A Mind for Numbers* chapter 7 on Audible in the car.
+
+## 20210731 통요일
+
+05:56 Meditating before soccer this morning. We shall see how my right hamstring does this morning.
+
+09:39 Feeling okay after a bath after soccer. My hamstring was better than it's been. All is well. Ready to study.
+
+09:51 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex > Easy 3 > 9. Clean up the words
+   * [x] 2. Anki cards from JS100 - JavaScript Basics > Conditionals
+   * [x] 3. Anki cards from JS100 - JavaScript Basics > Functions 1 > 1-5
+   * [x] 4. Read *Mastery* final chapter
+   * [x] 5. Read *Learn Like a Pro* chapter
+
+2. What will you do today?
+   * [ ] 1. Anki cards from JS100 - JavaScript Basics > Functions 1 > 6-11
+   * [ ] 2. Anki cards from JS100 - JavaScript Basics > Variable Scope
+   * [ ] 3. Read *Learn Like a Pro* chapter
+   * [ ] 4. Read *The Pragmatic Programmer* chapter
+   * [ ] 5. Listen to *A Mind for Numbers* chapter on Audible
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I have poison ivy over different parts of my body and it itches and feels irritating to my skin.
