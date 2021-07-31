@@ -1266,3 +1266,5 @@ renames = copies
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I have poison ivy over different parts of my body and it itches and feels irritating to my skin.
+
+10:23 Reviewed and edited current Anki cards. My face itches from the poison ivy.
