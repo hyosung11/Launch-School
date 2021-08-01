@@ -1306,9 +1306,9 @@ renames = copies
    * [x] 4. Listen to *A Mind for Numbers* chapter on Audible
 
 2. What will you do today?
-   * [ ] 1. Study Session with Alex
-   * [ ] 2. Anki cards from JS100 - JavaScript Basics > Functions 1 > 9-11
-   * [ ] 3. Read *Learn Like a Pro* chapter
+   * [x] 1. Study Session with Alex
+   * [x] 2. Anki cards from JS100 - JavaScript Basics > Functions 1 > 9-11
+   * [x] 3. Read *Learn Like a Pro* chapter
    * [ ] 4. Read *The Pragmatic Programmer* chapter
    * [ ] 5. Listen to *A Mind for Numbers* chapter on Audible
    * [ ] 6. Sprint 3 Review
@@ -1320,3 +1320,8 @@ renames = copies
 
 11:08 Finished Functions 1, but don't completely understand what's happening with the function. Going to take a break until 11:30 then do KSS.
 
+11:31 Working with my Anki cards. Now time for a break to train.
+
+12:25 Finished KSS at 47:59. Took longer stretch time.
+
+12:28 My chin and throat itch. I need to break my Trello cards into smaller pieces, so I can track what I am doing better.
