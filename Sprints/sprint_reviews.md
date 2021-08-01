@@ -154,13 +154,13 @@ The Sprint Review includes the following elements:
     * Participated in Algorithm Writing Clinic
   * Remaining
     * Anki cards for JS100 - JavaScript Basics >
-      * 6. Variable Scope
-      * 7. Strings
-      * 8. Arrays
-      * 9. Functions 2
-      * 10. Objects
+      * Variable Scope
+      * Strings
+      * Arrays
+      * Functions 2
+      * Objects
     * JS101 Lesson 2: Small Programs
-      * 27. Lesson 2 Quiz 1
+      * Lesson 2 Quiz 1
     * JS101 - Small Problems
       * Easy 2 > 10-12
       * Easy 3 > 4-10
