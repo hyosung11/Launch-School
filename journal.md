@@ -1317,3 +1317,6 @@ renames = copies
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * The poison ivy is still bothering me. It's a low level energy suck.
+
+11:08 Finished Functions 1, but don't completely understand what's happening with the function. Going to take a break until 11:30 then do KSS.
+
