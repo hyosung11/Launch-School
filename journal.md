@@ -1290,3 +1290,9 @@ renames = copies
 07:34 I have so much to learn. Repetitions. Repetitions. I need repetitions.
 
 08:01 My body still itches all over. Breakfast at 08:30. What do I do for 30 minutes? Read and reflect and train KSS later?
+
+08:17 At the dining room table cleaning up my git commits from my two different machines. Read a little before breakfast and then do my daily scrum. Okay.
+
+08:51 After family breakfast. Drinking coffee and reading *Learn Like a Pro* chapter on "How to gain intuition and think fast".
+
+08:57 Back to the office workstation for Daily Scrum.
