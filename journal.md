@@ -1282,3 +1282,11 @@ renames = copies
 18:57 Not been a productive day. Tired and distracted.
 
 19:17 So out of it today. My nipples itch and so does my neck. Rub more ointment on my body parts. My knee does feel better since I rubbed the ointment on it.
+
+## 20210801 일요일
+
+06:00 Ready for study session with Alex.
+
+07:34 I have so much to learn. Repetitions. Repetitions. I need repetitions.
+
+08:01 My body still itches all over. Breakfast at 08:30. What do I do for 30 minutes? Read and reflect and train KSS later?
