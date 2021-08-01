@@ -1270,3 +1270,15 @@ renames = copies
 10:23 Reviewed and edited current Anki cards. My face itches from the poison ivy.
 
 10:54 I just finished one problem and I'm tired. Time for a break and maybe a change of location.
+
+11:06 At the dining room table doing correspondence right now.
+
+11:32 Tired today at the moment. I took a break for correspondence. Now listening to Pure Focus on Apple Music, but it has lyrics which is not good for studying.
+
+13:36 After lunch and before that a nap. I read a chapter from *Learn Like a Pro*. I also listened to *A Mind for Numbers* on Audible while prepping and picking up lunch.
+
+14:14 Eyes hurt. They feel dry. I'm tired. Aack.
+
+18:57 Not been a productive day. Tired and distracted.
+
+19:17 So out of it today. My nipples itch and so does my neck. Rub more ointment on my body parts. My knee does feel better since I rubbed the ointment on it.
