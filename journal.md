@@ -1296,3 +1296,24 @@ renames = copies
 08:51 After family breakfast. Drinking coffee and reading *Learn Like a Pro* chapter on "How to gain intuition and think fast".
 
 08:57 Back to the office workstation for Daily Scrum.
+
+09:04 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Anki cards from JS100 - JavaScript Basics > Functions 1 > 6-8
+   * [x] 2. Read *Learn Like a Pro* chapter
+   * [x] 3. Read *The Pragmatic Programmer* chapter
+   * [x] 4. Listen to *A Mind for Numbers* chapter on Audible
+
+2. What will you do today?
+   * [ ] 1. Study Session with Alex
+   * [ ] 2. Anki cards from JS100 - JavaScript Basics > Functions 1 > 9-11
+   * [ ] 3. Read *Learn Like a Pro* chapter
+   * [ ] 4. Read *The Pragmatic Programmer* chapter
+   * [ ] 5. Listen to *A Mind for Numbers* chapter on Audible
+   * [ ] 6. Sprint 3 Review
+   * [ ] 7. Sprint 3 Retrospective
+   * [ ] 8. Sprint 4 Planning
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * The poison ivy is still bothering me. It's a low level energy suck.
