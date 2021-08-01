@@ -62,3 +62,40 @@ This question allows us to capture things that happened but leave us feeling unc
    - I'm not sure how deep I need to go with understanding:
      - e.g., researching `Number(value)` and it has so much material on MDN
    - I still make syntactic mistakes and get lost as I code out the algorithms as to what I'm doing in a particular step
+
+## Sprint 3, 20210726 - 20210801
+
+1. **What went well?**\
+In other words, what took place that we want to recognise and acknowledge as having gone well?
+
+   - Studied everyday using a logical process that I'm fine-tuning as I go along
+   - Tweaking my note-taking process to challenge myself to recall more as I read
+   - Disciplining myself to write out the code examples in the assignments instead of just copying and pasting them into my notes
+   - Making Anki question cards from the JS100 - JavaScript Basics exercises
+   - Reading and watching learning to learn materials
+     - *Learn Like a Pro* book
+     - *Learn Like a Pro* edx course
+     - *A Mind for Numbers* Audible book
+
+1. **What didn’t go so well?**\
+  What took place that didn’t go as we would have liked?
+
+   - Caught poison ivy, so feeling itchy and irritated by that
+   - I still don't fully understand every piece of code that I write. I need to test my code and see exactly what's happening step by step
+   - Fear of failing Lesson 2 Quiz 1
+
+1. **What did I learn?**\
+We want to think about what we’ve learned about how we worked together. It’s less about the content and more about the process.
+
+   - I need to break down Trello cards into smaller tasks that can be more easily tracked
+   - Using the Pomodoro technique is effective to ward off fatigue and keep me energized to continue
+   - Starting Kettlebell Simple & Sinister makes my body feel fit for study
+
+1. **What still puzzles me?**\
+This question allows us to capture things that happened but leave us feeling unclear or puzzled.
+
+   - I don't do enough repetitions
+   - Practice, practice, practice, practice
+   - Take advantage of the procedural system as it will pay off later
+
+20210801 14:13 End
