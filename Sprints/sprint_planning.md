@@ -106,3 +106,57 @@ Fulfill those goals with the following questions:
   - Nobody
 
 20210725 15:43 End
+
+## Sprint 4, 20210802 - 20210808
+
+Sprint planning meetings should involve setting expectations, reviewing the backlog, and covering upcoming tasks for the sprint. During this meeting, teams should highlight any potential roadblocks that may occur and halt progress.
+
+Fulfill those goals with the following questions:
+
+- **What did we learn at sprint review and sprint retrospective that needs to be considered in our planning conversations today?**
+  - Break down Trello cards into smaller pieces with checklists for smaller tasks
+  - Practice, practice, practice, practice the code snippets over and over again - memorize them!
+
+- **What is at the top of the product backlog?**
+  - Anki cards for JS100 JS Basics > Sections 6-10
+  - Review of JS101 Lesson 2 curriculum
+  - JS101 Lesson 2 Quiz 1
+  - JS101 Small Problems
+
+- **What do we need to know about these backlog items in order to fully commit to getting them done in the upcoming sprint?**
+  - It takes up to 30 minutes for me to make Anki cards for the JS100 - JS Basics Exercises
+  - I need to practice the code multiple times after making the cards as well
+
+- **How much of the product backlog do we think we can complete in the upcoming sprint?**
+  - JS100 - JS Basics Anki cards
+  - JS101 Lesson 2 review with Anki cards
+  - JS101 Lesson 2 Quiz 1
+  - 7 Small Problems
+  - JS101 Lesson 2 Quiz 1
+  - Start JS101 Lesson 3
+
+- **Do we need more clarification on this feature?**
+  - No
+
+- **What is our confidence level [High / Medium / Low] regarding this (sprint backlog) as a reasonable plan for this sprint?**
+  - Medium confidence level
+
+- **How is this yet-to-build backlog item similar/relative to other known/completed work we have done in the past? How does this comparison help us estimate the relative size of the new work?**
+  - Since JS101 Lessons seem to have the most material of any course, it makes sense that this is taking longer than originally planned.
+
+- **What outside help will we need to succeed with our plans?**
+  - Study sessions with Alex
+  - Study sessions with Laurent
+  - Daily Scrum Meetings with Byron
+  - Launch School Study Sessions
+  - LS Slack communication
+
+- **What’s the biggest risk that may prevent us from completing this sprint?**
+  - Eye strain and carpal tunnel syndrome in my right forearm
+  - Not getting enough quality sleep
+  - Not moving and doing strength training
+
+- **Who is taking time off during the next sprint? How should we plan differently given the team’s (adjusted) capacity?**
+  - Nobody
+
+20210801 14:21 End
