@@ -87,15 +87,15 @@ Greg's Algorithm
 
 Mandy
 - Convert the input string of words into an array of words.
-    - Split the string by spaces to extract each word into the array. 
+    - Split the string by spaces to extract each word into the array.
 - Convert the array of words into a new array of numbers.
-- Iterate over each word in the array of words and count the number of vowels for each word, using the `numOfVowels(word)` helper function. 
+- Iterate over each word in the array of words and count the number of vowels for each word, using the `numOfVowels(word)` helper function.
 
-    - Create a helper function for the sub-problem of counting  the number of vowels in a word. `numOfVowels` function:
+    - Create a helper function for the sub-problem of counting the number of vowels in a word. `numOfVowels` function:
         - Given a single word.
         - Initialize a variable `count` to store the count.
         - Iterate over each character of the word.
-        - If the character is one of `a` `e` `i` `o` `u` , - increment `count`. 
+        - If the character is one of `a` `e` `i` `o` `u` , - increment `count`.
         - After iteration is complete, return `count`.
 
 - Return the newly created array of numbers (number of vowels).

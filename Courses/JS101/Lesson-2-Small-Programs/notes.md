@@ -1931,7 +1931,7 @@ function lowerInitial(word) {
 
 ### When to Use Guard Clauses
 
-Guard clauses are best used when a f*unction can't trust that its arguments are valid*. Invalid arguments can have incorrect types, structures, values, or properties. Usually, though, your program should be able to trust itself to do the right thing; you should be able to trust that it always calls its methods with valid values. For example, if you can trust that your program always calls `lowerInitial` with a non-empty String, you don't need the guard clause.
+Guard clauses are best used when a *function can't trust that its arguments are valid*. Invalid arguments can have incorrect types, structures, values, or properties. Usually, though, your program should be able to trust itself to do the right thing; you should be able to trust that it always calls its methods with valid values. For example, if you can trust that your program always calls `lowerInitial` with a non-empty String, you don't need the guard clause.
 
 ### Detecting Edge Cases
 

@@ -1270,3 +1270,11 @@ renames = copies
 10:23 Reviewed and edited current Anki cards. My face itches from the poison ivy.
 
 10:54 I just finished one problem and I'm tired. Time for a break and maybe a change of location.
+
+## 20210801 일요일
+
+06:00 Ready for study session with Alex.
+
+07:34 I have so much to learn. Repetitions. Repetitions. I need repetitions.
+
+08:01 My body still itches all over. Breakfast at 08:30. What do I do for 30 minutes? Read and reflect and train KSS later?
