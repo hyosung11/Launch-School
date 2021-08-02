@@ -1339,3 +1339,7 @@ renames = copies
 06:22 dragging like a tired dragon today. In my study session with Alex.
 
 07:13 End study session with Alex.
+
+07:31 Continue working on Variable Scope
+
+08:58 Reading *Learn Like a Pro*
