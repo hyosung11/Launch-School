@@ -1367,3 +1367,9 @@ renames = copies
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * My morning plan is to prep for my interview and have an interview prep meeting with my career coach. So I won't have as much time to study Launch School.
+
+09:20 Kids are still here. I can't seem to focus right now. I planned to do KSS, but I feel delayed at the moment.
+
+09:36 Vacillating at the moment. Not sure whether to continue studying or do KSS now. I postponed KSS until siesta time, so I can do more Launch School now. Go!
+
+10:06 Reviewed a bunch of Anki cards and deleted most of the cards I made before because they aren't in the form of a question. Now shifting gears to prep for interview prep.
