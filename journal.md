@@ -1333,3 +1333,9 @@ renames = copies
 17:24 Working on JS100 - JS Basics > Variable Scope
 
 17:40 I'm tired. Hoisting. Temporal dead zone. Scope.
+
+## 20210802 월요일
+
+06:22 dragging like a tired dragon today. In my study session with Alex.
+
+07:13 End study session with Alex.
