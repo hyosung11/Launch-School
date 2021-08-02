@@ -1359,8 +1359,8 @@ renames = copies
    * [x] 1. Study Session with Alex
    * [x] 2. Anki cards from JS100 - JavaScript Basics > Variable Scope > 6-10
    * [ ] 3. Read *Learn Like a Pro* chapter
-   * [ ] 4. Prep for Interview Prep
-   * [ ] 5. Interview Prep Meeting
+   * [x] 4. Prep for Interview Prep
+   * [x] 5. Interview Prep Meeting
    * [ ] 6. Read *The Pragmatic Programmer* chapter
    * [ ] 7. Listen to *A Mind for Numbers* chapter on Audible
    * [ ] 8. Anki cards from JS100 - JavaScript Basics > Strings > 1-9
@@ -1373,3 +1373,11 @@ renames = copies
 09:36 Vacillating at the moment. Not sure whether to continue studying or do KSS now. I postponed KSS until siesta time, so I can do more Launch School now. Go!
 
 10:06 Reviewed a bunch of Anki cards and deleted most of the cards I made before because they aren't in the form of a question. Now shifting gears to prep for interview prep.
+
+12:13 Finished prep for interview prep and interview prep with Christine. Ready to KSS!
+
+13:04 Finished KSS in 46:00 including stretching. Ready for my siesta including some food after a quick cold shower.
+
+14:06 Back to studying Strings.
+
+14:57 Time for a break. Getting better and better, little by little.
