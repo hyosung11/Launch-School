@@ -1343,3 +1343,27 @@ renames = copies
 07:31 Continue working on Variable Scope
 
 08:58 Reading *Learn Like a Pro*
+
+09:07 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Anki cards from JS100 - JavaScript Basics > Functions 1 > 9-11
+   * [x] 3. Anki cards from JS100 - JavaScript Basics > Variable Scope > 1-5
+   * [x] 4. Read *Learn Like a Pro* chapter
+   * [x] 5. Sprint 3 Review
+   * [x] 6. Sprint 3 Retrospective
+   * [x] 7. Sprint 4 Planning
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Anki cards from JS100 - JavaScript Basics > Variable Scope > 6-10
+   * [ ] 3. Read *Learn Like a Pro* chapter
+   * [ ] 4. Prep for Interview Prep
+   * [ ] 5. Interview Prep Meeting
+   * [ ] 6. Read *The Pragmatic Programmer* chapter
+   * [ ] 7. Listen to *A Mind for Numbers* chapter on Audible
+   * [ ] 8. Anki cards from JS100 - JavaScript Basics > Strings > 1-9
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * My morning plan is to prep for my interview and have an interview prep meeting with my career coach. So I won't have as much time to study Launch School.
