@@ -1325,3 +1325,11 @@ renames = copies
 12:25 Finished KSS at 47:59. Took longer stretch time.
 
 12:28 My chin and throat itch. I need to break my Trello cards into smaller pieces, so I can track what I am doing better.
+
+13:36 Starting Sprint 3 Review now.
+
+16:00 Took a break. Went for ice cream with the family and took a nap after.
+
+17:24 Working on JS100 - JS Basics > Variable Scope
+
+17:40 I'm tired. Hoisting. Temporal dead zone. Scope.
