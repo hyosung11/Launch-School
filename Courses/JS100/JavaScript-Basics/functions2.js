@@ -55,7 +55,7 @@
 // function calculateBMI(heightInCentimeters, weightInKilograms) {
 //   let heightInMeters = heightInCentimeters / 100;
 //   let bmi = weightInKilograms / heightInMeters ** 2;
-  
+
 //   return bmi.toFixed(2);
 // }
 
@@ -94,13 +94,14 @@ function catAge(humanYears) {
 
 // Create a function `removeLastChar` that takes a string as an argument, and returns the string without the last character.
 
-function removeLastChar(string){
-  return string.substring(0, string.length - 1);
+function removeLastChar(string) {
+  // return string.substring(0, string.length - 1);
+  return string.slice(0, string.length - 1);
 }
 
-// console.log(removeLastChar('ciao!')); // 'ciao'
-// console.log(removeLastChar('hello')); // 'hell'
-// console.log(removeLastChar('Site')); // 'Sit'
+console.log(removeLastChar('ciao!')); // 'ciao'
+console.log(removeLastChar('hello')); // 'hell'
+console.log(removeLastChar('Site')); // 'Sit'
 
 // Arrow Functions (Part 1)
 

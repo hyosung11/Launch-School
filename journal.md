@@ -1325,3 +1325,9 @@ renames = copies
 12:25 Finished KSS at 47:59. Took longer stretch time.
 
 12:28 My chin and throat itch. I need to break my Trello cards into smaller pieces, so I can track what I am doing better.
+
+## 20210802 월요일
+
+06:22 dragging like a tired dragon today. In my study session with Alex.
+
+07:13 End study session with Alex.
