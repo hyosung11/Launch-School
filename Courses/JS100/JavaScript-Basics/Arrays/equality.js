@@ -16,5 +16,4 @@ let array2 = [2, 6, 4];
 console.log(array1 === array2); // false
 
 // Discussion
-
-The two variables point to different locations in memory, thus they are not strictly equal.
+// The two variables point to different locations in memory, thus they are not strictly equal.
