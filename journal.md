@@ -1426,3 +1426,5 @@ renames = copies
 
 09:42 So good to get those repetitions in to groove the procedural process.
 
+10:55 Working on Arrays because I like it.
+
