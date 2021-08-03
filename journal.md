@@ -1389,3 +1389,9 @@ renames = copies
 20:39 Working on Strings. It's fun. I can do this.
 
 21:35 Finished Strings while watching the Olympics. Not great. Lack focus. Need to work on Capitalized Words tomorrow.
+
+## 20210803 화요일
+
+06:48 I can't decide what I want to do first this morning after meditation and a morning page in my journal.
+
+07:10 Worked on capitalize words and making mistakes that I learn from, like forgetting to call the method `.toUpperCase` by forgetting the parentheses.
