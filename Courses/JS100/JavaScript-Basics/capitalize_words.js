@@ -1,7 +1,9 @@
-// Capitalize Words
-// Write code that capitalizes the words in the string 'launch school tech & talk', so that you get the string 'Launch School Tech & Talk'.
+/* JS100 - JavaScript Basics > Strings 9. Capitalize Words
 
-/*
+Capitalize Words
+
+Write code that capitalizes the words in the string 'launch school tech & talk', so that you get the string 'Launch School Tech & Talk'.
+
 Problem
 capitalize the words in a string
 
@@ -24,31 +26,15 @@ Algorithm
 Code
 */
 
-// let string = 'launch school tech & talk';
-// let words = string.split(' ');
-// let capitalizedWords = [];
+let string = 'launch school tech & talk';
+let words = string.split(' ');
+let capitalizedWords = [];
 
-// for (let i = 0; i < words.length; i += 1) {
-//   let word = words[i];
+for (let i = 0; i < words.length; i++) {
+  let word = words[i];
 
-//   capitalizedWords.push(word[0].toUpperCase() + word.slice(1));
-// }
+  capitalizedWords.push(word[0].toUpperCase() + word.slice(1));
+}
 
-// console.log(capitalizedWords.join(' '));
-
-
-
-
-
-// let string = 'launch school tech & talk';
-// let words = string.split(' ');
-// let capitalizedWords = [];
-
-// for (let index = 0; index < words.length; index += 1) {
-//   let word = words[index];
-
-//   capitalizedWords.push(word[0].toUpperCase() + word.slice(1))
-// }
-
-// console.log(capitalizedWords.join(' ')); // Launch School Tech & Talk
-
+console.log(capitalizedWords.join(' '));
+// Launch School Tech & Talk

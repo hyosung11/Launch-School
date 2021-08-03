@@ -1385,3 +1385,7 @@ renames = copies
 17:18 Unproductive in the afternoon. I got coffee, gas for the car, and worked on my referee schedule for the fall.
 
 20:19 Tired. Eyes tired. I started watching Beginner Git Tips. Going to couch and MBP now.
+
+20:39 Working on Strings. It's fun. I can do this.
+
+21:35 Finished Strings while watching the Olympics. Not great. Lack focus. Need to work on Capitalized Words tomorrow.
