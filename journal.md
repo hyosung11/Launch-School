@@ -1358,12 +1358,12 @@ renames = copies
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [x] 2. Anki cards from JS100 - JavaScript Basics > Variable Scope > 6-10
-   * [ ] 3. Read *Learn Like a Pro* chapter
+   * [x] 3. Read *Learn Like a Pro* chapter
    * [x] 4. Prep for Interview Prep
    * [x] 5. Interview Prep Meeting
    * [ ] 6. Read *The Pragmatic Programmer* chapter
-   * [ ] 7. Listen to *A Mind for Numbers* chapter on Audible
-   * [ ] 8. Anki cards from JS100 - JavaScript Basics > Strings > 1-9
+   * [x] 7. Listen to *A Mind for Numbers* chapter on Audible
+   * [x] 8. Anki cards from JS100 - JavaScript Basics > Strings > 1-9
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * My morning plan is to prep for my interview and have an interview prep meeting with my career coach. So I won't have as much time to study Launch School.
