@@ -1395,3 +1395,9 @@ renames = copies
 06:48 I can't decide what I want to do first this morning after meditation and a morning page in my journal.
 
 07:10 Worked on capitalize words and making mistakes that I learn from, like forgetting to call the method `.toUpperCase` by forgetting the parentheses.
+
+08:08 Read two chapters of *Learn Like a Pro*.
+
+08:18 more practice with capitalize words
+
+08:27 Another repetition on capitalize words and I'm better with it.
