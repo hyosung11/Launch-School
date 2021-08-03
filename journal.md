@@ -1428,3 +1428,9 @@ renames = copies
 
 10:55 Working on Arrays because I like it.
 
+14:05 Finished KSS. It took a little longer and I got into a little tiff with SungOh because he wouldn't close and lock the front door after Damon arrived. I need to stay calm and not dismiss him like I did.
+
+14:18 I apologized to SungOh for being short with him. I practiced the "Vocabulary" exercise form Arrays. I got it now, I think.
+
+14:24 Ready to take a quick shower.
+
