@@ -2,10 +2,10 @@
 // Write a function that returns the first element of an input array. For Example:
 
 function first(array) {
-  return array[0]
+  return array[0];
 }
 
-// console.log(first(['Earth', 'Moon', 'Mars'])); // 'Earth'
+console.log(first(['Earth', 'Moon', 'Mars'])); // 'Earth'
 
 // What would you return if the input array was empty?
 // console.log(first([])) // undefined

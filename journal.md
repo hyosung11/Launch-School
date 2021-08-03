@@ -1401,3 +1401,28 @@ renames = copies
 08:18 more practice with capitalize words
 
 08:27 Another repetition on capitalize words and I'm better with it.
+
+09:08 UI benefits certification website is down. Ugh.
+
+09:12 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Anki cards from JS100 - JavaScript Basics > Variable Scope > 6-10
+   * [x] 3. Read *Learn Like a Pro* chapter
+   * [x] 4. Prep for Interview Prep
+   * [x] 5. Interview Prep Meeting
+   * [x] 6. Listen to *A Mind for Numbers* chapter on Audible
+   * [x] 7. Anki cards from JS100 - JavaScript Basics > Strings > 1-9
+
+2. What will you do today?
+   * [ ] 1. Anki cards from JS100 - JavaScript Basics > Arrays
+   * [x] 2. Read *Learn Like a Pro* chapter
+   * [ ] 3. Listen to *A Mind for Numbers* chapter on Audible
+   * [ ] 4. Read *The Pragmatic Programmer* chapter
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I sometimes have a false sense of knowing something and then when I code it out, I realize that there are gaps in my knowledge. I just need to keep practicing and honing the procedural system.
+
+09:42 So good to get those repetitions in to groove the procedural process.
+

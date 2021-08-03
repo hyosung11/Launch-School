@@ -26,7 +26,7 @@ Algorithm
 Code
 */
 
-let string = 'i love sohee\'s legs'
+let string = "i love sohee\'s legs."
 let words = string.split(' ');
 let capitalizedWords = [];
 
