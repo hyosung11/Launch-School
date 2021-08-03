@@ -1381,3 +1381,7 @@ renames = copies
 14:06 Back to studying Strings.
 
 14:57 Time for a break. Getting better and better, little by little.
+
+17:18 Unproductive in the afternoon. I got coffee, gas for the car, and worked on my referee schedule for the fall.
+
+20:19 Tired. Eyes tired. I started watching Beginner Git Tips. Going to couch and MBP now.

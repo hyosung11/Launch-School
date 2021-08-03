@@ -8,11 +8,11 @@ Implement a function repeat that repeats an input string a given number of times
 function repeat(number, string) {
   let repetitions = '';
 
-  while (number > 0) {
-    repetitions += string;
+  while (number < 0) {
+    repetitions = repetitions + string;
     number -= 1;
   }
-
   return repetitions;
 }
+
 console.log(repeat(4, 'fuck! ')); // fuck! fuck! fuck! fuck!
