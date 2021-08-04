@@ -1449,3 +1449,5 @@ renames = copies
 07:22 Wrapping up study session with Alex.
 
 08:02 Decided to wait to do KSS until after my interview. Started reading *Learn Like a Pro* chapter on testing, but decided to read it later. Now reading *A Mind for Numbers*.
+
+08:33 My stomach itches so much. It feels good instantaneously to itch. Why? I added some hydrocortison, but I have calamine lotion on my brain.
