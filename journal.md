@@ -1482,3 +1482,7 @@ renames = copies
 14:13 After a walk, food and nap. Ready to study some more. I'm still itching even though I rubbed some Topicort and hydrocortisone on itchy body parts. Ugh.
 
 14:51 Able to work pretty quickly through Greet 1, 2 and 3. Chalk came for the kettlebells which SungOh ripped open and spilled onto the couch. I'm tired but trying out chalk gives me a little motivation to train after my study session with Laurent.
+
+16:11 Did two exercises with Laurent where he was driving the entire way and I was trying to keep up with his work. Good to watch him work.
+
+16:13 Time to do KSS with chalk today!
