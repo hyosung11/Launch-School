@@ -1449,3 +1449,36 @@ renames = copies
 07:22 Wrapping up study session with Alex.
 
 08:02 Decided to wait to do KSS until after my interview. Started reading *Learn Like a Pro* chapter on testing, but decided to read it later. Now reading *A Mind for Numbers*.
+
+09:03 Karina's here and I'm ready to start my work day. I need to prepare for my interview.
+
+09:09 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Anki cards from JS100 - JavaScript Basics > Arrays
+   * [x] 2. Read *Learn Like a Pro* chapter
+   * [x] 3. Listen to *A Mind for Numbers* chapter on Audible
+   * [x] 4. Read *The Pragmatic Programmer* chapter
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Prep for Encora Interview
+   * [ ] 3. Do Interview with Encora
+   * [ ] 4. Anki cards from JS100 - JavaScript Basics > Function 2 > 1-8
+   * [ ] 3. Read *Learn Like a Pro* chapter
+   * [ ] 6. Listen to *A Mind for Numbers* chapter on Audible
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I need to use my morning time to prepare for and do the interview with Encora, so I won't get to study until the afternoon.
+
+09:16 I have to pee.
+
+09:50 Where did the time go? I got dressed up with a button down shirt and pants and I took a poo. I did check email, Slack, Messages, and WhatsApp.
+
+10:46 Feeling antsy before the interview. I want to get it over with at this point. Ugh. I think I want to go to the gym today, maybe?
+
+12:08 Interview is over and I think it went well. Vishwas had such a poker face, it was hard to tell how my answers landed.
+
+14:13 After a walk, food and nap. Ready to study some more. I'm still itching even though I rubbed some Topicort and hydrocortisone on itchy body parts. Ugh.
+
+14:51 Able to work pretty quickly through Greet 1, 2 and 3. Chalk came for the kettlebells which SungOh ripped open and spilled onto the couch. I'm tired but trying out chalk gives me a little motivation to train after my study session with Laurent.
