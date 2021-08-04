@@ -1439,3 +1439,9 @@ renames = copies
 16:01 So tired right now. I need a nap or a walk. Go for a walk now.
 
 17:18 Finished with Arrays!
+
+## 20210804 수요잏
+
+06:01 Waiting for Alex. I'm tired and could go back to bed. The birds chirp loudly.
+
+07:22 Wrapping up study session with Alex.
