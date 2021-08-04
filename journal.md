@@ -1416,10 +1416,10 @@ renames = copies
    * [x] 7. Anki cards from JS100 - JavaScript Basics > Strings > 1-9
 
 2. What will you do today?
-   * [ ] 1. Anki cards from JS100 - JavaScript Basics > Arrays
+   * [x] 1. Anki cards from JS100 - JavaScript Basics > Arrays
    * [x] 2. Read *Learn Like a Pro* chapter
-   * [ ] 3. Listen to *A Mind for Numbers* chapter on Audible
-   * [ ] 4. Read *The Pragmatic Programmer* chapter
+   * [x] 3. Listen to *A Mind for Numbers* chapter on Audible
+   * [x] 4. Read *The Pragmatic Programmer* chapter
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I sometimes have a false sense of knowing something and then when I code it out, I realize that there are gaps in my knowledge. I just need to keep practicing and honing the procedural system.
@@ -1440,8 +1440,12 @@ renames = copies
 
 17:18 Finished with Arrays!
 
+17:40 Read chapter of *The Pragmatic Programmer*.
+
 ## 20210804 수요잏
 
 06:01 Waiting for Alex. I'm tired and could go back to bed. The birds chirp loudly.
 
 07:22 Wrapping up study session with Alex.
+
+08:02 Decided to wait to do KSS until after my interview. Started reading *Learn Like a Pro* chapter on testing, but decided to read it later. Now reading *A Mind for Numbers*.
