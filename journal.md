@@ -1463,10 +1463,11 @@ renames = copies
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [x] 2. Prep for Encora Interview
-   * [ ] 3. Do Interview with Encora
-   * [ ] 4. Anki cards from JS100 - JavaScript Basics > Function 2 > 1-8
-   * [ ] 3. Read *Learn Like a Pro* chapter
-   * [ ] 6. Listen to *A Mind for Numbers* chapter on Audible
+   * [x] 3. Do Interview with Encora
+   * [x] 4. Anki cards from JS100 - JavaScript Basics > Function 2 > 1-8
+   * [x] 5. Study Session with Laurent
+   * [x] 6. Read *The Pragmatic Programmer* chapter
+   * [x] 7. Read *A Mind for Numbers* chapter on Audible
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I need to use my morning time to prepare for and do the interview with Encora, so I won't get to study until the afternoon.
@@ -1486,3 +1487,9 @@ renames = copies
 16:11 Did two exercises with Laurent where he was driving the entire way and I was trying to keep up with his work. Good to watch him work.
 
 16:13 Time to do KSS with chalk today!
+
+16:33 Now going to do KSS.
+
+16:43 I feel more invigorated to train now. Hmm.
+
+17:22 Finished KSS and it feels good to read while stretching.
