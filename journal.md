@@ -1548,3 +1548,6 @@ renames = copies
 
 13:52 In my siesta time, I checked email and have another interview with the CEO of Encora on Monday. It looks good for getting the job. Just about ready for KSS.
 
+14:57 Finished KSS in 39:07 because I took shorter rests and also didn't do QL straddle which I don't like because it's painful and I want a better alternative. I'm going to shower now. My face is itching again. Ugh. Read some from the *Pragmatic Programmer* while stretching. They say learn a new language and start reading a new book after this one.
+
+15:21 Rinsed off and put the Tecnu? stuff all over and buzzed my hair a little. Feel itchy in a few spots. Ugh.
