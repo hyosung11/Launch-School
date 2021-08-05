@@ -1488,3 +1488,5 @@ renames = copies
 16:11 Did two exercises with Laurent where he was driving the entire way and I was trying to keep up with his work. Good to watch him work.
 
 16:13 Time to do KSS with chalk today!
+
+20:18 After putting the kids to bed. I feel itchy and have put on calamine lotion. It's all over my body and my clothes.
