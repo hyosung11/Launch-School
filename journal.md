@@ -1531,3 +1531,7 @@ renames = copies
    * Overall, feeling tired and lower energy lately. I haven't played soccer this week because of my hamstring, so not getting enough exercise.
 
 10:00 Practiced 'Calculate Cat Age' exercise. It took around 20 minutes. Taking a short break and then coming back for the next exercise. I need more calamine lotion on my legs and arms.
+
+10:23 Practiced 'Remove Last Char' exercise. I understand `String.prototype.substring()`.
+
+10:32 Now I can just laugh when I encounter something that I don't know how to do in programming and then let the anxiety wash away before trying some shit.
