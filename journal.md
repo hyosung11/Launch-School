@@ -1521,7 +1521,7 @@ renames = copies
 
 2. What will you do today?
    * [x] 1. Read *Learn Like a Pro* chapter
-   * [ ] 2. Anki cards from JS100 - JavaScript Basics > Function 2 > 5-8
+   * [x] 2. Anki cards from JS100 - JavaScript Basics > Function 2 > 5-8
    * [ ] 3. Anki cards from JS100 - JavaScript Basics > Objects > 1-10
    * [ ] 4. JS100/101 Beginner Study Group
    * [ ] 5. Read *The Pragmatic Programmer* chapter
@@ -1539,3 +1539,5 @@ renames = copies
 10:53 Finished Function 2 a little early!
 
 11:45 Back to programming after a break for email and some videos. I still itch in my abdomen area. Ugh.
+
+11:55 Able to practice and complete 'Retrieva a Value (Part 1)' in ten minutes.

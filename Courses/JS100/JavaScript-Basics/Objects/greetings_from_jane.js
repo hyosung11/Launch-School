@@ -1,4 +1,4 @@
-/* JS100 - JavaScript Basics Objects > 4.Greetings From Jane
+/* JS100 - JavaScript Basics Objects > 4. Greetings From Jane
 
 Greetings From Jane
 
@@ -30,7 +30,8 @@ let jane = {
   },
   occupation: 'engineer',
   greet: function(name) {
-    console.log(`Hej, ${name}!`);}
+    console.log(`Hej, ${name}`);
+  },
 };
 
 jane.greet('Bobby'); // Hej, Bobby!
