@@ -1466,9 +1466,10 @@ renames = copies
    * [x] 1. Study Session with Alex
    * [x] 2. Prep for Encora Interview
    * [x] 3. Do Interview with Encora
-   * [ ] 4. Anki cards from JS100 - JavaScript Basics > Function 2 > 1-8
-   * [ ] 3. Read *Learn Like a Pro* chapter
-   * [ ] 6. Listen to *A Mind for Numbers* chapter on Audible
+   * [x] 4. Anki cards from JS100 - JavaScript Basics > Function 2 > 1-8
+   * [x] 5. Study Session with Laurent
+   * [x] 6. Read *The Pragmatic Programmer* chapter
+   * [x] 7. Read *A Mind for Numbers* chapter on Audible
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I need to use my morning time to prepare for and do the interview with Encora, so I won't get to study until the afternoon.
@@ -1489,4 +1490,18 @@ renames = copies
 
 16:13 Time to do KSS with chalk today!
 
+16:33 Now going to do KSS.
+
+16:43 I feel more invigorated to train now. Hmm.
+
+17:22 Finished KSS and it feels good to read while stretching.
+
 20:18 After putting the kids to bed. I feel itchy and have put on calamine lotion. It's all over my body and my clothes.
+
+## 20210805 목요일
+
+08:18 I feel tired this morning. I slept until around 7:30, two hours later than usual. Things are simmering in my brain. My body still itches from the poison ivy. What about my massage? When to take the quiz. Behind? I thought the Encora interview went well for me yesterday. We shall see. All is well.
+
+08:51 After family breakfast, I'm at the dining room table about to read *Learn Like a Pro*.
+
+09:02 Finished *Learn Like a Pro* chapter "How to win big on tests". Ready for 5MJ and Daily Scrum Questions.
