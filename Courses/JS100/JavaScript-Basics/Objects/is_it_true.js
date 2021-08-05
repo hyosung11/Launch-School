@@ -21,29 +21,29 @@ for (let prop in obj) {
 
 */
 
-let obj = {
-  num: 42,
-  'property name': 'string value',
-  true: false,
-  fun: function () {
-    console.log('Harr Harr!');
-  },
-};
+// let obj = {
+//   num: 42,
+//   'property name': 'string value',
+//   true: false,
+//   fun: function () {
+//     console.log('Harr Harr!');
+//   },
+// };
 
-for (let prop in obj) {
-  if (prop === true) {
-    console.log("It's true!");
-  }
-}
+// for (let prop in obj) {
+//   if (prop === true) {
+//     console.log("It's true!");
+//   }
+// }
 
 /* Discussion
 
 Object property names are always strings. When we omit quotes around our property names, JavaScript implicitly converts the name to a string. So true is not a property defined on obj, but 'true' is. You can check this for example as follows:
 */
 
-for (let prop in obj) {
-  console.log(`${prop} (${typeof prop})`);
-}
+// for (let prop in obj) {
+//   console.log(`${prop} (${typeof prop})`);
+// }
 
 // logs:
 // num (string)

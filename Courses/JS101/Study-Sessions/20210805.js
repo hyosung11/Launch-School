@@ -6,6 +6,7 @@ Participants:
 - H
 - Alex Stein
 - Edris Atamy
+- Mark A
 
 Intros
 - Mandy, TA, last course of core curriculum
