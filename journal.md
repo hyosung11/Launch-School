@@ -1505,3 +1505,27 @@ renames = copies
 08:51 After family breakfast, I'm at the dining room table about to read *Learn Like a Pro*.
 
 09:02 Finished *Learn Like a Pro* chapter "How to win big on tests". Ready for 5MJ and Daily Scrum Questions.
+
+09:09 I have to poo first right now after 5MJ.
+
+09:21 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Prep for Encora Interview
+   * [x] 3. Do Interview with Encora
+   * [x] 4. Anki cards from JS100 - JavaScript Basics > Function 2 > 1-4
+   * [x] 5. Study Session with Laurent > Easy 4 > 7-8
+   * [x] 6. Read *The Pragmatic Programmer* chapter
+   * [x] 7. Read *A Mind for Numbers*
+
+2. What will you do today?
+   * [x] 1. Read *Learn Like a Pro* chapter
+   * [ ] 2. Anki cards from JS100 - JavaScript Basics > Function 2 > 5-8
+   * [ ] 3. Anki cards from JS100 - JavaScript Basics > Objects > 1-10
+   * [ ] 4. JS100/101 Beginner Study Group
+   * [ ] 5. Read *The Pragmatic Programmer* chapter
+   * [ ] 6. Read *A Mind for Numbers*
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Overall, feeling tired and lower energy lately. I haven't played soccer this week because of my hamstring, so not getting enough exercise.
