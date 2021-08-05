@@ -1555,3 +1555,9 @@ renames = copies
 15:51 Humming along through the Objects exercises in JavaScript Basics. I've got three more to do, but the study session starts soon.
 
 17:27 Playing with the code after the code after the study session. I need to learn the different array methods.
+
+19:01 After dinner, vacuuming and listening to the latest Launch School podcast episode.
+
+19:39 Practiced "Convert an object to a nested array" using `Object.entries()`.
+
+19:52 Late to putting the kids to bed. I still mildly itch in a few spots.
