@@ -1535,3 +1535,5 @@ renames = copies
 10:23 Practiced 'Remove Last Char' exercise. I understand `String.prototype.substring()`.
 
 10:32 Now I can just laugh when I encounter something that I don't know how to do in programming and then let the anxiety wash away before trying some shit.
+
+10:53 Finished Function 2 a little early!
