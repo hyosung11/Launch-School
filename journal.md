@@ -1551,3 +1551,7 @@ renames = copies
 14:57 Finished KSS in 39:07 because I took shorter rests and also didn't do QL straddle which I don't like because it's painful and I want a better alternative. I'm going to shower now. My face is itching again. Ugh. Read some from the *Pragmatic Programmer* while stretching. They say learn a new language and start reading a new book after this one.
 
 15:21 Rinsed off and put the Tecnu? stuff all over and buzzed my hair a little. Feel itchy in a few spots. Ugh.
+
+15:51 Humming along through the Objects exercises in JavaScript Basics. I've got three more to do, but the study session starts soon.
+
+17:27 Playing with the code after the code after the study session. I need to learn the different array methods.
