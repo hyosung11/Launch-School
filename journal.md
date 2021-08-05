@@ -1529,3 +1529,5 @@ renames = copies
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Overall, feeling tired and lower energy lately. I haven't played soccer this week because of my hamstring, so not getting enough exercise.
+
+10:00 Practiced 'Calculate Cat Age' exercise. It took around 20 minutes. Taking a short break and then coming back for the next exercise. I need more calamine lotion on my legs and arms.
