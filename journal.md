@@ -1540,4 +1540,7 @@ renames = copies
 
 11:45 Back to programming after a break for email and some videos. I still itch in my abdomen area. Ugh.
 
-11:55 Able to practice and complete 'Retrieva a Value (Part 1)' in ten minutes.
+11:55 Able to practice and complete 'Retrieve a Value (Part 1)' in ten minutes.
+
+12:52 Working through Objects now.
+
