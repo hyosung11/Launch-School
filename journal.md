@@ -1545,3 +1545,6 @@ renames = copies
 12:52 Working through Objects now.
 
 13:03 Family is eating lunch, so I will take a break and sit with them.
+
+13:52 In my siesta time, I checked email and have another interview with the CEO of Encora on Monday. It looks good for getting the job. Just about ready for KSS.
+
