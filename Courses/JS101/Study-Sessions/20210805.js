@@ -184,6 +184,32 @@ function solve(arr) {
   return arr.map((str) => countMatchingIndices(str));
 }
 
+// Alex's code
+// function solve(array) {
+//   let newArray = [];
+
+//   for (let index = 0; index < array.length; index++) {
+//     let word = array[index];
+//     newArray.push(countMatchingIndices(word));
+//   }
+
+//   return newArray;
+// }
+
+// function countMatchingIndices(word) {
+//   let alphabet = 'abcdefghijklmnopqrstuvwxyz'
+//   let count = 0;
+
+//   for (let index = 0; index < word.length; index++) {
+//     const element = word[index];
+//       if (word[index].toLowerCase() === alphabet[index]) {
+//     count += 1;
+//     }
+//   }
+//   return count;
+// }
+
+
 console.log(solve(["abode","ABc","xyzD"])) // [4,3,1]
 console.log(solve(["abide","ABc","xyz"]))  // [4,3,0]
 console.log(solve(["IAMDEFANDJKL","thedefgh","xyzDEFghijabc"])) // [6,5,7]

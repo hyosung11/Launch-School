@@ -15,20 +15,20 @@ let obj = {
 // If we make a shallow copy of obj, we'll create a new object that has the same 3 properties as obj:
 
 let objCopy = clone(obj);
-console.log(objCopy); // { number: 1, string: 'abc', array: [ 1, 2, 3 ] }
+// console.log(objCopy); // { number: 1, string: 'abc', array: [ 1, 2, 3 ] }
 
 // Note that all 3 properties have the same value. However, what happens if we modify these values in one of the two objects and then inspect both objects?
 
 objCopy.number = 2;
 objCopy.string = 'xyz';
 objCopy.array.push(4);
-console.log(obj);     // { number: 1, string: 'abc', array: [ 1, 2, 3, 4 ] }
-console.log(objCopy); // { number: 2, string: 'xyz', array: [ 1, 2, 3, 4 ] }
+// console.log(obj);     // { number: 1, string: 'abc', array: [ 1, 2, 3, 4 ] }
+// console.log(objCopy); // { number: 2, string: 'xyz', array: [ 1, 2, 3, 4 ] }
 
 // As you might expect, the values for the number and string keys changed in objCopy, but not in obj. However, when we mutated the value of objCopy.array, it also mutated that value of obj.array. That's because a shallow copy only copies pointers for nested objects; since arrays are objects, the shallow copy just copied the pointer to the original array to objCopy. If you're wondering why this happens, you might want to review Variables as Pointers section in the Introduction to JavaScript book.
 
 function clone(obj) {
-  // TODO
+  return Object.assign({}, obj);
 }
 
 let person = {

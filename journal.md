@@ -1561,3 +1561,11 @@ renames = copies
 19:39 Practiced "Convert an object to a nested array" using `Object.entries()`.
 
 19:52 Late to putting the kids to bed. I still mildly itch in a few spots.
+
+## 20210806 금요일
+
+07:11 After study session with Alex where we worked on the exercise from yesterday's study session. Nail the little things. Repetitions to dial in the procedural process.
+
+07:18 Sitting next to Omi on the couch after the study session with Alex.
+
+08:27 Finished Objects and *Learn Like a Pro* book. Ready for coffee and breakfast with the kids.
