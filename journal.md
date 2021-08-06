@@ -1608,3 +1608,5 @@ renames = copies
 13:32 Finished 10 Minute Ball Mastery Workout. Itchy on my belly right now. What is the resistance to training with kettlebells? Body doesn't want to do the work? My belly has gotten bigger without weekday soccer and I've gained weight. Ugh.
 
 14:21 I feel so much better after training in soccer and with kettlebells. Now I'm going to eat something and then take a cold bath. I might do a little more studying before I go to see Dr. Riotto for some treatment on my hamstring. Yippee!
+
+17:06 Dr. Riotto says to take a steroid for the poison ivy, so I asked Sohee to get a Rx. My nipples it right now and my eyes feel dried out from rubbing them.
