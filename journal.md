@@ -1600,3 +1600,11 @@ renames = copies
 11:08 I think the fuzebug is a dud. I sat outside and the mosquito had no interest in the fuzebug. Ugh.
 
 11:26 Taking a pee break and then back to studying before I train.
+
+11:32 Still itchy all over.
+
+13:15 Studied JS101 Lesson 2 into implicit type coercion. Taking a break to train in soccer skills and KSS.
+
+13:32 Finished 10 Minute Ball Mastery Workout. Itchy on my belly right now. What is the resistance to training with kettlebells? Body doesn't want to do the work? My belly has gotten bigger without weekday soccer and I've gained weight. Ugh.
+
+14:21 I feel so much better after training in soccer and with kettlebells. Now I'm going to eat something and then take a cold bath. I might do a little more studying before I go to see Dr. Riotto for some treatment on my hamstring. Yippee!
