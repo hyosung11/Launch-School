@@ -1596,3 +1596,7 @@ renames = copies
 09:21 Ready to review JS101 Lesson 2.
 
 11:04 Taking a break for correspondence. I'm going to sit outside and see if the fuzebug gadget works.
+
+11:08 I think the fuzebug is a dud. I sat outside and the mosquito had no interest in the fuzebug. Ugh.
+
+11:26 Taking a pee break and then back to studying before I train.
