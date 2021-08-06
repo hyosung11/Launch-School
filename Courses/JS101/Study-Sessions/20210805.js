@@ -185,7 +185,7 @@ function solve(arr) {
 }
 
 // Alex's code
-// function solve(array) {
+function solve(array) {
 //   let newArray = [];
 
 //   for (let index = 0; index < array.length; index++) {

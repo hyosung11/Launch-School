@@ -1592,3 +1592,7 @@ renames = copies
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Poison ivy continues to itch as it heals, but it distracts me at times.
+
+09:21 Ready to review JS101 Lesson 2.
+
+11:04 Taking a break for correspondence. I'm going to sit outside and see if the fuzebug gadget works.
