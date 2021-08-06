@@ -1522,7 +1522,7 @@ renames = copies
 2. What will you do today?
    * [x] 1. Read *Learn Like a Pro* chapter
    * [x] 2. Anki cards from JS100 - JavaScript Basics > Function 2 > 5-8
-   * [ ] 3. Anki cards from JS100 - JavaScript Basics > Objects > 1-10
+   * [x] 3. Anki cards from JS100 - JavaScript Basics > Objects > 1-10
    * [ ] 4. JS100/101 Beginner Study Group
    * [ ] 5. Read *The Pragmatic Programmer* chapter
    * [ ] 6. Read *A Mind for Numbers*
@@ -1569,3 +1569,26 @@ renames = copies
 07:18 Sitting next to Omi on the couch after the study session with Alex.
 
 08:27 Finished Objects and *Learn Like a Pro* book. Ready for coffee and breakfast with the kids.
+
+09:12 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Read *Learn Like a Pro* chapter
+   * [x] 2. Anki cards from JS100 - JavaScript Basics > Objects > 1-9
+   * [x] 4. JS100/101 Beginner Study Group
+   * [x] 5. Read *The Pragmatic Programmer* chapter
+   * [x] 6. Read *A Mind for Numbers*
+   * [x] 7. Listened to LS Podcast S3E3
+
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Read *Learn Like a Pro* chapter
+   * [x] 3. Anki cards from JS100 - JavaScript Basics > Objects > 10
+   * [ ] 4. Review JS101 Lesson 2 and Make Anki cards
+   * [ ] 5. Take JS101 Lesson 2 Quiz 1
+   * [ ] 6. Read *The Pragmatic Programmer* chapter
+   * [ ] 7. Read *A Mind for Numbers*
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Poison ivy continues to itch as it heals, but it distracts me at times.
