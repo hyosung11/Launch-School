@@ -1612,3 +1612,28 @@ renames = copies
 17:06 Dr. Riotto says to take a steroid for the poison ivy, so I asked Sohee to get a Rx. My nipples it right now and my eyes feel dried out from rubbing them.
 
 19:00 After dinner of Francesca's and I'm closer to 95% full.
+
+## 20210807 토요일
+
+09:38 Ready to study.
+
+09:39 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Read *Learn Like a Pro* chapter
+   * [x] 3. Anki cards from JS100 - JavaScript Basics > Objects > 10
+   * [x] 4. Reviewed JS101 Lesson 2 and Made Anki cards up to Implicit Coercion with the Binary `+` operator
+   * [x] 5. Read *The Pragmatic Programmer* chapter
+   * [x] 6. Read *A Mind for Numbers* chapter
+
+
+2. What will you do today?
+   * [ ] 1. Review JS101 Lesson 2 and Make Anki cards through rest of lesson
+   * [ ] 2. Take JS101 Lesson 2 Quiz 1
+   * [ ] 3. Read *The Pragmatic Programmer* chapter
+   * [ ] 4. Read *A Mind for Numbers* chapter
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Nothing of note today.
+
