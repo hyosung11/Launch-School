@@ -1610,3 +1610,5 @@ renames = copies
 14:21 I feel so much better after training in soccer and with kettlebells. Now I'm going to eat something and then take a cold bath. I might do a little more studying before I go to see Dr. Riotto for some treatment on my hamstring. Yippee!
 
 17:06 Dr. Riotto says to take a steroid for the poison ivy, so I asked Sohee to get a Rx. My nipples it right now and my eyes feel dried out from rubbing them.
+
+19:00 After dinner of Francesca's and I'm closer to 95% full.
