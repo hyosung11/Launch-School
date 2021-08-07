@@ -11,8 +11,8 @@
 
 let name = 'johnson';
 
-['kim', 'joe', 'sam', 'oscar'].forEach(fname => {
+['kim', 'joe', 'sam'].forEach(fname => {
   name = fname;
 });
 
-console.log(name); // oscar
+console.log(name); // sam

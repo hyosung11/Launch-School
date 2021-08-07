@@ -1653,3 +1653,4 @@ renames = copies
 
 16:43 In the Coding Tips 2 section and there's some dense material here regarding not mutating the caller during iteration.
 
+17:21 Finished review of JS101 Lesson 2. Ready to make dinner. Maybe take the quiz after dinner, maybe not. I need to look at RPS bonus features. There's some good stuff to learn.
