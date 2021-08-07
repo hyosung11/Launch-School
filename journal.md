@@ -1641,3 +1641,8 @@ renames = copies
 
 10:40 It even says this isn't a linear learning process. I have to poo and then thinking about going into the basement to study as I haven't done that yet.
 
+10:56 At the dining room table now.
+
+11;44 Short rest with eyes closed and ready to do block scope.
+
+12:30 Taking a break to read *A Mind for Numbers* and then make lunch. I've got a little more left in Lesson 2 to review and then I'll be ready to take the Lesson 2 Quiz 1 later today. Then I'll have next week to work on exercises. Fun stuff.
