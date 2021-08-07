@@ -1637,3 +1637,7 @@ renames = copies
 3. Are there any blockers or impediments preventing you from doing your work?
    * Nothing of note today.
 
+10:35 Reviewing JS101 Lesson 2 and realize I don't remember most of what I read. Active recall. Active recall. Come on!
+
+10:40 It even says this isn't a linear learning process. I have to poo and then thinking about going into the basement to study as I haven't done that yet.
+
