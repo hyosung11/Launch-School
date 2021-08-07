@@ -1646,3 +1646,10 @@ renames = copies
 11;44 Short rest with eyes closed and ready to do block scope.
 
 12:30 Taking a break to read *A Mind for Numbers* and then make lunch. I've got a little more left in Lesson 2 to review and then I'll be ready to take the Lesson 2 Quiz 1 later today. Then I'll have next week to work on exercises. Fun stuff.
+
+13:40 After lunch and dropping Omi off at McKenzie's for a play date. I thought about getting a foot massage, but didn't. Oh, I do need new cleats. Time to go shopping online.
+
+15:26 Took a break this afternoon for a nap and some reading and surfing on the internet. Ready to study some more with active recall!
+
+16:43 In the Coding Tips 2 section and there's some dense material here regarding not mutating the caller during iteration.
+
