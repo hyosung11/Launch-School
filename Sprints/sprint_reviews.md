@@ -208,3 +208,69 @@ The Sprint Review includes the following elements:
 The result of the Sprint Review is a revised Product Backlog that defines the probable Product Backlog items for the next Sprint. The Product Backlog may also be adjusted overall to meet new opportunities.
 
 20210801 13:55 End Sprint 3 Review
+
+## Sprint 4, 20210802 - 20210808
+
+The Sprint Review includes the following elements:
+
+* Attendees include the Scrum Team and key stakeholders invited by the Product Owner;
+
+* The Product Owner explains what Product Backlog items have been “Done” and what has not been “Done”;
+  * Done
+    * JS101 Lesson 2 Quiz 1
+    * Finished *Learn Like a Pro*
+    * Finished *Learn Like a Pro* MOOC
+    * Anki cards from JS100 - JavaScript Basics > Sections 6-10
+    * Listened to *A Mind for Numbers* chapters daily on Audible
+    * Read *The Pragmatic Programmer* daily
+    * Did Small Problems in study sessions with Alex and Laurent
+    * Anki cards reviewed and edited a few cards daily
+    * Answered Daily Scrum Questions
+    * Read *A Mind for Numbers* daily
+    * Participated in JS100/101 Study Session with Mandy
+    * Reviewed and made Anki cards for JS101 Lesson 2
+  * Remaining
+    * JS101 - Small Problems
+      * Easy 2 > 10-12
+      * Easy 3 > 4-10
+      * Easy 4 > 1-10
+
+* The Developers discuss *what went well* during the Sprint, *what problems it ran into*, and *how those problems were solved*;
+  * What went well?
+    * Studied curriculum daily
+    * Worked on exercises daily
+    * Study Sessions daily either with Alex or Laurent or both
+    * Refining my learning to learn process
+    * Answer daily scrum questions and posted to Alex on Slack
+    * Read chapters from *A Mind for Numbers*
+    * Used the Productivity Planner daily
+    * Engaged the Pomodoro technique and took breaks regularly
+    * Made Anki cards from JS100 Basics Exercises
+  * What problems?
+    * continue to have eye strain
+    * strain in right forearm - carpal tunnel mild case is better
+    * Did KSS and more physical activity in general as well as walks a few times this week
+  * What problems did I solve?
+    * Effectively used breaks and fundamental human movements to keep engaged and disengage as well
+    * Fine-tuning focused and diffuse modes
+    * Learning to see coding as practice. Not one and done. Repeat to remember. Remember to repeat.
+
+* The **Developers** demonstrate the work that it has “Done” and answers questions about the Increment;
+  * Using Anki as a way to form questions following the LS curriculum format
+  * Going back to basics and really understanding the fundamentals better
+
+* The **Product Owner** discusses the Product Backlog as it stands. He or she projects likely target and delivery dates based on progress to date (if needed);
+  * Start JS101 Lesson 3
+  * Continue to work through the JS101 Small Problems
+
+* The entire group collaborates on what to do next, so that the Sprint Review provides valuable input to subsequent Sprint Planning;
+  * Begin JS101 Lesson 3
+  * Work on JS101 Small Problems
+
+* Review of the timeline, budget, potential capabilities, and marketplace for the next anticipated releases of functionality and capability of the product.
+  * Going on family vacation to Kalahari, so will have less time to study
+
+The result of the Sprint Review is a revised Product Backlog that defines the probable Product Backlog items for the next Sprint. The Product Backlog may also be adjusted overall to meet new opportunities.
+
+20210808 16:49 End Sprint 4 Review
+
