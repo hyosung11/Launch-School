@@ -1656,3 +1656,17 @@ renames = copies
 17:21 Finished review of JS101 Lesson 2. Ready to make dinner. Maybe take the quiz after dinner, maybe not. I need to look at RPS bonus features. There's some good stuff to learn.
 
 18:29 After dinner. I don't want to take the quiz right now, but I do want to do some small problems.
+
+## 20210808 일요일
+
+06:00 Study Session with Alex.
+
+07:13 End study session with Alex. We looked at clarifying some concepts.
+
+07:37 Feeling a little unfocused at the moment. I want to choose a book of the dharma.
+
+07:52 Going to keep reading *The Book of Life* by J. Krishnamurti.
+
+07:55 Going to read *A Mind for Number* book now. I seem to have abandoned the audible book because it's not a great book for audio as there are a lot of images and exercises not best suited for audio alone. I think as a video course it's fine or a book.
+
+08:36 After breakfast and I might start studying earlier than planned.

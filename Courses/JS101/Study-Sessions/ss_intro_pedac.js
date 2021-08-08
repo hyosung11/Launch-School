@@ -130,22 +130,22 @@ function countMatchingIndices(array) {
 // countMatchingIndices()
 // Version 1
 
-// function solve(array) {
-//   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
-//   let resultArray = [];
+function solve(array) {
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  let resultArray = [];
 
-//   for (let index = 0; index < array.length; index++) {
-//     let count = 0;
-//     let word = array[index];
-//     for (let stringIndex = 0; stringIndex < word.length; stringIndex++) {
-//       if (word[stringIndex].toLowerCase() === alphabet[stringIndex]) {
-//         count += 1;
-//       }
-//     }
-//     resultArray.push(count);
-//   }
-//   return resultArray;
-// }
+  for (let index = 0; index < array.length; index++) {
+    let count = 0;
+    let word = array[index];
+    for (let stringIndex = 0; stringIndex < word.length; stringIndex++) {
+      if (word[stringIndex].toLowerCase() === alphabet[stringIndex]) {
+        count += 1;
+      }
+    }
+    resultArray.push(count);
+  }
+  return resultArray;
+}
 
 console.log(countMatchingIndices(['abode', 'ABc', 'xyzD'])); // [4, 3, 1]
 console.log(countMatchingIndices(['abide', 'ABc', 'xyz'])); // [4, 3, 0]
@@ -155,14 +155,14 @@ console.log(countMatchingIndices([])); // []
 
 
 // Version 2 with filer and map
-// function countMatchingIndices(str) {
-//   let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+function countMatchingIndices(str) {
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
-//   return str.split('').filter((char, idx) => {
-//     return alphabet.indexOf(char.toLowerCase()) === idx;
-//   }).length;
-// }
+  return str.split('').filter((char, idx) => {
+    return alphabet.indexOf(char.toLowerCase()) === idx;
+  }).length;
+}
 
-// function solve(arr) {
-//   return arr.map((str) => countMatchingIndices(str));
-// }
+function solve(arr) {
+  return arr.map((str) => countMatchingIndices(str));
+}
