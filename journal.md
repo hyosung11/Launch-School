@@ -1687,3 +1687,5 @@ renames = copies
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Doing a family outing in the afternoon, so I won't have time to study this afternoon.
+
+10:35 Just finished JS101 Lesson 2 Quiz 1 and about to submit my answers. I think I got over 80%. Let's see.
