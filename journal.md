@@ -1689,3 +1689,13 @@ renames = copies
    * Doing a family outing in the afternoon, so I won't have time to study this afternoon.
 
 10:35 Just finished JS101 Lesson 2 Quiz 1 and about to submit my answers. I think I got over 80%. Let's see.
+
+### 10:36 JS101 - Programming Foundations with JavaScript
+
+Assignment: Lesson 2 Quiz 1
+Student Name: HyoSung Bidol-Lee
+Submitted at: less than a minute ago
+Time taken: 1.35 hour(s)
+Score: 17/26 (65.38%)
+
+11:22 Done reviewing JS101 Lesson 2 Quiz 1. I still need to make Anki cards later. Surprised that I got some questions wrong because of subtle distinctions and other questions that I struggled with I got right. Go figure. On to Lesson 3.
