@@ -1677,13 +1677,13 @@ renames = copies
    * [x] 3. Read *The Pragmatic Programmer* chapter
    * [x] 4. Read *A Mind for Numbers* chapter
 
-
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [ ] 2. Take JS101 Lesson 2 Quiz 1
-   * [ ] Sprint 4 Review
-   * [ ] Sprint 4 Retrospective
-   * [ ] Sprint 5 Planning
+   * [x] 2. Take JS101 Lesson 2 Quiz 1
+   * [x] 3. Review JS101 Lesson 2 Quiz 1
+   * [ ] 4. Sprint 4 Review
+   * [ ] 5. Sprint 4 Retrospective
+   * [ ] 6. Sprint 5 Planning
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Doing a family outing in the afternoon, so I won't have time to study this afternoon.
