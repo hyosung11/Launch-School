@@ -99,3 +99,45 @@ This question allows us to capture things that happened but leave us feeling unc
    - Take advantage of the procedural system as it will pay off later
 
 20210801 14:13 End
+
+## Sprint 4, 20210802 - 20210808 17:05
+
+1. **What went well?**\
+In other words, what took place that we want to recognize and acknowledge as having gone well?
+
+   - Studied everyday using a logical process that I'm fine-tuning as I go along
+   - Tweaking my note-taking process to challenge myself to recall more as I read
+   - Disciplining myself to write out the code examples in the assignments instead of just copying and pasting them into my notes
+   - Making Anki question cards from the JS100 - JavaScript Basics exercises
+   - Making Anki cards from JS101 Lesson 2
+   - Took the JS101 Lesson 2 Quiz 1 and did okay
+   - Survived the worst of poison ivy
+   - Reading and watching learning to learn materials
+     - *A Mind for Numbers* book
+     - *The Pragmatic Programmer*
+     - *Mindshift* MOOC
+   - Learning to shift between focused and diffuse modes better
+
+
+1. **What didn’t go so well?**\
+  What took place that didn’t go as we would have liked?
+
+   - progress still feels slow
+   - can do more active recall
+
+1. **What did I learn?**\
+We want to think about what we’ve learned about how we worked together. It’s less about the content and more about the process.
+
+   - Breaking down tasks into atomic units so I can track my progress and complete items in Trello gives me pleasure
+   - Using the standing office workstation facilitates more productivity
+   - I want to create a better barrier between the office and the living room, so I can concentrate more when studying
+   - Continue to do Kettlebell Simple & Sinister after studying makes more sense for me lately
+
+1. **What still puzzles me?**\
+This question allows us to capture things that happened but leave us feeling unclear or puzzled.
+
+   - I don't do enough repetitions
+   - Practice, practice, practice, practice
+   - Take advantage of the procedural system as it will pay off later
+
+20210808 17:15 End
