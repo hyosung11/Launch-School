@@ -55,7 +55,7 @@ ALGORITHM
 Steps for converting input to output
 1. declare function isLeapYear
 2. input year > 0 (find absolute value?)
-3. compute 
+3. compute
   1. year remainder 4 === 0 as leap year
   2. unless year is divisible by 100 not leap year
   3. unless year divisible by 100 is also evenly divisible by 400
@@ -76,25 +76,29 @@ Implementation of Algorithm
 // }
 
 // LS shorter solution
+// function isLeapYear(year) {
+//   return (year % 400 === 0) || (year % 4 === 0 && year % 100 !== 0);
+// }
+
 function isLeapYear(year) {
   return (year % 400 === 0) || (year % 4 === 0 && year % 100 !== 0);
 }
 
-// console.log(isLeapYear(2016));      // true
-// console.log(isLeapYear(2015));      // false
-// console.log(isLeapYear(2100));      // false
-// console.log(isLeapYear(2400));      // true
-// console.log(isLeapYear(240000));    // true
-// console.log(isLeapYear(240001));    // false
+console.log(isLeapYear(2016));      // true
+console.log(isLeapYear(2015));      // false
+console.log(isLeapYear(2100));      // false
+console.log(isLeapYear(2400));      // true
+console.log(isLeapYear(240000));    // true
+console.log(isLeapYear(240001));    // false
 console.log(isLeapYear(2000));      // true
-// console.log(isLeapYear(1900));      // false
-// console.log(isLeapYear(1752));      // true
-// console.log(isLeapYear(1700));      // false
+console.log(isLeapYear(1900));      // false
+console.log(isLeapYear(1752));      // true
+console.log(isLeapYear(1700));      // false
 console.log(isLeapYear(1));         // false
 console.log(isLeapYear(100));       // false
 console.log(isLeapYear(400));       // true
 
-/* 
+/*
 Discussion
 
 The first solution takes this one step at a time by testing for the least common cases first: years divisible by 400, and years divisible by 100. If the year is anything else, then it is a leap year if it is divisible by 4.
