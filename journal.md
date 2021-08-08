@@ -1709,3 +1709,5 @@ Score: 17/26 (65.38%)
 13:16 Finished TGUs and now need to take a shower before we leave.
 
 15:29 Back from exploring the St. Rocco festival in Ft. Lee where the kids got some toys and we had popcorn and cotton candy.
+
+17:42 Finished Sprint 4 Review, Sprint 4 Retrospective, and Sprint 5 Planning. Dinner soon, so I am going to relax and tackle some more problems after dinner.
