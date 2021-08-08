@@ -1699,3 +1699,11 @@ Time taken: 1.35 hour(s)
 Score: 17/26 (65.38%)
 
 11:22 Done reviewing JS101 Lesson 2 Quiz 1. I still need to make Anki cards later. Surprised that I got some questions wrong because of subtle distinctions and other questions that I struggled with I got right. Go figure. On to Lesson 3.
+
+11:53 Finally getting around to soccer skills practice now.
+
+12:23 Time for lunch. Got through swings.
+
+12:48 Taking a few minutes after lunch to look at Lesson 3: Practice Problems > 2. Practice Problems: Easy 1
+
+13:16 Finished TGUs and now need to take a shower before we leave.
