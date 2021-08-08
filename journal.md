@@ -1580,7 +1580,6 @@ renames = copies
    * [x] 6. Read *A Mind for Numbers*
    * [x] 7. Listened to LS Podcast S3E3
 
-
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [x] 2. Read *Learn Like a Pro* chapter
@@ -1627,7 +1626,6 @@ renames = copies
    * [x] 5. Read *The Pragmatic Programmer* chapter
    * [x] 6. Read *A Mind for Numbers* chapter
 
-
 2. What will you do today?
    * [ ] 1. Review JS101 Lesson 2 and Make Anki cards through rest of lesson
    * [ ] 2. Take JS101 Lesson 2 Quiz 1
@@ -1670,3 +1668,22 @@ renames = copies
 07:55 Going to read *A Mind for Number* book now. I seem to have abandoned the audible book because it's not a great book for audio as there are a lot of images and exercises not best suited for audio alone. I think as a video course it's fine or a book.
 
 08:36 After breakfast and I might start studying earlier than planned.
+
+09:01 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Review JS101 Lesson 2 and Make Anki cards through rest of lesson
+   * [x] 2. Review JS101 - Small Problems > Easy 1
+   * [x] 3. Read *The Pragmatic Programmer* chapter
+   * [x] 4. Read *A Mind for Numbers* chapter
+
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. Take JS101 Lesson 2 Quiz 1
+   * [ ] Sprint 4 Review
+   * [ ] Sprint 4 Retrospective
+   * [ ] Sprint 5 Planning
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Doing a family outing in the afternoon, so I won't have time to study this afternoon.
