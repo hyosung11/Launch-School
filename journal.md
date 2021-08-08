@@ -1707,3 +1707,5 @@ Score: 17/26 (65.38%)
 12:48 Taking a few minutes after lunch to look at Lesson 3: Practice Problems > 2. Practice Problems: Easy 1
 
 13:16 Finished TGUs and now need to take a shower before we leave.
+
+15:29 Back from exploring the St. Rocco festival in Ft. Lee where the kids got some toys and we had popcorn and cotton candy.
