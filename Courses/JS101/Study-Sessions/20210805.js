@@ -138,19 +138,19 @@ Mandy's Algorithm
 */
 
 // Edris Code
-// function solve(arr) {
-//   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+function solve(arr) {
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
-//   return arr.map(string => {
-//     let count = 0;
-//     for (let index in string) {
-//       if (string[index].toLowerCase() === alphabet[index]) {
-//         count += 1;
-//       }
-//     }
-//     return count;
-//   });
-// }
+  return arr.map(string => {
+    let count = 0;
+    for (let index in string) {
+      if (string[index].toLowerCase() === alphabet[index]) {
+        count += 1;
+      }
+    }
+    return count;
+  });
+}
 
 // Mark's code?
 // function solve(array) {
@@ -186,28 +186,28 @@ function solve(arr) {
 
 // Alex's code
 function solve(array) {
-//   let newArray = [];
+  let newArray = [];
 
-//   for (let index = 0; index < array.length; index++) {
-//     let word = array[index];
-//     newArray.push(countMatchingIndices(word));
-//   }
+  for (let index = 0; index < array.length; index++) {
+    let word = array[index];
+    newArray.push(countMatchingIndices(word));
+  }
 
-//   return newArray;
-// }
+  return newArray;
+}
 
-// function countMatchingIndices(word) {
-//   let alphabet = 'abcdefghijklmnopqrstuvwxyz'
-//   let count = 0;
+function countMatchingIndices(word) {
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz'
+  let count = 0;
 
-//   for (let index = 0; index < word.length; index++) {
-//     const element = word[index];
-//       if (word[index].toLowerCase() === alphabet[index]) {
-//     count += 1;
-//     }
-//   }
-//   return count;
-// }
+  for (let index = 0; index < word.length; index++) {
+    const element = word[index];
+      if (word[index].toLowerCase() === alphabet[index]) {
+    count += 1;
+    }
+  }
+  return count;
+}
 
 
 console.log(solve(["abode","ABc","xyzD"])) // [4,3,1]
