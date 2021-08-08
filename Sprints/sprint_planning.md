@@ -160,3 +160,46 @@ Fulfill those goals with the following questions:
   - Nobody
 
 20210801 14:21 End
+
+## Sprint 5, 20210808 - 20210815
+
+Sprint planning meetings should involve setting expectations, reviewing the backlog, and covering upcoming tasks for the sprint. During this meeting, teams should highlight any potential roadblocks that may occur and halt progress.
+
+Fulfill those goals with the following questions:
+
+- **What did we learn at sprint review and sprint retrospective that needs to be considered in our planning conversations today?**
+  - The slow path to proficiency is actually slow. Ha ha
+  - Programming requires even more meticulous than I thought
+
+- **What is at the top of the product backlog?**
+  - JS101 Lesson 3
+  - JS101 Small Problems
+
+- **What do we need to know about these backlog items in order to fully commit to getting them done in the upcoming sprint?**
+  - Strive for understanding and make Anki cards for active recall
+  - Be aware of the small differences
+
+- **How much of the product backlog do we think we can complete in the upcoming sprint?**
+  - JS101 Lesson 3: Practice Problems > 2. Practice Problems: Easy 1
+
+- **Do we need more clarification on this feature?**
+  - No
+
+- **What is our confidence level [High / Medium / Low] regarding this (sprint backlog) as a reasonable plan for this sprint?**
+  - Medium confidence level
+
+- **How is this yet-to-build backlog item similar/relative to other known/completed work we have done in the past? How does this comparison help us estimate the relative size of the new work?**
+  - JS101 Lesson 3: Practice Problems > 2. Practice Problems: Easy 1 seem to be short and if so, I can do this during my vacation week
+
+
+- **What outside help will we need to succeed with our plans?**
+  - Study sessions with Alex
+  - LS Slack communication
+
+- **What’s the biggest risk that may prevent us from completing this sprint?**
+  - Going to Kalahari for four days during the week
+
+- **Who is taking time off during the next sprint? How should we plan differently given the team’s (adjusted) capacity?**
+  - Me
+
+20210808 17:41 End
