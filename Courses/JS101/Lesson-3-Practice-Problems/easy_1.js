@@ -22,19 +22,19 @@ Question 2
 How can you determine whether a given string ends with an exclamation mark(`!`)?
 */
 
-// let str1 = "Come over here!"; // true
-// let str2 = "What's up, Doc?"; // false
+let str1 = "Come over here!"; // true
+let str2 = "What's up, Doc?"; // false
 
-// function endsWithExclamationMark(string) {
-//   if (string[string.length - 1] === '!') {
-//   return true;
-//   } else {
-//     return false;
-//   }
-// }
+function endsWithExclamationMark(string) {
+  if (string[string.length - 1] === '!') {
+  return true;
+  } else {
+    return false;
+  }
+}
 
-// console.log(endsWithExclamationMark(str1));
-// console.log(endsWithExclamationMark(str2));
+console.log(endsWithExclamationMark(str1));
+console.log(endsWithExclamationMark(str2));
 
 // console.log(str1.endsWith('!'));
 // console.log(str2.endsWith('!'));

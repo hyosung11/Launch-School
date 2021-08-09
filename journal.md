@@ -1717,3 +1717,48 @@ Score: 17/26 (65.38%)
 21:12 After putting the kids to bed got into a zone and finished Courses > JS101 Programming Foundations with JavaScript > Lesson 3: Practice Problems > 2. Practice Problems: Easy 1 > 1 ~ 10
 
 21:14 Time to shut it down for today. Back at it tomorrow with Alex in the morning study session.
+
+## 20210809 월요일
+
+06:04 Waiting for Alex and he's here.
+
+06:20 Review Implicit Type Coercion
+
+```js
+// variable shadowing
+function bar() {
+  let foo = 2;
+  console.log(foo);  // logs 2
+}
+
+let foo = 1;
+bar();
+```
+
+* [ ] Review function declaration, function expression, arrow function
+
+08:01 Packed and almost ready to go to Kalahari after my interview with the CEO of Encora at 11:00 today.
+
+09:23 Slow start after long poop session checking email and Slack.
+
+09:24 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Take JS101 Lesson 2 Quiz 1
+   * [x] 3. Review JS101 Lesson 2 Quiz 1
+   * [x] 4. Sprint 4 Review
+   * [x] 5. Sprint 4 Retrospective
+   * [x] 6. Sprint 5 Planning
+   * [x] 7. JS101 > Lesson 3: Practice Problems > 2. Practice Problems: Easy 1
+   * [x] 8. Read *The Pragmatic Programmer* chapter
+   * [x] 9. Read *A Mind for Numbers* chapter
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. JS101 > Lesson 3: Practice Problems > 3. Practice Problems: Easy 2
+   * [ ] 3. Read *The Pragmatic Programmer* chapter
+   * [ ] 4. Read *A Mind for Numbers* chapter
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Starting family vacation today and I also have an interview before we leave, so not sure I'll have much time today or the next few days to do much studying.
