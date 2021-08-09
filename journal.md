@@ -1711,3 +1711,9 @@ Score: 17/26 (65.38%)
 15:29 Back from exploring the St. Rocco festival in Ft. Lee where the kids got some toys and we had popcorn and cotton candy.
 
 17:42 Finished Sprint 4 Review, Sprint 4 Retrospective, and Sprint 5 Planning. Dinner soon, so I am going to relax and tackle some more problems after dinner.
+
+19:13 Relaxing after dinner and catching up on news and email. All is well.
+
+21:12 After putting the kids to bed got into a zone and finished Courses > JS101 Programming Foundations with JavaScript > Lesson 3: Practice Problems > 2. Practice Problems: Easy 1 > 1 ~ 10
+
+21:14 Time to shut it down for today. Back at it tomorrow with Alex in the morning study session.

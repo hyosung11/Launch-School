@@ -6,7 +6,7 @@ The purpose of the Sprint Review is to inspect the outcome of the Sprint and det
 
 During the event, the Scrum Team and stakeholders review what was accomplished in the Sprint and what has changed in their environment. Based on this information, attendees collaborate on what to do next. The Product Backlog may also be adjusted to meet new opportunities. The Sprint Review is a working session and the Scrum Team should avoid limiting it to a presentation.
 
-The Sprint Review is the second to last event of the Sprint and is timeboxed to a maximum of four hours for a one-month Sprint. For shorter Sprints, the event is usually shorter.
+The Sprint Review is the second to last event of the Sprint and is time-boxed to a maximum of four hours for a one-month Sprint. For shorter Sprints, the event is usually shorter.
 
 ---
 
@@ -103,7 +103,7 @@ The Sprint Review includes the following elements:
     * strain in right forearm - carpal tunnel mild case
     * short bouts of exhaustion that I need to acknowledge to take breaks
       * adjusted by timeout app to strict pomodoro process
-    * Minor and short bouts of anxiety about slower than anticipated progrees
+    * Minor and short bouts of anxiety about slower than anticipated progress
       * Need to remember to "abandon any hope of fruition" and stay in the moment
   * What problems did I solve?
     * Getting better at Git and GitHub
@@ -273,4 +273,3 @@ The Sprint Review includes the following elements:
 The result of the Sprint Review is a revised Product Backlog that defines the probable Product Backlog items for the next Sprint. The Product Backlog may also be adjusted overall to meet new opportunities.
 
 20210808 16:49 End Sprint 4 Review
-
