@@ -1762,3 +1762,5 @@ bar();
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Starting family vacation today and I also have an interview before we leave, so not sure I'll have much time today or the next few days to do much studying.
+
+09:39 Time to do KSS.
