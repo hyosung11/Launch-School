@@ -1764,3 +1764,7 @@ bar();
    * Starting family vacation today and I also have an interview before we leave, so not sure I'll have much time today or the next few days to do much studying.
 
 09:39 Time to do KSS.
+
+09:41 I changed my mind and decided to prep for the interview first and then do my training.
+
+11:14 Ugh. This guy Elias is not good at his job. Maybe interview will be tomorrow.
