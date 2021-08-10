@@ -1768,3 +1768,8 @@ bar();
 09:41 I changed my mind and decided to prep for the interview first and then do my training.
 
 11:14 Ugh. This guy Elias is not good at his job. Maybe interview will be tomorrow.
+
+## 20210810 화요일
+
+07:54 오늘 휴가라서 작업을 많이 안 해. No daily scrum. But I want to do an exercise or so.
+
