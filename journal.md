@@ -1773,3 +1773,5 @@ bar();
 
 07:54 오늘 휴가라서 작업을 많이 안 해. No daily scrum. But I want to do an exercise or so.
 
+10:51 Working on Question 2. Ready to go to the water park.
+

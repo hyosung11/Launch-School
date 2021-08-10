@@ -29,6 +29,7 @@ The Array.prototype.reverse method reverses the order of elements in an array, a
 Hint
 
 - For the first way, read about the Array.prototype.slice() method on MDN.
+
 - For the second way, read about Spread syntax on MDN.
 
 */
@@ -38,11 +39,17 @@ Hint
 // console.log(numbers); // [ 5, 4, 3, 2, 1 ]
 
 // Array.prototype.slice()
-let numbers = [1, 2, 3, 4, 5];
-let returnedArray = numbers.slice().reverse();
-console.log(returnedArray); // [5, 4, 3, 2, 1];
-console.log(numbers); // [1, 2, 3, 4, 5];
+// let numbers = [1, 2, 3, 4, 5];
+// let reversedArray = numbers.slice().reverse();
+// console.log(reversedArray); // [5, 4, 3, 2, 1];
+// console.log(numbers); // [1, 2, 3, 4, 5];
 
 // numbers = [1, 2, 3, 4, 5];
 // numbers.sort((num1, num2) => num2 - num1);
 // console.log(numbers); // [ 5, 4, 3, 2, 1 ]
+
+// Spread syntax
+let numbers = [1, 2, 3, 4, 5];
+let sortedArray = [...numbers].sort((num1, num2) => num2 - num1);
+console.log(sortedArray); // [ 5, 4, 3, 2, 1 ]
+console.log(numbers); // [ 1, 2, 3, 4, 5 ]
