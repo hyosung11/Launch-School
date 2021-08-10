@@ -1775,3 +1775,4 @@ bar();
 
 10:51 Working on Question 2. Ready to go to the water park.
 
+13:18 Happy to have a break to do some more coding. Looking at `Array.prototype.forEach()`.

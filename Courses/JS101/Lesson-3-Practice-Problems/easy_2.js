@@ -44,12 +44,17 @@ Hint
 // console.log(reversedArray); // [5, 4, 3, 2, 1];
 // console.log(numbers); // [1, 2, 3, 4, 5];
 
+// Array.prototype.sort() - changes the array
 // numbers = [1, 2, 3, 4, 5];
 // numbers.sort((num1, num2) => num2 - num1);
 // console.log(numbers); // [ 5, 4, 3, 2, 1 ]
 
 // Spread syntax
+// let numbers = [1, 2, 3, 4, 5];
+// let sortedArray = [...numbers].sort((num1, num2) => num2 - num1);
+// console.log(sortedArray); // [ 5, 4, 3, 2, 1 ]
+// console.log(numbers); // [ 1, 2, 3, 4, 5 ]
+
+/* Bonus Question: Can you do it using the Array.prototype.forEach() method? */
+
 let numbers = [1, 2, 3, 4, 5];
-let sortedArray = [...numbers].sort((num1, num2) => num2 - num1);
-console.log(sortedArray); // [ 5, 4, 3, 2, 1 ]
-console.log(numbers); // [ 1, 2, 3, 4, 5 ]
