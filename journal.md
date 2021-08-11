@@ -1780,3 +1780,7 @@ bar();
 15:28 Took a short nap and SungOh screaming at me for eating his Cheetos woke me up. Sohee returning from finding out about the Escape Room.
 
 20:08 Working on another exercise, but everyone is going to sleep and I don't want to keep typing on the keyboard.
+
+## 20210811 수요일
+
+08:03 Looking at code now. How to flatten an array methods.
