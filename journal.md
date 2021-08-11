@@ -1784,3 +1784,5 @@ bar();
 ## 20210811 수요일
 
 08:03 Looking at code now. How to flatten an array methods.
+
+08:40 Practice using `Array.prototype.reduce()` to flatten a nested array. Fun. I still don't completely understand it yet.

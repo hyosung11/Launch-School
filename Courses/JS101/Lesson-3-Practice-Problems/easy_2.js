@@ -132,6 +132,14 @@ flintstones.push(["Bambam", "Pebbles"]);
 // Hint 2
 // Consider using spread syntax in your solution. If you can't get a solution with spread syntax, try using Array.prototype.reduce or Array.prototype.forEach.
 
-// Solution 1
-console.log(flintstones = [].concat(...flintstones));
+// Solution 1 - Array.prototype.concat()
+// flintstones = [].concat(...flintstones);
 // => [ 'Fred', 'Wilma', 'Barney', 'Betty', 'Bambam', 'Pebbles' ]
+
+// Solution 2 - Array.prototype.reduce()
+// flintstones = flintstones.reduce((accumulator, currentValue) => {
+//   return accumulator.concat(currentValue);
+// }, [])
+// console.log(flintstones);
+
+// Solution 3 - 
