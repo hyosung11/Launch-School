@@ -1776,3 +1776,7 @@ bar();
 10:51 Working on Question 2. Ready to go to the water park.
 
 13:18 Happy to have a break to do some more coding. Looking at `Array.prototype.forEach()`.
+
+15:28 Took a short nap and SungOh screaming at me for eating his Cheetos woke me up. Sohee returning from finding out about the Escape Room.
+
+20:08 Working on another exercise, but everyone is going to sleep and I don't want to keep typing on the keyboard.

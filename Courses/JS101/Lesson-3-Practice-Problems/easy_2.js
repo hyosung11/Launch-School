@@ -57,4 +57,81 @@ Hint
 
 /* Bonus Question: Can you do it using the Array.prototype.forEach() method? */
 
-let numbers = [1, 2, 3, 4, 5];
+// let numbers = [1, 2, 3, 4, 5];
+// let reversedArray = [];
+
+// numbers.forEach((number) => {
+//   reversedArray.unshift(number);
+// });
+
+// console.log(reversedArray); // [5, 4, 3, 2, 1];
+// console.log(numbers); // [1, 2, 3, 4, 5];
+
+/* ========================================================
+
+Question 3
+
+Given a number and an array, determine whether the number is included in the array.
+
+*/
+// let numbers = [1, 2, 3, 4, 5, 15, 16, 17, 95, 96, 99];
+
+// let number1 = 8;  // false
+// let number2 = 95; // true
+
+// Hint
+// Read about the Array.prototype.includes() method on MDN.
+
+// console.log(numbers.includes(number1));
+// console.log(numbers.includes(number2));
+
+/* ========================================================
+
+Question 4
+
+Starting with the string:
+
+let famousWords = 'seven years ago...';
+
+show two different ways to put the expected "Four score and " in front of it.
+*/
+
+// let famousWords = 'seven years ago...';
+
+// Solution 1
+// console.log("Four score and " + famousWords);
+// => Four score and seven years ago...
+
+// Solution 2
+// console.log("Four score and ".concat(famousWords));
+// => Four score and seven years ago...
+
+/* ========================================================
+
+Question 5
+
+Suppose we build an array like this: */
+
+let flintstones = ["Fred", "Wilma"];
+flintstones.push(["Barney", "Betty"]);
+flintstones.push(["Bambam", "Pebbles"]);
+
+// This code will create a nested array that looks like this:
+
+['Fred', 'Wilma', ['Barney', 'Betty'], ['Bambam', 'Pebbles']];
+
+// Nesting data structures like we do here is commonplace in JavaScript and programming in general. We'll explore this in much greater depth in a future Lesson.
+
+// Create a new array that contains all of the above values, but in an un-nested format:
+
+// ['Fred', 'Wilma', 'Barney', 'Betty', 'Bambam', 'Pebbles'];
+
+// Hint 1
+// Read about the Array.prototype.concat() method on MDN, and pay close attention to how concat uses its arguments.
+
+// Hint 2
+// Consider using spread syntax in your solution. If you can't get a solution with spread syntax, try using Array.prototype.reduce or Array.prototype.forEach.
+
+// Solution 1
+console.log(flintstones = [].concat(...flintstones));
+// => [ 'Fred', 'Wilma', 'Barney', 'Betty', 'Bambam', 'Pebbles' ]
