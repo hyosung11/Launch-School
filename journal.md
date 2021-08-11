@@ -1792,3 +1792,5 @@ bar();
 12:12 Practice using `Array.prototype.flat()`.
 
 12:22 Finished Question 5 after Question 6.
+
+15:40 Working on Question 7 using `Object.entries(flintstones).filter(pair => pair[0] === 'Barney').shift();`
