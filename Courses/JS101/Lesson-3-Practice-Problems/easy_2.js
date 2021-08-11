@@ -110,15 +110,31 @@ show two different ways to put the expected "Four score and " in front of it.
 
 Question 5
 
+Given an array of numbers [1, 2, 3, 4, 5], mutate the array by removing the number at index 2, so that the array becomes [1, 2, 4, 5].
+
+Hint
+
+Read about the Array.prototype.splice() method on MDN.
+
+*/
+// let numbers = [1, 2, 3, 4, 5];
+// numbers.splice(2, 1);
+
+// console.log(numbers); // [1, 2, 4, 5]
+
+/* ========================================================
+
+Question 6
+
 Suppose we build an array like this: */
 
-let flintstones = ["Fred", "Wilma"];
-flintstones.push(["Barney", "Betty"]);
-flintstones.push(["Bambam", "Pebbles"]);
+// let flintstones = ["Fred", "Wilma"];
+// flintstones.push(["Barney", "Betty"]);
+// flintstones.push(["Bambam", "Pebbles"]);
 
 // This code will create a nested array that looks like this:
 
-['Fred', 'Wilma', ['Barney', 'Betty'], ['Bambam', 'Pebbles']];
+// ['Fred', 'Wilma', ['Barney', 'Betty'], ['Bambam', 'Pebbles']];
 
 // Nesting data structures like we do here is commonplace in JavaScript and programming in general. We'll explore this in much greater depth in a future Lesson.
 
@@ -137,9 +153,21 @@ flintstones.push(["Bambam", "Pebbles"]);
 // => [ 'Fred', 'Wilma', 'Barney', 'Betty', 'Bambam', 'Pebbles' ]
 
 // Solution 2 - Array.prototype.reduce()
-// flintstones = flintstones.reduce((accumulator, currentValue) => {
-//   return accumulator.concat(currentValue);
-// }, [])
+// flintstones = flintstones.reduce((accumulator, element) => {
+//   return accumulator.concat(element);
+// },[]);
+
 // console.log(flintstones);
 
-// Solution 3 - 
+// Solution 3 - Array.prototype.forEach()
+// let newFlintstones = [];
+// flintstones.forEach((element) => {
+//   newFlintstones = newFlintstones.concat(element);
+// })
+
+// console.log(newFlintstones);
+
+// Solution 3 - Array.prototype.flat()
+// let newFlintstones = flintstones.flat();
+
+// console.log(newFlintstones);

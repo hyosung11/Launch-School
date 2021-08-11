@@ -1786,3 +1786,9 @@ bar();
 08:03 Looking at code now. How to flatten an array methods.
 
 08:40 Practice using `Array.prototype.reduce()` to flatten a nested array. Fun. I still don't completely understand it yet.
+
+11:56 Fun doing the ropes course with Omi. It looks like I will have an interview with Kevin Yeom, the VP of Engineering for the DXP Division of Encora on Friday.
+
+12:12 Practice using `Array.prototype.flat()`.
+
+12:22 Finished Question 5 after Question 6.
