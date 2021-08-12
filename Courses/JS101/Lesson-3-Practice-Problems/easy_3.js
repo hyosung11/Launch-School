@@ -22,3 +22,5 @@ let numbers = [1, 2, 3, 4];
 while (numbers.length) {
   numbers.pop()
 }
+
+// 20210812 12:45 Assignment complete
