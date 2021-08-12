@@ -1796,3 +1796,9 @@ bar();
 15:40 Working on Question 7 using `Object.entries(flintstones).filter(pair => pair[0] === 'Barney').shift();`
 
 20:28 Just finished Question 8. I'm glad to go home tomorrow and work at home. I want to try the 90 minutes of Ultradian work with a 20 minute nap or non-sleep deep rest (diffuse mode).
+
+## 20210812 목요일
+
+07:08 Good morning. I want to go home and I want to go to the gym and deadlift and squat and hip thrust today.
+
+07:39 Finished Courses > JS101 Programming Foundations with JavaScript > Lesson 3: Practice Problems > 3. Practice Problems: Easy 2.

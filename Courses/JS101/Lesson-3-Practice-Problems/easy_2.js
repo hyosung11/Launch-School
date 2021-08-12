@@ -213,3 +213,36 @@ How would you check whether the objects assigned to variables numbers and table 
 // console.log(Array.isArray(table));
 
 // Array.isArray() determines whether the passed value is an Array. You can read about this method on MDN.
+
+/* ========================================================
+
+Question 9
+
+Back in the stone age (before CSS), we used spaces to align things on the screen. If we have a 40-character wide table of Flintstone family members, how can we center the following title above the table with spaces? */
+
+let title = 'Flintstone Family Members';
+
+// Hint
+// Read about the Math.floor() function on MDN. You should also read about the String.prototype.padStart method on MDN as well.
+
+let padding = Math.floor((40 - title.length) / 2);
+
+title.padStart(padding + title.length);
+
+/*
+To center some text, we need to pad it on the left with some spaces. The hard part here is determining how many spaces you need. You can determine the correct value by subtracting the length of the string from the desired width, then dividing that result by 2. That gives you the number of spaces you need on the left, and an equivalent number of spaces on the right, after allowance for rounding. Once we know how many spaces we need on the left, we can use padStart to pad the original string to a length that includes those additional spaces. */
+
+/* ========================================================
+
+Question 10
+
+Write two one-line expressions to count the number of lower-case t characters in each of the following strings:
+ */
+
+let statement1 = 'The Flintstones Rock!';
+let statement2 = 'Easy come, easy go.';
+
+console.log(statement1.split('').filter(char => char === 't').length);
+console.log(statement2.split('').filter(letter => letter === 't').length);
+
+// 20210812 07:38 Assignment complete
