@@ -1822,3 +1822,5 @@ bar();
 11:48 Got sidetracked by Slack messages and am now starting on Easy 3.
 
 11:56 Good to get to work even if I get the answer wrong. I'm learning and enjoying the learning process.
+
+12:45 Finished Easy 3. It had only five questions.
