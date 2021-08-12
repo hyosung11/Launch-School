@@ -2,8 +2,10 @@
 
 Practice Problems: Easy 2
 
-==========
+===========================================================
+
 Question 1
+
 Given a string, return a new string that replaces every occurrence of the word "important" with "urgent":
 */
 

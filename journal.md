@@ -1802,3 +1802,5 @@ bar();
 07:08 Good morning. I want to go home and I want to go to the gym and deadlift and squat and hip thrust today.
 
 07:39 Finished Courses > JS101 Programming Foundations with JavaScript > Lesson 3: Practice Problems > 3. Practice Problems: Easy 2.
+
+07:56 Started Easy 3. Leaving Kalahari now to go home.
