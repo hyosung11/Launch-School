@@ -1794,3 +1794,5 @@ bar();
 12:22 Finished Question 5 after Question 6.
 
 15:40 Working on Question 7 using `Object.entries(flintstones).filter(pair => pair[0] === 'Barney').shift();`
+
+20:28 Just finished Question 8. I'm glad to go home tomorrow and work at home. I want to try the 90 minutes of Ultradian work with a 20 minute nap or non-sleep deep rest (diffuse mode).
