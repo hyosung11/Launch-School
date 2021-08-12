@@ -1804,3 +1804,23 @@ bar();
 07:39 Finished Courses > JS101 Programming Foundations with JavaScript > Lesson 3: Practice Problems > 3. Practice Problems: Easy 2.
 
 07:56 Started Easy 3. Leaving Kalahari now to go home.
+
+11:25 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS101 > Lesson 3: Practice Problems > 3. Practice Problems: Easy 2
+   * [x] 2. Listened to the Huberman Lab podcast on human performance
+
+2. What will you do today?
+   * [ ] 1. JS101 > Lesson 3: Practice Problems > 4. Practice Problems: Easy 3
+   * [ ] 2. Read *The Pragmatic Programmer* chapter
+   * [x] 3. Read *A Mind for Numbers* chapter
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * None
+
+11:48 Got sidetracked by Slack messages and am now starting on Easy 3.
+
+11:56 Good to get to work even if I get the answer wrong. I'm learning and enjoying the learning process.
+
+12:45 Finished Easy 3. It had only five questions.
