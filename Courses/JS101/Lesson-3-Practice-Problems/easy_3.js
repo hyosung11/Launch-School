@@ -44,10 +44,10 @@ Question 3
 
 What will the following code output? */
 
-let str1 = 'hello there';
-let str2 = str1;
-str2 = 'goodbye!';
-console.log(str1); // => hello there - correct answer
+// let str1 = 'hello there';
+// let str2 = str1;
+// str2 = 'goodbye!';
+// console.log(str1); // => hello there - correct answer
 
 // Try to answer without running the code.
 
@@ -63,13 +63,13 @@ Question 4
 
 What will the following code output? */
 
-let arr1 = [{ first: 'value1' }, { second: 'value2' }, 3, 4, 5];
-let arr2 = arr1.slice();
-arr2[0].first = 42;
-console.log(arr1);
+// let arr1 = [{ first: 'value1' }, { second: 'value2' }, 3, 4, 5];
+// let arr2 = arr1.slice();
+// arr2[0].first = 42;
+// console.log(arr1);
 
-// The output will be:
-[{ first: 42 }, { second: 'value2' }, 3, 4, 5];
+// // The output will be:
+// [{ first: 42 }, { second: 'value2' }, 3, 4, 5];
 
 /* Internally, arr1 looks something like this after line 1 runs:
 
@@ -124,3 +124,43 @@ arr1[0] and arr2[0] point to the same object, { first: "value1" }. Thus, when we
 +---------+                                                  +---------+
 
 */
+
+/* ========================================================
+
+Question 5
+
+The following function unnecessarily uses two return statements to return boolean values. Can you rewrite this function so it only has one return statement and does not explicitly use either true or false? */
+
+// function isColorValid(color) {
+//   if (color === 'blue' || color === 'green') {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+
+// Try to come up with at least two different solutions.
+
+// My solution with ternary operator works
+// function isColorValid(color) {
+//   return (color === 'blue' || color === 'green') ? true : false;
+// }
+
+// console.log(isColorValid('green'));
+
+// We can simplify this function like this:
+// function isColorValid(color) {
+//   return color === 'blue' || color === 'green';
+// }
+
+// console.log(isColorValid("green"));
+
+// In functions that return a boolean value, you often don't need separate return statements for the true and false cases. Instead, you can return the value of a conditional expression directly.
+
+// We can also use an arrow function to simplify the code even more:
+// const colorIsValid = color => color === 'blue' || color === 'green';
+
+// Another tweak you can make is to use the Array.prototype.includes method; this works especially well when you have more than 2 choices:
+const isColorValid = color => ['blue', 'green'].includes(color);
+
+// All of these functions have the same results.
