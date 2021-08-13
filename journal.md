@@ -1829,3 +1829,12 @@ bar();
 
 14:46 Ordered hot pink New Balance cleats because they were out of the black ones. Fun times on the pitch.
 
+15:18 Starting Practice Problems: Medium 1.
+
+20:33 Working on some problems on the couch while watching Shark Tank. Not the best situation.
+
+20:43 Working on Question 3, but I don't understand it yet. Good night anyway.
+
+## 20210813 금요일
+
+06:00 Study Session with Alex
