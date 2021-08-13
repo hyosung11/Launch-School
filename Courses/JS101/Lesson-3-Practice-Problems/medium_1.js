@@ -34,7 +34,7 @@ Starting with the string: */
 
 // munstersDescription.split("").map(function(char) {
 //   if (char === char.toUpperCase()) {
-//     return char.toLowerCase(); 
+//     return char.toLowerCase();
 //   } else {
 //     return char.toUpperCase();
 //   }
@@ -65,27 +65,27 @@ Alan wrote the following function, which was intended to return all of the facto
 // console.log(factors(-1));
 
 // Use a while condition for the loop
-function factors(number) {
-  let divisor = number;
-  let factors = [];
+// function factors(number) {
+//   let divisor = number;
+//   let factors = [];
 
-  while (divisor > 0) {
-    if (number % divisor === 0) {
-      factors.push(number / divisor);
-    }
-    divisor -= 1;
-  }
+//   while (divisor > 0) {
+//     if (number % divisor === 0) {
+//       factors.push(number / divisor);
+//     }
+//     divisor -= 1;
+//   }
 
-  return factors;
-}
+//   return factors;
+// }
 
-console.log(factors(0)); // []
-console.log(factors(-5)); // []
-console.log(factors(27)); // [1, 3, 9, 27]
+// console.log(factors(0)); // []
+// console.log(factors(-5)); // []
+// console.log(factors(27)); // [1, 3, 9, 27]
 
 // How does the result differ if you replace line 3 with `factors.push(divisor);?
 
-console.log(factors(27)); // => [ 27, 9, 3, 1 ]
+// console.log(factors(27)); // => [ 27, 9, 3, 1 ]
 
 // Bonus: What is the purpose of `number % divisor === 0` in that code?
 
@@ -103,25 +103,43 @@ She wrote two implementations of the code for adding elements to the buffer. In 
 Is there a difference between these implementations, other than the method she used to add an element to the buffer? */
 
 // using push()
-function addToRollingBuffer1(buffer, maxBufferSize, newElement) {
-  buffer.push(newElement);
-  if (buffer.length > maxBufferSize) {
-    buffer.shift();
-  }
-  return buffer;
-}
+// function addToRollingBuffer1(buffer, maxBufferSize, newElement) {
+//   buffer.push(newElement);
+//   if (buffer.length > maxBufferSize) {
+//     buffer.shift();
+//   }
+//   return buffer;
+// }
 
-// using concat()
-function addToRollingBuffer2(buffer, maxBufferSize, newElement) {
-  buffer = buffer.concat(newElement);
-  if (buffer.length > maxBufferSize) {
-    buffer.shift();
-  }
-  return buffer;
-}
+// // using concat()
+// function addToRollingBuffer2(buffer, maxBufferSize, newElement) {
+//   buffer = buffer.concat(newElement);
+//   if (buffer.length > maxBufferSize) {
+//     buffer.shift();
+//   }
+//   return buffer;
+// }
 
-/*
+/* Yes, there is a difference. While both methods have the same return value, the first implementation mutates the argument represented by `buffer`. That is, the caller will see that the array is different when the function returns. The `rollingBuffer2` implementation doesn't mutate the argument specified by the value of `buffer`. */
 
-Yes, there is a difference. While both methods have the same return value, the first implementation mutates the argument represented by `buffer`. That is, the caller will see that the array is different when the function returns. The `rollingBuffer2` implementation doesn't mutate the argument specified by the value of `buffer`.
+/* ========================================================
 
-*/
+Question 5
+
+What do you think the following code will output? */
+
+// let nanArray = [NaN];
+
+// console.log(nanArray[0] === NaN); // false
+
+/* The output is `false`. `NaN` -- not a number -- is a special numeric value that indicates that an operation that was intended to return a number failed. JavaScript does not let you use `==` and `===` to determine whether a value is `NaN`. */
+
+// Bonus:
+
+// How can you reliably test if a value is NaN?
+
+// Bonus Answer:
+
+// To test whether the value is NaN, we use the `Number.isNaN()` method:
+
+// console.log(Number.isNaN(nanArray[0])); // true
