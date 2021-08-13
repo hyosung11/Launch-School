@@ -1859,3 +1859,5 @@ bar();
 11:51 I feel irritated by SungOh's watching Unspeakable on youtube.com.
 
 12:38 I feel a disrespect from Sohee about my time. Is that on me? Ugh. I don't want this job. I want to keep studying Launch School fulltime. Ugh.
+
+12:58 I don't understand everything happening in Question 3. It's only a few lines of code, so break it down. Practice, practice, practice. I need to take a break and prep for the interview with Kevin Yeom, VP of Engineering at Encora.
