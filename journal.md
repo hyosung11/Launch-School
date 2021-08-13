@@ -1865,3 +1865,5 @@ bar();
 15:41 The interview went longer than expected and included many more questions than I thought I would get. So I have another interview with the Division CEO now. I haven't done any more coding and that annoys me. I'm going to see Dr. Riotto and then will come back and do some more programming and my soccer skills practice later.
 
 17:38 Working on Question 3 some more. Getting more repetitions.
+
+18:41 Answer Question 6. Now movie night.
