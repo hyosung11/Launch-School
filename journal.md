@@ -1824,3 +1824,8 @@ bar();
 11:56 Good to get to work even if I get the answer wrong. I'm learning and enjoying the learning process.
 
 12:45 Finished Easy 3. It had only five questions.
+
+14:18 Back from the gym. It felt great to train heavier than I have been with kettlebells. I want to go everyday!
+
+14:46 Ordered hot pink New Balance cleats because they were out of the black ones. Fun times on the pitch.
+
