@@ -1863,3 +1863,5 @@ bar();
 12:58 I don't understand everything happening in Question 3. It's only a few lines of code, so break it down. Practice, practice, practice. I need to take a break and prep for the interview with Kevin Yeom, VP of Engineering at Encora.
 
 15:41 The interview went longer than expected and included many more questions than I thought I would get. So I have another interview with the Division CEO now. I haven't done any more coding and that annoys me. I'm going to see Dr. Riotto and then will come back and do some more programming and my soccer skills practice later.
+
+17:38 Working on Question 3 some more. Getting more repetitions.
