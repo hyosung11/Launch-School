@@ -1848,7 +1848,7 @@ bar();
    * [x] 2. Listened to the Huberman Lab podcast on human performance
 
 2. What will you do today?
-   * [ ] 1. Study Session with Alex
+   * [x] 1. Study Session with Alex
    * [ ] 2. JS101 > Lesson 3: Practice Problems > 4. Practice Problems: Medium 1
    * [x] 3. Read *A Mind for Numbers* chapter
    * [ ] 4. Read *The Pragmatic Programmer* chapter
@@ -1856,3 +1856,6 @@ bar();
 3. Are there any blockers or impediments preventing you from doing your work?
    * Getting later start today because I had to run errands to get groceries and see if we can get Omi's iPad fixed. I also have an interview this afternoon for which I need to spend some time preparing.
 
+11:51 I feel irritated by SungOh's watching Unspeakable on youtube.com.
+
+12:38 I feel a disrespect from Sohee about my time. Is that on me? Ugh. I don't want this job. I want to keep studying Launch School fulltime. Ugh.

@@ -37,6 +37,6 @@ let three = ["three"];
 
 messWithVars(one, two, three);
 
-console.log(`one is ${one}`) // two
-console.log(`two is ${two}`); // three
-console.log(`three is ${three}`); // one
+console.log(`one is ${one}`)
+console.log(`two is ${two}`);
+console.log(`three is ${three}`);
