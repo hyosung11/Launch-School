@@ -64,6 +64,7 @@ Alan wrote the following function, which was intended to return all of the facto
 // console.log(factors(0)); FATAL ERROR: invalid array length Allocation failed - JavaScript heap out of memory
 // console.log(factors(-1));
 
+// Use a while condition for the loop
 function factors(number) {
   let divisor = number;
   let factors = [];
@@ -82,4 +83,11 @@ console.log(factors(0)); // []
 console.log(factors(-5)); // []
 console.log(factors(27)); // [1, 3, 9, 27]
 
+// How does the result differ if you replace line 3 with `factors.push(divisor);?
+
+console.log(factors(27)); // => [ 27, 9, 3, 1 ]
+
 // Bonus: What is the purpose of `number % divisor === 0` in that code?
+
+// Bonus Answer:
+// It determines whether the result of the division is an integer -- if the number has no remainder, the result is an integer, so the number divided by the divisor is a factor.
