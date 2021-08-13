@@ -1838,3 +1838,21 @@ bar();
 ## 20210813 금요일
 
 06:00 Study Session with Alex
+
+11:41 Getting a late start today because of changed schedule. I am annoyed by SungOh's watching youtube.com.
+
+11:45 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS101 > Lesson 3: Practice Problems > 3. Practice Problems: Easy 3
+   * [x] 2. Listened to the Huberman Lab podcast on human performance
+
+2. What will you do today?
+   * [ ] 1. Study Session with Alex
+   * [ ] 2. JS101 > Lesson 3: Practice Problems > 4. Practice Problems: Medium 1
+   * [x] 3. Read *A Mind for Numbers* chapter
+   * [ ] 4. Read *The Pragmatic Programmer* chapter
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Getting later start today because I had to run errands to get groceries and see if we can get Omi's iPad fixed. I also have an interview this afternoon for which I need to spend some time preparing.
+
