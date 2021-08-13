@@ -1824,3 +1824,9 @@ bar();
 11:56 Good to get to work even if I get the answer wrong. I'm learning and enjoying the learning process.
 
 12:45 Finished Easy 3. It had only five questions.
+
+15:18 Starting Practice Problems: Medium 1.
+
+20:33 Working on some problems on the couch while watching Shark Tank. Not the best situation.
+
+20:43 Working on Question 3, but I don't understand it yet. Good night anyway.
