@@ -1896,3 +1896,8 @@ bar();
 17:16 Back from the Launch School meetup where I enjoyed myself and had some good conversations with Arthur, Jeff and Julius. I also met Leeya, Alonso Lobato and Dan Marino. Ugh. My memory is bad.
 
 18:36 After dinner and I want to finish the Questions in Medium 1.
+
+18:54 I understand Question 9 through reading and typing out the solution. I am hot and going to change into my sleep clothes.
+
+19:13 I get the solution to Question 10. Yes! Focused attention and then diffuse attention. It works.
+
