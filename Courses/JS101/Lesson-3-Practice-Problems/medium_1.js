@@ -219,6 +219,10 @@ function messWithDemographics(demoObject) {
 
 Spot will find himself in the "dog house" for this one. The family's data is in shambles now.
 
-Why? In JavaScript, objects are passed by reference. Thus, Spot's demoObject starts off pointing to the munsters object. His program could replace that with some other object, and the family's data would be safe. However, in this case, the program doesn't reassign demoObject; it just uses it, as-is. Thus, the object that gets changed by the function is the munsters object.
+Why? In JavaScript, objects are passed by reference. Thus, Spot's demoObject starts off pointing to the munsters object. His program could replace that with some other object, and the family's data would be safe. However, in this case, the program doesn't reassign demoObject; it just uses it, as-is. Thus, the object that gets changed by the function is the munsters object. */
 
-*/
+/* ========================================================
+
+Question 9
+
+Function and method calls can take expressions as arguments. Suppose we define a function named rps as follows, which follows the classic rules of the rock-paper-scissors game, but with a slight twist: in the event of a tie, it just returns the choice made by both players. */

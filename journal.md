@@ -1889,3 +1889,10 @@ bar();
 3. Are there any blockers or impediments preventing you from doing your work?
    * Going to NYC for the Launch School meetup which will take all afternoon.
 
+11:21 Not focused on studying today. I'm watching Chelsea vs Crystal Palace. I'm a little tired.
+
+11:51 Chelsea wins 3-0 over Crystal Palace. Work on Question 8.
+
+17:16 Back from the Launch School meetup where I enjoyed myself and had some good conversations with Arthur, Jeff and Julius. I also met Leeya, Alonso Lobato and Dan Marino. Ugh. My memory is bad.
+
+18:36 After dinner and I want to finish the Questions in Medium 1.
