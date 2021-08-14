@@ -1849,7 +1849,7 @@ bar();
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [ ] 2. JS101 > Lesson 3: Practice Problems > 4. Practice Problems: Medium 1
+   * [ ] 2. JS101 > Lesson 3: Practice Problems > 4. Practice Problems: Medium 1 > 1~10
    * [x] 3. Read *A Mind for Numbers* chapter
    * [ ] 4. Read *The Pragmatic Programmer* chapter
 
