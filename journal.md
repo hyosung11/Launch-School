@@ -1868,3 +1868,4 @@ bar();
 17:38 Working on Question 3 some more. Getting more repetitions.
 
 18:41 Answer Question 6. Now movie night.
+

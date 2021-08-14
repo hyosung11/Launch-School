@@ -164,6 +164,6 @@ What do you think the following code will output? */
 
 /* ========================================================
 
-Question 6
+Question 7
 
 What do you think the following code will output? */
