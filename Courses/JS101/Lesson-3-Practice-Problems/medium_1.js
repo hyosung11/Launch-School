@@ -239,9 +239,33 @@ function rps(fist1, fist2) {
 
 // What does the following code output?
 
-console.log(rps(rps(rps("rock", "paper"), rps("rock", "scissors")), "rock"));// => "paper"
+// console.log(rps(rps(rps("rock", "paper"), rps("rock", "scissors")), "rock"));// => "paper"
 
 /* Solution 9
 
 The outermost call determines the result of comparing `rps(rps("rock", "paper"), rps("rock", "scissors")) against `rock`.That means we must evaluate the two separate calls, `rps("rock", "paper") and rps("rock", "scissors"), and combine them by calling `rps` on their results. Those innermost expressions return `"paper"` and `"rock"`, respectively. Calling `rps` on those two values returns `"paper"`, which when evaluated against `"rock"`, returns `"paper"`.
 */
+
+/* ========================================================
+
+Question 10
+
+Consider these two simple functions: */
+
+function foo(param = "no") {
+  return "yes";
+}
+
+function bar(param = "no") {
+  return param === "no" ? "yes" : "no";
+}
+
+// What will the following invocation return?
+
+console.log(bar(foo()));
+
+// Solution 10
+
+// => "no"
+
+// This is because the value returned from the `foo` function will always be `"yes"`, and `"yes" === "no"` will be `false`.
