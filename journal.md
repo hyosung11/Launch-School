@@ -1868,3 +1868,23 @@ bar();
 17:38 Working on Question 3 some more. Getting more repetitions.
 
 18:41 Answer Question 6. Now movie night.
+
+## 20210814 토요일
+
+10:00 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS101 > Lesson 3: Practice Problems > 4. Practice Problems: Medium 1 > 1~6
+   * [x] 3. Listened to the Huberman Lab podcast on human performance
+   * [x] 4. Read *A Mind for Numbers* chapter
+
+2. What will you do today?
+   * [ ] 1. JS101 > Lesson 3: Practice Problems > 4. Practice Problems: Medium 1 > 7~10
+   * [x] 2. Read *A Mind for Numbers* chapter
+   * [ ] 3. Read *The Pragmatic Programmer* chapter
+   * [ ] 4. Launch School Meetup in NYC
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Going to NYC for the Launch School meetup which will take all afternoon.
+
