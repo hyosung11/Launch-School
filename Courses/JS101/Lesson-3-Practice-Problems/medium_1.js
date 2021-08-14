@@ -126,6 +126,24 @@ Is there a difference between these implementations, other than the method she u
 
 Question 5
 
+What will the following two lines of code output? */
+
+// console.log(0.3 + 0.6); // 0.8999999999999999
+// console.log(0.3 + 0.6 === 0.9); // false
+
+/* Solution 5
+
+If you thought that the outputs would be `0.9` and `true`, respectively, you were wrong. JavaScript uses floating point numbers for all numeric operations. Most floating point representations used on computers lack a certain amount of precision, and that can yield unexpected results like these.
+
+In this case, the output was: */
+
+// 0.8999999999999999
+// false
+
+/* ========================================================
+
+Question 6
+
 What do you think the following code will output? */
 
 // let nanArray = [NaN];
@@ -143,3 +161,9 @@ What do you think the following code will output? */
 // To test whether the value is NaN, we use the `Number.isNaN()` method:
 
 // console.log(Number.isNaN(nanArray[0])); // true
+
+/* ========================================================
+
+Question 6
+
+What do you think the following code will output? */
