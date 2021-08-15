@@ -180,11 +180,30 @@ If `str` is not a string of digits, we return `false`. */
 // my code
 function isDotSeparatedIpAddress(inputString) {
   let dotSeparatedWords = inputString.split('.');
-
-  if (dotSeparatedWords.length > 4 || dotSeparatedWords.length < 4) {
+  if (dotSeparatedWords.length !== 4) {
     return false;
   }
-  
+
+  while (dotSeparatedWords.length > 0) {
+    let word = dotSeparatedWords.pop();
+    if (!isAnIpNumber(word)) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+/* There are several ways to fix this code. We'll look at one possible solution to both parts of the problem.
+
+To determine whether there are precisely 4 dot-separated "words" in the string, you can check the value of dotSeparatedWords.length after splitting the string. */
+
+function isDotSeparatedIpAddress(inputString) {
+  let dotSeparatedWords = inputString.split('.');
+  if (dotSeparatedWords.length !== 4) {
+    return false;
+  }
+
   while (dotSeparatedWords.length > 0) {
     let word = dotSeparatedWords.pop();
     if (!isAnIpNumber(word)) {
@@ -195,3 +214,20 @@ function isDotSeparatedIpAddress(inputString) {
   return true;
 }
 
+/* Great! The code now handles inputs that don't contain 4 dot-separated words, but the other error remains: it doesn't return false when encountering an invalid component such as 257 or abc. Ben used a break statement to break out of the while loop, but that causes control to fall through to the return true statement. You can fix this by using return false instead of break. */
+
+function isDotSeparatedIpAddress(inputString) {
+  let dotSeparatedWords = inputString.split('.');
+  if (dotSeparatedWords.length !== 4) {
+    return false;
+  }
+
+  while (dotSeparatedWords.length > 0) {
+    let word = dotSeparatedWords.pop();
+    if (!isAnIpNumber(word)) {
+      return false;
+    }
+  }
+
+  return true;
+}
