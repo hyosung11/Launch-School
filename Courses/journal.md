@@ -1932,6 +1932,26 @@ bar();
 06:27 Dinking around a little bit and now ready to study.
 
 07:15 It took a few minutes, but I started to focus on Hard 1 > Question 4. Now I'm going to take a break and walk outside in the sunshine. Let the diffuse mode take over for a bit and then return for more. Yes!
+<<<<<<< HEAD:journal.md
 
 08:05 Back from my walk. Talked to Sohee about work tension and cleared the air as well as hugged it out.
 
+||||||| merged common ancestors:journal.md
+=======
+
+08:52 Finished Question 4 of Lesson 4! Yes! Ready to get some more coffee and go to get my BCSOA packet and head to the gym. Soccer skills practice first!
+
+11:09 Back from the gym and picking up my BCSOA packet.
+
+11:20 Started Lesson 4: JavaScript Collections. I'm horny right now and hungry. Hmm.
+
+11:26 Playing around with themes and changed to GitHub theme that I don't like and tried to change back to Atom One Dark, but it looks different. Ugh.
+
+11:39 Outlined Lesson 4: JavaScript Collections > 2. Collections Basics. Now I want to watch a little soccer as a break.
+
+14:01 Back to do Sprint 5 Review, Sprint 5 Retrospective and Sprint 6 Planning.
+
+15:19 I added a Learning to Learn Assessment session, but I'm not sure what I want to do with it.
+
+15:28 Done with Sprint Review, Retrospective, Planning and Learning to Learn Assessment. I want to masturbate and buy books. Hmm.
+>>>>>>> 21cb7e074bf69487e0ec3f584ede1f73ed2685fc:Courses/journal.md

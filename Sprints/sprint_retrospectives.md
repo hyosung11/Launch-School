@@ -141,3 +141,44 @@ This question allows us to capture things that happened but leave us feeling unc
    - Take advantage of the procedural system as it will pay off later
 
 20210808 17:15 End
+
+## Sprint 5 20210809 ~ 20210815 14:30
+
+1. **What went well?**\
+In other words, what took place that we want to recognize and acknowledge as having gone well?
+
+   - Studied every day even on vacation for three days at Kalahari
+   - Training in KSS and now going to the gym everyday
+   - Getting morning sunlight to set my circadian clock
+   - Incrementally increasing my knowledge and computer programming foundation
+   - Reading and watching learning to learn materials
+     - *A Mind for Numbers* book
+     - *The Pragmatic Programmer*
+     - *Mindshift* MOOC
+   - Listening to the Huberman Lab podcast and applying some of the tips
+     - Ultradian focus cycle
+     - Non-sleep Deep Rest (NSDR)
+     - Hypnosis App
+     - Light Meter
+
+1. **What didn’t go so well?**\
+  What took place that didn’t go as we would have liked?
+
+   - Incorporate more resilience and learn to enjoy the challenge of being confused and use that to activate neuroplasticity through the release of norepinephrine and dopamine
+   - Do more active recall!
+
+1. **What did I learn?**\
+We want to think about what we’ve learned about how we worked together. It’s less about the content and more about the process.
+
+   - Use my hormonal system to my advantage - like checking things off to get the greens in Trello
+   - Incorporate NSDR into my Ultradian cycles
+   - Can play with the kids during my diffuse mode breaks
+
+1. **What still puzzles me?**\
+This question allows us to capture things that happened but leave us feeling unclear or puzzled.
+
+   - Not sure how to incorporate Anki cards into studying
+   - Should I write out exercises by hand?
+   - Keep doing more repetitions and really learn from mistakes as that's the way our nervous systems learn
+
+20210815 14:46 End
