@@ -169,7 +169,7 @@ Fulfill those goals with the following questions:
 
 - **What did we learn at sprint review and sprint retrospective that needs to be considered in our planning conversations today?**
   - The slow path to proficiency is actually slow. Ha ha
-  - Programming requires even more meticulous than I thought
+  - Programming requires even more meticulousness than I thought
 
 - **What is at the top of the product backlog?**
   - JS101 Lesson 3
@@ -203,3 +203,48 @@ Fulfill those goals with the following questions:
   - Me
 
 20210808 17:41 End
+
+## Sprint 6, 20210816 ~ 20210822
+
+Sprint planning meetings should involve setting expectations, reviewing the backlog, and covering upcoming tasks for the sprint. During this meeting, teams should highlight any potential roadblocks that may occur and halt progress.
+
+Fulfill those goals with the following questions:
+
+- **What did we learn at sprint review and sprint retrospective that needs to be considered in our planning conversations today?**
+  - Embrace and encourage mistakes to facilitate the neuroplasticity of learning through the release of chemicals like norepinephrine and dopamine
+  - Use Ultradian cycles and NSDR
+
+- **What is at the top of the product backlog?**
+  - JS101 Lesson 4
+  - JS101 Small Problems
+
+- **What do we need to know about these backlog items in order to fully commit to getting them done in the upcoming sprint?**
+  - Expect to struggle and enjoy it
+  - Be aware of the small differences
+
+- **How much of the product backlog do we think we can complete in the upcoming sprint?**
+  - JS101 Lesson 4: JavaScript Collections > Assignments 1~12
+  - JS101 Small Problems > Easy 2 > 10~12
+  - JS101 Small Problems > Easy 3 > 4~10
+
+- **Do we need more clarification on this feature?**
+  - No
+
+- **What is our confidence level [High / Medium / Low] regarding this (sprint backlog) as a reasonable plan for this sprint?**
+  - Medium confidence level
+
+- **How is this yet-to-build backlog item similar/relative to other known/completed work we have done in the past? How does this comparison help us estimate the relative size of the new work?**
+  - JS101 Lesson 4: JavaScript Collections has some material that I was introduced to in the GA coding bootcamp and in freeCodeCamp
+
+- **What outside help will we need to succeed with our plans?**
+  - Study sessions with Alex
+  - LS Study Sessions
+  - LS Slack communication
+
+- **What’s the biggest risk that may prevent us from completing this sprint?**
+  - Unknown at the moment. It is Karina's last week of working for three days though.
+
+- **Who is taking time off during the next sprint? How should we plan differently given the team’s (adjusted) capacity?**
+  - Nobody
+
+20210815 15:04 End
