@@ -1901,3 +1901,6 @@ bar();
 
 19:13 I get the solution to Question 10. Yes! Focused attention and then diffuse attention. It works.
 
+19:46 I answered Hard 1 Question 1. I had to look at the answer, but I wonder how they determine the level of difficulty of questions?
+
+20:31 I looked at Question 3 and will review it again tomorrow. It's one of the questions that Alex showed me on Friday. I'm tired now. 소희랑 성교 관계를 하고 싶다.
