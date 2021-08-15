@@ -1905,7 +1905,7 @@ bar();
 
 20:31 I looked at Question 3 and will review it again tomorrow. It's one of the questions that Alex showed me on Friday. I'm tired now. 소희랑 성교 관계를 하고 싶다.
 
-## 20210815
+## 20210815 일요일
 
 06:06 Starting to study. I put the coffee on and am thinking about making mistakes to stimulate neuroplasticity. Focus narrowly to get the acetylcholine and epinephrine going. I've been listening to the Huberman Lab podcasts.
 
@@ -1932,3 +1932,6 @@ bar();
 06:27 Dinking around a little bit and now ready to study.
 
 07:15 It took a few minutes, but I started to focus on Hard 1 > Question 4. Now I'm going to take a break and walk outside in the sunshine. Let the diffuse mode take over for a bit and then return for more. Yes!
+
+08:05 Back from my walk. Talked to Sohee about work tension and cleared the air as well as hugged it out.
+
