@@ -1909,3 +1909,22 @@ bar();
 
 06:06 Starting to study. I put the coffee on and am thinking about making mistakes to stimulate neuroplasticity. Focus narrowly to get the acetylcholine and epinephrine going. I've been listening to the Huberman Lab podcasts.
 
+06:15 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS101 > Lesson 3: Practice Problems > 4. Practice Problems: Medium 1 > 7~10
+   * [x] 2. Read *A Mind for Numbers* chapter
+   * [x] 3. Launch School Meetup in NYC
+   * [x] 4. Listened to Huberman Lab podcast episodes
+   * [x] 5. Listened to Launch School latest podcast episode
+
+2. What will you do today?
+   * [ ] 1. JS101 > Lesson 3: Practice Problems > 4. Practice Problems: Hard 1 > 1~4
+   * [ ] 2. Read *A Mind for Numbers* chapter
+   * [ ] 3. Read *The Pragmatic Programmer* chapter
+   * [ ] 4. Sprint 5 Review
+   * [ ] 5. Sprint 5 Retrospective
+   * [ ] 6. Sprint 6 Planning
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * None. I'm looking forward to having time today to study.
