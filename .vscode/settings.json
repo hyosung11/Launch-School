@@ -23,9 +23,12 @@
     "Nums",
     "Yeom",
     "abcdefghabc",
+    "abcdefghi",
+    "cdefghi",
     "defgh",
     "fghabcdefgh",
     "milesperhour",
-    "subobjects"
+    "subobjects",
+    "substr"
   ]
 }
