@@ -79,6 +79,37 @@ What happens when you provide *negative* arguments to `slice`?
 
 When given negative numbers as the indices, `slice` treats them as `string length + index`. In the above, an index of `-4` is equivalent `9 + (-4)` since the length of the string is 9 and `9 + (-4)` equals `5`. Likewise, `-2` is equivalent to `7`.
 
+A method that is very similar to `slice`, but differs in some respects, is `String.prototype.substring`. It also takes a start index and an end index and returns a substring from the start of the index up to, but not including, the end index.
+
+```js
+let str = 'The grass is green';
+str.substring(4, 9); // => 'grass'
+```
+
+`slice` and `substring` differ in the following ways:
+
+1. When the start index is greater than the end index, `substring` *swaps* the two arguments while `slice` returns an empty string:
+
+```js
+// swap
+'abcdef'.substring(3, 1); // => 'bc'
+
+// empty string
+'abcdef'.slice(3, 1); // => ''
+```
+
+1. When either argument is negative, `substring` treats them as `0`, while, as we saw above, `slice` treats them as `length + index`:
+
+```js
+// negative argument treated as 0
+'abcdef'.substring(-2); // => 'abcdef'
+'abcdef'.slice(-2) // => 'ef'
+```
+
+We recommend using `String.prototype.slice`. Its behavior is more natural and predictable when dealing with these edge cases.
+
+You'll often see another method, String.prototype.substr, used in some old code. This method isn't strictly deprecated, but it is now defined as a legacy function. Eventual deprecation seems likely, which means it may be removed from future implementations of JavaScript. We don't recommend using it, but it's worth knowing about since you may come across it in the wild. See the documentation [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr).
+
 #### Array Element Reference
 
 #### Object Element Reference
