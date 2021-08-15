@@ -1944,3 +1944,7 @@ bar();
 11:39 Outlined Lesson 4: JavaScript Collections > 2. Collections Basics. Now I want to watch a little soccer as a break.
 
 14:01 Back to do Sprint 5 Review, Sprint 5 Retrospective and Sprint 6 Planning.
+
+15:19 I added a Learning to Learn Assessment session, but I'm not sure what I want to do with it.
+
+15:28 Done with Sprint Review, Retrospective, Planning and Learning to Learn Assessment. I want to masturbate and buy books. Hmm.
