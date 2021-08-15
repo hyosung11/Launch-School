@@ -1932,3 +1932,5 @@ bar();
 06:27 Dinking around a little bit and now ready to study.
 
 07:15 It took a few minutes, but I started to focus on Hard 1 > Question 4. Now I'm going to take a break and walk outside in the sunshine. Let the diffuse mode take over for a bit and then return for more. Yes!
+
+08:52 Finished Question 4 of Lesson 4! Yes! Ready to get some more coffee and go to get my BCSOA packet and head to the gym. Soccer skills practice first!
