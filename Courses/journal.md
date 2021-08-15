@@ -1919,12 +1919,12 @@ bar();
    * [x] 5. Listened to Launch School latest podcast episode
 
 2. What will you do today?
-   * [ ] 1. JS101 > Lesson 3: Practice Problems > 6. Practice Problems: Hard 1 > 1~4
+   * [x] 1. JS101 > Lesson 3: Practice Problems > 6. Practice Problems: Hard 1 > 1~4
    * [ ] 2. Read *A Mind for Numbers* chapter
    * [ ] 3. Read *The Pragmatic Programmer* chapter
-   * [ ] 4. Sprint 5 Review
-   * [ ] 5. Sprint 5 Retrospective
-   * [ ] 6. Sprint 6 Planning
+   * [x] 4. Sprint 5 Review
+   * [x] 5. Sprint 5 Retrospective
+   * [x] 6. Sprint 6 Planning
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * None. I'm looking forward to having time today to study.
@@ -1932,12 +1932,8 @@ bar();
 06:27 Dinking around a little bit and now ready to study.
 
 07:15 It took a few minutes, but I started to focus on Hard 1 > Question 4. Now I'm going to take a break and walk outside in the sunshine. Let the diffuse mode take over for a bit and then return for more. Yes!
-<<<<<<< HEAD:journal.md
 
 08:05 Back from my walk. Talked to Sohee about work tension and cleared the air as well as hugged it out.
-
-||||||| merged common ancestors:journal.md
-=======
 
 08:52 Finished Question 4 of Lesson 4! Yes! Ready to get some more coffee and go to get my BCSOA packet and head to the gym. Soccer skills practice first!
 
@@ -1954,4 +1950,9 @@ bar();
 15:19 I added a Learning to Learn Assessment session, but I'm not sure what I want to do with it.
 
 15:28 Done with Sprint Review, Retrospective, Planning and Learning to Learn Assessment. I want to masturbate and buy books. Hmm.
->>>>>>> 21cb7e074bf69487e0ec3f584ede1f73ed2685fc:Courses/journal.md
+
+18:54 After dinner and ready to study before children's bedtime.
+
+19:25 Went outside to the corner and got a little evening sunset light into my eyes.
+
+19:41 Taking a break as it's bedtime for the kids. I want to have sex with Sohee tonight. We shall see.
