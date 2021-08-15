@@ -1942,3 +1942,5 @@ bar();
 11:26 Playing around with themes and changed to GitHub theme that I don't like and tried to change back to Atom One Dark, but it looks different. Ugh.
 
 11:39 Outlined Lesson 4: JavaScript Collections > 2. Collections Basics. Now I want to watch a little soccer as a break.
+
+14:01 Back to do Sprint 5 Review, Sprint 5 Retrospective and Sprint 6 Planning.

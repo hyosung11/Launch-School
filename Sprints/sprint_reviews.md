@@ -273,3 +273,64 @@ The Sprint Review includes the following elements:
 The result of the Sprint Review is a revised Product Backlog that defines the probable Product Backlog items for the next Sprint. The Product Backlog may also be adjusted overall to meet new opportunities.
 
 20210808 16:49 End Sprint 4 Review
+
+## Sprint 5, 20210809 ~ 20210815
+
+The Sprint Review includes the following elements:
+
+* Attendees include the Scrum Team and key stakeholders invited by the Product Owner;
+
+* The Product Owner explains what Product Backlog items have been “Done” and what has not been “Done”;
+
+  * Done
+
+    * Answered Daily Scrum Questions except for three days on vacation
+    * JS101 > Lesson 3: Practice Problems > Assignments 1~6
+    * Read *A Mind for Numbers* daily
+    * Listened to the Huberman Lab podcast episodes
+
+  * Remaining
+    * JS101 - Small Problems
+      * Easy 2 > 10-12
+      * Easy 3 > 4-10
+      * Easy 4 > 1-10
+
+* The Developers discuss *what went well* during the Sprint, *what problems it ran into*, and *how those problems were solved*;
+
+  * What went well?
+    * Studied curriculum daily
+    * Worked on exercises daily even during vacation days
+    * Answer daily scrum questions and posted to Alex on Slack
+    * Read chapters from *A Mind for Numbers*
+    * Used the Productivity Planner daily
+    * Engaged the Pomodoro technique and took breaks regularly
+
+  * What problems?
+    * Not as much time because of vacation
+
+  * What problems did I solve?
+    * Took time to play with family on vacation
+    * Taking tips from the Huberman Lab and incorporating them into my practice, especially Ultradian 90 minute cycles for focus and 20~30 non-sleep deep rest (NSDR)
+    * Focus on making mistakes to activate neuroplasticity
+
+* The **Developers** demonstrate the work that it has “Done” and answers questions about the Increment;
+
+  * Being more conscious of using active recall
+  * Worked through Lesson 3
+
+* The **Product Owner** discusses the Product Backlog as it stands. He or she projects likely target and delivery dates based on progress to date (if needed);
+
+  * Start JS101 Lesson 4
+  * Continue to work through the JS101 Small Problems
+
+* The entire group collaborates on what to do next, so that the Sprint Review provides valuable input to subsequent Sprint Planning;
+
+  * Begin JS101 Lesson 4
+  * Work on JS101 Small Problems
+
+* Review of the timeline, budget, potential capabilities, and marketplace for the next anticipated releases of functionality and capability of the product.
+  * Participating in a few study groups and attending Capstone Presentations will give me less time to study
+
+The result of the Sprint Review is a revised Product Backlog that defines the probable Product Backlog items for the next Sprint. The Product Backlog may also be adjusted overall to meet new opportunities.
+
+20210815 14:23 End Sprint 5 Review
