@@ -1919,7 +1919,7 @@ bar();
    * [x] 5. Listened to Launch School latest podcast episode
 
 2. What will you do today?
-   * [ ] 1. JS101 > Lesson 3: Practice Problems > 4. Practice Problems: Hard 1 > 1~4
+   * [ ] 1. JS101 > Lesson 3: Practice Problems > 6. Practice Problems: Hard 1 > 1~4
    * [ ] 2. Read *A Mind for Numbers* chapter
    * [ ] 3. Read *The Pragmatic Programmer* chapter
    * [ ] 4. Sprint 5 Review
@@ -1928,3 +1928,7 @@ bar();
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * None. I'm looking forward to having time today to study.
+
+06:27 Dinking around a little bit and now ready to study.
+
+07:15 It took a few minutes, but I started to focus on Hard 1 > Question 4. Now I'm going to take a break and walk outside in the sunshine. Let the diffuse mode take over for a bit and then return for more. Yes!
