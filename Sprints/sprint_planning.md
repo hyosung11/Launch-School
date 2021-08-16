@@ -62,7 +62,7 @@ Fulfill those goals with the following questions:
   - The Treadly 2 Pro comes back to mind
 
 - **What is at the top of the product backlog?**
-  - JS101 Lesson 2 Asssignments
+  - JS101 Lesson 2 Assignments
   - JS101 Small Problems > Easy 2
   - JS101 Small Problems > Easy 3
   - JS101 Small Problems > Easy 4
@@ -190,7 +190,6 @@ Fulfill those goals with the following questions:
 
 - **How is this yet-to-build backlog item similar/relative to other known/completed work we have done in the past? How does this comparison help us estimate the relative size of the new work?**
   - JS101 Lesson 3: Practice Problems > 2. Practice Problems: Easy 1 seem to be short and if so, I can do this during my vacation week
-
 
 - **What outside help will we need to succeed with our plans?**
   - Study sessions with Alex

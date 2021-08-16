@@ -3,7 +3,7 @@
 ## Sprint 1, 20210712 - 20210718
 
 1. **What went well?**\
-In other words, what took place that we want to recognise and acknowledge as having gone well?
+In other words, what took place that we want to recognize and acknowledge as having gone well?
 
    - I studied consistently everyday.
    - I reached out to other students for study sessions and support
@@ -35,7 +35,7 @@ This question allows us to capture things that happened but leave us feeling unc
 ## Sprint 2, 20210719 - 20210725
 
 1. **What went well?**\
-In other words, what took place that we want to recognise and acknowledge as having gone well?
+In other words, what took place that we want to recognize and acknowledge as having gone well?
 
    - Studied everyday using a logical process that I'm fine-tuning as I go along
    - Tweaking my notetaking process to challenge myself to recall more as I read
@@ -66,7 +66,7 @@ This question allows us to capture things that happened but leave us feeling unc
 ## Sprint 3, 20210726 - 20210801
 
 1. **What went well?**\
-In other words, what took place that we want to recognise and acknowledge as having gone well?
+In other words, what took place that we want to recognize and acknowledge as having gone well?
 
    - Studied everyday using a logical process that I'm fine-tuning as I go along
    - Tweaking my note-taking process to challenge myself to recall more as I read
@@ -117,7 +117,6 @@ In other words, what took place that we want to recognize and acknowledge as hav
      - *The Pragmatic Programmer*
      - *Mindshift* MOOC
    - Learning to shift between focused and diffuse modes better
-
 
 1. **What didn’t go so well?**\
   What took place that didn’t go as we would have liked?
