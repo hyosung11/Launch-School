@@ -1956,3 +1956,32 @@ bar();
 19:25 Went outside to the corner and got a little evening sunset light into my eyes.
 
 19:41 Taking a break as it's bedtime for the kids. I want to have sex with Sohee tonight. We shall see.
+
+## 20210816 월요일
+
+05:31 Birds singing in the trees and I'm ready to meditate.
+
+05:55 Good morning. I will wait to have coffee or tea and see how it goes with my energy and focus.
+
+10:41 After so many things. I had the SPOT study session, I had breakfast with the kids. We went for a walk. I went to the gym and did soccer drills and some light lifting. I took a shower. I'm back at my office. I felt refreshed after the shower, but I now feel a little lower energy. I am drinking coffee and going to start my 90 minute Ultradian focus cycle and take a short break before the 12:30 study session.
+
+10:45 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS101 > Lesson 3: Practice Problems > 6. Practice Problems: Hard 1 > 1~4
+   * [x] 2. Read *A Mind for Numbers* chapter
+   * [x] 3. Sprint 5 Review
+   * [x] 4. Sprint 5 Retrospective
+   * [x] 5. Sprint 6 Planning
+   * [x] 6. JS101 > Lesson 4: JavaScript Collections > 2. Collection Basics
+   * [x] 7. Listened to Huberman Lab podcast episode
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [x] 2. SPOT Study Session
+   * [ ] 3. JS101 > Lesson 4: JavaScript Collections > 2. Collection Basics
+   * [ ] 4. JS101 Study Session: PEDAC
+   * [ ] 5. Read *A Mind for Numbers* chapter
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * None
