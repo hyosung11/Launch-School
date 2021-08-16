@@ -149,18 +149,32 @@ assignment is never destructive unless it's index assignment
 
 // console.log(name);
 
-let name = 'Javi';
+// let name = 'Javi';
 
-function changeName(name) {
-  name = 'bob'; // does this reassignment change the variable outside the function?
+// function changeName(name) {
+//   name = 'bob'; // does this reassignment change the variable outside the function?
+// }
+
+// function anotherFunction() {
+//   let name = 'jim';
+//   changeName(name);
+//   //console.log(name);
+// }
+
+// anotherFunction();
+
+// console.log(name); // => Javi
+
+// from Slack
+function messWithVars(one, two, three) {
+  one[0] = two;
+  two[0] = three;
+  three[0] = one;
+  console.log(one, two, three);
 }
+let one = ["one"];
+let two = ["two"];
+let three = ["three"];
+messWithVars(one, two, three);
 
-function anotherFunction() {
-  let name = 'jim';
-  changeName(name);
-  //console.log(name);
-}
-
-anotherFunction();
-
-console.log(name); // => Javi
+// = <ref *1> [ [ [ [Circular *1] ] ] ] <ref *1> [ [ [ [Circular *1] ] ] ] <ref *1> [ [ [ [Circular *1] ] ] ]

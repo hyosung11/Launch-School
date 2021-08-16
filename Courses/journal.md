@@ -1985,3 +1985,11 @@ bar();
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * None
+
+10:50 It took a few minutes to answer daily scrum questions.
+
+11:22 Doing correspondence and am now ready to tackle collections.
+
+11:56 I have to pee and feeling annoyed by the use of the node console examples in the assignment. Go pee now.
+
+12:26 Did a hypnosis session during my NSDR time.

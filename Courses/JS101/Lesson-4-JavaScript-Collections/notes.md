@@ -108,9 +108,97 @@ str.substring(4, 9); // => 'grass'
 
 We recommend using `String.prototype.slice`. Its behavior is more natural and predictable when dealing with these edge cases.
 
-You'll often see another method, String.prototype.substr, used in some old code. This method isn't strictly deprecated, but it is now defined as a legacy function. Eventual deprecation seems likely, which means it may be removed from future implementations of JavaScript. We don't recommend using it, but it's worth knowing about since you may come across it in the wild. See the documentation [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr).
+You'll often see another method, `String.prototype.substr`, used in some old code. This method isn't strictly deprecated, but it is now defined as a **legacy function**. Eventual deprecation seems likely, which means it may be removed from future implementations of JavaScript. We don't recommend using it, but it's worth knowing about since you may come across it in the wild. See the documentation [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr).
 
 #### Array Element Reference
+
+Arrays, like strings, are also ordered, zero-indexed collections.
+
+![Array Index Diagram](array-index-diagram.png)
+
+Arrays are lists of elements that are ordered by index, where each element can be any value. Arrays use an integer-based index to maintain the order of its elements. A specific element can be reference by its index.
+
+```js
+let arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+arr[2]; // => 'c'
+```
+
+What do you think would be returned here? Try it out in the console.
+
+```js
+> let arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+> arr.slice(2, 5)[0] // => 'c'
+```
+
+Solution
+
+```sh
+> arr.slice(2, 5)
+['c', 'd', 'e']
+> arr.slice(2, 5)[0]
+'c'
+```
+
+Since `slice` returns an array value, we can use `[0]` to extract the first element of the array.
+
+It is important to note that `Array.prototype.slice()` and `String.prototype.slice()` are not the same method, even though they have the same name. They do share a lot of the same functionality, but they are separate implementations. One key distinction is that `String.prototype.slice()` returns a new **string** whereas `Array.prototype.slice` returns a new **array**.
+
+As with `String.prototype.slice()`, you can also omit the second argument to `Array.prototype.slice`. The result is similar:
+
+```js
+let arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+arr.slice(2); // => ['c', 'd', 'e', 'f', 'g']
+```
+
+Calling `slice` without any arguments returns a shallow copy of the original array:
+
+```js
+arr.slice(); // => [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]
+```
+
+Note that we said `slice` returns a copy of the array and not the original array. How would you verify that in the node console?
+
+Solution
+
+```sh
+> let arr = ['a', 'b', 'c', 'd']
+> let arrCopy = arr.slice()
+> arrCopy.push('e')
+5
+
+> arr
+[ 'a', 'b', 'c', 'd' ]
+> arrCopy
+[ 'a', 'b', 'c', 'd', 'e' ]
+```
+
+Notice that the original array `arr` doesn't get mutated when we call the `push` method on `arrCopy`. That tells us that `slice` returns a copy, not the original array object.
+
+It's also a shallow copy instead of a deep copy. This becomes important when the copied array contains objects and other arrays as elements. How would you verify that in the node console?
+
+Solution
+
+```sh
+> let nestedArr = [1, [2, 3], { foo: 4 } ]
+> let nestedCopy = nestedArr.slice()
+
+> nestedCopy.push(5)
+4
+> nestedCopy[1].push(6)
+3
+> nestedCopy[2].bar = 7;
+7
+
+> nestedArr
+[ 1, [ 2, 3, 6 ], { foo: 4, bar: 7 } ]
+> nestedCopy
+[ 1, [ 2, 3, 6 ], { foo: 4, bar: 7 }, 5 ]
+```
+
+Notice that we mutated both the nested array and the nested object using the `nestedCopy` variable, but those mutations also showed up in `nestedArr`. However, when we just added a single element to `nestedCopy`, it had no effect on `nestedArr`.
+
+
+---
 
 #### Object Element Reference
 
