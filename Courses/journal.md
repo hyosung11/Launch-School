@@ -1993,3 +1993,7 @@ bar();
 11:56 I have to pee and feeling annoyed by the use of the node console examples in the assignment. Go pee now.
 
 12:26 Did a hypnosis session during my NSDR time.
+
+13:14 In the middle of PEDAC study session. It's fun. How is Laurent?
+
+14:19 After a lunch break going to play ping pong with Louis. Bye!
