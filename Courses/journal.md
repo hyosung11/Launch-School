@@ -1997,3 +1997,8 @@ bar();
 13:14 In the middle of PEDAC study session. It's fun. How is Laurent?
 
 14:19 After a lunch break going to play ping pong with Louis. Bye!
+
+16:22 Back and ready to read before checking email and making dinner.
+
+16:34 Finished chapter 9 of *A Mind for Numbers*.
+
