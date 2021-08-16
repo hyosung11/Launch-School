@@ -40,7 +40,7 @@ Collections are made up of individual elements. To work with collections, we nee
 
 ##### Invalid Object Keys
 
-##### Arrays are Objects!
+##### Arrays are Objects
 
 ### Conversion
 

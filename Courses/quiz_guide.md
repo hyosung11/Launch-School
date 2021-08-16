@@ -13,7 +13,7 @@ Given this, please take note of the following when working through a quiz:
 * Quizzes focus on the topics covered in the current lesson. However, *some questions may cover topics from an earlier lesson or from the reading material*.
 * Quizzes are blocking. You have to take them to get to the next assignment/lesson.
 
-## F.A.Q.
+## F.A.Q
 
 Can I retake quizzes?
 
