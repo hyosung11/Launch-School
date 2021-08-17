@@ -282,6 +282,28 @@ Accessing an index less than `0` on an array or a string also returns `undefined
 
 ##### Invalid Object Keys
 
+Using a key to access a property that doesn't exist on an object also returns `undefined`:
+
+```js
+let obj = { a: 'foo', b: 'bar' };
+obj['c']; // => undefined
+```
+
+Sometimes, though, an object contains properties with `undefined` values on purpose. In that case, how would we differentiate between a non-existent property versus a property that has `undefined` as its value? There are a number of ways do that. The `Object.prototype.hasOwnProperty` method returns a boolean indicating whether it exists as a property in the object:
+
+```js
+let obj = { a: 'foo', b: 'bar', c: undefined};
+obj.hasOwnProperty('c'); // => true
+obj.hasOwnProperty('d'); // => false
+```
+
+ Another way to differentiate a non-existent property from a property with `undefined` as its value is to use `Object.keys` along with the array `includes` method:
+
+```js
+Object.keys(obj).includes('c'); // => true
+Object.keys(obj).includes('d'); // => false
+```
+
 
 
 ##### Arrays are Objects
