@@ -197,10 +197,25 @@ Solution
 
 Notice that we mutated both the nested array and the nested object using the `nestedCopy` variable, but those mutations also showed up in `nestedArr`. However, when we just added a single element to `nestedCopy`, it had no effect on `nestedArr`.
 
+#### Object Element Reference
+
+Objects are another common collection data structure that, instead of using an integer-based index, uses key-value pairs, where the key is a string and the value can be any JavaScript value. That allows for a more expansive and descriptive collection of elements. Object keys are also called **properties**.
+
+![hash-key-value-diagram](hash-key-value-diagram.png)
+
+```js
+let obj = { fruit: 'apple', vegetable: 'carrot' };
+obj.fruit; // => 'apple'
+obj.fruit[3]; // => 'l'
+obj['vegetable']; // => 'carrot'
+obj['vegetable'][0]; // => 'c'
+```
+
+Note that there are two ways of referencing an element in an object. The first one is called the **dot notation** of object property access and the second one is the **bracket notation**. In the above example, we use dot notation to access the value of the `'fruit'` key and bracket notation to access the value of the `'vegetable'` key. It is important to note that the `[0]` part of `obj['vegetable'][0]` and `[3]` in `obj.fruit[3]` in the above example is **string element reference**. The string `'carrot'` is returned by `object['vegetable']` and `[0]` is used to access the first letter of that value.
+
+
 
 ---
-
-#### Object Element Reference
 
 #### Element Reference Gotchas
 
