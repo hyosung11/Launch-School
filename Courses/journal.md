@@ -2002,3 +2002,4 @@ bar();
 
 16:34 Finished chapter 9 of *A Mind for Numbers*.
 
+19:16 Looking at the discussion of Hard 1 Question 3 Explanation
