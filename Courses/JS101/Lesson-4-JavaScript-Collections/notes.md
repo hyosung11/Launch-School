@@ -362,7 +362,7 @@ Any other string provided to `split` as the argument will be used to separate th
 'apple,orange,mango'.split(',') // => ['apple', 'orange', 'mango']
 ```
 
-When called without any arguments, `Array.prototype.join()` returns a string with the elements of the array joine together into a string, separated by commas.
+When called without any arguments, `Array.prototype.join()` returns a string with the elements of the array joined together into a string, separated by commas.
 
 ```js
 let arr = ['a', 'b', 'c', 'd', 'e', 'f'];
@@ -403,6 +403,8 @@ Note that this way of modifying an array is a **destructive** action; that is, t
 
 In the node REPL or a code file, use the same method to increase the value of the rest of the numbers in the array by 1. Also, try incrementing an element that doesn't exist, such as numbers[4].
 
+Solution
+
 ```js
 numbers[1] = numbers[1] + 1;
 numbers[2] = numbers[2] + 1;
@@ -411,13 +413,50 @@ numbers[4] = numbers[4] + 1;
 numbers;    // [ 2, 3, 4, 5, NaN ]
 ```
 
-
 #### Object Key Assignment
 
+Object element assignment is similar. The object key is used instead of assigning a value using an index.
+
+```sh
+> let obj = { apple: 'Produce', carrot: 'Produce', pear: 'Produce', broccoli: 'Produce' }
+> obj['apple'] = 'Fruit'
+> obj.carrot = 'Vegetable'
+> obj
+{ apple: 'Fruit',
+  carrot: 'Vegetable',
+  pear: 'Produce',
+  broccoli: 'Produce' }
+```
+
+As you can see, we can use dot notation as well as bracket notation for object key assignment.
+
+Note that, once again, this is a **destructive** action that permanently modifies `obj`.
+
+In the node REPL or a code file, use the same method to set a value of either 'Fruit' or 'Vegetable' to the pear and broccoli properties.
+
 #### String Character Assignment
+
+Here is where the major difference between strings and the other two collection types begins to show. JavaScript strings are **immutable** and, hence, cannot be altered permanently. You can try to use the array element assignment syntax with strings without getting any errors, but it does not affect the string:
+
+```js
+let str = 'bob';
+str[0] = 'B'; // => 'B'
+str; // => 'bob'
+```
+
+You can see that after the "reassignment," `str` has the same value as it had before. One question you might ask is why JavaScript lets you do the reassignment if it doesn't affect the original string. We'll talk about why that is in a later course. For now, remember that string element reassignment, even though it's syntactically permitted, doesn't affect the string. That behavior can lead to frustrating bugs, so beware!
+
+If that's the case, how can one make changes to a string? Well, just create a new string with the desired changes. For example, we can reassign the `str` value to a new string and reassign the variable to the new value:
+
+```js
+str = 'B' + str.slice(1);
+str; // => 'Bob'
+```
 
 ### Summary
 
 We've talked about quite a few important topics in this assignment. More specifically, we covered the core ways to reference elements or assign values for particular elements in a collection using some of the various element reference and element assignment methods of String, Array, and Object.
 
 These concepts are fundamental to working with collections, so it's critical to understand everything we talked about in this assignment before moving forward. Taking the time to have a clear understanding of these topics will make it much easier to handle topics that build upon these fundamentals in the future.
+
+20210817 17:35 Finish Assignment
