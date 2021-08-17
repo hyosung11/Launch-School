@@ -213,7 +213,38 @@ obj['vegetable'][0]; // => 'c'
 
 Note that there are two ways of referencing an element in an object. The first one is called the **dot notation** of object property access and the second one is the **bracket notation**. In the above example, we use dot notation to access the value of the `'fruit'` key and bracket notation to access the value of the `'vegetable'` key. It is important to note that the `[0]` part of `obj['vegetable'][0]` and `[3]` in `obj.fruit[3]` in the above example is **string element reference**. The string `'carrot'` is returned by `object['vegetable']` and `[0]` is used to access the first letter of that value.
 
+When initializing an object, the keys/property names must be unique. Try the following code out in the console.
 
+```sh
+> let obj = { fruit: 'apple', vegetable: 'carrot', fruit: 'pear' }
+```
+
+Solution
+
+```sh
+> let obj = { fruit: 'apple', vegetable: 'carrot', fruit: 'pear' }
+> obj
+{ fruit: 'pear', vegetable: 'carrot' }
+```
+
+Our object ends up with only two key-value pairs. The first one is *overwritten* by the third as they have identical keys.
+
+Values, however, can be **duplicated**:
+
+```js
+let obj = { apple: 'fruit', carrot: 'vegetable', pear: 'fruit' };
+```
+
+We can access just the keys or just the values from an object with the `Object.keys` and `Object.values` methods. These methods return an array:
+
+```js
+let capitals = { uk: 'London', france: 'Paris', germany: 'Berlin' };
+Object.keys(capitals); // => ['uk', 'france', 'germany']
+Object.values(capitals); // => ['London', 'Paris', 'Berlin']
+Object.values(capitals)[0]; // => 'London'
+```
+
+In the final line of the example above, `[0]` is referencing the item at index `0` of the array `['London', 'Paris', 'Berlin']` since this is the return value of `Object.values(capitals)`.
 
 ---
 
