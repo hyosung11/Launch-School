@@ -335,8 +335,57 @@ typeof arr; // => 'object'
 typeof obj; // => 'objet'
 Array.isArray(arr); // => true
 Array.isArray(obj); // => false
+```
 
 ### Conversion
+
+The fact that strings and arrays share similarities makes it intuitive to convert from one to the other, which is quite common in JavaScript code. There are a few methods that facilitate this type of conversion including `String.prototype.split` and `Array.prototype.join`.
+
+`String.prototype.split()`, when called without any arguments, returns an array with the string as its only element:
+
+```js
+'this is a string'.split(); // => ['this is a string']
+```
+
+However, if you provide it with an empty string as the argument, it returns an array of all the characters in the string:
+
+```js
+'abcdef'.split(''); // => ['a', 'b', 'c', 'd', 'e', 'f']
+'abcdef'.split('')[0]; // => 'a'
+```
+
+Note that we use the `[]` operator on the return value of `split`. The `split` method returns an array so we can access element from that array using the `[]` operator.
+
+Any other string provided to `split` as the argument will be used to separate the string using the argument as the delimiter:
+
+```js
+'apple,orange,mango'.split(',') // => ['apple', 'orange', 'mango']
+```
+
+When called without any arguments, `Array.prototype.join()` returns a string with the elements of the array joine together into a string, separated by commas.
+
+```js
+let arr = ['a', 'b', 'c', 'd', 'e', 'f'];
+arr.join() // => 'a,b,c,d,e,f'
+```
+
+How would you join the characters in the array into a string without delimiting each character with a comma? You may want to check the MDN docs to read up on `Array.prototype.join()`.
+
+Solution
+
+```js
+let arr = ['a', 'b', 'c', 'd', 'e', 'f'];
+arr.join(''); // => 'abcdef'
+```
+
+We can also convert objects to arrays. Apart from `Object.keys` and `Object.values` methods, you can use `Object.entries` to convert an object to an array.
+
+```js
+let obj = { sky: 'blue', grass: 'green' };
+Object.entries(obj); // => [[ 'sky', blue], [ 'grass', 'green ]]
+```
+
+The array returned by `Object.entries` contains nested arrays, with each sub-array containing two values. The sub-arrays are equivalent to the key-value pairs from the initial object.
 
 ### Element Assignment
 
