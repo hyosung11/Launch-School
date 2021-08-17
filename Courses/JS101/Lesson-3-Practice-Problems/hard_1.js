@@ -90,8 +90,6 @@ console.log(`one is: ${one}`); // => 'one is: one'
 // console.log(`two is: ${two}`); // => 'two is: two'
 // console.log(`three is: ${three}`); // => 'three is: three'
 
-
-
 // B
 // function messWithVars(one, two, three) {
 //   one = ['two'];
