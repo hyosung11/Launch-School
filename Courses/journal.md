@@ -2017,11 +2017,11 @@ From github.com:hyosung11/Launch-School
 hint: Pulling without specifying how to reconcile divergent branches is
 hint: discouraged. You can squelch this message by running one of the following
 hint: commands sometime before your next pull:
-hint: 
+hint:
 hint:   git config pull.rebase false  # merge (the default strategy)
 hint:   git config pull.rebase true   # rebase
 hint:   git config pull.ff only       # fast-forward only
-hint: 
+hint:
 hint: You can replace "git config" with "git config --global" to set a default
 hint: preference for all repositories. You can also pass --rebase, --no-rebase,
 hint: or --ff-only on the command line to override the configured default per
@@ -2029,5 +2029,13 @@ hint: invocation.
 Auto-merging Courses/journal.md
 CONFLICT (content): Merge conflict in Courses/journal.md
 Automatic merge failed; fix conflicts and then commit the result.
-➜  Launch-School git:(main) ✗ 
+➜  Launch-School git:(main) ✗
 ```
+
+06:12 Ugh. Just take the time to learn Git!
+
+06:42 Slow and steady work through JavaScript collections. This material is partially review but it goes into much more depth.
+
+06:57 I am typing out the notes as I go. More recall. More active recall. More practice.
+
+07:07 Took a slightly longer ten minute break to poo and get coffee. I'm ready to study for at least another 25 minutes. I realize I need to do soccer drills while moving not just around a stationary cone. Duh.

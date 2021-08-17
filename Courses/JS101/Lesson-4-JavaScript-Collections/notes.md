@@ -246,13 +246,43 @@ Object.values(capitals)[0]; // => 'London'
 
 In the final line of the example above, `[0]` is referencing the item at index `0` of the array `['London', 'Paris', 'Berlin']` since this is the return value of `Object.values(capitals)`.
 
----
-
 #### Element Reference Gotchas
+
+There are a few things that can catch you off guard when referencing elements in a collection, so you need to be aware of these to avoid unintended behavior in your code.
 
 ##### Out of Bounds Indices
 
+We know that strings and arrays are indexed collections and that we can reference individual elements within the collection via their index.
+
+```js
+let string = 'abcde';
+let array = ['a', 'b', 'c', 'd', 'e'];
+
+string[2]; // => 'c'
+array[2]; // => 'c'
+```
+
+The indices of both of these collections run from 0 to 4. What if we try to reference an index greater than 4?
+
+```js
+string[5] // => undefined
+array[5] // => undefined
+```
+
+Referencing an **out-of-bounds** index in this way returns `undefined`.
+
+What happens if we try to reference an index less than `0`?
+
+```js
+string[-1]; // => undefined
+array[-1]; // => undefined
+```
+
+Accessing an index less than `0` on an array or a string also returns `undefined` in JavaScript.
+
 ##### Invalid Object Keys
+
+
 
 ##### Arrays are Objects
 
