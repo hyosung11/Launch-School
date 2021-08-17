@@ -69,7 +69,7 @@ which service is causing the delay
 
 Svetlana
 
-![Team](Retrospect/Team.png)
+![Team](Team.png)
 
 End 12:45
 
