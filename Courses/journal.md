@@ -2068,3 +2068,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 11:56 Finishing up and getting ready for the Capstone Presentation: Retrospect.
 
 12:49 I want to do Capstone and create something that is commercially viable. Yay!
+
+16:22 Kind of fried in my brain trying to understand pass-by-reference from the Hard 1 Question 3.
+
+16:35 Feeling tired, but got through Arrays are Objects! section of Collections Basics
