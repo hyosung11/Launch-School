@@ -74,25 +74,23 @@ Question 3
 Given the following similar sets of code, what will each code snippet print? */
 
 // A)
-function messWithVars(one, two, three) {
-  one = two;
-  two = three;
-  three = one;
-}
+// function messWithVars(one, two, three) {
+//   one = two;
+//   two = three;
+//   three = one;
+// }
 
 let one = ["one"];
-let two = ["two"];
-let three = ["three"];
+// let two = ["two"];
+// let three = ["three"];
 
-messWithVars(one, two, three);
+// messWithVars(one, two, three);
 
-console.log(`one is: ${one}`);
-console.log(`two is: ${two}`);
-console.log(`three is: ${three}`);
+console.log(`one is: ${one}`); // => 'one is: one'
+// console.log(`two is: ${two}`); // => 'two is: two'
+// console.log(`three is: ${three}`); // => 'three is: three'
 
-// 'one is: one';
-// 'two is: two';
-// 'three is: three';
+
 
 // B
 // function messWithVars(one, two, three) {

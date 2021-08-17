@@ -2002,6 +2002,32 @@ bar();
 
 16:34 Finished chapter 9 of *A Mind for Numbers*.
 
+19:16 Looking at the discussion of Hard 1 Question 3 Explanation
+
 ## 20210817 화요일
 
 05:51 After meditation. I need to read from the dharma and do the five minute journal. Learn Pro Git please!
+
+06:06 I had a merge conflict once again:
+
+```sh
+  Launch-School git:(main) ggpull
+From github.com:hyosung11/Launch-School
+ * branch            main       -> FETCH_HEAD
+hint: Pulling without specifying how to reconcile divergent branches is
+hint: discouraged. You can squelch this message by running one of the following
+hint: commands sometime before your next pull:
+hint: 
+hint:   git config pull.rebase false  # merge (the default strategy)
+hint:   git config pull.rebase true   # rebase
+hint:   git config pull.ff only       # fast-forward only
+hint: 
+hint: You can replace "git config" with "git config --global" to set a default
+hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+hint: or --ff-only on the command line to override the configured default per
+hint: invocation.
+Auto-merging Courses/journal.md
+CONFLICT (content): Merge conflict in Courses/journal.md
+Automatic merge failed; fix conflicts and then commit the result.
+➜  Launch-School git:(main) ✗ 
+```
