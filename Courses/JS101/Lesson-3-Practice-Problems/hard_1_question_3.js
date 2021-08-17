@@ -46,9 +46,9 @@ function messWithVars(one, two, three) {
 }
 
 // For this reason, the last code example logs:
-one is: two
-two is: three
-three is: one
+// one is: two
+// two is: three
+// three is: one
 
 // As the objects that global variables are pointing to were mutated inside of the messWithVars function.
 

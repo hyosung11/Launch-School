@@ -2072,3 +2072,9 @@ Automatic merge failed; fix conflicts and then commit the result.
 16:22 Kind of fried in my brain trying to understand pass-by-reference from the Hard 1 Question 3.
 
 16:35 Feeling tired, but got through Arrays are Objects! section of Collections Basics
+
+17:03 Humming along through Collections. Time to take a break and then do one more session before dinner.
+
+17:19 Omi is home and I want to help her setup a mouse with her MacBook Air after I finish studying.
+
+17:36 Finished Assignment 2. Collections Basics
