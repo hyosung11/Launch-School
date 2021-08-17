@@ -2066,3 +2066,5 @@ Automatic merge failed; fix conflicts and then commit the result.
 11:40 Correspondence took 40 minutes. It included buying the Programmer's Brain. Hee hee.
 
 11:56 Finishing up and getting ready for the Capstone Presentation: Retrospect.
+
+12:49 I want to do Capstone and create something that is commercially viable. Yay!
