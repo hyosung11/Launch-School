@@ -2002,3 +2002,6 @@ bar();
 
 16:34 Finished chapter 9 of *A Mind for Numbers*.
 
+## 20210817 화요일
+
+05:51 After meditation. I need to read from the dharma and do the five minute journal. Learn Pro Git please!
