@@ -2039,3 +2039,30 @@ Automatic merge failed; fix conflicts and then commit the result.
 06:57 I am typing out the notes as I go. More recall. More active recall. More practice.
 
 07:07 Took a slightly longer ten minute break to poo and get coffee. I'm ready to study for at least another 25 minutes. I realize I need to do soccer drills while moving not just around a stationary cone. Duh.
+
+07:29 Starting my non-sleep deep rest session. Bye!
+
+10:50 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. SPOT Study Session
+   * [x] 3. JS101 > Lesson 4: JavaScript Collections > 2. Collection Basics
+   * [x] 4. JS101 Study Session: PEDAC
+   * [x] 5. Read *A Mind for Numbers* chapter
+   * [x] 6. Listened to Huberman Lab podcast episode 10 | Master Stress: Tools for Managing Stress & Anxiety
+
+2. What will you do today?
+   * [x] 1. JS101 > Lesson 4: JavaScript Collections > 2. Collection Basics
+   * [ ] 2. Capstone Presentation: Retrospect
+   * [ ] 3. Read *A Mind for Numbers* chapter
+   * [ ] 4. Listen to Huberman Lab Podcast Episode 11 | How Foods and Nutrients Control Our Moods
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Wondering about how to use Anki cards. I do like the tactile feel of handwriting, especially using my fountain pen.
+
+10:58 Time for correspondence: Slack, Messages, WhatsApp, Email.
+
+11:40 Correspondence took 40 minutes. It included buying the Programmer's Brain. Hee hee.
+
+11:56 Finishing up and getting ready for the Capstone Presentation: Retrospect.

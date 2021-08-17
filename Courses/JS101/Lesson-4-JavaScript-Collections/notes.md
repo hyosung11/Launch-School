@@ -304,9 +304,21 @@ Object.keys(obj).includes('c'); // => true
 Object.keys(obj).includes('d'); // => false
 ```
 
-
-
 ##### Arrays are Objects
+
+It's important to remember that JavaScript arrays are objects. The chief difference between an array and some other object is that it uses non-negative integers as its primary keys. Another significant difference is that adding elements to the array increases the value of its `length` property, and changing the value of the `length` property causes the number of elements to change.
+
+Since arrays are objects, we can add additional properties to them:
+
+```js
+let arr = ['foo', 'bar', 'qux'];
+arr['boo'] = 'hoo';
+arr[-1] = 374;
+arr; // => ['foo', 'bar', 'qux', boo: 'hoo', '-1': 374]
+arr.length; // => 3 (not 5!)
+arr.forEach(element => console.log(element)); // prints: foo, bar, qux
+Object.keys(arr); // => [ '0', '1', '2', 'boo', '-1' ]
+
 
 ### Conversion
 
