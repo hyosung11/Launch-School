@@ -36,14 +36,18 @@ Algorithm
 3. Return the number at index 1 as the second largest number
 */
 
-// function secondLargest(array) {
-//   array.sort((num1, num2) =>  num1 > num2);
-//   return array;
-// }
+// fix this - it's not correct
+function secondLargest(array) {
+  return array.sort((num1, num2) =>  num2 - num1)[1];
+}
 
-// console.log(secondLargest([10, 40, 30, 20, 50]) == 40);
-// console.log(secondLargest([25, 143, 89, 13, 105]) == 105);
-// console.log(secondLargest([54, 23, 11, 17, 10]) == 23);
+// console.log(secondLargest([10, 40, 30, 20, 50]) === 40);
+// console.log(secondLargest([25, 143, 89, 13, 105]) === 105);
+// console.log(secondLargest([54, 23, 11, 17, 10]) === 23);
+
+console.log(secondLargest([10, 40, 30, 20, 50]));
+console.log(secondLargest([25, 143, 89, 13, 105]));
+console.log(secondLargest([54, 23, 11, 17, 10]));
 
 /* Sarah's Algorithm
 
@@ -93,19 +97,19 @@ intermediary variable needed to store running total
 
 ALGORITHM
 
-define factorial method   accepts one arguement (integer)
-  intialize variable for total as 1
+define factorial method   accepts one argument (integer)
+  initialize variable for total as 1
 
-  if input arguement is less then 0
-    return error statment
+  if input argument is less then 0
+    return error statement
 
-  if input arguement equals 0
+  if input argument equals 0
     return (total)
 
   else
-    intialize (variable for counter) as 1
+    initialize (variable for counter) as 1
     loop
-      break loop if (variable for counter) equals (input arguement)
+      break loop if (variable for counter) equals (input argument)
       multiply (variable for counter) by (total) and assign to (total)
       add one to (variable for counter)
     end
@@ -163,8 +167,8 @@ function factorial(number) {
 }
 
 //  Test cases:
-console.log(factorial(0) == 1);
-console.log(factorial(1) == 1);
-console.log(factorial(3) == 6);
-console.log(factorial(5) == 120);
-console.log(factorial(13) == 6227020800);
+// console.log(factorial(0) == 1);
+// console.log(factorial(1) == 1);
+// console.log(factorial(3) == 6);
+// console.log(factorial(5) == 120);
+// console.log(factorial(13) == 6227020800);
