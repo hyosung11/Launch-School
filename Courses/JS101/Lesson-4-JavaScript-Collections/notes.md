@@ -661,7 +661,7 @@ undefined
 
 Index `1` contains the character `'b'` and the code point for `'b'` is 98.
 
-If you don't provide an index, `charCodeAt() assumes the index `0`.
+If you don't provide an index, `charCodeAt() assumes the index`0`.
 
 ```sh
 > 'abcdef'.charCodeAt()
