@@ -567,6 +567,29 @@ Note that we provided the `,` character and space as the separator. Open the nod
 
 ### `String.prototype.trim()`
 
+The `trim` method removes whitespace from both ends of a string it's called on. The `trim` method is often useful when getting input from users, which can often contain unnecessary whitespace at either end.
+
+```sh
+> '  abcdef   '.trim()
+'abcdef'
+```
+
+`trim` removes any number of space characters as well as whitespace characters like `\n` and `\t`.
+
+```sh
+> '\nabcdef\t'.trim()
+'abcdef'
+```
+
+There are a couple of variations and the `trim` method that are also very useful. The `trim Start` method removes whitespace from the beginning of a string while `trimEnd` does so at the end of the string.
+
+```sh
+> '  abcdef  '.trimStart()
+'abcdef  '
+>'  abcdef  '.trimEnd()
+'  abcdef'
+```
+
 ### `toUpperCase()` and `toLowerCase()`
 
 ### `String.prototype.charAt`

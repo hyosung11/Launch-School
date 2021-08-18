@@ -7,8 +7,7 @@ Write a function that takes one argument, a positive integer, and returns the su
 function sum(number) {
   return String(number)
     .split('')
-    .reduce((accum, digit) => accum + Number(digit), 0);
-
+    .reduce((accumulator, digit) => accumulator + Number(digit), 0);
 }
 
 // Examples:

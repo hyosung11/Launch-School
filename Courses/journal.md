@@ -2083,10 +2083,33 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 20:56 Time to stop for tonight.
 
-## 20210818
+## 20210818 수요일
 
 06:00 Study session with Alex. Talking to Alex about getting a job in technology. He's afraid of getting sick.
 
 07:14 After study session with Alex. He's a much better programmer than me at this point.
 
 08:56 Practicing `Array.prototype.reduce()`. Now packing up to go to the gym.
+
+10:45 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS101 > Lesson 4: JavaScript Collections > 2. Collection Basics
+   * [x] 2. Capstone Project Presentation: Retrospect
+   * [x] 3. Read *A Mind for Numbers* Chapter 10: Enhancing Your Memory
+   * [x] 4. Listened to Huberman Lab Podcast Master Stress: Tools for Managing Stress & Anxiety | Episode 10
+
+2. What will you do today?
+   * [ ] 1. Study Session with Alex
+   * [ ] 2. JS101 > Lesson 4: JavaScript Collections > 3. String Methods
+   * [ ] 3. Algorithm Writing Clinic
+   * [ ] 4. Capstone Project Presentation: Pioneer
+   * [ ] 5. Read *A Mind for Numbers* chapter 11: More Memory Tips
+   * [ ] 6. Listen to Huberman Lab podcast How Foods and Nutrients Control Our Moods | Episode 11
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * None
+
+11:20 Weird that I don't have any new mail messages this morning. What is going on with Apple servers? Anyway, I am returning to study.
+
+11:39 Working on `String.prototype.trim()`.
