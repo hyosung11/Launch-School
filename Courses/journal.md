@@ -2082,3 +2082,9 @@ Automatic merge failed; fix conflicts and then commit the result.
 20:30 Doing a little more study of String Methods.
 
 20:56 Time to stop for tonight.
+
+## 20210818
+
+06:00 Study session with Alex. Talking to Alex about getting a job in technology. He's afraid of getting sick.
+
+07:14 After study session with Alex. He's a much better programmer than me at this point.
