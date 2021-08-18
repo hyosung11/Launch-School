@@ -2113,3 +2113,5 @@ Automatic merge failed; fix conflicts and then commit the result.
 11:20 Weird that I don't have any new mail messages this morning. What is going on with Apple servers? Anyway, I am returning to study.
 
 11:39 Working on `String.prototype.trim()`.
+
+12:15 Working on `String.prototype.charAt()`.

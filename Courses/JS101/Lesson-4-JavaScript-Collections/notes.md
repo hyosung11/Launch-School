@@ -652,6 +652,38 @@ undefined
 
 ### `String.prototype.charCodeAt()`
 
+ The method `charCodeAt()` is similar to `charAt()`, but instead of returning the character at the given index, it returns the **Unicode code point** or **character code** of the character at the index. A unicode code point is the number that represents the machine level.
+
+```sh
+> 'abcdef'.charCodeAt(1)
+98
+```
+
+Index `1` contains the character `'b'` and the code point for `'b'` is 98.
+
+If you don't provide an index, `charCodeAt() assumes the index `0`.
+
+```sh
+> 'abcdef'.charCodeAt()
+97 // the character code for 'a'
+```
+
+The `String.fromCharCode()` method does the opposite of `String.prototype.charCodeAt()`. It takes a character code (Unicode code point) and returns the character represented by that character code.
+
+```sh
+> String.fromCharCode(97)
+'a'
+```
+
+Note that `fromCharCode()` is not a prototype method. It's instead what we call a **static method** or a function. We can't call `fromCharCode` directly on a string; instead, it must be called on the constructor `String`. It's a common pattern in different languages to write methods that don't pertain to a specific value of a type directly on the class/constructor for that type. In this case, `fromCharCode` isn't an operation you'd perform on a string value. That is, something like the following doesn't make sense:
+
+```sh
+'abcd'.fromCharCode(97)
+=> Uncaught TypeError: "abcd".fromCharCode is not a function
+```
+
+The operator `fromCharCode` isn't doing anything with the string `'abcd'`. It's simply a function that, given a character code, returns a string that contains the character for that character code. That's why it makes sense to call `fromCharCode` directly on the `String` constructor.
+
 ### Other String Methods
 
 ### String Methods Summary
