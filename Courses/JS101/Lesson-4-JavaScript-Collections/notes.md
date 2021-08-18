@@ -453,10 +453,128 @@ str = 'B' + str.slice(1);
 str; // => 'Bob'
 ```
 
-### Summary
+### Collections Basics Summary
 
 We've talked about quite a few important topics in this assignment. More specifically, we covered the core ways to reference elements or assign values for particular elements in a collection using some of the various element reference and element assignment methods of String, Array, and Object.
 
 These concepts are fundamental to working with collections, so it's critical to understand everything we talked about in this assignment before moving forward. Taking the time to have a clear understanding of these topics will make it much easier to handle topics that build upon these fundamentals in the future.
 
-20210817 17:35 Finish Assignment
+20210817 17:35 Finish Assignment 2
+
+## 3. String Methods
+
+As mentioned in the previous assignment, JavaScript strings aren't really collections since you can't store generic data in them. You can, perhaps, think of them as collections of characters; they have some properties that one would associate with collections. For example, you can access individual characters or multiple characters of the string and can loop through all the characters by using the `length` property in conjunction with the `for` and `while` loops. That's the reason behind covering strings in a lesson about JavaScript collections.
+
+Before we start diving into the most common string methods you're expected to know about, be sure to refresh your memory on the various ways of writing string literals and when to use each one, from the [book](https://launchschool.com/books/javascript/read/basics#datatypes).
+
+Time to learn about some string methods.
+
+### `String.prototype.concat()`
+
+We've already seen one way of joining two strings together, the + operator. Another way to concatenate two strings together is by using the concat method. It works exactly the way the + operator works with two strings.
+
+```sh
+> 'Hello '.concat('World!')
+'Hello World!'
+```
+
+Since JavaScript strings are **primitive values**, any operation performed on them, including the `concat` method, *results in a new string*. We won't reiterate this point in the rest of the assignment. None of the methods that operate on strings mutate the string since JavaScript strings are **immutable**.
+
+Open a console session and verify that that's the case with the `concat` method.
+
+Solution
+
+```sh
+> let str = 'Hello'
+undefined
+> str.concat(' World!')
+'Hello World!'
+> str
+'Hello'
+```
+
+Note that the original string assigned to `str`, remains unchanged after we call the `concat` method on it. If you want to change the value that `str` refers to, reassign it the return value of the `concat` method call.
+
+```sh
+> let str = 'Hello'
+> str = str.concat(' there!')
+'Hello there!'
+> str
+'Hello there!'
+```
+
+Concat can take more than one string as arguments. It combines all those strings into one:
+
+```sh
+> let str1 = 'Hello'
+> let str2 = 'World!'
+
+> str1.concat(' ', str2)
+'Hello World!'
+```
+
+### `String.prototype.includes()`
+
+The `includes` method takes a string as the argument and returns a boolean signifying whether that string exists within the string that `includes` was called on.
+
+```sh
+> 'One potato, two potato, three potato, four'.includes('three')
+true
+> 'One potato, two potato, three potato, four'.includes('tater')
+false
+> 'abc'.includes('a')
+true
+```
+
+`includes` also takes an optional second argument that specifies which index in the string to start looking for the substring.
+
+```sh
+> 'abcdefg'.includes('b', 2)
+false
+```
+
+Even though the string `abcdefg` includes `'b'`, the method call returns `false` since we're telling it to start its search from index `2`.
+
+### `String.prototype.split()`
+
+We've already seen the `split` method in previous assignments, but we'll cover it again here because `split` is one of the more important string methods. `String.prototype.split`, as the name signifies, separates a given string into multiple strings and returns them in the form of an array. How the string gets split depends on the argument you provide to `split`. The basic case is when you don't provide any argument:
+
+```sh
+> 'abcdef'.split()
+['abcdef']
+```
+
+In this case, the whole string is simply returned as the first element of an array. If you provide an **empty string**, each character of the string will be split into individual characters:
+
+```sh
+> 'abcdef'.split('')
+['a', 'b', 'c', 'd', 'e', 'f']
+```
+
+Any other string argument you provide to `split` will be used as the separator by which to split the string:
+
+```sh
+> 'One potato, two potato, three potato, four'.split(', ')
+[ 'One potato', 'two potato', 'three potato', 'four' ]
+```
+
+Note that we provided the `,` character and space as the separator. Open the node console and see how the string gets split if we provide `','` as the argument.
+
+```sh
+> 'One potato, two potato, three potato, four'.split(',')
+[ 'One potato', ' two potato', ' three potato', ' four' ]
+```
+
+### `String.prototype.trim()`
+
+### `toUpperCase()` and `toLowerCase()`
+
+### `String.prototype.charAt`
+
+### `String.prototype.charCodeAt()`
+
+### Other String Methods
+
+### String Methods Summary
+
+Strings are an important data-type in JavaScript. Most programs in modern JavaScript involve working with strings in one form or another. Get familiar with the methods that operate on strings; doing so will serve you well as you learn more about JavaScript.
