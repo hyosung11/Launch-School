@@ -2121,3 +2121,5 @@ Automatic merge failed; fix conflicts and then commit the result.
 14:12 Algorithm Writing Clinic was fun. I liked meeting Sarah Bunker.
 
 15:40 Watching Pioneer Capstone Project Presentation, but I don't understand much of what's being presented.
+
+16:47 Finished 3. String Methods.

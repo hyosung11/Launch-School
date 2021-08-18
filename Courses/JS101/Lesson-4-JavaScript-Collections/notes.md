@@ -682,10 +682,64 @@ Note that `fromCharCode()` is not a prototype method. It's instead what we call 
 => Uncaught TypeError: "abcd".fromCharCode is not a function
 ```
 
-The operator `fromCharCode` isn't doing anything with the string `'abcd'`. It's simply a function that, given a character code, returns a string that contains the character for that character code. That's why it makes sense to call `fromCharCode` directly on the `String` constructor.
+The operator `fromCharCode` isn't doing anything with the string `'abcd'`. It's simply a function that, given a character code, returns a string that contains the character for that character code. That's why it makes sense to call `fromCharCode()` directly on the `String` constructor.
 
 ### Other String Methods
+
+The following are a few other string methods of note. Read the MDN documentation to see what each method does:
+
+`String.prototype.endsWith()`
+
+- The `endsWith()` method determines whether a string ends with the characters of a specified string, returning `true` or `false` as appropriate.
+- Syntax
+  - `endsWith(searchString)`
+  - `endsWith(searchString, length)`
+
+```js
+const str1 = 'Cats are the best!';
+
+console.log(str1.endsWith('best', 17));
+// expected output: true
+
+const str2 = 'Is this a question';
+
+console.log(str2.endsWith('?'));
+// expected output: false
+```
+
+`String.prototype.startsWith()`
+
+- The `startsWith()` method determines whether a string begins with the characters of a specified string, returning `true` or `false` as appropriate.
+- Syntax
+  - `startsWith(searchString)`
+  - `startsWith(searchString, position)`
+
+```js
+const str1 = 'Saturday night plans';
+
+console.log(str1.startsWith('Sat'));
+// expected output: true
+
+console.log(str1.startsWith('Sat', 3));
+// expected output: false
+```
+
+`String.prototype.repeat()`
+
+- The `repeat()` method constructs and returns a new string which contains the specified number of copies of the string on which it was called, concatenated together.
+- Syntax
+  - `repeat(count)`
+
+```js
+const chorus = 'Because I\'m happy. ';
+
+console.log(`Chorus lyrics for "Happy": ${chorus.repeat(27)}`);
+
+// expected output: "Chorus lyrics for "Happy": Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. "
+```
 
 ### String Methods Summary
 
 Strings are an important data-type in JavaScript. Most programs in modern JavaScript involve working with strings in one form or another. Get familiar with the methods that operate on strings; doing so will serve you well as you learn more about JavaScript.
+
+20210818 16:46 Assignment complete.

@@ -45,9 +45,9 @@ function secondLargest(array) {
 // console.log(secondLargest([25, 143, 89, 13, 105]) === 105);
 // console.log(secondLargest([54, 23, 11, 17, 10]) === 23);
 
-console.log(secondLargest([10, 40, 30, 20, 50]));
-console.log(secondLargest([25, 143, 89, 13, 105]));
-console.log(secondLargest([54, 23, 11, 17, 10]));
+// console.log(secondLargest([10, 40, 30, 20, 50]));
+// console.log(secondLargest([25, 143, 89, 13, 105]));
+// console.log(secondLargest([54, 23, 11, 17, 10]));
 
 /* Sarah's Algorithm
 
@@ -172,3 +172,9 @@ function factorial(number) {
 // console.log(factorial(3) == 6);
 // console.log(factorial(5) == 120);
 // console.log(factorial(13) == 6227020800);
+
+console.log(factorial(0));
+console.log(factorial(1));
+console.log(factorial(3));
+console.log(factorial(5));
+console.log(factorial(13));
