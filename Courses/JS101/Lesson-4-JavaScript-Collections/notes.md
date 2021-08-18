@@ -592,7 +592,63 @@ There are a couple of variations and the `trim` method that are also very useful
 
 ### `toUpperCase()` and `toLowerCase()`
 
+ You've already seen both of these methods and the names are pretty self-explanatory. `toUpperCase()` and `toLowerCase()` convert the strings to uppercase or lowercase respectively:
+
+```sh
+> 'pete'.toUpperCase()
+'PETE'
+> 'PETE'.toLowerCase()
+'pete'
+```
+
+ Sometimes, you want to convert only the first character of a string to it uppercase equivalent. You can do that by combining `toUpperCase()` with `slice()` and any of the string concatenation methods:
+
+ ```js
+function capitalize(str) {
+  return str[0].toUpperCase() + str.slice();
+}
+
+capitalize('pete'); // => 'Pete'
+ ```
+
 ### `String.prototype.charAt`
+
+The `charAt` method is nearly identical to using brackets on a string. It takes an index as an argument and returns the character at that index in the given string:
+
+```sh
+> let sentence = "It's a walk in the park."
+> sentence.charAt(5)
+'a'
+```
+
+We see that the character `a` is at index five in the string `"It's a walk in the park."`
+
+Note that when we create the string literal, `It's a walk in the park.`, we are using double quotes (`""`) instead of the single quotes that we have normally been using. The reason is that our string itself contains a single quote. Using single quotes to wrap a string that contains a single quote will confuse the JavaScript engine; instead of being a part of our string, it will be interpreted as syntax. You can use a similar technique with strings that contain double quotes:
+
+```sh
+> let sentence = 'He said, "I will come back!"'
+```
+
+ You can of course always use the escape character (`\`) to let JavaScript know that the character immediately after the `\` should not be interpreted as part of the syntax:
+
+```sh
+> let sentence = 'It\'s a walk in the park'
+> sentence
+"It's a walk in the park"
+```
+
+ The chief difference between `charAt()` and `[]` occurs when using indices for characters that don't exist: `charAt()` returns an empty string (`''`), while `[]` returns undefined:
+
+```sh
+> 'abc'[5]
+undefined
+> 'abc'.charAt(5)
+''
+> 'abc'[-2]
+undefined
+> 'abc'.charAt(-2)
+''
+```
 
 ### `String.prototype.charCodeAt()`
 
