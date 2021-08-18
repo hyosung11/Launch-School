@@ -2078,3 +2078,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 17:19 Omi is home and I want to help her setup a mouse with her MacBook Air after I finish studying.
 
 17:36 Finished Assignment 2. Collections Basics
+
+20:30 Doing a little more study of String Methods.
+
+20:56 Time to stop for tonight.
