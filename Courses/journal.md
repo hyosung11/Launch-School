@@ -2088,3 +2088,5 @@ Automatic merge failed; fix conflicts and then commit the result.
 06:00 Study session with Alex. Talking to Alex about getting a job in technology. He's afraid of getting sick.
 
 07:14 After study session with Alex. He's a much better programmer than me at this point.
+
+08:56 Practicing `Array.prototype.reduce()`. Now packing up to go to the gym.
