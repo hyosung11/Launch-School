@@ -835,7 +835,7 @@ On each iteration:
 - number is assigned to a random number between 0 and 9.
 - The number is output.
 - The if statement checks whether number is equal to 5.
-- If it is, it displays'Exiting...' and then executes break to exit the loop.
+- If it is, it displays 'Exiting...' and then executes break to exit the loop.
 - If it isn't, then the loop repeats.
 
 ### **Iterating Over Collections**
@@ -1202,6 +1202,143 @@ To conclude this part of the PEDAC process, you need to write down what the inpu
 ```
 
 ### Data Structure / Algorithm
+
+Data structures influence your algorithm, and for that reason, these two steps are often paired. Deciding what data structure to use is generally easy. A case that calls for an array rather than an object, for instance, is generally easy to identify. However, designing the right algorithm is far more challenging. The biggest problem that students have when writing algorithms is providing sufficient detail.
+
+Let's consider another problem. Try to work through the "understand the problem" part of this problem on your own, and write the input, output, and rules for it. We'll provide a solution below. Later, we'll tackle the data structure and algorithm.
+
+```js
+// PROBLEM:
+
+// Given a string, write a function `palindromeSubstrings` which returns
+// all the substrings from a given string which are palindromes. Consider
+// palindrome words case sensitive.
+
+// Test cases:
+
+// console.log(palindromeSubstrings("supercalifragilisticexpialidocious"))
+// should return: ["ili"]
+//
+// console.log(palindromeSubstrings("abcddcbA"))
+// should return: ["bcddcb", "cddc", "dd"]
+//
+// console.log(palindromeSubstrings("palindrome"))
+// should log: []
+//
+// console.log(palindromeSubstrings(""))
+// should log: []
+```
+
+Answer
+
+```js
+// Some questions you might have?
+// 1. What is a substring?
+// 2. What is a palindrome?
+// 3. Will inputs always be strings?
+// 4. What does it mean to treat palindrome words case-sensitively?
+
+// input: string
+// output: an array of substrings
+// rules:
+//      Explicit requirements:
+//        - return only substrings which are palindromes.
+//        - palindrome words should be case sensitive, meaning "abBA"
+//          is not a palindrome.
+
+//      Implicit requirements:
+//        - if the string is an empty string, the result should be an empty array
+```
+
+What data structure could we use to solve this problem? The obvious choice seems to be an array since that's the desired output.
+
+Now, we come to the algorithm part. Look at the algorithm written below.
+
+```js
+// Algorithm:
+//  - declare a result variable and initialize it to an empty array
+//  - create an array named substrArray that contains all of the
+//    substrings of the input string that are at least 2 characters long.
+//  - loop through the words in the substrArray array.
+//  - if the word is a palindrome, append it to the result
+//    array
+//  - return the result array
+```
+
+Does this algorithm look complete to you?
+
+This algorithm is a "high-level" algorithm and it resembles those that we often see students write during interviews. It looks complete, but let's think about it for a moment: what is the hardest part of this problem? Is it looping through an array and pushing substrings that are palindromes in the result array? Is it determining whether a substring is a palindrome? Is it something else entirely?
+
+Determining whether a word is a palindrome isn't that difficult for most students. Looping through the array and selecting all the palindromes is relatively easy as well. However, finding all the substrings for a given string can be challenging. The above algorithm doesn't tackle that issue. It lacks implementation details for the "hard" parts.
+
+When a student starts writing code based on this algorithm, he soon realizes that returning all the substrings won't be easy. Ideally, the student should return to the algorithm and try to come up with a way to find all the substrings from the input string. He might also create a new function named substrings that returns the array of substrings. In practice, though, the time limitations often lead him to take a hack & slash approach instead. That almost always leads to spending more time than necessary on the problem or, worse yet, not solving it at all.
+
+Let's now follow the correct approach. The student can use the "high-level" algorithm from above and first write the code for it. The code might look like this:
+
+```js
+function palindromeSubstrings(str) {
+  let result = [];
+  let substringsArr = substrings(str);
+
+  substringsArr.forEach(substring => {
+    if (isPalindrome(substring)) {
+      result.push(substring);
+    }
+  });
+
+  return result;
+}
+```
+
+Note that we are calling functions named `substrings` and `isPalindrome`. We haven't defined those functions yet. Instead of trying to write the code for those functions, let's return to our algorithm and determine how they need to work. Let's see how that might look; we'll tackle the `substrings` function first.
+
+To find a correct algorithm, we can simplify the problem by using a small, concrete example to determine what we need to do. For instance, we can start with a short word like `halo` and write all its substrings that are at least 2 characters in length. The resulting list is `['ha', 'hal', 'halo', 'al', 'alo', 'lo']`. Do you see a pattern here? It's clear that some sort of complex looping is going on.
+
+The first loop - the outermost loop - iterates over the starting index for the substrings. With `halo` as a starting string, we need to iterate over the letters `h`, `a`, and `l`. (We don't need to iterate over `o` since there are no substrings of at least 2 characters that start with `o`.)
+
+Within the first loop, we need to iterate over the substrings that start at the given starting index. It's easiest to start with the substring of length 2, then the substring of length 3, and so on. The resulting loops look something like this:
+
+```js
+for each starting index from 0 through the next to last index position
+  for each substring length from 2 until there are no substrings of that length
+    extract the substring of the indicated length starting at the indicated index position
+  end of inner loop
+end of outer loop
+```
+
+Beginning with the first letter of the string at index 0, `'h'`, we first find all of the substrings that begin with that letter: `['ha', 'hal', 'halo']`. As you can see, we're showing the inner loop at work here:
+
+- First, we get a 2-letter substring that begins at index 0: `'ha'`
+- Next, we get a 3-letter substring that begins at index 0: `'hal'`
+- Finally, we get a 4-letter substring that begins at index 0: `'halo'`
+
+The loop, in this case, is one that starts with a length of 2 and ends with a length of 4.
+
+Next, we need to find the substrings that start at index 1 (`a`). The loop, in this case, starts with a length of 2 and ends with a length of 3.
+
+- First, we get a 2-letter substring that begins at index 1: `'al'`
+- Next, we get a 3-letter substring that begins at index 1: `'alo'`
+
+Finally, we get all of the substrings that begin at index 2. This time, the loop starts and ends with a length of 2, so there is only one iteration:
+
+- We get a 2-letter substring that begins at index 2: `'lo'`
+
+What would happen if the original string was, say, 7 characters in length, such as `goalies`? In that case, we'd still have to go through the same process - an outer loop that iterates from index 0 (the letter g) to index 5 (the letter e), and an inner loop that starts with a length of 2 and continues until there are no substrings of the desired length:
+
+- On the first iteration of the outer loop, the substring length used in the inner loop ranges from 2 to 7.
+- On the second iteration, the substring length ranges from 2 to 6.
+- On the third iteration, the substring length ranges from 2 to 5.
+- On the fourth iteration, the substring length ranges from 2 to 4.
+- On the fifth iteration, the substring length ranges from 2 to 3.
+- On the sixth, the substring length starts and ends at 2.
+
+Looking at these two examples, we can determine that the outer loop iterates over indices from 0 to the length of the next to the last index position (i.e., `string.length - 2`). We can also see that the inner loop ranges from 2 to the original string length minus the starting index (`string.length - startingIndex`). We can use both of these facts in our algorithm. Let's go ahead and write the complete algorithm for this function:
+
+```js
+/* 
+- create an empty array 
+
+```
 
 ### Testing Frequently
 

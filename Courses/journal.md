@@ -2170,3 +2170,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 11:09 Okay, stopping here to go to the gym and then for a massage! Yay!
 
 15:55 Watching Tapestry presentation. Amazing.
+
+16:09 Going to continue with PEDAC now until 17:00 Capstone Presentation.
+
+16:41 Tired right now. I think I'm going to take a break an check email before the next capstone presentation.
