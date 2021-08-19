@@ -2123,3 +2123,5 @@ Automatic merge failed; fix conflicts and then commit the result.
 15:40 Watching Pioneer Capstone Project Presentation, but I don't understand much of what's being presented.
 
 16:47 Finished 3. String Methods.
+
+21:04 Talked to Arthur about studying.
