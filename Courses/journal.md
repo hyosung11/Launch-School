@@ -2162,3 +2162,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 10:22 Ready to get back into studying.
 
 10:38 Ready to finish Iterating section now.
+
+10:50 Finished Courses > JS101 Programming Foundations with JavaScript > Lesson 4: JavaScript Collections > 4. Iterating with for and while Loops
+
+10:52 Start Courses JS101 Programming Foundations with JavaScript > Lesson 4: JavaScript Collections > 5. Introduction to the PEDAC Process

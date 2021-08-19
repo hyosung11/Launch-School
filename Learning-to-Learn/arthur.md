@@ -17,4 +17,3 @@ September 2019 while teaching started Launch School
 Assessments are not tricky like the quizzes
 
 20210818 21:03 End
-

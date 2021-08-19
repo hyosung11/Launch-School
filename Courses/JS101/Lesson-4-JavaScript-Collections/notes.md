@@ -1123,3 +1123,88 @@ Looping comprises four primary elements: a looping construct such as `for` or `w
 In later assignments, you'll see how to combine `for` and `while` with a few other tools to manipulate collections according to your will.
 
 20210819 10:48 Assignment complete.
+
+## Introduction to the PEDAC Process
+
+The PEDAC process is one approach to solving programming problems. Its primary goal is to help you identify and avoid pitfalls that you may encounter when you don't code with intent.
+
+P - [Understand the] **P**roblem
+
+E - **E**xamples / Test cases
+
+D - **D**ata Structure
+
+A - **A**lgorithm
+
+C - **C**ode
+
+This guide describes a "lighter" version of the PEDAC process that should help you prepare for the upcoming interview assessment. We'll discuss PEDAC in much more detail in a later course.
+
+When given a programming problem, students often jump straight to the coding part. At first glance, this approach seems reasonable. In an interview setting with limited time, you want to solve the problem quickly. Writing an algorithm may seem like an unnecessary use of your limited time, especially when the problem seems simple. However, in this guide, we want to show you that following the PEDAC process saves time and lets you solve **complex** problems efficiently.
+
+Note that we've bolded the word "complex." Some problems, like, writing a function that takes a string and returns its uppercased version are so simple that they don't need a detailed algorithm. However, writing a function that returns all the substrings from a given string that are palindromes is not simple, and following the PEDAC process is crucial to solving the problem in the time allotted.
+
+In this guide, we will focus on the "understand the problem" and "data structure/algorithm" steps of the PEDAC process. We won't spend much time talking about the Examples/Test Cases step since we will provide test cases during the first interview assessment. We also won't spend much time on the Code: most students have sufficient knowledge of JavaScript syntax, functions and methods to solve even the hardest problems. Where they run into trouble is *understanding the problem and determining an appropriate algorithm*.
+
+### P - [Understand the] Problem
+
+Understanding the problem has three steps:
+
+1. Read the problem description.
+2. Check the test cases, if any.
+3. If any part of the problem is unclear, ask the interviewer or problem requester to clarify the matter.
+
+Let's walk through this process for the problem given below:
+
+```js
+// PROBLEM:
+
+// Given a string, write a function changeMe which returns the same
+// string but with all the words in it that are palindromes uppercased.
+
+// changeMe("We will meet at noon") === "We will meet at NOON"
+// changeMe("No palindromes here") === "No palindromes here"
+// changeMe("") === ""
+// changeMe("I LOVE my mom and dad equally") === "I LOVE my MOM and DAD equally"
+```
+
+After reading this problem, some items may need clarification:
+
+1. **What is a palindrome?** You might ask the interviewer to tell you what a palindrome is, and the interviewer would tell you that it is a word that reads the same forwards and backward.
+
+2. **Should the words in the string remain the same if they already use uppercase?** Here, you can check the test cases. In the fourth test case, the word LOVE already uses uppercase, and it remains uppercase in the solution.
+
+3. **How should I deal with empty strings provided as input?** The test cases frequently answer this question. In this case, test case number 3 provides the answer. This is an implicit requirement that we can infer from the test cases.
+
+4. **Can I assume that all inputs are strings?** Test cases don't show any non-string inputs, so you should ask whether the inputs can contain non-string values, and what you should do with them. In this problem, we won't worry about non-string values.
+
+5. **Should I consider letter case when deciding whether a word is a palindrome?** Again, test cases don't show any appropriate examples. The interviewer might tell you that the palindrome words should be case sensitive: mom is a palindrome, Mom is not.
+
+6. **Do I need to return the same object or an entirely new one?** This question isn't relevant to our current problem since JavaScript strings are immutable and any operation on them will result in a new string. In general, though, this question is one of the most important and most overlooked that you can ask. Typically, while solving problems, students make certain assumptions. One assumption they might make is to return the same object; they often start solving the problem without checking whether that assumption is correct. For this reason, the student may end up losing 10-15 minutes struggling with the wrong problem.
+
+7. **Always verify your assumptions by looking at the test cases or by asking the interviewer.** As discussed in the above point, students often make assumptions about the problem or the expected output that may not be what the interviewer has in mind. That can lead to a waste of time pursuing an incorrect or incomplete solution. Make sure to confirm that your assumptions are correct before you proceed to start developing your algorithm.
+
+To conclude this part of the PEDAC process, you need to write down what the inputs and outputs for the problem are. You should also describe the rules that you must follow. The rules should encapsulate all the explicit and implicit requirements in the problem. So, you should identify what the explicit requirements are, write them down, and then repeat the process for the implicit requirements:
+
+```js
+// input: string
+// output: string (not the same object)
+// rules:
+//      Explicit requirements:
+//        - every palindrome in the string must be converted to
+//          uppercase. (Reminder: a palindrome is a word that reads
+//          the same forwards and backward).
+//        - Palindromes are case sensitive ("Dad" is not a palindrome, but
+//          "dad" is.)
+
+//      Implicit requirements:
+//        - if the string is an empty string, the result should be an empty string
+```
+
+### Data Structure / Algorithm
+
+### Testing Frequently
+
+### Introduction to the PEDAC Process Summary
+
+In conclusion, practice working through the PEDAC process while solving problems. It may be hard, at first. For simple problems, it might even seem unnecessary, but, stick with it. In time, your process will improve; you'll soon be able to solve difficult problems much more readily.
