@@ -2135,3 +2135,24 @@ Automatic merge failed; fix conflicts and then commit the result.
 06:43 I thought I knew the `while` loop syntax, but I get confused still.
 
 07:33 Definitely reaching the end of this Ultradian Cycle as my eyes feel droopy and my brain feels fuzzy. I'm going to stop and get coffee and see what's up with the rest of the family now.
+
+10:07 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS101 > Lesson 4: JavaScript Collections > 3. String Methods
+   * [x] 3. Algorithm Writing Clinic
+   * [x] 4. Capstone Project Presentation: Pioneer
+   * [x] 5. Read *A Mind for Numbers* chapter 11: More Memory Tips
+   * [x] 6. Listen to Huberman Lab podcast How Foods and Nutrients Control Our Moods | Episode 11
+   * [x] 7. Conversation with Arthur Kauffman about how to succeed at Launch School
+
+2. What will you do today?
+   * [x] 1. JS101 > Lesson 4: JavaScript Collections > 4. Iterating with for and while Loops
+   * [ ] 2. JS101 > Lesson 4: JavaScript Collections > 5. Introduction to the PEDAC Process
+   * [ ] 3. Read *A Mind for Numbers* Chapter 12: Learning to Appreciate Your Talent
+   * [ ] 4. Capstone Project Presentation: Tapestry
+   * [ ] 5. Listen to Huberman Lab Podcast Episode: How to Increase Motivation & Drive | Episode 12
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Feeling tension in my right hamstring still.
