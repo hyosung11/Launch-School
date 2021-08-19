@@ -840,17 +840,59 @@ On each iteration:
 
 ### **Iterating Over Collections**
 
-### Strings
+Let's see how we can use our knowledge of loops to iterate over collections.
 
-### Arrays
+#### Strings
 
-### Objects
+Here's a loop that iterates over a string and prints each character.
 
-### Loop Controls: break and continue
+```js
+let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+let counter = 0;
 
-#### Positioning break
+while (counter < alphabet.length) {
+  console.log(alphabet[counter]);
+  counter += 1;
+}
+```
 
-#### continue and Guard Clauses
+Here's the same iteration performed with a for loop:
+
+```js
+let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+for (let counter = 0; counter < alphabet.length; counter++) {
+  console.log(alphabet[counter]);
+}
+```
+
+The `for` loop is a little more succinct as it puts the `counter` declaration and initialization, the looping condition, and the counter incrementing statement on a single line. The `for` loop is the preferred approach of the two when it comes to iterating over collections.
+
+To print each character in the string, we need to iterate over the entire string and use string references to retrieve each letter based on its index. Since our `counter` starts at `0`, we can use that. Our looping condition, `counter < alphabet.length` makes sure that the loop stops as soon as the value of `counter` becomes equal to the length of our string, which is 26.
+
+To print a specific character in a string, we use the index value associated with that character. Since `counter` represents the current iteration number, we can use its value as the index value for each character. That results in every character being printed one at a time.
+
+Note that our looping condition is not `counter <= alphabet.length`. In other words, we want the loop to continue only as long as the counter is less than 26 and not until its equal to 26. The reason for that is that strings and arrays have 0-based indices and our counter also starts at zero. By the time the counter reaches `26`, the loop has already performed 26 operations and accessing `alphabet[26]` would be an out of bounds access.
+
+Suppose the string includes spaces. Since strings can only contain characters, we know that spaces are also characters. If the string were `'a b c'` for example, each character would be printed, including the spaces.
+
+```sh
+a
+
+b
+
+c
+```
+
+#### Arrays
+
+#### Objects
+
+#### Loop Controls: break and continue
+
+##### Positioning break
+
+##### continue and Guard Clauses
 
 ### **Iterating Summary**
 
