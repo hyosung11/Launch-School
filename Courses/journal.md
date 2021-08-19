@@ -2166,3 +2166,5 @@ Automatic merge failed; fix conflicts and then commit the result.
 10:50 Finished Courses > JS101 Programming Foundations with JavaScript > Lesson 4: JavaScript Collections > 4. Iterating with for and while Loops
 
 10:52 Start Courses JS101 Programming Foundations with JavaScript > Lesson 4: JavaScript Collections > 5. Introduction to the PEDAC Process
+
+11:09 Okay, stopping here to go to the gym and then for a massage! Yay!
