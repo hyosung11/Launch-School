@@ -8,15 +8,15 @@
 
 // console.log(numbers); // => [2, 3, 4, 5]
 
-while (true) {
-  let number = Math.floor(10 * Math.random());
-  console.log(number);
+// while (true) {
+//   let number = Math.floor(10 * Math.random());
+//   console.log(number);
 
-  if (number === 5) {
-    console.log('Exiting ...');
-    break;
-  }
-}
+//   if (number === 5) {
+//     console.log('Exiting ...');
+//     break;
+//   }
+// }
 
 // 4
 // 8
@@ -29,3 +29,19 @@ while (true) {
 // 6
 // 5
 // Exiting ...
+
+let numberOfPets = {
+  dogs: 2,
+  cats: 4,
+  fish: 1,
+};
+
+let pets = Object.keys(numberOfPets);
+let counter = 0;
+
+while (counter < pets.length) {
+  let currentPet = pets[counter];
+  let currentPetNumber = numberOfPets[currentPet];
+  console.log(`I have ${currentPetNumber} ${currentPet}!`);
+  counter += 1;
+}

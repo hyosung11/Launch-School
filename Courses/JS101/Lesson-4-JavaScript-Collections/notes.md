@@ -886,7 +886,94 @@ c
 
 #### Arrays
 
+To iterate over an array, we can use the for loop in the same way we did with a string.
+
+```js
+let colors = ['green', 'blue', 'purple', 'orange'];
+
+for (let counter = 0; counter < colors.length; counter += 1) {
+  console.log(`I'm the color ${colors[counter]}!`);
+}
+```
+
+What do you think will be output by the loop?
+
+Solution
+
+```sh
+I'm the color green!
+I'm the color blue!
+I'm the color purple!
+I'm the color orange!
+```
+
+In the above example, the array only contains strings. However, arrays can contain any JavaScript values, regardless of type, and can contain different types at the same time. Let's modify the array so that it contains different data types. We also modify the call to `console.log` to print the type of each element. We can use the `typeof` operator to do that.
+
+```js
+let mixed = ['hello', 10, undefined];
+
+for (let counter = 0; counter < mixed.length; counter += 1) {
+  console.log(typeof mixed[counter]);
+}
+
+Now our output looks a little different.
+
+```sh
+string
+number
+undefined
+```
+
 #### Objects
+
+Using the `for` and `while` loops to iterate over an object is a bit harder — it requires a couple more steps. That's because objects use key-value pairs instead of a zero-based index. Each value in an object is associated with a specific key. Since object keys are strings, a simple counter variable won't allow us to fetch the values we want.
+
+To remedy this, we have to create an array containing all of the keys in the object. We can do this by using `Object.keys`, which returns an array containing all of the keys in the object. We can then use the new array of keys to iterate over the object.
+
+```js
+let numberOfPets = {
+  dogs: 2,
+  cats: 4,
+  fish: 1
+};
+
+let pets = Object.keys(numberOfPets);
+let counter = 0;
+
+while (counter < pets.length) {
+  let currentPet = pets[counter];
+  let currentPetNumber = numberOfPets[currentPet];
+  console.log(`I have ${currentPetNumber} ${currentPet}!`);
+  counter += 1;
+}
+```
+
+The most important thing to realize here is that this is a two-step process. First, we're iterating over the array of keys, `pets`, and saving each key into the `currentPet` variable. We then use the `currentPet` key to retrieve the appropriate value from the `numberOfPets` object.
+
+The `console.log` statement interpolates both the current object value, `currentPetNumber`, and the current object key, `currentPet`, into the "I have ... !" string.
+
+```sh
+I have 2 dogs!
+I have 4 cats!
+I have 1 fish!
+```
+
+Recall from the [Objects chapter](https://launchschool.com/books/javascript/read/objects#whatareobjects) of the book that you don't have to use `for` or `while` loops to iterate over an object. The [for/in](https://launchschool.com/books/javascript/read/objects#iteration) loop provides a simpler way to iterate over objects:
+
+```js
+let numberOfPets = {
+  dogs: 2,
+  cats: 4,
+  fish: 1
+};
+
+for (let currentPet in numberOfPets) {
+  let currentPetNumber = numberOfPets[currentPet];
+  console.log(`I have ${currentPetNumber} ${currentPet}!`);
+}
+```
+
+The book discusses why `for/in` may not produce the same results as the `while` loop shown above.
 
 #### Loop Controls: break and continue
 
