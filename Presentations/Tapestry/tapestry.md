@@ -40,4 +40,3 @@ Docker Compose
 Future Work
 
 Tapestry's Final Architecture
-

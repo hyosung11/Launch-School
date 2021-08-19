@@ -835,7 +835,7 @@ On each iteration:
 - number is assigned to a random number between 0 and 9.
 - The number is output.
 - The if statement checks whether number is equal to 5.
-- If it is, it displays'Exiting...' and then executes break to exit the loop.
+- If it is, it displays 'Exiting...' and then executes break to exit the loop.
 - If it isn't, then the loop repeats.
 
 ### **Iterating Over Collections**
