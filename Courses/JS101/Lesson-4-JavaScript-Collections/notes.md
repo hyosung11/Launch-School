@@ -979,6 +979,93 @@ The book discusses why `for/in` may not produce the same results as the `while` 
 
 ##### Positioning break
 
+Every loop in JavaScript, whether it uses `while`, `do/while`, or `for` can be rewritten as a generic `while (true)` loop. If you're not sure what type of loop you need, you can always start with a generic loop, then modify the finished code to use the appropriate non-generic loop.
+
+In our earlier example with random numbers, we put the `break` at the end of the loop:
+
+```js
+while (true) {
+  let number = Math.floor(10 * Math.random());
+  console.log(number);
+
+  if (number === 5) {
+    console.log('Exiting...');
+    break;
+  }
+}
+```
+
+That mimics the behavior of a `do/while` loop. For instance, here's the equivalent `do/while` code:
+
+```js
+let number;
+
+do {
+  number = Math.floor(10 * Math.random());
+  console.log(number);
+} while (number !== 5);
+
+console.log('Exiting...');
+```
+
+If we put the `break` at the beginning of the loop, it mimics a regular `while` loop:
+
+```js
+let str = '';
+
+while (true) {
+  if (str.length >= 10) {
+    break;
+  }
+
+  str += '*';
+  console.log(str);
+}
+```
+
+```js
+let str = '';
+
+while (str.length < 10) {
+  str += '*';
+  console.log(str);
+}
+```
+
+These last few examples demonstrate that we can often replace `while (true)` loops with an equivalent `while` or `do/while` loop. In most cases, you can and should. However, that's not always the case. Sometimes, you have to exit from the middle of a loop rather than the beginning or end:
+
+```js
+while (true) {
+  let number = Math.floor(10 * Math.random());
+  if (number === 5) {
+    console.log('Exiting...');
+    break;
+  }
+
+  console.log(number);
+}
+```
+
+This loop is similar to the `while (true)` loop we wrote at the beginning of this section. There, we exited after we displayed the number `5`. This one, though, never displays the number `5`. Instead, it tests the termination condition in the middle of the loop and exits before outputting the number.
+
+Note that we can use the `break` statement in any `while`, `do/while`, or `for` loop; you aren't restricted to using it only in `while (true)` loops.
+
+```js
+let names = ['Pete', 'Naveed', 'Chris', 'Elizabeth', 'Wendy', 'Kim'];
+let index = 0;
+
+while (index < names.length) {
+  if (names[index][0] === 'E') {
+    break;
+  }
+
+  console.log(names[index]);
+  index += 1;
+}
+```
+
+This loop iterates over the elements of the `names` array, but terminates the loop early if it encounters a name that begins with `'E'`.
+
 ##### continue and Guard Clauses
 
 ### **Iterating Summary**

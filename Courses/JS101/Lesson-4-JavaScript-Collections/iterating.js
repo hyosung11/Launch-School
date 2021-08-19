@@ -30,18 +30,52 @@
 // 5
 // Exiting ...
 
-let numberOfPets = {
-  dogs: 2,
-  cats: 4,
-  fish: 1,
-};
+// let numberOfPets = {
+//   dogs: 2,
+//   cats: 4,
+//   fish: 1,
+// };
 
-let pets = Object.keys(numberOfPets);
-let counter = 0;
+// let pets = Object.keys(numberOfPets);
+// let counter = 0;
 
-while (counter < pets.length) {
-  let currentPet = pets[counter];
-  let currentPetNumber = numberOfPets[currentPet];
-  console.log(`I have ${currentPetNumber} ${currentPet}!`);
-  counter += 1;
+// while (counter < pets.length) {
+//   let currentPet = pets[counter];
+//   let currentPetNumber = numberOfPets[currentPet];
+//   console.log(`I have ${currentPetNumber} ${currentPet}!`);
+//   counter += 1;
+// }
+
+// let str = '';
+
+// while (true) {
+//   if (str.length >= 10) {
+//     break;
+//   }
+
+//   str += '*';
+//   console.log(str);
+// }
+
+// let str = '';
+
+// while (str.length < 10) {
+//   str += '*';
+//   console.log(str);
+// }
+
+let names = ['Pete', 'Naveed', 'Chris', 'Elizabeth', 'Wendy', 'Kim'];
+let index = 0;
+
+while (index < names.length) {
+  if (names[index][0] === 'E') {
+    break;
+  }
+
+  console.log(names[index]);
+  index += 1;
 }
+
+// Pete
+// Naveed
+// Chris
