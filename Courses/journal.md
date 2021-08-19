@@ -2125,3 +2125,9 @@ Automatic merge failed; fix conflicts and then commit the result.
 16:47 Finished 3. String Methods.
 
 21:04 Talked to Arthur about studying.
+
+## 20210819 목요일
+
+05:30 일어났다. 명상을 하겠습니다.
+
+06:01 I keep changing my schedule and decided to study now and go to the gym after marriage counseling.

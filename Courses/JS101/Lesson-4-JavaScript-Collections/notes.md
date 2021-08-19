@@ -743,3 +743,117 @@ console.log(`Chorus lyrics for "Happy": ${chorus.repeat(27)}`);
 Strings are an important data-type in JavaScript. Most programs in modern JavaScript involve working with strings in one form or another. Get familiar with the methods that operate on strings; doing so will serve you well as you learn more about JavaScript.
 
 20210818 16:46 Assignment complete.
+
+## 4. Iterating with for and while Loops
+
+20210819 06:02
+
+When working with a collection, it's common to perform a single action on each element in the collection. Instead of writing the action over and over again, loops can be used to process many, if not all, of the elements in a collection.
+
+In a previous assignment, we looked at manually incrementing all the numbers in an array by 1. Here's a reminder of what that looked like (slightly modified).
+
+```js
+let numbers = [1, 2, 3, 4];
+numbers[0] += 1;
+numbers[1] += 1;
+numbers[2] += 1;
+numbers[3] += 1;
+numbers;               // => [ 2, 3, 4, 5 ]
+```
+
+You probably noticed that lines 2 - 5 of the above code are almost identical other than the array indices. This array is relatively small; imagine if we needed to increment each value in a much larger array - say, one containing 20 or 30 numbers or maybe even 1,000,000. That's a lot of repetitive code. Situations like this are where we can use a loop to do the hard work for us.
+
+Let's see how we'd solve this problem with a `while` loop:
+
+```js
+let numbers = [1, 2, 3, 4];
+let idx = 0;
+
+while (idx < numbers.length) {
+  numbers[idx] += 1;
+  idx += 1;
+}
+
+console.log(numbers) // => [2, 3, 4, 5]
+```
+
+If you understand this code immediately, you can glance at the rest of this assignment. If you have a little bit of trouble with it, though, make sure you reread the [chapter on loops](https://launchschool.com/books/javascript/read/loops_iterating) in the book, then read the rest of this assignment. Take notes and pay attention -- it's extremely critical.
+
+### Generic Loops
+
+In JavaScript, the most basic kind of loop uses the while statement with a conditional expression that is always true:
+
+```js
+while (true) {
+  // some code here
+}
+```
+
+Any code within the block gets executed during each iteration. Since the condition never becomes false, the loop continues to repeat forever: it becomes an infinite loop. Try the following code in the node REPL:
+
+```sh
+> while (true) {
+>   console.log('Hello!')
+> }
+```
+
+You should see thousands of lines of text output on the console, though they may occur so rapidly, it may look like the program isn't doing anything. Press `Ctrl + C` to cancel the program. You can safely ignore the error and stack trace caused by `Ctrl + C` -- that's normal behavior.
+
+Let's add a `break` statement after the `console.log` call. When we do, the loop iterates just once since `break` causes JavaScript to exit the nearest loop:
+
+```js
+while (true) {
+  console.log('Hello!');
+  break;
+}
+```
+
+If we want the loop to iterate more than once, we can use a conditional statement with `break` so it only breaks out of the loop when a specific condition occurs. For example, let's say we have a variable named `number` that represents a random number. We can exit the loop when `number` equals `5` by writing the `if` condition as `number === 5`:
+
+```js
+while (true) {
+  let number = Math.floor(10 * Math.random());
+  console.log(number);
+
+  if (number === 5) {
+    console.log('Exiting ...')
+    break;
+  }
+}
+```
+
+Try running this code a few times (either from a code file or in the node REPL) and make a note of what you notice.
+
+Once you've done that, compare your notes with these:
+
+1. One or more numbers are output.
+2. The last number output is 5.
+3. 'Exiting...' is output once
+
+On each iteration:
+
+- number is assigned to a random number between 0 and 9.
+- The number is output.
+- The if statement checks whether number is equal to 5.
+- If it is, it displays'Exiting...' and then executes break to exit the loop.
+- If it isn't, then the loop repeats.
+
+### **Iterating Over Collections**
+
+### Strings
+
+### Arrays
+
+### Objects
+
+### Loop Controls: break and continue
+
+#### Positioning break
+
+#### continue and Guard Clauses
+
+### **Iterating Summary**
+
+Looping comprises four primary elements: a looping construct such as `for` or `while`, a counter (or control variable), a way to retrieve a current value, and a way to exit the loop. It's important to understand how to manually loop over collections with nothing more than these 4 tools. It's often tempting to go "method hunting" to search for a method to iterate over a collection, but, if you master the basics of looping, you'll find that you can perform nearly any operation you need with the simple techniques in this assignment. Methods can be useful, but they shouldn't be used as a crutch.
+
+In later assignments, you'll see how to combine `for` and `while` with a few other tools to manipulate collections according to your will.
