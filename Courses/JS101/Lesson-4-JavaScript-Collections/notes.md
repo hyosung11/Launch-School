@@ -1068,8 +1068,58 @@ This loop iterates over the elements of the `names` array, but terminates the lo
 
 ##### continue and Guard Clauses
 
+The `break` statement lets us terminate a loop at any time. The `continue` statement provides a similar service, but, instead of terminating the loop, it terminates the current iteration and returns to the top of the loop.
+
+Suppose we want to display the squares of all the even numbers in an array. Our solution might look like this:
+
+```js
+let numbers = [1, 4, 3, 7, 6, 5, 2, 1];
+
+for (let index = 0; index < numbers.length; index += 1) {
+  if (numbers[index] % 2 !== 1) {
+    let square = numbers[index] * numbers[index];
+    console.log(square);
+  }
+}
+```
+
+That's simple enough. However, the nested logic is a little harder to understand than unnested logic would be. It also doesn't clearly show that the loop has no interest in the odd numbers. In a small loop like this, that's not significant, but in a larger loop, you have to scan down to find out whether the loop ever does something with the odd numbers. That decreases the readability of your code.
+
+One way to deal with this issue is to use a **guard clause** to exclude the odd numbers from further consideration:
+
+```js
+let numbers = [ 1, 4, 3, 7, 6, 5, 2, 1 ];
+
+for (let index = 0; index < numbers.length; index += 1) {
+  if (numbers[index] % 2 === 1) continue;
+
+  let square = numbers[index] * numbers[index];
+  console.log(square);
+}
+```
+
+A guard clause is a conditional statement that protects the body of a loop or function from having to deal with values it doesn't need to handle. In this case, we don't want the main body of our loop (lines 6 and 7) to handle odd numbers, so we use a guard clause at the top of the loop to end the current iteration of the loop and resume with the next. In this example, we use the `continue` statement to terminate the current iteration of the loop and perform the next. The guard clause also clearly shows that we have no further interest in odd numbers.
+
+Note that `continue` doesn't restart the loop. Instead, it ends the current iteration and starts the next. In the above example, for instance, `continue` doesn't reset `index` to `0` as it would if it restarted the loop. However, since it starts the next iteration, it increments the `index` variable (`index += 1`) and tests the termination condition again.
+
+Guard clauses always include a `continue`, `break`, or `return` statement in the body of the `if` statement, depending on need. Most shouldn't do anything else, but that's not a strict rule.
+
+Actually, there are some other statements you can use in a guard clause besides `continue`, `break`, and `return`, but we don't talk about them in this course.
+
+Note that we used a single-line version of the `if` statement when writing our guard clause, contrary to the general rule that you should always use blocks with braces. It's common practice to use the single-line version of the `if` statement with guard clauses, but it isn't required. You could, for example, write:
+
+```js
+if (numbers[index] % 2 === 1) {
+  continue;
+}
+```
+
+However, the multi-line form makes for longer functions, especially if you have multiple guard clauses.
+
 ### **Iterating Summary**
 
 Looping comprises four primary elements: a looping construct such as `for` or `while`, a counter (or control variable), a way to retrieve a current value, and a way to exit the loop. It's important to understand how to manually loop over collections with nothing more than these 4 tools. It's often tempting to go "method hunting" to search for a method to iterate over a collection, but, if you master the basics of looping, you'll find that you can perform nearly any operation you need with the simple techniques in this assignment. Methods can be useful, but they shouldn't be used as a crutch.
 
 In later assignments, you'll see how to combine `for` and `while` with a few other tools to manipulate collections according to your will.
+
+20210819 10:48 Assignment complete.

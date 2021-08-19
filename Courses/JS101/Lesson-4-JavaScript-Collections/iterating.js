@@ -64,18 +64,38 @@
 //   console.log(str);
 // }
 
-let names = ['Pete', 'Naveed', 'Chris', 'Elizabeth', 'Wendy', 'Kim'];
-let index = 0;
+// let names = ['Pete', 'Naveed', 'Chris', 'Elizabeth', 'Wendy', 'Kim'];
+// let index = 0;
 
-while (index < names.length) {
-  if (names[index][0] === 'E') {
-    break;
-  }
+// while (index < names.length) {
+//   if (names[index][0] === 'E') {
+//     break;
+//   }
 
-  console.log(names[index]);
-  index += 1;
-}
+//   console.log(names[index]);
+//   index += 1;
+// }
 
 // Pete
 // Naveed
 // Chris
+
+// let numbers = [ 1, 4, 3, 7, 6, 5, 2, 1 ];
+
+// for (let index = 0; index < numbers.length; index += 1) {
+//   if (numbers[index] % 2 !== 1) {
+//     let square = numbers[index] * numbers[index];
+//     console.log(square);
+//   }
+// }
+
+
+// guard clause
+let numbers = [1, 4, 3, 7, 6, 5, 2, 1];
+
+for (let index = 0; index < numbers.length; index += 1) {
+  if (numbers[index] % 2 === 1) continue;
+
+  let square = numbers[index] * numbers[index];
+  console.log(square);
+}
