@@ -2204,13 +2204,13 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [ ] 2. JS101 Beginner Study Group
-   * [ ] 3. JS109 Study Group
+   * [x] 2. JS101 Beginner Study Group
+   * [x] 3. JS109 Study Group
    * [ ] 4. JS101 > Lesson 4: JavaScript Collections > 5. Introduction to the PEDAC Process
    * [x] 5. Read *A Mind for Numbers* Chapter 13: Sculpting Your Brain
    * [x] 6. Listen to Huberman Lab Podcast Episode: The Science of Emotions & Relationships | Episode 13
 
 3. Are there any blockers or impediments preventing you from doing your work?
-   *Nope. Feeling good today to study and learn.
+   * Nope. Feeling good today to study and learn.
 
 16:06 It's been a busy day and I haven't done much on the Launch School curriculum. I'd like to finish Lesson 5.

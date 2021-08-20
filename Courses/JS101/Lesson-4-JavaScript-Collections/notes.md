@@ -1377,6 +1377,132 @@ Formal pseudocode is an intermediate step between the informal pseudocode shown 
 
 Here's some code that we might write for the `substrings` function:
 
+```js
+function substrings(str) {
+  let result = [];
+  let startingIndex = 0;
+
+  while (startingIndex <= str.length - 2) {
+    let numChars = 2;
+    while (numChars <= str.length - startingIndex) {
+      let substring = str.slice(startingIndex, startingIndex + numChars);
+      result.push(substring);
+      numChars += 1;
+    }
+
+    startingIndex += 1;
+  }
+
+  return result;
+}
+```
+
+Notice how similar it is to the formal pseudocode; that made writing the code straightforward. However, we could easily write this same code using the informal pseudocode with which we started.
+
+Checking whether the string is a palindrome is easy enough. However, we can write a function for it to help make our code more readable. Let's include that function in our algorithm.
+
+```js
+// - Inside the `isPalindrome` function, check whether the string
+//   value is equal to its reversed value.
+```
+
+You can use the `Array.prototype.reverse` method along with `split` and `join`:
+
+```js
+function isPalindrome(str) {
+  return str === str.split('').reverse().join('');
+}
+```
+
+Here's the complete informal **pseudocode** for this problem:
+
+```js
+// input: a string
+// output: an array of substrings
+// rules: palindrome words should be case sensitive, meaning "abBA"
+//        is not a palindrome
+
+// Algorithm:
+//  substrings function
+//  =================
+//    - create an empty array called `result` that will contain all required substrings
+//    - create a `startingIndex` variable (value `0`) for the starting index of a substring
+//    - start a loop that uses `startingIndex` to iterate over `string` from `0` to the length of the string minus 2
+//      - create a `numChars` variable (value `2`) for the length of a substring
+//      - start an inner loop that uses `numChars` to iterate over `string` from `2` to `string.length - startingIndex`
+//        - extract a substring of length `numChars` from `string` starting at `startingIndex`
+//        - append the extracted substring to the `result` array
+//        - increment the `numChars` variable by `1`
+//      - end the inner loop
+//      - increment the `startingIndex` variable by `1`
+//    - end the outer loop
+//    - return the `result` array
+
+//  isPalindrome function
+//  =====================
+//    - Inside the `isPalindrome` function, check whether the string
+//      value is equal to its reversed value.
+
+//  palindromeSubstrings function
+//  ============================
+//    - declare a `result` variable and initialize it to an empty array
+//    - create an array named `substrArray` that will contain all of the
+//      substrings of the input string that are at least 2 characters long.
+//    - loop through the words in the `substrArray` array.
+//      - if the word is a palindrome, append it to the `result` array
+//    - return the `result` array
+```
+
+The code for this with all the helper functions:
+
+```js
+function substrings(str) {
+  let result = [];
+  let startingIndex = 0;
+
+  while (startingIndex <= str.length - 2) {
+    let numChars = 2;
+    while (numChars <= str.length - startingIndex) {
+      let substring = str.slice(startingIndex, startingIndex + numChars);
+      result.push(substring);
+      numChars += 1;
+    }
+
+    startingIndex += 1;
+  }
+
+  return result;
+}
+
+function isPalindrome(str) {
+  return str === str.split('').reverse().join('');
+}
+
+function palindromeSubstrings(str) {
+  let result = [];
+  let substringsArr = substrings(str);
+
+  substringsArr.forEach(substring => {
+    if (isPalindrome(substring)) {
+      result.push(substring)
+    }
+  });
+
+  return result;
+}
+
+console.log(palindromeSubstrings("supercalifragilisticexpialidocious")); // ["ili"]
+console.log(palindromeSubstrings("abcddcbA"));   // ["bcddcb", "cddc", "dd"]
+console.log(palindromeSubstrings("palindrome")); // []
+console.log(palindromeSubstrings(""));           // []
+```
+
+Once again, we want to emphasize that you don't need to write all your pseudocode before you start coding. As you saw above, we first wrote the pseudocode for the `palindromeSubstrings` function. We then wrote the corresponding JavaScript code before we returned to write the pseudocode for the other two functions. Afterwards, we wrote the corresponding code, and then returned to the two lower-level functions.
+
+We also want to emphasize that you don't need the formal pseudocode step. You can use it if it helps you, but it is an extra step.
+
+Finally, the main takeaway is that you should be able to write a plain English solution to the problem. If you can't do that, you won't be able to code it either. You also don't need any "fancy" functions to solve these problems.
+
 ### Testing Frequently
 
 ### Introduction to the PEDAC Process Summary
