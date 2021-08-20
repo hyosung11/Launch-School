@@ -2174,3 +2174,5 @@ Automatic merge failed; fix conflicts and then commit the result.
 16:09 Going to continue with PEDAC now until 17:00 Capstone Presentation.
 
 16:41 Tired right now. I think I'm going to take a break an check email before the next capstone presentation.
+
+20:40 Too tired and fried to continue studying tonight.
