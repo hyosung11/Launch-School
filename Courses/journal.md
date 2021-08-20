@@ -2214,3 +2214,7 @@ Automatic merge failed; fix conflicts and then commit the result.
    * Nope. Feeling good today to study and learn.
 
 16:06 It's been a busy day and I haven't done much on the Launch School curriculum. I'd like to finish Lesson 5.
+
+16:32 Tired, but kind of mindlessly taking notes or more correctly copying notes.
+
+16:46 Finished 5. Introduction to the PEDAC Process, but need to review it as I'm tired right now and not sure how much I have absorbed or digested in the words of Dr. Huberman.

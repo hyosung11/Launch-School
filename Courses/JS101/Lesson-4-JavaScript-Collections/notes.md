@@ -1349,7 +1349,7 @@ Looking at these two examples, we can determine that the outer loop iterates ove
 // - return the `result` array
 ```
 
-Since this pseudocode is relatively complex, you might decide to convert it to formal pseudocode as shown in the [Pseudocode assignment(https://launchschool.com/lessons/64655364/assignments/fea216fc)]. For instance, we might write the following formal pseudocode:
+Since this pseudocode is relatively complex, you might decide to convert it to formal pseudocode as shown in the [Pseudocode assignment](https://launchschool.com/lessons/64655364/assignments/fea216fc). For instance, we might write the following formal pseudocode:
 
 ```js
 // START
@@ -1504,6 +1504,51 @@ We also want to emphasize that you don't need the formal pseudocode step. You ca
 Finally, the main takeaway is that you should be able to write a plain English solution to the problem. If you can't do that, you won't be able to code it either. You also don't need any "fancy" functions to solve these problems.
 
 ### Testing Frequently
+
+Testing isn't properly part of the PEDAC approach, but it's an important step that you don't want to omit. Test your code early and often while writing it. For instance, consider the `substrings` function that we wrote above. When we're writing this code, we might start with:
+
+```js
+function substrings(str) {
+  let result = [];
+  let startingIndex = 0;
+  let numChars = 2;
+  let endingIndex = startingIndex + numChars;
+}
+```
+
+At this point, you may want to check that `endIndex` is correct. To do that, you can insert a console.log statement:
+
+```js
+function substrings(str) {
+  let result = [];
+  let startingIndex = 0;
+  let numChars = 2;
+  let endIndex = startingIndex + numChars;
+  console.log(endIndex); // => 2
+}
+
+substrings("abcdef");
+```
+
+Next, add a bit more code and test again:
+
+```js
+function substrings(str) {
+  let result = [];
+  let startingIndex = 0;
+  let numChars = 2;
+
+  while (startingIndex <= str.length - 2) {
+    startingIndex += 1;
+  }
+
+  console.log(startingIndex); // => 5
+}
+
+substrings("abcdef");
+```
+
+Continue in this manner. Each time you write a bit of code that you can test, test it and make sure you're getting the answer you expect. Don't wait until you're finished writing the entire program or function or even an entire loop if you can test something earlier. This way, if there is a bug in your code, you'll find it as soon as possible; the sooner you find a bug, the easier it will be to identify what's wrong and fix it.
 
 ### Introduction to the PEDAC Process Summary
 
