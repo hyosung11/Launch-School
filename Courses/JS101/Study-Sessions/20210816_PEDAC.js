@@ -119,7 +119,7 @@ Coding with Intent
 // console.log(anagrams('laser', ['lazing', 'lazy',  'lacer']));
 // // []
 
-/* 
+/*
 Given a word, create a hash which stores the indexes of each letter in an array.
 
 Make sure the letters are the keys.

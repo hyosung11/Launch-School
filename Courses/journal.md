@@ -2191,3 +2191,26 @@ Automatic merge failed; fix conflicts and then commit the result.
 07:02 End study session because Alex had to get a bottle for his daughter.
 
 07:52 Reading *A Mind for Numbers*.
+
+10:47 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS101 > Lesson 4: JavaScript Collections > 4. Iterating with for and while Loops
+   * [x] 2. JS101 > Lesson 4: JavaScript Collections > 5. Introduction to the PEDAC Process
+   * [x] 3. Read *A Mind for Numbers* Chapter 12: Learning to Appreciate Your Talent
+   * [x] 4. Capstone Project Presentation: Tapestry
+   * [x] 5. Capstone Project Presentation: Pilot
+   * [x] 6. Listen to Huberman Lab Podcast Episode: How to Increase Motivation & Drive | Episode 12
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. JS101 Beginner Study Group
+   * [ ] 3. JS109 Study Group
+   * [ ] 4. JS101 > Lesson 4: JavaScript Collections > 5. Introduction to the PEDAC Process
+   * [x] 5. Read *A Mind for Numbers* Chapter 13: Sculpting Your Brain
+   * [x] 6. Listen to Huberman Lab Podcast Episode: The Science of Emotions & Relationships | Episode 13
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   *Nope. Feeling good today to study and learn.
+
+16:06 It's been a busy day and I haven't done much on the Launch School curriculum. I'd like to finish Lesson 5.
