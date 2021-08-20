@@ -1335,10 +1335,47 @@ What would happen if the original string was, say, 7 characters in length, such 
 Looking at these two examples, we can determine that the outer loop iterates over indices from 0 to the length of the next to the last index position (i.e., `string.length - 2`). We can also see that the inner loop ranges from 2 to the original string length minus the starting index (`string.length - startingIndex`). We can use both of these facts in our algorithm. Let's go ahead and write the complete algorithm for this function:
 
 ```js
-/* 
-- create an empty array 
-
+// - create an empty array called `result` that will contain all required substrings
+// - create a `startingIndex` variable (value `0`) for the starting index of a substring
+// - start a loop that uses `startingIndex` to iterate over `string` from `0` to the length of the string minus 2
+//   - create a `numChars` variable (value `2`) for the length of a substring
+//   - start an inner loop that uses `numChars` to iterate over `string` from `2` to `string.length - startingIndex`
+//     - extract a substring of length `numChars` from `string` starting at `startingIndex`
+//     - append the extracted substring to the `result` array
+//     - increment the `numChars` variable by `1`
+//   - end the inner loop
+//   - increment the `startingIndex` variable by `1`
+// - end the outer loop
+// - return the `result` array
 ```
+
+Since this pseudocode is relatively complex, you might decide to convert it to formal pseudocode as shown in the [Pseudocode assignment(https://launchschool.com/lessons/64655364/assignments/fea216fc)]. For instance, we might write the following formal pseudocode:
+
+```js
+// START
+//
+//   /* Given a string named `string` */
+//
+//   SET result = []
+//   SET startingIndex = 0
+//
+//   WHILE startingIndex <= length of string - 2
+//     SET numChars = 2
+//     WHILE numChars <= length of string - startingIndex
+//       SET substring = numChars characters from string starting at index startingIndex
+//       append substring to result array
+//       SET numChars = numChars + 1
+//
+//     SET startingIndex = startingIndex + 1
+//
+//   RETURN result
+//
+// END
+```
+
+Formal pseudocode is an intermediate step between the informal pseudocode shown above and the final program code shown below - it isn't always needed, but can sometimes be helpful. We'll skip that step in the rest of this assignment.
+
+Here's some code that we might write for the `substrings` function:
 
 ### Testing Frequently
 
