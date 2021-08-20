@@ -2153,8 +2153,9 @@ Automatic merge failed; fix conflicts and then commit the result.
    * [x] 1. JS101 > Lesson 4: JavaScript Collections > 4. Iterating with for and while Loops
    * [ ] 2. JS101 > Lesson 4: JavaScript Collections > 5. Introduction to the PEDAC Process
    * [ ] 3. Read *A Mind for Numbers* Chapter 12: Learning to Appreciate Your Talent
-   * [ ] 4. Capstone Project Presentation: Tapestry
-   * [ ] 5. Listen to Huberman Lab Podcast Episode: How to Increase Motivation & Drive | Episode 12
+   * [x] 4. Capstone Project Presentation: Tapestry
+   * [ ] 5. Capstone Project Presentation: Pilot
+   * [ ] 6. Listen to Huberman Lab Podcast Episode: How to Increase Motivation & Drive | Episode 12
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Feeling tension in my right hamstring still.
@@ -2174,3 +2175,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 16:09 Going to continue with PEDAC now until 17:00 Capstone Presentation.
 
 16:41 Tired right now. I think I'm going to take a break an check email before the next capstone presentation.
+
+17:33 No juice right now to listen and watch this capstone presentation.
+
+18:05 Tired as the call for dinner comes.
