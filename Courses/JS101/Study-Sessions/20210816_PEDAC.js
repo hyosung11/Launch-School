@@ -76,45 +76,83 @@ Given 2 inputs: Word (string) and Words (array of strings)
 -return newArr
 
 -function isAnagram (str1, str2)
-  -sort strings by character
-  -return whether sorted strings === eachother
+  -return whether sorted strings(helper function) equal each other
+
+-function sortedStrings (str)
+return str sorted in alphabetical order
 
 Coding with Intent
 - test code often
 
  */
 
-function anagrams(word, array) {
-  let result = [];
+// function anagrams(word, array) {
+//   let result = [];
 
-  for (let index = 0; index < array.length; index++) {
-    if (isAnagram(word, array[index])) {
-      result.push(array[index]);
-    }
+//   for (let index = 0; index < array.length; index++) {
+//     if (isAnagram(word, array[index])) {
+//       result.push(array[index]);
+//     }
+//   }
+
+//   return result;
+// }
+
+// function isAnagram (str1, str2) {
+//   return str1.toLowerCase().split('').sort().join('') === str2.toLowerCase().split('').sort().join('');
+// }
+
+
+
+// console.log(isAnagram('aAbb', 'abba')); // true
+// console.log(isAnagram('aabb', 'babe')); // false
+
+// console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']));
+// // ['aabb', 'bbaa']
+
+// console.log(anagrams('abba', ['aabb', 'abcd', 'bbAa', 'dada']));
+// // ['aabb', 'bbAa']
+
+// console.log(anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']));
+// // ['carer', 'racer']
+
+// console.log(anagrams('laser', ['lazing', 'lazy',  'lacer']));
+// // []
+
+/* 
+Given a word, create a hash which stores the indexes of each letter in an array.
+
+Make sure the letters are the keys.
+Make sure the letters are symbols.
+Make sure the indexes are stored in an array and those arrays are values.
+
+Notes
+All strings given will be lowercase.
+*/
+
+
+Test cases:
+mapLetters("dodo"); //== { d:[0, 2], o:[1, 3] }
+mapLetters("froggy"); //== { f:[0], r:[1], o:[2], g:[3, 4], y:[5] }
+mapLetters("grapes"); //== { g:[0], r:[1], a:[2], p:[3], e:[4], s:[5] }
+
+// (problem source: Edabit)
+
+/* Split word into an array
+Declare obj = {}
+
+Loop through array
+  -if obj keys doesn’t include current element,
+     -obj[element] = [index]
+  Otherwise, add the current element’s index to the array at obj[element]
+Return obj
+*/
+
+function mapLetters(word) {
+  let arr = word.split('');
+  let result = {};
+
+  for (let index = 0; index < arr.length; index++) {
+    if ()
   }
-  return result;
 }
-
-function isAnagram (str1, str2) {
-  return sortedString(str1) === sortedString(str2);
-}
-
-function sortedString(str) {
-  return str.toLowerCase().split('').sort().join('')
-}
-
-console.log(isAnagram('aAbb', 'abba')); // true
-console.log(isAnagram('aabb', 'babe')); // false
-
-console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']));
-// ['aabb', 'bbaa']
-
-console.log(anagrams('abba', ['aabb', 'abcd', 'bbAa', 'dada']));
-// ['aabb', 'bbAa']
-
-console.log(anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']));
-// ['carer', 'racer']
-
-console.log(anagrams('laser', ['lazing', 'lazy',  'lacer']));
-// []
-

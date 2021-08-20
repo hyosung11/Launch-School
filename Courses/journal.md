@@ -2181,3 +2181,13 @@ Automatic merge failed; fix conflicts and then commit the result.
 18:05 Tired as the call for dinner comes.
 
 20:40 Too tired and fried to continue studying tonight.
+
+## 20210820 금요일
+
+06:02 Waiting for Alex to join the study session. I hear birds singing outside, and I still don't know how to use Git. Ugh.
+
+06:08 Separating concerns. Mandy's code wars account?
+
+07:02 End study session because Alex had to get a bottle for his daughter.
+
+07:52 Reading *A Mind for Numbers*.
