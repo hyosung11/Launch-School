@@ -131,7 +131,7 @@ All strings given will be lowercase.
 */
 
 
-Test cases:
+// Test cases:
 mapLetters("dodo"); //== { d:[0, 2], o:[1, 3] }
 mapLetters("froggy"); //== { f:[0], r:[1], o:[2], g:[3, 4], y:[5] }
 mapLetters("grapes"); //== { g:[0], r:[1], a:[2], p:[3], e:[4], s:[5] }
@@ -153,6 +153,6 @@ function mapLetters(word) {
   let result = {};
 
   for (let index = 0; index < arr.length; index++) {
-    if ()
+    if (x)
   }
 }
