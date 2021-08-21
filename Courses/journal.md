@@ -2218,3 +2218,26 @@ Automatic merge failed; fix conflicts and then commit the result.
 16:32 Tired, but kind of mindlessly taking notes or more correctly copying notes.
 
 16:46 Finished 5. Introduction to the PEDAC Process, but need to review it as I'm tired right now and not sure how much I have absorbed or digested in the words of Dr. Huberman.
+
+## 20210821 토요일
+
+05:57 Today is a great day! I am going to score and assist today.
+
+09:03 No goal, but one assist and played on both teams.
+
+10:15 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS101 Beginner Study Group
+   * [x] 3. JS109 Study Group
+   * [x] 4. JS101 > Lesson 4: JavaScript Collections > 5. Introduction to the PEDAC Process
+   * [x] 5. Listen to Huberman Lab Podcast Episode: The Science of Emotions & Relationships | Episode 13
+
+2. What will you do today?
+   * [ ] 1. JS101 > Lesson 4: JavaScript Collections > 6. The PEDAC Problem Solving Process
+   * [ ] 2. Read *A Mind for Numbers* Chapter 13: Sculpting Your Brain
+   * [ ] 3. Listen to Huberman Lab Podcast Episode: The Science of Sexual Development | Episode 14
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Just not a lot of time to study today.
