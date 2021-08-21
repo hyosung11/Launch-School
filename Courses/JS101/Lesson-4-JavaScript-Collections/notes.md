@@ -1,4 +1,4 @@
-# Courses > JS101 Programming Foundations with JavaScript > Lesson 4: JavaScript Collections > 1. Introduction
+# Courses > JS101 Programming Foundations with JavaScript > Lesson 4: JavaScript Collections
 
 ## 1. Introduction
 
@@ -1553,3 +1553,72 @@ Continue in this manner. Each time you write a bit of code that you can test, te
 ### Introduction to the PEDAC Process Summary
 
 In conclusion, practice working through the PEDAC process while solving problems. It may be hard, at first. For simple problems, it might even seem unnecessary, but, stick with it. In time, your process will improve; you'll soon be able to solve difficult problems much more readily.
+
+## 6. The PEDAC Problem Solving Process
+
+In the previous assignment, we introduced the PEDAC process. In this assignment, we're going to further explore that process in the series of videos below.
+
+### Understanding the Problem
+
+The PEDAC Process
+
+P: Understanding the Problem
+E: Examples and Test Cases
+D: Data Structures
+A: Algorithms
+C: Implementing a Solution in Code
+
+P: Understanding the Problem
+
+- Establish the rules / define the boundaries of the problem
+  - Assess the available information
+  - Restate the explicit requirements
+  - Identify implicit requirements
+- Spend enough time. Don't rush this step.
+
+**General Example**
+
+Given a string, produce a new string with every other word removed.
+
+- Explicit requirements:
+  - Input: string
+  - Output: new string
+  - Remove every other word from input string
+
+- Questions:
+  - What do we mean by every other word?
+  - How do we define a word in this context?
+    - Words are delimited by spaces
+
+E: Examples and Test Cases
+D: Data Structures
+A: Algorithms
+C: Implementing a Solution in Code
+
+**Sum Even Number Rows**
+
+Imagine a sequence of consecutive integers beginning with 2. The integers are grouped in rows, with the first row containing one integer, the second row two integers, the third row three integers, and so on. Given an integer representing the number of a particular row, return an integer representing the sum of all the integers in that row.
+
+- Sequence of integers
+- Sequence begins with two
+- Integers are consecutive
+- Sequence is grouped into rows
+- Each row is incrementally larger: 1, 2, 3, ...
+- Row 'number' equals the number of elements in the row
+  - Row 1 has 1 element, row 2 has 2 elements, ...
+- Input: a single integer
+  - Identifies a 'row', which is a subset of a sequence of integers
+- Output: a single integer
+  - The sum of the integers in the row identified bgy the input integer
+
+
+
+### Examples and Test Casess
+
+### Data Structures
+
+### Algorithms
+
+### Implementing a Solution in Code
+
+You should now have a basic understanding of using a structured approach for solving programming problems. We recommend that you put this understanding into practice, and hone your problem-solving abilities, as you work through programming problems, for example the [Small Problems](https://launchschool.com/exercises) exercise sets which accompany this course. We'll return to PEDAC, and explore it in more depth, in a later course in the curriculum.
