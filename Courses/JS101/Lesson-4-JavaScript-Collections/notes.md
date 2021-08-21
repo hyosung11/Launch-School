@@ -1558,7 +1558,7 @@ In conclusion, practice working through the PEDAC process while solving problems
 
 In the previous assignment, we introduced the PEDAC process. In this assignment, we're going to further explore that process in the series of videos below.
 
-### Understanding the Problem
+### P: Understanding the Problem
 
 The PEDAC Process
 
@@ -1594,7 +1594,7 @@ Given a string, produce a new string with every other word removed.
 
 Imagine a sequence of consecutive integers beginning with 2. The integers are grouped in rows, with the first row containing one integer, the second row two integers, the third row three integers, and so on. Given an integer representing the number of a particular row, return an integer representing the sum of all the integers in that row.
 
-Rules / Requirements
+**Rules / Requirements**
 
 - Sequence of even integers
 - Sequence begins with two
@@ -1619,7 +1619,7 @@ Rules / Requirements
 
 - How do we create the structure?
 
-Examples
+**Examples**
 
 row number: 1 --> sum of integers in row: 2
 row number: 2 --> sum of integers in row: 10
@@ -1629,26 +1629,47 @@ row number: 4 --> sum of integers in row: 68
 4, 6 --> 10
 14, 16, 18, 20 --> 68
 
-### Examples and Test Cases
+**Data Structure**
 
-E: Examples and Test Cases
+2
+4, 6
+8, 10, 12
+14, 16, 18, 20
+...
+
+- Overall structure representing sequence as a whole
+- Individual rows within overall structure
+- Individual rows in a set order in the context of the sequence
+- Individual rows contain integers
+- Can assume that integers are in a set order in the context of the sequence
+
+[
+  [2],
+  [4, 6],
+  [8, 10, 12],
+  [14, 16, 18, 20]
+  ...
+]
+
+### E. Examples and Test Cases
 
 - Can confirm / refute assumptions
 - Help to answer questions about implicit requirements
 - Act as assertions which help to codify the rules and boundaries
 
+### D: Data Structures
+
+- Help reason with data logically
+- Help interact with data at implementation level
+- Thinking in terms of data structures is part of the problem solving process
+- Data structures closely linked to algorithm
+  - Set of steps from input to output
+  - Involves structuring data in a certain way
+
+### A: Algorithms
 
 
-
-
-### Data Structures
-
-D: Data Structures
-
-### Algorithms
-
-A: Algorithms
-### Implementing a Solution in Code
+### C: Implementing a Solution in Code
 
 C: Implementing a Solution in Code
 
