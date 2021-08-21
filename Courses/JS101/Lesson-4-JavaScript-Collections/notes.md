@@ -1590,16 +1590,13 @@ Given a string, produce a new string with every other word removed.
   - How do we define a word in this context?
     - Words are delimited by spaces
 
-E: Examples and Test Cases
-D: Data Structures
-A: Algorithms
-C: Implementing a Solution in Code
-
 **Sum Even Number Rows**
 
 Imagine a sequence of consecutive integers beginning with 2. The integers are grouped in rows, with the first row containing one integer, the second row two integers, the third row three integers, and so on. Given an integer representing the number of a particular row, return an integer representing the sum of all the integers in that row.
 
-- Sequence of integers
+Rules / Requirements
+
+- Sequence of even integers
 - Sequence begins with two
 - Integers are consecutive
 - Sequence is grouped into rows
@@ -1609,16 +1606,50 @@ Imagine a sequence of consecutive integers beginning with 2. The integers are gr
 - Input: a single integer
   - Identifies a 'row', which is a subset of a sequence of integers
 - Output: a single integer
-  - The sum of the integers in the row identified bgy the input integer
+  - The sum of the integers in the row identified by the input integer
+
+- Sequence:
+2, 4, 6, 8, 10, 12, 14, 16, 18, ...
+
+2
+4, 6
+8, 10, 12
+14, 16, 18, 20
+...
+
+- How do we create the structure?
+
+Examples
+
+row number: 1 --> sum of integers in row: 2
+row number: 2 --> sum of integers in row: 10
+row number: 4 --> sum of integers in row: 68
+
+2 --> 2
+4, 6 --> 10
+14, 16, 18, 20 --> 68
+
+### Examples and Test Cases
+
+E: Examples and Test Cases
+
+- Can confirm / refute assumptions
+- Help to answer questions about implicit requirements
+- Act as assertions which help to codify the rules and boundaries
 
 
 
-### Examples and Test Casess
+
 
 ### Data Structures
 
+D: Data Structures
+
 ### Algorithms
 
+A: Algorithms
 ### Implementing a Solution in Code
+
+C: Implementing a Solution in Code
 
 You should now have a basic understanding of using a structured approach for solving programming problems. We recommend that you put this understanding into practice, and hone your problem-solving abilities, as you work through programming problems, for example the [Small Problems](https://launchschool.com/exercises) exercise sets which accompany this course. We'll return to PEDAC, and explore it in more depth, in a later course in the curriculum.
