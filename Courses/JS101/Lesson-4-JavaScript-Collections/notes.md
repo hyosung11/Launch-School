@@ -1558,8 +1558,6 @@ In conclusion, practice working through the PEDAC process while solving problems
 
 In the previous assignment, we introduced the PEDAC process. In this assignment, we're going to further explore that process in the series of videos below.
 
-### P: Understanding the Problem
-
 The PEDAC Process
 
 P: Understanding the Problem
@@ -1568,7 +1566,7 @@ D: Data Structures
 A: Algorithms
 C: Implementing a Solution in Code
 
-P: Understanding the Problem
+### P: Understanding the Problem
 
 - Establish the rules / define the boundaries of the problem
   - Assess the available information
@@ -1589,6 +1587,32 @@ Given a string, produce a new string with every other word removed.
   - What do we mean by every other word?
   - How do we define a word in this context?
     - Words are delimited by spaces
+
+### E. Examples and Test Cases
+
+- Can confirm / refute assumptions
+- Help to answer questions about implicit requirements
+- Act as assertions which help to codify the rules and boundaries
+
+### D: Data Structures
+
+- Help reason with data logically
+- Help interact with data at implementation level
+- Thinking in terms of data structures is part of the problem solving process
+- Data structures closely linked to algorithm
+  - Set of steps from input to output
+  - Involves structuring data in a certain way
+
+### A: Algorithms
+
+- A logical sequence of steps for accomplishing a task or objective
+  - Closely linked to data structure
+  - Series of steps to structure data to produce the required output
+- Stay abstract / high-level
+  - Avoid implementation detail
+  - Don't worry about efficiency for now
+
+### C: Implementing a Solution in Code
 
 **Sum Even Number Rows**
 
@@ -1651,26 +1675,43 @@ row number: 4 --> sum of integers in row: 68
   ...
 ]
 
-### E. Examples and Test Cases
+**Algorithm**
 
-- Can confirm / refute assumptions
-- Help to answer questions about implicit requirements
-- Act as assertions which help to codify the rules and boundaries
+1. Create an empty 'rows' array to contain all of the rows
+2. Create a 'row' array and add it to the overall 'rows' array
+3. Repeat step 2 until all the necessary rows have been created
+   - A;; rows have been created when the length of the 'rows' array is equal to the input integer
+4. Sum the final row
+5. Return the sum
 
-### D: Data Structures
+*Problem: Create a Row*
 
-- Help reason with data logically
-- Help interact with data at implementation level
-- Thinking in terms of data structures is part of the problem solving process
-- Data structures closely linked to algorithm
-  - Set of steps from input to output
-  - Involves structuring data in a certain way
+Rules:
 
-### A: Algorithms
+- Row is an array
+- Arrays contain integers
+- Integers are consecutive even numbers
+- Integers in each row form part of an overall larger sequence
+- Rows are of different lengths
+- Input: the information needed to create the output
+  - The starting integer
+  - Length of the row
+- Output: `[8, 10, 12]`
 
+Examples:
+start: 2, length: 1 --> [2]
+start: 4, length: 2 --> [4, 6]
+start: 8, length: 3 --> [8, 10, 12]
 
-### C: Implementing a Solution in Code
+Data Structure:
+- An array of integers
 
-C: Implementing a Solution in Code
+Algorithm:
+1. Create an empty 'row' array to contain the integers
+2. Add the starting integer
+3. Increment the starting integer by 2 to get the next integer in the sequence
+4. Repeat steps 2 & 3 until the array has reached the correct length
+5. Return the 'row' array
+
 
 You should now have a basic understanding of using a structured approach for solving programming problems. We recommend that you put this understanding into practice, and hone your problem-solving abilities, as you work through programming problems, for example the [Small Problems](https://launchschool.com/exercises) exercise sets which accompany this course. We'll return to PEDAC, and explore it in more depth, in a later course in the curriculum.
