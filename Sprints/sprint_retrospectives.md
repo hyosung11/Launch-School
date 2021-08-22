@@ -181,3 +181,40 @@ This question allows us to capture things that happened but leave us feeling unc
    - Keep doing more repetitions and really learn from mistakes as that's the way our nervous systems learn
 
 20210815 14:46 End
+
+## Sprint 6 20210816 ~ 20210822 16:30
+
+### 1. What went well? (In other words, what took place that we want to recognize and acknowledge as having gone well?)
+
+- Studied with focus everyday
+- Participated in many study sessions with Alex
+- Participated in Launch School study sessions
+- Attended Capstone Project Presentations
+- Went to the gym everday
+- Took many walks daily
+- Used hypnosis and yoga nidra
+- Read *A Mind for Numbers* book
+- Read *The Pragmatic Programmer* book
+- Did the *Mindshift* MOOC
+- Listened to the Huberman Lab podcast and applied some of the tips
+- Ultradian focus cycle
+- Non-sleep Deep Rest (NSDR)
+- Light Meter
+
+### 2. What didn’t go so well? (What took place that didn’t go as we would have liked?)
+
+- I could still be more active in ingesting the curriculum
+- Got tired and had dips in energy and focus, but that's actually okay
+
+### 3. What did I learn? (We want to think about what we’ve learned about how we worked together. It’s less about the content and more about the process.)
+
+- I still enjoy programming, but want to spend more time with the kids and my wife too.
+- Waiting to ingest caffeine has been a good adjustment.
+- Getting two or three solid Ultradian study cycles a day makes sense.
+
+### 4. What still puzzles me? (This question allows us to capture things that happened but leave us feeling unclear or puzzled.)
+
+- Yep, I'm still not sure how to incorporate Anki cards into studying
+- My talk with Arthur made me realize that I want to move more quickly through the curriculum and then come back to review things more closely after I get to JS109.
+
+20210822 16:43 End
