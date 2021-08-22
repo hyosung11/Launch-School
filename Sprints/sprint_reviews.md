@@ -334,3 +334,74 @@ The Sprint Review includes the following elements:
 The result of the Sprint Review is a revised Product Backlog that defines the probable Product Backlog items for the next Sprint. The Product Backlog may also be adjusted overall to meet new opportunities.
 
 20210815 14:23 End Sprint 5 Review
+
+## Sprint 6, 20210816 ~ 20210822 16:00
+
+The Sprint Review includes the following elements:
+Attendees include the Scrum Team and key stakeholders invited by the Product Owner.
+
+### The Product Owner explains what Product Backlog items have been “Done” and what has not been “Done”.
+
+#### Done
+
+* Answered Daily Scrum Questions
+* JS101 > Lesson 3: Practice Problems > Assignments 1~6
+* Read *A Mind for Numbers* daily
+* Listened to the Huberman Lab podcast episodes
+* Completed JS101 > Lesson 4: JavaScript Collections > Assignments 1 ~ 5
+* Attended four capstone presentations
+* Participated in many study sessions
+* Did a few small problems with Alex
+
+#### Remaining
+
+* JS101 - Small Problems
+  * Easy 2 > 10-12
+  * Easy 3 > 4-10
+  * Easy 4 > 1-10
+* JS 101 > Lesson 4: Assignments 6 ~ 12
+
+### The Developers discuss *what went well* during the Sprint, *what problems it ran into*, and *how those problems were solved*
+
+#### What went well?
+
+* Studied curriculum daily
+* Worked on exercises daily
+* Answered daily scrum questions and posted to Alex on Slack
+* Read chapters from *A Mind for Numbers*
+* Used the Productivity Planner daily
+* Engaged the Pomodoro technique and took breaks regularly
+* Learned a lot and was inspired by the Capstone Presentations, especially Tapestry
+* Attended and participated in many study sessions and asked a lot of clarifying questions to prepare for the JS109 Asessments
+
+#### What problems?
+
+Definitely felt dips in energy and lack of motivation at times during the week
+
+#### What problems did I solve?
+
+Time-blocking makes a big difference. If it's not on my calendar, I tend to forget to do something or don't prioritize it.
+I'm using Naps/Non-Sleep Deep Rest better and it's making a difference in my concentration abilities later in the afternoons
+
+The **Developers** demonstrate the work that it has “Done” and answers questions about the Increment;
+
+* Getting better at problem-solving and asking clarifying questions
+* Worked through half of the assignments in Lesson 4
+
+The **Product Owner** discusses the Product Backlog as it stands. He or she projects likely target and delivery dates based on progress to date (if needed);
+
+* Finish JS101 Lesson 4 > All Assignments
+* Continue to work through the JS101 Small Problems
+
+The entire group collaborates on what to do next, so that the Sprint Review provides valuable input to subsequent Sprint Planning;
+
+* Work on JS101 Lesson 4 Remaining Assignments
+* Work on JS101 Small Problems
+
+### Review of the timeline, budget, potential capabilities, and marketplace for the next anticipated releases of functionality and capability of the product
+
+I start reffing this week and I have childcare duty all day on Friday because Karina's last day is Wednesday.
+
+The result of the Sprint Review is a revised Product Backlog that defines the probable Product Backlog items for the next Sprint. The Product Backlog may also be adjusted overall to meet new opportunities.
+
+20210815 16:27 End Sprint 6 Review
