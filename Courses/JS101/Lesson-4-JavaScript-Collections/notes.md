@@ -1574,7 +1574,7 @@ C: Implementing a Solution in Code
   - Identify implicit requirements
 - Spend enough time. Don't rush this step.
 
-**General Example**
+#### General Example
 
 Given a string, produce a new string with every other word removed.
 
@@ -1623,12 +1623,11 @@ Given a string, produce a new string with every other word removed.
 - Create test cases
 - Code with intent
 
-
-**Sum Even Number Rows**
+#### Sum Even Number Rows
 
 Imagine a sequence of consecutive integers beginning with 2. The integers are grouped in rows, with the first row containing one integer, the second row two integers, the third row three integers, and so on. Given an integer representing the number of a particular row, return an integer representing the sum of all the integers in that row.
 
-**Rules / Requirements**
+#### Rules / Requirements
 
 - Sequence of even integers
 - Sequence begins with two
@@ -1653,7 +1652,7 @@ Imagine a sequence of consecutive integers beginning with 2. The integers are gr
 
 - How do we create the structure?
 
-**Examples**
+#### Examples
 
 row number: 1 --> sum of integers in row: 2
 row number: 2 --> sum of integers in row: 10
@@ -1663,7 +1662,7 @@ row number: 4 --> sum of integers in row: 68
 4, 6 --> 10
 14, 16, 18, 20 --> 68
 
-**Data Structure**
+#### Data Structure
 
 2
 4, 6
@@ -1685,7 +1684,7 @@ row number: 4 --> sum of integers in row: 68
   ...
 ]
 
-**Algorithm**
+#### Algorithm
 
 1. Create an empty 'rows' array to contain all of the rows
 2. Create a 'row' array and add it to the overall 'rows' array
@@ -1694,7 +1693,7 @@ row number: 4 --> sum of integers in row: 68
 4. Sum the final row
 5. Return the sum
 
-*Problem: Create a Row*
+#### Problem: Create a Row
 
 Rules:
 
@@ -1714,9 +1713,11 @@ start: 4, length: 2 --> [4, 6]
 start: 8, length: 3 --> [8, 10, 12]
 
 Data Structure:
+
 - An array of integers
 
 Algorithm:
+
 1. Create an empty 'row' array to contain the integers
 2. Add the starting integer
 3. Increment the starting integer by 2 to get the next integer in the sequence

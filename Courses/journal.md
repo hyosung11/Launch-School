@@ -2247,3 +2247,8 @@ Automatic merge failed; fix conflicts and then commit the result.
 15:14 I am so tired right now even though I did N/NSDR after lunch. I'm following along with the PEDAC process videos but my eyes are droopy.
 
 16:17 Took a long break and read news on iPad which I liked doing a lot.
+
+20:18 After putting the kids to bed, I'm working on the last video for the PEDAC lesson on coding with intent.
+
+20:30 Time to relax with Sohee and watch some television.
+I didn't quite finish Assignment 6 in Lesson 4.
