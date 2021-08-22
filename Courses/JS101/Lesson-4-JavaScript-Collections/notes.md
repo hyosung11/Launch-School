@@ -1614,6 +1614,16 @@ Given a string, produce a new string with every other word removed.
 
 ### C: Implementing a Solution in Code
 
+- Translating solution to algorithm to code
+- Think about algorithm in the context of the programming language
+  - Language features / constraints
+  - Characteristics of data structures
+  - Built-in functions / methods
+  - Syntax / coding patterns
+- Create test cases
+- Code with intent
+
+
 **Sum Even Number Rows**
 
 Imagine a sequence of consecutive integers beginning with 2. The integers are grouped in rows, with the first row containing one integer, the second row two integers, the third row three integers, and so on. Given an integer representing the number of a particular row, return an integer representing the sum of all the integers in that row.
@@ -1712,6 +1722,5 @@ Algorithm:
 3. Increment the starting integer by 2 to get the next integer in the sequence
 4. Repeat steps 2 & 3 until the array has reached the correct length
 5. Return the 'row' array
-
 
 You should now have a basic understanding of using a structured approach for solving programming problems. We recommend that you put this understanding into practice, and hone your problem-solving abilities, as you work through programming problems, for example the [Small Problems](https://launchschool.com/exercises) exercise sets which accompany this course. We'll return to PEDAC, and explore it in more depth, in a later course in the curriculum.
