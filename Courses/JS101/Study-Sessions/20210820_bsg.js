@@ -96,14 +96,14 @@ EXPLANATION
 - `forEach` always returns undefined
 */
 
-let a = ['Hello'];
+// let a = ['Hello'];
 
-function changeValue(a) {
-  a[0] = 'Goodbye';
-}
+// function changeValue(a) {
+//   a[0] = 'Goodbye';
+// }
 
-changeValue(a);
-console.log(a);
+// changeValue(a);
+// console.log(a);
 
 // what will happen when we run this code? Why?
 
@@ -111,25 +111,26 @@ console.log(a);
 - log `Goodbye`
 - Because changeValue mutated the argument that was passed
 - Pass by Reference
-- Array is an oject and it's NOT a primitive type
-- When we passed `a` to changevalue, we passed a reference to ['Hello']
+- Array is an object and it's NOT a primitive type
+- When we passed `a` to changeValue, we passed a reference to ['Hello']
 */
 
 // Variables as Pointers
-let arr = [1, 2, 3];
+// let arr = [1, 2, 3];
 
-let a = arr;
+// let a = arr;
 
-let b = arr;
+// let b = arr;
 
-console.log(a);
-console.log(b);
+// console.log(a);
+// console.log(b);
 
-b[0] = '99';
+// b[0] = '99';
 
-console.log(a);
-console.log(b);
-console.log(arr);
+// console.log(a);
+// console.log(b);
+// console.log(arr);
 
 // Variables as Pointers - https://launchschool.com/books/javascript/read/more_stuff#variablesaspointers
+
 

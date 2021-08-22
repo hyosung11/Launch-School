@@ -2252,3 +2252,29 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 20:30 Time to relax with Sohee and watch some television.
 I didn't quite finish Assignment 6 in Lesson 4.
+
+## 20210822 일요일
+
+06:02 I feel tired this morning. I didn't want to get out of bed at 5:10. I laid in bed until 5:45. I didn't take a cold shower this morning. I want to play soccer but my body wants more rest. I don't know about mountain biking in rainy conditions either.
+
+map, filter, forEach
+
+14:34 I just woke up from a short nap. I'm still kind of sleepy and tired. Maybe I need to go for a walk before doing daily scrum and weekly sprint stuff?
+
+15:53 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS101 > Lesson 4: JavaScript Collections > 6. The PEDAC Problem Solving Process
+   * [x] 2. Read *A Mind for Numbers* Chapter 13: Sculpting Your Brain
+   * [x] 3. Listen to Huberman Lab Podcast Episode: The Science of Sexual Development | Episode 14
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. Sprint 6 Review
+   * [ ] 3. Sprint 6 Retrospective
+   * [ ] 4. Sprint 7 Planning
+   * [ ] 5. Learning to Learn Assessment
+   * [x] 6. Read *A Mind for Numbers* Chapter 14: Developing the Mind's Eye through Equation Poems
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Tired in a pleasant way on a rainy Sunday after playing soccer this morning.
