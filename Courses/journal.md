@@ -2278,3 +2278,5 @@ map, filter, forEach
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Tired in a pleasant way on a rainy Sunday after playing soccer this morning.
+
+17:04 Completed Sprint Review, Retrospective and Planning this week. I'm going to organize Trello and then do a Learning to Learn Assessment.
