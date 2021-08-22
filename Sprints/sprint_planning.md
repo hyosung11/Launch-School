@@ -203,47 +203,59 @@ Fulfill those goals with the following questions:
 
 20210808 17:41 End
 
-## Sprint 6, 20210816 ~ 20210822
+## Sprint 7, 20210823 ~ 20210829 16:55
 
-Sprint planning meetings should involve setting expectations, reviewing the backlog, and covering upcoming tasks for the sprint. During this meeting, teams should highlight any potential roadblocks that may occur and halt progress.
+Sprint planning meetings should involve setting expectations, reviewing the backlog, and covering upcoming tasks for the sprint. During this meeting, teams should highlight any potential roadblocks that may occur and halt progress. Fulfill those goals with the following questions:
 
-Fulfill those goals with the following questions:
+### 1. What did we learn at sprint review and sprint retrospective that needs to be considered in our planning conversations today?
 
-- **What did we learn at sprint review and sprint retrospective that needs to be considered in our planning conversations today?**
-  - Embrace and encourage mistakes to facilitate the neuroplasticity of learning through the release of chemicals like norepinephrine and dopamine
-  - Use Ultradian cycles and NSDR
+- Focus on getting through JS101 Lessons first and go back to review after arriving at JS109.
+- I need to keep doing study sessions because that's where I work on problems
 
-- **What is at the top of the product backlog?**
-  - JS101 Lesson 4
-  - JS101 Small Problems
+### 2. What is at the top of the product backlog?
 
-- **What do we need to know about these backlog items in order to fully commit to getting them done in the upcoming sprint?**
-  - Expect to struggle and enjoy it
-  - Be aware of the small differences
+- JS101 > Lesson 4 > Assignments 6 ~ 12
+- JS101 Small Problems
 
-- **How much of the product backlog do we think we can complete in the upcoming sprint?**
-  - JS101 Lesson 4: JavaScript Collections > Assignments 1~12
-  - JS101 Small Problems > Easy 2 > 10~12
-  - JS101 Small Problems > Easy 3 > 4~10
+### 3. What do we need to know about these backlog items in order to fully commit to getting them done in the upcoming sprint?
 
-- **Do we need more clarification on this feature?**
-  - No
+- It's hard to predict how long an assignment will take because they are different lengths and have multiple sections
+- Don't worry about getting too specific in the first pass
 
-- **What is our confidence level [High / Medium / Low] regarding this (sprint backlog) as a reasonable plan for this sprint?**
-  - Medium confidence level
+### 4. How much of the product backlog do we think we can complete in the upcoming sprint?
 
-- **How is this yet-to-build backlog item similar/relative to other known/completed work we have done in the past? How does this comparison help us estimate the relative size of the new work?**
-  - JS101 Lesson 4: JavaScript Collections has some material that I was introduced to in the GA coding bootcamp and in freeCodeCamp
+- JS101 Lesson 4: JavaScript Collections > Assignments 6~12
+- JS101 Small Problems > Easy 2 > 10~12
+- JS101 Small Problems > Easy 3 > 4~10
 
-- **What outside help will we need to succeed with our plans?**
-  - Study sessions with Alex
-  - LS Study Sessions
-  - LS Slack communication
+### 5. Do we need more clarification on this feature?
 
-- **What’s the biggest risk that may prevent us from completing this sprint?**
-  - Unknown at the moment. It is Karina's last week of working for three days though.
+- No
 
-- **Who is taking time off during the next sprint? How should we plan differently given the team’s (adjusted) capacity?**
-  - Nobody
+### 6. What is our confidence level [High / Medium / Low] regarding this (sprint backlog) as a reasonable plan for this sprint?
 
-20210815 15:04 End
+- Medium confidence level
+
+### 7. How is this yet-to-build backlog item similar/relative to other known/completed work we have done in the past? How does this comparison help us estimate the relative size of the new work?
+
+- JS101 Lesson 4: JavaScript Collections > Assignments 6 ~ 12 follow the Launch School curriculum of going into depth, so this means it will take as long as it takes for me to complete.
+
+### 8. What outside help will we need to succeed with our plans?
+
+- Study sessions with Alex
+- Study Sessions with Laurent
+- Study Sessions with Jeff?
+- LS Slack communication
+- SPOT study sessions if they're scheduled
+- LS study sessions if they get scheduled for this week
+
+### 9. What’s the biggest risk that may prevent us from completing this sprint?
+
+- This is the last week of summer vacation for the kids and I have childcare duty all day on Friday.
+- I will have less time to study because of soccer officiating in the afternoons and evenings this week.
+
+### 10. Who is taking time off during the next sprint? How should we plan differently given the team’s (adjusted) capacity?
+
+- Nobody
+
+20210822 17:03 End
