@@ -2319,3 +2319,6 @@ map, filter, forEach
 13:37 Back from my lunch break. My lower back feels tight.
 
 14:50 I've been grinding through Assignment 7 and forgetting to commit my code and notes. So I will do it now. My lower back is tight. I am struggling with deadlifting lately.
+
+16:06 I took a longer break than scheduled and ended the break with a ten minute walk. This is good. Now I can put in another Ultradian Cycle before I make dinner and go to referee.
+

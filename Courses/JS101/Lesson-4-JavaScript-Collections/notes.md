@@ -1933,8 +1933,73 @@ A couple items of note:
 - Rather than returning a new array, this function returns a reference to the (mutated) original array.
 - Lines 5 and 6 can be shortened to 1 line: `numbers[counter] = numbers[counter] * 2` or even `numbers[counter] *= 2`.
 
+Now we can check our function like this.
+
+```js
+let numbers = [1, 4, 3, 7, 2, 6];
+doubleNumbers(numbers); // => [2, 8, 6, 14, 4, 12]
+numbers; // => [2, 8, 6, 14, 4, 12]
+```
+
+We previously said that transformation is an operation that is performed on every element in the collection. In the next example, we'll study a function that only transforms a subset of the elements in the collection. Here, we only multiply by `2` if the value is odd. The `if` condition will only evaluate to true when `currentNumber` is odd. We check whether a number is odd by using the remainder (`%`) operator. We know from basic arithmetic that the remainder of a number divided by 2 is 0 when the number is even and 1 if it's odd.
+
+```js
+function doubleOddNumbers(numbers) {
+  led doubledNumbers = [];
+
+  for (let counter = 0; counter < numbers.length; counter += 1) {
+    let currentNumber = numbers[counter];
+
+    if (currentNumber % 2 === 1) {
+      doubledNumbers.push(currentNumber * 2);
+    } else {
+      doubledNumbers.push(currentNumber);
+    }
+  }
+
+  return doubledNumbers;
+}
+```
+
+Once again, note that we are working with a function that does not mutate its argument and instead returns a new array. We can call it like so:
+
+```js
+let myNumbers = [1, 4, 3, 7, 2, 6];
+doubleOddNumbers(myNumbers); // => [2, 4, 6, 14, 2, 6]
+
+// not mutated
+myNumbers; // => [1, 4, 3, 7, 2, 6]
+```
+
+Though we didn't change all of the elements, we can reasonably say that we performed a transformation on the array, it's just that the transformation left some elements unchanged. Even if we don't change any elements because none met our criterion (being odd, in this case), it's still considered a transformation -- sometimes, that's called an **identity transformation**.
+
+Here's an exercise for you: suppose we wanted to transform the numbers based on their position in the array rather than their value? Try coding a solution that doubles the numbers that have odd indices:
+
+Solution
+
+```js
+function doubleNumsWithOddIndices(numbers) {
+  let doubledNums = [];
+
+  for (let counter = 0; counter < numbers.length; counter += 1) {
+    let currentNumber = numbers[counter];
+
+    if (counter % 2 === 1) {
+      doubledNums.push(currentNumber * 2);
+    } else {
+      doubledNums.push(currentNumber);
+    }
+  }
+
+  return doubledNums;
+}
+```
 
 ### More Flexible Functions
+
+The examples we've looked at so far have taken one argument (the collection) and performed one operation on that collection. By defining our functions in a way that we can pass in additional arguments to alter the logic of the iteration, we can create more flexible and generic functions.
+
+Recall earlier we wrote a selectFruit function that selected fruits out of the produceList object of fruits and vegetables. Suppose we wish to select generic produce types; we want to be able to specify whether we're interested in selecting fruits or vegetables or some other kind of produce, entirely. Here's how we could build such a function:
 
 ### Selection and Transformation Summary
 

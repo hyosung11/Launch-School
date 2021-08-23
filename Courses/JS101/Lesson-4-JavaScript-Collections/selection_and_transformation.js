@@ -116,18 +116,64 @@
 // }
 
 // shortened version of above
-function doubleNumbers(numbers) {
-  let counter = 0;
+// function doubleNumbers(numbers) {
+//   let counter = 0;
 
-  while (counter < numbers.length) {
-    numbers[counter] *= 2;
+//   while (counter < numbers.length) {
+//     numbers[counter] *= 2;
 
-    counter += 1;
+//     counter += 1;
+//   }
+
+//   return numbers;
+// }
+
+// let numbers = [1, 4, 3, 7, 2, 6];
+// console.log(doubleNumbers(numbers)); // => [2, 8, 6, 14, 4, 12]
+// console.log(numbers); // => [2, 8, 6, 14, 4, 12]
+
+// This function only transforms a subset of elements in the collection; aka an identity transformation
+
+// function doubleOddNumbers(numbers) {
+//   let doubledNumbers = [];
+
+//   for (let counter = 0; counter < numbers.length; counter += 1) {
+//     let currentNumber = numbers[counter];
+
+//     if (currentNumber % 2 === 1) {
+//       doubledNumbers.push(currentNumber * 2);
+//     } else {
+//       doubledNumbers.push(currentNumber);
+//     }
+//   }
+
+//   return doubledNumbers;
+// }
+
+// let myNumbers = [1, 4, 3, 7, 2, 6];
+// console.log(doubleOddNumbers(myNumbers));  // => [2, 4, 6, 14, 2, 6]
+
+// // not mutated
+// console.log(myNumbers);; // => [1, 4, 3, 7, 2, 6]
+
+/* Here's an exercise for you: suppose we wanted to transform the numbers based on their position in the array rather than their value? Try coding a solution that doubles the numbers that have odd indices: */
+
+
+function doubleNumbersWithOddIndices(numbers) {
+  let doubledNumbers = [];
+
+  for (let counter = 0; counter < numbers.length; counter += 1) {
+    let currentNumber = numbers[counter];
+
+    if (counter % 2 === 1) {
+      doubledNumbers.push(currentNumber * 2);
+    } else {
+      doubledNumbers.push(currentNumber);
+    }
   }
 
-  return numbers;
+  return doubledNumbers;
 }
 
-let numbers = [1, 4, 3, 7, 2, 6];
-console.log(doubleNumbers(numbers)); // => [2, 8, 6, 14, 4, 12]
-console.log(numbers); // => [2, 8, 6, 14, 4, 12]
+let myNumbers = [1, 4, 3, 7, 2, 6];
+console.log(doubleNumbersWithOddIndices(myNumbers)); // => [ 1, 8, 3, 14, 2, 12 ]
