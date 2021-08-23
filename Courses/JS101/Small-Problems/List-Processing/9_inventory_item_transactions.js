@@ -47,8 +47,12 @@ function transactionsFor(inventoryItem, transactions) {
 }
 
 // console.log(transactions[0]['id']);
-console.log(transactionsFor(105, transactions));
+console.log(transactionsFor(103, transactions));
 // returns
 // [ { id: 101, movement: "in",  quantity:  5 },
 //   { id: 101, movement: "in",  quantity: 12 },
 //   { id: 101, movement: "out", quantity: 18 }, ]
+
+/* Discussion
+
+The shape of this problem is that of filtering. Given a list of inventory transactions, the solution selects only those that have a particular inventory item ID. The solution gets the relevant transactions by comparing `inventory.id` of each transaction to the value of the `inventoryItem parameter`. It keeps the transaction only if these two values are equal. */
