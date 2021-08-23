@@ -1689,7 +1689,7 @@ row number: 4 --> sum of integers in row: 68
 1. Create an empty 'rows' array to contain all of the rows
 2. Create a 'row' array and add it to the overall 'rows' array
 3. Repeat step 2 until all the necessary rows have been created
-   - A;; rows have been created when the length of the 'rows' array is equal to the input integer
+   - All rows have been created when the length of the 'rows' array is equal to the input integer
 4. Sum the final row
 5. Return the sum
 
@@ -1724,4 +1724,13 @@ Algorithm:
 4. Repeat steps 2 & 3 until the array has reached the correct length
 5. Return the 'row' array
 
+### Final Thoughts
+
+- Not a completely linear process
+- Move back and forth between the steps
+- Switch from implementation mode to abstract problem-solving mode when necessary
+- Don't try to problem solve at the code level
+
 You should now have a basic understanding of using a structured approach for solving programming problems. We recommend that you put this understanding into practice, and hone your problem-solving abilities, as you work through programming problems, for example the [Small Problems](https://launchschool.com/exercises) exercise sets which accompany this course. We'll return to PEDAC, and explore it in more depth, in a later course in the curriculum.
+
+20210822 20:46 Complete Assignment
