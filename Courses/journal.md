@@ -2280,3 +2280,7 @@ map, filter, forEach
    * Tired in a pleasant way on a rainy Sunday after playing soccer this morning.
 
 17:04 Completed Sprint Review, Retrospective and Planning this week. I'm going to organize Trello and then do a Learning to Learn Assessment.
+
+17:56 Almost time for dinner and I don't feel like doing a Learning to Learn Assessment. I haven't defined what it is either and I seem to cover it in the Sprint Retrospective. I also took recurring tasks out of the Trello Board. Will that lessen my enthusiasm as I won't get the green lights anymore?
+
+20:47 Finish PEDAC Assignment. It was a challenging problem. I need to review it.
