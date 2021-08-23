@@ -2292,3 +2292,24 @@ map, filter, forEach
 07:27 I have so much to learn about using concise syntax while programming.
 
 08:59 Back from walk with the kids. Ready to go to the gym.
+
+10:29 Back from the gym and right on schedule for my day. I wonder about ping pong with Louis, but Mondays are hard.
+
+10:30 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Sprint 6 Review
+   * [x] 3. Sprint 6 Retrospective
+   * [x] 4. Sprint 7 Planning
+   * [x] 5. Learning to Learn Assessment
+   * [x] 6. Read *A Mind for Numbers* Chapter 14: Developing the Mind's Eye through Equation Poems
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Read *A Mind for Numbers* Chapter 15: Renaissance Learning
+   * [x] 3. Listen to the Huberman Lab Podcast Episode 14 | The Science of Sexual Development
+   * [ ] 4. JS101 > Lesson 4 > Assignment 7. Selection and Transformation
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Should be good to go today!
