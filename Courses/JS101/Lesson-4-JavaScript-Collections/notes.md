@@ -1999,7 +1999,67 @@ function doubleNumsWithOddIndices(numbers) {
 
 The examples we've looked at so far have taken one argument (the collection) and performed one operation on that collection. By defining our functions in a way that we can pass in additional arguments to alter the logic of the iteration, we can create more flexible and generic functions.
 
-Recall earlier we wrote a selectFruit function that selected fruits out of the produceList object of fruits and vegetables. Suppose we wish to select generic produce types; we want to be able to specify whether we're interested in selecting fruits or vegetables or some other kind of produce, entirely. Here's how we could build such a function:
+Recall earlier we wrote a `selectFruit` function that selected fruits out of the `produceList` object of fruits and vegetables. Suppose we wish to select generic produce types; we want to be able to specify whether we're interested in selecting fruits or vegetables or some other kind of produce, entirely. Here's how we could build such a function:
+
+```js
+function selectType(produceList, selectionCriterion) {
+  let produceKeys = Object.keys(produceList);
+  let selectedItems = {};
+
+  for (let counter = 0; counter < produceKeys.length; counter++) {
+    let currentKey = produceKeys[counter];
+    let currentValue = produceList[currentKey];
+
+    // used to be (currentValue === 'Fruit')
+    if (currentValue === selectionCriterion) {
+      selectedItems[currentKey] = currentValue;
+    }
+  }
+
+  return selectedItems;
+}
+```
+
+To use `selectType`, we have to pass in a collection and a selection criterion. In this case, the criterion is hardcoded to match with a value: if there's a match between the criterion and value, then the current key-value pair is selected into the `selectedItems` object. Here's how we can use this function:
+
+```js
+let produce = {
+  apple: 'Fruit',
+  carrot: 'Vegetable',
+  pear: 'Fruit',
+  broccoli: 'Vegetable'
+};
+
+selectType(produce, 'Fruit');     // => {apple: 'Fruit', pear: 'Fruit'}
+selectType(produce, 'Vegetable'); // => {carrot: 'Vegetable', broccoli: 'Vegetable'}
+selectType(produce, 'Meat');      // => {}
+```
+
+Continuing with the idea of building generic functions, let's replace our `doubleNumbers` function with a `multiply` function that can multiply the elements of the array by an arbitrary number. For instance:
+
+```js
+let myNumbers = [1, 4, 3, 7, 2, 6];
+multiply(myNumbers, 3); // => [3, 12, 9, 21, 6, 18]
+```
+
+Try coding a function that lets you multiply every array item by a specified value. As with `doubleNumbers`, *don't mutate the array*, but return a new array instead.
+
+Solution
+
+```js
+function multiply(numbers, multiplier) {
+  let multipliedNums = [];
+
+  for (let counter = 0; counter < numbers.length; counter += 1) {
+    let currentNumber = numbers[counter];
+    multipliedNums.push(currentNumber * multiplier);
+  }
+
+  return multipliedNums;
+}
+```
+
+The second argument, the multiplier, is our *transformation criterion*.
 
 ### Selection and Transformation Summary
 
@@ -2010,3 +2070,5 @@ Pay attention to when the original collection is mutated vs. when the function r
 Understand how these functions can be made more generic by allowing for additional parameters to specify the criteria for selection or transformation.
 
 Finally, it's common to chain actions on collections, but pay particular attention to the return value, especially if the return value is an empty collection or `undefined`. Trying to chain methods on empty collections or `undefined` is dangerous and results in a lot of broken programs.
+
+20210823 17:03 Complete Assignment

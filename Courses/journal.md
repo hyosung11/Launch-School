@@ -2322,3 +2322,7 @@ map, filter, forEach
 
 16:06 I took a longer break than scheduled and ended the break with a ten minute walk. This is good. Now I can put in another Ultradian Cycle before I make dinner and go to referee.
 
+16:36 I'm working on the "More Flexible Functions" section now.
+
+17:03 Completed Assignment 7.
+
