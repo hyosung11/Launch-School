@@ -1,4 +1,4 @@
-# Courses > JS101 Programming Foundations with JavaScript > Lesson 4: JavaScript Collections
+# Lesson 4: JavaScript Collections
 
 ## 1. Introduction
 
@@ -1124,7 +1124,7 @@ In later assignments, you'll see how to combine `for` and `while` with a few oth
 
 20210819 10:48 Assignment complete.
 
-## Introduction to the PEDAC Process
+## 5. Introduction to the PEDAC Process
 
 The PEDAC process is one approach to solving programming problems. Its primary goal is to help you identify and avoid pitfalls that you may encounter when you don't code with intent.
 
@@ -1734,3 +1734,214 @@ Algorithm:
 You should now have a basic understanding of using a structured approach for solving programming problems. We recommend that you put this understanding into practice, and hone your problem-solving abilities, as you work through programming problems, for example the [Small Problems](https://launchschool.com/exercises) exercise sets which accompany this course. We'll return to PEDAC, and explore it in more depth, in a later course in the curriculum.
 
 20210822 20:46 Complete Assignment
+
+## 7. Selection and Transformation
+
+Now that we know how to loop through a collection, it's time to do something more interesting. Besides *iteration*, the two most common actions to perform on a collection are **selection** and **transformation**.
+
+Selection is picking some elements out of a collection depending on one or more criteria. For example, you might want to pick out all the odd numbers from an array. Transformation, on the other hand, refers to manipulating every element in the collection. For example, increment all elements of an array by 1. If there are *N* elements in a collection, selection results in *N* or fewer elements, while transformation always results in the same number, *N*, of elements. Using these two actions, we can do nearly anything you can imagine to a collection. Therefore, it's critical to not only understand how to perform these actions, but also to develop a high level of proficiency so you can quickly and fluently work with collections.
+
+Selection and transformation both use the basics of looping: a loop, a counter, a way to retrieve the current value, and a way to exit the loop. Keep those four things in mind. Also, selection and transformation require criteria that determine the results. Selection needs criteria to determine which elements to select, while transformation uses criteria to determine the transformation.
+
+At this point, you've already seen some examples of selection and transformation in previous assignments, but here, we'll analyze these topics in more depth.
+
+### Using Loops to Select and Transform
+
+Let's start by looking at an example of selection. There are many conditions that you can use to select elements, but a basic example involves the selection of a single value from an array.
+
+In the example below, we want to select all the `1`s from an array of numbers. You'll notice that this is just a basic `for` loop with one main addition: the `if` statement.
+
+```js
+let numbers = [1, 3, 9, 11, 1, 4, 1];
+let ones = [];
+
+for (let counter = 0; counter < numbers.length; counter++) {
+  let currentNum = numbers[counter];
+
+  if (currentNum === 1) {
+    ones.push(currentNum); // appends currentNum to the ones array
+  }
+}
+
+ones; // => [1, 1, 1]
+```
+
+The `if` condition determines which values are selected and which are ignored; this is the *selection criterion*. The rest of the code is your typical iteration code.
+
+We can apply these same concepts to transformation. Let's loop through an array of strings, but with one addition: we'll append an `s` to each string in the array. We'll use a `while` loop for this example:
+
+```js
+let fruits = ['apple', 'banana', 'pear'];
+let transformedElements = [];
+let counter = 0;
+
+while (counter < fruits.length) {
+  let currentElement = fruits[counter];
+
+  transformedElement.push(currentElement + 's'); // appends transformed string into array
+  counter += 1;
+}
+
+transformedElements; // => ['apples', 'bananas', 'pears']
+```
+
+Since we're applying the transformation to every element in the array, we don't need an `if` condition, but the entire line is the *transformation criterion*. Note that, in this example, we write the transformed values to a new array and leave the original array unchanged. **When performing a transformation, it's always important to pay attention to whether the original collection is mutated or if a new collection is returned.**
+
+### Extracting Functions
+
+Most of the time, selecting or transforming a collection is a specific action, e.g., select all the odd numbers or turn all elements into strings. That naturally lends the specific action being extracted into convenience functions.
+
+Say, for example, that we wanted to be able to select all of the vowels in a given string. We're going to use the helpful `String.prototype.includes` method here to help determine whether a character is a vowel:
+
+```js
+if ('aeiouAEIOU'.includes(currentChar)) {
+  selectedChars += currentChar;
+}
+```
+
+Let's put it all together with a `selectVowels` function so we can call this function on any string:
+
+```js
+function selectVowels(str) {
+  let selectedChars = '';
+
+  for (let counter = 0; counter < str.length; counter += 1) {
+    let currentChar = str[counter];
+
+    if ('aeiouAEIOU'.includes(currentChar)) {
+      selectedChars += currentChar;
+    }
+  }
+
+  return selectedChars;
+}
+```
+
+An important thing to note here is that when our function finishes iterating over the string, it returns a **new string** that contains the selected characters.
+
+```js
+selectVowels('the quick brown fox'); // => 'euioo'
+
+let sentence = 'I wandered lonely as a cloud';
+selectVowels(sentence); // => 'Iaeeoeaaou'
+sentence; // => 'I wandered lonely as a cloud'
+```
+
+We can, therefore, call other methods or access properties on the return value.
+
+```js
+let numberOfVowels = selectVowels('hello world').length;
+numberOfVowels; // => 3
+```
+
+Let's look at an example with objects. In this example, we want to select the key-value pairs where the value is `'Fruit'`.
+
+```js
+let produce = {
+  apple: 'Fruit',
+  carrot: 'Vegetable',
+  pear: 'Fruit',
+  broccoli: 'Vegetable'
+};
+
+selectFruit(produce) // => { apple: 'Fruit', pear: 'Fruit' }
+```
+
+How would you implement this function?
+
+Hint
+
+1. Remember that you have to loop through the keys to access the values.
+2. Notice that the return value of the function is an object.
+
+Try coding a solution and check the answer:
+
+Solution
+
+```js
+function selectFruit(produceList) {
+  let produceKeys = Object.keys(produceList);
+  let selectedFruits = {};
+
+  for (let counter = 0; counter < produceKeys.length; counter++) {
+    let currentKey = produceKeys[counter];
+    let currentValue = produceList[currentKey];
+
+    if (currentValue === 'Fruit') {
+      selectedFruits[currentKey] = currentValue;
+    }
+  }
+
+  return selectedFruits;
+}
+```
+
+Notice that:
+
+- The original argument, `produceList`, is not mutated.
+- A new object is returned by the function (as opposed to an array).
+
+We'll now move on to examples of some functions that perform transformations. The function below multiplies each element in an array by 2.
+
+```js
+function doubleNumbers(numbers) {
+  let doubledNumbers = [];
+  let counter = 0;
+
+  while (counter < numbers.length) {
+    let currentNumber = numbers[counter];
+    doubledNumbers.push(currentNumber * 2);
+
+    counter += 1;
+  }
+
+  return doubledNumbers;
+}
+```
+
+We can invoke it like this:
+
+```js
+let myNumbers = [1, 4, 3, 7, 2, 6];
+doubleNumbers(myNumbers); // => [2, 8, 6, 14, 4, 12]
+myNumbers; // => [1, 4, 3, 7, 2, 6]
+```
+
+Note that `doubleNumbers` returned a new array with every element doubled, and that the original array was *not mutated*. In other words, `myNumbers` is still `[1, 4, 3, 7, 2, 6]`. The lack of mutation isn't a requirement, but it is a consequence of how we implemented the function.
+
+If we wanted to, we could've decided that mutating the function argument is the right approach. Can you implement a `doubleNumbers` function that mutates its argument?
+
+Solution
+
+```js
+function doubleNumbers(numbers) {
+  let counter = 0;
+
+  while (counter < numbers.length) {
+    let currentNumber = numbers[counter];
+    numbers[counter] = currentNumber * 2;
+
+    counter += 1;
+  }
+
+  return numbers;
+}
+```
+
+A couple items of note:
+
+- Rather than returning a new array, this function returns a reference to the (mutated) original array.
+- Lines 5 and 6 can be shortened to 1 line: `numbers[counter] = numbers[counter] * 2` or even `numbers[counter] *= 2`.
+
+
+### More Flexible Functions
+
+### Selection and Transformation Summary
+
+We often want to perform iteration, selection or transformation operations on a collection. Using these 3 actions, we can manipulate a collection nearly any way we need to. Typically, these are generic actions that we can move into a function so that we can perform these operations on different collections.
+
+Pay attention to when the original collection is mutated vs. when the function returns a new collection. That might seem trivial right now, but it's a source of much misunderstanding. Make sure you study this concept.
+
+Understand how these functions can be made more generic by allowing for additional parameters to specify the criteria for selection or transformation.
+
+Finally, it's common to chain actions on collections, but pay particular attention to the return value, especially if the return value is an empty collection or `undefined`. Trying to chain methods on empty collections or `undefined` is dangerous and results in a lot of broken programs.

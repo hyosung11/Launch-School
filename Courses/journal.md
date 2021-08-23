@@ -2313,3 +2313,9 @@ map, filter, forEach
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Should be good to go today!
+
+11:03 Glanced through email, but will look at it later. I want to get to studying now.
+
+13:37 Back from my lunch break. My lower back feels tight.
+
+14:50 I've been grinding through Assignment 7 and forgetting to commit my code and notes. So I will do it now. My lower back is tight. I am struggling with deadlifting lately.
