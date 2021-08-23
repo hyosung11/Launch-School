@@ -2290,3 +2290,5 @@ map, filter, forEach
 05:59 I didn't want to wake up at 5:10 this morning and didn't get out of bed until 5:35. But I'm in front of the computer and ready to study now.
 
 07:27 I have so much to learn about using concise syntax while programming.
+
+08:59 Back from walk with the kids. Ready to go to the gym.
