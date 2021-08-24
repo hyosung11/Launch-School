@@ -2357,3 +2357,7 @@ map, filter, forEach
 12:32 It doesn't seem like we will have a SPOT study session today. So now I'm reading ["Why you should be using Git Branches in LS 101: A step by step guide to the magical world of Git Branching"](https://medium.com/@eamonocallaghan/why-you-should-be-using-git-branches-in-ls-101-ee2864009f07)
 
 12:41 Okay, back to Assignment 8. The article doesn't address what I need at the moment.
+
+13:25 In the middle of the assignment now.
+
+13:28 It seems the SPOT study session will be tomorrow.
