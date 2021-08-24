@@ -2347,3 +2347,5 @@ map, filter, forEach
    * My lower back feels tight and uncomfortable and I am reffing this afternoon, so I will have less time to study.
 
 10:02 Reviewing the `function selectFruit(produceList)` from yesterday and I still don't have it firmly in my head. I need to look at it again and again. I have to poo right now though.
+
+11:56 Back to studying after a great Yoga Nidra non-sleep deep rest.
