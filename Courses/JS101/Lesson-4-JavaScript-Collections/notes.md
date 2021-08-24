@@ -2072,3 +2072,57 @@ Understand how these functions can be made more generic by allowing for addition
 Finally, it's common to chain actions on collections, but pay particular attention to the return value, especially if the return value is an empty collection or `undefined`. Trying to chain methods on empty collections or `undefined` is dangerous and results in a lot of broken programs.
 
 20210823 17:03 Complete Assignment
+
+## 8. Array Methods - 20210824 10:13
+
+Writing loops with `while` and `for` that iterate over a collection is both repetitive and unnecessary. JavaScript provides an easier way to work with arrays through the use of built-in methods. In this assignment, we'll look specifically at the `forEach`, `filter`, and `map` methods.
+
+Unfortunately, other collections and *collection-like* types like objects and strings don't have these methods. With objects, however, we can use the `Object.keys`, `Object.values`, and `Object.entries` methods to convert the object to an array and then take advantage of the built-in array methods.
+
+### `Array.prototype.forEach()`
+
+So far, we've learned that the most effective option for iterating over a collection is to use a loop, like this:
+
+```js
+let numbers = [1, 2, 3];
+let counter = 0;
+
+while (counter < numbers.length) {
+  console.log(numbers[counter]);
+  counter += 1;
+}
+```
+
+Iterating over an array is such a common task that JavaScript provides a method to do just that. The `Array.prototype.forEach` method is functionally equivalent to a `for` or `while` loop and represents a simpler way to accomplish the same task. Here's an example that produces the same result as the implementation above:
+
+```js
+[1, 2, 3].forEach(number => {
+  console.log(number);
+});
+```
+
+In this example, we're working with the following array:
+
+```js
+[1, 2, 3]
+```
+
+`forEach` is a method that is called on the array. The method takes a function as an argument -- the `() => {...}` component. Here, we're using an arrow function for its simplicity. A function expression provided to another function/method as an argument is often called a **callback**.
+
+```js
+number => {
+  console.log(number);
+};
+```
+
+The code within the callback is executed for each iteration. In this case, the callback executes `console.log(number)`. The result is that the program displays the elements in the array.
+
+How does the callback know what `number` is? For each iteration, `forEach` sends the value of the current element to the callback in the form of an argument. In this callback, the parameter is `number`; it represents the value of the current element in the array.
+
+`Array.prototype.forEach` also passes a second argument, the index position of the element in the array, to the callback function. Thus far, we haven't accepted a second argument, but we can do that. Even though `forEach` provides more than one argument to our callback, our callback doesn't have to use those arguments if it doesn't need them. Let's see an example of how we can use the index argument in the callback function:
+
+```js
+[1, 2, 3].forEach((number, idx) => {
+  console.log(`{idx}: ${number}`);
+});
+```

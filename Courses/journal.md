@@ -2291,6 +2291,8 @@ map, filter, forEach
 
 07:27 I have so much to learn about using concise syntax while programming.
 
+07:57 Read *A Mind for Numbers* chapter 15: Renaissance Learning
+
 08:59 Back from walk with the kids. Ready to go to the gym.
 
 10:29 Back from the gym and right on schedule for my day. I wonder about ping pong with Louis, but Mondays are hard.
