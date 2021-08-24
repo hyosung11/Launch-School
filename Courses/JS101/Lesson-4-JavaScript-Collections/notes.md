@@ -2236,3 +2236,108 @@ undefined
 ```
 
 `forEach` is just a method call, and methods in JavaScript always return something, even if it's `undefined`. The return value of `forEach` isn't important since the sole purpose of `forEach` is iteration. It just performs some action on each element. What the method returns isn't significant. However, we'll see some other array methods where the return value is significant.
+
+### `Array.prototype.filter()`
+
+Frequently, we want to **select** or **filter** certain elements from an array so that we can work with them separately from the other elements. Doing so helps reduce code complexity, which in turn makes code easier to write and reduces the likelihood of bugs.
+
+We can perform selection using a regular `for` or `while` loop:
+
+```js
+let numbers = [1, 2, 3];
+let oddNumbers = [];
+
+for (let index = 0; index < numbers.length; index += 1) {
+  if (numbers[index] % 2 === 1) {
+    oddNumbers.push(numbers[index]);
+  }
+}
+
+oddNumbers; // => [1, 3]
+```
+
+That works fine, and it's not hard, but it is tedious. There's a lot of "boilerplate" code involved, such as declaring and initializing the `oddNumbers` array for the result and setting up the `for` loop.
+
+As it happens, arrays have a built-in method to filter elements from an array: the `filter` method. It makes selection significantly easier. For instance, here's how the above code looks when converted to use `filter`:
+
+```js
+let oddNumbers = [1, 2, 3].filter(num => {
+  return num % 2 === 1;
+});
+
+oddNumbers; // => [1, 3]
+```
+
+Much simpler, isn't it?
+
+To perform the selection, `filter` examines the return value of the callback on each iteration. It determines the **truthiness** of the return value. There's only one thing that `filter` cares about concerning the callback's return value: whether it is **truthy** or **falsy**. Note that truthy and falsy are not the same as `true` and `false`.
+
+JavaScript treats six values as falsy: `undefined`, `null`, `NaN`, `0`, `''`, and `false`. "0funN is empty"
+All other values are truthy values. That's not the same as saying that everything that is truthy is also `true` or that everything that is falsy is also `false`. The values `true` and `false` are the two JavaScript values that make up its Boolean type; truthy and falsy aren't values that belong to a specific JavaScript type but are simply a classification of which values JavaScript recognizes as representing truth or falsity.
+
+Note that the body of the callback function in the above example is a single expression. That means that we can eliminate the curly braces and the `return` keyword, and it'll still work:
+
+```js
+[1, 2, 3].filter(num => num % 2 === 1); // =>  [1, 3]
+```
+
+This code provides a much more succinct way to do things. It's the preferred approach if your callback has a simple one-line *selection criterion*.
+
+If the return value of `filter`'s callback is truthy during a given iteration, then `filter` will select that element. If the return value is falsy, then the element won't be selected.
+
+Consider this code:
+
+```js
+[1, 2, 3].filter(num => num + 1);
+```
+
+Here, the callback's return value is always truthy. How do we know that? If the value is anything other than the six falsy values mentioned above, it's truthy. In this case, the return value is always an integer greater than `0`, all of which are truthy.
+
+The follow-up question is then, what is the return value of `filter` in the above example? Remember that `filter` performs selection based on the truthiness of the callback's return value. If the callback's return value is always truthy, then `filter` will select all of the elements. When an element is selected, it's placed in a new array. Since the selection criterion -- the callback's return value -- is truthy for all elements in this example, `filter` returns a new array that contains all of the elements from the original array:
+
+```js
+> [1, 2, 3].filter(num => num + 1)
+[ 1, 2, 3 ]
+```
+
+When working with filter, you must pay attention to the callback's return value. For example, if we write a callback with the curly braces and forget to write an explicit return, how will that affect the return value of filter?
+
+```sh
+> [1, 2, 3].filter(num => {
+...   num + 1;
+... })
+[]
+```
+
+`filter` now returns an empty array. Why is that? Since our callback doesn't explicitly return a value, its implicit return value is `undefined`. Since `undefined` is falsy, `filter` won't select any elements.
+
+The question now is whether we can effectively use `filter` to select certain key-value pairs from an object. Let's say we want to select the key-value pairs from our `produce` object where the value is `Vegetable`. Let's give it a shot with `Array.prototype.filter`.
+
+```js
+let produce = {
+  apple: 'Fruit',
+  carrot: 'Vegetable',
+  pear: 'Fruit',
+  broccoli: 'Vegetable'
+};
+
+let produceKeyValues = Object.entries(produce);
+let onlyVegetables = produceKeyValues.filter(keyValue => {
+  let [ key, value ] = keyValue;
+  return value === 'Vegetable';
+});
+
+onlyVegetables; // => [ [ 'carrot', 'Vegetable' ], [ 'broccoli', 'Vegetable' ] ]
+```
+
+### Summary
+
+Methods like `forEach`, `filter`, and `map` are provided by JavaScript to allow for simpler implementations of common collection manipulation tasks. Using these methods to iterate, select, and transform a collection is preferred over manually looping.
+
+To further clarify your understanding of these methods and how they work, use the following table as a reference:
+
+Method | Action | Considers the return value of the callback? | Returns a new array from the method? | Length of the returned array
+---------|----------|---------|
+ A1 | B1 | C1
+ A2 | B2 | C2
+ A3 | B3 | C3

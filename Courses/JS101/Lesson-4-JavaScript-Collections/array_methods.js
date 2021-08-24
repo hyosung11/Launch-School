@@ -53,15 +53,34 @@ let produce = {
 // pear
 // broccoli
 
-let produceKeyValues = Object.entries(produce);
+// let produceKeyValues = Object.entries(produce);
 
-produceKeyValues.forEach(keyValue => {
-  let [ key, value ] = keyValue;
+// produceKeyValues.forEach(keyValue => {
+//   let [ key, value ] = keyValue;
 
-  console.log(`${key} is a ${value}`);
-});
+//   console.log(`${key} is a ${value}`);
+// });
 
 // apple is a Fruit
 // carrot is a Vegetable
 // pear is a Fruit
 // broccoli is a Vegetable
+
+// Array.prototype.filter
+
+// let numbers = [1, 2, 3];
+// let oddNumbers = [];
+
+// for (let index = 0; index < numbers.length; index += 1) {
+//   if (numbers[index] % 2 === 1) {
+//     oddNumbers.push(numbers[index]);
+//   }
+// }
+
+// console.log(oddNumbers); // => [1, 3]
+
+let oddNumbers = [1, 2, 3].filter(num => {
+  return num % 2 === 1;
+});
+
+console.log(oddNumbers); // => [1, 3]
