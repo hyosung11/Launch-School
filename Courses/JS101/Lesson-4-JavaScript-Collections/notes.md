@@ -2123,6 +2123,12 @@ How does the callback know what `number` is? For each iteration, `forEach` sends
 
 ```js
 [1, 2, 3].forEach((number, idx) => {
-  console.log(`{idx}: ${number}`);
+  console.log(`${idx}: ${number}`);
 });
+
+// logs
+// 0: 1
+// 1: 2
+// 2: 3
 ```
+
