@@ -2131,3 +2131,108 @@ How does the callback know what `number` is? For each iteration, `forEach` sends
 // 1: 2
 // 2: 3
 ```
+
+#### `forEach` with Strings
+
+JavaScript strings don't have a `forEach` method. However, we can leverage the `String.prototype.split` method to process every character in a string with `forEach`. Let's say that we want to iterate over all characters in a string and log them to the console using `forEach`; we can do so in the following manner:
+
+```js
+'abcd'.split('').forEach(char => {
+  console.log(char);
+})
+
+// logs
+// a
+// b
+// c
+// d
+```
+
+This approach works with other array iteration methods as well. We'll see an example of that later on.
+
+#### `forEach` with Objects
+
+Objects in JavaScript don't have the `forEach` method. However, as we said earlier, the `Object.keys`, `Object.values`, and `Object.entries` methods readily convert objects into arrays for us, which we can then use with the `forEach` method. Let's say that we want to iterate over all values in an object and log them to the console using forEach; we can do so in the following manner:
+
+```js
+let produce = {
+  apple: 'Fruit',
+  carrot: 'Vegetable',
+  pear: 'Fruit',
+  broccoli: 'Vegetable
+};
+
+let produceValues = Object.values(produce);
+
+produceValues.forEach(value => {
+  console.log(value);
+});
+// logs
+// Fruit
+// Vegetable
+// Fruit
+// Vegetable
+```
+
+Suppose you need the keys, instead of the values. You can use `Object.keys` instead:
+
+```js
+let produceKeys = Object.keys(produce);
+produceKeys.forEach(key => {
+  console.log(key);
+});
+// logs
+// apple
+// carrot
+// pear
+// broccoli
+```
+
+We can also get all of the key-value pairs of an object with `Object.entries`:
+
+```js
+let produceKeyValues = Object.entries(produce);
+// produceKeyValues contains:
+//   [['apple', 'Fruit'],
+//    ['carrot', 'Vegetable'],
+//    ['pear', 'Fruit'],
+//    ['broccoli', 'Vegetable']]
+
+produceKeyValues.forEach(keyValue => {
+  let [ key, value ] = keyValue;
+
+  console.log(`${key} is a ${value}`);
+});
+// logs:
+// apple is a Fruit
+// carrot is a Vegetable
+// pear is a Fruit
+// broccoli is a Vegetable
+```
+
+As we've seen before, `Object.entries` returns all the key-value pairs of an object in an array. Each key-value pair is represented by an array of two elements where the first element is the key and the second element is the value. The `forEach` method then iterates over the array, passing in each key-value pair as the argument to the callback. The `keyValue` parameter captures that argument.
+
+What's happening on line 9, though?
+
+```js
+let [ key, value ] = keyValue;
+```
+
+This code demonstrates what we call **array destructuring assignment**. In an array destructuring assignment, we can assign elements of the array to multiple variables by wrapping the variable names in brackets. The first element gets assigned to the first variable, the second element gets assigned to the second variable, and so on. We can rewrite that line without array destructuring assignment as follows:
+
+```js
+let key = keyValue[0];
+let value = keyValue[1];
+```
+
+We will discuss destructuring in more detail in a later course. For now, all you need to know is that you can assign the elements of an array to individual variables as shown above.
+
+One thing to note about `forEach` is that it returns `undefined`.
+
+```sh
+> let val = [1, 2, 3].forEach(num => console.log(num))
+> val
+undefined
+```
+
+`forEach` is just a method call, and methods in JavaScript always return something, even if it's `undefined`. The return value of `forEach` isn't important since the sole purpose of `forEach` is iteration. It just performs some action on each element. What the method returns isn't significant. However, we'll see some other array methods where the return value is significant.
