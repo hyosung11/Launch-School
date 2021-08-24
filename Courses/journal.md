@@ -2349,3 +2349,5 @@ map, filter, forEach
    * My lower back feels tight and uncomfortable and I am reffing this afternoon, so I will have less time to study.
 
 10:02 Reviewing the `function selectFruit(produceList)` from yesterday and I still don't have it firmly in my head. I need to look at it again and again. I have to poo right now though.
+
+10:27 Sitting at the dining room table and I can see that Sohee and SungOh are back from Trader Joe's, so I will take a break and help put away the groceries.
