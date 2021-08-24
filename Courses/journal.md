@@ -2326,3 +2326,24 @@ map, filter, forEach
 
 17:03 Completed Assignment 7.
 
+## 20210824 화요일
+
+09:10 아직까지 등이 좀 아프다. 한글을 요즘은 잘 못 쓴다. 아이고. My legs are tired. I feel horny and want to have sex with Sohee. She has sexy legs and a nice ass. Yummy. I feel an erection coming on thinking about her. Feeling drained at the moment because of the accumulation of soccer games, bad deadlifting form, and reffing.
+
+09:30 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Read *A Mind for Numbers* Chapter 15: Renaissance Learning
+   * [x] 3. Listened to the Huberman Lab Podcast Episode 14 | The Science of Sexual Development
+   * [x] 4. JS101 > Lesson 4 > Assignment 7. Selection and Transformation
+
+2. What will you do today?
+   * [ ] 1. JS101 > Lesson 4 > Assignment 8. Array Methods
+   * [ ] 2. Read *A Mind for Numbers* Chapter 16: Avoiding Overconfidence: The Power of Teamwork
+   * [ ] 3. Listen to the Huberman Lab Podcast Episode 15 | How to Optimize Testosterone & Estrogen
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * My lower back feels tight and uncomfortable and I am reffing this afternoon, so I will have less time to study.
+
+10:02 Reviewing the `function selectFruit(produceList)` from yesterday and I still don't have it firmly in my head. I need to look at it again and again. I have to poo right now though.

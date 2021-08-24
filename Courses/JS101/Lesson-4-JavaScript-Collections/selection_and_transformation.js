@@ -53,30 +53,30 @@
 
 /* Let's look at an example with objects. In this example, we want to select the key-value pairs where the value is 'Fruit'. */
 
-// let produce = {
-//   apple: 'Fruit',
-//   carrot: 'Vegetable',
-//   pear: 'Fruit',
-//   broccoli: 'Vegetable'
-// };
+let produce = {
+  apple: 'Fruit',
+  carrot: 'Vegetable',
+  pear: 'Fruit',
+  broccoli: 'Vegetable'
+};
 
-// function selectFruit(produceList) {
-//   let produceKeys = Object.keys(produceList);
-//   let selectedFruits = {};
+function selectFruit(produceList) {
+  let selectedFruits = {};
+  let produceKeys = Object.keys(produceList);
 
-//   for (let counter = 0; counter < produceKeys.length; counter++) {
-//     let currentKey = produceKeys[counter];
-//     let currentValue = produceList[currentKey];
+  for (let counter = 0; counter < produceKeys.length; counter++) {
+    let currentKey = produceKeys[counter];
+    let currentValue = produceList[currentKey];
 
-//     if (currentValue === 'Fruit') {
-//       selectedFruits[currentKey] = currentValue;
-//     }
-//   }
+    if (currentValue === 'Fruit') {
+      selectedFruits[currentKey] = currentValue;
+    }
+  }
 
-//   return selectedFruits;
-// }
+  return selectedFruits;
+}
 
-// console.log(selectFruit(produce)); // => { apple: 'Fruit', pear: 'Fruit' }
+console.log(selectFruit(produce)); // => { apple: 'Fruit', pear: 'Fruit' }
 
 /* We'll now move on to examples of some functions that perform transformations. The function below multiplies each element in an array by 2. */
 
@@ -210,16 +210,16 @@
 
 /* Try coding a function that lets you multiply every array item by a specified value. As with doubleNumbers, don't mutate the array, but return a new array instead. */
 
-function multiply(numbers, multiplier) {
-  let multipliedNumbers = [];
+// function multiply(numbers, multiplier) {
+//   let multipliedNumbers = [];
 
-  for (let counter = 0; counter < numbers.length; counter += 1) {
-    let currentNumber = numbers[counter];
-    multipliedNumbers.push(currentNumber * multiplier);
-  }
+//   for (let counter = 0; counter < numbers.length; counter += 1) {
+//     let currentNumber = numbers[counter];
+//     multipliedNumbers.push(currentNumber * multiplier);
+//   }
 
-  return multipliedNumbers;
-}
+//   return multipliedNumbers;
+// }
 
-let myNumbers = [1, 4, 3, 7, 2, 6];
-console.log(multiply(myNumbers, 3)); // => [3, 12, 9, 21, 6, 18]
+// let myNumbers = [1, 4, 3, 7, 2, 6];
+// console.log(multiply(myNumbers, 3)); // => [3, 12, 9, 21, 6, 18]

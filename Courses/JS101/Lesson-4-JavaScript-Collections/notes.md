@@ -2065,7 +2065,7 @@ The second argument, the multiplier, is our *transformation criterion*.
 
 We often want to perform iteration, selection or transformation operations on a collection. Using these 3 actions, we can manipulate a collection nearly any way we need to. Typically, these are generic actions that we can move into a function so that we can perform these operations on different collections.
 
-Pay attention to when the original collection is mutated vs. when the function returns a new collection. That might seem trivial right now, but it's a source of much misunderstanding. Make sure you study this concept.
+Pay attention to when the original collection is **mutated** vs. when the function returns a new collection. That might seem trivial right now, but it's a source of much misunderstanding. Make sure you study this concept.
 
 Understand how these functions can be made more generic by allowing for additional parameters to specify the criteria for selection or transformation.
 
