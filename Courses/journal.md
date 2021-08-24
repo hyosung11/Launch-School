@@ -2292,3 +2292,60 @@ map, filter, forEach
 07:27 I have so much to learn about using concise syntax while programming.
 
 07:57 Read *A Mind for Numbers* chapter 15: Renaissance Learning
+
+08:59 Back from walk with the kids. Ready to go to the gym.
+
+10:29 Back from the gym and right on schedule for my day. I wonder about ping pong with Louis, but Mondays are hard.
+
+10:30 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Sprint 6 Review
+   * [x] 3. Sprint 6 Retrospective
+   * [x] 4. Sprint 7 Planning
+   * [x] 5. Learning to Learn Assessment
+   * [x] 6. Read *A Mind for Numbers* Chapter 14: Developing the Mind's Eye through Equation Poems
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Read *A Mind for Numbers* Chapter 15: Renaissance Learning
+   * [x] 3. Listen to the Huberman Lab Podcast Episode 14 | The Science of Sexual Development
+   * [ ] 4. JS101 > Lesson 4 > Assignment 7. Selection and Transformation
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Should be good to go today!
+
+11:03 Glanced through email, but will look at it later. I want to get to studying now.
+
+13:37 Back from my lunch break. My lower back feels tight.
+
+14:50 I've been grinding through Assignment 7 and forgetting to commit my code and notes. So I will do it now. My lower back is tight. I am struggling with deadlifting lately.
+
+16:06 I took a longer break than scheduled and ended the break with a ten minute walk. This is good. Now I can put in another Ultradian Cycle before I make dinner and go to referee.
+
+16:36 I'm working on the "More Flexible Functions" section now.
+
+17:03 Completed Assignment 7.
+
+## 20210824 화요일
+
+09:10 아직까지 등이 좀 아프다. 한글을 요즘은 잘 못 쓴다. 아이고. My legs are tired. I feel horny and want to have sex with Sohee. She has sexy legs and a nice ass. Yummy. I feel an erection coming on thinking about her. Feeling drained at the moment because of the accumulation of soccer games, bad deadlifting form, and reffing.
+
+09:30 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Read *A Mind for Numbers* Chapter 15: Renaissance Learning
+   * [x] 3. Listened to the Huberman Lab Podcast Episode 14 | The Science of Sexual Development
+   * [x] 4. JS101 > Lesson 4 > Assignment 7. Selection and Transformation
+
+2. What will you do today?
+   * [ ] 1. JS101 > Lesson 4 > Assignment 8. Array Methods
+   * [ ] 2. Read *A Mind for Numbers* Chapter 16: Avoiding Overconfidence: The Power of Teamwork
+   * [ ] 3. Listen to the Huberman Lab Podcast Episode 15 | How to Optimize Testosterone & Estrogen
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * My lower back feels tight and uncomfortable and I am reffing this afternoon, so I will have less time to study.
+
+10:02 Reviewing the `function selectFruit(produceList)` from yesterday and I still don't have it firmly in my head. I need to look at it again and again. I have to poo right now though.

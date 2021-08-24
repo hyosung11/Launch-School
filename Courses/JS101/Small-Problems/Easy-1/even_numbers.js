@@ -42,10 +42,9 @@ while (number < 100) {
 //   console.log(number);
 // }
 
-/*
-Discussion
-This is similar to the previous problem, but takes a different approach. The main difference is that this solution iterates over all of the numbers, instead of only the specified ones (in this case, even numbers). This solution also makes use of the continue statement to terminate execution of the current iteration and move on to the next when it encounters an odd number.
-*/
+/* Discussion
+
+This is similar to the previous problem, but takes a different approach. The main difference is that this solution iterates over all of the numbers, instead of only the specified ones (in this case, even numbers). This solution also makes use of the continue statement to terminate execution of the current iteration and move on to the next when it encounters an odd number. */
 
 // function evenNumbers(number) {
 //   [number].reduce((accumulator, current) => {
