@@ -2363,3 +2363,5 @@ map, filter, forEach
 13:28 It seems the SPOT study session will be tomorrow.
 
 14:55 I feel really drained right now and not able to focus on studying before I have to get ready and leave to referee. I've had more coffee as well.
+
+15:00 Finished `Array.prototype.filter()` and am now getting ready to referee. I have to pee.

@@ -2381,6 +2381,8 @@ onlyVegetables; // => {carrot: 'Vegetable', broccoli: 'Vegetable'}
 
 Oh, that's better. This code is much more succinct than the previous code. It seems like `forEach` is better suited to filtering an object than using a combination of `forEach` and `filter`.
 
+RR
+
 ### Summary
 
 Methods like `forEach`, `filter`, and `map` are provided by JavaScript to allow for simpler implementations of common collection manipulation tasks. Using these methods to iterate, select, and transform a collection is preferred over manually looping.
