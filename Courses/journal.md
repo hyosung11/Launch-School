@@ -2350,4 +2350,10 @@ map, filter, forEach
 
 10:02 Reviewing the `function selectFruit(produceList)` from yesterday and I still don't have it firmly in my head. I need to look at it again and again. I have to poo right now though.
 
+10:27 Sitting at the dining room table and I can see that Sohee and SungOh are back from Trader Joe's, so I will take a break and help put away the groceries.
+
 11:56 Back to studying after a great Yoga Nidra non-sleep deep rest.
+
+12:32 It doesn't seem like we will have a SPOT study session today. So now I'm reading ["Why you should be using Git Branches in LS 101: A step by step guide to the magical world of Git Branching"](https://medium.com/@eamonocallaghan/why-you-should-be-using-git-branches-in-ls-101-ee2864009f07)
+
+12:41 Okay, back to Assignment 8. The article doesn't address what I need at the moment.

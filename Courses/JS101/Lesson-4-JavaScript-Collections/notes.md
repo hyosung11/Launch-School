@@ -2131,4 +2131,3 @@ How does the callback know what `number` is? For each iteration, `forEach` sends
 // 1: 2
 // 2: 3
 ```
-
