@@ -2330,6 +2330,57 @@ let onlyVegetables = produceKeyValues.filter(keyValue => {
 onlyVegetables; // => [ [ 'carrot', 'Vegetable' ], [ 'broccoli', 'Vegetable' ] ]
 ```
 
+That sort of works, but the return value isn't ideal: it returns an array, not an object as we want. Maybe we can convert the array to an object using `forEach`:
+
+```js
+let produce = {
+  apple: 'Fruit',
+  carrot: 'Vegetable',
+  pear: 'Fruit',
+  broccoli: 'Vegetable'
+};
+
+let produceKeyValues = Object.entries(produce);
+let onlyVegetablesArr = produceKeyValues.filter(keyValue => {
+  let [ key, value ] = keyValue;
+  return value === 'Vegetable';
+});
+
+let onlyVegetables = {};
+
+onlyVegetablesArr.forEach(keyValue => {
+  let [ key, value ] = keyValue;
+  onlyVegetables[key] = value;
+});
+
+onlyVegetables; // => {carrot: 'Vegetable', broccoli: 'Vegetable'}
+```
+
+Okay, that works, but it's complicated logic. Can we simplify it? Let's try using `forEach` by itself without using `filter` at all:
+
+```js
+let produce = {
+  apple: 'Fruit',
+  carrot: 'Vegetable',
+  pear: 'Fruit',
+  broccoli: 'Vegetable'
+};
+
+let produceKeyValues = Object.entries(produce);
+let onlyVegetables = {};
+
+produceKeyValues.forEach(keyValue => {
+  let [ key, value ] = keyValue;
+  if (value === 'Vegetable') {
+    onlyVegetables[key] = value;
+  }
+});
+
+onlyVegetables; // => {carrot: 'Vegetable', broccoli: 'Vegetable'}
+```
+
+Oh, that's better. This code is much more succinct than the previous code. It seems like `forEach` is better suited to filtering an object than using a combination of `forEach` and `filter`.
+
 ### Summary
 
 Methods like `forEach`, `filter`, and `map` are provided by JavaScript to allow for simpler implementations of common collection manipulation tasks. Using these methods to iterate, select, and transform a collection is preferred over manually looping.
