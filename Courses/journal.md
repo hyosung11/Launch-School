@@ -2397,3 +2397,7 @@ map, filter, forEach
 08:01 Finished Array Methods and now time for breakfast with the kids.
 
 09:01 Went for a nice walk with the kids and Omi told me about Melanie Martinez songs and their meanings.
+
+14:13 Talking to Jeff Lovell after lunch and the SPOT study session with Marc.
+
+[resume.io](https://resume.io/)
