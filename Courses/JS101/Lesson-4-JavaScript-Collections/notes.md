@@ -2444,16 +2444,30 @@ str.split('')
 
 Here, we split the string into an array of characters, then filter the resulting array. The callback defines the selection criterion as any vowel (assuming the US alphabet), so `filter` returns an array of vowels. Finally, we join those vowels together as a new string.
 
-RR
+We can also use this technique with map. Let's *duplicate* every character in a string and return the result:
 
-### Summary
+```js
+let str = "What's up, Doc?";
+str.split('')
+   .map(char => char + char)
+   .join('');
+// => "WWhhaatt''ss  uupp,,  DDoocc??"
+```
+
+This technique of converting strings to arrays and then back again to use array methods works well. Even though it's not the case, thinking of strings as an array of characters can help when you need to iterate over the characters in the string.
+
+### Array Methods Summary
 
 Methods like `forEach`, `filter`, and `map` are provided by JavaScript to allow for simpler implementations of common collection manipulation tasks. Using these methods to iterate, select, and transform a collection is preferred over manually looping.
 
 To further clarify your understanding of these methods and how they work, use the following table as a reference:
 
-Method | Action | Considers the return value of the callback? | Returns a new array from the method? | Length of the returned array
----------|----------|---------|
- A1 | B1 | C1
- A2 | B2 | C2
- A3 | B3 | C3
+**Method** | **Action** | **Considers the return value of the callback?** | **Returns a new array from the method**? | **Length of the returned array**
+---------|----------|---------|----------|---------|
+ `forEach` | Iteration | No | No, it returns `undefined` | N/A
+ `filter` | Selection/Filtering | Yes, its truthiness | Yes | Length of original or less
+ `map` | Transformation | Yes | Yes | Length of original
+
+These methods each use the callback's return value in different ways. In the case of `forEach`, the return value of the callback is simply ignored. Before moving forward, it is crucial to understand how these methods use the callback's return value to perform their intended task.
+
+20210825 07:55 Assignment Complete
