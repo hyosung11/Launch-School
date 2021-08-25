@@ -2403,3 +2403,5 @@ map, filter, forEach
 [resume.io](https://resume.io/)
 
 15:47 Getting ready to leave for ping pong.
+
+17:30 Work on `Array.prototype.some()` and now time to make dinner.

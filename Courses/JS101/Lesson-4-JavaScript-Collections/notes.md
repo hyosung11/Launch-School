@@ -2474,7 +2474,42 @@ These methods each use the callback's return value in different ways. In the cas
 
 ## More Array Methods
 
+There are many useful methods that you get out-of-the-box with JavaScript, but they're only useful when you thoroughly understand how they work. In this assignment, we're going to take what we learned from the previous assignment to deconstruct how the common built-in array methods work.
+
+Before we begin exploring these methods, be sure to refresh your memory by revisiting our coverage in [the book](https://launchschool.com/books/javascript/read/arrays#commonarraymethods).
+
+One of the best ways to learn about a method is to consult the JavaScript documentation. If you're unfamiliar with this website, we've written a few exercise sets - [Reading Documentation](https://launchschool.com/exercise_sets/fc8034da) and [Reading Documentation 2](https://launchschool.com/exercise_sets/a63f2bbc).
+
+Let's look at some common JavaScript array methods and explore how they work.
+
 ### `Array.prototype.some()`
+
+The first thing you should do when you're unsure of how a method works is to check the[ JavaScript documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some). Take a quick look at it to get an idea for what the method does, and then continue reading this section.
+
+Let's see the method in action:
+
+```js
+> [1, 2, 3].some(num => num > 2)
+true
+
+> [1, 2, 3].some(num => num > 3)
+false
+```
+
+There are two return values that we need to be aware of here: the return value of the method call to `some`, and the return value of the callback on each iteration. `some` looks at the truthiness of the callback's return value to determine its own return value. **If the callback function returns a truthy value for any element in the collection, then the some method will return true.** In effect, the method asks "Are there *some* values in the array for which the given callback returns a truthy value?".
+
+The `Object.keys`, `Object.values`, and `Object.entries` methods will help you to use `some` with objects as well.
+
+```js
+let animals = { a: 'ant', b: 'bear', c: 'cat' };
+Object.values(animals).some(animalName => animalName.length > 4);
+// => false
+
+Object.values(animals).some(animalName => animalName.length > 3);
+// => true
+```
+
+The above code returns a boolean, signifying whether any value in the object has a length greater than 4 or 3. In the first case, none of the string values have more than 4 characters; hence the overall return value is `false`. In the second case, `bear` has more than 3 characters, so `some` returns `true`.
 
 ### `Array.prototype.every()`
 
