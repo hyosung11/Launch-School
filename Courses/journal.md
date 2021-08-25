@@ -2388,3 +2388,8 @@ map, filter, forEach
 3. Are there any blockers or impediments preventing you from doing your work?
    * My lower back still feels tight. Going to see Dr. Riotto later this morning for treatment.
 
+06:05 Talking to Alex in our study session.
+
+07:16 After the study session with Alex, I feel fine although my lower back still feels tight.
+
+07:38 Working to finish Array Methods before breakfast.

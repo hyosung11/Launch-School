@@ -25,12 +25,12 @@
 // c
 // d
 
-let produce = {
-  apple: 'Fruit',
-  carrot: 'Vegetable',
-  pear: 'Fruit',
-  broccoli: 'Vegetable'
-};
+// let produce = {
+//   apple: 'Fruit',
+//   carrot: 'Vegetable',
+//   pear: 'Fruit',
+//   broccoli: 'Vegetable'
+// };
 
 // let produceValues = Object.values(produce);
 
@@ -79,8 +79,86 @@ let produce = {
 
 // console.log(oddNumbers); // => [1, 3]
 
-let oddNumbers = [1, 2, 3].filter(num => {
-  return num % 2 === 1;
-});
+// let oddNumbers = [1, 2, 3].filter(num => {
+//   return num % 2 === 1;
+// });
 
-console.log(oddNumbers); // => [1, 3]
+// console.log(oddNumbers); // => [1, 3]
+
+// let produce = {
+//   apple: 'Fruit',
+//   carrot: 'Vegetable',
+//   pear: 'Fruit',
+//   broccoli: 'Vegetable'
+// };
+
+// function selectFruit(produceList) {
+//   let keys = Object.keys(produceList);
+//   let obj = {};
+
+//   for (let index = 0; index < keys.length; index++) {
+//     let currentKey = keys[index];
+//     let currentValue = produceList[currentKey];
+
+//     if (currentValue === 'Fruit') {
+//       obj[currentKey] = currentValue;
+//     }
+//   }
+
+//   return obj;
+// }
+
+// console.log(selectFruit(produce)); // => { apple: 'Fruit', pear: 'Fruit' }
+
+
+// let produce = {
+//   apple: 'Fruit',
+//   carrot: 'Vegetable',
+//   pear: 'Fruit',
+//   broccoli: 'Vegetable'
+// };
+
+// function selectFruit(produceList) {
+//   let produceKeys = Object.keys(produceList);
+//   let selectedFruits = {};
+
+//   for (let counter = 0; counter < produceKeys.length; counter++) {
+//     let currentKey = produceKeys[counter];
+//     let currentValue = produceList[currentKey];
+
+//     if (currentValue === 'Fruit') {
+//       selectedFruits[currentKey] = currentValue;
+//     }
+//   }
+
+//   return selectedFruits;
+// }
+
+// console.log(selectFruit(produce)); // => { apple: 'Fruit', pear: 'Fruit' }
+
+// let produce = {
+//   apple: 'Fruit',
+//   carrot: 'Vegetable',
+//   pear: 'Fruit',
+//   broccoli: 'Vegetable'
+// };
+// function veggieFinder (obj) {
+//   let produceKeyValues = Object.entries(obj);
+//   let onlyVegetables = {};
+
+//   produceKeyValues.forEach(keyValue => {
+//     let [ key, value ] = keyValue;
+//     if (value === 'Vegetable') {
+//       onlyVegetables[key] = value;
+//     }
+//   });
+//   return onlyVegetables;
+// }
+
+// console.log(veggieFinder(produce)); // => {carrot: 'Vegetable', broccoli: 'Vegetable'}
+
+let str = "What's up, Doc?";
+str.split('')
+   .filter(char => 'aeiou'.includes(char.toLowerCase()))
+   .join('');
+// => 'auo'

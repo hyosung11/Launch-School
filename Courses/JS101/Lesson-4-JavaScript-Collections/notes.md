@@ -2381,6 +2381,69 @@ onlyVegetables; // => {carrot: 'Vegetable', broccoli: 'Vegetable'}
 
 Oh, that's better. This code is much more succinct than the previous code. It seems like `forEach` is better suited to filtering an object than using a combination of `forEach` and `filter`.
 
+### `Array.prototype.map()`
+
+As with `filter`, `map` also considers the return value of the callback. The main difference between these two methods is that `map` uses the return value of the callback to perform **transformation** instead of *selection*.
+
+```js
+[1, 2, 3].map(num => num * 2);
+```
+
+In this example, the return value of the callback function is the product of `num` and `2`. `map` then takes this value and places it in a new array. This process repeats for each element in the original array. We can see what the return value of map looks like in the console.
+
+```sh
+> [1, 2, 3].map(num => num * 2)
+[ 2, 4, 6 ]
+```
+
+What happens if we write some code in the callback that doesn't appear to be a transformation? For instance, in the following code, it seems like we're looking for odd numbers:
+
+```js
+[1, 2, 3].map(num => num % 2 === 1);
+```
+
+The key here is to remember that `map` always performs transformation based on the return value of the callback. In this case, the return value of the callback is boolean. Thus, `map` returns an array of booleans.
+
+```sh
+> [1, 2, 3].map(num => num % 2 === 1)
+[ true, false, true ]
+```
+
+What will `map` return in this example?
+
+```js
+[1, 2, 3].map(num => {
+  num * 2;
+});
+```
+
+It's a little tricky, but you should now have all the necessary information to evaluate this code. Take a few minutes to deconstruct the above example and try to determine the return value of the code above.
+
+By looking at the last expression within the callback, we know that the return value of the callback will always be `undefined` since it's a callback with curly braces and without an explicit return value. `map` doesn't care about truthiness, and takes this return value as the transformation criterion. Therefore, the array returned by `map` is a new array of `undefined` values.
+
+```sh
+> [1, 2, 3].map(num => {
+...   num * 2;
+... })
+[ undefined, undefined, undefined ]
+```
+
+#### `filter` and `map` with Strings
+
+As with `forEach`, JavaScript strings don't have `filter` or `map` methods. However, we can use the `String.prototype.split` technique that we showed earlier together with `Array.prototype.join` to use `filter` and `map` on the characters in a string.
+
+For instance, suppose we want to select all of the vowels in a string and get a new string that contains all of those vowels, and nothing else. We can use `split`, `filter`, and `join` like so:
+
+```js
+let str = "What's up, Doc?";
+str.split('')
+   .filter(char => 'aeiou'.includes(char.toLowerCase()))
+   .join('');
+// => 'auo'
+```
+
+Here, we split the string into an array of characters, then filter the resulting array. The callback defines the selection criterion as any vowel (assuming the US alphabet), so `filter` returns an array of vowels. Finally, we join those vowels together as a new string.
+
 RR
 
 ### Summary
