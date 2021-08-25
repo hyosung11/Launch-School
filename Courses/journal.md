@@ -2393,3 +2393,7 @@ map, filter, forEach
 07:16 After the study session with Alex, I feel fine although my lower back still feels tight.
 
 07:38 Working to finish Array Methods before breakfast.
+
+08:01 Finished Array Methods and now time for breakfast with the kids.
+
+09:01 Went for a nice walk with the kids and Omi told me about Melanie Martinez songs and their meanings.

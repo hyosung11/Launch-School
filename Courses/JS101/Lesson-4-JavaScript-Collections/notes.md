@@ -2486,7 +2486,6 @@ These methods each use the callback's return value in different ways. In the cas
 
 ### `Array.prototype.includes()`
 
-
 ### More Array Methods Summary
 
 JavaScript arrays supply more than 30 methods, many of which you will find useful in your future programs. We recommend that you memorize the basic details of the methods we've discussed in this assignment and the previous assignment, and become familiar with what else is available. Nobody expects you to memorize every last detail of all these methods, but, the more familiar you are with them, the easier it will be to solve problems.
