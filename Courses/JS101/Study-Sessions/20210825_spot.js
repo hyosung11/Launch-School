@@ -9,18 +9,34 @@ Intros
 */
 
 // What does this log and why?
-let words = [["hunter", "spear"], ["gatherer", "sack"]];
+// let words = [["hunter", "spear"], ["gatherer", "sack"]];
 
-function pluralize(array) {
-    return array.map(words => {
-        words[0] += "s";
-        words[1] += "s";
-        return words;
-    });
-}
+// function pluralize(array) {
+//     return array.map(words => {
+//         words[0] += "s";
+//         words[1] += "s";
+//         return words;
+//     });
+// }
 
-console.log(pluralize(words)); // => [ [ 'hunters', 'spears' ], [ 'gatherers', 'sacks' ] ]
-console.log(words); // => [ [ 'hunters', 'spears' ], [ 'gatherers', 'sacks' ] ]
+// console.log(pluralize(words)); // => [ [ 'hunters', 'spears' ], [ 'gatherers', 'sacks' ] ]
+// console.log(words); // => [ [ 'hunters', 'spears' ], [ 'gatherers', 'sacks' ] ]
+
+/*
+
+On line 12: 
+  -the variable Words is declared
+  -the value of Words references a nested array of strings
+
+On line 14: 
+  -
+
+
+let numbers = [1, 2, 3];
+numbers[6] = 5;
+numbers[5] = undefined; // => [ 1, 2, 3, <2 empty items>, undefined, 5 ]
+numbers.map(() => 10);  // => [ 10, 10, 10, <2 empty items>, 10, 10 ]
+*/
 
 /* Discussion
 pass-by-reference
@@ -38,14 +54,14 @@ the variable words is initialized with a reference to a nested array
 */
 
 // What does this log and why?
-const greeting = "Hello!";
-function change(greeting) {
-    greeting = "Hi!";
-    return greeting;
-}
+// const greeting = "Hello!";
+// function change(greeting) {
+//     greeting = "Hi!";
+//     return greeting;
+// }
 
-console.log(change()); // => 'Hi!'
-console.log(greeting); // => 'Hello!'
+// console.log(change()); // => 'Hi!'
+// console.log(greeting); // => 'Hello!'
 
 /* Discussion
 variable shadowing
@@ -69,9 +85,9 @@ function myFunction() {
   a.firstName = 'Jane';
 }
 
-myFunction();
+console.log(myFunction());
 
-console.log(a); // => { firstName: 'Jane', lastName: 'Doe' }
+// console.log(a); // => { firstName: 'Jane', lastName: 'Doe' }
 
 /* Discussion
 variables as pointers

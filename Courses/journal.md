@@ -2401,3 +2401,5 @@ map, filter, forEach
 14:13 Talking to Jeff Lovell after lunch and the SPOT study session with Marc.
 
 [resume.io](https://resume.io/)
+
+15:47 Getting ready to leave for ping pong.
