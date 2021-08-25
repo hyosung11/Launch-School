@@ -2365,3 +2365,26 @@ map, filter, forEach
 14:55 I feel really drained right now and not able to focus on studying before I have to get ready and leave to referee. I've had more coffee as well.
 
 15:00 Finished `Array.prototype.filter()` and am now getting ready to referee. I have to pee.
+
+## 20210825 수요일
+
+05:25 Starting meditation on the fear of success with David Gandelman.
+
+05:50 I have an extra ten minutes this morning because I woke up early. My lower back still feels tight. I need to stretch!
+
+05:50 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS101 > Lesson 4 > Assignment 8. Array Methods
+   * [x] 2. Listened to the Huberman Lab Podcast Episode 15 | How to Optimize Testosterone & Estrogen
+
+2. What will you do today?
+   * [ ] 1. Study Session with Alex
+   * [ ] 2. JS101 > Lesson 4 > Assignment 9. More Array Methods
+   * [ ] 3. Read *A Mind for Numbers* Chapter 16: Avoiding Overconfidence: The Power of Teamwork
+   * [ ] 4. SPOT Study Session
+   * [ ] 5. Listen to the Huberman Lab Podcast Episode 16 | How Hormones Control Hunger, Eating & Satiety
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * My lower back still feels tight. Going to see Dr. Riotto later this morning for treatment.
+
