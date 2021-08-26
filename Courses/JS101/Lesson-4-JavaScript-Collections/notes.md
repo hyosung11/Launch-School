@@ -2637,7 +2637,7 @@ Another method you can use to check if a key exists in an object is `Object.prot
 ```js
 let obj = {a: 'apple', b: 'banana', c: 'custard'};
 obj.hasOwnProperty('c'); // => true
-obj.hasOwnProprty('f'); // => false
+obj.hasOwnProperty('f'); // => false
 ```
 
 ### More Array Methods Summary
@@ -2645,3 +2645,66 @@ obj.hasOwnProprty('f'); // => false
 JavaScript arrays supply more than 30 methods, many of which you will find useful in your future programs. We recommend that you memorize the basic details of the methods we've discussed in this assignment and the previous assignment, and become familiar with what else is available. Nobody expects you to memorize every last detail of all these methods, but, the more familiar you are with them, the easier it will be to solve problems.
 
 20210826 14:43 Assignment complete.
+
+## 10. Arrays: What is an Element?
+
+We've previously mentioned that arrays are also objects. Thus, all of the indices of an array are also property names of the object (after first being translated to strings). However, not all properties of the array object are elements of the array. This fact has surprising consequences that lead to ambiguity in terms of what we mean by an empty array.
+
+### Array Keys
+
+Consider, for instance, the following code:
+
+```js
+let arr = [];
+console.log(arr); // []
+console.log(arr.length) // 0
+console.log(Object.keys(arr)) // []
+```
+
+It's easy to see here that `arr` should be treated as an empty array. The array has no elements, as shown on line #2, and it has a length of `0` as shown on line #3. Furthermore, `Object.keys` returns no property keys for the array. (Note, however, that arrays have a `length` property; `Object.keys` does not include this property in the return value. Don't worry about why that is.)
+
+Let's see what happens when the array contains elements:
+
+```js
+let arr = [2, 4, 6];
+console.log(arr) // [2, 4, 6]
+console.log(arr.length) // 3
+console.log(Object.keys(arr)); ['0', '1', '2']
+```
+
+
+
+Lines 2 and 3 display the values you likely expect: we see that the array has 3 elements with values `2`, `4`, and `6`, and the total length is `3`. Line 4 shows that the property keys are `'0'`, `'1'`, and `'2'`; these string values correspond to the indices of the array.
+
+We can *add properties* to the object `arr` that are not elements of the array. All we have to do is use a key that is not an non-negative integer; it doesn't even have to be a number:
+
+```js
+let arr = [2, 4, 6];
+arr[-3] = 5;
+arr['foo'] = 'a';
+console.log(arr); // [ 2, 4, 6, '-3': 5, foo: 'a' ]
+console.log(arr.length); // 3
+console.log(Object.keys(arr)); // [ '0', '1', '2', '-3', 'foo' ]
+arr.map(x => x + 1); // [3, 5, 7]
+```
+
+Notice how it looks like we're adding two elements to the array, one with an "index" of `-3` and one with an index of `'foo'`. Both of these "elements" show up when we log `arr`, though the output looks a little strange. However, the length of the array is still `3`: the count does not include the new "elements" since neither key is a non-negative integer. If we use `Object.keys`, we see all 5 property keys, both the real element indices, plus the two non-element keys.
+
+In the last line above, we can see that `map` ignores the non-element values. All built-in array methods ignore properties that are not elements, so `map` does nothing with `arr[-3]` and `arr['foo']`.
+
+This weird behavior leads to some ambiguity:
+
+```js
+let arr = [];
+arr[-3] = 5;
+arr['foo'] = 'a';
+
+// Is arr empty?
+console.log(arr.length); // 0 --> Yes
+console.log(Object.keys(arr)); // [ '-3', 'foo' ] --> No
+```
+
+To determine whether `arr` is empty on lines 6 and 7, we first need to define what we mean by an empty array. If we're only interested in elements, then we can use `length` to determine wheterh the array is empty. However, if we need to included non-elements, then we need to look at the object keys to learn whether the array is empty. **There is no one right answer here.** That's a decision you have to make when writing the code.
+
+### Sparse Arrays
+
