@@ -2404,6 +2404,8 @@ map, filter, forEach
 
 15:47 Getting ready to leave for ping pong.
 
+17:30 Work on `Array.prototype.some()` and now time to make dinner.
+
 ## 20210826 목요일
 
 07:33 Slept in this morning.
@@ -2425,3 +2427,6 @@ map, filter, forEach
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Lack of time because I will referee two soccer games today. Also, I feel drained this morning and needed to sleep in until 7:25.
+
+09:17 I studied `Array.prototype.every()`. Now it's time to go to the gym and then to reffing.
+Today is a great day. I love my life.
