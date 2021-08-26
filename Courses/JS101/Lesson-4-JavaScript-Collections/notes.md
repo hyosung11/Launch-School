@@ -2567,8 +2567,32 @@ Since the number `4` satisfies the condition `num > 2`, and `4` is positioned at
 -1
 ```
 
-
 ### `Array.prototype.reverse()`
+
+The name of the `reverse` method is self-explanatory: it reverses the elements of the array it's called on. The first element becomes the last, and the last becomes first.
+
+```sh
+> [1, 2, 5, 7, 3].reverse()
+[3, 7, 5, 2, 1]
+```
+
+A crucial point to note about `reverse` is that it does the reversal in place. In other words, it **mutates** the original array.
+
+```js
+let nums = [1, 2, 3];
+nums.reverse() // => [3, 2, 1]
+nums; // => [3, 2, 1]
+```
+
+You may not always want this behavior when reversing an array. In that case, you can use the `Array.prototype.slice()` method to make a shallow copy of the array, then reverse the copy:
+
+```js
+let nums = [1, 2, 3];
+let reversedNums = nums.slice().reverse();
+
+reversedNums; // => [3, 2, 1]
+nums; // => [1, 2, 3]
+```
 
 ### `Array.prototype.includes()`
 
