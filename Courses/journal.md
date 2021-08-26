@@ -2379,11 +2379,11 @@ map, filter, forEach
    * [x] 2. Listened to the Huberman Lab Podcast Episode 15 | How to Optimize Testosterone & Estrogen
 
 2. What will you do today?
-   * [ ] 1. Study Session with Alex
-   * [ ] 2. JS101 > Lesson 4 > Assignment 9. More Array Methods
-   * [ ] 3. Read *A Mind for Numbers* Chapter 16: Avoiding Overconfidence: The Power of Teamwork
-   * [ ] 4. SPOT Study Session
-   * [ ] 5. Listen to the Huberman Lab Podcast Episode 16 | How Hormones Control Hunger, Eating & Satiety
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS101 > Lesson 4 > Assignment 9. More Array Methods
+   * [x] 3. Read *A Mind for Numbers* Chapter 16: Avoiding Overconfidence: The Power of Teamwork
+   * [x] 4. SPOT Study Session
+   * [x] 5. Listen to the Huberman Lab Podcast Episode 16 | How Hormones Control Hunger, Eating & Satiety
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * My lower back still feels tight. Going to see Dr. Riotto later this morning for treatment.
@@ -2403,3 +2403,25 @@ map, filter, forEach
 [resume.io](https://resume.io/)
 
 15:47 Getting ready to leave for ping pong.
+
+## 20210826 목요일
+
+07:33 Slept in this morning.
+
+09:00 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS101 > Lesson 4 > Assignment 9. More Array Methods
+   * [x] 3. Read *A Mind for Numbers* Chapter 16: Avoiding Overconfidence: The Power of Teamwork
+   * [x] 4. SPOT Study Session
+   * [x] 5. Study Session with Jeff
+   * [x] 5. Listened to the Huberman Lab Podcast Episode 16 | How Hormones Control Hunger, Eating & Satiety
+
+2. What will you do today?
+   * [ ] 1. JS101 > Lesson 4 > Assignment 9. More Array Methods
+   * [ ] 2. Read *A Mind for Numbers* Chapter 16: Avoiding Overconfidence: The Power of Teamwork
+   * [ ] 3. Listen to the Huberman Lab Podcast Episode 17 | How to Control Your Metabolism by Thyroid & Growth Hormone
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Lack of time because I will referee two soccer games today. Also, I feel drained this morning and needed to sleep in until 7:25.
