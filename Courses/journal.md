@@ -2435,3 +2435,15 @@ map, filter, forEach
 13:41 Okay, time to get in the study groove.
 
 13:53 My legs feels tired as well as my feet. I am going to the dinning room table for the next array method.
+
+13:58 At the dining room table eating a Kind bar.
+
+14:04 Feeling a little tired. Off my Ultradian cycles today. I can't remember the supplement to increase HGH. I also want to get back in the sauna or wear plastic bags? Nah.
+
+14:12 I think it's time for a diffuse mode short break.
+
+14:44 I finished the "More Array Methods" assignment.
+
+15:22 Working on Assignment 10: Arrays: What is an Element? before I get ready to leave for reffing.
+
+15:29 Need to get ready to referee and go. Almost finished with this assignment.
