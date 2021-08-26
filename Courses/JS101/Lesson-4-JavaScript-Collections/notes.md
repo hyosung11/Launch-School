@@ -2531,9 +2531,23 @@ Object.values(animals).every(animalName => animalName.length > 2);
 //  => true
 ```
 
-RR
-
 ### `Array.prototype.find()`
+
+The `find` method also takes a callback function as an argument and returns the first element for which the callback function returns a truthy value:
+
+```js
+> [2, 1, 4, 3, 5].find(num => num > 2)
+4
+```
+
+Here, we're asking for the **first** number in the array that's greater than 2. Since `num > 2` evaluates as true for the number `4`, we get a return value of `4`. Note that `3` and `5` also satisfy the condition, but `find` *stops looking once it finds a matching element*.
+
+If the callback function doesn't return a truthy value for any of the elements, `find` returns `undefined`:
+
+```sh
+> [2, 1, 4, 3, 5].find(num => num < 1)
+undefined
+```
 
 ### `Array.prototype.findIndex()`
 
