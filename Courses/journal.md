@@ -2433,3 +2433,5 @@ map, filter, forEach
 13:37 Focus and study for a little bit before I have to referee this afternoon.
 
 13:41 Okay, time to get in the study groove.
+
+13:53 My legs feels tired as well as my feet. I am going to the dinning room table for the next array method.

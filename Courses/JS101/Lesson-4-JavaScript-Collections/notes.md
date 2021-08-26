@@ -2484,7 +2484,7 @@ Let's look at some common JavaScript array methods and explore how they work.
 
 ### `Array.prototype.some()`
 
-The first thing you should do when you're unsure of how a method works is to check the[ JavaScript documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some). Take a quick look at it to get an idea for what the method does, and then continue reading this section.
+The first thing you should do when you're unsure of how a method works is to check the[JavaScript documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some). Take a quick look at it to get an idea for what the method does, and then continue reading this section.
 
 Let's see the method in action:
 
