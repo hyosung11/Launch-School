@@ -2551,6 +2551,23 @@ undefined
 
 ### `Array.prototype.findIndex()`
 
+`findIndex` is similar to `find` except it *returns the index of the element* for which the callback returns a truthy value.
+
+```sh
+> [2, 1, 4, 3, 5].findIndex(num => num > 2)
+2
+```
+
+Since the number `4` satisfies the condition `num > 2`, and `4` is positioned at index 2, that's what gets returned.
+
+`findIndex` works a little differently from `find` when the callback doesn't return a truthy value for any of the elements. In this case, it returns `-1` instead of `undefined`:
+
+```sh
+> [2, 1, 4, 3, 5].findIndex(num => num < 1)
+-1
+```
+
+
 ### `Array.prototype.reverse()`
 
 ### `Array.prototype.includes()`
