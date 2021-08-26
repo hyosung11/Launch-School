@@ -2596,6 +2596,52 @@ nums; // => [1, 2, 3]
 
 ### `Array.prototype.includes()`
 
+The `includes` method searches the array used to call it for an element whose value is strictly equal (`===`) to the single argument. It returns `true` when a matching element exists in the array and `false` when it doesn't.
+
+```sh
+> [2, 1, 3].includes(1)
+true
+
+> [2, 1, 3].includes(5)
+false
+```
+
+The `includes` method doesn't work when you want to check the existence of an object in an array, at least not in the way you'd expect.
+
+```js
+let arr = ['a', 'b', {c: 'foo'}];
+arr.includes({c: 'foo'}); // => false
+```
+
+You might expect a return value of `true` from the `includes` call above, but it returns `false`. That's because `includes` uses the `===` operator to compare its argument with elements of the array. Since the comparison `{c: 'foo'} === {c: 'foo'}` returns `false`, `arr.includes({c: 'foo'})` also returns `false` in the above example.
+
+The following `includes` call returns `true` since we're checking for the existence of the same object, and not an object with the same key-value pairs:
+
+```js
+let obj = {c: 'foo'};
+let arr = ['a', 'b', obj];
+
+arr.includes(obj) // => true
+```
+
+As with so many other array methods, `includes` is useful when working with objects as well. For example, you could use it in conjunction with `Object.keys()` to determine whether a specific key exists in an object:
+
+```js
+let obj = {a: 'apple', b: 'banana', c: 'custard'};
+Object.keys(obj).includes('c'); // => true
+Object.keys(obj).includes('f'); // => false
+```
+
+Another method you can use to check if a key exists in an object is `Object.prototype.hasOwnProperty`.
+
+```js
+let obj = {a: 'apple', b: 'banana', c: 'custard'};
+obj.hasOwnProperty('c'); // => true
+obj.hasOwnProprty('f'); // => false
+```
+
 ### More Array Methods Summary
 
 JavaScript arrays supply more than 30 methods, many of which you will find useful in your future programs. We recommend that you memorize the basic details of the methods we've discussed in this assignment and the previous assignment, and become familiar with what else is available. Nobody expects you to memorize every last detail of all these methods, but, the more familiar you are with them, the easier it will be to solve problems.
+
+20210826 14:43 Assignment complete.
