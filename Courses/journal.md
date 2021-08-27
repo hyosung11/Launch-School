@@ -2488,15 +2488,37 @@ access to variable in the global scope
 - depends on when it's declared not when it's invoked
 */
 
-// let c = {c: 'foo'};
-// let d = {c: 'foo'};
-// let e = {c: 'foo'};
+let c = {c: 'foo'};
+let d = {c: 'foo'};
+let e = {c: 'foo'};
 
-// { c: 'foo' } ===  {c: 'foo' }
-// let arr = ['a', 'b', {c: 'foo'}];
-// arr.includes({c: 'foo'}); // => false
+{ c: 'foo' } ===  {c: 'foo' }
+let arr = ['a', 'b', {c: 'foo'}];
+arr.includes({c: 'foo'}); // => false
 ```
 
 07:05 Good study session with Alex. We started fine-tuning how to answer questions for the written assessment.
 
 07:23 I'd like to take the morning and study and then go to Graydon Pool with the kids.
+
+09:13 We went for a walk and now I'm going to practice soccer skills and do a kettlebell training session.
+
+10:26 Watching "9 Easy Skills to Beat Defenders | Dribbling Skills Tutorial for Footballers/Soccer Players.
+
+10:30 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS101 > Lesson 4 > Assignment 9. More Array Methods
+   * [x] 2. JS101 > Lesson 4 > Assignment 10. Arrays: What is an Element?
+   * [x] 3. Read *A Mind for Numbers* Chapter 16: Avoiding Overconfidence: The Power of Teamwork
+   * [x] 4. Listened to the Huberman Lab Podcast Episode 17 | How to Control Your Metabolism by Thyroid & Growth Hormone
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS101 > Lesson 4 > Assignment 11. Practice Problems
+   * [x] 3. Listen to the Huberman Lab Podcast Episode 18 | Boost Your Energy & Immune System with Cortisol & Adrenaline
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I am with the kids all day, so I will not have time to study during the day.
+
+16:55 I haven't done any programming today since this morning although I did read *The Programmer's Brain* at Graydon Pool. Sohee is back, so I might have a few minutes to study.
