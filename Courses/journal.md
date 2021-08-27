@@ -2421,9 +2421,10 @@ map, filter, forEach
    * [x] 5. Listened to the Huberman Lab Podcast Episode 16 | How Hormones Control Hunger, Eating & Satiety
 
 2. What will you do today?
-   * [ ] 1. JS101 > Lesson 4 > Assignment 9. More Array Methods
-   * [ ] 2. Read *A Mind for Numbers* Chapter 16: Avoiding Overconfidence: The Power of Teamwork
-   * [ ] 3. Listen to the Huberman Lab Podcast Episode 17 | How to Control Your Metabolism by Thyroid & Growth Hormone
+   * [x] 1. JS101 > Lesson 4 > Assignment 9. More Array Methods
+   * [x] 2. JS101 > Lesson 4 > Assignment 10. Arrays: What is an Element?
+   * [ ] 3. Read *A Mind for Numbers* Chapter 16: Avoiding Overconfidence: The Power of Teamwork
+   * [x] 4. Listen to the Huberman Lab Podcast Episode 17 | How to Control Your Metabolism by Thyroid & Growth Hormone
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Lack of time because I will referee two soccer games today. Also, I feel drained this morning and needed to sleep in until 7:25.
@@ -2447,3 +2448,7 @@ map, filter, forEach
 15:22 Working on Assignment 10: Arrays: What is an Element? before I get ready to leave for reffing.
 
 15:29 Need to get ready to referee and go. Almost finished with this assignment.
+
+20:12 Back on my MBP. How do I get rid of five more pounds of body fat around my belly?
+
+20:18 Finished Assignment 10. Arrays: What is an Element?

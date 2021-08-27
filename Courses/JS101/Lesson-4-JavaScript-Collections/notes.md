@@ -2737,4 +2737,17 @@ console.log(Object.keys(arr))  // ['0', '1', '2', '4']
 
 Do you see the difference? `arr[3]` is still an empty item, but `arr[4]` is `undefined`. `arr[4]` has a value; `arr[3]` does not. Note, also, that `Object.keys` includes the key of the explicitly `undefined` element (`'4'`) in the return value. Still, it does not include the key for the gap at `arr[3]`.
 
-RR
+This behavior again leads to ambiguity about what arrays are empty and which are not:
+
+```js
+let arr = [];
+arr.length = 3;
+
+// Is arr empty?
+console.log(arr.length); // 3 --> No
+console.log(Object.keys(arr)); // [] --> Yes
+```
+
+To determine whether `arr` is empty on lines 5 and 6, we again need to determine what we mean by an empty array. If we want to include the gaps, then we can use `length` to determine whether the array is empty. However, if we need to ignore the gaps, then we must look at the object keys to learn whether the array is empty, keeping in mind that some of the object keys may not be non-negative integers. **Again, there is no one right answer here**. You have to decide what empty means.
+
+20210826 20:18 Assignment Complete.
