@@ -2522,3 +2522,7 @@ arr.includes({c: 'foo'}); // => false
    * I am with the kids all day, so I will not have time to study during the day.
 
 16:55 I haven't done any programming today since this morning although I did read *The Programmer's Brain* at Graydon Pool. Sohee is back, so I might have a few minutes to study.
+
+19:06 Working on the practice problems before dinner at 장모님의 집. Hungry and tired.
+
+19:31 Looks like they have arrived from CA and we can eat.
