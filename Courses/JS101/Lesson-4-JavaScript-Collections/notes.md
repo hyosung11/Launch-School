@@ -2272,8 +2272,7 @@ Much simpler, isn't it?
 
 To perform the selection, `filter` examines the return value of the callback on each iteration. It determines the **truthiness** of the return value. There's only one thing that `filter` cares about concerning the callback's return value: whether it is **truthy** or **falsy**. Note that truthy and falsy are not the same as `true` and `false`.
 
-JavaScript treats six values as falsy: `undefined`, `null`, `NaN`, `0`, `''`, and `false`. "0funN is empty"
-All other values are truthy values. That's not the same as saying that everything that is truthy is also `true` or that everything that is falsy is also `false`. The values `true` and `false` are the two JavaScript values that make up its Boolean type; truthy and falsy aren't values that belong to a specific JavaScript type but are simply a classification of which values JavaScript recognizes as representing truth or falsity.
+JavaScript treats six values as falsy: `undefined`, `null`, `NaN`, `0`, `''`, and `false`. "0funN is empty" All other values are truthy values. That's not the same as saying that everything that is truthy is also `true` or that everything that is falsy is also `false`. The values `true` and `false` are the two JavaScript values that make up its Boolean type; truthy and falsy aren't values that belong to a specific JavaScript type but are simply a classification of which values JavaScript recognizes as representing truth or falsity.
 
 Note that the body of the callback function in the above example is a single expression. That means that we can eliminate the curly braces and the `return` keyword, and it'll still work:
 

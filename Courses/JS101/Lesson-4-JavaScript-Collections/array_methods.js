@@ -157,8 +157,8 @@
 
 // console.log(veggieFinder(produce)); // => {carrot: 'Vegetable', broccoli: 'Vegetable'}
 
-let str = "What's up, Doc?";
-str.split('')
-   .filter(char => 'aeiou'.includes(char.toLowerCase()))
-   .join('');
-// => 'auo'
+// let str = "What's up, Doc?";
+// str.split('')
+//    .filter(char => 'aeiou'.includes(char.toLowerCase()))
+//    .join('');
+// // => 'auo'
