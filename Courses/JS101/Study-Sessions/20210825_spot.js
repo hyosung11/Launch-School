@@ -24,11 +24,11 @@ Intros
 
 /*
 
-On line 12: 
+On line 12:
   -the variable Words is declared
   -the value of Words references a nested array of strings
 
-On line 14: 
+On line 14:
   -
 
 

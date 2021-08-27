@@ -2454,3 +2454,49 @@ map, filter, forEach
 20:18 Finished Assignment 10. Arrays: What is an Element?
 
 20:28 Started Assignment 11. Practice Problems and ready to chill for the night.
+
+## 20210827 금요일
+
+05:40 Listening to David Gandelman's meditation.
+
+06:02 Starting the study session with Alex.
+
+Code Snippets from study session
+
+```js
+let home = 'Denver';
+
+function goHome () {
+   let home = 'my hotel';
+   travel();
+}
+
+function travel () {
+   console.log(`I want to go to ${home}.`)
+}
+
+goHome();
+console.log(home);
+
+/* Discussion
+variable shadowing
+- passed as parameter
+- declaring the variable again
+
+scope
+access to variable in the global scope
+- depends on when it's declared not when it's invoked
+*/
+
+// let c = {c: 'foo'};
+// let d = {c: 'foo'};
+// let e = {c: 'foo'};
+
+// { c: 'foo' } ===  {c: 'foo' }
+// let arr = ['a', 'b', {c: 'foo'}];
+// arr.includes({c: 'foo'}); // => false
+```
+
+07:05 Good study session with Alex. We started fine-tuning how to answer questions for the written assessment.
+
+07:23 I'd like to take the morning and study and then go to Graydon Pool with the kids.
