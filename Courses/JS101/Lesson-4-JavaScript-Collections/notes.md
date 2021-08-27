@@ -2776,3 +2776,74 @@ Solution
 ```
 
 `filter` performs selection based on the *truthiness* of the callback's return value. In this case, the return value is always `'hi'`, which is truthy. Therefore `filter` will return a new array containing all of the elements in the original array.
+
+### Practice Problem 2
+
+What is the return value of `map` in the following code? Why?
+
+```js
+[1, 2, 3].map(num => {
+  num * num;
+});
+```
+
+Solution
+
+```js
+[ undefined, undefined, undefined ]
+```
+
+`map` looks at the return value of the callback function to decide the elements in the returned array. Each element in the original array is replaced by what the callback returns for that element. In this case, there's no explicit return statement in the callback function, which means that the callback returns undefined each time.
+
+### Practice Problem 3
+
+The following code differs slightly from the above code. What is the return value of `map` in this case? Why?
+
+```js
+[1, 2, 3].map(num => num * num);
+```
+
+Solution
+
+```js
+[1, 4, 9]
+```
+
+Without braces surrounding the body of the arrow function, JavaScript uses the computed value as the return value. In this case, the callback returns `1`, `4`, `9` on the 3 iterations.
+
+### Practice Problem 4
+
+What is the return value of the following statement? Why?
+
+```js
+['ant', 'bear', 'caterpillar'].pop().length;
+```
+
+Solution
+
+```js
+11
+```
+
+There are a couple of things going on here. First, `pop` is being called on the array. `pop` destructively removes the last element from the calling array and returns it. Second, `length` is being accessed on the return value by `pop`. Once we realize that `length` is evaluating the return value of pop(`caterpillar`) then the final return value of 11 should make sense.
+
+### Practice Problem 5
+
+What is the callback's return value in the following code? Also, what is the return value of `every` in this code?
+
+```js
+[1, 2, 3].every(num => {
+  return num = num * 2;
+});
+```
+
+Solution
+
+```js
+2
+4
+6
+true
+```
+
+The return values of the callback will be `2`, `4`, and `6` on the respective iterations. The expression `num = num * 2` is an assignment expression and will evaluate as the expression on the right-hand side of the assignment and that is what gets returned in each iteration. Since all of those numbers are truthy values, `every` will return `true`.
