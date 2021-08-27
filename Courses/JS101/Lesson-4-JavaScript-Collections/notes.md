@@ -2847,3 +2847,35 @@ true
 ```
 
 The return values of the callback will be `2`, `4`, and `6` on the respective iterations. The expression `num = num * 2` is an assignment expression and will evaluate as the expression on the right-hand side of the assignment and that is what gets returned in each iteration. Since all of those numbers are truthy values, `every` will return `true`.
+
+### Practice Problem 6
+
+How does `Array.prototype.fill` work? Is it destructive? How can we find out?
+
+```js
+let arr = [1, 2, 3, 4, 5];
+arr.fill(1, 1, 5);
+```
+
+Solution
+
+```js
+[1, 1, 1, 1, 1]
+```
+
+If you're unsure of how a method works the best thing to do is to read its [documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill). Along with that, testing the method in node console can be very helpful. In this case, we can quickly check if `fill` is destructive or not by running the code in the console.
+
+```sh
+> let arr = [1, 2, 3, 4, 5]
+undefined
+> arr.fill(1, 1, 5)
+[1, 1, 1, 1, 1]
+> arr
+[1, 1, 1, 1, 1]
+```
+
+By reading the documentation and trying some code in the console, we can determine that `fill` takes a value and two indices and replaces the indices in between those two given indices with the given value. We can also verify that it's a **destructive** method.
+
+`Array.prototype.fill()`
+
+The `fill()` method changes all elements in an array to a static value, from a start index (default `0`) to an end index (default `array.length`). It returns the modified array.
