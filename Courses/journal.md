@@ -2452,3 +2452,5 @@ map, filter, forEach
 20:12 Back on my MBP. How do I get rid of five more pounds of body fat around my belly?
 
 20:18 Finished Assignment 10. Arrays: What is an Element?
+
+20:28 Started Assignment 11. Practice Problems and ready to chill for the night.

@@ -2751,3 +2751,30 @@ console.log(Object.keys(arr)); // [] --> Yes
 To determine whether `arr` is empty on lines 5 and 6, we again need to determine what we mean by an empty array. If we want to include the gaps, then we can use `length` to determine whether the array is empty. However, if we need to ignore the gaps, then we must look at the object keys to learn whether the array is empty, keeping in mind that some of the object keys may not be non-negative integers. **Again, there is no one right answer here**. You have to decide what empty means.
 
 20210826 20:18 Assignment Complete.
+
+## 11. Practice Problems
+
+We've now explored a handful of array methods and looked at how they work. Let's do some practice problems to help drive home those concepts.
+
+The goal for these practice problems is to gain a deeper understanding of specific concepts, not to rush through them. Do your best to answer the questions without running the example code. You should be able to determine the answers just by looking at the code or by referring to the MDN docs.
+
+t to answer the questions without running the example code. You should be able to determine the answers just by looking at the code or by referring to the MDN docs.
+
+As we've already seen, when working with collections, there are often multiple ways that you can use to solve a particular problem. The solutions to these practice problems provide a suggestion of how each might be solved. However, don't be afraid to explore each problem in more depth, perhaps coming up with more than one possible solution and thinking about the differences and trade-offs between each.
+
+### Practice Problem 1
+
+What is the return value of the `filter` method call below? Why?
+
+```js
+[1, 2, 3].filter(num => 'hi');
+```
+
+Solution
+
+```js
+[1, 2, 3]
+```
+
+`filter` performs selection based on the *truthiness* of the callback's return value. In this case, the return value is always `'hi'`, which is truthy. Therefore `filter` will return a new array containing all of the elements in the original array.
+
