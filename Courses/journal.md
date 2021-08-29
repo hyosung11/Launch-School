@@ -2526,3 +2526,21 @@ arr.includes({c: 'foo'}); // => false
 19:06 Working on the practice problems before dinner at 장모님의 집. Hungry and tired.
 
 19:31 Looks like they have arrived from CA and we can eat.
+
+## 20210828 토요일
+
+16:50 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS101 > Lesson 4 > Assignment 11. Practice Problems 3 ~ 6
+   * [x] 3. Listen to the Huberman Lab Podcast Episode 19 | Supercharge Exercise Performance & Recovery with Cooling
+
+2. What will you do today?
+   * [ ] 1. JS101 > Lesson 4 > Assignment 11. Practice Problems 7 ~ 11
+   * [ ] 2. Listen to the Huberman Lab Podcast Episode 20 | How to Learn Skills Faster
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * No time. Played soccer, reffed a game, and had play time with the kids before extended family dinner. I might get some time before bed to do some problems.
+
+20:47 Worked on Practice Problem 7.
