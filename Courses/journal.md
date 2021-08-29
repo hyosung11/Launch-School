@@ -2544,3 +2544,11 @@ arr.includes({c: 'foo'}); // => false
    * No time. Played soccer, reffed a game, and had play time with the kids before extended family dinner. I might get some time before bed to do some problems.
 
 20:47 Worked on Practice Problem 7.
+
+## 20210829 일요일
+
+06:05 Study session with Alex.
+
+06:17 `length` property is "accessed".
+
+07:33 Did a couple practice problems with Alex. Getting ready to play my soccer scrimmage this morning. I want to buy some stuff from REI. Should I wait and see if I still want it after the game?
