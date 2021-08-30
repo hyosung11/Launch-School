@@ -82,4 +82,7 @@ let ages = {
 let totalAges = 0;
 Object.values(ages).forEach(age => totalAges += age);
 
-console.log(totalAges);
+// console.log(totalAges); // => 6174
+
+// Another option would be to use Array.prototype.reduce method:
+console.log(Object.values(ages).reduce((agesSum, currentAge) => agesSum + currentAge, 0)); // => 6174

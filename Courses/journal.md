@@ -2573,3 +2573,5 @@ arr.includes({c: 'foo'}); // => false
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * After getting speared in the chest from an idiot's flying elbow during my soccer game yesterday, I was incapacitated and couldn't study the rest of the day. Today, I am with the kids and can only find short time pockets to study.
+
+16:31 Able to code out Practice Problem 8 after doing another repetition. I actually did it with Alex yesterday.
