@@ -2901,3 +2901,26 @@ Solution
 There are some interesting things to point out here. First the return value of `map` is an array, which is the collection type that `map` always returns. Second, where did we get that `undefined` value? If we look at the if condition (`elem.length > 3`), we'll notice that it evaluates as true when the length of the element is greater than `3`. In this case, the only value with a length greater than `3` is `bear`. Thus, for the first element `ant`, the condition evaluates as false and `elem` isn't returned.
 
 When a function doesn't explicitly return something, it implicitly returns `undefined`. That's why we see `undefined` as the first element of the returned array.
+
+### Practice Problem 8
+
+Take a look at the following array.
+
+```js
+let flintstones = ["Fred", "Barney", "Wilma", "Betty", "Pebbles", "Bambam"];
+```
+
+Write a program that uses this array to create an object where the names are the keys and the values are the positions in the array:
+
+{ Fred: 0, Barney: 1, Wilma: 2, Betty: 3, Pebbles: 4, Bambam: 5 }
+
+Solution
+
+```js
+let flintstonesObj = {};
+flintstones.forEach((name, index) =>  {
+  flinstonesObj[name] = index;
+});
+
+flintstonesObj;
+```

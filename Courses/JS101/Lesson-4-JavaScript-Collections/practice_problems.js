@@ -51,21 +51,17 @@ output: object
 
 loop through the array
   - make each name a property of the object
-  - and make its value equal to its index
-
-
-*/
+  - and make its value equal to its index */
 
 let flintstones = ['Fred', 'Barney', 'Wilma', 'Betty', 'Pebbles', 'Bambam'];
 
-let flintstonesObject = {}
+let flintstonesObj = {};
 
 flintstones.forEach((name, index) => {
-  flintstonesObject[name] = index;
+  flintstonesObj[name] = index;
 });
 
-// console.log((flintstonesObject));
-
+// console.log((flintstonesObj));
 // { Fred: 0, Barney: 1, Wilma: 2, Betty: 3, Pebbles: 4, Bambam: 5 }
 
 /* ==================

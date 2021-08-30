@@ -2552,3 +2552,24 @@ arr.includes({c: 'foo'}); // => false
 06:17 `length` property is "accessed".
 
 07:33 Did a couple practice problems with Alex. Getting ready to play my soccer scrimmage this morning. I want to buy some stuff from REI. Should I wait and see if I still want it after the game?
+
+## 20210830 월요일
+
+12:01 I lost a day and a half because of my injury and at $5000 per hour that's a lot of money lost.
+
+13:25 After study session with Juliette. I am going to take a lunch break. I'm tired.
+
+15:45 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS101 > Lesson 4 > Assignment 11. Practice Problem 7
+   * [x] 3. Listen to the Huberman Lab Podcast Episode 20 | How to Learn Skills Faster
+
+2. What will you do today?
+   * [x] 1. JS109 Study Session
+   * [ ] 1. JS101 > Lesson 4 > Assignment 11. Practice Problems 8 ~ 11
+   * [ ] 2. Listen to the Huberman Lab Podcast Episode 20 | How to Learn Skills Faster
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * After getting speared in the chest from an idiot's flying elbow during my soccer game yesterday, I was incapacitated and couldn't study the rest of the day. Today, I am with the kids and can only find short time pockets to study.
