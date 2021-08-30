@@ -2575,3 +2575,7 @@ arr.includes({c: 'foo'}); // => false
    * After getting speared in the chest from an idiot's flying elbow during my soccer game yesterday, I was incapacitated and couldn't study the rest of the day. Today, I am with the kids and can only find short time pockets to study.
 
 16:31 Able to code out Practice Problem 8 after doing another repetition. I actually did it with Alex yesterday.
+
+17:21 Able to work on another practice problem between prep and pickup of dinner. Chest feels better but still tight.
+
+18:51 Agreed to attend the BCSOA Referee Coaches Meeting at 19:00. Ugh. Interesting comment.

@@ -2919,7 +2919,7 @@ Solution
 ```js
 let flintstonesObj = {};
 flintstones.forEach((name, index) =>  {
-  flinstonesObj[name] = index;
+  flintstonesObj[name] = index;
 });
 
 flintstonesObj;
@@ -2957,3 +2957,24 @@ Object.values(ages).reduce((agesSum, currentAge) => agesSum + currentAge, 0); //
 One slight advantage of the `reduce` method is that we don't have to declare and initialize a variable and then reassign to that value from inside the callback. Be sure to read the documentation on `Array.prototype.reduce` to see how it works.
 
 When faced with a problem such as this one, however, don't get tempted to go 'method hunting' to reach a solution. As demonstrated, even if you don't know the `reduce` method, the problem can be solved equally well by using `forEach` to iterate through the object values; you could even use a basic loop (`while`, `for`, or `do/while`) to achieve the same result.
+
+### Practice Problem 10
+
+Pick out the minimum age from our current Munster family object:
+
+```js
+let ages = {
+  Herman: 32,
+  Lily: 30,
+  Grandpa: 5843,
+  Eddie: 10,
+  Marilyn: 22,
+  Spot: 237
+};
+```
+
+Hint
+
+Investigate JavaScript's [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax). It should come in handy in this exercise.
+
+Solution

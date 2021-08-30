@@ -70,6 +70,36 @@ Practice Problem 9 *
 
 Add up all of the ages from the Munster family object: */
 
+// let ages = {
+//   Herman: 32,
+//   Lily: 30,
+//   Grandpa: 5843,
+//   Eddie: 10,
+//   Marilyn: 22,
+//   Spot: 237,
+// };
+
+// let totalAges = 0;
+// Object.values(ages).forEach(age => totalAges += age);
+
+// console.log(totalAges); // => 6174
+
+// Another option would be to use Array.prototype.reduce method:
+// console.log(Object.values(ages).reduce((agesSum, currentAge) => agesSum + currentAge, 0)); // => 6174
+
+/* ====================
+
+Practice Problem 10
+
+Pick out the minimum age from our current Munster family object:
+
+PEDAC
+input: object
+output: number
+
+Hint
+- Investigate JavaScript's spread syntax. It should come in handy in this exercise. */
+
 let ages = {
   Herman: 32,
   Lily: 30,
@@ -79,10 +109,4 @@ let ages = {
   Spot: 237,
 };
 
-let totalAges = 0;
-Object.values(ages).forEach(age => totalAges += age);
-
-// console.log(totalAges); // => 6174
-
-// Another option would be to use Array.prototype.reduce method:
-console.log(Object.values(ages).reduce((agesSum, currentAge) => agesSum + currentAge, 0)); // => 6174
+Object.values(ages).filter()
