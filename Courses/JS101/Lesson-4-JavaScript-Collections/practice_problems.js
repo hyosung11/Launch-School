@@ -100,14 +100,64 @@ output: number
 Hint
 - Investigate JavaScript's spread syntax. It should come in handy in this exercise. */
 
-let ages = {
-  Herman: 32,
-  Lily: 30,
-  Grandpa: 5843,
-  Eddie: 10,
-  Marilyn: 22,
-  Spot: 237,
-};
+// let ages = {
+//   Herman: 32,
+//   Lily: 30,
+//   Grandpa: 5843,
+//   Eddie: 10,
+//   Marilyn: 22,
+//   Spot: 237,
+// };
 
-let agesArr = Object.values(ages);
-console.log(Math.min(...agesArr)); // => 10
+// let agesArr = Object.values(ages);
+// console.log(Math.min(...agesArr)); // => 10
+
+/* ================
+
+Practice Problem 11
+
+Create an object that expresses the frequency with which each letter occurs in this string: */
+
+// Version 1
+// let statement = "The Flintstones Rock";
+
+// let charsInStatement = statement.split('').filter(char => char !== ' ');
+// let result = {};
+
+// charsInStatement.forEach(char => {
+//   result[char] = result[char] || 0;
+//   result[char] += 1;
+// });
+
+// console.log(result);
+// The output will look something like the following:
+// { T: 1, h: 1, e: 2, F: 1, l: 1, ... }
+
+// Version 2
+// let statement = "The Flintstones Rock";
+// let charsInStatement = statement.split('').filter(char => char !== ' ');
+// let result = {};
+
+// charsInStatement.forEach(char => {
+//   if (Object.keys(result).includes(char)) {
+//     result[char] += 1;
+//   } else {
+//     result[char] = 1;
+//   }
+// });
+
+// console.log(result);
+
+// Version 3 with for loop
+let statement = "The Flintstones Rock";
+let result = {};
+
+for (let counter = 0; counter < statement.length; counter++) {
+  let char = statement[counter];
+  if (char === ' ') continue;
+
+  result[char] = result[char] || 0;
+  result[char] += 1;
+}
+
+console.log(result);

@@ -3009,3 +3009,72 @@ Recall that the `Math.min` function takes multiple numbers as arguments and retu
 ```
 
 In the above example, though, we have the numbers in the `agesArr` array. We use the `...` operator, called the **spread operator**, to convert the array to a list of arguments.
+
+### Practice Problem 11
+
+Create an object that expresses the frequency with which each letter occurs in this string:
+
+```js
+let statement = "The Flintstones Rock";
+```
+
+The output will look something like the following:
+
+```js
+{ T: 1, h: 1, e: 2, F: 1, l: 1, ... }
+```
+
+Solution
+
+```js
+let charsInStatement = statement.split('').filter(char => char !== ' ');
+let result = {};
+
+charsInStatement.forEach(char => {
+  result[char] = result[char] || 0;
+  result[char] += 1;
+});
+
+console.log(result);
+```
+
+There are a couple of interesting things to note about this solution. First with the expression `statement.split('').filter(char => char !== ' ')`, we convert the string into an array of characters but we make sure to exclude the space characters by using the `filter` method.
+
+Note the following line:
+
+```js
+result[char] = result[char] || 0;
+```
+
+We're taking advantage of something called **short-circuiting** here. What this means is that JavaScript first evaluates the left operand (`result[char]`) of the `||` operator. If it is truthy, JavaScript doesn't evaluate the right operand; it only evaluates the right operand when the left is falsy. Thus, if a character doesn't exist as a key in our `results` object, `result[char]` will return `undefined` — a falsy value — resulting in the assignment of `result[char]` to `0`. If `result[char]` instead evaluates to a truthy value such as `1`, it'll simply reassign the current value to `result[char]`.
+
+We can also code up the same logic without using the `||` operator:
+
+```js
+let charsInStatement = statement.split('').filter(char => char !== ' ' );
+let result = {};
+
+charsInStatement.forEach(char => {
+  if (Object.keys(result).includes(char)) {
+    result[char] += 1;
+  } else {
+    result[char] = 1;
+  }
+});
+```
+
+Note that we don't have to convert the string to an array to solve the problem. We're doing so here only so that we can use the `forEach` method. We could've used a simple `for` loop to iterate over the string directly:
+
+```js
+let result = {};
+
+for (let counter = 0; counter < statement.length; counter += 1) {
+  let char = statement[counter];
+  if (char === ' ') continue;
+
+  result[char] = result[char] || 0;
+  result[char] += 1;
+}
+```
+
+20210831 12:45 Assignment complete. Just Lesson 4 Quiz 1 left.
