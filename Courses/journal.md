@@ -2606,3 +2606,5 @@ arr.includes({c: 'foo'}); // => false
 [Google Search Operators: The Complete List (42 Advanced Operators)](https://ahrefs.com/blog/google-advanced-search-operators/)
 
 11:53 Slogging through correspondence this morning. Now I can work on the last two problems in Assignment 11.
+
+12:10 Chugging along with problem 10 solved. Now one more then a break before the SPOT Study session. I probably won't take the quiz until tomorrow morning.
