@@ -2613,4 +2613,4 @@ arr.includes({c: 'foo'}); // => false
 
 13:12 In SPOT Study Session with Antonina
 
-14:30 Tired right now. I want to review the practice problems before I get ready to ref.
+14:30 Tired right now. I want to review the practice problems before I get ready to ref. My legs feel tired. I think I'm going to study sitting down after I check REI for my stuff.
