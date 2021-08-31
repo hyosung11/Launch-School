@@ -2610,3 +2610,7 @@ arr.includes({c: 'foo'}); // => false
 12:10 Chugging along with problem 10 solved. Now one more then a break before the SPOT Study session. I probably won't take the quiz until tomorrow morning.
 
 12:46 Got into a groove and finished the last practice problems in Assignment 11. Ready for a short break before the SPOT Study Session at 13:00.
+
+13:12 In SPOT Study Session with Antonina
+
+14:30 Tired right now. I want to review the practice problems before I get ready to ref.
