@@ -109,4 +109,5 @@ let ages = {
   Spot: 237,
 };
 
-Object.values(ages).filter()
+let agesArr = Object.values(ages);
+console.log(Math.min(...agesArr)); // => 10
