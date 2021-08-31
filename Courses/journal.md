@@ -2579,3 +2579,30 @@ arr.includes({c: 'foo'}); // => false
 17:21 Able to work on another practice problem between prep and pickup of dinner. Chest feels better but still tight.
 
 18:51 Agreed to attend the BCSOA Referee Coaches Meeting at 19:00. Ugh. Interesting comment.
+
+## 20210831 화요일
+
+10:29 Getting a late start today. I think I'm going to two week sprints because I missed sprint review, retrospective, and planning this past weekend. Also, at this point, I'm not sure I need to do them as often. Okay. Now time for daily scrum questions though.
+
+10:30 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS109 Study Session
+   * [x] 2. JS101 > Lesson 4 > Assignment 11. Practice Problems 8 ~ 9
+   * [x] 3. Listened to the Huberman Lab Podcast Episode 20 | How to Learn Skills Faster
+
+2. What will you do today?
+   * [x] 1. JS101 > Lesson 4 > Assignment 11. Practice Problems 10 ~ 11
+   * [x] 2. JS101 > Lesson 4 > Assignment 12. Lesson 4 Quiz 1
+   * [x] 3. SPOT Study Session with Antonina
+   * [ ] 4. Read *A Mind for Numbers* { 17 } | Test Taking
+   * [x] 5. Listen to the Huberman Lab Podcast Episode 21 | How to Lose Fat with Science-Based Tools
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I still feel pretty low energy since being injured while playing soccer. My chest hurts when I make large movements and especially when I cough or sneeze. I ref a soccer game this afternoon, so I will not be able to study then.
+
+11:42 It took one hour to do all my correspondence this morning. Yikes.
+
+[Google Search Operators: The Complete List (42 Advanced Operators)](https://ahrefs.com/blog/google-advanced-search-operators/)
+
+11:53 Slogging through correspondence this morning. Now I can work on the last two problems in Assignment 11.
