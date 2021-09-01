@@ -2614,3 +2614,28 @@ arr.includes({c: 'foo'}); // => false
 13:12 In SPOT Study Session with Antonina
 
 14:30 Tired right now. I want to review the practice problems before I get ready to ref. My legs feel tired. I think I'm going to study sitting down after I check REI for my stuff.
+
+## 20210901 수요일
+
+10:30 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS101 > Lesson 4 > Assignment 11. Practice Problems 10 ~ 11
+   * [x] 2. SPOT Study Session with Antonina
+   * [ ] 3. Read *A Mind for Numbers* { 17 } | Test Taking
+   * [x] 4. Listen to the Huberman Lab Podcast Episode 21 | How to Lose Fat with Science-Based Tools
+
+2. What will you do today?
+   * [ ] 1. JS101 > Lesson 4 > Assignment 12. Lesson 4 Quiz 1
+   * [ ] 2. Algorithm Writing Clinic
+   * [ ] 3. Read *A Mind for Numbers* { 17 } | Test Taking
+   * [x] 4. Listen to the Huberman Lab Podcast Episode 22 | Science & Tools for Muscle Growth, Increasing Strength & Muscular Recovery
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I slept in this morning again and didn't study before breakfast. We got the kids off to school for the first day. I have a couple of free hours until they return from their minimum day and then I need to supervise them in the afternoon.
+
+10:39 Do my correspondence and then work on Lesson 4 Quiz 1.
+
+11:15 Correspondence took thirty minutes. Now I want to take a break before starting the quiz.
+
+11:41 Feeling some resistance to taking the quiz, but I'm going to bite the bullet and do it now.
