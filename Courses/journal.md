@@ -2639,3 +2639,16 @@ arr.includes({c: 'foo'}); // => false
 11:15 Correspondence took thirty minutes. Now I want to take a break before starting the quiz.
 
 11:41 Feeling some resistance to taking the quiz, but I'm going to bite the bullet and do it now.
+
+11:44 Starting the quiz now.
+
+12:40 The Lesson 4 Quiz 1 took me almost an hour. I got 50%.
+
+JS101 - Programming Foundations with JavaScript
+
+Assignment: Lesson 4 Quiz 1
+Student Name: HyoSung Bidol-Lee
+Submitted at: less than a minute ago
+Time taken: 0.93 hour(s)
+Score: 12/24 (50.0%)
+
