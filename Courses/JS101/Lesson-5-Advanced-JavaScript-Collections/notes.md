@@ -116,7 +116,7 @@ It's important to note that `sort` is **destructive**. It doesn't return a new a
 [ 'a', 'e', 'i', 'o', 'u' ]
 ```
 
-Often, though, we don't want to sort arrays in-place. We can c*reate a copy of the array* using `slice` and call the `sort` method on the copy *to avoid mutation* of the original array:
+Often, though, we don't want to sort arrays in-place. We can *create a copy of the array* using `slice` and call the `sort` method on the copy *to avoid mutation* of the original array:
 
 ```js
 > let vowels = ['u', 'i', 'a', 'e', 'o']
@@ -164,7 +164,141 @@ You don't need to memorize the UTF-16 code points, nor do you need to memorize t
 * There is an extended ASCII table that contains accented and other characters - this comes after the main ASCII table.
 * All other UTF-16 characters come after the extended ASCII table and have a code point of at least 256.
 
+#### Generic Sorting
+
+Let's go back to our original question. How can we sort the following array numerically?
+
+```js
+[2, 11, 9, 4, 107, 21, 1] // sorted result: [ 1, 2, 4, 9, 11, 21, 107 ]
+```
+
+The default behavior of `sort` is no help since it converts all numbers to strings before comparing them. The answer lies in the fact that `sort` takes an optional callback argument. The return value of that callback determines the final sequence produced by the sort:
+
+```js
+[2, 11, 9, 4, 107, 21, 1].sort((a, b) => {
+  if (a < b) {
+    return -1;
+  } else if (a > b) {
+    return 1;
+  } else {
+    return 0;
+  }
+}); // => [ 1, 2, 4, 9, 11, 21, 107 ]
+```
+
+Some explanation is in order here. The `sort` method iterates over our array and supplies our callback function with two elements each time. It arranges the relative positions of the two elements using the following rules:
+
+1. If the callback returns a number less than `0`, place `a` before `b`.
+2. If the callback returns a number greater than `0` place `b` before `a`.
+3. If the callback returns `0`, leave the relative positions of `a` and `b` unchanged.
+
+Let's use the first two numbers in the array, `2` and `11`, as an example. When our callback function gets invoked for the first time, `a` will be `2` and `b` will be `11`. Since `a < b`, our callback returns -1, and, therefore, 2 will be placed before 11 in the sorted array. The same comparison gets performed for each pair of numbers, and the result is an array of numbers sorted in ascending order.
+
+Our callback function can be simplified a bit. We know that we want to return a negative number when `a < b` and a positive number when `a > b`. Looking at our logic, we can easily replace the whole `if/else` conditional with `return a - b;`:
+
+```js
+[2, 11, 9, 4, 107, 21, 1].sort((a, b) => a - b);
+```
+
+That's a little less clear, but not extraordinarily so, and it removes some code clutter, so many developers think the tradeoff is worth the slight reduction in clarity.
+
+Suppose we want to sort our array in descending order; that is, by decreasing numeric value. All we have to do is flip the logic of our callback:
+
+```js
+[2, 11, 9, 4, 107, 21, 1].sort((a, b) => {
+  if (a > b) {
+    return -1;
+  } else if (a < b) {
+    return 1;
+  } else {
+    return 0;
+  }
+}); // => [ 107, 21, 11, 9, 4, 2, 1 ]
+```
+
+Or more succinctly:
+
+```js
+[2, 11, 9, 4, 107, 21, 1].sort((a, b) => b - a);
+```
+
+You are allowed to write additional code in the block, as long as the block returns a number.
+
+```js
+[2, 11, 9, 4, 107, 21, 1].sort((a, b) => {
+  console.log(`a is ${a} and b is ${b}`);
+  return a - b;
+});
+
+// a is 11 and b is 9
+// a is 2 and b is 9
+// a is 11 and b is 4
+// a is 9 and b is 4
+// a is 2 and b is 4
+// a is 11 and b is 107
+// a is 107 and b is 21
+// a is 11 and b is 21
+// a is 107 and b is 1
+// a is 21 and b is 1
+// a is 11 and b is 1
+// a is 9 and b is 1
+// a is 4 and b is 1
+// a is 2 and b is 1
+// => [ 1, 2, 4, 9, 11, 21, 107 ]
+```
+
+If you study the above output, you can see that the algorithm that `sort` uses doesn't compare every possible pair of values. If you need every possible pair, don't rely on `sort` to give it to you.
+
+It's also worth noting that your JavaScript engine may not produce the exact same output, though the end result may be the same. The JavaScript standards don't specify the algorithm that `sort` must use, just that it should properly order the array. As a result, different implementations of `sort` compare elements in different ways.
+
+How would you sort the following array by the lengths of each word?
+
+```js
+let words = ['go', 'ahead', 'and' 'jump'];
+```
+
+Solution
+
+```js
+words.sort((a, b) => {
+  if (a.length < b.length) {
+    return -1;
+  } else if (a.length > b.length) {
+    return 1;
+  } else {
+    return 0;
+  }
+}); // => [ 'go', 'and', 'jump', 'ahead' ]
+```
+
+```js
+words.sort((a, b) => a.length - b.length);
+```
+
+Using a callback to sort collections lets us sort all kinds of values in a variety of ways. Take the following nested array, for example:
+
+```js
+let scores = [[3, 6, 4], [6, 8, 9], [1, 4, 2]];
+```
+
+Let's give it a shot:
+
+```js
+let scores = [[3, 6, 4], [6, 8, 9], [1, 4, 2]];
+scores.sort((a, b) => {
+  let totalAScore = a.reduce((number, next) => number + next);
+  let totalBScore = b.reduce((number, next) => number + next);
+
+  return totalAScore - totalBScore;
+});
+```
+
+Here, `a` and `b` will be assigned to the subarrays. We use `Array.prototype.reduce` to find the sum of all three scores in the subarrays, then return their difference, which will be used to sort our arrays.
+
+Using `a` and `b` parameters in a callback function for `sort` is a common convention, even though it conflicts with the style rules that say you shouldn't use single-character variable names. Our `.eslintrc.yml` file explicitly tells ESLint to allow these two variable names, but it lets ESLint complain about most others. Even so, you should only use `a` and `b` for comparison callbacks.
 
 ### Sorting Summary
 
 In this assignment, we've looked at sorting as another way that we can work with collections. Sorting is complicated to perform algorithmically, but we can use the built-in `Array.prototype.sort` method to handle that complex work for us. At this point, you should understand the concept of sorting and be comfortable using the `sort` method that JavaScript arrays provide.
+
+20210902 13:46 Assignment complete.
