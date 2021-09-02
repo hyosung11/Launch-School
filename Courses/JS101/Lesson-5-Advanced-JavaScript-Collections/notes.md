@@ -84,7 +84,49 @@ When `sort` is called without arguments, it coerces all the array elements excep
 
 #### Sorting Arrays of Strings Alphabetically
 
-RR
+Calling `sort` on an array of characters returns an array of characters, ordered alphabetically.
+
+```sh
+> ['c', 'a', 'e', 'b', 'd'].sort()
+[ 'a', 'b', 'c', 'd', 'e' ]
+```
+
+This makes sense; after all, we know that 'a' comes before 'b', which comes before 'c', and so on. Without running the code, try to figure out what would be returned here:
+
+```js
+['arc', 'bat', 'cape', 'ants', 'cap'].sort();
+```
+
+Solution
+
+```sh
+> ['arc', 'bat', 'cape', 'ants', 'cap'].sort()
+[ 'ants', 'arc', 'bat', 'cap', 'cape' ]
+```
+
+When working with strings that have multiple characters, `sort` compares them character by character, so the strings beginning with `a` come before those beginning with `b`; if both characters are the same, then the next character in each string is compared, and so on. If one string is shorter than another, but equal through the length of the shorter string, then the shorter string comes before the longer one. For instance, `'cap'` is shorter than `'cape'`, so `'cap'` comes first in the result.
+
+It's important to note that `sort` is **destructive**. It doesn't return a new array; it sorts the original array, in-place, and *returns a reference to that array*.
+
+```js
+> let vowels = ['u', 'i', 'a', 'e', 'o']
+> vowels.sort()
+[ 'a', 'e', 'i', 'o', 'u' ]
+> vowels
+[ 'a', 'e', 'i', 'o', 'u' ]
+```
+
+Often, though, we don't want to sort arrays in-place. We can c*reate a copy of the array* using `slice` and call the `sort` method on the copy *to avoid mutation* of the original array:
+
+```js
+> let vowels = ['u', 'i', 'a', 'e', 'o']
+> vowels.slice().sort()
+[ 'a', 'e', 'i', 'o', 'u' ]
+> vowels
+[ 'u', 'i', 'a', 'e', 'o' ]
+```
+
+`Array.prototype.sort` is an example of a function/method that has a side effect **and** returns a meaningful value at the same time, contrary to our advice to not mix side effects with meaningful return values. You can argue that that's a little deceptive; returning the sorted array might lead one to believe that it doesn't mutate the original. You'll often see such design inconsistencies in programming languages, especially JavaScript. That doesn't mean that you should emulate them -- leave breaking the rules to the experts.
 
 #### UTF-16
 

@@ -2663,3 +2663,21 @@ Score: 12/24 (50.0%)
 08:57 I went for a walk along the back trail of the duck pond and met and talked to Ray who lives at the house with the Tibetan prayer flags. I also saw a fox before that at the entrance. An eastern european heritage woman told me I was brave for walking barefoot there on the trail. Met a korean older couple who remarked that there had been a lot of rain. Just in a short walk this morning.
 
 10:04 Kind of felt like the marriage counseling session this morning was a waste of time. Leidy's okay, but not that smart. Arrogance on my part?
+
+12:10 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS101 > Lesson 4 > Assignment 12. Lesson 4 Quiz 1
+   * [x] 2. Algorithm Writing Clinic
+   * [x] 3. Read *A Mind for Numbers* { 17 } | Test Taking
+   * [x] 4. Listen to the Huberman Lab Podcast Episode 22 | Science & Tools for Muscle Growth, Increasing Strength & Muscular Recovery
+
+2. What will you do today?
+   * [ ] 1. JS101 > Lesson 5: Advanced JavaScript Collections > Assignment 2. Sorting
+   * [x] 2. Read *A Mind for Numbers* { 18 } | Unlock Your Potential
+   * [x] 3. Listen to the Huberman Lab Podcast Episode 23 | How to Build Endurance in Your Brain & Body
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I feel unfocused this week. There's lots of changes with the start of the school year and I can't seem to find blocks of time to study.
+
+12:33 I felt the ghrelin kick-in a minute ago.
