@@ -2692,3 +2692,6 @@ Score: 12/24 (50.0%)
 
 16:27 Back from ping pong. I lost 7-6 after taking a 5-1 lead. Ugh. Fast-twitch player.
 
+16:48 Damon is kind of a terror kid. Time for a break.
+
+16:57 I'm done for now. I might do a little more studying later.

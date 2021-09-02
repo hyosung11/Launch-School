@@ -374,7 +374,7 @@ The code `arr[0].push(3)` is again a two-part chain: the first part, `arr[0]` is
 We can also add another array instead of an integer:
 
 ```js
-let arr = [[1], [2]];
+let arr = [[1,], [2]];
 
 arr[0].push([3])
 arr; // => [ [ 1 , [ 3 ] ], [ 2 ] ]
