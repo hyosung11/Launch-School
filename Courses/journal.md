@@ -2653,3 +2653,5 @@ Time taken: 0.93 hour(s)
 Score: 12/24 (50.0%)
 
 19:34 Started Lesson 5. I'll review the Lesson 4 Quiz 1 later, maybe with Alex on Friday morning.
+
+20:38 Working on Sorting in JavaScript section. Ready to relax with Sohee.
