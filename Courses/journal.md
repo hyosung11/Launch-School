@@ -2685,3 +2685,5 @@ Score: 12/24 (50.0%)
 12:56 Studying now and wearing headphones because the kids are home and SungOh is watching that insipid youtube show unspeakable. Why am I feeling irritated? I am not expressing what I really want. I want to study Launch School full-time now. The end. Yep.
 
 13:08 Listening to The Wong Janice: "The Chakras: A Deep Cello Journey".
+
+13:49 Finished sorting and need to poo. Going to try the increase cortisol and epinephrine and then do a N/NSDR protocol now.
