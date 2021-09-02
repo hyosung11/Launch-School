@@ -2689,3 +2689,6 @@ Score: 12/24 (50.0%)
 13:49 Finished sorting and need to poo. Going to try the increase cortisol and epinephrine and then do a N/NSDR protocol now.
 
 14:50 Going to play ping pong now. Bye!
+
+16:27 Back from ping pong. I lost 7-6 after taking a 5-1 lead. Ugh. Fast-twitch player.
+

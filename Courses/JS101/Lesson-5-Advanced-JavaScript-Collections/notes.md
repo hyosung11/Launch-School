@@ -335,7 +335,52 @@ arr[0][1]; // => 3
 
 ### Updating collection elements
 
-RR
+Recall that JavaScript gives us a very convenient way to update array elements.
+
+```js
+let arr = [[1, 3], [2]];
+arr[1] = 'hi there';
+arr; // => [ [1, 3 ], 'hi there' ]
+```
+
+The `arr[1] = 'hi there'` is a **destructive** action that permanently changed the second element in the `arr` array; it replaced the entire `[2]` inner array with the string `'hi there'`.
+
+Likewise, we can modify a value in a nested array in a similar way.
+
+```js
+let arr = [[1, 3], [2]];
+arr[0][1] = 5;
+```
+
+There's a lot going on in that second line, so let's unpack it. It looks like a chained reference, similar to what we saw before. However, it's not. The first part, `arr[0]`, is an element reference that returns the inner array `[1, 3]`. The second part, `[1] = 5`, is the same as `[1, 3][1] = 5`, which is an array element assignment, not a reference. The code `[1, 3][1] = 5` says "change the second element in the array `[1, 3] to 5`". As we saw above, this is a destructive action, so the change is permanent. Thus, it's a chained action, but t*he first part of that chain is element reference*, while t*he second part of that chain is element assignment*.
+
+The first inner array is now permanently changed: the first inner array's second element is changed to 5 from the previous value of 3:
+
+```js
+arr; // => [ [ 1, 5], [ 2 ] ]
+```
+
+Before moving on, let's learn how to insert an additional element into an inner array. The idea is similar to the above example: we have to chain an element reference with appending an element.
+
+```js
+let arr = [[1], [2]];
+
+arr[0].push(3);
+arr; // => [ [1, 3], [2] ]
+```
+
+The code `arr[0].push(3)` is again a two-part chain: the first part, `arr[0]` is element reference and returns `[1]`; and the second part can be thought of as `[1].push(3)`, which destructively appends 3 into the inner array.
+
+We can also add another array instead of an integer:
+
+```js
+let arr = [[1], [2]];
+
+arr[0].push([3])
+arr; // => [ [ 1 , [ 3 ] ], [ 2 ] ]
+```
+
+That leaves us with a three-layer nested data structure.
 
 ### Other nested structures
 
