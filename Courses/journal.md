@@ -2687,3 +2687,5 @@ Score: 12/24 (50.0%)
 13:08 Listening to The Wong Janice: "The Chakras: A Deep Cello Journey".
 
 13:49 Finished sorting and need to poo. Going to try the increase cortisol and epinephrine and then do a N/NSDR protocol now.
+
+14:50 Going to play ping pong now. Bye!
