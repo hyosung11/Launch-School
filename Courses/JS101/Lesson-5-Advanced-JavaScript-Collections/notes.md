@@ -130,6 +130,41 @@ Often, though, we don't want to sort arrays in-place. We can c*reate a copy of t
 
 #### UTF-16
 
+Concepts like greater than, less than, and equal to are easy to understand when dealing with numbers. However, how do the operators like `<`, `>`, and `===` work with strings? The answer is that string order is determined by a character's **code point** in the UTF-16 encoding. It is the code point that determines the result when we compare one character with another using the relational operators.
+
+If we want to compare the UTF-16 character `+` with the UTF-16 character `3`, we need to know the code point for both characters. We can use `String.prototype.charCodeAt` to determine that value, then use the results to determine the order in which the characters will be sorted.
+
+```js
+> '+'.charCodeAt()
+43
+> '3'.charCodeAt()
+51
+> '+' < '3'
+true // since 43 < 51
+```
+
+You may sometimes see people talk about ASCII characters when talking about JavaScript's strings (and `sort` in particular). In fact, it *uses UTF-16*.
+
+Here are some examples:
+
+```js
+> 'A' < 'a' // 65 < 97
+true
+> 'Z' < 'a' // 90 < 97
+true
+> '!' < 'A' // 33 < 65
+true
+```
+
+You don't need to memorize the UTF-16 code points, nor do you need to memorize the ASCII table. However, when comparing or sorting strings, it's essential to know how they are ordered and roughly what that order is. Some useful rules to remember are:
+
+* Uppercase letters come *before* lowercase letters (sometimes called **ASCIIbetical** order, but that is imprecise when talking about UTF-16 code points).
+* Digits and most punctuation *come before* letters.
+* There are several punctuation characters between the uppercase and lowercase letters, and several more that come after all of the letters.
+* There is an extended ASCII table that contains accented and other characters - this comes after the main ASCII table.
+* All other UTF-16 characters come after the extended ASCII table and have a code point of at least 256.
+
+
 ### Sorting Summary
 
 In this assignment, we've looked at sorting as another way that we can work with collections. Sorting is complicated to perform algorithmically, but we can use the built-in `Array.prototype.sort` method to handle that complex work for us. At this point, you should understand the concept of sorting and be comfortable using the `sort` method that JavaScript arrays provide.

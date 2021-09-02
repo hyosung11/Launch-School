@@ -2681,3 +2681,5 @@ Score: 12/24 (50.0%)
    * I feel unfocused this week. There's lots of changes with the start of the school year and I can't seem to find blocks of time to study.
 
 12:33 I felt the ghrelin kick-in a minute ago.
+
+12:56 Studying now and wearing headphones because the kids are home and SungOh is watching that insipid youtube show unspeakable. Why am I feeling irritated? I am not expressing what I really want. I want to study Launch School full-time now. The end. Yep.
