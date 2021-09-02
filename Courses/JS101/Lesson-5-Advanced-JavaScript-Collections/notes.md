@@ -49,6 +49,41 @@ Though it's possible to write sorting code manually, such code is relatively com
 
 ### Sorting in JavaScript
 
+Comparisons are at the heart of how sorting works. Sorting algorithms must perform a comparison of some kind between the items in a collection. They use the results of the comparison to rearrange the order of the collection, eventually leading to the sorted result.
+
+Sorting integers via numeric comparison may seem easy. For example, we all know that 2 comes after 1 in numerical order. However, the default behavior of sort doesn't perform numerical sorting. What would you expect the following code to return?
+
+```js
+[2, 11, 9, 4, 107, 21, 1].sort();
+```
+
+You'd expect it to return `[1, 2, 4, 9, 11, 21, 107]` since that's the natural order of numbers. The number `1` comes before `2`, which comes before `4`, which comes before `11`, and so on. Try it out in the node console. You may be surprised when you see the following result:
+
+```sh
+> [2, 11, 9, 4, 107, 21, 1].sort()
+[ 1, 107, 11, 2, 21, 4, 9 ]
+```
+
+What on Earth is going on here? Can you see what's happening by studying the return value? Think about it for a minute or two before moving on.
+
+JavaScript being JavaScript, it converts all the numbers to strings and compares them by their **Unicode character codes**. Thus, all the numbers that begin with `1` move to the beginning of the array, then all the numbers that begin with `2` come next, and so on. The numbers are compared digit by digit, so `1`comes before `107` which comes before `11`, which comes before `2`. Given this behavior, how would you sort numbers by their numerical value? We'll return to this question later in the assignment.
+
+When `sort` is called without arguments, it coerces all the array elements except those that are `undefined` to their string equivalents, then sorts them using string comparisons:
+
+```sh
+> [null, 'a', true, 1].sort()
+[ 1, 'a', null, true ]
+```
+
+`undefined` values are a special case when it comes to sorting. They are always placed at the end of the array no matter what the other values are:
+
+```sh
+> [undefined, 11, 'z', 'x', 'y', undefined].sort()
+[ 11, 'x', 'y', 'z', undefined, undefined ]
+```
+
+#### Sorting Arrays of Strings Alphabetically
+
 RR
 
 #### UTF-16
