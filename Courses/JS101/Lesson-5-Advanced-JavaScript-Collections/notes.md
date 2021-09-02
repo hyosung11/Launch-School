@@ -317,7 +317,25 @@ In this example, we have one array that contains two separate arrays: [1, 3] and
 
 ![nested-array](nested-array-diagram.png)
 
+Each inner array can be accessed in the same way that you'd access any other array element; the trick is to remember that it's another collection you're referencing. Let's retrieve the first inner array like we typically reference array elements.
+
+```js
+arr[0]; // => [1, 3]
+```
+
+![nested-inner-array](nested-inner-array-diagram.png)
+
+With access to the first array, let's dig into the inner array and retrieve its second element -- the integer `3`. To access that element, we need to reference it, chaining our element references.
+
+```js
+arr[0][1]; // => 3
+```
+
+![nested-inner-array-element](nested-inner-array-element-diagram.png)
+
 ### Updating collection elements
+
+RR
 
 ### Other nested structures
 
