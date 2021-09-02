@@ -20,7 +20,7 @@ js_101          <-- this is your course 1 git repo
 +--lesson_5     <-- all lesson 5 code goes here
 ```
 
-## Sorting
+## 2. Sorting
 
 Thus far in our explorations, we've looked at various ways to work with collections, such as iterating through them, performing selection on the collection, or performing a transformation on the elements in the collection. We've also studied several methods that can make those tasks easier.
 
@@ -302,3 +302,37 @@ Using `a` and `b` parameters in a callback function for `sort` is a common conve
 In this assignment, we've looked at sorting as another way that we can work with collections. Sorting is complicated to perform algorithmically, but we can use the built-in `Array.prototype.sort` method to handle that complex work for us. At this point, you should understand the concept of sorting and be comfortable using the `sort` method that JavaScript arrays provide.
 
 20210902 13:46 Assignment complete.
+
+## 3. Nested Data Structures
+
+It's not uncommon for collections to contain other collections. Let's explore a few examples which illustrate how to work with nested data structures.
+
+### Reference collection elements
+
+```js
+let arr = [[1, 3], [2]];
+```
+
+In this example, we have one array that contains two separate arrays: [1, 3] and [2]. Each inner array still has its own index even though they're both inside another array.
+
+![nested-array](nested-array-diagram.png)
+
+### Updating collection elements
+
+### Other nested structures
+
+### Variable reference for nested collections
+
+### Shallow Copy
+
+#### Shallow Copying Objects
+
+### Deep Copy
+
+### Freezing Objects
+
+### Nested Data Structures Summary
+
+By taking the time to learn how nested data structures work, and what it means to copy an object, we're further able to clarify our understanding of collections and how to work with them. The deeper our knowledge is of a concept, the easier it is to implement solutions using that concept.
+
+In this assignment, we looked at examples that illustrated how nested data structures work and the syntax needed to manipulate them as needed. We also looked at how to copy an object and what freezing means. At this point, you should have a clear understanding of how to work with collections. You should be comfortable with complicated data structures and how to manipulate them to fit your needs. In the next assignment, we'll look at combining the concepts we've learned so far in this lesson.
