@@ -2626,9 +2626,9 @@ arr.includes({c: 'foo'}); // => false
    * [x] 4. Listen to the Huberman Lab Podcast Episode 21 | How to Lose Fat with Science-Based Tools
 
 2. What will you do today?
-   * [ ] 1. JS101 > Lesson 4 > Assignment 12. Lesson 4 Quiz 1
-   * [ ] 2. Algorithm Writing Clinic
-   * [ ] 3. Read *A Mind for Numbers* { 17 } | Test Taking
+   * [x] 1. JS101 > Lesson 4 > Assignment 12. Lesson 4 Quiz 1
+   * [x] 2. Algorithm Writing Clinic
+   * [x] 3. Read *A Mind for Numbers* { 17 } | Test Taking
    * [x] 4. Listen to the Huberman Lab Podcast Episode 22 | Science & Tools for Muscle Growth, Increasing Strength & Muscular Recovery
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -2655,3 +2655,11 @@ Score: 12/24 (50.0%)
 19:34 Started Lesson 5. I'll review the Lesson 4 Quiz 1 later, maybe with Alex on Friday morning.
 
 20:38 Working on Sorting in JavaScript section. Ready to relax with Sohee.
+
+## 20210902 목요일
+
+07:27 Once again, I slept in and missed my morning study window. I guess it's much harder without an accountability study partner. Ugh. I want to get outside this morning and make sure to get morning sunlight into my eyes after breakfast and before marriage counseling. Is there anything I want to discuss in counseling for today's session? I have to poo. All is well. Today is going to be a great day.
+
+08:57 I went for a walk along the back trail of the duck pond and met and talked to Ray who lives at the house with the Tibetan prayer flags. I also saw a fox before that at the entrance. An eastern european heritage woman told me I was brave for walking barefoot there on the trail. Met a korean older couple who remarked that there had been a lot of rain. Just in a short walk this morning.
+
+10:04 Kind of felt like the marriage counseling session this morning was a waste of time. Leidy's okay, but not that smart. Arrogance on my part?
