@@ -2628,7 +2628,7 @@ arr.includes({c: 'foo'}); // => false
 2. What will you do today?
    * [x] 1. JS101 > Lesson 4 > Assignment 12. Lesson 4 Quiz 1
    * [x] 2. Algorithm Writing Clinic
-   * [ ] 3. Read *A Mind for Numbers* { 17 } | Test Taking
+   * [x] 3. Read *A Mind for Numbers* { 17 } | Test Taking
    * [x] 4. Listen to the Huberman Lab Podcast Episode 22 | Science & Tools for Muscle Growth, Increasing Strength & Muscular Recovery
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -2640,4 +2640,90 @@ arr.includes({c: 'foo'}); // => false
 
 11:41 Feeling some resistance to taking the quiz, but I'm going to bite the bullet and do it now.
 
-16:53 I didn't have a lot of time to study today. I'll try to review my quiz after dinner.
+11:44 Starting the quiz now.
+
+12:40 The Lesson 4 Quiz 1 took me almost an hour. I got 50%.
+
+JS101 - Programming Foundations with JavaScript
+
+Assignment: Lesson 4 Quiz 1
+Student Name: HyoSung Bidol-Lee
+Submitted at: less than a minute ago
+Time taken: 0.93 hour(s)
+Score: 12/24 (50.0%)
+
+19:34 Started Lesson 5. I'll review the Lesson 4 Quiz 1 later, maybe with Alex on Friday morning.
+
+20:38 Working on Sorting in JavaScript section. Ready to relax with Sohee.
+
+## 20210902 목요일
+
+07:27 Once again, I slept in and missed my morning study window. I guess it's much harder without an accountability study partner. Ugh. I want to get outside this morning and make sure to get morning sunlight into my eyes after breakfast and before marriage counseling. Is there anything I want to discuss in counseling for today's session? I have to poo. All is well. Today is going to be a great day.
+
+08:57 I went for a walk along the back trail of the duck pond and met and talked to Ray who lives at the house with the Tibetan prayer flags. I also saw a fox before that at the entrance. An eastern european heritage woman told me I was brave for walking barefoot there on the trail. Met a korean older couple who remarked that there had been a lot of rain. Just in a short walk this morning.
+
+10:04 Kind of felt like the marriage counseling session this morning was a waste of time. Leidy's okay, but not that smart. Arrogance on my part?
+
+12:10 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS101 > Lesson 4 > Assignment 12. Lesson 4 Quiz 1
+   * [x] 2. Algorithm Writing Clinic
+   * [x] 3. Read *A Mind for Numbers* { 17 } | Test Taking
+   * [x] 4. Listen to the Huberman Lab Podcast Episode 22 | Science & Tools for Muscle Growth, Increasing Strength & Muscular Recovery
+
+2. What will you do today?
+   * [ ] 1. JS101 > Lesson 5: Advanced JavaScript Collections > Assignment 2. Sorting
+   * [x] 2. Read *A Mind for Numbers* { 18 } | Unlock Your Potential
+   * [x] 3. Listen to the Huberman Lab Podcast Episode 23 | How to Build Endurance in Your Brain & Body
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I feel unfocused this week. There's lots of changes with the start of the school year and I can't seem to find blocks of time to study.
+
+12:33 I felt the ghrelin kick-in a minute ago.
+
+12:56 Studying now and wearing headphones because the kids are home and SungOh is watching that insipid youtube show unspeakable. Why am I feeling irritated? I am not expressing what I really want. I want to study Launch School full-time now. The end. Yep.
+
+13:08 Listening to The Wong Janice: "The Chakras: A Deep Cello Journey".
+
+13:49 Finished sorting and need to poo. Going to try the increase cortisol and epinephrine and then do a N/NSDR protocol now.
+
+14:50 Going to play ping pong now. Bye!
+
+16:27 Back from ping pong. I lost 7-6 after taking a 5-1 lead. Ugh. Fast-twitch player.
+
+16:48 Damon is kind of a terror kid. Time for a break.
+
+16:57 I'm done for now. I might do a little more studying later.
+
+## 20210903 금요일
+
+06:04 Study session with Alex
+
+07:13 Finished studying session with Alex. We agreed to take the JS109 Written Assessment by Sunday 3 October 2021 at 23:59 and work on code snippet explanations in our study sessions.
+
+07:59 Read *The Programmer's Brain*: chapter 1 | Decoding your confusion while coding: long term memory, short term memory, working memory.
+
+10:44 Back from the gym. Talking to Sohee about SungOh's birthday party.
+
+10:50 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS101 > Lesson 5: Advanced JavaScript Collections > Assignment 2. Sorting
+   * [x] 2. Read *A Mind for Numbers* { 18 } | Unlock Your Potential
+   * [x] 3. Listen to the Huberman Lab Podcast Episode 23 | How to Build Endurance in Your Brain & Body
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS100/101 Study Group
+   * [x] 3. SPOT QA Session
+   * [ ] 4. JS101 > Lesson 5 > Assignment 3. Nested Data Structures
+   * [x] 5. Read *The Programmer's Brain* | Decoding your confusion while coding
+   * [x] 6. Listen to the Huberman Lab Podcast Episode 24 | The Science of Vision, Eye Health & Seeing Better
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Good to go.
+
+13:30 SPOT QA session with Iuliu Pop
+
+14:13 I feel slightly discombobulated at the moment. Going to move to the dining room table.
