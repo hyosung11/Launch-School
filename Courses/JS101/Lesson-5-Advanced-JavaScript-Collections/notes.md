@@ -395,7 +395,26 @@ Arrays aren't the only data structure that can be nested. Objects can be nested 
 Let's suppose we want to insert a new key/value pair into the first inner object. Once again, there has to be a two-step process: first, reference the first element in the array; next, update the object.
 
 ```js
-let 
+let arr = [{ a: 'ant' }, { b: 'bear' }];
+
+arr[0]['c'] = 'cat';
+arr[0].d = 'dog';
+arr; // => [{ a: 'ant', c: 'cat', d: 'dog' }, { b: 'bear' }]
+```
+
+Hopefully, you can recognize the pattern by now. First we use `arr[0]` to retrieve the first inner object, so we get `{ a: 'ant' }`. Next, we use the normal object key/value creation syntax to create a new key/value pair: `{ a: 'ant' }['c'] = 'cat'` or `{ a: 'ant' }.d = 'dog'`. The change is **destructive**, so the array, `arr`, reflects the change when we inspect it.
+
+As we know, arrays can contain any JavaScript value, regardless of type. Arrays can hold multiple different objects at the same time, including nested data structures. Let's take a look at an example and *retrieve* a few elements from it.
+
+```js
+let arr = [['a', ['b']], { b: 'bear', c: 'cat' }, 'cab'];
+
+arr[0]; // => ['a', ['b']]
+arr[0][1][0]; // => 'b'
+arr[1]; // => { b: 'bear', c: 'cat' }
+arr[1]['b']; // => 'bear'
+arr[1].b[1]; // => 'e'
+arr[2][1]; // => 'a'
 ```
 
 ### Variable reference for nested collections
