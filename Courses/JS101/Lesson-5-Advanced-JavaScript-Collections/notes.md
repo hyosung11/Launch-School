@@ -571,6 +571,26 @@ obj;       // => { a: { b: 'foo', d: 'baz' }, c: [ 'bar' ] }
 
 ### Deep Copy
 
+JavaScript doesn't have an explicit method or function for deep copying objects, but there is an indirect way to do it. However, it only works with nested arrays and plain objects. Objects that have methods and complex objects like dates or custom objects cannot be deep-cloned with this technique. Most use cases of deep copying objects involve only plain objects and arrays, so this technique is useful to learn:
+
+```js
+let arr = [{ b: 'foo' }, ['bar']];
+let serializedArr = JSON.stringify(arr);
+let deepCopiedArr = JSON.parse(serializedArr);
+```
+
+The `JSON.stringify` method **serializes** any object, including arrays, that only have primitives, arrays, and plain objects as elements. Serializing involves converting an object to a string form that can be subsequently converted back into an identical object. The `JSON.parse` method performs that conversion from a string back to an object.
+
+To verify that this is indeed a deep copy, we'll modify the second element of the `deepCopiedArr` array, which itself is an array. If the modification doesn't show in the original `arr`, we can conclude that it's a deep copy:
+
+```js
+deepCopiedArr[1].push('baz');
+deepCopiedArr; // => [ { b: 'foo' }, [ 'bar', 'baz' ] ]
+arr;           // => [ { b: 'foo' }, [ 'bar' ] ]
+```
+
+Sure enough, modifying the nested array within `deepCopiedArr` doesn't modify the nested array inside `arr`.
+
 ### Freezing Objects
 
 ### Nested Data Structures Summary
