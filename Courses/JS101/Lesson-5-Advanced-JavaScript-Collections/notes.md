@@ -531,6 +531,44 @@ The critical thing to be aware of is what level you're working at, especially wh
 
 #### Shallow Copying Objects
 
+We've previously seen that the `Object.assign` method can be used to copy properties of one or more objects into another:
+
+```js
+let obj1 = { a: 'foo' };
+let obj2 = { b: 'bar' };
+
+Object.assign(obj1, obj2); // => { a: 'foo', b: 'bar' }
+obj1;                      // => { a: 'foo', b: 'bar' }
+```
+
+As you can see, `Object.assign` copies over the properties from `obj2` into `obj1` and returns `obj1`. You might be able to see that we can use `Object.assign` to create a copy of an object by providing an empty object as the first argument:
+
+```js
+let obj = { a: 'foo', b: 'bar' };
+let copyOfObj = Object.assign({}, obj);
+
+copyOfObj; // => { a: 'foo', b: 'bar' }
+```
+
+To verify that it's indeed a copy, we can modify the copy and check whether the original is affected by the modification.
+
+```js
+copyOfObj['c'] = 'baz';
+copyOfObj; // => { a: 'foo', b: 'bar', c: 'baz' }
+obj;       // => { a: 'foo', b: 'bar' }
+```
+
+Note that `Object.assign` only creates a shallow copy of the object. That is, changes to nested objects within the copy will be reflected in the original:
+
+```js
+let obj = { a: { b: 'foo' }, c: ['bar'] };
+let copyOfObj = Object.assign({}, obj);
+
+obj['a']['d'] = 'baz';
+copyOfObj; // => { a: { b: 'foo', d: 'baz' }, c: [ 'bar' ] }
+obj;       // => { a: { b: 'foo', d: 'baz' }, c: [ 'bar' ] }
+```
+
 ### Deep Copy
 
 ### Freezing Objects
