@@ -419,6 +419,52 @@ arr[2][1]; // => 'a'
 
 ### Variable reference for nested collections
 
+A common confusing aspect when working with nested collections occurs when variables reference inner collections. Let's study some code.
+
+```js
+let a = [1, 3];
+let b = [2];
+let arr = [a, b];
+arr // => [[ 1, 3 ], [2] ]
+```
+
+The variables `a` and `b` are pointing to Array objects. When we create an array that uses these variables to specify elements, the result looks as if we've actually added the arrays to the array. However, we've *only added references to those arrays*. To see how this affects things, let's consider some examples.
+
+First, what happens if we modify `a` after placing it in `arr`?
+
+```js
+let a = [1, 3];
+let b = [2];
+let arr = [a, b];
+
+arr; // => [ [1, 3 ], [2] ]
+
+a[1] = 5;
+arr; // => [ 1, 5 ], [ 2 ]
+```
+
+Did that do what you expected? Is it intuitive that `arr` was also changed? The value of `arr` changed because `a` still points to the same Array object that's in `arr`. When we modified it by replacing `3` with `5`, we were modifying the Array object.
+
+Take a moment to study the following diagram to establish a mental model of variables pointing to objects.
+
+![variables-as-pointers-1](variables-as-pointers-1.png)
+
+What if we modify the first array in `arr`? Is it different than modifying `a` directly?
+
+```js
+arr[0][1] = 8;
+arr; // => [ [ 1, 8 ], [ 2 ] ]
+a;   // => [ 1, 8 ]
+```
+
+It produces the same result as modifying `a` directly. Why is that? In both cases, we're modifying the object that `a` and `arr[0]` point to; we now have two ways to reference the same object. In the first example, the object was modified through `a`. In the second example, the object was modified through `arr[0]`.
+
+As can be seen in the diagram below, `a` and `arr[0]` are, in fact, two different ways to reference the same object. The assignment `arr[0][1] = 8` is equivalent to `a[1] = 8`.
+
+![variables-as-pointers-2](variables-as-pointers-2.png)
+
+It's essential to understand variables as pointers, as this is a fundamental concept. If you need to gain a clearer understanding, now would be a good time to go back to the Introduction to JavaScript book and re-read the [Variables as Pointers](https://github.com/hyosung11/Launch-School/blob/main/Courses/JS101/Lesson-4-JavaScript-Collections/notes.md) section.
+
 ### Shallow Copy
 
 #### Shallow Copying Objects
