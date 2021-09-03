@@ -2695,3 +2695,31 @@ Score: 12/24 (50.0%)
 16:48 Damon is kind of a terror kid. Time for a break.
 
 16:57 I'm done for now. I might do a little more studying later.
+
+## 20210903 금요일
+
+06:04 Study session with Alex
+
+07:13 Finished studying session with Alex. We agreed to take the JS109 Written Assessment by Sunday 3 October 2021 at 23:59 and work on code snippet explanations in our study sessions.
+
+07:59 Read *The Programmer's Brain*: chapter 1 | Decoding your confusion while coding: long term memory, short term memory, working memory.
+
+10:44 Back from the gym. Talking to Sohee about SungOh's birthday party.
+
+10:50 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS101 > Lesson 5: Advanced JavaScript Collections > Assignment 2. Sorting
+   * [x] 2. Read *A Mind for Numbers* { 18 } | Unlock Your Potential
+   * [x] 3. Listen to the Huberman Lab Podcast Episode 23 | How to Build Endurance in Your Brain & Body
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. JS100/101 Study Group
+   * [ ] 3. SPOT QA Session
+   * [ ] 4. JS101 > Lesson 5 > Assignment 3. Nested Data Structures
+   * [x] 5. Read *The Programmer's Brain* | Decoding your confusion while coding
+   * [x] 6. Listen to the Huberman Lab Podcast Episode 24 | The Science of Vision, Eye Health & Seeing Better
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Good to go.

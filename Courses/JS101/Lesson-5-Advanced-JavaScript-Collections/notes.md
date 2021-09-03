@@ -384,6 +384,20 @@ That leaves us with a three-layer nested data structure.
 
 ### Other nested structures
 
+Arrays aren't the only data structure that can be nested. Objects can be nested within an array as well. Let's study a simple example of that.
+
+```js
+[{ a: 'ant' }, { b: 'bear' }]
+```
+
+![array-of-hashes](array-of-hashes.png)
+
+Let's suppose we want to insert a new key/value pair into the first inner object. Once again, there has to be a two-step process: first, reference the first element in the array; next, update the object.
+
+```js
+let 
+```
+
 ### Variable reference for nested collections
 
 ### Shallow Copy
