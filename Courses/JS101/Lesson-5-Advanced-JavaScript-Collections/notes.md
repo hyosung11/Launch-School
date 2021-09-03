@@ -593,6 +593,46 @@ Sure enough, modifying the nested array within `deepCopiedArr` doesn't modify th
 
 ### Freezing Objects
 
+Another example of an operation not affecting objects nested within objects is the operation of freezing objects. What is freezing? In JavaScript, objects can be frozen using the `Object.freeze` method. The method prevents objects (including arrays) from being modified.
+
+```js
+let obj = Object.freeze({ a: 'foo' });
+let arr = Object.freeze(['a', 'b', 'c']);
+
+obj['b'] = 'bar';
+obj; // => { a: 'foo' }
+
+obj.c = 'ccc';
+obj; // => { a: 'foo' }
+
+arr[3] = 'x';
+arr; // => [ 'a', 'b', 'c' ]
+
+arr.push('d'); // => TypeError: Cannot add property 3, object is not extensible
+```
+
+In each case, we can't modify the object once it's frozen. Interestingly, trying to use a method to mutate a frozen object raises an exception. However, if we try to use assignment, the assignment fails silently. Another one of those JavaScript quirks!
+
+Only objects can be frozen with `Object.freeze`. Primitive values are already frozen.
+
+We can check whether an object is frozen with the `Object.isFrozen` method:
+
+```js
+Object.isFrozen('abc'); // => true
+```
+
+What, exactly, does `Object.freeze` freeze? It only freezes the object that is passed to it. If the object passed to it contains other objects, those objects won't be frozen. For example, if we have a nested array, the nested objects can still be modified after passing it to `Object.freeze`.
+
+```js
+let arr = Object.freeze([[1], [2], [3]]);
+arr[2].push(4);
+arr; // =>  [ [ 1 ], [ 2 ], [ 3, 4 ] ]
+```
+
+This behavior also applies to objects within arrays, objects within objects and arrays within objects.
+
+In JavaScript, there's no built-in function or an easy workaround to deep-freeze objects.
+
 ### Nested Data Structures Summary
 
 By taking the time to learn how nested data structures work, and what it means to copy an object, we're further able to clarify our understanding of collections and how to work with them. The deeper our knowledge is of a concept, the easier it is to implement solutions using that concept.
