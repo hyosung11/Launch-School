@@ -2727,3 +2727,7 @@ Score: 12/24 (50.0%)
 13:30 SPOT QA session with Iuliu Pop
 
 14:13 I feel slightly discombobulated at the moment. Going to move to the dining room table.
+
+15:21 Working through "Nested Data Structures" assignment even as my eyes droop.
+
+15:45 Finished "Variable reference for nested collections" section. Going to get ready to play ping pong with Louis. Serve into his elbow. Spin. Brush the ball.
