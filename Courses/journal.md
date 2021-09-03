@@ -2626,8 +2626,8 @@ arr.includes({c: 'foo'}); // => false
    * [x] 4. Listen to the Huberman Lab Podcast Episode 21 | How to Lose Fat with Science-Based Tools
 
 2. What will you do today?
-   * [ ] 1. JS101 > Lesson 4 > Assignment 12. Lesson 4 Quiz 1
-   * [ ] 2. Algorithm Writing Clinic
+   * [x] 1. JS101 > Lesson 4 > Assignment 12. Lesson 4 Quiz 1
+   * [x] 2. Algorithm Writing Clinic
    * [ ] 3. Read *A Mind for Numbers* { 17 } | Test Taking
    * [x] 4. Listen to the Huberman Lab Podcast Episode 22 | Science & Tools for Muscle Growth, Increasing Strength & Muscular Recovery
 
@@ -2639,3 +2639,5 @@ arr.includes({c: 'foo'}); // => false
 11:15 Correspondence took thirty minutes. Now I want to take a break before starting the quiz.
 
 11:41 Feeling some resistance to taking the quiz, but I'm going to bite the bullet and do it now.
+
+16:53 I didn't have a lot of time to study today. I'll try to review my quiz after dinner.
