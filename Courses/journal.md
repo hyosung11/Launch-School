@@ -2715,11 +2715,15 @@ Score: 12/24 (50.0%)
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [ ] 2. JS100/101 Study Group
-   * [ ] 3. SPOT QA Session
+   * [x] 2. JS100/101 Study Group
+   * [x] 3. SPOT QA Session
    * [ ] 4. JS101 > Lesson 5 > Assignment 3. Nested Data Structures
    * [x] 5. Read *The Programmer's Brain* | Decoding your confusion while coding
    * [x] 6. Listen to the Huberman Lab Podcast Episode 24 | The Science of Vision, Eye Health & Seeing Better
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Good to go.
+
+13:30 SPOT QA session with Iuliu Pop
+
+14:13 I feel slightly discombobulated at the moment. Going to move to the dining room table.
