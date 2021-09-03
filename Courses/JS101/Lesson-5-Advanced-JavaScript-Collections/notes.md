@@ -467,6 +467,68 @@ It's essential to understand variables as pointers, as this is a fundamental con
 
 ### Shallow Copy
 
+Sometimes, you may find that you need to copy an entire collection, perhaps to save the original collection before performing some modifications. There are different ways to copy different kinds of collections. In this section, we'll discuss how to shallow copy objects and arrays.
+
+#### Shallow Copying Arrays
+
+One way to copy an array is to use the `Array.prototype.slice()` method without arguments:
+
+```js
+let arr = ['a', 'b', 'c'];
+let copyOfArr = arr.slice();
+copyOfArr; // => [ 'a', 'b', 'c' ];
+```
+
+A more modern way is to use the ES6 **spread syntax**, which uses `...` to expand an array to a list of values:
+
+```js
+let arr = ['a', 'b', 'c'];
+let copyOfArr = [...arr];
+copyOfArr; // => [ 'a', 'b', 'c' ];
+```
+
+Let's verify that the new arrays are in fact copies of the original arrays and not the same arrays.
+
+```js
+let arr = ['a', 'b', 'c'];
+let copyOfArr = [...arr];
+
+copyOfArr.push('d');
+
+arr;       // => [ 'a', 'b', 'c' ]
+copyOfArr; // => [ 'a', 'b', 'c', 'd' ]
+```
+
+You can do the same with the copy created by using `slice`. Both techniques create a shallow copy of an array: only the top level array is copied. When the array contains other objects, like a nested array, then those objects are shared, not copied. That has major ramifications for nested collections:
+
+```js
+let arr = [['a'], ['b'], ['c']];
+let copyOfArr = arr.slice();
+
+copyOfArr[1].push('d');
+
+arr;       // => [ [ 'a' ], [ 'b', 'd' ], [ 'c' ] ]
+copyOfArr; // => [ [ 'a' ], [ 'b', 'd' ], [ 'c' ] ]
+```
+
+You may have noticed that both `arr` and `copyOfArr` were changed. That might not fit with how you assumed that an array copy should behave.
+
+It's important to understand that this behavior occurs because the destructive method `push` was called on a shared array object, `['b']`, rather than a separate array. When you mutate a shared object in an array or other collection, it is the shared object you are affecting rather than the collection.
+
+Let's try that with plain objects nested within an array:
+
+```js
+let arr = [{ a: 'foo' }, { b: 'bar' }, { c: 'baz' }];
+let copyOfArr = [...arr];
+
+copyOfArr[1].d = 'qux';
+
+arr;       // => [ { a: 'foo' }, { b: 'bar', d: 'qux' }, { c: 'baz' } ]
+copyOfArr; // => [ { a: 'foo' }, { b: 'bar', d: 'qux' }, { c: 'baz' } ]
+```
+
+The critical thing to be aware of is what level you're working at, especially when working with nested collections and using variables as pointers. Are you working at the level of an outer array or object or at the level of an object within that?
+
 #### Shallow Copying Objects
 
 ### Deep Copy
