@@ -638,3 +638,131 @@ In JavaScript, there's no built-in function or an easy workaround to deep-freeze
 By taking the time to learn how nested data structures work, and what it means to copy an object, we're further able to clarify our understanding of collections and how to work with them. The deeper our knowledge is of a concept, the easier it is to implement solutions using that concept.
 
 In this assignment, we looked at examples that illustrated how nested data structures work and the syntax needed to manipulate them as needed. We also looked at how to copy an object and what freezing means. At this point, you should have a clear understanding of how to work with collections. You should be comfortable with complicated data structures and how to manipulate them to fit your needs. In the next assignment, we'll look at combining the concepts we've learned so far in this lesson.
+
+20210903 19:16 Assignment complete.
+
+## Working with Callback Functions
+
+In the last two lessons, we've looked at a variety of fundamental concepts related to working with collections, such as iterating, selecting, transforming, sorting, nested collections, and using callbacks. In this assignment, we'll focus on combining all of these concepts, while taking the time to understand fully how each component works. Take your time to analyze each example in this assignment. An example may look very easy or hard, but it probably requires roughly the same effort to understand if you focus on the right details. The goal is to have a deep understanding of how each detail works, not to complete this assignment as fast as possible.
+
+Before we look at some examples, let's talk about higher order functions.
+
+### Functions as First-Class Objects and Higher Order Functions
+
+In most computer languages, the term **first-class value** or **first-class object** is used to describe values that meet the following conditions:
+
+* They can be assigned to a variable or an element of a data structure (such as an array or object).
+* They can be passed as an argument to a function.
+* They can be returned as the return value of a function.
+
+Clearly, in JavaScript, primitive values, arrays, and objects all meet this criteria. What you might not realize is that functions also do. Not only can you invoke functions, but you can also pass them around your program like any other value. If JavaScript is your first language, this might not be a big revelation. However, if you have prior experience with some other languages, it may come as a surprise. Since functions can be treated as values, we can create functions that can take other functions as arguments and return other functions. That, in turn, allows for a more declarative and expressive style of programming.
+
+We'll sometimes refer to JavaScript functions as **first-class functions** to distinguish them from functions in other languages where functions are not first-class objects.
+
+For example, let's compare a transformation operation that uses a for loop to a transformation performed that uses map. Our program will transform an array of numbers by squaring every number in the array. First, here it is with a for loop:
+
+```js
+// for loop transformation
+let numbers = [1, 2, 3, 4, 5];
+let transformedNumbers = [];
+
+for (let index = 0; index < numbers.length; index += 1) {
+  let currentNum = numbers[index];
+  let squaredNum = currentNum * currentNum;
+
+  transformedNumbers.push(squaredNum);
+}
+
+transformedNumbers; // => [ 1, 4, 9, 16, 25 ]
+```
+
+Now, here's the same operation using `Array.prototype.map`:
+
+```js
+// map transformation
+let numbers = [1, 2, 3, 4, 5];
+let transformedNumbers = numbers.map(currentNum => currentNum * currentNum);
+
+transformedNumbers; // => [1, 4, 9, 15, 25]
+```
+
+As you can see, there is a dramatic difference between the styles in these two snippets. The first one uses what we call an **imperative** approach. It's called imperative since you're telling the interpreter what to do each step of the way:
+
+* Declare and initialize an empty `transformedNumbers` array.
+* Declare a counter.
+* Increment a counter.
+* Assign the element at the `index` to `currentNum`.
+* Compute the square of `currentNum` and assign it to `squaredNum`.
+* Append the squared number to the end of the `transformedNumbers` array.
+
+The second approach, on the other hand, uses what we call a **declarative** approach. We're declaring what we need to do with the `numbers` array by saying "We want to map each element of the array to the return value of passing that element to the given callback function."
+
+This declarative style of programming is possible only because we can treat functions as values. The `map` method takes a function as an argument and calls it for each element of the array used to call `map`. Functions that take other functions as arguments are called **Higher Order Functions**, as are functions that return other functions. In this assignment, we'll focus on array methods that take functions as arguments. In the JavaScript world, functions that we pass to other functions are often called **callback functions** or, more simply, **callbacks**.
+
+We'll now take a look at a few examples of methods that take callbacks and analyze each component in depth:
+
+### Example 1
+
+Take a moment to digest this example:
+
+```js
+[[1, 2], [3, 4]].forEach(arr => console.log(arr[0]));
+// 1
+// 3
+// => undefined
+```
+
+What's happening in this seemingly-simple piece of code? Take it apart and try to describe every interaction with precision.
+
+First, notice that we're calling `Array.prototype.forEach` with a callback function:
+
+```js
+arr => console.log(arr[0])
+```
+
+That means that `Array.prototype.forEach` is a higher order function - we can pass another function (the callback) to `forEach` as an argument.
+
+We use the multi-dimensional array `[[1, 2], [3, 4]]` to call `forEach`. Each inner array is passed to the callback, in turn, and assigned to the parameter `arr`. We then use the element reference operator, `[]`, to get the value at index `0` of the array. On the first invocation of the callback, `arr[0]` returns `1`, and on the second, it returns `3`. In each invocation, `console.log` outputs a string representation of the value returned by `arr[0]`. Since this is a single statement callback, the callback's return value is the return value of `console.log(arr[0])`, which is `undefined`. `forEach` doesn't do anything with that returned value though. Finally, no matter what the callback returns, `forEach` always returns `undefined`.
+
+A lot is going on in just one line of code! It isn't easy to parse all of that in your head at once, and this is a relatively simple example. We'll examine some much more complex ones later. It can be helpful to map things out visually to keep track of what is happening. Let's try it.
+
+The technique we're about to show is designed to help you break down code in a way that makes it easier to understand. It can be very helpful when you're first learning to deal with iterative code and callbacks. As such, it's an informal process, much like pseudocode. We don't expect you produce the exact same results we do, but you should be able perform some sort of analysis that helps you understand the code.
+
+What specific pieces of information should we track, then? When evaluating code like this, ask the following questions:
+
+* What type of action is being performed? Method call? Callback? Conditional? Something else?
+* On what value is that action performed?
+* What is the side-effect of that action (e.g., output or destructive action)?
+* What is the return value of that action?
+* Is the return value used by whatever instigated the action?
+
+We can take these pieces of information and set them out in a tabular format:
+
+Action  | Performed on  | Side Effect  | Return Value  | Is Return Value Used?
+--------|---------------|--------------|---------------|----------------------
+method call (`forEach`)  | the outer array  | None  | `undefined`  | No, but shown on line 4
+callback execution  | Each sub-array  | None  | `undefined`  | No
+element reference (`[0]`)  | Each sub-array  | None  | Element at index 0 of sub-array  | Yes, used by `console.log`
+method call (`console.log`)  | Element at index `0` of the sub-array  | Outputs string representation of a Number  | `undefined`  | Yes, used to determine callback's return value
+
+### Working with Callback Functions Summary
+
+The goal of this assignment is to give you the tools to deconstruct and analyze code dealing with collections. Working with collections is a core task of most problems, so it's common to come across code that's iterating, selecting and transforming nested data structures. To the untrained eye, it can seem like a jumbled mess, and there's no way anyone can understand it without running the code to "see if it works." The trained practitioner, however, can adopt an engineering mindset and take the code apart, line by line, letter by letter.
+
+At this point, you should be very comfortable with loops and iterative methods, and using them to work with collections. You should also be comfortable with data structures and manipulating them to fit your needs. Combine that knowledge with practice, and you'll be able to understand more complex problems like the ones in this assignment.
+
+Some important things to remember:
+
+* If, at first, the code appears opaque or complex, take the time to break it down step by step.
+* If necessary, use a systematic approach, such as the tabular method outlined in this assignment.
+* Figure out what is happening at each step, paying particular attention to:
+  * The return value
+  * Side effects
+
+* Pay attention to the return values of all expressions in your code, especially where implicit return values are used.
+* Make sure you have a clear understanding of the underlying concepts such as data structures, loops, iterative methods, and the callback functions passed to them.
+* Be clear about the implementation of the iterative method(s) being used, particularly:
+  * What values are passed to the callback?
+  * What does the method do with the return value of the callback?
+
+* If you're unclear about how a method works, a good first step is to refer to the MDN Docs.
