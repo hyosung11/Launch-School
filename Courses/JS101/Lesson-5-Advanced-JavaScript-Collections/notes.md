@@ -767,6 +767,78 @@ method call (`console.log`)  | Element at index 0 of each sub-array  | Outputs a
 
 The new return value is a result of how `map` handles the return value of the callback. Unlike `forEach`, `map` uses the return value of the callback to perform a transformation. Thus, the return value of the callback is critical to understanding this code.
 
+### Example 3
+
+Let's mix it up a little and have you try taking apart an example on your own.
+
+```js
+[[1, 2], [3, 4]].map(arr => {
+  console.log([arr[0]]);
+  return arr[0];
+});
+```
+
+Map out a detailed breakdown for this example using an approach similar to the previous two. What do you think will be returned and what will the side-effects be? You shouldn't have to guess. While there isn't a single right way to break this code down, you should be able to identify all of the different parts like we did above. You have all the knowledge you need. Take your time and analyze the code as completely as you can. Compare your solution to our solution.
+
+Solution
+
+This example outputs and returns the following:
+
+```js
+1
+3
+=> [1, 3]
+```
+
+When breaking down the example, pay close attention to:
+
+* The return value of the callback
+* The return value of the method
+* Any side-effects
+
+Use the following table to gauge the depth you should be thinking at when breaking down this code:
+
+Action  | Performed on  | Side Effect  | Return Value  | Is Return Value Used?
+--------|---------------|--------------|---------------|----------------------
+method call (`map`)  | The outer array  | None  | New array (`[1, 3]`)  | No
+callback execution  | Each sub-array  | None  | Number at index 0 of sub-array | Yes, used by `map` for transformation
+element reference (`[0]`)  | Each sub-array  | None  | Element at index 0 of sub-array  | Yes, used by `console.log`
+method call (`console.log`)  | Element at index `0` of each sub-array  | Outputs string representation of a Number | `undefined`  | No
+element reference (`[0]`) | Each sub-array | None | Element at Index 0 of sub-array | Yes, explicitly returned by callback
+
+The main difference to understand here is the return value of the callback: we're explicitly returning the first element of each subarray with return. The callback's return value is then used by map to perform the transformation, replacing the inner array with a number. Finally, map returns a new array with two numbers in it.
+
+Note that the following slight change to our callback again results in map returning `[undefined, undefined]`.
+
+```js
+[[1, 2], [3, 4]].map(arr => {
+  console.log(arr[0]);
+  arr[0];
+});
+
+// 1
+// 3
+// => [undefined, undefined]
+```
+
+We removed the explicit `return` from the last line in the callback function. As we know, when using callbacks with curly braces, we must explicitly return values. Even though the `arr[0]` element reference returns a number, the callback returns `undefined` since the callback doesn't explicitly return the number.
+
+Remember: your solution doesn't need to be precisely the same as ours. However, make sure that you fully understand the code, and that you didn't leave out any essential details.
+
+### Example 4
+
+RR
+
+### Example 5
+
+### Example 6
+
+### Example 7
+
+### Example 8
+
+### Example 9
+
 ### Working with Callback Functions Summary
 
 The goal of this assignment is to give you the tools to deconstruct and analyze code dealing with collections. Working with collections is a core task of most problems, so it's common to come across code that's iterating, selecting and transforming nested data structures. To the untrained eye, it can seem like a jumbled mess, and there's no way anyone can understand it without running the code to "see if it works." The trained practitioner, however, can adopt an engineering mindset and take the code apart, line by line, letter by letter.

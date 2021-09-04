@@ -2739,3 +2739,28 @@ Score: 12/24 (50.0%)
 20:35 Got to study during Jumanji movie.
 
 20:59 Finishing studying for tonight.
+
+## 20210904 토요일
+
+10:08 축구하고 지금 공부하고 싶다. I was starting my daily scrum and got distracted.
+
+10:10 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS100/101 Study Group
+   * [x] 3. SPOT QA Session
+   * [x] 4. JS101 > Lesson 5 > Assignment 3. Nested Data Structures
+   * [ ] 5. JS101 > Lesson 5 > Assignment 4. Working with Callback Functions
+   * [x] 6. Read *The Programmer's Brain* | Chapter 1: Decoding your confusion while coding
+   * [x] 7. Listen to the Huberman Lab Podcast Episode 24 | The Science of Vision, Eye Health & Seeing Better
+
+2. What will you do today?
+   * [ ] 1. JS101 > Lesson 5 > Assignment 4. Working with Callback Functions
+   * [ ] 2. Read *The Programmer's Brain* | Chapter 2: Speed reading for code
+   * [ ] 3. Listen to the Huberman Lab Podcast Episode 25 | How Smell, Taste & Pheromone-Like Chemicals Control You
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * It's a Saturday, so family time is a priority. I'll fit in studying when and where I can.
+
+10:31 Okay. Time to put in 30 minutes of studying now.
