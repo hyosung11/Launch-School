@@ -2733,3 +2733,9 @@ Score: 12/24 (50.0%)
 15:45 Finished "Variable reference for nested collections" section. Going to get ready to play ping pong with Louis. Serve into his elbow. Spin. Brush the ball.
 
 18:26 After dinner and before movie night. Not going to get to code more tonight.
+
+19:16 Finished Assignment 3. Nested Data Structures.
+
+20:35 Got to study during Jumanji movie.
+
+20:59 Finishing studying for tonight.
