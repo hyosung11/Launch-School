@@ -745,6 +745,28 @@ callback execution  | Each sub-array  | None  | `undefined`  | No
 element reference (`[0]`)  | Each sub-array  | None  | Element at index 0 of sub-array  | Yes, used by `console.log`
 method call (`console.log`)  | Element at index `0` of the sub-array  | Outputs string representation of a Number  | `undefined`  | Yes, used to determine callback's return value
 
+### Example 2
+
+```js
+[[1, 2], [3, 4]].map(arr => console.log(arr[0]));
+// 1
+// 3
+// => [undefined, undefined]
+```
+
+This example is similar to the previous one, but with one small variation: `forEach` is replaced with `map`. At first, this may seem insignificant, but when you take a closer look, you'll notice the return value of the `map` call is significantly different.
+
+Let's break down this example to see if we can understand the difference:
+
+Action  | Performed on  | Side Effect  | Return Value  | Is Return Value Used?
+--------|---------------|--------------|---------------|----------------------
+method call (`map`)  | The outer array  | None  | New array (`[undefined, undefined]`)  | No, but shown on line 4
+callback execution  | Each sub-array  | None  | `undefined`  | Yes, used by `map` for transformation
+element access (`[0]`)  | Each sub-array  | None  | Element at index 0 of sub-array  | Yes, used by `console.log`
+method call (`console.log`)  | Element at index 0 of each sub-array  | Outputs a string representation of an Integer  | `undefined`  | Yes, used as the return value of the callback
+
+The new return value is a result of how `map` handles the return value of the callback. Unlike `forEach`, `map` uses the return value of the callback to perform a transformation. Thus, the return value of the callback is critical to understanding this code.
+
 ### Working with Callback Functions Summary
 
 The goal of this assignment is to give you the tools to deconstruct and analyze code dealing with collections. Working with collections is a core task of most problems, so it's common to come across code that's iterating, selecting and transforming nested data structures. To the untrained eye, it can seem like a jumbled mess, and there's no way anyone can understand it without running the code to "see if it works." The trained practitioner, however, can adopt an engineering mindset and take the code apart, line by line, letter by letter.
