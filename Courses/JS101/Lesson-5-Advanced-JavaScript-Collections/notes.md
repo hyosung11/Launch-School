@@ -843,7 +843,33 @@ Can you take this code apart, just like before? What will it output and what wil
 
 Solution
 
-This code outputs 18, 7, 12. The value of `myArr` will be undefined.
+This example outputs and returns the following:
+
+```js
+18
+7
+12
+=> undefined
+```
+
+Within this example, there are multiple return values as well as side-effects. Make sure that you understand, precisely, how the code works, line by line.
+
+
+Action  | Performed on  | Side Effect  | Return Value  | Is Return Value Used?
+--------|---------------|--------------|---------------|----------------------
+variable declaration and assignment  | n/a  | None  | `undefined` (variable declaration always evaluates to `undefined`)  | No
+method call (`forEach`)  | `[[18, 7], [3, 12]]`  | None  | `undefined`  | Yes, used to assign to `myArr`
+outer callback execution  | Each sub-array  | None  | `[undefined, undefined]`  | No
+method call (`map`)  | Each sub-array  | None  | `[undefined, undefined]`  | Yes, returned by the outer callback
+inner callback execution  | Element of the sub-array in that iteration  | None  | `undefined`  | Yes, used to transform the array
+comparison (`>`)  | Element of the sub-array in that iteration  | None  | Boolean  | Yes, evaluated by `if`
+method call (`console.log`)  | Element of the sub-array in that iteration  | Outputs a string representation of a Number  | `undefined`  | Yes, used to determine return value of inner callback
+
+There are 4 return values to pay attention to here: the return value of calls to `forEach` and `map` and the return value of both callbacks. When determining the return values, it's important to understand how the method used in the example works. In this case, we're using `forEach` on the outside, which ignores the return value of the callback. Thus, we can see that the value of `myArr` is `undefined`.
+
+Because `forEach` ignores the callback's return value, this was a relatively straight forward example.
+
+Once again, your solution doesn't need to be precisely the same as ours.
 
 ### Example 5
 
