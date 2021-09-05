@@ -827,7 +827,23 @@ Remember: your solution doesn't need to be precisely the same as ours. However, 
 
 ### Example 4
 
-RR
+Here's another example.
+
+```js
+let myArr = [[18, 7], [3, 12]].forEach(arr => {
+  return arr.map(num => {
+    if (num > 5) {
+      return console.log(num)
+    }
+  });
+});
+```
+
+Can you take this code apart, just like before? What will it output and what will the value of myArr be? Check the solution below once you have tried this on your own.
+
+Solution
+
+This code outputs 18, 7, 12. The value of `myArr` will be undefined.
 
 ### Example 5
 
