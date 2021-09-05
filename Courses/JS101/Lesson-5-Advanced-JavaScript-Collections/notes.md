@@ -854,7 +854,6 @@ This example outputs and returns the following:
 
 Within this example, there are multiple return values as well as side-effects. Make sure that you understand, precisely, how the code works, line by line.
 
-
 Action  | Performed on  | Side Effect  | Return Value  | Is Return Value Used?
 --------|---------------|--------------|---------------|----------------------
 variable declaration and assignment  | n/a  | None  | `undefined` (variable declaration always evaluates to `undefined`)  | No
