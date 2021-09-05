@@ -23,7 +23,7 @@ This will return the array [undefined, undefined]. This is because map(), which 
 */
 
 /*
-Edris 
+Edris
 Problem 1
   - [[1, 2], [3, 4]].map(arr => console.log(arr[0])); - What happens here?
   - the `map` method is called on the `array literal` object.
@@ -64,15 +64,15 @@ This code logs [ { c: 'cat', d: 'dog' } ]. The `filter` method is called on the 
 */
 
 /*Alex
-This will return  [ { c: 'cat', d: 'dog' } ]. The .filter() method returns a new array including all values of the original array for which the return value of the callback function is truthy. The callback function calls .every() on the array of each object's keys. .every() returns true if all of the elements of the array return a truthy value--in this case, it tests whether every key in the object has a value that starts with the same first letter as the key. It evaluates as truthy for {c: cat, d: dog} and that is the only element selected for the returned array. 
+This will return  [ { c: 'cat', d: 'dog' } ]. The .filter() method returns a new array including all values of the original array for which the return value of the callback function is truthy. The callback function calls .every() on the array of each object's keys. .every() returns true if all of the elements of the array return a truthy value--in this case, it tests whether every key in the object has a value that starts with the same first letter as the key. It evaluates as truthy for {c: cat, d: dog} and that is the only element selected for the returned array.
 */
 
 /*
 shane
 
-We start with the array literal `[{ a: 'ant', b: 'elephant' }, { c: 'cat', d: 'dog' }]` which contains two object elements.  Each object has 
+We start with the array literal `[{ a: 'ant', b: 'elephant' }, { c: 'cat', d: 'dog' }]` which contains two object elements.  Each object has
 two elements.  The `filter` method is performed on the array.  The callback function block `return Object.keys(object).every(key => object[key][0] === key);`
-is passed to the `filter`method.  The objects keys are passed to the `every` method which has a callback function that finds the elements that have the 
+is passed to the `filter`method.  The objects keys are passed to the `every` method which has a callback function that finds the elements that have the
 first character of their string which is strictly equal to the key and `every` returns a truthy value for those.  `filter` returns an array of [ { c: 'cat', d: 'dog' } ]
 */
 
