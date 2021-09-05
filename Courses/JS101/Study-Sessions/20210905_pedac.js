@@ -199,19 +199,19 @@ function isPalindrome(num) {
   return str === str.split('').reverse().join('');
 }
 
-console.log(isPalindrome(3) === false);
-console.log(isPalindrome(33) === true);
-console.log(isPalindrome(101) === true);
-console.log(isPalindrome(1014) === false);
+// console.log(isPalindrome(3) === false);
+// console.log(isPalindrome(33) === true);
+// console.log(isPalindrome(101) === true);
+// console.log(isPalindrome(1014) === false);
 
 function isValid(num) {
   return typeof num === "number" && num >= 0;
 }
 
-console.log(isValid(3) === true)
-console.log(isValid(0) === true)
-console.log(isValid(-3) === false)
-console.log(isValid("ABCD") === false)
+// console.log(isValid(3) === true)
+// console.log(isValid(0) === true)
+// console.log(isValid(-3) === false)
+// console.log(isValid("ABCD") === false)
 
 function palindrome(num, s) {
   let palindromeArray = [];
@@ -241,3 +241,35 @@ console.log(palindrome("ACCDDCCA",3)); // "Not valid"
 console.log(palindrome(773,"1551")); // "Not valid"
 console.log(palindrome(-4505,15)); // "Not valid"
 console.log(palindrome(4505,-15)); // "Not valid"
+
+// Practice
+function isPalindrome(num) {
+  let str = String(num);
+  if (str.length < 2) {
+    return false;
+  }
+
+  return str === str.split('').reverse().join('');
+}
+
+function isValid(num) {
+  return typeof num === "number" && num > 0;
+}
+
+function palindrome(num, s) {
+  let palindromeArray = [];
+
+  if (!isValid(num) || !isValid(s)) {
+    return 'Not valid';
+  }
+
+  while (palindromeArray.length < s) {
+    if (isPalindrome(num)) {
+      palindromeArray.push(num);
+    }
+
+    num += 1;
+  }
+
+  return palindromeArray;
+}
