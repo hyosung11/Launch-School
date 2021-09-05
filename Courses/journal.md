@@ -2766,3 +2766,11 @@ Score: 12/24 (50.0%)
 10:31 Okay. Time to put in 30 minutes of studying now.
 
 11:02 Time for Daddy Daughter Time.
+
+## 20210905 일요일
+
+12:17 I feel tired right now. I need to take a break.
+
+13:57 What is this study session with Alex and Edris going to be like?
+
+14:05 Group study session.
