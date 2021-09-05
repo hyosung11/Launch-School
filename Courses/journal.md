@@ -2774,3 +2774,24 @@ Score: 12/24 (50.0%)
 13:57 What is this study session with Alex and Edris going to be like?
 
 14:05 Group study session.
+
+15:55 End study session.
+
+18:57 I feel burn out a little bit. I don't want to do sprint stuff or today's daily scrum. Interesting that I feel that way.
+
+19:00 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS101 > Lesson 5 > Assignment 4. Working with Callback Functions > Examples 1 ~ 3
+   * [x] 2. Read *The Programmer's Brain* | Chapter 2: Speed reading for code
+   * [ ] 3. Listen to the Huberman Lab Podcast Episode 25 | How Smell, Taste & Pheromone-Like Chemicals Control You
+
+2. What will you do today?
+   * [x] 1. PEDAC Study Session
+   * [x] 2. Study Group with Alex, Edris and Shane
+   * [ ] 3. JS101 > Lesson 5 > Assignment 4. Working with Callback Functions > Examples 4 ~ 6
+   * [ ] 4. Read *The Programmer's Brain* | Chapter 3: Decoding your confusion while coding
+   * [ ] 5. Listen to the Huberman Lab Podcast Episode 24 | The Science of Vision, Eye Health & Seeing Better
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I feel tired and a little burnout. I don't want to do Sprint Review, Sprint Retrospective or Sprint Planning. I extended the duration of the last sprint to two weeks. Why don't I want to do this? Incentive?
