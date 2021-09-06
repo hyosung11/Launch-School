@@ -902,6 +902,24 @@ If you look closely and try to understand every line of code, there are more tha
 
 ### Example 6
 
+Let's mix things up even more. In the following example, we have an array of objects, and we want to select all of the elements where every key matches the first letter of the value.
+
+```js
+[{ a: 'ant', b: elephant }, { c: 'cat', d: 'dog' }].filter(object => {
+  return Object.keys(object).every(key => object[key][0] === key);
+});
+
+// => [ { c: 'cat', d: 'dog' } ]
+```
+
+A lot is going on here, but you have the knowledge that you need to take it apart, line by line, letter by letter. We won't provide a table of steps as before, but see if you understand every line and every letter in the code. If you don't, take your time and study it; you should be able to deconstruct this code to its core.
+
+Solution
+
+The first thing to notice here is the use of the `every` method within the `filter` callback. Since `filter` specifically cares about the truthiness of the callback's return value, using a method that returns a boolean value works well. `every` will return `true` if the callback passed to it returns a truthy value for the array of keys. We're using `object[key][0] === key` to test whether all keys match the first letter of all their associated values. Note that the only object that meets this criterion is `{:c => 'cat', :d => 'dog'}`, and the return value is an array.
+
+What would happen if, instead of using `every`, we used `some`? How would this affect the return value of filter?
+
 ### Example 7
 
 ### Example 8
