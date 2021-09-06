@@ -882,6 +882,23 @@ Next, let's tackle a slightly more complex example.
 
 What will the return value be in this example? Use what you've learned so far to break it down on your own before checking the solution below.
 
+This example will return the following:
+
+```js
+[ [2, 4], [6, 8] ]
+```
+
+The goal of this code is to multiply each value within the nested array by `2`. We accomplish this by using `map`, which returns a new array containing values transformed based on the callback's return value. However, we have to call `map` twice, paying extra attention to the 4 return values: the two `map` invocations and the callbacks within each of the invocations.
+
+Action  | Performed on  | Side Effect  | Return Value  | Is Return Value Used?
+--------|---------------|--------------|---------------|----------------------
+method call (`map`)  | Original array  | None  | New transformed array  | No
+outer callback execution  | Each sub-array  | None  | New transformed sub-array  | Yes, used by top-level `map` for transformation
+method call (`map`)  | Each sub-array  | None  | New transformed sub-array  | Yes, returned by outer callback
+inner callback execution  | Element of the sub-array in that iteration  | None  | A number  | Yes, used by inner `map` for transformation
+`num * 2`  | Value of `num` parameter  | None  | A number  | Yes, returned by inner callback
+
+If you look closely and try to understand every line of code, there are more than 4 return values that you need to examine: the `num * 2` expression has a return value. By now, you should be starting to realize that the return value of every expression is important. You can ignore an expression's return value when it isn't used in the code. More often than not, though, some implied return value is used in subtle ways that affect your code. Pay attention to the details.
 
 ### Example 6
 
