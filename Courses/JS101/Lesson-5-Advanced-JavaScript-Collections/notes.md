@@ -872,6 +872,17 @@ Once again, your solution doesn't need to be precisely the same as ours.
 
 ### Example 5
 
+Next, let's tackle a slightly more complex example.
+
+```js
+[[1, 2], [3, 4]].map(arr => {
+  return arr.map(num => num * 2);
+});
+```
+
+What will the return value be in this example? Use what you've learned so far to break it down on your own before checking the solution below.
+
+
 ### Example 6
 
 ### Example 7

@@ -2797,3 +2797,7 @@ Score: 12/24 (50.0%)
    * I feel tired and a little burnout. I don't want to do Sprint Review, Sprint Retrospective or Sprint Planning. I extended the duration of the last sprint to two weeks. Why don't I want to do this? Incentive?
 
 19:41 Worked on Example 4. I skipped Sprint stuff today. I might pick it up tomorrow as I realize I don't review the stuff in my backlog otherwise. Time to go up and do bedtime with the kids.
+
+## 20210906 월요일
+
+14:30 It's Labor Day and I don't know what I'll study.
