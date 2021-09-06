@@ -961,6 +961,62 @@ The key things to focus on with this example is understanding how `forEach` meth
 
 ### Example 9
 
+Consider the following code:
+
+```js
+[[[1, 2], [3, 4]], [5, 6]].map(arr => {
+  return arr.map(elem => {
+    if (typeof elem === 'number') { // it's a number
+      return elem + 1;
+    } else {                  // it's an array
+      return elem.map(number => number + 1);
+    }
+  });
+});
+```
+
+This example is more complicated than the rest, but, at this point, you should be able to break it down effectively. Use the tools you've learned about in this lesson and take as much time as needed. Work on breaking down each component and understanding the return value of each expression. What will the final return value be? Check your answer only after you've tried this on your own.
+
+Solution
+
+This example will return the following:
+
+```js
+// => [ [ [ 2, 3 ], [ 4, 5 ] ], [ 6, 7 ] ]
+```
+
+The tricky part about this example is that the original array has uneven nested levels. There are two main subarrays, the first of which contains two additional nested subarrays. If we want to do something with all of the numbers in this structure, we first need to find a way to access those number, regardless of how deeply nested they are. To do this, we determine whether the current element is an array or a number, then execute the appropriate code.
+
+`map` is an excellent choice for this task since it returns a new array that contains transformed values. This way we can ultimately return a new array with the same nesting structure as the original.
+
+In practice, this type of nested data processing is typically a sign of bad design. However, if you ever find yourself in that situation, you should be confident in your ability to work through it.
+
+One last thing before ending this assignment: **don't mutate the collection that you're iterating through**; that includes selection and transformation, as well as any other iterative method provided by JavaScript arrays.
+
+Here's an example of what not to do:
+
+```js
+let arr = [1, 2];
+
+arr.map(subArr => arr.pop()); // => [ 2, <1 empty item> ]
+```
+
+That's a strange result. You might have expected to get the return value of `[2, 1]` but we get the array `[ 2, <1 empty item> ]`. If you log the result, you'll see that the returned array now has one element. Mutating the array while in the middle of the `map` operation —an iterative operation— has jeopardized the operation. `Array.prototype.map` is always supposed to return an array with as many elements as the array it's called on. Here though, it doesn't do that because we mutate the array during the `map` call.
+
+Let's see another example; one where we mutate the inner elements in an array:
+
+```js
+let arr = [[[1], [2], [3], [4]], [['a'], ['b'], ['c']]];
+
+arr.map(subArr => subArr.pop()); // [ [ 4 ], [ 'c' ] ]
+
+arr; // [ [ [ 1 ], [ 2 ], [ 3 ] ], [ [ 'a' ], [ 'b' ] ] ]
+```
+
+`Array.prototype.pop` is destructive and mutates each `subArr` (therefore changing the contents of `arr`) in the middle of a transformation action. The return value in this example makes a lot more sense, but we've mutated the original array in the process as well, which is potentially confusing as the reader is very likely to miss the side-effect caused by the `map` call. There's almost always a much clearer way of achieving the desired result without having to resort to mutating the collection while iterating through it.
+
+Mutation during iteration can get confusing even if you're mutating nested sub-arrays, so pay extreme attention to destructive method calls and avoid using them during iteration. Notice that all our previous examples in this assignment didn't have any mutating methods in them, and the code already became quite difficult to analyze. Don't make life more difficult by introducing mutating method calls in the middle of an iteration.
+
 ### Working with Callback Functions Summary
 
 The goal of this assignment is to give you the tools to deconstruct and analyze code dealing with collections. Working with collections is a core task of most problems, so it's common to come across code that's iterating, selecting and transforming nested data structures. To the untrained eye, it can seem like a jumbled mess, and there's no way anyone can understand it without running the code to "see if it works." The trained practitioner, however, can adopt an engineering mindset and take the code apart, line by line, letter by letter.
@@ -982,3 +1038,5 @@ Some important things to remember:
   * What does the method do with the return value of the callback?
 
 * If you're unclear about how a method works, a good first step is to refer to the MDN Docs.
+
+20210906 19:46 Assignment Complete
