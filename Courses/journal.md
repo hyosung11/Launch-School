@@ -2840,3 +2840,5 @@ Score: 12/24 (50.0%)
 13:20 It's taken me forever to finish one problem today.
 
 13:42 I finished problem two with a lot of glancing. But I'm making progress.
+
+14:35 It looks like I will get into a SPOT study session today. Yeah. Time to take a break for 20 minutes.
