@@ -2848,3 +2848,7 @@ Score: 12/24 (50.0%)
 16:50 I didn't understand what Guardrail does.
 
 16:53 Legs feel tired. I'm going to take a short walk around the block now, I think.
+
+17:29 Irritated by being called out for bad play in Louis's post-game segment when that's not accurate.
+
+17:58 Working on Problem 4 before dinner.
