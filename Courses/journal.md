@@ -2832,3 +2832,5 @@ Score: 12/24 (50.0%)
    * Motivation for Launch School has dipped. I need to prioritize finding a job as my unemployment benefits drop $300 a week after the conclusion of the federal stimulus bonus.
 
 11:14 Just having a hard time starting to study today. Why? Noisy with SungOh and Damon playing, but what else?
+
+12:31 Terminal shell is defaulting to bash and it's driving me nuts. I've wasted a lot of time today trying to change it back to zsh and it seems to not work. Why did VS Code do that upon update?

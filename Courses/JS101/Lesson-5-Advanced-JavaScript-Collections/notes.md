@@ -1042,3 +1042,24 @@ Some important things to remember:
 20210906 19:46 Assignment Complete
 
 ## 5. Practice Problems
+
+In the last three assignments, we've gone into some depth regarding sorting, working with nested collection objects, and passing callback functions to iterative methods to produce a specified output or return value. The best way to gain a thorough understanding of these programming concepts is by putting them into practice.
+
+The purpose of these practice problems is to let you practice the specific concepts covered in the last three assignments. If any of the problems seem hard at first, take the time to break them down and remember to focus on the structure of the collection object, the return value of callbacks and methods and the side effects of any methods.
+
+### Practice Problem 1
+
+How would you order the following array of number strings by descending numeric value (largest number value to smallest)?
+
+```js
+let arr = ['10', '11', '9', '7', '8'];
+
+arr.sort((a, b) => Number(b) - Number(a));
+```
+
+Hint
+
+Use the `Number` function and pass a callback function to the `sort` method.
+
+Solution
+
