@@ -2801,3 +2801,13 @@ Score: 12/24 (50.0%)
 ## 20210906 월요일
 
 14:30 It's Labor Day and I don't know what I'll study.
+
+16:54 Tired and lazy day hanging out on the couch and watching tennis.
+
+17:14 Studying a little before dinner.
+
+17:23 Time to make dinner.
+
+18:30 After dinner and I feel tired.
+
+19:46 Finished Assignment 4. Working with Callback Functions, but I definitely need to go back and review it.
