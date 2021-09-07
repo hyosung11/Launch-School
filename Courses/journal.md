@@ -2842,3 +2842,7 @@ Score: 12/24 (50.0%)
 13:42 I finished problem two with a lot of glancing. But I'm making progress.
 
 14:35 It looks like I will get into a SPOT study session today. Yeah. Time to take a break for 20 minutes.
+
+16:00 Finished SPOT study session with Austin Miller, Marcos and Jeff had to drop. It was helpful.
+
+16:50 I didn't understand what Guardrail does.

@@ -1041,7 +1041,7 @@ Some important things to remember:
 
 20210906 19:46 Assignment Complete
 
-## 5. Practice Problems
+## 5. Practice Problems (20210906)
 
 In the last three assignments, we've gone into some depth regarding sorting, working with nested collection objects, and passing callback functions to iterative methods to produce a specified output or return value. The best way to gain a thorough understanding of these programming concepts is by putting them into practice.
 
@@ -1128,3 +1128,42 @@ arr3[2]['third'][0][0];
 obj1['b'][1];
 Object.keys(obj2.third)[0];
 ```
+
+### Practice Problem 4
+
+### Practice Problem 5
+
+### Practice Problem 6
+
+### Practice Problem 7
+
+### Practice Problem 8
+
+### Practice Problem 9
+
+### Practice Problem 10
+
+### Practice Problem 11
+
+### Practice Problem 12
+
+### Practice Problem 13
+
+### Practice Problem 14
+
+### Practice Problem 15
+
+### Practice Problem 16
+
+### Practice Problem 17
+
+### Practice Problems Summary
+
+Hopefully, by working through these practice problems, you have been able to develop a practical understanding of the concepts covered in the previous assignments. When faced with a coding problem that requires you to iterate through a complex nested collection, it is important to focus on:
+
+* What is happening at each level of iteration?
+* What does the method do with the return value of the callback?
+* What does the method itself return?
+* What is the ultimate return value of the initial method call?
+
+By using a systematic approach to break down problems in this way you should be able to leverage these concepts and techniques when faced with complex nested collection objects.
