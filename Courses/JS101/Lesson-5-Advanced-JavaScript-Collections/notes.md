@@ -1040,3 +1040,5 @@ Some important things to remember:
 * If you're unclear about how a method works, a good first step is to refer to the MDN Docs.
 
 20210906 19:46 Assignment Complete
+
+## 5. Practice Problems
