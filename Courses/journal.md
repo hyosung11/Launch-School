@@ -2811,3 +2811,24 @@ Score: 12/24 (50.0%)
 18:30 After dinner and I feel tired.
 
 19:46 Finished Assignment 4. Working with Callback Functions, but I definitely need to go back and review it.
+
+## 20210907 화요일
+
+10:54 Wasted time trying to figure out why VS Code changed my default terminal shell from zsh to bash. It seems to be correct now. I still haven't done sprint stuff. I want to do Daily Scrum Questions and then study before I go to the gym.
+
+10:55 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS101 > Lesson 5 > Assignment 4. Working with Callback Functions > Examples 7 ~ 9
+   * [x] 2. Read *The Programmer's Brain* | Chapter 3: Decoding your confusion while coding
+   * [x] 3. Listened to the Huberman Lab Podcast Episode 25 | How Smell, Taste & Pheromone-Like Chemicals Control You
+
+2. What will you do today?
+   * [ ] 1. JS101 > Lesson 5 > Assignment 5. Practice Problems
+   * [x] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [x] 3. Listen to the Huberman Lab Podcast Episode 26 | Dr. Karl Deisseroth: Understanding & Healing the Mind
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Motivation for Launch School has dipped. I need to prioritize finding a job as my unemployment benefits drop $300 a week after the conclusion of the federal stimulus bonus.
+
+11:14 Just having a hard time starting to study today. Why? Noisy with SungOh and Damon playing, but what else?
