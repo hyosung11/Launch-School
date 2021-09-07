@@ -1077,4 +1077,28 @@ Note that the same solution *without* the use of `Number()` would produce the sa
 arr.sort((a, b) => b - a); // [ '11', '10', '9', '8', '7' ]
 ```
 
-This might seem strange. Didn't we just say we needed to convert the strings to numbers? Well in this case too the strings *are* being converted to numbers, except this time they're being *implictily* coerced through the use of the subtraction operator (`-`). Subtraction implicitly coerces both strings into a number and returns a number. However, it's better to be *explicit* in your code. Relying on implicit coercion can result in a lack of clarity and lead to subtle bugs.
+This might seem strange. Didn't we just say we needed to convert the strings to numbers? Well in this case too the strings *are* being converted to numbers, except this time they're being *implicitly* coerced through the use of the subtraction operator (`-`). Subtraction implicitly coerces both strings into a number and returns a number. However, it's better to be *explicit* in your code. Relying on implicit coercion can result in a lack of clarity and lead to subtle bugs.
+
+### Practice Problem 2
+
+How would you order the following array of objects based on the year of publication of each book, from the earliest to the latest?
+
+```js
+let books = [
+  { title: 'One Hundred Years of Solitude', author: 'Gabriel Garcia Marquez', published: '1967' },
+  { title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', published: '1925' },
+  { title: 'War and Peace', author: 'Leo Tolstoy', published: '1869' },
+  { title: 'Ulysses', author: 'James Joyce', published: '1922' },
+  { title: 'The Book of Kells', author: 'Multiple Authors', published: '800' },
+];
+```
+
+Solution
+
+```js
+books.sort((a, b) => {
+  return Number(a.published) - Number(b.published);
+});
+```
+
+As with the previous problem, we must convert the date string to a number since we're performing subtraction with the values.

@@ -2836,3 +2836,7 @@ Score: 12/24 (50.0%)
 12:31 Terminal shell is defaulting to bash and it's driving me nuts. I've wasted a lot of time today trying to change it back to zsh and it seems to not work. Why did VS Code do that upon update?
 
 12:50 I think I have the shell I want now. Ugh.
+
+13:20 It's taken me forever to finish one problem today.
+
+13:42 I finished problem two with a lot of glancing. But I'm making progress.
