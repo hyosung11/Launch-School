@@ -2846,3 +2846,5 @@ Score: 12/24 (50.0%)
 16:00 Finished SPOT study session with Austin Miller, Marcos and Jeff had to drop. It was helpful.
 
 16:50 I didn't understand what Guardrail does.
+
+16:53 Legs feel tired. I'm going to take a short walk around the block now, I think.
