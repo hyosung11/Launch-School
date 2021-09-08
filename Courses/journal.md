@@ -2887,3 +2887,5 @@ Score: 12/24 (50.0%)
 12:26 Finished Practice Problem 8, but it took me 25 minutes to do after seeing the solution. I could reproduce it perfectly the next time which means my brain is working better at remembering code. Yes!
 
 13:01 Taking me about 25 minutes to solve these simple problems. I'm okay. Got it.
+
+13:28 Finished first pass at Practice Problem 10. I need to study that one again and again. I also need to dig into the details of `Array.prototype.sort`. Time for a lunch break.
