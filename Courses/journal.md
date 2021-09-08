@@ -2852,3 +2852,11 @@ Score: 12/24 (50.0%)
 17:29 Irritated by being called out for bad play in Louis's post-game segment when that's not accurate.
 
 17:58 Working on Problem 4 before dinner.
+
+19:11 SungOh and I went for a bike ride to Ridgewood High School and saw that the stadium field has mud all over it and the fence has leaves stuck in it halfway up.
+
+20:18 Working on more practice problems while watching the US Open women's quarterfinal match.
+
+20:47 Finished Practice Problem 6.
+
+21:14 Finished Practice Problem 7 and done for the day.
