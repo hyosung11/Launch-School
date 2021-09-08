@@ -2895,3 +2895,5 @@ Score: 12/24 (50.0%)
 14:31 I am definitely going to have to study these practice problems again.
 
 14:45 Time to get the kids.
+
+15:45 Working on the rest of Practice Problem 12.
