@@ -1264,13 +1264,167 @@ Since `b` is an array and we are modifying that array by assigning a new value t
 
 ### Practice Problem 8
 
+Using the `forEach` method, write some code to output all vowels from the strings in the arrays. Don't use a `for` or `while` loop.
+
+```js
+let obj = {
+  first: ['the', 'quick'],
+  second: ['brown', 'fox'],
+  third: ['jumped'],
+  fourth: ['over', 'the', 'lazy', 'dog'],
+};
+```
+
+Hint
+
+You can use the `String.prototype.split` method to convert the words to arrays of individual characters.
+
+Solution
+
+```js
+let vowels = 'aeiou';
+
+Object.values(obj).forEach(arr => {
+  arr.forEach(word => {
+    word.split('').forEach(char => {
+      if (vowels.includes(char)) {
+        console.log(char);
+      }
+    });
+  });
+});
+
+// e
+// u
+// i
+// o
+// o
+// u
+// e
+// o
+// e
+// e
+// a
+// o
+```
+
+The first thing to do here is to get all the values of the object (arrays) using `Object.values`. We can then call `forEach` on the resulting subarray. At this point, `split` can be called within the callback to obtain an array of characters for the current string in that iteration. We can then iterate over this array of characters and pass each vowel to `console.log`.
+
 ### Practice Problem 9
+
+Given the following data structure, return a new array with the same structure, but with the values in each subarray ordered -- alphabetically or numerically as appropriate -- in ascending order.
+
+```js
+let arr = [['b', 'c', 'a'], [2, 11, -3], ['blue', 'black', 'green']];
+```
+
+Solution
+
+```js
+arr.map(subArr => {
+  if (typeof subArr[0] === 'string') {
+    // we have an array of strings
+    return subArr.slice().sort();
+  } else {
+    // we have an array of numbers
+    return subArr.slice().sort((a, b) =>  a - b);
+  }
+});
+
+// [ [ 'a', 'b', 'c' ], [ -3, 2, 11 ], [ 'black', 'blue', 'green' ] ]
+```
+
+From the problem description, we know that we need to return a new array with its contents transformed in some way, so `map` is a fairly obvious choice for the initial method that we need to call on the array.
+
+We also know that we want each subarray to be ordered, so `sort` is an obvious choice here. However, since we're dealing with two types of arrays, we'll have to use two versions of `sort`. For the string arrays, we can use `sort` without arguments to sort them alphabetically. For the numbers, we must use a callback; otherwise, the numbers will be sorted by their UTF-16 character values.
+
+We're using `slice` to obtain a copy of the subarray since `sort` is a destructive operation, and we don't want to mutate the subarrays.
 
 ### Practice Problem 10
 
+Perform the same transformation of sorting the subarrays we did in the previous exercise with one difference; sort the elements in descending order.
+
+```js
+let arr = [['b', 'c', 'a'], [2, 11, -3], ['blue', 'black', 'green']];
+```
+
+Solution
+
+```js
+arr.map(subArr => {
+  return subArr.slice().sort((a, b) => {
+    if (typeof a === 'number') {
+      return b - a;
+    }
+
+    if (a < b) {
+      return 1;
+    } else if (a > b) {
+      return -1;
+    } else {
+      return 0;
+    }
+  });
+});
+
+// => [ [ 'c', 'b', 'a' ], [ 11, 2, -3 ], [ 'green', 'blue', 'black' ] ]
+```
+
+We use the first `if` to take care of the case where the subarray elements are numbers. The second `if/else` compares the strings with each other and returns `-1`, `1`, or `0` based on the comparison.
+
 ### Practice Problem 11
 
+Given the following data structure, use the `map` method to return a new array identical in structure to the original but, with each number incremented by 1. Do not modify the original data structure.
+
+```js
+let arr = [{ a: 1 }, { b: 2, c: 3 }, { d: 4, e: 5, f: 6 }];
+```
+
+Solution
+
+```js
+let arr = [{ a: 1 }, { b: 2, c: 3 }, { d: 4, e: 5, f: 6 }];
+
+arr.map(obj => {
+  let incrementedObj = {};
+
+  for (let key in obj) {
+    incrementedObj[key] = obj[key] + 1;
+  }
+
+  return incrementedObj;
+}); // => [ { a: 2 }, { b: 3, c: 4 }, { d: 5, e: 6, f: 7 } ]
+
+arr; // => [ { a: 1 }, { b: 2, c: 3 }, { d: 4, e: 5, f: 6 } ]
+```
+
+Here, we use `map` to iterate over the array. On each iteration, the callback creates a new object, `incrementedObj`, and then iterates through the key-value pairs of the current object from the original array. It uses the keys and the current object to create a new key-value pair in `incrementedObj`, with a value that is one greater than the original value. The callback then returns `incrementedObj`, and `map` uses it to transform each element in the array.
+
+On the last line, we also see that the original array and the objects both remain intact.
+
 ### Practice Problem 12
+
+Given the following data structure, use a combination of methods, including `filter`, to return a new array identical in structure to the original, but containing only the numbers that are multiples of 3.
+
+```js
+let arr = [[2], [3, 5, 7], [9], [11, 15, 18]];
+```
+
+Hint
+The `%` operator, called the remainder operator, can be used to ascertain if a number is a multiple of another number. A number `x` is a multiple of a number `y` if `x % y === 0`.
+
+Solution
+
+```js
+let arr = [[2], [3, 5, 7], [9], [11, 15, 18]];
+
+arr.map(subArr => {
+  return subArr.filter(num => num % 3 === 0);
+});
+// => [ [], [ 3 ], [ 9 ], [ 15, 18 ] ]
+```
+
+We know that we want to return a new array with the same structure, so `map` is an excellent choice to call on the original array. For each subarray, we then return a subset of the subarray that contains only multiples of the number 3.
 
 ### Practice Problem 13
 

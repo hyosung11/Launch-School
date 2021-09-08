@@ -2864,3 +2864,40 @@ Score: 12/24 (50.0%)
 ## 20210908 수요일
 
 07:40 Woke up late after going to bed late and didn't study in the morning. It's a school day, so have to serve breakfast to the kids and then walk them to school before I go to the gym to do soccer skills practice and athletic performance training.
+
+10:52 Back from the gym. It's Mickey's birthday today. Send him a message? It's eerily quiet without SungOh at home.
+
+10:55 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS101 > Lesson 5 > Assignment 5. Practice Problems > 1 ~ 7
+   * [x] 2. SPOT Study Session with Austin Miller
+   * [x] 3. Capstone Project Presentation: Guardrail
+   * [x] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [x] 3. Listen to the Huberman Lab Podcast Episode 26 | Dr. Karl Deisseroth: Understanding & Healing the Mind
+
+2. What will you do today?
+   * [ ] 1. JS101 > Lesson 5 > Assignment 5. Practice Problems > 8 ~ 19
+   * [ ] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [ ] 3. Listen to the Huberman Lab Podcast Episode 27 | The Science of Hearing, Balance & Accelerated Learning
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * None
+
+11:59 Gosh it took a while to get to this point where I can now dedicate one Ultradian cycle of 90 minutes to programming.
+
+12:26 Finished Practice Problem 8, but it took me 25 minutes to do after seeing the solution. I could reproduce it perfectly the next time which means my brain is working better at remembering code. Yes!
+
+13:01 Taking me about 25 minutes to solve these simple problems. I'm okay. Got it.
+
+13:28 Finished first pass at Practice Problem 10. I need to study that one again and again. I also need to dig into the details of `Array.prototype.sort`. Time for a lunch break.
+
+14:10 I want to do one more problem before leaving to get the kids. This is after a short lunch break.
+
+14:31 I am definitely going to have to study these practice problems again.
+
+14:45 Time to get the kids.
+
+15:45 Working on the rest of Practice Problem 12.
+
+15:50 Back on my MBP on the La-Z-Boy. That word is in the dictionary. Amazing.
