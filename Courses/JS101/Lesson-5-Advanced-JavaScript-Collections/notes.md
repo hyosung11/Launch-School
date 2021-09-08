@@ -1419,9 +1419,13 @@ Solution
 let arr = [[2], [3, 5, 7], [9], [11, 15, 18]];
 
 arr.map(subArr => {
-
-})
+  return subArr.filter(num => num % 3 === 0);
+});
+// => [ [], [ 3 ], [ 9 ], [ 15, 18 ] ]
 ```
+
+We know that we want to return a new array with the same structure, so `map` is an excellent choice to call on the original array. For each subarray, we then return a subset of the subarray that contains only multiples of the number 3.
+
 ### Practice Problem 13
 
 ### Practice Problem 14

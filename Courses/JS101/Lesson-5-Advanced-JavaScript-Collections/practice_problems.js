@@ -335,10 +335,11 @@ Given the following data structure, use a combination of methods, including `fil
 if (num % 3 === 0)
 */
 
-let arr = [[2], [3, 5, 7], [9], [11, 15, 18]];
+// let arr = [[2], [3, 5, 7], [9], [11, 15, 18]];
 
-console.log(arr.map(subArray => {
-  return subArray.filter(num => num % 3 === 0)
-}));
+// console.log(arr.map(subArray => {
+//   return subArray.filter(num => num % 3 === 0)
+// }));
 
 // [ [], [ 3 ], [ 9 ], [ 15, 18 ] ]
+

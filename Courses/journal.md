@@ -2893,3 +2893,5 @@ Score: 12/24 (50.0%)
 14:10 I want to do one more problem before leaving to get the kids. This is after a short lunch break.
 
 14:31 I am definitely going to have to study these practice problems again.
+
+14:45 Time to get the kids.
