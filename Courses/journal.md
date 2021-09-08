@@ -2860,3 +2860,24 @@ Score: 12/24 (50.0%)
 20:47 Finished Practice Problem 6.
 
 21:14 Finished Practice Problem 7 and done for the day.
+
+## 20210908 
+
+10:52 Back from the gym. It's Mickey's birthday today. Send him a message? It's eerily quiet without SungOh at home.
+
+10:55 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS101 > Lesson 5 > Assignment 5. Practice Problems > 1 ~ 7
+   * [x] 2. SPOT Study Session with Austin Miller
+   * [x] 3. Capstone Project Presentation: Guardrail
+   * [x] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [x] 3. Listen to the Huberman Lab Podcast Episode 26 | Dr. Karl Deisseroth: Understanding & Healing the Mind
+
+2. What will you do today?
+   * [ ] 1. JS101 > Lesson 5 > Assignment 5. Practice Problems > 8 ~ 19
+   * [ ] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [ ] 3. Listen to the Huberman Lab Podcast Episode 27 | The Science of Hearing, Balance & Accelerated Learning
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * None
