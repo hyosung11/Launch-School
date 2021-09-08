@@ -93,13 +93,13 @@ Practice Problem 4
 For each of these collection objects, demonstrate how you would change the value `3` to `4`.
 */
 
-let arr1 = [1, [2, 3], 4];
+// let arr1 = [1, [2, 3], 4];
 
-let arr2 = [{ a: 1 }, { b: 2, c: [7, 6, 5], d: 4 }, 3];
+// let arr2 = [{ a: 1 }, { b: 2, c: [7, 6, 5], d: 4 }, 3];
 
-let obj1 = { first: [1, 2, [3]] };
+// let obj1 = { first: [1, 2, [3]] };
 
-let obj2 = { a: { a: ['1', 'two', 3], b: 4 }, b: 5 };
+// let obj2 = { a: { a: ['1', 'two', 3], b: 4 }, b: 5 };
 
 // console.log(arr1[1][1] = 4);
 // console.log(arr1); // => [ 1, [ 2, 4 ], 4 ]
@@ -118,26 +118,26 @@ Practice Problem 5
 
 Consider the following nested object: */
 
-let munsters = {
-  Herman: { age: 32, gender: 'male' },
-  Lily: { age: 30, gender: 'female' },
-  Grandpa: { age: 402, gender: 'male' },
-  Eddie: { age: 10, gender: 'male' },
-  Marilyn: { age: 23, gender: 'female' },
-};
+// let munsters = {
+//   Herman: { age: 32, gender: 'male' },
+//   Lily: { age: 30, gender: 'female' },
+//   Grandpa: { age: 402, gender: 'male' },
+//   Eddie: { age: 10, gender: 'male' },
+//   Marilyn: { age: 23, gender: 'female' },
+// };
 
 // Compute and display the total age of the male members of the family.
 
 // There are several ways to accomplish this task. One way is to use the `for/in` loop and add up the ages:
-let totalMaleAge = 0;
+// let totalMaleAge = 0;
 
-for (let member in munsters) {
-  if (munsters[member]['gender'] === 'male') {
-    totalMaleAge += munsters[member]['age'];
-  }
-}
+// for (let member in munsters) {
+//   if (munsters[member]['gender'] === 'male') {
+//     totalMaleAge += munsters[member]['age'];
+//   }
+// }
 
-console.log(totalMaleAge);
+// console.log(totalMaleAge);
 
 // Another way to do it would be to use the `Object.values` method along with a `forEach` or a loop:
 // let memberTraits = Object.values(munsters);
@@ -150,3 +150,29 @@ console.log(totalMaleAge);
 // });
 
 // console.log(totalMaleAge); // => 444
+
+/* ===============
+Practice Problem 6
+
+One of the most frequently used real-world string operations is that of "string substitution," where we take a hard-coded string and modify it with various parameters from our program.
+
+Given this previously seen family object, print the name, age, and gender of each family member: */
+
+let munsters = {
+  herman: { age: 32, gender: 'male' },
+  lily: { age: 30, gender: 'female' },
+  grandpa: { age: 402, gender: 'male' },
+  eddie: { age: 10, gender: 'male' },
+  marilyn: { age: 23, gender: 'female'}
+};
+
+// Each output line should follow this pattern:
+// (Name) is a (age)-year-old (male or female).
+
+Object.entries(munsters).forEach(character => {
+  let name = character[0];
+  let age = character[1].age;
+  let gender = character[1].gender;
+
+  console.log(`${name} is a ${age}-year-old ${gender}.`)
+});
