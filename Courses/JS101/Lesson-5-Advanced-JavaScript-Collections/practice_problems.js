@@ -182,9 +182,9 @@ Practice Problem 7
 
 Given the following code, what will the final values of `a` and `b` be? Try to answer without running the code. */
 
-let a = 2;
-let b = [5, 8];
-let arr = [a, b]; // => [2, [5, 8] ]
+// let a = 2;
+// let b = [5, 8];
+// let arr = [a, b]; // => [2, [5, 8] ]
 // console.log(arr);
 
 // console.log(arr[0] += 2); // => 4
@@ -198,12 +198,12 @@ Practice Problem 8
 
 Using the `forEach` method, write some code to output all vowels from the strings in the arrays. Don't use a `for` or `while` loop. */
 
-let obj = {
-  first: ['the', 'quick'],
-  second: ['brown', 'fox'],
-  third: ['jumped'],
-  fourth: ['over', 'the', 'lazy', 'dog'],
-};
+// let obj = {
+//   first: ['the', 'quick'],
+//   second: ['brown', 'fox'],
+//   third: ['jumped'],
+//   fourth: ['over', 'the', 'lazy', 'dog'],
+// };
 
 /* PEDAC
 
@@ -228,17 +228,17 @@ Hint
 You can use the `String.prototype.split` method to convert the words to arrays of individual characters.
 
 */
-let vowels = 'aeiou';
+// let vowels = 'aeiou';
 
-Object.values(obj).forEach(arr => {
-  arr.forEach(word => {
-    word.split('').forEach(char => {
-      if (vowels.includes(char)) {
-        console.log(char);
-      }
-    });
-  });
-});
+// Object.values(obj).forEach(arr => {
+//   arr.forEach(word => {
+//     word.split('').forEach(char => {
+//       if (vowels.includes(char)) {
+//         console.log(char);
+//       }
+//     });
+//   });
+// });
 
 // e
 // u
@@ -252,3 +252,26 @@ Object.values(obj).forEach(arr => {
 // e
 // a
 // o
+
+/* ================
+Practice Problem 9
+
+Given the following data structure, return a new array with the same structure, but with the values in each subarray ordered -- alphabetically or numerically as appropriate -- in ascending order. */
+
+let arr = [['b', 'c', 'a'], [2, 11, -3], ['blue', 'black', 'green']];
+
+/* Notes
+need to access the elements in each subarray and order them either alphabetically or numerically
+map?
+sort
+*/
+
+console.log(arr.map(subArray => {
+  if (typeof subArray[0] === 'string') {
+    return subArray.slice().sort();
+  } else {
+    return subArray.slice().sort((a, b) => a - b);
+  }
+}));
+
+// [ [ 'a', 'b', 'c' ], [ -3, 2, 11 ], [ 'black', 'blue', 'green' ] ]

@@ -2883,3 +2883,6 @@ Score: 12/24 (50.0%)
    * None
 
 11:59 Gosh it took a while to get to this point where I can now dedicate one Ultradian cycle of 90 minutes to programming.
+
+12:26 Finished Practice Problem 8, but it took me 25 minutes to do after seeing the solution. I could reproduce it perfectly the next time which means my brain is working better at remembering code. Yes!
+
