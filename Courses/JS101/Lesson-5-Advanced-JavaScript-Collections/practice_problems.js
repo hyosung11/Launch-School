@@ -107,5 +107,46 @@ let obj2 = { a: { a: ['1', 'two', 3], b: 4 }, b: 5 };
 // console.log(arr2[2] = 4);
 // console.log(arr2); // => [ { a: 1 }, { b: 2, c: [ 7, 6, 5 ], d: 4 }, 4 ]
 
-console.log(obj1.first[2][0] = 4);
-console.log(obj1) // => { first: [ 1, 2, [ 4 ] ] }
+// console.log(obj1.first[2][0] = 4);
+// console.log(obj1) // => { first: [ 1, 2, [ 4 ] ] }
+
+// console.log(obj2.a.a[2] = 4); // => 4
+// console.log(obj2); // => { a: { a: [ '1', 'two', 4 ], b: 4 }, b: 5 }
+
+/* ================
+Practice Problem 5
+
+Consider the following nested object: */
+
+let munsters = {
+  Herman: { age: 32, gender: 'male' },
+  Lily: { age: 30, gender: 'female' },
+  Grandpa: { age: 402, gender: 'male' },
+  Eddie: { age: 10, gender: 'male' },
+  Marilyn: { age: 23, gender: 'female' },
+};
+
+// Compute and display the total age of the male members of the family.
+
+// There are several ways to accomplish this task. One way is to use the `for/in` loop and add up the ages:
+let totalMaleAge = 0;
+
+for (let member in munsters) {
+  if (munsters[member]['gender'] === 'male') {
+    totalMaleAge += munsters[member]['age'];
+  }
+}
+
+console.log(totalMaleAge);
+
+// Another way to do it would be to use the `Object.values` method along with a `forEach` or a loop:
+// let memberTraits = Object.values(munsters);
+// let totalMaleAge = 0;
+
+// memberTraits.forEach(member => {
+//   if (member.gender === 'male') {
+//     totalMaleAge += member.age;
+//   }
+// });
+
+// console.log(totalMaleAge); // => 444
