@@ -258,7 +258,7 @@ Practice Problem 9
 
 Given the following data structure, return a new array with the same structure, but with the values in each subarray ordered -- alphabetically or numerically as appropriate -- in ascending order. */
 
-let arr = [['b', 'c', 'a'], [2, 11, -3], ['blue', 'black', 'green']];
+// let arr = [['b', 'c', 'a'], [2, 11, -3], ['blue', 'black', 'green']];
 
 /* Notes
 need to access the elements in each subarray and order them either alphabetically or numerically
@@ -266,12 +266,37 @@ map?
 sort
 */
 
-console.log(arr.map(subArray => {
-  if (typeof subArray[0] === 'string') {
-    return subArray.slice().sort();
-  } else {
-    return subArray.slice().sort((a, b) => a - b);
-  }
-}));
+// console.log(arr.map(subArray => {
+//   if (typeof subArray[0] === 'string') {
+//     return subArray.slice().sort();
+//   } else {
+//     return subArray.slice().sort((a, b) => a - b);
+//   }
+// }));
 
 // [ [ 'a', 'b', 'c' ], [ -3, 2, 11 ], [ 'black', 'blue', 'green' ] ]
+
+/* ================
+Practice Problem 10
+
+Perform the same transformation of sorting the subarrays we did in the previous exercise with one difference; sort the elements in descending order.*/
+
+let arr = [['b', 'c', 'a'], [2, 11, -3], ['blue', 'black', 'green']];
+
+console.log(arr.map(subArray => {
+  return subArray.slice().sort((a, b) => {
+    if (typeof a === 'number') {
+      return b - a;
+    }
+
+    if (a < b) {
+      return 1;
+    } else if (a > b) {
+      return -1;
+    } else {
+      return 0;
+    }
+  });
+}));
+
+// [ [ 'c', 'b', 'a' ], [ 11, 2, -3 ], [ 'green', 'blue', 'black' ] ]
