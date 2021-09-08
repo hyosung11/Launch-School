@@ -1220,7 +1220,7 @@ Each output line should follow this pattern:
 (Name) is a (age)-year-old (male or female).
 ```
 
-Solutions
+Solution
 
 ```js
 Object.entries(munsters).forEach(entry => {
@@ -1235,6 +1235,32 @@ Object.entries(munsters).forEach(entry => {
 Here, we need to access both the key (each family member's name) and the value (the inner objects containing the details), so we need to use `Object.entries`, which gives us each key-value pair as the first and second elements of a sub-array.
 
 ### Practice Problem 7
+
+Given the following code, what will the final values of `a` and `b` be? Try to answer without running the code.
+
+```js
+let a = 2;
+let b = [5, 8];
+let arr = [a, b]; // => [2, [5, 8] ]
+
+arr[0] += 2; // => 4
+arr[1][0] -= a; // => 3
+```
+
+Solution
+
+```js
+a // => 2
+b // => [ 3, 8 ]
+```
+
+The value of `a` didn't change since we don't reference `a` at any point. The code `arr[0] += 2` modifies the array `arr`, but not `a`. In effect, we are assigning a new object to that index of the array so that instead of `arr[0]` containing `2`, the value obtained from `a`, it now contains `4`. We can confirm that by examining the value of `arr`:
+
+```js
+arr; // => [ 4, [ 3, 8 ] ]
+```
+
+Since `b` is an array and we are modifying that array by assigning a new value to index `0`, the value of `b` does change.
 
 ### Practice Problem 8
 

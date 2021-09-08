@@ -158,21 +158,37 @@ One of the most frequently used real-world string operations is that of "string 
 
 Given this previously seen family object, print the name, age, and gender of each family member: */
 
-let munsters = {
-  herman: { age: 32, gender: 'male' },
-  lily: { age: 30, gender: 'female' },
-  grandpa: { age: 402, gender: 'male' },
-  eddie: { age: 10, gender: 'male' },
-  marilyn: { age: 23, gender: 'female'}
-};
+// let munsters = {
+//   herman: { age: 32, gender: 'male' },
+//   lily: { age: 30, gender: 'female' },
+//   grandpa: { age: 402, gender: 'male' },
+//   eddie: { age: 10, gender: 'male' },
+//   marilyn: { age: 23, gender: 'female'}
+// };
 
 // Each output line should follow this pattern:
 // (Name) is a (age)-year-old (male or female).
 
-Object.entries(munsters).forEach(character => {
-  let name = character[0];
-  let age = character[1].age;
-  let gender = character[1].gender;
+// Object.entries(munsters).forEach(character => {
+//   let name = character[0];
+//   let age = character[1].age;
+//   let gender = character[1].gender;
 
-  console.log(`${name} is a ${age}-year-old ${gender}.`)
-});
+//   console.log(`${name} is a ${age}-year-old ${gender}.`)
+// });
+
+/* ===============
+Practice Problem 7
+
+Given the following code, what will the final values of `a` and `b` be? Try to answer without running the code. */
+
+let a = 2;
+let b = [5, 8];
+let arr = [a, b]; // => [2, [5, 8] ]
+// console.log(arr);
+
+// console.log(arr[0] += 2); // => 4
+// console.log(arr[1][0] -= a); // => 3
+
+// a // => 2
+// b // => [ 3, 8 ]
