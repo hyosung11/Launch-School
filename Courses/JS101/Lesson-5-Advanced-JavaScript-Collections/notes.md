@@ -1398,8 +1398,30 @@ arr.map(obj => {
 arr; // => [ { a: 1 }, { b: 2, c: 3 }, { d: 4, e: 5, f: 6 } ]
 ```
 
+Here, we use `map` to iterate over the array. On each iteration, the callback creates a new object, `incrementedObj`, and then iterates through the key-value pairs of the current object from the original array. It uses the keys and the current object to create a new key-value pair in `incrementedObj`, with a value that is one greater than the original value. The callback then returns `incrementedObj`, and `map` uses it to transform each element in the array.
+
+On the last line, we also see that the original array and the objects both remain intact.
+
 ### Practice Problem 12
 
+Given the following data structure, use a combination of methods, including `filter`, to return a new array identical in structure to the original, but containing only the numbers that are multiples of 3.
+
+```js
+let arr = [[2], [3, 5, 7], [9], [11, 15, 18]];
+```
+
+Hint
+The `%` operator, called the remainder operator, can be used to ascertain if a number is a multiple of another number. A number `x` is a multiple of a number `y` if `x % y === 0`.
+
+Solution
+
+```js
+let arr = [[2], [3, 5, 7], [9], [11, 15, 18]];
+
+arr.map(subArr => {
+
+})
+```
 ### Practice Problem 13
 
 ### Practice Problem 14
