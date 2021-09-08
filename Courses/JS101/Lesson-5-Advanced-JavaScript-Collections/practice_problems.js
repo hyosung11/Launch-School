@@ -281,22 +281,48 @@ Practice Problem 10
 
 Perform the same transformation of sorting the subarrays we did in the previous exercise with one difference; sort the elements in descending order.*/
 
-let arr = [['b', 'c', 'a'], [2, 11, -3], ['blue', 'black', 'green']];
+// let arr = [['b', 'c', 'a'], [2, 11, -3], ['blue', 'black', 'green']];
 
-console.log(arr.map(subArray => {
-  return subArray.slice().sort((a, b) => {
-    if (typeof a === 'number') {
-      return b - a;
-    }
+// console.log(arr.map(subArray => {
+//   return subArray.slice().sort((a, b) => {
+//     if (typeof a === 'number') {
+//       return b - a;
+//     }
 
-    if (a < b) {
-      return 1;
-    } else if (a > b) {
-      return -1;
-    } else {
-      return 0;
-    }
-  });
-}));
+//     if (a < b) {
+//       return 1;
+//     } else if (a > b) {
+//       return -1;
+//     } else {
+//       return 0;
+//     }
+//   });
+// }));
 
 // [ [ 'c', 'b', 'a' ], [ 11, 2, -3 ], [ 'green', 'blue', 'black' ] ]
+
+/* ================
+Practice Problem 11
+
+Given the following data structure, use the `map` method to return a new array identical in structure to the original but, with each number incremented by 1. Do not modify the original data structure.
+
+return a new array
+increment each number by 1
+don't mutate the original data structure
+*/
+
+let arr = [{ a: 1 }, { b: 2, c: 3 }, { d: 4, e: 5, f: 6 }];
+
+console.log(arr.map(obj => {
+  let incrementedObj = {};
+
+  for (let key in obj) {
+    incrementedObj[key] = obj[key] + 1;
+  }
+
+  return incrementedObj;
+})
+);
+
+// [ { a: 2 }, { b: 3, c: 4 }, { d: 5, e: 6, f: 7 } ]
+// console.log(arr); // => [{ a: 1 }, { b: 2, c: 3 }, { d: 4, e: 5, f: 6 }];
