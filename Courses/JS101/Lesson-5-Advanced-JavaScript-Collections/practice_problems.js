@@ -192,3 +192,63 @@ let arr = [a, b]; // => [2, [5, 8] ]
 
 // a // => 2
 // b // => [ 3, 8 ]
+
+/* ===============
+Practice Problem 8
+
+Using the `forEach` method, write some code to output all vowels from the strings in the arrays. Don't use a `for` or `while` loop. */
+
+let obj = {
+  first: ['the', 'quick'],
+  second: ['brown', 'fox'],
+  third: ['jumped'],
+  fourth: ['over', 'the', 'lazy', 'dog'],
+};
+
+/* PEDAC
+
+Problem
+- input: object
+- output: vowels
+
+Examples
+- strings in the arrays
+
+Data Structure
+- input: object with arrays as values with strings as elements
+- output: vowels
+
+Algorithm
+- declare variable `vowels` and assign it the value of `aeiou`
+- iterate through the object
+  - check the object's value which is an array of strings for vowels in the strings
+  - return the vowels
+
+Hint
+You can use the `String.prototype.split` method to convert the words to arrays of individual characters.
+
+*/
+let vowels = 'aeiou';
+
+Object.values(obj).forEach(arr => {
+  arr.forEach(word => {
+    word.split('').forEach(char => {
+      if (vowels.includes(char)) {
+        console.log(char);
+      }
+    });
+  });
+});
+
+// e
+// u
+// i
+// o
+// o
+// u
+// e
+// o
+// e
+// e
+// a
+// o

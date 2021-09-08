@@ -2861,7 +2861,7 @@ Score: 12/24 (50.0%)
 
 21:14 Finished Practice Problem 7 and done for the day.
 
-## 20210908 
+## 20210908 수요일
 
 10:52 Back from the gym. It's Mickey's birthday today. Send him a message? It's eerily quiet without SungOh at home.
 
@@ -2881,3 +2881,5 @@ Score: 12/24 (50.0%)
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * None
+
+11:59 Gosh it took a while to get to this point where I can now dedicate one Ultradian cycle of 90 minutes to programming.
