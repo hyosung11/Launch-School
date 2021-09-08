@@ -2860,3 +2860,7 @@ Score: 12/24 (50.0%)
 20:47 Finished Practice Problem 6.
 
 21:14 Finished Practice Problem 7 and done for the day.
+
+## 20210908 수요일
+
+07:40 Woke up late after going to bed late and didn't study in the morning. It's a school day, so have to serve breakfast to the kids and then walk them to school before I go to the gym to do soccer skills practice and athletic performance training.
