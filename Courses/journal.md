@@ -2926,3 +2926,5 @@ Score: 12/24 (50.0%)
 11:42 Done with correspondence and now I'll take a short break before working on Practice Problems.
 
 12:18 Practiced Practice Problem 13 and that took about 30 minutes. I still don't fully understand it. Go into diffuse mode for a break now.
+
+12:50 It takes me about 30 minutes per problem right now. Going to play ping pong now.
