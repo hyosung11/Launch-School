@@ -2905,3 +2905,18 @@ Score: 12/24 (50.0%)
 ## 20210909 목요일
 
 08:29 Sohee drove the kids to school and will go to her appointment with Leidy. We plan to have sex later so I'm excited. It seems if I don't have a study session scheduled or a soccer game in the morning, I sleep in. I've also been staying up until around 22:30 watching the US Open tennis matches. I'm going to read for a few minutes and then go to the gym. I love my family. It's the best thing about being alive.
+
+11:00 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS101 > Lesson 5 > Assignment 5. Practice Problems > 8 ~ 12
+   * [x] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [x] 3. Listen to the Huberman Lab Podcast Episode 27 | The Science of Hearing, Balance & Accelerated Learning
+
+2. What will you do today?
+   * [ ] 1. JS101 > Lesson 5 > Assignment 5. Practice Problems > 13 ~ 17
+   * [ ] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [ ] 3. Listen to the Huberman Lab Podcast Episode 27 | The Science of Hearing, Balance & Accelerated Learning
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Less time because I referee a soccer game in the late afternoon.
