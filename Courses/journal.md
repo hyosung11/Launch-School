@@ -2924,3 +2924,5 @@ Score: 12/24 (50.0%)
 11:17 Correspondence taking longer than 15 minutes.
 
 11:42 Done with correspondence and now I'll take a short break before working on Practice Problems.
+
+12:18 Practiced Practice Problem 13 and that took about 30 minutes. I still don't fully understand it. Go into diffuse mode for a break now.

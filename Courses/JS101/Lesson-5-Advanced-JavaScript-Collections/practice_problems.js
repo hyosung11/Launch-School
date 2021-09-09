@@ -355,19 +355,69 @@ Notes:
 - compare the odd number values in each subarray
 - return array with subarrays in descending order of odd number values
 */
-let arr = [[1, 6, 7], [1, 5, 3], [1, 8, 3]];
+// let arr = [[1, 6, 7], [1, 5, 3], [1, 8, 3]];
 
 /* Since 1 + 3 < 1 + 7 < 1 + 5 + 3, the sorted array should look like this:
 [ [ 1, 8, 3 ], [ 1, 6, 7 ], [ 1, 5, 3 ] ]
 */
 
-console.log(arr.sort((a, b) => {
-  let oddSumA = a.filter(num => num % 2 === 1)
-                 .reduce((sum, next) => sum + next);
-  let oddSumB = b.filter(num => num % 2 === 1)
-                 .reduce((sum, next) => sum + next);
+// console.log(arr.sort((a, b) => {
+//   let oddSumA = a.filter(num => num % 2 === 1)
+//                  .reduce((sum, next) => sum + next);
+//   let oddSumB = b.filter(num => num % 2 === 1)
+//                  .reduce((sum, next) => sum + next);
 
-  return oddSumA - oddSumB;
-}));
+//   return oddSumA - oddSumB;
+// }));
 
 // [ [ 1, 8, 3 ], [ 1, 6, 7 ], [ 1, 5, 3 ] ]
+
+/* ================
+Practice Problem 14
+
+Given the following data structure write some code to return an array containing the colors of the fruits and the sizes of the vegetables. The sizes should be uppercase, and the colors should be capitalized.
+
+Notes
+- input: object
+- output: array
+
+reach into each type of produce
+if the type is fruit
+- return the colors of that fruit with the colors capitalized
+if the type is vegetable
+- return the size of the vegetable in uppercase
+
+*/
+
+let obj = {
+  grape: { type: 'fruit', colors: ['red', 'green'], size: 'small' },
+  carrot: { type: 'vegetable', colors: ['orange'], size: 'medium' },
+  apple: { type: 'fruit', colors: ['red', 'green'], size: 'medium' },
+  apricot: { type: 'fruit', colors: ['orange'], size: 'medium' },
+  marrow: { type: 'vegetable', colors: ['green'], size: 'large' },
+};
+
+/* The return value should look like this:
+
+[["Red", "Green"], "MEDIUM", ["Red", "Green"], ["Orange"], "LARGE"] */
+
+
+let capitalize = word => word[0].toUpperCase() + word.slice(1);
+
+let result = Object.values(obj).map(attributes => {
+  if (attributes['type'] === 'fruit') {
+    return attributes['colors'].map(char => capitalize(char));
+  } else {
+    return attributes['size'].toUpperCase();
+  }
+});
+
+console.log(result);
+
+// [
+//   [ 'Red', 'Green' ],
+//   'MEDIUM',
+//   [ 'Red', 'Green' ],
+//   [ 'Orange' ],
+//   'LARGE'
+// ]
