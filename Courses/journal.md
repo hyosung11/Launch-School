@@ -2901,3 +2901,7 @@ Score: 12/24 (50.0%)
 15:45 Working on the rest of Practice Problem 12.
 
 15:50 Back on my MBP on the La-Z-Boy. That word is in the dictionary. Amazing.
+
+## 20210909 목요일
+
+08:29 Sohee drove the kids to school and will go to her appointment with Leidy. We plan to have sex later so I'm excited. It seems if I don't have a study session scheduled or a soccer game in the morning, I sleep in. I've also been staying up until around 22:30 watching the US Open tennis matches. I'm going to read for a few minutes and then go to the gym. I love my family. It's the best thing about being alive.
