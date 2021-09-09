@@ -2920,3 +2920,7 @@ Score: 12/24 (50.0%)
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Less time because I referee a soccer game in the late afternoon.
+
+11:17 Correspondence taking longer than 15 minutes.
+
+11:42 Done with correspondence and now I'll take a short break before working on Practice Problems.
