@@ -1527,7 +1527,48 @@ If all of the numbers in an inner array are even, then the inner callback return
 
 ### Practice Problem 16
 
+Given the following data structure, write some code that returns an object where the key is the first item in each subarray, and the value is the second.
+
+```js
+let arr = [['a', 1], ['b', 'two'], ['sea', {'c': 3}], ['D', ['a', 'b', 'c']]];
+
+// expected return value of function call
+// { a: 1, b: 'two', sea: { c: 3 }, D: [ 'a', 'b', 'c' ] }
+```
+
+Solution
+
+```js
+let obj = {};
+arr.forEach(subarray => {
+  let key = subarray[0];
+  let value = subarray[1];
+
+  obj[key] = value;
+});
+
+obj; // { a: 1, b: 'two', sea: { c: 3 }, D: [ 'a', 'b', 'c' ] }
+```
+
+This task may seem complicated, at first, since the collection contains different object types, some nested three levels deep. However, you only have to work at the initial sub-level to reach a solution.
+
+In more recent versions of JavaScript, you can use Object.fromEntries in a much simpler solution:
+
+```js
+Object.fromEntries(arr);
+```
+
 ### Practice Problem 17
+
+Practice Problem 17
+
+A UUID is a type of identifier often used to uniquely identify items, even when some of those items were created on a different server or by a different application. That is, without any synchronization, two or more computer systems can create new items and label them with a UUID with no significant risk of stepping on each other's toes. It accomplishes this feat through massive randomization. The number of possible UUID values is approximately 3.4 X 10E38, which is a huge number. The chance of a conflict is vanishingly small with such a large number of possible values.
+
+Each UUID consists of 32 hexadecimal characters (the digits 0-9 and the letters a-f) represented as a string. The value is typically broken into 5 sections in an 8-4-4-4-12 pattern, e.g., 'f65c57f6-a6aa-17a8-faa1-a67f2dc9fa91'.
+
+Write a function that takes no arguments and returns a string that contains a UUID.
+
+
 
 ### Practice Problems Summary
 
