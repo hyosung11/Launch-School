@@ -2960,3 +2960,5 @@ Score: 12/24 (50.0%)
 13:09 Practiced Practice Problem 16 with help from the solution. Easy way: `Object.fromEntries()`.
 
 13:15 Practice Problem 17 feels too hard at the moment. I'm basically copying it into my notes. I'll look at it again later.
+
+18:59 It's the start of movie night. Watching Pixels again. Ugh. Okay, I have to pee.
