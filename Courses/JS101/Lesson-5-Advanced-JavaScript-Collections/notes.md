@@ -1568,6 +1568,37 @@ Each UUID consists of 32 hexadecimal characters (the digits 0-9 and the letters 
 
 Write a function that takes no arguments and returns a string that contains a UUID.
 
+```js
+function generateUUID() {
+  let characters = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+  let sections = [8, 4, 4, 4, 12];
+
+  let uuid = '';
+  sections.forEach((section, sectionIndex) => {
+    for (let index = 1; index <= section; index++) {
+      let randomIndex = Math.floor(Math.random() *characters.length);
+      uuid += characters[randomIndex];
+    }
+
+    if (sectionIndex < sections.length - 1) {
+      uuid += '-';
+    }
+  });
+
+  return uuid;
+}
+
+generateUUID(); // => '02e51c2f-dacd-c319-53b5-e40e6e8c1f78'
+generateUUID(); // => '39038ab9-3b95-43d8-6959-5d785ccb9b69'
+generateUUID(); // => 'f7d56480-c5b2-8d4d-465f-01a4ea605729'
+```
+
+The key to this solution is using the `sections` array to represent the number of characters in each section. During each iteration through the `sections` array, we generate the appropriate number of random characters, and thus builds the UUID character by character.
+
+Our solution is just one possible solution to the problem. Yours may be different. However you solved it, though, you most likely used one or more iterative methods.
+
+Our solution ignores some complexity concerning the proper way to generate UUIDs. It has a higher probability of creating conflicting values than you might think. See the [RFC 4122](https://datatracker.ietf.org/doc/html/rfc4122) document for complete details about how to properly generate UUIDs. Better yet, use an RFC 4122-compliant implementation of the algorithm, such as the `node-uuid` NPM module.
+
 ### Practice Problems Summary
 
 Hopefully, by working through these practice problems, you have been able to develop a practical understanding of the concepts covered in the previous assignments. When faced with a coding problem that requires you to iterate through a complex nested collection, it is important to focus on:
@@ -1578,3 +1609,29 @@ Hopefully, by working through these practice problems, you have been able to dev
 * What is the ultimate return value of the initial method call?
 
 By using a systematic approach to break down problems in this way you should be able to leverage these concepts and techniques when faced with complex nested collection objects.
+
+20210910 금요일 13:23 Assignment complete but I need to practice these practice problems more.
+
+## Summary
+
+The assignments in this lesson have built on and combined a variety of different concepts covered in previous lessons. Completing the assignments in this lesson should provide you with the understanding required to work with complex nested collections using iterative methods combined with higher order functions.
+
+Some important points to remember:
+
+* You should know how to reference items within nested collections to manipulate them.
+
+* You should be aware that when you make a copy of a collection object that it is a shallow copy - the objects within the collections are shared between the copy and the original.
+
+* When working with iterative methods that take callbacks, especially when using nested collections:
+
+  * Take the time to break down and understand the structure of a collection.
+  * Choose an appropriate method and be clear on its implementation and return value.
+  * Understand what is being returned by the various methods and callbacks at each level. When iterating through nested collections, be particularly aware of the return value of the callback and any side effects of the code within the callback.
+
+The purpose of exposing you to these concepts and techniques at this stage is to provide you with the tools necessary to solve coding problems which might require you to work with nested collections as part of the solution. Being able to manipulate a collection of data is very often a necessary component of a solution to an overall coding problem.
+
+Using what you have learned in this lesson, you should now be able to isolate and understand each component of such method calls when you identify them as part of a larger problem. The ultimate goal is to give you the ability to analyze code and understand it completely and with confidence. You should know, precisely, what each line of code does, and understand why your code behaves the way it does.
+
+Before moving on to the following lesson, complete the quiz for this lesson. We've covered a few advanced concepts here, so don't be afraid to take your time with these questions and refer back to the material if necessary.
+
+20210910 13:26 Assignment complete.

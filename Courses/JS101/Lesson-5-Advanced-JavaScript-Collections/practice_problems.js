@@ -497,3 +497,25 @@ Each UUID consists of 32 hexadecimal characters (the digits 0-9 and the letters 
 Write a function that takes no arguments and returns a string that contains a UUID.
 */
 
+function generateUUID() {
+  let characters = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+  let sections = [8, 4, 4, 4, 12];
+
+  let uuid = '';
+  sections.forEach((section, sectionIndex) => {
+    for (let index = 1; index <= section; index++) {
+      let randomIndex = Math.floor(Math.random() * characters.length);
+      uuid += characters[randomIndex];
+    }
+
+    if (sectionIndex < sections.length - 1) {
+      uuid += '-';
+    }
+  });
+
+  return uuid;
+}
+
+console.log(generateUUID()); // => '78776c2d-ce6f-bd32-a8ae-85b520f57975
+console.log(generateUUID()); // => '0d2fbdcd-c918-b87e-6121-c5544c15c77b'
+console.log(generateUUID()); // => 'e8e0199c-d622-af16-da4c-6961a440eb9c'
