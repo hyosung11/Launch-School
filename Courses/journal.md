@@ -2934,3 +2934,21 @@ Score: 12/24 (50.0%)
 ## 20210910 금요일
 
 07:58 Woke up late and didn't do anymore studying last night. I will finish the three practice problems today after I drop the kids off at school, go to the gym, and see Dr. Riotto.
+
+12:00 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS101 > Lesson 5 > Assignment 5. Practice Problems > 13 ~ 14
+   * [ ] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [x] 3. Listen to the Huberman Lab Podcast Episode 27 | The Science of Hearing, Balance & Accelerated Learning
+
+2. What will you do today?
+   * [ ] 1. JS101 > Lesson 5 > Assignment 5. Practice Problems > 15 ~ 17
+   * [ ] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [ ] 3. JS109 Study Group
+   * [ ] 4. Listen to the Huberman Lab Podcast Episode 28 | Maximizing Productivity, Physical & Mental Health with Daily Tools
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I'm finding it hard to focus and prioritize Launch School this week. I'm kind of distracted and all over the place. Also, not having the early morning study sessions with Alex is detrimental to my progress.
+
+12:08 I'm ready for 90 minutes of focused studying to finish Practice Problems 15 ~ 17 now.

@@ -1475,6 +1475,26 @@ The return value should look like this:
 [["Red", "Green"], "MEDIUM", ["Red", "Green"], ["Orange"], "LARGE"]
 ```
 
+Solution
+
+```js
+let capitalize = word => word[0].toUpperCase() + word.slice(1);
+
+Object.values(obj).map(attributes => {
+  if (attributes['type'] === 'fruit') {
+    return attributes['colors'].map(char => capitalize(char));
+  } else {
+    return attributes['size'].toUpperCase();
+  }
+});
+```
+
+From the problem description, we know that we want to return an array where each value corresponds to one of the nested objects in the outer object, so `map` called on an array of the objects's values is a good initial choice.
+
+Since the value to be returned to `map` by the outer callback depends on whether `type` equates to `fruit` or `vegetable`, we need to use a conditional statement to perform the actions appropriate to each object.
+
+The situation for `colors` is slightly complicated since we want to pass them to our `capitalize` function, but they are nested within arrays. Thus, we need to iterate through those arrays to access them. Fortunately, it's a straightforward call to `map`.
+
 ### Practice Problem 15
 
 ### Practice Problem 16
