@@ -2952,3 +2952,7 @@ Score: 12/24 (50.0%)
    * I'm finding it hard to focus and prioritize Launch School this week. I'm kind of distracted and all over the place. Also, not having the early morning study sessions with Alex is detrimental to my progress.
 
 12:08 I'm ready for 90 minutes of focused studying to finish Practice Problems 15 ~ 17 now.
+
+12:17 Finishing up the solution notes to Practice Problem 14. Now on to 15. Do I want a low level of white noise or is the chirp of cicadas and the breeze in the trees sufficient? Let's just keep studying for now as is.
+
+12:45 Finished Practice Problem 15, but needed to look at the solution.
