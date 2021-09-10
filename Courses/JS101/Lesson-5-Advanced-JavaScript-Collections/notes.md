@@ -1568,8 +1568,6 @@ Each UUID consists of 32 hexadecimal characters (the digits 0-9 and the letters 
 
 Write a function that takes no arguments and returns a string that contains a UUID.
 
-
-
 ### Practice Problems Summary
 
 Hopefully, by working through these practice problems, you have been able to develop a practical understanding of the concepts covered in the previous assignments. When faced with a coding problem that requires you to iterate through a complex nested collection, it is important to focus on:
