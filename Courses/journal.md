@@ -2928,3 +2928,9 @@ Score: 12/24 (50.0%)
 12:18 Practiced Practice Problem 13 and that took about 30 minutes. I still don't fully understand it. Go into diffuse mode for a break now.
 
 12:50 It takes me about 30 minutes per problem right now. Going to play ping pong now.
+
+20:16 I didn't do anymore studying and I don't feel like doing more right now. Ugh.
+
+## 20210910 금요일
+
+07:58 Woke up late and didn't do anymore studying last night. I will finish the three practice problems today after I drop the kids off at school, go to the gym, and see Dr. Riotto.
