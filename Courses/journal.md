@@ -2962,3 +2962,24 @@ Score: 12/24 (50.0%)
 13:15 Practice Problem 17 feels too hard at the moment. I'm basically copying it into my notes. I'll look at it again later.
 
 18:59 It's the start of movie night. Watching Pixels again. Ugh. Okay, I have to pee.
+
+## 20210911 토요일
+
+10:09 Back from soccer. I want to adjust my schedule based on what I heard in the Huberman Lab podcast about the best time to do focused work being 4 to 6 hours after your temperature minimum. My temperature minimum is about two hours before I wake up. If I wake up at 5:15 then my temperature minimum occurs around 3:15 and my best working window is between 7:15 to 9:15 to start.
+
+10:11 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS101 > Lesson 5 > Assignment 5. Practice Problems > 15 ~ 17
+   * [x] 2. JS101 > Lesson 5 > Assignment 6. Summary
+   * [ ] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [x] 3. JS109 Study Group
+   * [x] 4. Listen to the Huberman Lab Podcast Episode 28 | Maximizing Productivity, Physical & Mental Health with Daily Tools
+
+2. What will you do today?
+   * [ ] 1. JS101 > Lesson 5 > Assignment 7. Lesson 5 Quiz 1
+   * [ ] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [ ] 3. Listen to the Huberman Lab Podcast Episode 29 | Dr. Lex Friedman: Machines, Creativity & Love
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Played soccer this morning. I have Daddy Daughter Time in a few minutes, and I officiate a soccer game this afternoon. I want to take the Lesson 5 Quiz 1 today, but I'm not sure when I can do it.
