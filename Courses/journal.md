@@ -2983,3 +2983,7 @@ Score: 12/24 (50.0%)
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Played soccer this morning. I have Daddy Daughter Time in a few minutes, and I officiate a soccer game this afternoon. I want to take the Lesson 5 Quiz 1 today, but I'm not sure when I can do it.
+
+## 20210912 일요일
+
+06:06 Talking to Alex before studying. 5:30 ~ 6:30 is the only time that he can study.
