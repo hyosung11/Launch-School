@@ -1642,4 +1642,24 @@ Assignment: Lesson 5 Quiz 1
 Student Name: HyoSung Bidol-Lee
 Submitted at: less than a minute ago
 Time taken: 0.55 hour(s)
-Score: 5/7 (71.43%) 
+Score: 5/7 (71.43%)
+
+### Question 1
+
+Examine the following code:
+
+```js
+let arr = [340, 15, 1, 3400];
+
+arr.sort(); // => [ 1, 15, 340, 3400 ]
+```
+
+Which of the following statements most accurately describes why the above code produces the indicated return value?
+
+Answer C
+
+`Array.prototype.sort` arranges the value in the array by comparing the values of each element as strings. The resulting array contains all the elements arranged in ascending lexicographic order based on UTF-16 codepoints. If two strings have the same value up to the length of the shorter string, `sort` positions the shorter string before the longer one.
+
+Discussion
+
+Without arguments, `Array.prototype.sort` compares the values as strings, coercing the strings as needed. The comparisons are lexicographic; lengths only play a part when two strings match up to the length of the shorter one. In that case, `sort` positions the shorter value before the longer one.

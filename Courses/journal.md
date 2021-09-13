@@ -3023,3 +3023,5 @@ Time taken: 0.55 hour(s)
 Score: 5/7 (71.43%)
 
 Now I really need to poo.
+
+09:54 Start compiling written assessment answer snippets. Or wait until I finish JS101? I can't decide at the moment. Of course, I'm going to return to the quizzes.
