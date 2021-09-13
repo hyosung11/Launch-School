@@ -3012,3 +3012,14 @@ Score: 12/24 (50.0%)
 3. Are there any blockers or impediments preventing you from doing your work?
    * Iterating a new schedule this week. I want to follow Ultradian study cycles of 90 minutes. I want to complete three a day. I missed the early morning one, but could have gotten up to do it.
 
+09:06 Lesson 5 Quiz 1 is on my agenda for this morning.
+
+09:46 Just finished Lesson 5 Quiz 1 as follows:
+
+Assignment: Lesson 5 Quiz 1
+Student Name: HyoSung Bidol-Lee
+Submitted at: less than a minute ago
+Time taken: 0.55 hour(s)
+Score: 5/7 (71.43%)
+
+Now I really need to poo.

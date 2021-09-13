@@ -1635,3 +1635,11 @@ Using what you have learned in this lesson, you should now be able to isolate an
 Before moving on to the following lesson, complete the quiz for this lesson. We've covered a few advanced concepts here, so don't be afraid to take your time with these questions and refer back to the material if necessary.
 
 20210910 13:26 Assignment complete.
+
+## Lesson 5 Quiz 1 (20210913 09:11)
+
+Assignment: Lesson 5 Quiz 1
+Student Name: HyoSung Bidol-Lee
+Submitted at: less than a minute ago
+Time taken: 0.55 hour(s)
+Score: 5/7 (71.43%) 
