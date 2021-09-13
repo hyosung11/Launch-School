@@ -3035,3 +3035,4 @@ Decisions. Decisions. Good problem to have. I'm going to the dining room table n
 
 12:01 Studied Debugger and REPL stuff.
 
+17:07 I think there's a note on my iMac.Ugh.
