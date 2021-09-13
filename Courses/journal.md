@@ -3032,3 +3032,6 @@ Now I really need to poo.
 Decisions. Decisions. Good problem to have. I'm going to the dining room table now as my legs feel fatigued.
 
 11:46 Working on Lesson 6 > Assignment 2. More Node Debugger Commands. Enjoying this.
+
+12:01 Studied Debugger and REPL stuff.
+
