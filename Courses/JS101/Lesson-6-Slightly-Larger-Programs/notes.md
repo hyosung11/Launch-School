@@ -44,7 +44,46 @@ In that earlier assignment, we listed some of the debugger's commands and outlin
 
 ### Executing Expressions or Functions
 
+You should already be familiar with the `exec` command as a way of accessing in-scope variables within the debugger. Something you may not be aware of is that the `exec` command can also be used to evaluate expressions or execute functions.
+
+```sh
+break in exec.js:8
+  6
+  7 let a = 1;
+> 8 let b = 2;
+  9
+debug> exec a + b
+3
+```
+
+Note that to execute a function with `exec` you need to have an invocation for that function in your code, not just the function definition.
+
+Another way to evaluate expressions or execute functions within the debugger is to access the built in REPL. You can access the REPL via the `repl` command. Within the REPL, you can access variables that are in scope at the point where program execution was paused, and you can evaluate expressions or execute functions. Within the REPL, all of this can be done without the need for the `exec` command.
+
+```sh
+debug> repl
+Press Ctrl + C to leave debug repl
+> a
+1
+> a + b
+3
+```
+
+To exit the REPL, you can use `Ctrl + C` (or `Ctrl + Shift + C` on some systems).
+
+Video Demo `exec.js`
+
 ### Setting and Clearing Breakpoints
+
+In the earlier assignment, we covered manually setting a breakpoint using the debugger keyword in the code file. This approach works fine, though it does mean that in order to set a breakpoint you have to exit the debugger, edit the file, and restart the debugger. This can be a pain if you want to add and then remove breakpoints at numerous points during the program execution.
+
+Luckily there's a way to add and remove breakpoints within the debugger itself while it's running. Breakpoints can be set using the `setBreakpoint()` or `sb()` commands, and removed using the `clearBreakpoint()` or `cb()` commands.
+
+* `setBreakpoint()` / `sb()` can be used without an argument to set a breakpoint on the current line, or with a line number passed as an argument in order to set a breakpoint on the line specified.
+
+* `clearBreakpoint()` / `cb()` takes two arguments, the name of the file and the line number.
+
+Video
 
 ### Stepping Into Functions
 
