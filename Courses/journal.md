@@ -3025,3 +3025,5 @@ Score: 5/7 (71.43%)
 Now I really need to poo.
 
 09:54 Start compiling written assessment answer snippets. Or wait until I finish JS101? I can't decide at the moment. Of course, I'm going to return to the quizzes.
+
+10:43 Done reviewing Lesson 5 Quiz 1. I'm going to transition to correspondence and then go to the gym to train.
