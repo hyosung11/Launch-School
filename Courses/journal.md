@@ -3030,3 +3030,5 @@ Now I really need to poo.
 
 11:28 I changed my schedule and am starting Lesson 6 now. I plan to leave for the gym in a few minutes, but I'm thinking I may sit down at the kitchen table and study there. Not sure that I want to make the trip to the gym since I'm going to play ping pong with Louis and go for a swim.
 Decisions. Decisions. Good problem to have. I'm going to the dining room table now as my legs feel fatigued.
+
+11:46 Working on Lesson 6 > Assignment 2. More Node Debugger Commands. Enjoying this.
