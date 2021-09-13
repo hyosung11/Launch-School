@@ -1828,3 +1828,9 @@ Answer: C
 * [ ] D [4, 2, 4]
 
 Discussion
+
+* The loop inside the function mutates the array while iterating over it.
+* The mutation removes the first element from the array during each iteration.
+* Because of the mutation, `value` gets set to `1`, then `4`, then `4` again, then `5` then `9`, and finally `12`.
+* Of those values, the even numbers are `[4, 4, 12]`
+* The other values get discarded as we iterate, so we never get to test them.
