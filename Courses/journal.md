@@ -2990,6 +2990,25 @@ Score: 12/24 (50.0%)
 
 11:24 Back from soccer match which we tied 2-2. Ugh.
 
-## 20210913 화요일
+## 20210913 월요일
 
 07:48 I got up late. I thought I wanted to sleep in because of my tired body which is tired, but my mind was awake at 5:15 and even before and I could have gotten up and going then. Oh well. What do I really want? I want to complete Launch School's core curriculum and do a Capstone Project and then get a $150,000 per year job. That's what I want.
+
+08:50 Back from walking the kids to school. I had a brisk walk back home. The middle of my right hamstring feels strained today.
+
+08:58 I want a paper stand for studying. But I am committed to my 90 minutes starting at 9:00.
+
+09:00 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Listen to the Huberman Lab Podcast Episode 29 | Dr. Lex Friedman: Machines, Creativity & Love
+
+2. What will you do today?
+   * [ ] 1. JS101 > Lesson 5 > Assignment 7. Lesson 5 Quiz 1
+   * [ ] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [ ] 3. Listen to the Huberman Lab Podcast Episode 29 | Dr. Lex Friedman: Machines, Creativity & Love
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Iterating a new schedule this week. I want to follow Ultradian study cycles of 90 minutes. I want to complete three a day. I missed the early morning one, but could have gotten up to do it.
+
