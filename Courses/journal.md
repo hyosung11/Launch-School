@@ -3027,3 +3027,6 @@ Now I really need to poo.
 09:54 Start compiling written assessment answer snippets. Or wait until I finish JS101? I can't decide at the moment. Of course, I'm going to return to the quizzes.
 
 10:43 Done reviewing Lesson 5 Quiz 1. I'm going to transition to correspondence and then go to the gym to train.
+
+11:28 I changed my schedule and am starting Lesson 6 now. I plan to leave for the gym in a few minutes, but I'm thinking I may sit down at the kitchen table and study there. Not sure that I want to make the trip to the gym since I'm going to play ping pong with Louis and go for a swim.
+Decisions. Decisions. Good problem to have. I'm going to the dining room table now as my legs feel fatigued.
