@@ -2987,3 +2987,9 @@ Score: 12/24 (50.0%)
 ## 20210912 일요일
 
 06:06 Talking to Alex before studying. 5:30 ~ 6:30 is the only time that he can study.
+
+11:24 Back from soccer match which we tied 2-2. Ugh.
+
+## 20210913 화요일
+
+07:48 I got up late. I thought I wanted to sleep in because of my tired body which is tired, but my mind was awake at 5:15 and even before and I could have gotten up and going then. Oh well. What do I really want? I want to complete Launch School's core curriculum and do a Capstone Project and then get a $150,000 per year job. That's what I want.
