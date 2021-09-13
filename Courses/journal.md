@@ -3036,3 +3036,5 @@ Decisions. Decisions. Good problem to have. I'm going to the dining room table n
 12:01 Studied Debugger and REPL stuff.
 
 17:07 I think there's a note on my iMac.Ugh.
+
+18:47 Back from a short walk up and down the block with SungOh after dinner and before my BCSOA Educational Meeting at 19:00.

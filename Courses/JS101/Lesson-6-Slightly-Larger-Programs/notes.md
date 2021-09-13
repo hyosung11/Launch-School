@@ -91,4 +91,6 @@ You should hopefully already be familiar with stepping through code using `n` or
 
 When you reach the inner function invocation, you can use `s` / `step` to move *into* the execution of that function, rather than just moving *over* it to the next expression or function call. Once 'inside' the function, you can step out of it using `o` or `out`.
 
+Video => `step.js`
+
 ### Other Commands
