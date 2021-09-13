@@ -1752,12 +1752,79 @@ Discussion
 
 Which of the following statements about higher-order functions are true?
 
-Your Answer
+Answer: A & D
 
-* [ ] A Higher-order functions must accept another function as an argument or return a function.
+* [x] A Higher-order functions must accept another function as an argument or return a function.
 
 * [ ] B JavaScript does not support higher-order functions.
 
 * [ ] C Higher-order functions are functions that have function definitions nested within their body.
 
-* [ ] D Higher-order functions can return higher-order functions.
+* [x] D Higher-order functions can return higher-order functions.
+
+Discussion
+
+* By definition, a higher-order function must accept a function as an argument or return a function. They can do both, of course, but they must do one of these.
+* JavaScript does support higher-order functions.
+* Functions that have nested function definitions are called nested functions.
+* A higher-order function can return any function, including a function that is itself another higher-order function.
+
+### Question 6
+
+Which of the following statements about callback functions are true?
+
+Answer: A & B
+
+* [x] A Callback functions are passed as arguments to higher-order functions.
+
+* [x] B Callback functions are first-class functions.
+
+* [ ] C Callback functions may accept exactly one argument: no more, no less.
+
+* [ ] D In the following code:
+
+```js
+[[1, 2], [3, 4]].forEach(arr => console.log(arr[0]));
+```
+
+`forEach` is considered to be a callback function.
+
+Discussion
+
+* By definition, higher-order functions accept functions as arguments or return them. Since a callback function is passed as an argument to another function, that other function must be a higher-order function.
+* **All** JavaScript functions are first-class functions.
+* There is no limit to the number of callback functions that can be passed to another function, provided that function is prepared to deal with those callbacks.
+* The callback function in **D** is given by the expression `arr => console.log(arr[0])`.
+
+### Question 7
+
+Consider the following code:
+
+```js
+function evenValues(array) {
+  let evens = [];
+
+  array.forEach(value => {
+    if (value % 2 === 0) {
+      evens.push(value);
+    }
+    array.shift();
+  });
+
+  return evens;
+}
+
+evenValues([1, 3, 4, 2, 4, 6, 5, 7, 9, 10, 12]);
+```
+
+Answer: C
+
+* [ ] A []
+
+* [ ] B [4, 2, 4, 6, 10]
+
+* [x] C [ 4, 4, 12 ]
+
+* [ ] D [4, 2, 4]
+
+Discussion
