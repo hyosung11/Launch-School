@@ -1656,10 +1656,108 @@ arr.sort(); // => [ 1, 15, 340, 3400 ]
 
 Which of the following statements most accurately describes why the above code produces the indicated return value?
 
-Answer C
+Answer: C
 
 `Array.prototype.sort` arranges the value in the array by comparing the values of each element as strings. The resulting array contains all the elements arranged in ascending lexicographic order based on UTF-16 codepoints. If two strings have the same value up to the length of the shorter string, `sort` positions the shorter string before the longer one.
 
 Discussion
 
 Without arguments, `Array.prototype.sort` compares the values as strings, coercing the strings as needed. The comparisons are lexicographic; lengths only play a part when two strings match up to the length of the shorter one. In that case, `sort` positions the shorter value before the longer one.
+
+### Question 2
+
+Given the following code, select the code snippets that return the value for the object property key three.
+
+```js
+const ARR = [
+  { one: '1', two: 2 },
+  [ { four: 5, three: 6 }, 'three' ],
+  'three',
+  { '2': 'two', '3': 'three' }
+]
+```
+
+Answer: A & C
+
+```js
+ARR[1][0]['three'];
+ARR[1][0].three;
+```
+
+Discussion
+
+There is only one object key property named `three`: it occurs inside the array `ARR[1]` as part of the object at `ARR[1][0]`. To retrieve the value associated with that key (`6`), we can write `ARR[1][0]['three]` or `ARR[1][0].three`.
+
+### Question 3
+
+Given the following nested data structure, and without running the code, select all of the code snippets that will change the string 'Apple Juice' to 'Orange Juice'.
+
+```js
+let todoLists = [
+  {
+    id: 1,
+    listName: 'Groceries',
+    todos: [
+      { id: 1, name: 'Bread', completed: false },
+      { id: 2, name: 'Milk', completed: false },
+      { id: 3, name: 'Apple Juice', completed: false }
+    ]
+  }
+];
+```
+
+Answer: C & D
+
+```js
+// A
+todoLists[0].todos[2] = 'Orange Juice';
+
+// B
+todoLists.todos[2]["name"] = 'Orange Juice';
+
+// C
+todoLists[0]['todos'][2]['name'] = 'Orange Juice';
+
+// D
+todoLists[0]["todos"][2].name = 'Orange Juice';
+```
+
+Discussion
+
+* **A** replaces the sub-object with `id` `3` with the string `'Orange Juice'`.
+* **B** raises a `TypeError` since `todos` is not a property of the `todoLists` object; it's a property of `todoLists[0]`.
+* Both **C** and **D** work as desired.
+
+### Question 4
+
+Which of the following statements about first-class functions are true?
+
+Answer: B & D
+
+* [ ] A First-class functions in JavaScript must accept another function as an argument or return a function.
+
+* [x] B All JavaScript functions are first-class functions.
+
+* [ ] C Exactly one function can be passed to a JavaScript first-class function as an argument.
+
+* [x] D A first-class function can return a first-class function.
+
+Discussion
+
+* While it's true that all functions in JavaScript are first-class functions, it isn't necessary for a first-class function to accept a function argument or return a function value.
+* There is no limit to the number of functions that can be passed as arguments to a first-class function.
+* First-class functions can be passed to or returned by any other first-class function.
+
+### Question 5
+
+Which of the following statements about higher-order functions are true?
+
+Your Answer
+
+* [ ] A Higher-order functions must accept another function as an argument or return a function.
+
+* [ ] B JavaScript does not support higher-order functions.
+
+* [ ] C Higher-order functions are functions that have function definitions nested within their body.
+
+* [ ] D Higher-order functions can return higher-order functions.
