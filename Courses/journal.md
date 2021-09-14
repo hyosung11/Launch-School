@@ -3038,3 +3038,25 @@ Decisions. Decisions. Good problem to have. I'm going to the dining room table n
 17:07 I think there's a note on my iMac.Ugh.
 
 18:47 Back from a short walk up and down the block with SungOh after dinner and before my BCSOA Educational Meeting at 19:00.
+
+## 20210914 화요일
+
+10:20 I played soccer this morning and scored one goal. I forgot to certify for UI benefits because I didn't put it into my calendar. I will certify this evening.
+
+10:20 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS101 > Lesson 5 > Assignment 7. Lesson 5 Quiz 1
+   * [x] 2. JS101 > Lesson 6 > Assignments 1
+   * [x] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [x] 3. Listen to the Huberman Lab Podcast Episode 29 | Dr. Lex Friedman: Machines, Creativity & Love
+
+2. What will you do today?
+   * [ ] 1. SPOT Study Session
+   * [ ] 2. JS101 > Lesson 6 > Assignments 2
+   * [ ] 3. JS100/101 Study Session: Intro to PEDAC
+   * [ ] 4. Listen to the Huberman Lab Podcast Episode 30 | How to Optimize Your Brain-Body Function & Health
+   * [ ] 5. Read *The Programmer's Brain* | Chapter 5: Reaching a deeper understanding of code
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Officiate in the afternoon.
