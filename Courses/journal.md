@@ -3060,3 +3060,11 @@ Decisions. Decisions. Good problem to have. I'm going to the dining room table n
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Officiate in the afternoon.
+
+10:44 In the SPOT Study Session.
+
+12:21 In limbo at the moment. I'm between the SPOT Study Session and a PEDAC study session that begins at 13:00.
+
+12:59 About to start PEDAC Study Session.
+
+14:09 End of PEDAC study session. My legs are so tired right now. I need to sit or lay down and rest them.
