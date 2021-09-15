@@ -55,7 +55,7 @@ function playerChoosesSquare(board) {
 function computerChoosesSquare(board) {
   let emptySquares = Object.keys(board)
                            .filter((key) => board[key] === INITIAL_MARKER);
-  
+
   let randomIndex = Math.floor(Math.random() * emptySquares.length);
   let square = emptySquares[randomIndex];
 

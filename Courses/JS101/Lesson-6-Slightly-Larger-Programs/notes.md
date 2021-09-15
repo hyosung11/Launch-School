@@ -480,6 +480,116 @@ Run the program several times while inputting different numbers between 1 and 9 
 
 #### Handling Bad Inputs
 
+The current implementation of playerChoosesSquare has some problems:
+
+1. If the player enters something other than a number between 1 and 9, it adds an unnecessary key to the board object. However, it doesn't complain about the incorrect input.
+2. If a square has already been chosen, the function doesn't prevent the player from choosing that square again.
+
+Obviously, we want to limit inputs to those that make sense. One way to do that is to insist that the board object contains a space (`' '`) in the position that corresponds to the key. Let's give it a try:
+
+```js
+function playerChoosesSquare(board) {
+  let square; // declared here so we can use it outside the loop
+
+  // valid square choices are those `board` keys whose values are spaces
+  let emptySquares = Object.keys(board).filter(key => board[key] === ' ');
+
+  while (true) {
+    prompt('Choose a square (1-9):');
+    square = readline.question().trim(); // input trimmed to allow spaces in input
+    if (emptySquares.includes(square)) {
+      break; // break if it's a valid square
+    } else {
+      prompt("Sorry, that's not a valid choice.");
+    }
+  }
+
+  board[square] = 'X';
+}
+```
+
+We're using a `while (true)` loop here to keep asking the player for input until they've entered a valid choice. Valid choices are determined on line 5 by filtering out `board` keys where the value is a space. Test this new functionality by rerunning the program, this time providing both a valid and invalid square option.
+
+```sh
+$ node tictactoe.js
+
+     |     |
+     |     |
+     |     |
+-----+-----+-----
+     |     |
+     |     |
+     |     |
+-----+-----+-----
+     |     |
+     |     |
+     |     |
+
+=> Choose a square (1-9)
+10
+=> Sorry, that's not a valid choice.
+=> Choose a square (1-9)
+1
+
+     |     |
+  X  |     |
+     |     |
+-----+-----+-----
+     |     |
+     |     |
+     |     |
+-----+-----+-----
+     |     |
+     |     |
+     |     |
+```
+
+There's one slight improvement we should make. The prompt always asks for a number between 1 and 9, but those aren't always valid choices.
+
+Recall that our program will run as part of a loop, with the human player and the computer taking turns until the game is over. If the user chooses `1` on her first turn and the computer then chooses `5`, then neither `1` nor `5` will be valid choices when the player selects her second square. To fix this problem, we must use the `emptySquares` array to construct our prompt message:
+
+```js
+function playerChoosesSquare(board) {
+  let square; // declared here so we can use it outside the loop
+
+  // valid square choices are those `board` keys whose values are spaces
+  let emptySquares = Object.keys(board).filter(key => board[key] === ' ');
+
+  while (true) {
+    prompt(`Choose a square (${emptySquares.join(', ')}):`);
+    square = readline.question().trim(); // input trimmed to allow spaces in input
+    if (emptySquares.includes(square)) {
+      break; // break if it's a valid square
+    } else {
+      prompt("Sorry, that's not a valid choice.");
+    }
+  }
+
+  board[square] = 'X';
+}
+```
+
+A small refactoring can be made in the `if/else` construct. Whenever we have `if/else` with a `break` statement, we can remove the `else` clause and turn the `if/else` into a guard clause:
+
+```js
+function playerChoosesSquare(board) {
+  let square;
+  let emptySquare = Object.keys(board).filter(key => board[key] === ' ');
+
+  while (true) {
+    prompt(`Choose a square (${emptySquares.join(', ')}):`);
+    square = readline.question().trim();
+
+    if (emptySquares.includes(square)) break;
+
+    prompt("Sorry, that's not a valid choice.");
+  }
+
+  board[square] = 'X';
+}
+```
+
 #### A Touch of Magic
 
+From a readability standpoint, the use of spaces to represent unused squares isn't horrible, but there's no indication what those spaces mean inside our program. We can't tell at a glance that the spaces represent unused squares, nor can we distinguish them from spaces used for other purposes. Instead, we must study the context of each space character to determine what they represent. Such mystery constants are often said to be magic; they convey no information about their meaning, much as a magician doesn't reveal the secrets of his craft. In the case of magic constants, it's up to the person reading a program to divine the intent of the developer who added the magic constant to the program.
 ### Computer Turn
