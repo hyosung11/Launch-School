@@ -17,18 +17,18 @@ Study Guide
 */
 
 // What does this log to the console and why?
-// const a = {
-//   firstName: 'John',
-//   lastName: 'Doe',
-// };
+const a = {
+  firstName: 'John',
+  lastName: 'Doe',
+};
 
-// function myFunction() {
-//   a.firstName = 'Jane';
-// }
+function myFunction() {
+  a.firstName = 'Jane';
+}
 
-// myFunction();
+myFunction();
 
-// console.log(a);
+console.log(a);
 
 /* Discussion
 - can run the code to see what happens?

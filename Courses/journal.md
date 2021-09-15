@@ -3072,3 +3072,9 @@ Decisions. Decisions. Good problem to have. I'm going to the dining room table n
 14:34 Impermanence. I feel tired. I'm on the couch. I want to watch Chelsea in the Champions League. I need to leave to referee at 15:30. I don't feel like studying more right now. Ugh.
 
 20:33 I haven't done anymore studying today. I'm going to watch Money Heist with Sohee and go to sleep.
+
+## 20210915 수요일
+
+05:31 Study session with Alex.
+
+06:26 End study session with Alex. I have to get my concepts down cold.
