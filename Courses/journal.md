@@ -3104,3 +3104,5 @@ Decisions. Decisions. Good problem to have. I'm going to the dining room table n
 09:18 At the dining room table and feel like moving back to my office work station to watch the videos and code along.
 
 10:35 I worked steadily for around 90 minutes. It's time for my break to go to the gym. Yes!
+
+14:13 I enjoy working through the Tic Tac Toe code. I like how my day is going. I feel slightly tired at the moment and may take a short rest break before one more pomodoro before getting ready to get the kids from school. I love my life right now. It's good.
