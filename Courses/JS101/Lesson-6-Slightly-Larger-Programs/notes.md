@@ -117,7 +117,7 @@ Let's first describe the game:
 
 > Tic Tac Toe is a 2-player game played on a 3x3 grid called the board. Each player takes a turn and marks a square on the board. The first player to get 3 squares in a row–horizontal, vertical, or diagonal–wins. If all 9 squares are filled and neither player has 3 in a row, the game is a tie.
 
-That's a generic description, but we need to outline the sequence of gameplay a bit more before we can build a flow chart:
+That's a generic description, but we need to outline the sequence of game play a bit more before we can build a flow chart:
 
 1. Display the initial empty 3x3 board.
 2. Ask the user to mark a square.
@@ -151,11 +151,31 @@ With this flow chart in hand, we're finally ready to start writing some code.
 
 Note: yes, you could spend more time here by writing out formal pseudocode for each sub-process. That technique would be far more detailed and would be great in a more complex program. If you're still having a hard time deconstructing the logic of this program, go ahead and take that step. Zoom in to each sub-process and try to outline a detailed approach to that problem.
 
-## Tic Tac Toe - Step 1 - Set up and display the board
+## 4. Tic Tac Toe - Step 1 - Set up and display the board
+
+We've divided our walkthrough of the Tic Tac Toe game into five assignments so that you can pause and reflect on each step of the program as you build it. In this assignment, we'll implement setting up and displaying a board. Don't worry if you can't write this code from scratch. Type along with the steps we outline below. Keep in mind that this isn't the only way to build this program: think of it as an implementation that you can refer to in case you get stuck. These walkthroughs can help you get started and may even help you figure out some edge cases that you may have missed in your implementation.
+
+Regardless of whether you try to write your own solution, be sure to read the walkthroughs. If you write your own solution, use the walkthrough as a self-review to make sure you aren't missing anything or getting too complicated. If you don't write a solution yourself, be sure to type along as you read the walkthrough; don't just read the text and don't copy and paste the code.
+
+The video walkthroughs are optional. They cover the same ground as the text walkthroughs, but visual learners may find them easier to follow. Regardless of whether you watch the videos, you should still read the text walkthroughs.
 
 ### Getting Started
+
+All right. Let's move on to the implementation. We'll first take another look at the higher level breakdown that we came up with in the previous assignment:
+
+1. Display the initial empty 3x3 board.
+2. Ask the user to mark a square.
+3. Computer marks a square.
+4. Display the updated board state.
+5. If it's a winning board, display the winner.
+6. If the board is full, display tie.
+7. If neither player won and the board is not full, go to #2
+8. Play again?
+9. If yes, go to #1
+10. Goodbye!
+
+Video Walkthrough, Part 1
 
 #### Display an Empty Board
 
 #### Display Board for an In-Progress Game
-
