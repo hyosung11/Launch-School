@@ -366,3 +366,19 @@ displayBoard(board);
 The `initializeBoard` function creates and initializes an empty object, uses a loop to populate the objects keys from `1` to `9` with the string `' '`, and then returns that object.
 
 That completes this assignment. In the next assignment, we'll implement the workflow for the user and computer choosing a move.
+
+## 5. Tic Tac Toe - Step 2 - Player and Computer Turn
+
+Thus far, our Tic Tac Toe implementation represents the game board with a data-structure and implements a function that displays the board on the screen. Next, we need to ask the human player to select a square to mark, then have the computer choose its square. Let's start with the player's choice.
+
+### Player Turn
+
+Video Walkthrough, Part 2
+
+RR
+
+#### Handling Bad Inputs
+
+#### A Touch of Magic
+
+### Computer Turn
