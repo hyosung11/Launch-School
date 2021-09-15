@@ -3068,3 +3068,7 @@ Decisions. Decisions. Good problem to have. I'm going to the dining room table n
 12:59 About to start PEDAC Study Session.
 
 14:09 End of PEDAC study session. My legs are so tired right now. I need to sit or lay down and rest them.
+
+14:34 Impermanence. I feel tired. I'm on the couch. I want to watch Chelsea in the Champions League. I need to leave to referee at 15:30. I don't feel like studying more right now. Ugh.
+
+20:33 I haven't done anymore studying today. I'm going to watch Money Heist with Sohee and go to sleep.
