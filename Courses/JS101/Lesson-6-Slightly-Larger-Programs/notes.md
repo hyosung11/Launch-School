@@ -150,3 +150,12 @@ Notice that there are a number of shapes, each of which stands for some specific
 With this flow chart in hand, we're finally ready to start writing some code.
 
 Note: yes, you could spend more time here by writing out formal pseudocode for each sub-process. That technique would be far more detailed and would be great in a more complex program. If you're still having a hard time deconstructing the logic of this program, go ahead and take that step. Zoom in to each sub-process and try to outline a detailed approach to that problem.
+
+## Tic Tac Toe - Step 1 - Set up and display the board
+
+### Getting Started
+
+#### Display an Empty Board
+
+#### Display Board for an In-Progress Game
+

@@ -3078,3 +3078,7 @@ Decisions. Decisions. Good problem to have. I'm going to the dining room table n
 05:31 Study session with Alex.
 
 06:26 End study session with Alex. I have to get my concepts down cold.
+
+07:17 Working on the next assignment. 
+
+07:19 Family is awake. I gave and got hugs from everyone. Yeah.
