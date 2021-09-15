@@ -186,4 +186,183 @@ At this point, we're not concerned with *how* we'll implement a step like "Compu
 
 #### Display an Empty Board
 
+Let's start by creating a JavaScript file named tictactoe.js. The first thing we'll do is display an empty board:
+
+```js
+console.log('');
+console.log('     |     |');
+console.log('     |     |');
+console.log('     |     |');
+console.log('-----+-----+-----');
+console.log('     |     |');
+console.log('     |     |');
+console.log('     |     |');
+console.log('-----+-----+-----');
+console.log('     |     |');
+console.log('     |     |');
+console.log('     |     |');
+console.log('');
+```
+
+These are simple `console.log` calls, each with five spaces followed by a vertical bar and five more spaces. That gives us a nice Tic Tac Toe board. Run the program to see how it looks. It should display the following board on the console:
+
+```sh
+     |     |
+     |     |
+     |     |
+-----+-----+-----
+     |     |
+     |     |
+     |     |
+-----+-----+-----
+     |     |
+     |     |
+     |     |
+```
+
 #### Display Board for an In-Progress Game
+
+What we'd like to do after each move is to replace the center space in the chosen square with an `X` or `O` to denote that the square has been chosen by one of the players. So, after 3 moves, for instance, the board may look like this:
+
+```sh
+     |     |
+  X  |     |
+     |     |
+-----+-----+-----
+     |     |
+     |  O  |
+     |     |
+-----+-----+-----
+     |     |
+     |     |  X
+     |     |
+```
+
+If we take a look at our high-level pseudocode, you'll see that displaying the board is something we'll do over and over. This operation seems like a good candidate to abstract away as a function:
+
+```js
+function displayBoard() {
+  console.log('');
+  console.log('     |     |');
+  console.log('     |     |');
+  console.log('     |     |');
+  console.log('-----+-----+-----');
+  console.log('     |     |');
+  console.log('     |     |');
+  console.log('     |     |');
+  console.log('-----+-----+-----');
+  console.log('     |     |');
+  console.log('     |     |');
+  console.log('     |     |');
+  console.log('');
+}
+```
+
+The `displayBoard` function isn't an interesting function at this point since it can only display the initial state where no squares are in use. This function probably needs a board as an argument and should display a grid based on that argument. However, how do we represent a board with a JavaScript data structure? This decision is crucial since the board is the main data structure of our program. Since we have nine squares on the board, one option could be to create a nine-element array that represents our board:
+
+```js
+['X', 'O', ' ', ' ', 'O', 'X', ' ', ' ', 'X']
+```
+
+That'll work, but there are other options. Another option is to create a nested array in which each subarray represents the state of each row of squares in the board. You can also use an object, which is what we'll use. There's no "right" or "best" choice here; we will choose to use an object instead, but either of the other two approaches will work.
+
+In our board object, each key represents a specific square, numbered `1` through `9` (squares are numbered from left-to-right and top-to-bottom, so the top-left square is square `1`, and the bottom-right square is square `9`. Each value represents the symbol that goes into that square. For example, consider a board object that looks like this:
+
+```js
+let board = {
+  1: 'X', // top left
+  2: ' ', // top center
+  3: ' ', // top right
+  4: ' ', // middle left
+  5: 'O', // center
+  6: ' ', // middle right
+  7: ' ', // bottom left
+  8: ' ', // bottom center
+  9: 'X', // bottom right
+};
+```
+
+It should look like this when printed on the screen:
+
+```sh
+     |     |
+  X  |     |
+     |     |
+-----+-----+-----
+     |     |
+     |  O  |
+     |     |
+-----+-----+-----
+     |     |
+     |     |  X
+     |     |
+```
+
+Note that we use spaces (`' '`) instead of empty strings to represent the unmarked squares. We chose spaces so that we don't mess up the formatting.
+
+Next, we need to change our `displayBoard` function to accept a board object and use that object to construct the visual board to display on the screen. We'll do that by replacing the middle space of each square with the appropriate value from the object using string interpolation with template strings:
+
+```js
+function displayBoard(board) {
+  console.log('');
+  console.log('     |     |');
+  console.log(`  ${board['1']}  |  ${board['2']}  |  ${board['3']}`);
+  console.log('     |     |');
+  console.log('-----+-----+-----');
+  console.log('     |     |');
+  console.log(`  ${board['4']}  |  ${board['5']}  |  ${board['6']}`);
+  console.log('     |     |');
+  console.log('-----+-----+-----');
+  console.log('     |     |');
+  console.log(`  ${board['7']}  |  ${board['8']}  |  ${board['9']}`);
+  console.log('     |     |');
+  console.log('');
+}
+```
+
+Note that we're using string-based indices to access values from the `board` object. That's because object keys are always strings in JavaScript. Test the new `displayBoard` function by passing it the board we created earlier.
+
+```js
+let board = {
+  1: 'X',
+  2: ' ',
+  3: ' ',
+  4: ' ',
+  5: 'O',
+  6: ' ',
+  7: ' ',
+  8: ' ',
+  9: 'X',
+};
+
+displayBoard(board);
+```
+
+You'll see that we get a board with the appropriate squares marked off. Play around with this code by changing the `board` object and seeing how it affects the output on the screen. The intention is to declare and initialize a board object with spaces for all keys and then replace those spaces with `X` or `O` as the game advances.
+
+#### Create a New Board
+
+We've now decided on the data structure to represent the board as well as a function `displayBoard` that takes a board object and displays a grid that represents the object. Let's now create a function that returns an initial board object. The initial board object should contain only the string `' '` as values:
+
+```js
+function displayBoard(board) {
+  // code omitted
+}
+
+function initializeBoard() {
+  let board = {};
+
+  for (let square = 1; square <= 9; square++) {
+    board[String(square)] = ' ';
+  }
+
+  return board;
+}
+
+let board = initializeBoard();
+displayBoard(board);
+```
+
+The `initializeBoard` function creates and initializes an empty object, uses a loop to populate the objects keys from `1` to `9` with the string `' '`, and then returns that object.
+
+That completes this assignment. In the next assignment, we'll implement the workflow for the user and computer choosing a move.
