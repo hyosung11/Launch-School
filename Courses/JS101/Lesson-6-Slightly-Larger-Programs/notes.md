@@ -176,6 +176,14 @@ All right. Let's move on to the implementation. We'll first take another look at
 
 Video Walkthrough, Part 1
 
+Run through the steps. In your first reading, you may find step #5 to be a little weird since each player has only marked one square, but we're already concerned about the logic of winning. That can be explained by step #7 which suggests a looping construct based on whether we have a result to display. If we don't, we go back to step #2. Let's take a look at the flowchart diagram as well:
+
+![flowchart](ttt_flowchart.png)
+
+Since it represents an output process, the "Display board" rectangle should actually be a parallelogram.
+
+At this point, we're not concerned with *how* we'll implement a step like "Computer marks a square." Instead, we want to develop a high-level understanding of how the program will work. One thing that jumps out immediately is the notion of a board; it permeates nearly every step in the flowchart. For example, if we want to determine the winner of the game, we must inspect the state of the board; if we want to mark a square for the user, we need to alter the state of the board. Outlining the general flow of a program forces us to think about the high-level components of a program; that helps us when we begin coding.
+
 #### Display an Empty Board
 
 #### Display Board for an In-Progress Game
