@@ -3102,3 +3102,5 @@ Decisions. Decisions. Good problem to have. I'm going to the dining room table n
    * I feel conflicted about whether to progress through Lesson 6 sequentially, or to skip through to the JS109 Study Guide.
 
 09:18 At the dining room table and feel like moving back to my office work station to watch the videos and code along.
+
+10:35 I worked steadily for around 90 minutes. It's time for my break to go to the gym. Yes!
