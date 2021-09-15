@@ -94,3 +94,17 @@ When you reach the inner function invocation, you can use `s` / `step` to move *
 Video => `step.js`
 
 ### Other Commands
+
+There are a couple of other commands that might come in useful when using the debugger.
+
+* The `help` command simply lists all of the commands that are available.
+* The `list()` command can be used to reveal additional lines of code within the debugger UI.
+  * Normally only five lines are visible (the current line, two above, and two below)
+  * The `list()` command (called without arguments) will display five lines above and five below the current line
+  * An argument can be passed in to the command to specify the number of lines to display above and below the current line. For example `list(8)` would show the current line, eight lines above it, and eight lines below it.
+
+## 3. Tic Tac Toe Problem Decomposition
+
+You've probably played Tic Tac Toe before. If you haven't, you can read more about it on its Wikipedia page. You only need a general idea of how to play the game, its rules, and some basic strategy, so don't get hung up on the details like history and combinatorics.
+
+We want to build a single player Tic Tac Toe game where a user can play against the computer.
