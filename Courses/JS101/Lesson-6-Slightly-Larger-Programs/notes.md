@@ -592,4 +592,72 @@ function playerChoosesSquare(board) {
 #### A Touch of Magic
 
 From a readability standpoint, the use of spaces to represent unused squares isn't horrible, but there's no indication what those spaces mean inside our program. We can't tell at a glance that the spaces represent unused squares, nor can we distinguish them from spaces used for other purposes. Instead, we must study the context of each space character to determine what they represent. Such mystery constants are often said to be magic; they convey no information about their meaning, much as a magician doesn't reveal the secrets of his craft. In the case of magic constants, it's up to the person reading a program to divine the intent of the developer who added the magic constant to the program.
+
+One easy way around the issue of magic constants is to use **symbolic constants** -- named constants -- instead. Symbolic constants with well-chosen names remove the magical element and reveal the purpose of each value.
+
+For instance, the space character used to mark unused squares can be called something like `INITIAL_MARKER`:
+
+```js
+const INITIAL_MARKER = ' '; // near the top of the file
+
+function initializeBoard() {
+  let board = {};
+
+  for (let square = 1; square <= 9; square += 1) {
+    board[String(square)] = INITIAL_MARKER;
+  }
+
+  return board;
+}
+
+function playerChoosesSquare(board) {
+  let square;
+
+  let emptySquares = Object.keys(board).filter(key => {
+    return board[key] === INITIAL_MARKER;
+  });
+
+  while (true) {
+    prompt(`Choose a square (${emptySquares.join(', ')}):`);
+    square = readline.question().trim();
+    if (emptySquares.includes(square)) break;
+
+    prompt("Sorry, that's not a valid choice.");
+  }
+
+  board[square] = 'X';
+}
+```
+
+We can also create a constant for the "X" marker that the human player uses:
+
+```js
+const INITIAL_MARKER = ' ';
+const HUMAN_MARKER = 'X';
+
+// code omitted
+
+function playerChoosesSquare(board) {
+  let square;
+
+  let emptySquares = Object.keys(board).filter(key => {
+    return board[key] === INITIAL_MARKER;
+  });
+
+  while (true) {
+    prompt(`Choose a square (${emptySquares.join(', ')}):`);
+    square = readline.question().trim();
+    if (emptySquares.includes(square)) break;
+
+    prompt("Sorry, that's not a valid choice.");
+  }
+
+  board[square] = HUMAN_MARKER;
+}
+```
+
+In a little while, we'll add a `COMPUTER_MARKER` constant for the `"O"` marker.
+
+One significant advantage of setting up constants for these markers is that you can easily replace the `"X"` and `"O"` with something else, such as ❌ (and 🔵) (that may require installing some Node packages with `npm`).
+
 ### Computer Turn
