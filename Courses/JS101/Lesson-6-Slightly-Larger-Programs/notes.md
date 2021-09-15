@@ -661,3 +661,136 @@ In a little while, we'll add a `COMPUTER_MARKER` constant for the `"O"` marker.
 One significant advantage of setting up constants for these markers is that you can easily replace the `"X"` and `"O"` with something else, such as ❌ (and 🔵) (that may require installing some Node packages with `npm`).
 
 ### Computer Turn
+
+Let's now write a similar function for the computer; we'll call it `computerChoosesSquare`. For now, it will choose a random square from among those available, and set the value of that key to `O`.
+
+```js
+const INITIAL_MARKER = ' ';
+const HUMAN_MARKER = 'X';
+const COMPUTER_MARKER = 'O';
+
+// code omitted
+
+function computerChoosesSquare(board) {
+  let emptySquares = Object.keys(board).filter(key => {
+    return board[key] === INITIAL_MARKER:
+  });
+
+  let randomIndex = Math.floor(Math.random() * emptySquares.length);
+
+  let square = emptySquares[randomIndex];
+  board[square] = COMPUTER_MARKER;
+}
+```
+
+Note that we're using the same expression to find empty squares in both computerChoosesSquare and playerChoosesSquare. It's a sign that we need to extract that expression to a function:
+
+```js
+function emptySquares(board) {
+  return Object.keys(board).filter(key => board[key] === INITIAL_MARKER);
+}
+```
+
+We can now call that function where we need access to empty squares:
+
+```js
+function playerChoosesSquare(board) {
+  // omitted code
+
+  // remove `let emptySquares = ...` statement
+
+  while (true) {
+    prompt(`Choose a square (${emptySquares(board).join(', ')}):`);
+    square = readline.question().trim();
+    if (emptySquares(board).includes(square)) break;
+
+    prompt("Sorry, that's not a valid choice.");
+  }
+
+  // omitted code
+}
+
+function computerChoosesSquare(board) {
+  // remove `let emptySquares = ...` statement
+
+  let randomIndex = Math.floor(Math.random() * emptySquares(board).length);
+
+  let square = emptySquares(board)[randomIndex];
+  board[square] = COMPUTER_MARKER;
+}
+```
+
+Finally, we need to call `computerChooseSquare` in our program to complete a single turn of the game. Our code looks like this:
+
+```js
+const readline = require("readline-sync");
+
+const INITIAL_MARKER = ' ';
+const HUMAN_MARKER = 'X';
+const COMPUTER_MARKER = 'O';
+
+function prompt(msg) {
+  console.log(`=> ${msg}`);
+}
+
+function displayBoard(board) {
+  console.log('');
+  console.log('     |     |');
+  console.log(`  ${board['1']}  |  ${board['2']}  |  ${board['3']}`);
+  console.log('     |     |');
+  console.log('-----+-----+-----');
+  console.log('     |     |');
+  console.log(`  ${board['4']}  |  ${board['5']}  |  ${board['6']}`);
+  console.log('     |     |');
+  console.log('-----+-----+-----');
+  console.log('     |     |');
+  console.log(`  ${board['7']}  |  ${board['8']}  |  ${board['9']}`);
+  console.log('     |     |');
+  console.log('');
+}
+
+function initializeBoard() {
+  let board = {};
+
+  for (let square = 1; square <= 9; square++) {
+    board[String(square)] = INITIAL_MARKER;
+  }
+
+  return board;
+}
+
+function emptySquares(board) {
+  return Object.keys(board).filter(key => board[key] === INITIAL_MARKER);
+}
+
+function playerChoosesSquare(board) {
+  let square;
+
+  while (true) {
+    prompt(`Choose a square (${emptySquares(board).join(', ')}):`);
+    square = readline.question().trim();
+    if (emptySquares(board).includes(square)) break;
+
+    prompt("Sorry, that's not a valid choice.");
+  }
+
+  board[square] = HUMAN_MARKER;
+}
+
+function computerChoosesSquare(board) {
+  let randomIndex = Math.floor(Math.random() * emptySquares(board).length);
+
+  let square = emptySquares(board)[randomIndex];
+  board[square] = COMPUTER_MARKER;
+}
+
+let board = initializeBoard();
+displayBoard(board);
+
+playerChoosesSquare(board);
+computerChoosesSquare(board);
+
+displayBoard(board);
+```
+
+Now that we have the functions we need to make square choices for the computer and the player, the next step is to implement the main game loop where we'll repeatedly ask the player and the computer to choose a square until we have a full board or a winner. Make sure that you understand what we've done so far. See you in the next assignment.
