@@ -117,7 +117,7 @@ Let's first describe the game:
 
 > Tic Tac Toe is a 2-player game played on a 3x3 grid called the board. Each player takes a turn and marks a square on the board. The first player to get 3 squares in a row–horizontal, vertical, or diagonal–wins. If all 9 squares are filled and neither player has 3 in a row, the game is a tie.
 
-That's a generic description, but we need to outline the sequence of gameplay a bit more before we can build a flow chart:
+That's a generic description, but we need to outline the sequence of game play a bit more before we can build a flow chart:
 
 1. Display the initial empty 3x3 board.
 2. Ask the user to mark a square.

@@ -3078,3 +3078,21 @@ Decisions. Decisions. Good problem to have. I'm going to the dining room table n
 05:31 Study session with Alex.
 
 06:26 End study session with Alex. I have to get my concepts down cold.
+
+09:00 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. SPOT Study Session
+   * [x] 2. JS101 > Lesson 6 > Assignments 2
+   * [x] 3. JS100/101 Study Session: Intro to PEDAC
+   * [x] 4. Listen to the Huberman Lab Podcast Episode 30 | How to Optimize Your Brain-Body Function & Health
+   * [x] 5. Read *The Programmer's Brain* | Chapter 5: Reaching a deeper understanding of code
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. JS101 > Lesson 6 > Assignments 3 ~ 7
+   * [ ] 3. Read *The Programmer's Brain* | Chapter 5: Reaching a deeper understanding of code
+   * [ ] 4. Listen to the Huberman Lab Podcast Episode 31 | Dr. Matthew Walker: The Science and Practice of Perfecting Your Sleep
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I feel conflicted about whether to progress through Lesson 6 sequentially, or to skip through to the JS109 Study Guide.
