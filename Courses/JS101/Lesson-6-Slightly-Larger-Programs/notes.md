@@ -375,7 +375,108 @@ Thus far, our Tic Tac Toe implementation represents the game board with a data-s
 
 Video Walkthrough, Part 2
 
-RR
+Ideally, we want to call a function that asks the player to choose a square. Before we implement it though, let's see the current state of our program:
+
+```js
+function displayBoard(board) {
+  console.log('');
+  console.log('     |     |');
+  console.log(`  ${board['1']}  |  ${board['2']}  |  ${board['3']}`);
+  console.log('     |     |');
+  console.log('-----+-----+-----');
+  console.log('     |     |');
+  console.log(`  ${board['4']}  |  ${board['5']}  |  ${board['6']}`);
+  console.log('     |     |');
+  console.log('-----+-----+-----');
+  console.log('     |     |');
+  console.log(`  ${board['7']}  |  ${board['8']}  |  ${board['9']}`);
+  console.log('     |     |');
+  console.log('');
+}
+
+function initializeBoard() {
+  let board = {};
+
+  for (let square = 1; square <= 9; square++) {
+    board[String(square)] = ' ';
+  }
+
+  return board;
+}
+
+let board = initializeBoard();
+
+displayBoard(board);
+```
+
+Let's begin by writing a `playerChoosesSquare` function. The first thing to think about is the function's input--its arguments. We'll need to pass a board object to the function since we must mutate the board after the player chooses a square:
+
+```js
+function playerChoosesSquare(board) {
+
+}
+```
+
+Next, we prompt the user for their square selection and read that input. We need to require the readline-sync object and also define the prompt function. By now, you should know how to do both those things so we won't show the code here.
+
+Let's make an initial attempt at the `playerChoosesSquare` implementation:
+
+```js
+function playerChoosesSquare(board) {
+  prompt('Choose a square (1-9):');
+  let square = readline.question();
+  board[square] = 'X';
+}
+```
+
+Here, we ask the player to choose a square--a value between 1 and 9--and set the value for that square to `'X'`. For example, if she enters `9`, the value for key `9` of the board object will be set to `'X'`. Note that we don't need to convert the input to a number since the keys in JavaScript objects are always strings, and `readline.question` returns a string value.
+
+Let's use `playerChoosesSquare` to ask for the player's move and then redisplay the board:
+
+```js
+// at bottom of program
+
+let board = initializeBoard();
+displayBoard(board);
+
+playerChoosesSquare(board);
+displayBoard(board);
+```
+
+If you run the program and enter a number between 1 and 9, you'll see that the appropriate square gets marked with an `X`.
+
+```sh
+$ node tictactoe.js
+
+     |     |
+     |     |
+     |     |
+-----+-----+-----
+     |     |
+     |     |
+     |     |
+-----+-----+-----
+     |     |
+     |     |
+     |     |
+
+=> Choose a square (1-9)
+5
+
+     |     |
+     |     |
+     |     |
+-----+-----+-----
+     |     |
+     |  X  |
+     |     |
+-----+-----+-----
+     |     |
+     |     |
+     |     |
+```
+
+Run the program several times while inputting different numbers between 1 and 9 to verify that it works as expected.
 
 #### Handling Bad Inputs
 
