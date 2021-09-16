@@ -3134,3 +3134,5 @@ Decisions. Decisions. Good problem to have. I'm going to the dining room table n
 10:38 Completed Assignment 6.
 
 12:06 Completed Assignment 7. Taking a break to go to the gym now.
+
+14:49 I want to click through to the JS109 Study Guide.
