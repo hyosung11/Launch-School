@@ -1,3 +1,4 @@
+// Video Version which is different than text version
 const readline = require('readline-sync');
 
 const INITIAL_MARKER = ' ';
