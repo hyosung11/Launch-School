@@ -3112,3 +3112,21 @@ Decisions. Decisions. Good problem to have. I'm going to the dining room table n
 ## 20210916 목요일
 
 07:35 I went to sleep at 21:30 last night. I dozed off briefly as early as 20:30. My alarms went off at 5:00, 5:15 and 5:25 but I didn't arise until 6:15, so I missed my first planned study session at 5:30. I decided not to play soccer this morning and we have a marriage counseling session at 9:00. I'm ready for some coffee soon.
+
+10:00 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS101 > Lesson 6 > Assignments 3 ~ 5
+   * [x] 3. Read *The Programmer's Brain* | Chapter 5: Reaching a deeper understanding of code
+   * [x] 4. Listen to the Huberman Lab Podcast Episode 31 | Dr. Matthew Walker: The Science and Practice of Perfecting Your Sleep
+
+2. What will you do today?
+   * [ ] 1. JS101 > Lesson 6 > Assignments 6 ~ 8
+   * [ ] 2. Listen to the Huberman Lab Podcast Episode 32 | How to Control Your Sense of Pain & Pleasure
+   * [ ] 3. Read *The Programmer's Brain* | Chapter 5: Reaching a deeper understanding of code
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I need to prioritize my job search so I can be employed by the end of November when my UI benefits end.
+
+10:11 In our marriage counseling session this morning, Sohee and I reiterated that I need to be employed again by the end of unemployment benefits at the end of November. This means, I need to prioritize my job search now. This means less time to study Launch School.

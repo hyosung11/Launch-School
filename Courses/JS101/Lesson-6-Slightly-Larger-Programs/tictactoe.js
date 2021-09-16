@@ -9,6 +9,8 @@ function prompt(msg) {
 }
 
 function displayBoard(board) {
+  console.clear();
+
   console.log('');
   console.log('     |     |');
   console.log(`  ${board['1']}  |  ${board['2']}  |  ${board['3']}`);
@@ -38,6 +40,14 @@ function emptySquares(board) {
   return Object.keys(board).filter(key => board[key] === INITIAL_MARKER);
 }
 
+function boardFull(board) {
+  return emptySquares(board).length === 0;
+}
+
+function someoneWon(board){
+  return false;
+}
+
 function playerChoosesSquare(board) {
   let square;
 
@@ -63,7 +73,11 @@ function computerChoosesSquare(board) {
 let board = initializeBoard();
 displayBoard(board);
 
-playerChoosesSquare(board);
-computerChoosesSquare(board);
+while (true){
+  playerChoosesSquare(board);
+  computerChoosesSquare(board);
+  displayBoard(board);
 
-displayBoard(board);
+  if (someoneWon(board) || boardFull(board)) break;
+
+}
