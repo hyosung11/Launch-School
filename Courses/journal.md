@@ -3106,3 +3106,9 @@ Decisions. Decisions. Good problem to have. I'm going to the dining room table n
 10:35 I worked steadily for around 90 minutes. It's time for my break to go to the gym. Yes!
 
 14:13 I enjoy working through the Tic Tac Toe code. I like how my day is going. I feel slightly tired at the moment and may take a short rest break before one more pomodoro before getting ready to get the kids from school. I love my life right now. It's good.
+
+14:40 Worked through Assignment 5. Making decent progress today.
+
+## 20210916 목요일
+
+07:35 I went to sleep at 21:30 last night. I dozed off briefly as early as 20:30. My alarms went off at 5:00, 5:15 and 5:25 but I didn't arise until 6:15, so I missed my first planned study session at 5:30. I decided not to play soccer this morning and we have a marriage counseling session at 9:00. I'm ready for some coffee soon.

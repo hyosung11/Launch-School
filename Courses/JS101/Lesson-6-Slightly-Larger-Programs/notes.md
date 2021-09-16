@@ -794,3 +794,9 @@ displayBoard(board);
 ```
 
 Now that we have the functions we need to make square choices for the computer and the player, the next step is to implement the main game loop where we'll repeatedly ask the player and the computer to choose a square until we have a full board or a winner. Make sure that you understand what we've done so far. See you in the next assignment.
+
+## 6. Tic Tac Toe - Step 3 - The Main Game Loop
+
+We've made good progress so far. We have functions for making a square choice for both the computer and the player, and we're calling them both for one complete turn. The next step is to develop a loop that calls these functions repeatedly until the board is full or we have a winner. Let's first create a skeleton of the loop, then work out the details as we need them.
+
+Video Walkthrough, Part 3
