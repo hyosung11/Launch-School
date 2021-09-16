@@ -31,7 +31,7 @@ function displayBoard(board) {
 function initializeBoard() {
   let board = {};
 
-  for (let square = 1; square <= 9; square += 1) {
+  for (let square = 1; square <= 9; square++) {
     board[String(square)] = INITIAL_MARKER;
   }
 
@@ -39,22 +39,14 @@ function initializeBoard() {
 }
 
 function emptySquares(board) {
-  return Object.keys(board).filter(key => board[key] === INITIAL_MARKER);
-}
-
-function boardFull(board) {
-  return emptySquares(board).length === 0;
-}
-
-function someoneWon(board){
-  return false;
+  return Object.keys(board).filter((key) => board[key] === ' ');
 }
 
 function playerChoosesSquare(board) {
   let square;
 
   while (true) {
-    prompt(`Choose a square ${emptySquares(board).join(', ')}:`);
+    prompt(`Choose a square (${emptySquares(board).join(', ')}):`);
     square = readline.question().trim();
     if (emptySquares(board).includes(square)) break;
 
@@ -70,19 +62,28 @@ function computerChoosesSquare(board) {
   board[square] = COMPUTER_MARKER;
 }
 
+function boardFull(board) {
+  return emptySquares(board).length === 0;
+}
+
 function someoneWon(board) {
-  return !!detectWinner(board);
+  return detectWinner(board);
 }
 
 function detectWinner(board) {
   let winningLines = [
-    [1, 2, 3], [4, 5, 6], [7, 8, 9], // rows
-    [1, 4, 7], [2, 5, 8], [3, 6, 9], // columns
-    [1, 5, 9], [3, 5, 7]             // diagonals
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9], // rows
+    [1, 4, 7],
+    [2, 5, 8],
+    [3, 6, 9], // columns
+    [1, 5, 9],
+    [3, 5, 7], // diagonals
   ];
 
   for (let line = 0; line < winningLines.length; line++) {
-    let [ sq1, sq2, sq3 ] = winningLines[line];
+    let [sq1, sq2, sq3] = winningLines[line];
 
     if (
       board[sq1] === HUMAN_MARKER &&
@@ -123,7 +124,7 @@ while (true) {
     prompt("It's a tie!");
   }
 
-  prompt('Play again? (y or n)');
+  prompt('Play again?');
   let answer = readline.question().toLowerCase()[0];
   if (answer !== 'y') break;
 }

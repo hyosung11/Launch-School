@@ -3130,3 +3130,7 @@ Decisions. Decisions. Good problem to have. I'm going to the dining room table n
    * I need to prioritize my job search so I can be employed by the end of November when my UI benefits end.
 
 10:11 In our marriage counseling session this morning, Sohee and I reiterated that I need to be employed again by the end of unemployment benefits at the end of November. This means, I need to prioritize my job search now. This means less time to study Launch School.
+
+10:38 Completed Assignment 6.
+
+12:06 Completed Assignment 7. Taking a break to go to the gym now.
