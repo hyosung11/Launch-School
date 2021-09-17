@@ -1349,7 +1349,7 @@ while (true) {
 prompt('Thanks for playing Tic Tac Toe!');
 ```
 
-### Improveed "join"
+### Improved "join"
 
 If we run the program as it now is, we'll see the following prompt:
 
@@ -1430,7 +1430,25 @@ A `switch` statement works well here since we need to perform different actions 
 
 Finally, you can use `joinOr` in the game like this:
 
-RR
+```js
+function playerChoosesSquare(board) {
+  let square;
+
+  while (true) {
+    prompt(`Choose a square: ${joinOr(emptySquares(board))}`);
+    square = readline.question().trim();
+    if (emptySquares(board).includes(square)) break;
+
+    prompt("Sorry, that's not a valid choice.");
+  }
+
+  board[square] = HUMAN_MARKER;
+}
+```
+
+### Keep Score
+
+Keep track of how many times the player and computer each win, and report the scores after each game. The first player to win 5 games wins the overall match (a series of 2 or more games). The score should reset to `0` for each player when beginning a new match. Don't use any global variables. However, you may want to use a global constant to represent the number of games needed to win the match.
 
 ## 14. Summary
 
