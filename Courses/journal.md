@@ -3136,3 +3136,7 @@ Decisions. Decisions. Good problem to have. I'm going to the dining room table n
 12:06 Completed Assignment 7. Taking a break to go to the gym now.
 
 14:49 I want to click through to the JS109 Study Guide.
+
+15:49 Chickened out and came back to Assignment 8.
+
+20:24 I'm tired and done programming for tonight.
