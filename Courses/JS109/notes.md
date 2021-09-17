@@ -42,3 +42,4 @@ The interview will be conducted like a real job interview, except we'll only tal
 We'll conduct the interview using Zoom or Skype, along with a collaborative online editor. We'll primarily use [CoderPad](https://coderpad.io/). You should practice using the CoderPad environment ahead of time by exploring the [demo pad](https://app.coderpad.io/JEYFF66M). This pad is set up for demonstration purposes only and will not be used for the actual interview. When you're done exploring the demo pad, make sure that you clear any changes you made so that it's ready for the next person to use.
 
 There will be a study guide for the interview that walks you through exactly what to study for and how to prepare.
+

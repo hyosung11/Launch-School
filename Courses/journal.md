@@ -3192,3 +3192,20 @@ The global variable `words` is declared and initialized to a nested array. The f
 07:00 I bit the bullet and clicked through to the JS109 Course. I'm ready to organize myself for the written assessment.
 
 07:09 Write out the methods in my own words.
+
+07:50 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS101 > Lesson 6 > Assignments 6 ~ 8
+   * [x] 2. Listen to the Huberman Lab Podcast Episode 32 | How to Control Your Sense of Pain & Pleasure
+   * [x] 3. Read *The Programmer's Brain* | Chapter 5: Reaching a deeper understanding of code
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. JS101 > Lesson 6 > Assignment 9
+   * [ ] 3. PEDAC Study Session
+   * [ ] 4. Read *The Programmer's Brain* | Chapter 5: Reaching a deeper understanding of code
+   * [ ] 5. Listen to the Huberman Lab Podcast Episode 32 | How to Control Your Sense of Pain & Pleasure
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I made an appointment with Dr. Riotto to get treatment on my right hamstring.
