@@ -3190,3 +3190,5 @@ console.log(words);
 The global variable `words` is declared and initialized to a nested array. The function `pluralize` is declared with one parameter that takes the local variable `array` as its argument. The function `pluralize` is invoked on line x. On line x, the map method iterates over the `array` with the local variable `words` which shadows the global variable `words`. `map` uses the callback function to transform the nested words array's elements with the [] operator by concatenating the element ...
 
 07:00 I bit the bullet and clicked through to the JS109 Course. I'm ready to organize myself for the written assessment.
+
+07:09 Write out the methods in my own words.
