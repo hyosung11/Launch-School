@@ -9,12 +9,12 @@ General Forums
 
 ### How to ask for feedback
 
-* The most efficient way to get good feedback or help is to treat questions to the forums as questions you'd ask a co-worker. 
-* Lead with the error message, or describe in detail how the error happens. 
-* Outline the steps you've taken so far to address the problem, and offer your guess as to where the problem lies. 
-* Paste a link to your code - this is probably your GitHub repository. 
+* The most efficient way to get good feedback or help is to treat questions to the forums as questions you'd ask a co-worker.
+* Lead with the error message, or describe in detail how the error happens.
+* Outline the steps you've taken so far to address the problem, and offer your guess as to where the problem lies.
+* Paste a link to your code - this is probably your GitHub repository.
 * Try to paste the exact file, so people don't have to hunt through your repo.
-* If the error output is long, don't paste the entire thing into the forums. Use a [Gist](https://docs.github.com/en/github/writing-on-github/editing-and-sharing-content-with-gists/creating-gists) or Pastebin and include the link. 
+* If the error output is long, don't paste the entire thing into the forums. Use a [Gist](https://docs.github.com/en/github/writing-on-github/editing-and-sharing-content-with-gists/creating-gists) or Pastebin and include the link.
 * By describing what debugging steps you've already taken and where you think the problem is, you'll direct their efforts in the right path.
 * Use rubber duck debugging - outline your problem when asking for help. This well help clarify the problem and may also help you resolve the issue by yourself.
 
@@ -37,9 +37,9 @@ Feel free to ask questions, but go beyond "it doesn't work" or "I'm having issue
 
 ## 3. Using Markdown
 
-*  [GitHub-flavored Markdown](https://github.github.com/gfm/)
-*  Make sure that you surround code with backticks (`), not apostrophes (').
-   *  The backtick character is usually in the top left of your keyboard.
+* [GitHub-flavored Markdown](https://github.github.com/gfm/)
+* Make sure that you surround code with backticks (`), not apostrophes (').
+  * The backtick character is usually in the top left of your keyboard.
 * Also make sure that you use the Preview functionality to double check that the output looks as you expect, especially if you copy/paste code or console output.
 
 ## 4. Finish Prep Course
@@ -49,8 +49,8 @@ Feel free to ask questions, but go beyond "it doesn't work" or "I'm having issue
 
 ## 5. System Check
 
-- [x] Node.js version 10.0.0 or higher installed.
-- [x] v16.4.1
+* [x] Node.js version 10.0.0 or higher installed.
+* [x] v16.4.1
 
 ## 6. Differences Between JavaScript Versions
 
@@ -132,7 +132,7 @@ If you do ask a "bad" question, we'll probably ask you to try it in Node or your
 
 Side note: the reason that the second code snippet doesn't change the value of `number` defined on line 1 is that the `number` parameter on line 3 _shadows_ the `number` variable by creating a separate and independent variable with the same name, but with the scope limited to the function.
 
-### Let Us Know If You Figure It Out!
+### Let Us Know If You Figure It Out
 
 If you ask a question, and then later figure out the answer on your own, please let us know! Not every question can be answered quickly, and may require some time and research. Save the person who answers your question that time and effort if you manage to answer your own question, and post what you found out.
 
@@ -188,10 +188,10 @@ The overarching goal at this point is to gain confidence and communication skill
 
 "The Speed of Mastery: My Pacing at Launch School" by Callie Buruchara
 
-- take well-organized notes in Notion.
-- get the gist the first time.
-- after finishing the course, go over notes again to seek mastery.
-- trust the LS curriculum
+* take well-organized notes in Notion.
+* get the gist the first time.
+* after finishing the course, go over notes again to seek mastery.
+* trust the LS curriculum
 
 ## 12. Exercises: Small Problems
 
@@ -199,17 +199,17 @@ While you're working through this course, you should concurrently work through t
 
 * Do around 20 exercises (or 2 sets) after each lesson.
 * The Advanced exercises sets if any are present are optional; think of those as challenges.
-* In most cases, the Small Problems should each take around 10-30 minutes to complete, though some may take significantly more time. 
+* In most cases, the Small Problems should each take around 10-30 minutes to complete, though some may take significantly more time.
 * You may want to space out the 20 exercises, tackling a couple per day.
-* If you encounter an exercise that requires knowledge that we haven't introduced yet, feel free to skip it and work on it later. 
+* If you encounter an exercise that requires knowledge that we haven't introduced yet, feel free to skip it and work on it later.
   * Don't get frustrated by a question that seems to draw too much on things you haven't seen yet.
-* The goal of this task isn't to complete exactly 20 exercises after each lesson. 
-  * We suggest that you complete all of the easy and medium exercises as part of your preparation for the first interview; 
+* The goal of this task isn't to complete exactly 20 exercises after each lesson.
+  * We suggest that you complete all of the easy and medium exercises as part of your preparation for the first interview;
   * 20 questions per lesson helps spread that work out.
-  * Going into the interview, you should return to these questions and make sure that you've completed all the easy and medium exercises. 
+  * Going into the interview, you should return to these questions and make sure that you've completed all the easy and medium exercises.
   * You may still encounter topics you haven't seen yet, and that's fine: try to use a search engine to help you find the solution anyway.
 
-Before working on the Small Problems, take time to read through our blog article about [The Two-Layer Problem](). This article addresses the challenge of solving a problem while simultaneously learning a new programming language.
+Before working on the Small Problems, take time to read through our blog article about [The Two-Layer Problem](https://medium.com/launch-school/the-two-layer-problem-915b7587654c). This article addresses the challenge of solving a problem while simultaneously learning a new programming language.
 
 "The Two-Layer Problem" by Launch School
 
@@ -223,10 +223,12 @@ Before working on the Small Problems, take time to read through our blog article
   2. Representing that logic with a programming language
 
 Formulating the logic is the more challenging and important layer of the problem. This step requires you try to reduce the problem to its essence — its most abstract form. Rather than reach for books on logic and philosophy here, we want to stay in the practical, programming realm and come up with a step-by-step algorithm that we can readily convert to a working program.
-#### PEDAC
+
+### PEDAC
+
 | Objective | Step | Description|
 | :--- | :---  | :-----      |
-| Process the Problem | Understand the Problem | <ul><li>Identify expected input and output</li><li>Make the requirements explicit</li><li>Identify rules</li><li>Mental model of the problem (optional)</li></ul> |
+| Process the Problem | Understand the Problem | Identify expected input and output. Make the requirements explicit. Identify rules. Mental model of the problem (optional) |
 | | Examples/Test Case | Validate understanding of the problem |
 | | Data Structure | How we represent data that we will work with when converting the input to output. |
 | | Algorithm | Steps for converting input to output |
@@ -235,8 +237,8 @@ Formulating the logic is the more challenging and important layer of the problem
 
 Beginner programmers often find problem solving difficult because they must struggle with two concerns at the same time.
 
-  * Finding a process that lets you separate the logic concern from the syntax concern greatly helps in reducing the difficulty. 
-  * It also helps develop a problem-solving process that’s independent of any particular language.
+* Finding a process that lets you separate the logic concern from the syntax concern greatly helps in reducing the difficulty.
+* It also helps develop a problem-solving process that’s independent of any particular language.
 
 _You may find it helpful to work some exercises multiple times to explore their depth and to allow the exercise to sink in fully._
 
@@ -256,7 +258,7 @@ You're almost ready to start the next lesson! First, though, there is a short qu
 
 * A place to write an outline of the course
   * outline the course to serve as a _highly-functional and searchable table of contents_.
-  * Having your own outline lets you reference all the course material much more efficiently at any time you would like to reference it in the future, especially while preparing for assessments. 
+  * Having your own outline lets you reference all the course material much more efficiently at any time you would like to reference it in the future, especially while preparing for assessments.
   * the outline for the entire course (e.g. RB101) should be in one document, not several.
 
 * The ability to use Anki reasonably well
@@ -272,9 +274,9 @@ This means you are as thorough as possible the first time. One advantage of doin
 
 [A Few Tips on Using Anki for Learning To Code](https://medium.com/nerd-for-tech/a-few-tips-on-using-anki-for-learning-to-code-4ad01f2080a3)
 
-* Use Anki for memorization, not learning in general. 
-* In other words, if you need to master a concept from scratch, or learn a procedure, or problem solve, Anki is not your go-to tool. 
-* The ideal flash card takes no more than two seconds to understand what’s being asked, and no more than five seconds more to answer it. 
+* Use Anki for memorization, not learning in general.
+* In other words, if you need to master a concept from scratch, or learn a procedure, or problem solve, Anki is not your go-to tool.
+* The ideal flash card takes no more than two seconds to understand what’s being asked, and no more than five seconds more to answer it.
 * If I can’t find a way to fit what is essential for practicing a certain thing so that I will — even after having not encountered it for weeks — be able to grok the question within 10 seconds and answer it within 5 or so seconds after that, it is very likely not flash card fare.
 
 ## 14. Lesson 1 Quiz 1

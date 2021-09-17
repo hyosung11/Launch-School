@@ -3140,3 +3140,53 @@ Decisions. Decisions. Good problem to have. I'm going to the dining room table n
 15:49 Chickened out and came back to Assignment 8.
 
 20:24 I'm tired and done programming for tonight.
+
+## 20210917 금용일
+
+05:35 Study Session with Alex
+
+Example
+
+Examine the code example below. The last line outputs the string 'Hi' rather than the string 'Hello'. Explain what is happening here and identify the underlying principle that this demonstrates.
+
+```js
+let greeting = 'Hello';
+
+while (true) {
+  greeting = 'Hi';
+  break;
+}
+
+console.log(greeting);
+```
+
+The global variable `greeting` is declared on line 1 and assigned to the string 'Hello'. Lines 3 to 6 define a `while` loop that will execute if the condition is `true`. In the loop, the greeting variable is reassigned to 'Hi'. The next line `break` ends the loop. `console.log` is called with the value of the variable `greeting` passed to it as an argument. 'Hi' gets output to the console. This example demonstrates variable scoping where variables declared in the outer scope are accessible from an inner scope.
+
+global variable
+variable scoping concept - inner and outer scope
+while loop is infinite
+reassignment of the variable
+what's output by console.log
+
+```js
+// What gets logged and why?
+let words = [
+  ['hunter', 'spear'],
+  ['gatherer', 'sack'],
+];
+
+function pluralize(array) {
+  return array.map((words) => {
+    words[0] += 's';
+    words[1] += 's';
+    return words;
+  });
+}
+
+pluralize(words);
+console.log(words);
+```
+
+The global variable `words` is declared and initialized to a nested array. The function `pluralize` is declared with one parameter that takes the local variable `array` as its argument. The function `pluralize` is invoked on line x. On line x, the map method iterates over the `array` with the local variable `words` which shadows the global variable `words`. `map` uses the callback function to transform the nested words array's elements with the [] operator by concatenating the element ...
+
+07:00 I bit the bullet and clicked through to the JS109 Course. I'm ready to organize myself for the written assessment.

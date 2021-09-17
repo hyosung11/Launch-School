@@ -1386,17 +1386,17 @@ Try using the PEDAC approach and some pseudocode for this problem.
 
 PEDAC and Pseudocode
 
-**Inputs**
+Inputs
 
 * An array that contains the list of values
 * A delimiter (default is a comma followed by a space)
 * A join word (default is `'or'`)
 
-**Outputs**
+Outputs
 
 * A string that represents the final string
 
-**Algorithm**
+Algorithm
 
 * If input array is empty, return an empty string
 * If input array only has one value, return that value as a string
@@ -1405,7 +1405,7 @@ PEDAC and Pseudocode
   * Add the delimiter between each pair of values
   * Add the join word before the last value
 
-**Examples/Test Cases**
+Examples/Test Cases
 
 See the test cases above.
 
