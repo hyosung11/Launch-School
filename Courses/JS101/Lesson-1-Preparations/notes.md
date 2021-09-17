@@ -233,7 +233,6 @@ Formulating the logic is the more challenging and important layer of the problem
 | | Data Structure | How we represent data that we will work with when converting the input to output. |
 | | Algorithm | Steps for converting input to output |
 | Code with Intent | Code | Implementation of Algorithm |
-{"mode":"full","isActive":false}
 
 Beginner programmers often find problem solving difficult because they must struggle with two concerns at the same time.
 
