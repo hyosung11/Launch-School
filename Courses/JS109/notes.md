@@ -67,5 +67,10 @@ A good way to do this is for you to pair up with another student. Each of you ca
 
 Although some students look to external resources outside of Launch School curriculum to search for practice problems, we recommend using the Launch School JS101 - Small Problems in the first instance. Those in the Medium problem sets in particular are good preparation for the level of difficulty of the problems you will encounter during the interview. If you are thinking of using an external resource such CodeWars, we suggest that you first read [this article](https://medium.com/launch-school/the-pros-cons-of-codewars-for-ls-assessments-36167a8141cf), by one of our students, outlining the pros and cons of using CodeWars in this context (the article refers to the RB109 assessment, but is equally applicable to JS109).
 
-## 3. Part 1: Study Guid for Test
+## 3. Part 1: Study Guide for Test
 
+This assessment will test your knowledge of the Prep Course and JS101, as well as the Introduction to Programming with JavaScript book. It has a huge surface area in that it covers the JavaScript programming language broadly. It does not cover Object Oriented Programming.
+
+### Specific Topics of Interest
+
+You should be able to clearly explain the following topics:
