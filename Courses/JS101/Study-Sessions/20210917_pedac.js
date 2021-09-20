@@ -93,7 +93,7 @@ ALGORITHM
 
 - palindromes return array (empty)
 
-- loop until palindroms array's length is equal to size
+- loop until palindrome array's length is equal to size
   - current number is a palindrome?
     => yes, then add it to palindromes array
   - num += 1
@@ -178,11 +178,11 @@ P
 
 - rules:
 > if size is 0, returns an empty array
-> if num is a palindrom, it's returned in the output array
+> if num is a palindrome, it's returned in the output array
 
 
-> numerical palindrom definition?
-- single digit numbers are not palindroms => number > 10
+> numerical palindrome definition?
+- single digit numbers are not palindromes => number > 10
 - A palindrome is a number which reads the same backward as forward.
 
 
@@ -197,40 +197,33 @@ D
 - input: 2 integers (greater than or equal to 0)
 - output: array of numbers or 'Not valid'
 
-- intermediary steps: 
+- intermediary steps:
 
-num > string > array 
+num > string > array
 
-
-A 
-
-
+A
 - check for validity => isValid()
   - typeof to check that they're both numbers
   - check that num >= 0 and s >= 0
 
-
-
-- is palindrom function:
+- is palindrome function:
   - return false if num < 10
   - num_str = convert num to string
   - split, reverse and join the num_str (to get the reversed string)
-  - compare the num_str and its reverse => if they're equal, it's a palindrom
-  
-
+  - compare the num_str and its reverse => if they're equal, it's a palindrome
 
 - first, check for validity
   - if isValid returns false, then exit and return "Not valid"
   - else, continue the function
 
-- palindroms return array (empty)
+- palindromes return array (empty)
 
-- loop until palindroms array's length is equal to size
-  - current number is a palindrom? 
-    => yes, then add it to palindroms array 
+- loop until palindromes array's length is equal to size
+  - current number is a palindrome?
+    => yes, then add it to palindromes array
   - num += 1
 
-- return the palindroms array
+- return the palindromes array
 
 
 */
@@ -239,7 +232,7 @@ function isValid(num, s) {
   // returns boolean
   let boolTypeOf = ((typeof num) === 'number' && (typeof s) === 'number' );
   let isMoreThan0 = ( (num >= 0) && (s >= 0));
-  
+
   return (boolTypeOf && isMoreThan0);
 }
 
@@ -247,7 +240,7 @@ function isPalindrome(num) {
   if (num <= 10) {
     return false;
   }
-  
+
   return String(num) === String(num).split('').reverse().join('');
 }
 
@@ -258,16 +251,16 @@ function palindrome(num, size) {
   }
 
   let palinArry = [];
-  
+
   while (true) {
-    
+
     // core logic
     if (isPalindrome(num)) {
       palinArry.push(num);
     }
-    
+
     num += 1;
-    
+
     // break cond when size === palinArry
     if (palinArry.length === size) {
       break;

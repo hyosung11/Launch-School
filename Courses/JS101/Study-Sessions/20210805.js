@@ -12,7 +12,7 @@ Intros
 - Mandy, TA, last course of core curriculum
 - Luci, near Sydney, two years in Launch School, JS101 Lesson 2, been through bootcamp and am now teaching a bootcamp
 - Alex, started Launch School in March
-- Edris, no camera, Eeedris, JS101 Lesson 6, started LS in May, worked as IT technician for pharmaceutical company
+- Edris, no camera, "Eeedris", JS101 Lesson 6, started LS in May, worked as IT technician for pharmaceutical company
 
 Any Questions?
 PEDAC Tips

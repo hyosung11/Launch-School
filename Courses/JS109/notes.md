@@ -65,12 +65,70 @@ The first interview assessment can be daunting because of its format: you must s
 
 A good way to do this is for you to pair up with another student. Each of you can choose a JavaScript Small Problem that you have already solved (and preferably your partner has not). Then, on a live call, you have to solve a problem in front of them, and they have to solve a problem in front of you. In addition to solving the problem well and without too much assistance, it's good to practice talking through and explaining your code as your solving the problem. This communication during the interview assessment is essential.
 
-Although some students look to external resources outside of Launch School curriculum to search for practice problems, we recommend using the Launch School JS101 - Small Problems in the first instance. Those in the Medium problem sets in particular are good preparation for the level of difficulty of the problems you will encounter during the interview. If you are thinking of using an external resource such CodeWars, we suggest that you first read [this article](https://medium.com/launch-school/the-pros-cons-of-codewars-for-ls-assessments-36167a8141cf), by one of our students, outlining the pros and cons of using CodeWars in this context (the article refers to the RB109 assessment, but is equally applicable to JS109).
+Although some students look to external resources outside of Launch School curriculum to search for practice problems, we recommend using the Launch School [JS101 - Small Problems](https://launchschool.com/exercises#js101_small_problems) in the first instance. Those in the Medium problem sets in particular are good preparation for the level of difficulty of the problems you will encounter during the interview. If you are thinking of using an external resource such CodeWars, we suggest that you first read [this article](https://medium.com/launch-school/the-pros-cons-of-codewars-for-ls-assessments-36167a8141cf), by one of our students, outlining the pros and cons of using CodeWars in this context (the article refers to the RB109 assessment, but is equally applicable to JS109).
 
 ## 3. Part 1: Study Guide for Test
 
-This assessment will test your knowledge of the Prep Course and JS101, as well as the Introduction to Programming with JavaScript book. It has a huge surface area in that it covers the JavaScript programming language broadly. It does not cover Object Oriented Programming.
+This assessment will test your knowledge of the [Prep Course](https://launchschool.com/lessons/2fb5ba77/assignments) and JS101, as well as the [Introduction to Programming with JavaScript](https://launchschool.com/books/javascript) book. It has a huge surface area in that it covers the JavaScript programming language broadly. It does not cover Object Oriented Programming.
 
 ### Specific Topics of Interest
 
 You should be able to clearly explain the following topics:
+
+* declarations, initialization, assignment, and re-assignment
+* variable scope, especially how variables interact with function definitions and blocks
+* primitive values, objects and type coercion
+* object properties
+* mutability vs. immutability vs `const`
+* loose and strict equality
+* passing arguments into and return values out of functions
+* working with Strings
+* working with Arrays, especially the iteration methods (`forEach`, `map`, `filter`, and `find`)
+* working with Objects: accessing keys and values of an Object as arrays
+* arrays are objects
+* understanding the concepts of *pass-by-reference* and *pass-by-value*
+* variables as pointers
+* console.log vs. return
+* truthiness vs. boolean
+* function definition and invocation
+* function declarations, function expressions, and arrow functions
+* implicit return value of function invocations
+* first-class functions
+* side-effects
+* naming conventions (legal vs idiomatic)
+* be able to explain what a function does without talking about its implementation; that is, document a function's use and purpose. (See below.)
+
+### Using a REPL
+
+JavaScript REPLs (such as Node.js) that run code as you type it do not run that code the same way as when you run the code from a `.js` file. This can lead to discrepancies in the behavior of your code. That can influence your answers on the assessment.
+
+Unless otherwise stated, all assessment questions that use code examples or that expect you to write code assume that the code should be run from a `.js` file. **We strongly advise against using a REPL to test the code.**
+
+### How to Answer the Assessment Questions
+
+The questions in this assessment will typically test your knowledge and understanding at more than one level.
+
+* On one level, the question will test your ability to parse code and describe it with precision, or test your knowledge of some specific syntactical aspect or language-specific feature of the JavaScript programming language.
+* On another level, the question will check your understanding of some deeper underlying principle; this might be some more fundamental aspect of the JavaScript language or a non-language-specific programming concept.
+
+When answering the questions, you should:
+
+* Explain your reasoning with reference to specific lines in the program. You can use line numbers to refer to particular lines of code where necessary.
+* Answer with extreme precision. For example, say "function definition" or "function invocation" as opposed to "function" (see the section on *Precision of Language* below for more on this).
+* Highlight any specific syntactical conventions or technical observations where relevant.
+* Identify the fundamental concept or concepts demonstrated by the question.
+
+#### Example
+
+Examine the code example below. The last line outputs the string `'Hi'` rather than the string `'Hello'`. Explain what is happening here and identify the underlying principle that this demonstrates.
+
+```js
+let greeting = 'Hello';
+
+while (true) {
+  greeting = 'Hi';
+  break;
+}
+
+console.log(greeting);
+```
