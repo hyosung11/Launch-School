@@ -3250,3 +3250,13 @@ The global variable `words` is declared and initialized to a nested array. The f
 10:37 I got interrupted by the sidewalk contractor. Ugh. I'm feeling like I want to keep going for a little bit and finish this assignment.
 
 10:53 Finished Assignment 3. I'm ready to take my break to do correspondence and go to the gym.
+
+13:00 I felt so tired and low energy at the gym today. I feel low energy right now. Maybe it's time for a hypnosis session?
+
+13:07 I feel lonely and bored right now as I finish my lunch and before I begin my third study session. Oh.
+
+13:59 Getting some useful information from reading through some of the questions and comments.
+
+14:11 Starting to dissect the study guide topics to add to my glossary.
+
+14:52 Continuing to dissect the study guide, but need to go to school now.

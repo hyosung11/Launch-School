@@ -357,3 +357,5 @@ These articles are well worth your time; don't pass them up!
 ## 4. Part 1: Start the Test
 
 Make sure that you thoroughly study the topics in the study guide. After you've done so, you may start the test.
+
+### Time Duration
