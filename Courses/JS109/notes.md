@@ -197,3 +197,31 @@ This is mostly clutter for the grader, and there's some ambiguity about what "It
 In general, a clearly written paragraph is easier to understand and grade than a laundry list. While we won't penalize you for using bullet points, it's important to realize that bullet points have weaknesses that are difficult to see when you're writing.
 
 #### Precision of Language
+
+Most questions require that you explain some code with words. It's important to be able to describe why something happens using precise vocabulary and be able to *pinpoint the principle* (scope, shadowing, etc.) at work. In other words, be precise and don't be vague.
+
+For example, let's take the following piece of code.
+
+```js
+let hello = "Hello, world!";
+function myFunc() {
+  console.log(hello);
+}
+
+myFunc();
+```
+
+If asked to describe what the `myFunc` code does, you might be tempted to say:
+
+> The result of the function is `"Hello, world!"`.
+
+This statement isn't wrong, but, it's imprecise and doesn't help us understand the function. If you had written that as an answer, you might score a 2/5 on the question (40% is not a passing score).
+
+A more precise answer would be something along the lines of this:
+
+> The function outputs `Hello, world!`, which it obtains from the global variable `hello`, then returns `undefined`. The function can use `hello` since functions have access to variables defined in the outer scope.
+
+In programming, we're always concerned with the output and the return value, as well as any object mutation and non-local variables being used. We need to speak in those terms, and not use vague words like "results."
+
+When writing answers to the test questions, be as precise as possible, and use the proper vocabulary. Doing this will help you debug and understand more complex code later in your journey. If your definitions are not precise, you won't be able to lean on them to decompose complicated code. Also, you will likely not be able to pass this assessment.
+

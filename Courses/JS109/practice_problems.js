@@ -1,4 +1,4 @@
-// What does this code log and why?
+// 1. What does this code log and why?
 // let a = 1;
 
 // function doit(a) {
@@ -14,14 +14,33 @@ This code logs `3` on the invocation of the function `doit` on line 8 and `1` fr
 
 */
 
-function changeName(name) {
-  name = 'bob';
+// 2.
+// function changeName(name) {
+//   name = 'bob';
+// }
+
+// function anotherFunction() {
+//   let name = 'jim';
+//   changeName(name);
+//   console.log(name);
+// }
+
+// anotherFunction(); // => 'jim'
+
+// 3.
+let greeting = 'Hello';
+
+while (true) {
+  greeting = 'Hi';
+  break;
 }
 
-function anotherFunction() {
-  let name = 'jim';
-  changeName(name);
-  console.log(name);
+console.log(greeting);
+
+// 4.
+let hello = 'Hello, world!';
+function myFunc() {
+  console.log(hello);
 }
 
-anotherFunction(); // => 'jim'
+myFunc();
