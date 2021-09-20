@@ -3246,3 +3246,7 @@ The global variable `words` is declared and initialized to a nested array. The f
    * None.
 
 09:44 Finally getting into the study groove.
+
+10:37 I got interrupted by the sidewalk contractor. Ugh. I'm feeling like I want to keep going for a little bit and finish this assignment.
+
+10:53 Finished Assignment 3. I'm ready to take my break to do correspondence and go to the gym.

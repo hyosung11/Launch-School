@@ -295,3 +295,65 @@ Notice that we don't mention the implementation details at all. Instead, we prov
 
 If we ask you to describe a function without reference to its implementation, it's this kind of user-level description that we're looking for. We may also ask to describe the function for other developers or for documentation purposes: again, we're looking for the user-level description.
 
+#### Truthiness
+
+In the assessment, we want you to be very clear about the distinction between *truthy* and *falsy* values and the boolean values `true` and `false`.
+
+In JavaScript, the *falsy* values `false`, `0`, `NaN`, `""`, `undefined`, and `null` are all said to *evaluate to false* when used in a boolean context. All other values, the *truthy* values, are all said to *evaluate to true*. Note that saying that a value evaluates to true or false is **not** the same as saying that those values **are** `true` or `false`, or that they are **equal to** `true` or `false`. These may seem like subtle distinctions, but they are important ones.
+
+Suppose we ask you to describe what is happening in this code:
+
+```js
+let a = "Hello";
+
+if (a) {
+  console.log("Hello is truthy");
+} else {
+  console.log("Hello is falsy");
+}
+```
+
+If your answer says that "`a` is `true`" or that "`a` is equal to `true`" in the conditional on line 3, we would likely deduct points from your score. A much better answer would say that "`a` is truthy" or that "`a` evaluates to true" on line 3.
+
+To sum up:
+
+* Use "evaluates to true" or "is truthy" when discussing expressions that only have to be truthy.
+* Use "evaluates to false" or "is falsy" when discussing expressions that only have to be falsy.
+* Do not use "is `true`" or "is equal to `true`" unless you are specifically discussing the boolean value `true`.
+* Do not use "is `false`" or "is equal to `false`" unless you are specifically discussing the boolean value `false`.
+
+#### Distinctions
+
+Be clear about the following distinctions:
+
+* Parameters are the names assigned to a function's arguments; arguments are the values that get passed to the function.
+* Variables are not passed to or returned by functions: **values** or **references** are passed.
+* Truthiness vs Boolean values (see above)
+
+### Online Resources
+
+When an online resource conflicts with Launch School materials, the Launch School materials should be used on the assessment. We can't grade assessments using information that differs from what we present, especially when that information is incorrectly changed.
+
+This is especially true with semi-official sources like the Mozilla Developer Network (MDN). Nearly anybody can update the MDN documentation, and those updates are sometimes incorrect.
+
+### Additional Tips
+
+When writing code for an assessment question, run your code often to check it. Make sure that you have some way to run JavaScript code in your terminal or via an online repl prepared beforehand.
+
+Some Launch School students have blogged about their assessment experiences:
+
+* Raúl talks about his preparation and experiences as a non-native English speaker [in this interesting article](https://medium.com/@raul.dehevia/launch-schools-109-written-assessment-a-non-native-english-speaker-s-perspective-d320b47368ba).
+
+* Drew shares a [few tips](https://medium.com/launch-school/a-beginners-guide-to-surviving-launch-school-101-c706553252cc) to set you up for success and to make your Launch School journey a little less daunting.
+
+Dalibor wrote a [blog article](https://medium.com/launch-school/knowing-is-not-enough-you-need-tactics-too-how-to-be-prepared-for-launch-school-written-3f7b9c9cb08e) about his strategy for success on Launch School's written assessments.
+
+Callie's [blog article](https://medium.com/launch-school/passing-launch-schools-first-assessments-rb109-4b2b047060dc) has a wealth of useful information about preparing for both parts of the assessment: the exam and the interview. Callie speaks specifically of the Ruby-based RB109 assessments, but her advice and recommendations apply equally as well to JS109.
+
+These articles are well worth your time; don't pass them up!
+
+20210920 10:47 Complete assignment.
+
+## 4. Part 1: Start the Test
+
+Make sure that you thoroughly study the topics in the study guide. After you've done so, you may start the test.
