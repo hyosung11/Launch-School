@@ -225,3 +225,73 @@ In programming, we're always concerned with the output and the return value, as 
 
 When writing answers to the test questions, be as precise as possible, and use the proper vocabulary. Doing this will help you debug and understand more complex code later in your journey. If your definitions are not precise, you won't be able to lean on them to decompose complicated code. Also, you will likely not be able to pass this assessment.
 
+### Some Specifics
+
+For the purposes of this assessment, we will use some terms in very precise ways. You should be extremely precise in the language that you use as well. Doing so will prevent misunderstandings during grading. Relying on precise language will help both you and us understand each other.
+
+These areas are outlined below.
+
+#### Assignments
+
+Consider the following assignment:
+
+```js
+greeting = 'Hello';
+```
+
+Most of the Launch School material describes this assignment as:
+
+> The `greeting` variable is assigned to the string `'Hello'`.
+
+However, there are places where we describe this code as:
+
+> The string `'Hello'` is assigned to the `greeting` variable.
+
+Both of these are acceptable in the assessment. Try to be consistent though to avoid confusion.
+
+#### Variables
+
+Unless mentioned specifically, we use the term **variable** in the broadest sense possible. On this exam, that means that all of the following should be treated as variables:
+
+* Variables declared with `let` or `const`
+* Function parameters
+* Function names
+
+Note in particular that object property names **are not** variables.
+
+#### What Code Does
+
+There are **two main ways** to describe the following code:
+
+```js
+function appendTo(str, otherStr) {
+  for (let index = 0; index < otherStr.length; ++index) {
+    str += otherStr[index];
+  }
+
+  return str;
+}
+```
+
+**First**, there's the *implementation level description*. Here, we'd say something like this:
+
+> We're declaring a function named `appendTo` that takes two arguments, both of which are presumed to be strings. We then use a `for` loop with an `index` local variable to iterate over the characters in the second string, appending each character to the value of the first string. We then return the result value as a new string.
+
+An implementation-level description is fine when describing the way a function does something. However, it's completely dependent on the implementation. If the implementation changes for some reason, the description may no longer be accurate. For instance, here's the same function with a completely different implementation:
+
+```js
+function appendTo(str, otherStr) {
+  return str + otherStr;
+}
+```
+
+The implementation-level description no longer describes this code accurately. It's not even close.
+
+That leads us to the second way to describe some code: *the user-level description*. Here, we describe what code does not how it does it. The description is not dependent on the implementation, but takes a *higher-level perspective* that is more enduring.
+
+> `appendTo` is a function that takes two string arguments and returns a new string. The returned string contains the result of appending the second string to the first.
+
+Notice that we don't mention the implementation details at all. Instead, we provide a higher-level view of the function. There's just enough information that another developer can use it in their code without first having to understand what's going on behind the scenes.
+
+If we ask you to describe a function without reference to its implementation, it's this kind of user-level description that we're looking for. We may also ask to describe the function for other developers or for documentation purposes: again, we're looking for the user-level description.
+
