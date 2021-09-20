@@ -3219,3 +3219,9 @@ The global variable `words` is declared and initialized to a nested array. The f
 19:25 This guy talking on youtube is really annoying.
 
 19:42 Read the "Part 1: Study Guide for Test".
+
+## 20210920 월요일
+
+05:30 Study Session with Alex
+
+06:30 End study session with Alex. I need to get organized for the written assessment. I want to have practice problems with answers on hand as well as my glossary.
