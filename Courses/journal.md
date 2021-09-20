@@ -3209,3 +3209,13 @@ The global variable `words` is declared and initialized to a nested array. The f
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I made an appointment with Dr. Riotto to get treatment on my right hamstring.
+
+## 20210918 토요일
+
+17:25 We are about to leave for dinner in Oakland. I still feel exhausted. How will my hamstring feel tomorrow morning for the game. We don't have a game next Sunday, so I feel like I should referee the weekend.
+
+## 20210919 일요일
+
+19:25 This guy talking on youtube is really annoying.
+
+19:42 Read the "Part 1: Study Guide for Test".
