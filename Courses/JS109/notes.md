@@ -153,4 +153,47 @@ While none of these answers is technically incorrect, they all answer the questi
 
 * Answer **D** goes a step further than **C** by **explaining why this is important** and the *underlying principle that it demonstrates*; i.e., the fact that JavaScript has particular scoping rules which affect whether or not a variable can be referenced or reassigned. It also talks about how the `break` statement influences the execution of the loop. Finally, we also mention that we're declaring a global variable. Based on the way that this question is phrased, answer **D** would be the only answer of the four to receive full points in an actual assessment.
 
+#### Bullet Points
 
+Many students attempt to use bullet points to answer the questions on the exam. This makes sense in some situations:
+
+* You have a list of explicit reasons why some code does what it does.
+* You have a list of pros and cons.
+* You want to provide a list of things.
+
+In short, they work well for **lists**. (Notice that we used a bullet list to list this list of lists!) However, they don't always work as complete answers for a question. **You don't speak in bullet lists; don't write with lists.**
+
+To illustrate, consider the following hypothetical explanation of the example code from the previous section:
+
+* Line 1 declares a variable named greeting and initializes it as `'Hello'`.
+* Line 3 begins a loop that keeps on repeating forever until the code breaks out of the loop.
+* Line 4 reassigns `greeting` to `'Hi'`.
+* Line 5 breaks out of the loop.
+* Line 8 logs the value of `greeting` to the console.
+* Variables defined in an outer scope are accessible from a nested inner scope.
+
+This answer is essentially a **laundry list** of statements about the code. Unfortunately, laundry lists aren't very effective as answers on the assessment. They are difficult to follow, and often leave it to the reader to piece together the logic behind the list.
+
+In the above list, for instance, there's no logical progression that actually explains what is happening. Instead, the student has simply listed a bunch of statements about each line of code, plus one unrelated item that talks about scope. However, a program is not a series of independent lines of code. Code depends on what happened before, and it influences what happens later. There's nothing in the laundry list that connects those individual bits of code together.
+
+From the grader's point of view, this answer is incomplete:
+
+* It doesn't mention what happens when the loop runs.
+* it doesn't talk about the fact that `greeting` on line 4 is the same variable as the one shown on lines 1 and 8.
+* It doesn't tie the statement about variables to the other statements.
+
+In short, it leaves the grader with the burden of tying your bullet points together in a coherent whole.
+
+These faults can be addressed, to a degree, in a bullet point answer. However, the laundry list approach often leads students to overlook these missing details. Paragraphs make it easier to think about the bigger picture since you're striving for clarity, not a list of everything you can think of.
+
+Some students *overcompensate* by listing a bunch of facts that aren't really pertinent to the question. For instance, a typical answer might list several facts about the word true above:
+
+* The `while` loop takes a condition of `true`
+* The loop is looking for a truthy value, but `true` is a boolean value.
+* It evaluates `true` as truthy.
+
+This is mostly clutter for the grader, and there's some ambiguity about what "It" means in the last bullet. You may also lose some points if the additional details say something that is incorrect.
+
+In general, a clearly written paragraph is easier to understand and grade than a laundry list. While we won't penalize you for using bullet points, it's important to realize that bullet points have weaknesses that are difficult to see when you're writing.
+
+#### Precision of Language
