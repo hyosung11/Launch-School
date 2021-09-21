@@ -4,9 +4,49 @@
 
 ### `Array.prototype.filter()`
 
+The `filter` method returns a new array that includes all elements from the calling array for which the callback returns a truthy value.
+
+```js
+> let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2]
+> numbers.filter(num => num > 4)
+= [ 5, 6, 7, 8, 9, 10 ]
+
+> numbers
+= [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2 ]
+```
+
+`filter` iterates over the elements of the array. During each iteration, it invokes the callback function, using the value of the current element as an argument. If the callback returns a truthy value, `filter` appends the element's value to a new array. Otherwise, it ignores the element's value and does nothing. When `filter` finishes iterating, it returns the array of *selected* elements: the elements for which the callback returned a truthy value. In our example, `filter` selects all of the elements with a value greater than 4.
+
+`filter` doesn't mutate the caller.
+
 ### `Array.prototype.find()`
 
+
+
 ### `Array.prototype.forEach()`
+
+To use `forEach`, you need a callback function that you pass to `forEach` as an argument. A callback function is a function that you pass to another function as an argument. The called function invokes the callback function when it runs. The `forEach` method invokes its callback once for each element, passing it the element's value as an argument. `forEach` always returns `undefined`.
+
+```js
+let array = [1, 2, 3];
+array.forEach(function(num) {
+  console.log(num); // on first iteration  => 1
+                    // on second iteration => 2
+                    // on third iteration  => 3
+}); // returns `undefined`
+
+// We can also use an arrow function instead of a function expression, which makes our code compact and, when you're familiar with the syntax, more readable.
+let array = [1, 2, 3];
+array.forEach(num => console.log(num));
+
+// We can also perform more complex operations:
+let array = [1, 2, 3];
+array.forEach(num => console.log(num + 2)); // on first iteration  => 3
+                                            // on second iteration => 4
+                                            // on third iteration  => 5
+```
+
+This code invokes the callback function once for each element in the array. `forEach`, during each iteration, invokes the callback with the element's value as an argument. The callback then logs it to the console. In the end, `forEach` returns `undefined`.
 
 ```js
 array.forEach(element => {
@@ -22,7 +62,24 @@ Within the callback, the element is known by the
 parameter name `element`, and the callback uses the
 `console.log` method to log the value of `element.foo`.
 
+`forEach` performs simple iteration and returns `undefined`.
+
 ### `Array.prototype.map()`
+
+`map` transforms an array's elements and returns a new array with the transformed values.
+
+```js
+// The map method handles this situation more cleanly:
+> let numbers = [1, 2, 3, 4]
+> let squares = numbers.map(num => num * num);
+> squares
+= [ 1, 4, 9, 16 ]
+
+> squares = numbers.map(num => num * num);
+= [ 1, 4, 9, 16 ]
+```
+
+However, `map` returns a new array that contains one element for each element in numbers, with each element set to the return value of the callback: the squares of the numbers in this case. This code is more compact than the forEach code, and, better yet, it has no side effects; the callback doesn't update squares (the return value of map does that), and we don't have to reset the variable if we rerun the same code.
 
 ## Declarations, Initialization, Assignment, and Re-assignment
 
@@ -33,6 +90,8 @@ parameter name `element`, and the callback uses the
 ### Assignment
 
 ### Re-assignment
+
+## Functions: be able to explain what a function does without talking about its implementation; that is, document a function's use and purpose. (See below.)
 
 ## Pass-by-value / Pass-by-reference
 
@@ -91,7 +150,7 @@ This example demonstrates variable scoping rules in JavaScript; specifically the
 
 == Study Guide Topics ==
 
-## variable scope, especially how variables interact with function definitions and blocks
+## Variable Scope (especially how variables interact with function definitions and blocks)
 
 ## primitive values, objects and type coercion
 
@@ -123,5 +182,7 @@ A `const` declaration prohibits changing what thing the `const` points to, but i
 * implicit return value of function invocations
 * first-class functions
 * side-effects
-* naming conventions (legal vs idiomatic)
-* be able to explain what a function does without talking about its implementation; that is, document a function's use and purpose. (See below.)
+
+## naming conventions (legal vs idiomatic)
+
+

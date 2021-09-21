@@ -3262,3 +3262,24 @@ The global variable `words` is declared and initialized to a nested array. The f
 14:52 Continuing to dissect the study guide, but need to go to school now.
 
 20:31 Back from reffing and waiting for the 육게장 to warmup.
+
+09:45 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS109 > Lesson 1 > Assignment 3. Part 1: Study Guide for Test
+   * [ ] 3. Read *The Programmer's Brain* | Chapter 5: Reaching a deeper understanding of code
+   * [x] 4. Listen to the Huberman Lab Podcast Episode 34 | Understanding & Conquering Depression
+
+2. What will you do today?
+   * [x] 1. Algorithm Writing Clinic
+   * [ ] 2. JS109 > Lesson 1 > Assignment 3. Part 1: Study Guide for Test
+   * [ ] 3. SPOT Study Session
+   * [ ] 4. Listen to the Huberman Lab Podcast Episode 35 | Dr. Robert Sapolsky: Science of Stress, Testosterone & Free Will
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I referee a soccer game in the afternoon.
+
+10:28 I read all the recommended blog articles about the written assessment.
+
+11:03 Working on the glossary right now and getting ready to go to the gym to do soccer skills practice and heal my hamstring.
