@@ -21,7 +21,9 @@ The `filter` method returns a new array that includes all elements from the call
 
 ### `Array.prototype.find()`
 
+The `find()` method returns the value of the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, `undefined` is returned.
 
+The `find` method executes the `callbackFn` function once for each index of the array until the `callbackFn` returns a truthy value. If so, `find` immediately returns the value of that element. Otherwise, find returns `undefined`.
 
 ### `Array.prototype.forEach()`
 
@@ -184,5 +186,3 @@ A `const` declaration prohibits changing what thing the `const` points to, but i
 * side-effects
 
 ## naming conventions (legal vs idiomatic)
-
-
