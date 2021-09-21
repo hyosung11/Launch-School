@@ -89,13 +89,13 @@ This example demonstrates variable scoping rules in JavaScript; specifically the
 
 ## Variables as Pointers
 
-# Study Guide Topics
+== Study Guide Topics ==
 
-* variable scope, especially how variables interact with function definitions and blocks
+## variable scope, especially how variables interact with function definitions and blocks
 
-* primitive values, objects and type coercion
+## primitive values, objects and type coercion
 
-* object properties
+## object properties
 
 ## Mutability vs. Immutability vs `const`
 
@@ -109,12 +109,9 @@ A `const` declaration prohibits changing what thing the `const` points to, but i
 
 ### String Methods
 
+## working with Objects: accessing keys and values of an Object as arrays
 
-
-
-* working with Objects: accessing keys and values of an Object as arrays
-
-* arrays are objects
+## arrays are objects
 
 * understanding the concepts of *pass-by-reference* and *pass-by-value*
 

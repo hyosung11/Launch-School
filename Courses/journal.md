@@ -3260,3 +3260,5 @@ The global variable `words` is declared and initialized to a nested array. The f
 14:11 Starting to dissect the study guide topics to add to my glossary.
 
 14:52 Continuing to dissect the study guide, but need to go to school now.
+
+20:31 Back from reffing and waiting for the 육게장 to warmup.
