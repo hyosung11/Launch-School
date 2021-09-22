@@ -136,10 +136,6 @@ Another example:
 
 ## Scope
 
-The function outputs `Hello, world!`, which it obtains from the global variable `hello`, then returns `undefined`. The function can use `hello` since functions have access to variables defined in the outer scope.
-
-This example demonstrates variable scoping rules in JavaScript; specifically the fact that a variable declared in the outer scope is accessible from a nested inner scope.
-
 ## Non-local Variable Use
 
 ## Objects vs Primitives
@@ -153,6 +149,10 @@ This example demonstrates variable scoping rules in JavaScript; specifically the
 == Study Guide Topics ==
 
 ## Variable Scope (especially how variables interact with function definitions and blocks)
+
+The function outputs `Hello, world!`, which it obtains from the global variable `hello`, then returns `undefined`. The function can use `hello` since functions have access to variables defined in the outer scope.
+
+This example demonstrates variable scoping rules in JavaScript; specifically the fact that a variable declared in the outer scope is accessible from a nested inner scope.
 
 ## primitive values, objects and type coercion
 

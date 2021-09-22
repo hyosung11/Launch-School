@@ -3286,4 +3286,8 @@ The global variable `words` is declared and initialized to a nested array. The f
 
 13:22 After lunch and a short walk before the SPOT Study Session in a few minutes.
 
-15:27 Conversation with Jeff
+15:27 Conversation with Jeff about directly pursuing dev roles instead of Scrum Master or Project Manager roles.
+
+## 20210922 수요일
+
+06:53 We had a good study session today with Alex and Laurent. I organized the meeting using google meet and coderpad.
