@@ -85,13 +85,12 @@ However, `map` returns a new array that contains one element for each element in
 
 ## Declarations, Initialization, Assignment, and Re-assignment
 
-### Declarations
+```js
+let count = 1;
+count = 2;
+```
 
-### Initialization
-
-### Assignment
-
-### Re-assignment
+On line 1, we declare a (global/local) variable named `count`, and initialize it to a value of `1`, which is a primitive value. Line 2 reassigns `count` to a new primitive value, `2`.
 
 ## Functions: be able to explain what a function does without talking about its implementation; that is, document a function's use and purpose. (See below.)
 
@@ -154,7 +153,11 @@ The function outputs `Hello, world!`, which it obtains from the global variable 
 
 This example demonstrates variable scoping rules in JavaScript; specifically the fact that a variable declared in the outer scope is accessible from a nested inner scope.
 
-## primitive values, objects and type coercion
+## Primitive Values, Objects and Type Coercion
+
+### primitive values
+
+With (most) primitive values, the actual value of the variable gets stored in allocated memory.
 
 ## object properties
 
