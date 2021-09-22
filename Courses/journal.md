@@ -3291,3 +3291,20 @@ The global variable `words` is declared and initialized to a nested array. The f
 ## 20210922 수요일
 
 06:53 We had a good study session today with Alex and Laurent. I organized the meeting using google meet and coderpad.
+
+09:30 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Algorithm Writing Clinic
+   * [x] 2. JS109 > Lesson 1 > Assignment 3. Part 1: Study Guide for Test
+   * [x] 3. SPOT Study Session
+   * [x] 4. Listened to the Huberman Lab Podcast Episode 35 | Dr. Robert Sapolsky: Science of Stress, Testosterone & Free Will
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex and Laurent
+   * [ ] 2. JS109 > Lesson 1 > Assignment 3. Part 1: Dissect Study Guide for Test
+   * [ ] 3. Read *The Programmer's Brain* | Chapter 5: Reaching a deeper understanding of code
+   * [ ] 4. Listen to the Huberman Lab Podcast Episode 36 | Healthy Eating & Eating Disorders - Anorexia, Bulimia, Binging
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I feel listless this morning.

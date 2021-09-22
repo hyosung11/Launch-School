@@ -142,7 +142,8 @@ This code will log 'nina' as the global scope 'name' variable has not been modif
 HyoSung
 The global variable `name` is declared and initialized to the string 'nina'.
 The `console.log` method on line 15 logs 'nina' because it passes in the global variable name. The call of the `outer` function returns 'jill'. This is an example of variable shadowing.
-/* locally scoped to the inner function
+
+locally scoped to the inner function
 the inner function can access the outer function
 
 variable shadowing
