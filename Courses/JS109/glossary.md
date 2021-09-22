@@ -94,6 +94,8 @@ However, `map` returns a new array that contains one element for each element in
 
 Arrays are a subset of objects. While objects store a collection of key-value pairs, arrays associate values with indexes.
 
+Arrays as objects are object data types with non-primitive or object values, not primitive values.
+
 Arrays are objects. One side effect of this is that the `typeof` operator doesn't return 'array' when applied to an array:
 
 ```js
@@ -101,6 +103,36 @@ Arrays are objects. One side effect of this is that the `typeof` operator doesn'
 > typeof arr
 = 'object'
 ```
+
+## `console.log` vs. `return`
+
+Output and return values are different concepts.
+
+### `console.log`
+
+When we invoke the `console.lo`g method, we're telling JavaScript to write something to the console. In Node, that is your screen; in your browser, it's the Console in your Developer Tools application. The term log is a synonym for printing or displaying something on the console.
+
+```sh
+> console.log('Howdy')
+Howdy // displayed on the console
+= undefined // this is return value of the expression that returned nothing
+
+> let a = console.log("Howdy")
+> a
+```
+
+```sh
+> let a = console.log("Howdy")
+> a
+```
+
+The value returned by `console.log("Howdy")` is `undefined`, so that's the value to which `a` gets assigned. Therefore, `a` on the second line evaluates to `undefined`, and `node` shows it as the return value.
+
+### `return`
+
+JavaScript uses the `return` statement to return a value to the code that called the function: the **caller**. If you don't specify a value, it returns `undefined`. Either way, the `return` statement causes the function to stop running and returns control to the caller.
+
+The return value is the evaluated value of the expression.
 
 ## Declarations, Initialization, Assignment, and Re-assignment
 
@@ -182,6 +214,8 @@ With (most) primitive values, the actual value of the variable gets stored in al
 
 ## Mutability vs. Immutability vs `const`
 
+### `const`
+
 A `const` declaration prohibits changing what thing the `const` points to, but it does not prohibit changing the content of that thing. Thus, we can change a property in a `const` object, but we can't change which object the `const` points to.
 
 ## Equality: loose and strict equality
@@ -194,12 +228,10 @@ A `const` declaration prohibits changing what thing the `const` points to, but i
 
 ## working with Objects: accessing keys and values of an Object as arrays
 
+## understanding the concepts of *pass-by-reference* and *pass-by-value*
 
+## variables as pointers
 
-* understanding the concepts of *pass-by-reference* and *pass-by-value*
-
-* variables as pointers
-* console.log vs. return
 * truthiness vs. boolean
 * function definition and invocation
 * function declarations, function expressions, and arrow functions

@@ -83,9 +83,9 @@ You should be able to clearly explain the following topics:
 * loose and strict equality
 * passing arguments into and return values out of functions
 * working with Strings
-* working with Arrays, especially the iteration methods (`forEach`, `map`, `filter`, and `find`)
+~~* working with Arrays, especially the iteration methods (`forEach`, `map`, `filter`, and `find`)~~
 * working with Objects: accessing keys and values of an Object as arrays
-* arrays are objects
+~~* arrays are objects~~
 * understanding the concepts of *pass-by-reference* and *pass-by-value*
 * variables as pointers
 * console.log vs. return

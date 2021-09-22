@@ -63,8 +63,8 @@ Five Side Effects
 1. logging to the terminal (obtaining user input or logging to the console)
 2. mutating objects that are not local to the function
 3. reassignment of a variable in an outer scope
-3. raises an exception without handling
-4. calls another function that causes a side effect
+4. raises an exception without handling
+5. calls another function that causes a side effect
 */
 
 /* =====
@@ -73,17 +73,17 @@ Edris Q7
 What does this code log and what's the principle being demonstrated?
 */
 
-let animal = "dog";
+// let animal = "dog";
 
-const speak = animal => {
-  if (animal) {
-    console.log("Bark");
-  } else {
-    console.log("Meow");
-  }
-};
+// const speak = animal => {
+//   if (animal) {
+//     console.log("Bark");
+//   } else {
+//     console.log("Meow");
+//   }
+// };
 
-speak();
+// speak();
 
 /* Answer
 

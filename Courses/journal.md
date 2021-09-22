@@ -3314,3 +3314,7 @@ The global variable `words` is declared and initialized to a nested array. The f
 10:14 Tired right now. What to do? Go to the gym now?
 
 11:04 I got focused for a little bit and did some studying. Now I'm going to the gym to do soccer skills practice and more work on healing my hamstring.
+
+14:07 Listened to The Ready State Q&A with Kelly Starrett and Diane Foo. Good stuff. Adhitiani wants my notes from the study session.
+
+14:12 I slacked my notes to Adhitiani.
