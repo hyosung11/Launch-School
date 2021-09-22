@@ -3318,3 +3318,5 @@ The global variable `words` is declared and initialized to a nested array. The f
 14:07 Listened to The Ready State Q&A with Kelly Starrett and Diane Foo. Good stuff. Adhitiani wants my notes from the study session.
 
 14:12 I slacked my notes to Adhitiani.
+
+14:52 Okay, making more progress through the glossary and now getting ready to get the kids. Let's see if they want to stay and play at the playground.
