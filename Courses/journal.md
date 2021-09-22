@@ -3292,6 +3292,8 @@ The global variable `words` is declared and initialized to a nested array. The f
 
 06:53 We had a good study session today with Alex and Laurent. I organized the meeting using google meet and coderpad.
 
+09:10 I feel tired right now and I don't want to do anything. Ugh.
+
 09:30 Daily Scrum Questions
 
 1. What did you do yesterday?
@@ -3308,3 +3310,7 @@ The global variable `words` is declared and initialized to a nested array. The f
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I feel listless this morning.
+
+10:14 Tired right now. What to do? Go to the gym now?
+
+11:04 I got focused for a little bit and did some studying. Now I'm going to the gym to do soccer skills practice and more work on healing my hamstring.

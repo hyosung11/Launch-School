@@ -1,4 +1,4 @@
-# Glossary for Written Assessment
+# Glossary of Topics for Written Assessment
 
 ## Arrays: working with Arrays, especially the iteration methods (`forEach`, `map`, `filter`, and `find`)
 
@@ -15,7 +15,7 @@ The `filter` method returns a new array that includes all elements from the call
 = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2 ]
 ```
 
-`filter` iterates over the elements of the array. During each iteration, it invokes the callback function, using the value of the current element as an argument. If the callback returns a truthy value, `filter` appends the element's value to a new array. Otherwise, it ignores the element's value and does nothing. When `filter` finishes iterating, it returns the array of *selected* elements: the elements for which the callback returned a truthy value. In our example, `filter` selects all of the elements with a value greater than 4.
+`filter` iterates over the elements of the array. During each iteration, it invokes the callback function, using the value of the current element as an argument. If the callback returns a truthy value, `filter` appends the element's value to a new array. Otherwise, it ignores the element's value and does nothing. When `filter` finishes iterating, it returns the array of *selected* elements: the elements for which the callback returned a truthy value. In this example, `filter` selects all of the elements with a value greater than 4.
 
 `filter` doesn't mutate the caller.
 
@@ -24,6 +24,15 @@ The `filter` method returns a new array that includes all elements from the call
 The `find()` method returns the value of the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, `undefined` is returned.
 
 The `find` method executes the `callbackFn` function once for each index of the array until the `callbackFn` returns a truthy value. If so, `find` immediately returns the value of that element. Otherwise, find returns `undefined`.
+
+```js
+let array = [5, 12, 8, 130, 44];
+
+let found = array.find(element => element > 10);
+
+console.log(found)
+// => 12
+```
 
 ### `Array.prototype.forEach()`
 
@@ -56,19 +65,17 @@ array.forEach(element => {
 });
 ```
 
-This paragraph talks about the `forEach` method being
-called by the object referenced by `array` in the above
-code. It invokes the callback function for each element,
-passing that element to the callback as an argument.
-Within the callback, the element is known by the
-parameter name `element`, and the callback uses the
-`console.log` method to log the value of `element.foo`.
+This paragraph talks about the `forEach` method being called by the object referenced by `array` in the above code. It invokes the callback function for each element, passing that element to the callback as an argument. Within the callback, the element is known by the parameter name `element`, and the callback uses the `console.log` method to log the value of `element.foo`.
 
 `forEach` performs simple iteration and returns `undefined`.
 
 ### `Array.prototype.map()`
 
 `map` transforms an array's elements and returns a new array with the transformed values.
+
+The `map` method takes a function as an argument and calls it for each element of the array used to call `map`.
+
+`map` uses the return value of the callback to perform a transformation.
 
 ```js
 // The map method handles this situation more cleanly:
@@ -81,17 +88,28 @@ parameter name `element`, and the callback uses the
 = [ 1, 4, 9, 16 ]
 ```
 
-However, `map` returns a new array that contains one element for each element in numbers, with each element set to the return value of the callback: the squares of the numbers in this case. This code is more compact than the forEach code, and, better yet, it has no side effects; the callback doesn't update squares (the return value of map does that), and we don't have to reset the variable if we rerun the same code.
+However, `map` returns a new array that contains one element for each element in numbers, with each element set to the return value of the callback: the squares of the numbers in this case. This code is more compact than the `forEach` code, and, better yet, it has no side effects; the callback doesn't update squares (the return value of map does that), and we don't have to reset the variable if we rerun the same code.
+
+## Arrays Are Objects
+
+Arrays are a subset of objects. While objects store a collection of key-value pairs, arrays associate values with indexes.
+
+Arrays are objects. One side effect of this is that the `typeof` operator doesn't return 'array' when applied to an array:
+
+```js
+> let arr = [1, 2, 3]
+> typeof arr
+= 'object'
+```
 
 ## Declarations, Initialization, Assignment, and Re-assignment
 
-### Declarations
+```js
+let count = 1;
+count = 2;
+```
 
-### Initialization
-
-### Assignment
-
-### Re-assignment
+On line 1, we declare a (global/local) variable named `count`, and initialize it to a value of `1`, which is a primitive value. Line 2 reassigns `count` to a new primitive value, `2`.
 
 ## Functions: be able to explain what a function does without talking about its implementation; that is, document a function's use and purpose. (See below.)
 
@@ -154,7 +172,11 @@ The function outputs `Hello, world!`, which it obtains from the global variable 
 
 This example demonstrates variable scoping rules in JavaScript; specifically the fact that a variable declared in the outer scope is accessible from a nested inner scope.
 
-## primitive values, objects and type coercion
+## Primitive Values, Objects and Type Coercion
+
+### primitive values
+
+With (most) primitive values, the actual value of the variable gets stored in allocated memory.
 
 ## object properties
 
@@ -172,7 +194,7 @@ A `const` declaration prohibits changing what thing the `const` points to, but i
 
 ## working with Objects: accessing keys and values of an Object as arrays
 
-## arrays are objects
+
 
 * understanding the concepts of *pass-by-reference* and *pass-by-value*
 

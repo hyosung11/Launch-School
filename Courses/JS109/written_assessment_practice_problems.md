@@ -13,7 +13,7 @@ doit(3); // => 3
 console.log(a); // => 1
 ```
 
-This code logs `3` on the invocation of the function `doit` on line 8 and `1` from the `console.log` method on line 9. On line 2, the global variable `a` is declared and initialized to the value of `1`. The `doit` function is declared on line 4 and accepts one argument, here the variable `a`. This variable `a` shadows the global variable `a` on line 2. The `console.log` method logs the global variable `a` from line 2.
+This code returns `3` on the invocation of the function `doit` on line 8 and logs `1` from the `console.log` method on line 9. On line 2, the global variable `a` is declared and initialized to the value of `1`. The `doit` function is declared on line 4 and accepts one argument, here the variable `a`. This variable `a` shadows the global variable `a` on line 2. The `console.log` method logs the global variable `a` from line 2.
 
 Alex's Answer
 The code logs 3 and then 1. This is an example of variable shadowing -- the parameter 'a' makes the global variable 'a' inaccessible within the function doit. Instead, the local variable a is assigned the value of the argument passed to the function when it is invoked in line 7, which is 3. Therefore, when the function is invoked and the local variable 'a' is logged, this logs 3. Later, after the function has terminated and the global variable a is logged on line 8, this logs 1. This demonstrates inner and outer scoping.
