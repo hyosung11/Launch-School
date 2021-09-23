@@ -75,28 +75,28 @@ This assessment will test your knowledge of the [Prep Course](https://launchscho
 
 You should be able to clearly explain the following topics:
 
-~~* declarations, initialization, assignment, and re-assignment~~
-* variable scope, especially how variables interact with function definitions and blocks
-* primitive values, objects and type coercion
-* object properties
-* mutability vs. immutability vs `const`
-* loose and strict equality
-* passing arguments into and return values out of functions
-* working with Strings
-~~* working with Arrays, especially the iteration methods (`forEach`, `map`, `filter`, and `find`)~~
-* working with Objects: accessing keys and values of an Object as arrays
-~~* arrays are objects~~
-* understanding the concepts of *pass-by-reference* and *pass-by-value*
-* variables as pointers
-* console.log vs. return
-* truthiness vs. boolean
-* function definition and invocation
-* function declarations, function expressions, and arrow functions
-* implicit return value of function invocations
-* first-class functions
-* side-effects
-* naming conventions (legal vs idiomatic)
-~~* be able to explain what a function does without talking about its implementation; that is, document a function's use and purpose. (See below.)~~
+1. * declarations, initialization, assignment, and re-assignment
+2. * variable scope, especially how variables interact with function definitions and blocks
+3. * primitive values, objects and type coercion
+4. * object properties
+5. * mutability vs. immutability vs `const`
+6. * loose and strict equality
+7. * passing arguments into and return values out of functions
+8. * working with Strings
+9. * working with Arrays, especially the iteration methods (`forEach`, `map`, `filter`, and `find`)
+10. * working with Objects: accessing keys and values of an Object as arrays
+11. * arrays are objects
+12. * understanding the concepts of pass-by-reference and pass-by-value
+13. * variables as pointers
+14. * console.log vs. return
+15. * truthiness vs. boolean
+16. * function definition and invocation
+17. * function declarations, function expressions, and arrow functions
+18. * implicit return value of function invocations
+19. * first-class functions
+20. * side-effects
+21. * naming conventions (legal vs idiomatic)
+22. * be able to explain what a function does without talking about its implementation; that is, document a function's use and purpose. (See below.)
 
 ### Using a REPL
 

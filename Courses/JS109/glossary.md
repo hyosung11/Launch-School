@@ -198,7 +198,7 @@ In JavaScript, we call a function definition that looks like that a **function d
 ```js
 greetPeople(); // Invoking a function before declaring it
 
-function greetPeopel() {
+function greetPeople() {
   console.log("Good Morning!");
 }
 ```
@@ -236,7 +236,7 @@ For now, let's look at one interesting property of arrow functions: *implicit re
 let add = (a, b) => a + b;
 ```
 
-Note the lack of a `return` statement. We can omit it in arrow functions *when and only when the function body contains a single expressio*n (the expression may have subexpressions, but the entire expression must evaluate to a single value). Suppose it contains two or more expressions or statements. In that case, you must explicitly return a value if you need it, and you must also use curly braces:
+Note the lack of a `return` statement. We can omit it in arrow functions *when and only when the function body contains a single expression* (the expression may have subexpressions, but the entire expression must evaluate to a single value). Suppose it contains two or more expressions or statements. In that case, you must explicitly return a value if you need it, and you must also use curly braces:
 
 ```js
 let add = (a, b) => a + b;
@@ -367,9 +367,7 @@ Another example:
 
 ## Objects vs Primitives
 
-
-Primitive values are always *immutable*; they don't have parts that one can change. Such values are said to be **atomic**; they're indivisible. If a variable contains a primitive value, all you can do to that variable is use it in an expression or *reassign* it: give it an entirely new value. All operations on primitive values evaluate as new values. Even something like `0 + 0 `evaluates to a new value of `0`.
-
+Primitive values are always *immutable*; they don't have parts that one can change. Such values are said to be **atomic**; they're indivisible. If a variable contains a primitive value, all you can do to that variable is use it in an expression or *reassign* it: give it an entirely new value. All operations on primitive values evaluate as new values. Even something like `0 + 0` evaluates to a new value of `0`.
 
 ## Object Mutation
 
@@ -403,7 +401,4 @@ primitive values
 
 ## truthiness vs. boolean
 
-
 ## side-effects
-
-
