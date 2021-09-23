@@ -3321,3 +3321,23 @@ The global variable `words` is declared and initialized to a nested array. The f
 
 14:52 Okay, making more progress through the glossary and now getting ready to get the kids. Let's see if they want to stay and play at the playground.
 
+## 20210923 목요일
+
+09:06 HMU = hit me up
+
+09:08 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex and Laurent
+   * [x] 2. JS109 > Lesson 1 > Assignment 3. Part 1: Dissect Study Guide for Test
+   * [ ] 3. Read *The Programmer's Brain* | Chapter 5: Reaching a deeper understanding of code
+   * [x] 4. Listened to the Huberman Lab Podcast Episode 36 | Healthy Eating & Eating Disorders - Anorexia, Bulimia, Binging
+
+2. What will you do today?
+   * [x] 1. JS109 > Lesson 1 > Assignment 3. Part 1: Dissect Study Guide for Test
+   * [x] 2. Listen to the Huberman Lab Podcast Episode 37 | ADHD & How Anyone Can Improve Their Focus
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I officiate two high school soccer games today.
+
+09:14 I need to stop eating arsenic and get into the study groove quickly.
