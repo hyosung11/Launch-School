@@ -1,6 +1,6 @@
 # Glossary of Topics for Written Assessment
 
-## Arrays: working with Arrays, especially the iteration methods (`forEach`, `map`, `filter`, and `find`)
+## 1. Arrays: working with Arrays, especially the iteration methods (`forEach`, `map`, `filter`, and `find`)
 
 ### `Array.prototype.filter()`
 
@@ -90,7 +90,7 @@ The `map` method takes a function as an argument and calls it for each element o
 
 However, `map` returns a new array that contains one element for each element in numbers, with each element set to the return value of the callback: the squares of the numbers in this case. This code is more compact than the `forEach` code, and, better yet, it has no side effects; the callback doesn't update squares (the return value of map does that), and we don't have to reset the variable if we rerun the same code.
 
-## Arrays Are Objects
+## 2. Arrays Are Objects
 
 Arrays are a subset of objects. While objects store a collection of key-value pairs, arrays associate values with indexes.
 
@@ -104,13 +104,13 @@ Arrays are objects. One side effect of this is that the `typeof` operator doesn'
 = 'object'
 ```
 
-## `console.log` vs. `return`
+## 3. `console.log` vs. `return`
 
 Output and return values are different concepts.
 
 ### `console.log`
 
-When we invoke the `console.lo`g method, we're telling JavaScript to write something to the console. In Node, that is your screen; in your browser, it's the Console in your Developer Tools application. The term log is a synonym for printing or displaying something on the console.
+When we invoke the `console.log` method, we're telling JavaScript to write something to the console. In Node, that is your screen; in your browser, it's the Console in your Developer Tools application. The term log is a synonym for printing or displaying something on the console.
 
 ```sh
 > console.log('Howdy')
@@ -134,7 +134,7 @@ JavaScript uses the `return` statement to return a value to the code that called
 
 The return value is the evaluated value of the expression.
 
-## Declarations, Initialization, Assignment, and Re-assignment
+## 4. Declarations, Initialization, Assignment, and Re-assignment
 
 ```js
 let count = 1;
@@ -143,7 +143,32 @@ count = 2;
 
 On line 1, we declare a (global/local) variable named `count`, and initialize it to a value of `1`, which is a primitive value. Line 2 reassigns `count` to a new primitive value, `2`.
 
-## Functions: be able to explain what a function does without talking about its implementation; that is, document a function's use and purpose. (See below.)
+## Functions
+
+### Functions: be able to explain what a function does without talking about its implementation; that is, document a function's use and purpose. (See below.)
+
+### Function Declarations, Function Expressions, and Arrow Functions
+
+### Function Definition and Invocation
+
+Before you can use a function, you must first define it with the reserved keyword, `function`. After the word function, you write the function's name followed by a pair of parentheses (`()`). After the closing parenthesis, the code you want to associate with the function -- the f**unction body** -- gets placed between curly braces (`{}`).
+
+Parameters are **local variables**; they are only defined locally, within the body of the function.
+
+```js
+function add(left, right) { // left & right are parameters here
+  let sum = left + right;   // left & right are arguments here
+  return sum;
+}
+
+let sum = add(3, 6); // 3 and 6 are arguments
+```
+
+Programmers often talk about function invocation and invoking functions. The terms are synonymous with "call" and "calling." You invoke a function or write a function invocation. We use these terms as well.
+
+### Implicit Return Value of Function Invocations
+
+All JavaScript function calls evaluate to a value. By default, that value is `undefined`; this is the **implicit return value** of most JavaScript functions. However, when you use a `return` statement, you can return a specific value from a function. This is an **explicit return value**. Outside of the function, there is no distinction between implicit and explicit return values, but it's important to remember that all functions return something unless they raise an exception, even if they don't execute a return statement.
 
 ## Pass-by-value / Pass-by-reference
 
@@ -233,9 +258,7 @@ A `const` declaration prohibits changing what thing the `const` points to, but i
 ## variables as pointers
 
 * truthiness vs. boolean
-* function definition and invocation
-* function declarations, function expressions, and arrow functions
-* implicit return value of function invocations
+
 * first-class functions
 * side-effects
 
