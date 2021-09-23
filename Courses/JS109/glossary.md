@@ -320,6 +320,10 @@ Note that non-idiomatic names are not invalid names. Non-idiomatic names are com
 
 ### Invalid Names
 
+## 14. Object Properties
+
+
+
 ================ RR ================
 
 ## Pass-by-value / Pass-by-reference
@@ -389,7 +393,7 @@ primitive values
 
 * With (most) primitive values, the actual value of the variable gets stored in allocated memory.
 
-## Object Properties
+
 
 ## Strings (working with Strings)
 
