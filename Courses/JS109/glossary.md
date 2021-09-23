@@ -108,7 +108,7 @@ Arrays are objects. One side effect of this is that the `typeof` operator doesn'
 
 Output and return values are different concepts.
 
-### `console.log`
+`console.log`
 
 When we invoke the `console.log` method, we're telling JavaScript to write something to the console. In Node, that is your screen; in your browser, it's the Console in your Developer Tools application. The term log is a synonym for printing or displaying something on the console.
 
@@ -128,7 +128,7 @@ Howdy // displayed on the console
 
 The value returned by `console.log("Howdy")` is `undefined`, so that's the value to which `a` gets assigned. Therefore, `a` on the second line evaluates to `undefined`, and `node` shows it as the return value.
 
-### `return`
+`return`
 
 JavaScript uses the `return` statement to return a value to the code that called the function: the **caller**. If you don't specify a value, it returns `undefined`. Either way, the `return` statement causes the function to stop running and returns control to the caller.
 
@@ -143,15 +143,118 @@ count = 2;
 
 On line 1, we declare a (global/local) variable named `count`, and initialize it to a value of `1`, which is a primitive value. Line 2 reassigns `count` to a new primitive value, `2`.
 
-## Functions
+## 5. Equality: loose and strict equality
 
-### Functions: be able to explain what a function does without talking about its implementation; that is, document a function's use and purpose. (See below.)
+What will the following code output?
 
-### Function Declarations, Function Expressions, and Arrow Functions
+```js
+console.log(false == '0');
+console.log(false === '0');
+```
 
-### Function Definition and Invocation
+The code outputs:
 
-Before you can use a function, you must first define it with the reserved keyword, `function`. After the word function, you write the function's name followed by a pair of parentheses (`()`). After the closing parenthesis, the code you want to associate with the function -- the f**unction body** -- gets placed between curly braces (`{}`).
+```sh
+true
+false
+```
+
+In JavaScript, there are two equality operators: strict equality `(===)` and non-strict (or weak) equality `(==).` The `===` operator behaves as a traditional equality operator does in most languages: it evaluates as true when the two expressions on either side have the same **type** and **value**. On the other hand, the `==` operator *coerces* the values to the same type before comparing them. Coercions can produce unexpected and confusing behavior. Thus, it's good practice to use `===` rather than `==.` The same holds for the `!==` vs. `!=` operators: prefer `!==`.
+
+The **strict equality operator**, also known as the **identity operator**, returns true when the operands have the same type _and_ value, **false** otherwise.
+
+The **non-strict equality operator**, also known as the **loose equality operator**, is similar to `===.` However, when the operands have different types, `==` attempts to coerce one of the operands to the other operand's type before it compares them, and it may coerce both operands in some cases. The result is `true` when the final values are the same, `false` otherwise. The coercion behavior can lead to unexpected results. For instance, when we compare the number `5` to the string `'5'` using `==,` we get `true`; with `===`, we get `false`. When dealing with a string and a number, `==` coerces the string value into a number.
+
+## 6. Functions: be able to explain what a function does without talking about its implementation; that is, document a function's use and purpose. (See below.)
+
+```js
+let hello = "Hello, world!";
+
+function myFunc() {
+  console.log(hello);
+}
+
+myFunc();
+```
+
+The `myFunc` function outputs `Hello, world!`, which it obtains from the global variable `hello`, then returns `undefined`. The function can use `hello` since functions have access to variables defined in the outer scope.
+
+## 7. Functions: First-class Functions
+
+JavaScript functions are **first-class functions**. The key feature of first-class functions is that you can treat them like any other value. In fact, **all JavaScript functions are objects**. Thus, you can assign them to variables, pass them as arguments to other functions, and return them from a function call.
+
+## 8. Function Declarations, Function Expressions, and Arrow Functions
+
+### Function Declaration
+
+```js
+function functionName(zeroOrMoreArguments ...) {
+  // function body
+}
+```
+
+In JavaScript, we call a function definition that looks like that a **function declaration**. A notable property of function declarations is that you can call the function before you declare it.
+
+```js
+greetPeople(); // Invoking a function before declaring it
+
+function greetPeopel() {
+  console.log("Good Morning!");
+}
+```
+
+### Function Expression
+
+```js
+let greetPeople = function () { // space after function keyword not required
+  console.log("Good Morning!");
+}
+
+greetPeople();
+```
+
+Function expressions have one key difference from a function declaration: you cannot invoke a function expression before it appears in your program.
+
+Any function definition that doesn't have the word `function` at the very beginning of a statement is a function expression. Even wrapping what looks like a function declaration in parentheses creates a function expression:
+
+```js
+(function greetPeople() { // This is a function expression, not a declaration
+  console.log("Good Morning!");
+});
+```
+
+### Arrow Functions
+
+```js
+let greetPeople = () => console.log("Good Morning!");
+greetPeople();
+```
+
+For now, let's look at one interesting property of arrow functions: *implicit returns*. First, we'll convert the add function from the previous section to use arrow function syntax:
+
+```js
+let add = (a, b) => a + b;
+```
+
+Note the lack of a `return` statement. We can omit it in arrow functions *when and only when the function body contains a single expressio*n (the expression may have subexpressions, but the entire expression must evaluate to a single value). Suppose it contains two or more expressions or statements. In that case, you must explicitly return a value if you need it, and you must also use curly braces:
+
+```js
+let add = (a, b) => a + b;
+let getNumber = (text) => {
+  let input = prompt(text);
+  return Number(input);
+};
+
+let number1 = getNumber("Enter a number: ");
+let number2 = getNumber("Enter another number: ");
+console.log(add(number1, number2));
+```
+
+Above we define an arrow function `getNumber` that requires one parameter. The parentheses around the parameter name are optional in this case and are often omitted.
+
+## 9. Function Definition and Invocation
+
+Before you can use a function, you must first define it with the reserved keyword, `function`. After the word function, you write the function's name followed by a pair of parentheses (`()`). After the closing parenthesis, the code you want to associate with the function -- the **function body** -- gets placed between curly braces (`{}`).
 
 Parameters are **local variables**; they are only defined locally, within the body of the function.
 
@@ -166,7 +269,9 @@ let sum = add(3, 6); // 3 and 6 are arguments
 
 Programmers often talk about function invocation and invoking functions. The terms are synonymous with "call" and "calling." You invoke a function or write a function invocation. We use these terms as well.
 
-### Implicit Return Value of Function Invocations
+Functions and methods perform actions and return values.
+
+## 10. Implicit Return Value of Function Invocations
 
 All JavaScript function calls evaluate to a value. By default, that value is `undefined`; this is the **implicit return value** of most JavaScript functions. However, when you use a `return` statement, you can return a specific value from a function. This is an **explicit return value**. Outside of the function, there is no distinction between implicit and explicit return values, but it's important to remember that all functions return something unless they raise an exception, even if they don't execute a return statement.
 
@@ -231,19 +336,19 @@ This example demonstrates variable scoping rules in JavaScript; specifically the
 
 ## Primitive Values, Objects and Type Coercion
 
-### primitive values
+primitive values
 
-With (most) primitive values, the actual value of the variable gets stored in allocated memory.
+* With (most) primitive values, the actual value of the variable gets stored in allocated memory.
 
-## object properties
+## Object Properties
 
 ## Mutability vs. Immutability vs `const`
 
-### `const`
+`const`
 
 A `const` declaration prohibits changing what thing the `const` points to, but it does not prohibit changing the content of that thing. Thus, we can change a property in a `const` object, but we can't change which object the `const` points to.
 
-## Equality: loose and strict equality
+
 
 ## passing arguments into and return values out of functions
 
@@ -262,4 +367,4 @@ A `const` declaration prohibits changing what thing the `const` points to, but i
 * first-class functions
 * side-effects
 
-## naming conventions (legal vs idiomatic)
+## Naming Conventions (legal vs idiomatic)

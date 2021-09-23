@@ -75,7 +75,7 @@ This assessment will test your knowledge of the [Prep Course](https://launchscho
 
 You should be able to clearly explain the following topics:
 
-* declarations, initialization, assignment, and re-assignment
+~~* declarations, initialization, assignment, and re-assignment~~
 * variable scope, especially how variables interact with function definitions and blocks
 * primitive values, objects and type coercion
 * object properties
@@ -96,7 +96,7 @@ You should be able to clearly explain the following topics:
 * first-class functions
 * side-effects
 * naming conventions (legal vs idiomatic)
-* be able to explain what a function does without talking about its implementation; that is, document a function's use and purpose. (See below.)
+~~* be able to explain what a function does without talking about its implementation; that is, document a function's use and purpose. (See below.)~~
 
 ### Using a REPL
 
