@@ -183,7 +183,7 @@ The `myFunc` function outputs `Hello, world!`, which it obtains from the global 
 
 JavaScript functions are **first-class functions**. The key feature of first-class functions is that you can treat them like any other value. In fact, **all JavaScript functions are objects**. Thus, you can assign them to variables, pass them as arguments to other functions, and return them from a function call.
 
-## 8. Function Declarations, Function Expressions, and Arrow Functions
+## 8. Functions: Function Declarations, Function Expressions, and Arrow Functions
 
 ### Function Declaration
 
@@ -252,9 +252,11 @@ console.log(add(number1, number2));
 
 Above we define an arrow function `getNumber` that requires one parameter. The parentheses around the parameter name are optional in this case and are often omitted.
 
-## 9. Function Definition and Invocation
+## 9. Functions: Function Definition and Invocation
 
 Before you can use a function, you must first define it with the reserved keyword, `function`. After the word function, you write the function's name followed by a pair of parentheses (`()`). After the closing parenthesis, the code you want to associate with the function -- the **function body** -- gets placed between curly braces (`{}`).
+
+In the definition of a function, the names between parentheses are called **parameters**. The **arguments** are the values of those parameters.
 
 Parameters are **local variables**; they are only defined locally, within the body of the function.
 
@@ -271,9 +273,54 @@ Programmers often talk about function invocation and invoking functions. The ter
 
 Functions and methods perform actions and return values.
 
-## 10. Implicit Return Value of Function Invocations
+## 10. Functions: Implicit Return Value of Function Invocations
 
 All JavaScript function calls evaluate to a value. By default, that value is `undefined`; this is the **implicit return value** of most JavaScript functions. However, when you use a `return` statement, you can return a specific value from a function. This is an **explicit return value**. Outside of the function, there is no distinction between implicit and explicit return values, but it's important to remember that all functions return something unless they raise an exception, even if they don't execute a return statement.
+
+## 11. Functions: passing arguments into and return values out of functions
+
+Functions are called by typing their name and providing some optional values that we call **arguments**. In `say.js`, the function definition includes (`words`) after the function name. This syntax tells us that we should supply (**pass**) a single argument to the function when we call it. Arguments let you pass data from outside the function's scope into the function so it can access the data. If the function definition doesn't need access to outside data, you don't need any arguments.
+
+Functions can perform an operation and **return** a result to the call location for later use. We do that with **return values** and the `return` statement.
+
+JavaScript uses the `return` statement to return a value to the code that called the function: the **caller**. If you don't specify a value, it returns `undefined`. Either way, the `return` statement causes the function to stop running and returns control to the caller.
+
+Functions that always return a boolean value, i.e., `true` or `false`, are called **predicates**. You will almost certainly encounter this term in future readings and videos, so commit it to memory.
+
+## 12. Mutability vs. Immutability vs `const`
+
+### Mutability
+
+Objects are usually (but not always) mutable: you can add, remove, and change their various component values.
+
+Operations on **mutable** values (arrays and objects) may or may not return a new value and may or may not mutate data.
+
+### Immutability
+
+Primitive values are not mutable.
+`NaN` is a number in JavaScript, so it is a primitive value
+
+Primitive values are **immutable**. That means their values never change: operations on immutable values always return new values.
+
+### `const`
+
+A `const` declaration prohibits changing what thing the `const` points to, but it does not prohibit changing the content of that thing. Thus, we can change a property in a `const` object, but we can't change which object the `const` points to.
+
+## 13. Naming Conventions (legal vs idiomatic)
+
+### Idiomatic
+
+Names that follow the naming conventions in the [Naming Conventions section of the JavaScript Book](https://launchschool.com/books/javascript/read/preparations#namingconventions) are referred to as **idiomatic names**. In particular, whether a name is idiomatic or not depends on what kind of name we're describing.
+
+The following [tables](https://github.com/hyosung11/Launch-School/blob/d578bc76f9ed805b2d255d5761622e7261b692a8/Courses/JS101/Lesson-2-Small-Programs/notes.md) show which names are and aren't idiomatic in the various categories and when.
+
+### Legal / Non-Idiomatic
+
+Note that non-idiomatic names are not invalid names. Non-idiomatic names are commonly used by external libraries to provide names that are easy to type yet unlikely to conflict with names in other libraries.
+
+### Invalid Names
+
+================ RR ================
 
 ## Pass-by-value / Pass-by-reference
 
@@ -320,6 +367,10 @@ Another example:
 
 ## Objects vs Primitives
 
+
+Primitive values are always *immutable*; they don't have parts that one can change. Such values are said to be **atomic**; they're indivisible. If a variable contains a primitive value, all you can do to that variable is use it in an expression or *reassign* it: give it an entirely new value. All operations on primitive values evaluate as new values. Even something like `0 + 0 `evaluates to a new value of `0`.
+
+
 ## Object Mutation
 
 ## Output and Return Value
@@ -342,29 +393,17 @@ primitive values
 
 ## Object Properties
 
-## Mutability vs. Immutability vs `const`
-
-`const`
-
-A `const` declaration prohibits changing what thing the `const` points to, but it does not prohibit changing the content of that thing. Thus, we can change a property in a `const` object, but we can't change which object the `const` points to.
-
-
-
-## passing arguments into and return values out of functions
-
 ## Strings (working with Strings)
 
 ### String Methods
 
 ## working with Objects: accessing keys and values of an Object as arrays
 
-## understanding the concepts of *pass-by-reference* and *pass-by-value*
-
 ## variables as pointers
 
-* truthiness vs. boolean
+## truthiness vs. boolean
 
-* first-class functions
-* side-effects
 
-## Naming Conventions (legal vs idiomatic)
+## side-effects
+
+
