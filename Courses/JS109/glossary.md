@@ -360,6 +360,43 @@ Not all object properties are variables; only those on the global object.
 
 ## 15. Objects: Working with Objects: accessing keys and values of an Object as arrays
 
+The `Object.keys` static method returns an object's keys as an array. You can iterate over that array using any technique that works for arrays. For instance:
+
+```js
+let person = {
+  name: 'Bob',
+  age: 30,
+  height: '6 ft'
+};
+
+let personKeys = Object.keys(person);
+console.log(personKeys) // => [ 'name', 'age', 'height' ]
+personKeys.forEach(key => {
+  console.log(person[key]);
+});
+
+// Bob
+// 30
+// 6 ft
+//  undefined
+```
+
+The `Object.values` static method extracts the values from every own property in an object to an array:
+
+```js
+let person = {
+  name: 'Bob',
+  age: 30,
+  height: '6 ft'
+};
+
+let personValues = Object.values(person);
+
+console.log(personValues); // => [ 'Bob', 30, '6 ft' ]
+
+// Remember that you can't predict the order of the values in the returned array
+```
+
 ## Pass-by-value / Pass-by-reference
 
 ### Pass-by-value

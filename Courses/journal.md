@@ -3370,3 +3370,5 @@ The global variable `words` is declared and initialized to a nested array. The f
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Short on study time because of pickup of kids from school.
+
+13:41 After the study session. I just need to clean up my language and work on my speed of explanation.
