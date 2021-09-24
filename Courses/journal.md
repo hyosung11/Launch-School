@@ -3351,3 +3351,5 @@ The global variable `words` is declared and initialized to a nested array. The f
 05:27 Ready to study.
 
 06:51 After the study session with Alex and Laurent, I'm working on my study guide, but I realize that I really just need to know my shit and not rely too much on the glossary.
+
+07:23 Taking a break now.

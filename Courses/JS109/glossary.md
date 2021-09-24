@@ -136,12 +136,21 @@ The return value is the evaluated value of the expression.
 
 ## 4. Declarations, Initialization, Assignment, and Re-assignment
 
+```sh
+> let firstName = "Sohee"; // Declare and initialize variable with an explicit value on the same line.
+= undefined
+```
+
+Note that regardless of whether we provide a value in a declaration, the variable is initialized. If we don't provide an explicit value, that initial value is `undefined`.
+
 ```js
 let count = 1;
 count = 2;
 ```
 
 On line 1, we declare a (global/local) variable named `count`, and initialize it to a value of `1`, which is a primitive value. Line 2 reassigns `count` to a new primitive value, `2`.
+
+Be sure to always declare your variables and constants with `let` and `const`. Undeclared variables have global scope.
 
 ## 5. Equality: loose and strict equality
 
@@ -320,9 +329,40 @@ Note that non-idiomatic names are not invalid names. Non-idiomatic names are com
 
 ### Invalid Names
 
-## 14. Object Properties
+## 14. Objects: Object Properties
+
+Key-value pairs are also called object properties in JavaScript. We can also use "property" to refer to the key name.
+
+If a variable declared with `const` is initialized with an object, you can't change what object that variable refers to. You can, however, modify that object's properties and property values:
+
+```sh
+> const MyObj = { foo: "bar", qux: "xyz" }
+> MyObj.qux = "hey there"
+> MyObj.pi = 3.1415
+> MyObj
+= { foo: 'bar', qux: 'hey there', pi: 3.1415 }
+
+> MyObj = {} // Uncaught TypeError: Assignment to constant variable.
+```
+
+Use `Object.freeze` with objects to freeze the property values of an object (like with arrays):
+
+```sh
+> const MyObj = Object.freeze({ foo: "bar", qux: "xyz" })
+> MyObj.qux = "hey there"
+> MyObj
+= { foo: 'bar', qux: 'xyz' }
+```
+
+Not all object properties are variables; only those on the global object.
 
 ================ RR ================
+
+
+
+
+## 15. Objects: Working with Objects: accessing keys and values of an Object as arrays
+
 
 ## Pass-by-value / Pass-by-reference
 
@@ -397,7 +437,7 @@ This example demonstrates variable scoping rules in JavaScript; specifically the
 
 ### String Methods
 
-## working with Objects: accessing keys and values of an Object as arrays
+
 
 ## variables as pointers
 
