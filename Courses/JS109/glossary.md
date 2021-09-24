@@ -322,8 +322,6 @@ Note that non-idiomatic names are not invalid names. Non-idiomatic names are com
 
 ## 14. Object Properties
 
-
-
 ================ RR ================
 
 ## Pass-by-value / Pass-by-reference
@@ -369,31 +367,31 @@ Another example:
 
 ## Non-local Variable Use
 
-## Objects vs Primitives
+## Primitive Values, Objects and Type Coercion
+
+### Primitive Values
+
+The primitive data types are strings, numbers, booleans, `null`, and `undefined`, bigints, and symbols. Primitive types are the simplest, most basic types in JavaScript.
+
+With (most) primitive values, the actual value of the variable gets stored in allocated memory.
 
 Primitive values are always *immutable*; they don't have parts that one can change. Such values are said to be **atomic**; they're indivisible. If a variable contains a primitive value, all you can do to that variable is use it in an expression or *reassign* it: give it an entirely new value. All operations on primitive values evaluate as new values. Even something like `0 + 0` evaluates to a new value of `0`.
 
-## Object Mutation
+### Objects
 
-## Output and Return Value
+Objects include, but aren't limited to, the following types: Simple Objects, Arrays, Dates, and Functions.
 
-## Variables as Pointers
+Objects are complex values composed of primitive values or other objects. For example, an array object (remember: arrays **are** objects) has a length property that contains a number: a primitive value. Objects are usually (but not always) mutable: you can add, remove, and change their various component values.
 
-== Study Guide Topics ==
-
-## Variable Scope (especially how variables interact with function definitions and blocks)
+## 21. Variable Scope (especially how variables interact with function definitions and blocks)
 
 The function outputs `Hello, world!`, which it obtains from the global variable `hello`, then returns `undefined`. The function can use `hello` since functions have access to variables defined in the outer scope.
 
 This example demonstrates variable scoping rules in JavaScript; specifically the fact that a variable declared in the outer scope is accessible from a nested inner scope.
 
-## Primitive Values, Objects and Type Coercion
+## 22. Variables as Pointers
 
-primitive values
-
-* With (most) primitive values, the actual value of the variable gets stored in allocated memory.
-
-
+== Study Guide Topics ==
 
 ## Strings (working with Strings)
 
