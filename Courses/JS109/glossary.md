@@ -358,11 +358,7 @@ Not all object properties are variables; only those on the global object.
 
 ================ RR ================
 
-
-
-
 ## 15. Objects: Working with Objects: accessing keys and values of an Object as arrays
-
 
 ## Pass-by-value / Pass-by-reference
 
@@ -429,6 +425,8 @@ The function outputs `Hello, world!`, which it obtains from the global variable 
 
 This example demonstrates variable scoping rules in JavaScript; specifically the fact that a variable declared in the outer scope is accessible from a nested inner scope.
 
+In JavaScript, variables declared with the `let` or `const` keywords have **block** scope.
+
 ## 22. Variables as Pointers
 
 == Study Guide Topics ==
@@ -436,8 +434,6 @@ This example demonstrates variable scoping rules in JavaScript; specifically the
 ## Strings (working with Strings)
 
 ### String Methods
-
-
 
 ## variables as pointers
 

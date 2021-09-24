@@ -3353,3 +3353,20 @@ The global variable `words` is declared and initialized to a nested array. The f
 06:51 After the study session with Alex and Laurent, I'm working on my study guide, but I realize that I really just need to know my shit and not rely too much on the glossary.
 
 07:23 Taking a break now.
+
+11:58 Back at my standing work station. I decided to train at the gym and then see Dr. Riotto. The treatment was short today. Maybe I should get a Marc Pro or Normatech boots or both. Smile.
+
+12:00 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS109 > Lesson 1 > Assignment 3. Part 1: Dissect Study Guide for Test
+   * [x] 2. Listened to the Huberman Lab Podcast Episode 37 | ADHD & How Anyone Can Improve Their Focus
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex and Laurent
+   * [ ] 2. JS109 > Lesson 1 > Assignment 3. Part 1: Add to Glossary
+   * [ ] 3. JS109 Study Session
+   * [x] 4. Listen to the Huberman Lab Podcast Episode 38 | Dr. Matthew Johnson: Psychedelics for Treating Mental Disorders
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Short on study time because of pickup of kids from school.
