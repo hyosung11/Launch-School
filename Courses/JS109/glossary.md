@@ -384,6 +384,7 @@ for (let prop in person) {
 
 In the above example, we iterate over the `person` object using the `for/in` loop. Line 376 declares a variable `prop` which, in each iteration, receives a key from the the object until the object runs out of key-value pairs. We use `prop` inside the loop body to access and log the corresponding value.
 
+### `Object.keys`
 
 The `Object.keys` static method returns an object's keys as an array. You can iterate over that array using any technique that works for arrays. For instance:
 
@@ -403,8 +404,10 @@ personKeys.forEach(key => {
 // Bob
 // 30
 // 6 ft
-//  undefined
+// undefined
 ```
+
+### `Object.values`
 
 The `Object.values` static method extracts the values from every own property in an object to an array:
 
@@ -422,7 +425,63 @@ console.log(personValues); // => [ 'Bob', 30, '6 ft' ]
 // Remember that you can't predict the order of the values in the returned array
 ```
 
-## Pass-by-value / Pass-by-reference
+### `Object.entries`
+
+While `Object.keys` and `Object.values` return the keys and values of an object, respectively, the `Object.entries` static method returns an array of nested arrays. Each nested array has two elements: one of the object's keys and its corresponding value:
+
+```js
+let person = { name: 'Bob', age: 30, height: '6ft' };
+
+console.log(Object.entries(person)); // => [[ 'name', 'Bob' ], [ 'age', 30 ], [ 'height', '6ft' ]]
+```
+
+### `Object.assign`
+
+You may sometimes want to merge two or more objects, i.e., combine the key-value pairs into a single object. The `Object.assign` static method provides this functionality:
+
+```sh
+> let objA = { a: 'foo' }
+= undefined
+
+> let objB = { b: 'bar' }
+= undefined
+
+> Object.assign(objA, objB)
+= { a: 'foo', b: 'bar' }
+```
+
+`Object.assign` *mutates* the first object. In the above example, the properties from the `objB` object get added to the `objA` object, altering `objA` permanently in the process:
+
+```sh
+> objA
+= { a: 'foo', b: 'bar' }
+
+> objB
+= { b: 'bar' }
+```
+
+Note that `objB` isn't mutated. If you need to create a new object, use an empty object as `Object.assign`'s first argument. Note that `Object.assign` can take more than two arguments:
+
+```sh
+> objA = { a: 'foo' }
+= undefined
+
+> objB = { b: 'bar' }
+= undefined
+
+> Object.assign({}, objA, objB)
+= { a: 'foo', b: 'bar' }
+
+> objA
+= { a: 'foo' }
+
+> objB
+= { b: 'bar' }
+```
+
+This code mutates neither objA nor objB and returns an entirely new object.
+
+## 16. Pass-by-value / Pass-by-reference
 
 ### Pass-by-value
 
@@ -461,11 +520,7 @@ function getPets(arr) {
 
 Another example:
 
-## Scope
-
-## Non-local Variable Use
-
-## Primitive Values, Objects and Type Coercion
+## 17. Primitive Values, Objects and Type Coercion
 
 ### Primitive Values
 
@@ -481,6 +536,20 @@ Objects include, but aren't limited to, the following types: Simple Objects, Arr
 
 Objects are complex values composed of primitive values or other objects. For example, an array object (remember: arrays **are** objects) has a length property that contains a number: a primitive value. Objects are usually (but not always) mutable: you can add, remove, and change their various component values.
 
+
+
+## 18. Side-effects
+
+## 19. Strings (working with Strings)
+
+### String Methods
+
+## Scope
+
+### Non-local Variable Use
+
+## 20. Truthiness vs. Boolean
+
 ## 21. Variable Scope (especially how variables interact with function definitions and blocks)
 
 The function outputs `Hello, world!`, which it obtains from the global variable `hello`, then returns `undefined`. The function can use `hello` since functions have access to variables defined in the outer scope.
@@ -493,12 +562,10 @@ In JavaScript, variables declared with the `let` or `const` keywords have **bloc
 
 == Study Guide Topics ==
 
-## Strings (working with Strings)
 
-### String Methods
 
-## variables as pointers
 
-## truthiness vs. boolean
 
-## side-effects
+
+
+

@@ -3376,3 +3376,5 @@ The global variable `words` is declared and initialized to a nested array. The f
 ## 20210924 일요일
 
 10:55 I completely didn't study yesterday. I don't think I made a github commit either. Oh well. I broke my streak.
+
+11:41 Got into the groove for almost an hour and continued to work on my glossary. Ready to referee now.

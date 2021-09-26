@@ -25,12 +25,28 @@
 //   console.log('Hello is falsy');
 // }
 
-let person = {
-  name: 'SungOh',
-  age: 6,
-  height: '46 inches',
-};
+// let person = {
+//   name: 'SungOh',
+//   age: 6,
+//   height: '46 inches',
+// };
 
-for (let prop in person) {
-  console.log(person[prop]);
-}
+// for (let prop in person) {
+//   console.log(person[prop]);
+// }
+
+// let person = {
+//   name: 'Bob',
+//   age: 30,
+//   height: '6 ft',
+// };
+
+// let personKeys = Object.keys(person);
+// console.log(personKeys); // => [ 'name', 'age', 'height' ]
+// personKeys.forEach((key) => {
+//   console.log(person[key]);
+// });
+
+let person = { name: 'Bob', age: 30, height: '6ft' };
+
+console.log(Object.entries(person)); // => [[ 'name', 'Bob' ], [ 'age', 30 ], [ 'height', '6ft' ]]
