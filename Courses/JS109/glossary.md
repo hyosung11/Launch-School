@@ -360,6 +360,31 @@ Not all object properties are variables; only those on the global object.
 
 ## 15. Objects: Working with Objects: accessing keys and values of an Object as arrays
 
+Since most objects have multiple properties, you may want to iterate over an object's keys, values or both.
+
+### `for/in` loop
+
+The `for/in` loop iterates over all the keys in the object. In each iteration, it assigns the keys to a variable which you then use to access the object's values.
+
+```js
+let person = {
+  name: 'SungOh',
+  age: 6,
+  height: '46 inches'
+};
+
+for (let prop in person) {
+  console.log(person[prop]);
+}
+
+// SungOh
+// 6
+// 46 inches
+```
+
+In the above example, we iterate over the `person` object using the `for/in` loop. Line 376 declares a variable `prop` which, in each iteration, receives a key from the the object until the object runs out of key-value pairs. We use `prop` inside the loop body to access and log the corresponding value.
+
+
 The `Object.keys` static method returns an object's keys as an array. You can iterate over that array using any technique that works for arrays. For instance:
 
 ```js
