@@ -3373,8 +3373,16 @@ The global variable `words` is declared and initialized to a nested array. The f
 
 13:41 After the study session. I just need to clean up my language and work on my speed of explanation.
 
-## 20210924 일요일
+## 20210926 일요일
 
 10:55 I completely didn't study yesterday. I don't think I made a github commit either. Oh well. I broke my streak.
 
 11:41 Got into the groove for almost an hour and continued to work on my glossary. Ready to referee now.
+
+## 20210927 월요일
+
+05:32 Are these guys not showing up this morning?
+
+07:00 Alex did join late and Laurent completely bailed. Oh well.
+
+07:42 My objective today is to finish the glossary.

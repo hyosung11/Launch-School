@@ -526,7 +526,7 @@ Another example:
 
 The primitive data types are strings, numbers, booleans, `null`, and `undefined`, bigints, and symbols. Primitive types are the simplest, most basic types in JavaScript.
 
-With (most) primitive values, the actual value of the variable gets stored in allocated memory.
+With (most) primitive values, the **actual value** of the variable gets stored in allocated memory.
 
 Primitive values are always *immutable*; they don't have parts that one can change. Such values are said to be **atomic**; they're indivisible. If a variable contains a primitive value, all you can do to that variable is use it in an expression or *reassign* it: give it an entirely new value. All operations on primitive values evaluate as new values. Even something like `0 + 0` evaluates to a new value of `0`.
 
@@ -536,7 +536,9 @@ Objects include, but aren't limited to, the following types: Simple Objects, Arr
 
 Objects are complex values composed of primitive values or other objects. For example, an array object (remember: arrays **are** objects) has a length property that contains a number: a primitive value. Objects are usually (but not always) mutable: you can add, remove, and change their various component values.
 
+### Type Coercion
 
+RR
 
 ## 18. Side-effects
 
@@ -562,10 +564,31 @@ In JavaScript, variables declared with the `let` or `const` keywords have **bloc
 
 == Study Guide Topics ==
 
+20210927 Study Session with Alex
+
+What will the following code log to the console and why?
+
+```js
+function myFunction() {
+  let a = 1;
+
+  if (true) {
+    console.log(a);
+  }
+}
+
+myFunction();
+```
+
+This code logs `1`. Variables declared in an outer scope can be accessed in an inner scope. Here, `a` is declared within an outer scope in `myFunction`, and accessed in the `if` statement's inner scope. The `if` statement evaluates as true, so the `console.log(a)` method then logs `1` when `myFunction` is called on line 11.
+
+Formula:
+
+1. logs
+2. general principle
+3. application
+
+This code logs `1`. Variables declared in an outer scope are accessible in an inner scope. Here, `a` is declared and initialized to the value of `1` within `myFunction` which has an outer scope to the `if` statement's inner scope. Since the `if` statement evaluates to `true`, the `console.log(a)` method logs `1` when `myFunction` is invoked on line 11.
 
 
-
-
-
-
-
+This code logs ____ . Variables declared in an outer scope are accessible in an inner scope. [Here connect specific instance to general principle]
