@@ -652,7 +652,53 @@ Function names should reflect whether side effects may occur. For instance, you 
 
 ## 19. Strings (working with Strings)
 
+In JavaScript, strings are primitive values and are immutable. JavaScript creates a new copy of the string when assigning a string to a variable.
+
+What will the following code output?
+
+```js
+let str1 = "hello there";
+let str2 = str1;
+str2 = "goodbye";
+console.log(str1);
+```
+
+The output is `hello there` since we are dealing with strings. In JavaScript, strings are primitive values and are immutable; they can't be changed. That also means JavaScript creates a new copy of the string when assigning a string to a variable. Thus, line 661 assigns `str2` a new string that happens to be a copy of `str1`'s value. Line 662, in turn, assigns `str2` to an entirely new string.
+
+### String Element Reference
+
+Strings use an integer-based index that represents each character in the string. The index starts counting at zero and increments by one for the remaining index values. You can reference a specific character using this index.
+
+```js
+let str = 'abcdefghi';
+str[2]; // => 'c'
+```
+
 ### String Methods
+
+`String.prototype.slice()`
+
+The `slice` method extracts a section of a string and returns a new string, without modifying the original string. The `slice` method takes two arguments. The first argument specifies the index at which to start the extraction and the second argument specifies the index at which to end the extraction. The character at the ending index is not part of the returned substring. If the second argument to `String.prototype.slice` is omitted, all the characters from the start index to the end of the string are returned in the substring. Calling the `slice` method without any arguments will return a copy of the original string.
+
+```js
+// The first argument specifies the index at which to start the extraction and the second argument specifies the index at which to end the extraction.
+let str = 'abcdefghi';
+str.slice(2, 5) // => 'cde'
+
+// If the second argument to `String.prototype.slice` is omitted, all the characters from the start index to the end of the string are returned in the substring.
+let str = 'abcdefghi';
+str.slice(2) // => 'cdefghi'
+
+// Calling the `slice` method without any arguments will return a copy of the original string.
+'abcdefghi'.slice() // => 'abcdefghi'
+
+// When given negative numbers as the indices, `slice` treats them as `string length + index`. Below, an index of `-4` is equivalent `9 + (-4)` since the length of the string is 9 and `9 + (-4)` equals `5`. Likewise, `-2` is equivalent to `7`.
+'abcdefghi'.slice(-4, -2) // => 'fg'
+```
+
+`String.prototype.substring()`
+
+The `substring` method takes a start index and an end index and returns a substring from the start of the index up to, but not including, the end index.
 
 ## Scope
 
@@ -670,7 +716,7 @@ In JavaScript, variables declared with the `let` or `const` keywords have **bloc
 
 ## 22. Variables as Pointers
 
-== Study Guide Topics ==
+== Study Tips ==
 
 20210927 Study Session with Alex
 
@@ -697,6 +743,5 @@ Formula:
 3. application
 
 This code logs `1`. Variables declared in an outer scope are accessible in an inner scope. Here, `a` is declared and initialized to the value of `1` within `myFunction` which has an outer scope to the `if` statement's inner scope. Since the `if` statement evaluates to `true`, the `console.log(a)` method logs `1` when `myFunction` is invoked on line 11.
-
 
 This code logs ____ . Variables declared in an outer scope are accessible in an inner scope. [Here connect specific instance to general principle]

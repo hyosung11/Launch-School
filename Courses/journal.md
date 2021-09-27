@@ -3403,3 +3403,9 @@ The global variable `words` is declared and initialized to a nested array. The f
 09:17 Getting into the glossary groove.
 
 10:27 Worked through my second study session through side-effects.
+
+13:45 I went to the gym, ate lunch, watched Billions.
+
+14:08 Studying "Working with Strings".
+
+14:45 Working on `String` methods and it's taking me longer than expected. That's okay. I need to get ready to get Omi and SungOh from school. I'm still learning and having fun.

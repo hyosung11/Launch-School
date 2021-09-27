@@ -47,6 +47,13 @@
 //   console.log(person[key]);
 // });
 
-let person = { name: 'Bob', age: 30, height: '6ft' };
+// let person = { name: 'Bob', age: 30, height: '6ft' };
 
-console.log(Object.entries(person)); // => [[ 'name', 'Bob' ], [ 'age', 30 ], [ 'height', '6ft' ]]
+// console.log(Object.entries(person)); // => [[ 'name', 'Bob' ], [ 'age', 30 ], [ 'height', '6ft' ]]
+
+// What will the following code output?
+
+let str1 = 'hello there';
+let str2 = str1;
+str2 = 'goodbye!';
+console.log(str1);
