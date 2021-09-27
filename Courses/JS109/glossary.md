@@ -322,8 +322,6 @@ Note that non-idiomatic names are not invalid names. Non-idiomatic names are com
 
 ## 14. Object Properties
 
-
-
 ================ RR ================
 
 ## Pass-by-value / Pass-by-reference
@@ -392,8 +390,6 @@ This example demonstrates variable scoping rules in JavaScript; specifically the
 primitive values
 
 * With (most) primitive values, the actual value of the variable gets stored in allocated memory.
-
-
 
 ## Strings (working with Strings)
 
