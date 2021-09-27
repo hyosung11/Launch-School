@@ -132,7 +132,7 @@ The value returned by `console.log("Howdy")` is `undefined`, so that's the value
 
 JavaScript uses the `return` statement to return a value to the code that called the function: the **caller**. If you don't specify a value, it returns `undefined`. Either way, the `return` statement causes the function to stop running and returns control to the caller.
 
-The return value is the evaluated value of the expression.
+The **return value** is the evaluated value of the expression.
 
 ## 4. Declarations, Initialization, Assignment, and Re-assignment
 
@@ -538,9 +538,117 @@ Objects are complex values composed of primitive values or other objects. For ex
 
 ### Type Coercion
 
-RR
+Type coercion is the conversion of one type of value into another.**Explicit type coercion** lets the programmer decide what to do, whereas **implicit type coercion** lets the JavaScript engine choose.
+
+#### Explicit Type Coercion
+
+**Explicit type coercion** happens when the programmer intentionally uses one of the many built-in functions and operators to coerce one type of value to another.
+
+Strings to Numbers
+
+```js
+> Number('1') // The `Number` function explicitly coerces a string to a number.
+= 1 // Can perform arithmetic operations on the result
+
+> Number('foo') // Number on a non-numeric string
+= NaN // Returns `NaN` in JavaScript. Most other languages return an error.
+
+// parseInt function
+> parseInt('12') // `parseInt` converts the string '12' to an integer.
+= 12
+
+> parseInt('12xyz')
+= 12 // Stops converting and ignores everything else once it encounters an invalid character.
+
+> parseInt('3.1415')
+= 3 // Returns an integer when the string is a number with a fractional component.
+
+// parseFloat function
+> parseFloat('12.5foo')
+= 12.5 // Coerces a string to a floating-point (decimal) number.
+```
+
+Numbers to Strings
+
+```js
+> String(20)
+= '20'
+```
+
+#### Implicit Type Coercion
+
+**Implicit type coercion** happens when you perform an operation involving values of two different types and JavaScript coerces the values to have the same type; that type varies based on the specific combination of types involved in the original expression. How different values get coerced depends on the operation. The most common operations in this context are `==` and `+`.
+
+The `==` operator implicitly coerces one of its operands when the operands have different types. The most common case occurs when comparing a string with a number:
+
+```js
+> '1' === 1 // The strict equality operator compares the two value directly. It returns `false` here since the two values have different types, so they aren't identical values.
+false
+> '1' == 1 // The non-strict equality operator coerces the string `'1'` into a number and then compares it with the `1` on the right-hand side and returns `true`.
+true
+```
+
+When comparing a boolean with any value, `==` coerces `true` and `false` to their number equivalents, which are `1` and `0` respectively. Thus the first and last expression below return `true`.
+
+```js
+// (boolean 1 => true) == true
+> 1 == true
+true
+// (boolean 3 => false) == true
+> 3 == true
+false
+// (boolean 0 => false) == false
+> 0 == false
+true
+```
 
 ## 18. Side-effects
+
+A function is said to have **side-effects** if it does any of the following:
+
+1. It reassigns any non-local variable. Reassigning a variable in the outer scope would be a side-effect.
+2. It mutates the value of any object referenced by a non-local variable. Mutating an array or object argument, for instance, would be a side-effect.
+3. It reads from or writes to a file, network connection, browser, or the system hardware. Side-effects like this include writing to the console log and reading input from the terminal.
+4. It raises an exception without handling it.
+5. It calls another function that has side-effects.
+
+The following functions have side-effects:
+
+```js
+// side-effect: logs output to the console
+// returns: undefined
+
+function displayTotal(num1, num2) {
+  console.log(num1 + num2);
+}
+
+// side-effect: mutates the passed-in array
+// returns: updated array
+
+function append(targetArr, valueToAppend) {
+  targetArr.push(valueToAppend);
+  return targetArr;
+}
+```
+
+Here's an example of a function with no side-effects:
+
+```js
+// side effect: none
+// returns: a new number
+
+function computeTotal(num1, num2) {
+  return num1 + num2;
+}
+```
+
+Most functions should return a useful value or they should have a side effect, but not both. In the above examples, `append` both returns a useful value and has a side effect. If you write functions that do both, you may have trouble remembering one of those -- either you'll forget about the side effect, or you'll forget that there's a return value that you need to examine.
+
+By "useful value," we mean that the function returns a value that has meaning to the calling code. For instance, a computeTotal function should probably return a number that contains the result of adding some numbers together. A function that returns an arbitrary value or that always returns the same value (such as undefined) is not usually returning a useful value.
+
+There are exceptions to this rule about mixing side effects and useful return values. For instance, if you read something from a database, you almost certainly have to return a value. If you read some input from the user's keyboard, you probably need to display a prompt, read the input from the terminal, then return a value. Accessing a database and reading and writing from the terminal are side effects, but you may still need a return value.
+
+Function names should reflect whether side effects may occur. For instance, you can use a name like displayTotal as the name of a function that displays a total on the console. The term "display" implies that you're going to do some output -- a side effect -- rather than attempting to just calculate and return the total. On the other hand, you would probably name the function that computes the total something like computeTotal. In this case, "compute" implies that you're going to return the value of a computation.
 
 ## 19. Strings (working with Strings)
 

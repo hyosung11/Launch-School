@@ -3386,3 +3386,20 @@ The global variable `words` is declared and initialized to a nested array. The f
 07:00 Alex did join late and Laurent completely bailed. Oh well.
 
 07:42 My objective today is to finish the glossary.
+
+09:08 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. I officiated soccer games and took the day off from Launch School
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. JS109 > Lesson 1 > Assignment 3. Part 1: Finish the Glossary
+   * [ ] 3. Listen to the Huberman Lab Podcast Episode 39 | Controlling Your Dopamine for Motivation, Focus & Satisfaction
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * None
+
+09:17 Getting into the glossary groove.
+
+10:27 Worked through my second study session through side-effects.
