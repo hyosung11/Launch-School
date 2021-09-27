@@ -347,6 +347,11 @@ If a variable declared with `const` is initialized with an object, you can't cha
 
 Use `Object.freeze` with objects to freeze the property values of an object (like with arrays):
 
+<<<<<<< HEAD
+||||||| merged common ancestors
+
+
+=======
 ```sh
 > const MyObj = Object.freeze({ foo: "bar", qux: "xyz" })
 > MyObj.qux = "hey there"
@@ -356,6 +361,7 @@ Use `Object.freeze` with objects to freeze the property values of an object (lik
 
 Not all object properties are variables; only those on the global object.
 
+>>>>>>> fc2cb7ae8c482e0c27b1ef44e1947329c344a607
 ================ RR ================
 
 ## 15. Objects: Working with Objects: accessing keys and values of an Object as arrays
@@ -718,6 +724,13 @@ In JavaScript, variables declared with the `let` or `const` keywords have **bloc
 
 == Study Tips ==
 
+<<<<<<< HEAD
+## Strings (working with Strings)
+||||||| merged common ancestors
+
+
+## Strings (working with Strings)
+=======
 20210927 Study Session with Alex
 
 What will the following code log to the console and why?
@@ -725,6 +738,7 @@ What will the following code log to the console and why?
 ```js
 function myFunction() {
   let a = 1;
+>>>>>>> fc2cb7ae8c482e0c27b1ef44e1947329c344a607
 
   if (true) {
     console.log(a);
