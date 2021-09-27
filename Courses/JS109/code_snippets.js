@@ -17,10 +17,36 @@
 // console.log(appendTo('Omi & ', 'SungOh'));
 
 // 3.
-let a = 'Hello';
+// let a = 'Hello';
 
-if (a) {
-  console.log('Hello is truthy');
-} else {
-  console.log('Hello is falsy');
-}
+// if (a) {
+//   console.log('Hello is truthy');
+// } else {
+//   console.log('Hello is falsy');
+// }
+
+// let person = {
+//   name: 'SungOh',
+//   age: 6,
+//   height: '46 inches',
+// };
+
+// for (let prop in person) {
+//   console.log(person[prop]);
+// }
+
+// let person = {
+//   name: 'Bob',
+//   age: 30,
+//   height: '6 ft',
+// };
+
+// let personKeys = Object.keys(person);
+// console.log(personKeys); // => [ 'name', 'age', 'height' ]
+// personKeys.forEach((key) => {
+//   console.log(person[key]);
+// });
+
+let person = { name: 'Bob', age: 30, height: '6ft' };
+
+console.log(Object.entries(person)); // => [[ 'name', 'Bob' ], [ 'age', 30 ], [ 'height', '6ft' ]]

@@ -3345,3 +3345,61 @@ The global variable `words` is declared and initialized to a nested array. The f
 10:31 Got into a groove and almost through 50% of the study guide topics. I decided to train here rather than take the time to go back and forth to the gym.
 
 19:17 Short power outage and lost some work. I'm not sure what yet.
+
+## 20210924 금요일
+
+05:27 Ready to study.
+
+06:51 After the study session with Alex and Laurent, I'm working on my study guide, but I realize that I really just need to know my shit and not rely too much on the glossary.
+
+07:23 Taking a break now.
+
+11:58 Back at my standing work station. I decided to train at the gym and then see Dr. Riotto. The treatment was short today. Maybe I should get a Marc Pro or Normatech boots or both. Smile.
+
+12:00 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS109 > Lesson 1 > Assignment 3. Part 1: Dissect Study Guide for Test
+   * [x] 2. Listened to the Huberman Lab Podcast Episode 37 | ADHD & How Anyone Can Improve Their Focus
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex and Laurent
+   * [ ] 2. JS109 > Lesson 1 > Assignment 3. Part 1: Add to Glossary
+   * [ ] 3. JS109 Study Session
+   * [x] 4. Listen to the Huberman Lab Podcast Episode 38 | Dr. Matthew Johnson: Psychedelics for Treating Mental Disorders
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Short on study time because of pickup of kids from school.
+
+13:41 After the study session. I just need to clean up my language and work on my speed of explanation.
+
+## 20210926 일요일
+
+10:55 I completely didn't study yesterday. I don't think I made a github commit either. Oh well. I broke my streak.
+
+11:41 Got into the groove for almost an hour and continued to work on my glossary. Ready to referee now.
+
+## 20210927 월요일
+
+05:32 Are these guys not showing up this morning?
+
+07:00 Alex did join late and Laurent completely bailed. Oh well.
+
+07:42 My objective today is to finish the glossary.
+
+09:08 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. I officiated soccer games and took the day off from Launch School
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. JS109 > Lesson 1 > Assignment 3. Part 1: Finish the Glossary
+   * [ ] 3. Listen to the Huberman Lab Podcast Episode 39 | Controlling Your Dopamine for Motivation, Focus & Satisfaction
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * None
+
+09:17 Getting into the glossary groove.
+
+10:27 Worked through my second study session through side-effects.

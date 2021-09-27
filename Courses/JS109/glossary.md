@@ -132,9 +132,16 @@ The value returned by `console.log("Howdy")` is `undefined`, so that's the value
 
 JavaScript uses the `return` statement to return a value to the code that called the function: the **caller**. If you don't specify a value, it returns `undefined`. Either way, the `return` statement causes the function to stop running and returns control to the caller.
 
-The return value is the evaluated value of the expression.
+The **return value** is the evaluated value of the expression.
 
 ## 4. Declarations, Initialization, Assignment, and Re-assignment
+
+```sh
+> let firstName = "Sohee"; // Declare and initialize variable with an explicit value on the same line.
+= undefined
+```
+
+Note that regardless of whether we provide a value in a declaration, the variable is initialized. If we don't provide an explicit value, that initial value is `undefined`.
 
 ```js
 let count = 1;
@@ -142,6 +149,8 @@ count = 2;
 ```
 
 On line 1, we declare a (global/local) variable named `count`, and initialize it to a value of `1`, which is a primitive value. Line 2 reassigns `count` to a new primitive value, `2`.
+
+Be sure to always declare your variables and constants with `let` and `const`. Undeclared variables have global scope.
 
 ## 5. Equality: loose and strict equality
 
@@ -320,11 +329,165 @@ Note that non-idiomatic names are not invalid names. Non-idiomatic names are com
 
 ### Invalid Names
 
-## 14. Object Properties
+## 14. Objects: Object Properties
 
+Key-value pairs are also called object properties in JavaScript. We can also use "property" to refer to the key name.
+
+If a variable declared with `const` is initialized with an object, you can't change what object that variable refers to. You can, however, modify that object's properties and property values:
+
+```sh
+> const MyObj = { foo: "bar", qux: "xyz" }
+> MyObj.qux = "hey there"
+> MyObj.pi = 3.1415
+> MyObj
+= { foo: 'bar', qux: 'hey there', pi: 3.1415 }
+
+> MyObj = {} // Uncaught TypeError: Assignment to constant variable.
+```
+
+Use `Object.freeze` with objects to freeze the property values of an object (like with arrays):
+
+<<<<<<< HEAD
+||||||| merged common ancestors
+
+
+=======
+```sh
+> const MyObj = Object.freeze({ foo: "bar", qux: "xyz" })
+> MyObj.qux = "hey there"
+> MyObj
+= { foo: 'bar', qux: 'xyz' }
+```
+
+Not all object properties are variables; only those on the global object.
+
+>>>>>>> fc2cb7ae8c482e0c27b1ef44e1947329c344a607
 ================ RR ================
 
-## Pass-by-value / Pass-by-reference
+## 15. Objects: Working with Objects: accessing keys and values of an Object as arrays
+
+Since most objects have multiple properties, you may want to iterate over an object's keys, values or both.
+
+### `for/in` loop
+
+The `for/in` loop iterates over all the keys in the object. In each iteration, it assigns the keys to a variable which you then use to access the object's values.
+
+```js
+let person = {
+  name: 'SungOh',
+  age: 6,
+  height: '46 inches'
+};
+
+for (let prop in person) {
+  console.log(person[prop]);
+}
+
+// SungOh
+// 6
+// 46 inches
+```
+
+In the above example, we iterate over the `person` object using the `for/in` loop. Line 376 declares a variable `prop` which, in each iteration, receives a key from the the object until the object runs out of key-value pairs. We use `prop` inside the loop body to access and log the corresponding value.
+
+### `Object.keys`
+
+The `Object.keys` static method returns an object's keys as an array. You can iterate over that array using any technique that works for arrays. For instance:
+
+```js
+let person = {
+  name: 'Bob',
+  age: 30,
+  height: '6 ft'
+};
+
+let personKeys = Object.keys(person);
+console.log(personKeys) // => [ 'name', 'age', 'height' ]
+personKeys.forEach(key => {
+  console.log(person[key]);
+});
+
+// Bob
+// 30
+// 6 ft
+// undefined
+```
+
+### `Object.values`
+
+The `Object.values` static method extracts the values from every own property in an object to an array:
+
+```js
+let person = {
+  name: 'Bob',
+  age: 30,
+  height: '6 ft'
+};
+
+let personValues = Object.values(person);
+
+console.log(personValues); // => [ 'Bob', 30, '6 ft' ]
+
+// Remember that you can't predict the order of the values in the returned array
+```
+
+### `Object.entries`
+
+While `Object.keys` and `Object.values` return the keys and values of an object, respectively, the `Object.entries` static method returns an array of nested arrays. Each nested array has two elements: one of the object's keys and its corresponding value:
+
+```js
+let person = { name: 'Bob', age: 30, height: '6ft' };
+
+console.log(Object.entries(person)); // => [[ 'name', 'Bob' ], [ 'age', 30 ], [ 'height', '6ft' ]]
+```
+
+### `Object.assign`
+
+You may sometimes want to merge two or more objects, i.e., combine the key-value pairs into a single object. The `Object.assign` static method provides this functionality:
+
+```sh
+> let objA = { a: 'foo' }
+= undefined
+
+> let objB = { b: 'bar' }
+= undefined
+
+> Object.assign(objA, objB)
+= { a: 'foo', b: 'bar' }
+```
+
+`Object.assign` *mutates* the first object. In the above example, the properties from the `objB` object get added to the `objA` object, altering `objA` permanently in the process:
+
+```sh
+> objA
+= { a: 'foo', b: 'bar' }
+
+> objB
+= { b: 'bar' }
+```
+
+Note that `objB` isn't mutated. If you need to create a new object, use an empty object as `Object.assign`'s first argument. Note that `Object.assign` can take more than two arguments:
+
+```sh
+> objA = { a: 'foo' }
+= undefined
+
+> objB = { b: 'bar' }
+= undefined
+
+> Object.assign({}, objA, objB)
+= { a: 'foo', b: 'bar' }
+
+> objA
+= { a: 'foo' }
+
+> objB
+= { b: 'bar' }
+```
+
+This code mutates neither objA nor objB and returns an entirely new object.
+
+## 16. Pass-by-value / Pass-by-reference
 
 ### Pass-by-value
 
@@ -363,42 +526,191 @@ function getPets(arr) {
 
 Another example:
 
-## Scope
+## 17. Primitive Values, Objects and Type Coercion
 
-## Non-local Variable Use
+### Primitive Values
 
-## Objects vs Primitives
+The primitive data types are strings, numbers, booleans, `null`, and `undefined`, bigints, and symbols. Primitive types are the simplest, most basic types in JavaScript.
+
+With (most) primitive values, the **actual value** of the variable gets stored in allocated memory.
 
 Primitive values are always *immutable*; they don't have parts that one can change. Such values are said to be **atomic**; they're indivisible. If a variable contains a primitive value, all you can do to that variable is use it in an expression or *reassign* it: give it an entirely new value. All operations on primitive values evaluate as new values. Even something like `0 + 0` evaluates to a new value of `0`.
 
-## Object Mutation
+### Objects
 
-## Output and Return Value
+Objects include, but aren't limited to, the following types: Simple Objects, Arrays, Dates, and Functions.
 
-## Variables as Pointers
+Objects are complex values composed of primitive values or other objects. For example, an array object (remember: arrays **are** objects) has a length property that contains a number: a primitive value. Objects are usually (but not always) mutable: you can add, remove, and change their various component values.
 
-== Study Guide Topics ==
+### Type Coercion
 
-## Variable Scope (especially how variables interact with function definitions and blocks)
+Type coercion is the conversion of one type of value into another.**Explicit type coercion** lets the programmer decide what to do, whereas **implicit type coercion** lets the JavaScript engine choose.
+
+#### Explicit Type Coercion
+
+**Explicit type coercion** happens when the programmer intentionally uses one of the many built-in functions and operators to coerce one type of value to another.
+
+Strings to Numbers
+
+```js
+> Number('1') // The `Number` function explicitly coerces a string to a number.
+= 1 // Can perform arithmetic operations on the result
+
+> Number('foo') // Number on a non-numeric string
+= NaN // Returns `NaN` in JavaScript. Most other languages return an error.
+
+// parseInt function
+> parseInt('12') // `parseInt` converts the string '12' to an integer.
+= 12
+
+> parseInt('12xyz')
+= 12 // Stops converting and ignores everything else once it encounters an invalid character.
+
+> parseInt('3.1415')
+= 3 // Returns an integer when the string is a number with a fractional component.
+
+// parseFloat function
+> parseFloat('12.5foo')
+= 12.5 // Coerces a string to a floating-point (decimal) number.
+```
+
+Numbers to Strings
+
+```js
+> String(20)
+= '20'
+```
+
+#### Implicit Type Coercion
+
+**Implicit type coercion** happens when you perform an operation involving values of two different types and JavaScript coerces the values to have the same type; that type varies based on the specific combination of types involved in the original expression. How different values get coerced depends on the operation. The most common operations in this context are `==` and `+`.
+
+The `==` operator implicitly coerces one of its operands when the operands have different types. The most common case occurs when comparing a string with a number:
+
+```js
+> '1' === 1 // The strict equality operator compares the two value directly. It returns `false` here since the two values have different types, so they aren't identical values.
+false
+> '1' == 1 // The non-strict equality operator coerces the string `'1'` into a number and then compares it with the `1` on the right-hand side and returns `true`.
+true
+```
+
+When comparing a boolean with any value, `==` coerces `true` and `false` to their number equivalents, which are `1` and `0` respectively. Thus the first and last expression below return `true`.
+
+```js
+// (boolean 1 => true) == true
+> 1 == true
+true
+// (boolean 3 => false) == true
+> 3 == true
+false
+// (boolean 0 => false) == false
+> 0 == false
+true
+```
+
+## 18. Side-effects
+
+A function is said to have **side-effects** if it does any of the following:
+
+1. It reassigns any non-local variable. Reassigning a variable in the outer scope would be a side-effect.
+2. It mutates the value of any object referenced by a non-local variable. Mutating an array or object argument, for instance, would be a side-effect.
+3. It reads from or writes to a file, network connection, browser, or the system hardware. Side-effects like this include writing to the console log and reading input from the terminal.
+4. It raises an exception without handling it.
+5. It calls another function that has side-effects.
+
+The following functions have side-effects:
+
+```js
+// side-effect: logs output to the console
+// returns: undefined
+
+function displayTotal(num1, num2) {
+  console.log(num1 + num2);
+}
+
+// side-effect: mutates the passed-in array
+// returns: updated array
+
+function append(targetArr, valueToAppend) {
+  targetArr.push(valueToAppend);
+  return targetArr;
+}
+```
+
+Here's an example of a function with no side-effects:
+
+```js
+// side effect: none
+// returns: a new number
+
+function computeTotal(num1, num2) {
+  return num1 + num2;
+}
+```
+
+Most functions should return a useful value or they should have a side effect, but not both. In the above examples, `append` both returns a useful value and has a side effect. If you write functions that do both, you may have trouble remembering one of those -- either you'll forget about the side effect, or you'll forget that there's a return value that you need to examine.
+
+By "useful value," we mean that the function returns a value that has meaning to the calling code. For instance, a computeTotal function should probably return a number that contains the result of adding some numbers together. A function that returns an arbitrary value or that always returns the same value (such as undefined) is not usually returning a useful value.
+
+There are exceptions to this rule about mixing side effects and useful return values. For instance, if you read something from a database, you almost certainly have to return a value. If you read some input from the user's keyboard, you probably need to display a prompt, read the input from the terminal, then return a value. Accessing a database and reading and writing from the terminal are side effects, but you may still need a return value.
+
+Function names should reflect whether side effects may occur. For instance, you can use a name like displayTotal as the name of a function that displays a total on the console. The term "display" implies that you're going to do some output -- a side effect -- rather than attempting to just calculate and return the total. On the other hand, you would probably name the function that computes the total something like computeTotal. In this case, "compute" implies that you're going to return the value of a computation.
+
+## 19. Strings (working with Strings)
+
+### String Methods
+
+## Scope
+
+### Non-local Variable Use
+
+## 20. Truthiness vs. Boolean
+
+## 21. Variable Scope (especially how variables interact with function definitions and blocks)
 
 The function outputs `Hello, world!`, which it obtains from the global variable `hello`, then returns `undefined`. The function can use `hello` since functions have access to variables defined in the outer scope.
 
 This example demonstrates variable scoping rules in JavaScript; specifically the fact that a variable declared in the outer scope is accessible from a nested inner scope.
 
-## Primitive Values, Objects and Type Coercion
+In JavaScript, variables declared with the `let` or `const` keywords have **block** scope.
 
-primitive values
+## 22. Variables as Pointers
 
-* With (most) primitive values, the actual value of the variable gets stored in allocated memory.
+== Study Guide Topics ==
+
+<<<<<<< HEAD
+## Strings (working with Strings)
+||||||| merged common ancestors
+
 
 ## Strings (working with Strings)
+=======
+20210927 Study Session with Alex
 
-### String Methods
+What will the following code log to the console and why?
 
-## working with Objects: accessing keys and values of an Object as arrays
+```js
+function myFunction() {
+  let a = 1;
+>>>>>>> fc2cb7ae8c482e0c27b1ef44e1947329c344a607
 
-## variables as pointers
+  if (true) {
+    console.log(a);
+  }
+}
 
-## truthiness vs. boolean
+myFunction();
+```
 
-## side-effects
+This code logs `1`. Variables declared in an outer scope can be accessed in an inner scope. Here, `a` is declared within an outer scope in `myFunction`, and accessed in the `if` statement's inner scope. The `if` statement evaluates as true, so the `console.log(a)` method then logs `1` when `myFunction` is called on line 11.
+
+Formula:
+
+1. logs
+2. general principle
+3. application
+
+This code logs `1`. Variables declared in an outer scope are accessible in an inner scope. Here, `a` is declared and initialized to the value of `1` within `myFunction` which has an outer scope to the `if` statement's inner scope. Since the `if` statement evaluates to `true`, the `console.log(a)` method logs `1` when `myFunction` is invoked on line 11.
+
+
+This code logs ____ . Variables declared in an outer scope are accessible in an inner scope. [Here connect specific instance to general principle]
