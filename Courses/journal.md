@@ -3409,3 +3409,30 @@ The global variable `words` is declared and initialized to a nested array. The f
 14:08 Studying "Working with Strings".
 
 14:45 Working on `String` methods and it's taking me longer than expected. That's okay. I need to get ready to get Omi and SungOh from school. I'm still learning and having fun.
+
+## 20210928 화요일
+
+09:12 I didn't do anything in the afternoon or evening in terms of Launch School study.
+
+09:13 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS109 > Lesson 1 > Assignment 3. Part 1: Glossary Topics: Primitive Values, Objects and Type Coercion, Side-effects
+   * [x] 3. Listened to the Huberman Lab Podcast Episode 39 | Controlling Your Dopamine for Motivation, Focus & Satisfaction
+
+2. What will you do today?
+   * [ ] 1. JS109 > Lesson 1 > Assignment 3. Part 1: Finish the Glossary Topics: Truthiness vs Boolean, Variable Scope, and Variables as Pointers
+   * [ ] 2. Read *The Programmer's Brain* chapter 5: Reaching a deeper understanding of code
+   * [ ] 3. SPOT Study Session
+   * [ ] 4. Office Hours with Chris Lee
+   * [ ] 5. Listen to the Huberman Lab Podcast Episode 39 | Controlling Your Dopamine for Motivation, Focus & Satisfaction
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I referee a soccer game this afternoon.
+
+11:51 I'm back from the gym. I want a Thai massage to get really stretched out.
+
+13:23 SPOT study session about to end.
+
+13:35 Iuliu getting off topic and Elaine knows her shit. I have much more work to do. Practice, practice, practice.

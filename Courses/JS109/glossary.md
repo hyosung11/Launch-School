@@ -92,6 +92,37 @@ However, `map` returns a new array that contains one element for each element in
 
 ## 2. Arrays Are Objects
 
+It's important to remember that JavaScript arrays are objects. The chief difference between an array and some other object is that it uses non-negative integers as its primary keys. Another significant difference is that adding elements to the array increases the value of its `length` property, and changing the value of the `length` property causes the number of elements to change.
+
+Since arrays are objects, we can add additional properties to them:
+
+```js
+let arr = ['foo', 'bar', 'qux'];
+arr['boo'] = 'hoo';
+arr[-1] = 374;
+arr; // => ['foo', 'bar', 'qux', boo: 'hoo', '-1': 374]
+arr.length; // => 3 (not 5!) - just count indexes
+arr.forEach(element => console.log(element)); // prints: foo, bar, qux
+Object.keys(arr); // => [ '0', '1', '2', 'boo', '-1' ]
+```
+
+Note that `arr[-1] = 374` looks like we're creating an element at index position `-1`. In fact, the `'-1'` property is not really an element of the array, but is an ordinary property of the object. You can see this in the return value from line 4 where the property is shown as `'-1': 374`. By the same token, `arr['boo']` isn't an element of the array, but a property of the object.
+
+It's also important to note that the value of the length property *does not change after we add non-element properties* to the array. Furthermore, those properties are ignored by array methods like `forEach`, `map`, and `filter`.
+
+However, when we use an `Object` method, such as `keys`, we get a list of all of the property names. Curiously, the return value here shows the indices of the array elements as string keys, `'0'`, `'1'`, and `'2'`.
+
+Finally, you must be careful when you need to distinguish between arrays and other objects. You might, for instance, assume that the `typeof` operator would identify an array as an `'array'`. It doesn't. It returns `'object'` instead. If you really need to detect an array, you can use the `Array.isArray` method:
+
+```js
+let arr = ['foo', 'bar', 'qux'];
+let obj = { a: 1, b: 2 };
+typeof arr; // => 'object'
+typeof obj; // => 'objet'
+Array.isArray(arr); // => true
+Array.isArray(obj); // => false
+```
+
 Arrays are a subset of objects. While objects store a collection of key-value pairs, arrays associate values with indexes.
 
 Arrays as objects are object data types with non-primitive or object values, not primitive values.
@@ -698,9 +729,30 @@ str.slice(2) // => 'cdefghi'
 
 The `substring` method takes a start index and an end index and returns a substring from the start of the index up to, but not including, the end index.
 
-## Scope
+### Conversion
 
-### Non-local Variable Use
+`String.prototype.split()`
+
+The `split` method, when called without any arguments, returns an array with the string as its only element:
+
+```js
+'this is a string'.split() // => ['this is a string']
+```
+
+The `split` method called with an empty string as the argument returns an array of all the characters in the string:
+
+```js
+'abcdef'.split(''); // => ['a', 'b', 'c', 'd', 'e', 'f']
+'abcdef'.split('')[0]; // => 'a'
+```
+
+Note that we use the `[]` operator on the return value of `split`. The `split` method returns an array so we can access element from that array using the `[]` operator.
+
+Any other string provided to `split` as the argument will be used to separate the string using the argument as the **delimiter**:
+
+```js
+'apple,orange,mango'.split(','); // => ['apple', 'orange', 'mango']
+```
 
 ## 20. Truthiness vs. Boolean
 
@@ -711,6 +763,8 @@ The function outputs `Hello, world!`, which it obtains from the global variable 
 This example demonstrates variable scoping rules in JavaScript; specifically the fact that a variable declared in the outer scope is accessible from a nested inner scope.
 
 In JavaScript, variables declared with the `let` or `const` keywords have **block** scope.
+
+### Non-local Variable Use
 
 ## 22. Variables as Pointers
 
