@@ -3436,3 +3436,47 @@ The global variable `words` is declared and initialized to a nested array. The f
 13:23 SPOT study session about to end.
 
 13:35 Iuliu getting off topic and Elaine knows her shit. I have much more work to do. Practice, practice, practice.
+
+14:04 Office Hours with Chris Lee
+
+Find a job that won't tax your mental capacity, so you can study.
+Capstone is designed to bridge the gap.
+After Core do research and focus on where you want to work. Read a couple of books to target a cluster of jobs.
+
+REST API questions in interviews
+
+GraphQL
+
+* add to Capstone?
+* mapping process changes constantly
+
+Technically adjacent roles; programming adjacent roles
+
+After core, you're ready to pick up the stack for a specific role.
+
+How awesome are the engineers in the company? If you're the best one there, that's not a good sign. If everyone is near retirement, that's not a good sign.
+
+## 20210929 수요일
+
+06:39 Finished study session with Alex and Laurent. I'm not ready. Do I really know my stuff yet? What's there and what's not there?
+
+08:57 I really want to get a Thai stretching massage today with Jen. I'll try her at 9:00.
+
+09:13 Time to answer my daily scrum questions.
+
+09:14 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [ ] 1. JS109 > Lesson 1 > Assignment 3. Part 1: Glossary Topics: Working with Strings
+   * [x] 2. Read *The Programmer's Brain* chapter 5: Reaching a deeper understanding of code
+   * [x] 3. SPOT Study Session
+   * [x] 4. Office Hours with Chris Lee
+   * [x] 5. Listened to the Huberman Lab Podcast Episode 39 | Controlling Your Dopamine for Motivation, Focus & Satisfaction
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex and Laurent
+   * [ ] 2. JS109 > Lesson 1 > Assignment 3. Part 1: Glossary Topics: Truthiness vs Boolean, Variable Scope, and Variables as Pointers
+   * [ ] 3. Listen to the Launch School Podcast S3E6: Getting to Know Srdjan
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Only have the morning to study.

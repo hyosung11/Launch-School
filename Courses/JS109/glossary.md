@@ -705,6 +705,8 @@ str[2]; // => 'c'
 
 ### String Methods
 
+You can think of strings as collections of characters. You can access individual characters or multiple characters of the string and can loop through all the characters by using the `length` property in conjunction with `for` and `while` loops.
+
 `String.prototype.slice()`
 
 The `slice` method extracts a section of a string and returns a new string, without modifying the original string. The `slice` method takes two arguments. The first argument specifies the index at which to start the extraction and the second argument specifies the index at which to end the extraction. The character at the ending index is not part of the returned substring. If the second argument to `String.prototype.slice` is omitted, all the characters from the start index to the end of the string are returned in the substring. Calling the `slice` method without any arguments will return a copy of the original string.
@@ -753,6 +755,9 @@ Any other string provided to `split` as the argument will be used to separate th
 ```js
 'apple,orange,mango'.split(','); // => ['apple', 'orange', 'mango']
 ```
+
+
+
 
 ## 20. Truthiness vs. Boolean
 
