@@ -692,7 +692,7 @@ str2 = "goodbye";
 console.log(str1);
 ```
 
-The output is `hello there` since we are dealing with strings. In JavaScript, strings are primitive values and are immutable; they can't be changed. That also means JavaScript creates a new copy of the string when assigning a string to a variable. Thus, line 661 assigns `str2` a new string that happens to be a copy of `str1`'s value. Line 662, in turn, assigns `str2` to an entirely new string.
+The output is `hello there` since we are dealing with strings. In JavaScript, strings are primitive values and are immutable; they can't be changed. That also means JavaScript creates a new copy of the string when assigning a string to a variable. Thus, line x assigns `str2` a new string that happens to be a copy of `str1`'s value. Line x, in turn, assigns `str2` to an entirely new string.
 
 ### String Element Reference
 
@@ -707,7 +707,44 @@ str[2]; // => 'c'
 
 You can think of strings as collections of characters. You can access individual characters or multiple characters of the string and can loop through all the characters by using the `length` property in conjunction with `for` and `while` loops.
 
-`String.prototype.slice()`
+Since JavaScript strings are **primitive values**, any operation performed on them *results in a new string*. None of the methods that operate on strings mutate the string since JavaScript strings are **immutable**.
+
+#### `String.prototype.concat()`
+
+The `concat()` method concatenates the string arguments to the calling string and returns a new string. If the arguments are not of the type string, they are converted to string values before concatenating. `concat` can take more than one string as arguments: `concat(str1, str2, ..., strN)`.
+
+```sh
+> let str = 'Hello'
+undefined
+> str.concat(' World!')
+'Hello World!'
+> str
+'Hello'
+```
+
+#### `String.prototype.includes()`
+
+The `includes` method takes a string as the argument and returns a boolean signifying whether that string exists within the string that `includes` was called on.
+
+```sh
+> 'One potato, two potato, three potato, four'.includes('three')
+true
+> 'One potato, two potato, three potato, four'.includes('tater')
+false
+> 'abc'.includes('a')
+true
+```
+
+`includes` also takes an optional second argument that specifies which index in the string to start looking for the substring.
+
+```sh
+> 'abcdefg'.includes('b', 2)
+false
+```
+
+Although the string `abcdefg` includes `'b'`, the method call returns `false` since the search started from index `2`.
+
+#### `String.prototype.slice()`
 
 The `slice` method extracts a section of a string and returns a new string, without modifying the original string. The `slice` method takes two arguments. The first argument specifies the index at which to start the extraction and the second argument specifies the index at which to end the extraction. The character at the ending index is not part of the returned substring. If the second argument to `String.prototype.slice` is omitted, all the characters from the start index to the end of the string are returned in the substring. Calling the `slice` method without any arguments will return a copy of the original string.
 
@@ -727,13 +764,9 @@ str.slice(2) // => 'cdefghi'
 'abcdefghi'.slice(-4, -2) // => 'fg'
 ```
 
-`String.prototype.substring()`
+#### `String.prototype.split()`
 
-The `substring` method takes a start index and an end index and returns a substring from the start of the index up to, but not including, the end index.
-
-### Conversion
-
-`String.prototype.split()`
+The `split` method separates a given string into multiple strings and returns them in the form of an array. How the string gets split depends on the argument you provide to `split`.
 
 The `split` method, when called without any arguments, returns an array with the string as its only element:
 
@@ -756,8 +789,71 @@ Any other string provided to `split` as the argument will be used to separate th
 'apple,orange,mango'.split(','); // => ['apple', 'orange', 'mango']
 ```
 
+#### `String.prototype.substring()`
 
+The `substring` method takes a start index and an end index and returns a substring from the start of the index up to, but not including, the end index.
 
+```js
+const str = 'Mozilla';
+
+console.log(str.substring(1, 3));
+// expected output: "oz"
+
+console.log(str.substring(2));
+// expected output: "zilla"
+```
+
+#### `String.prototype.trim()`
+
+The `trim` method removes whitespace from both ends of a string it's called on.
+
+```sh
+> '   acbcdef   '.trim()
+'abcdef'
+```
+
+`trim` removes any number of space characters as well as whitespace characters like `\n` and `\t`.
+
+```sh
+> `\nabcdef\t.trim()
+'abcdef'
+```
+
+The `trimStart()` method removes whitespace from the beginning of a string while `trimEnd()` does so at the end of a string.
+
+```sh
+> '   abcdef   '.trimStart()
+'abcdef   '
+
+> '   abcdef   '.trimEnd()
+'   abcdef'
+```
+
+#### `String.prototype.toUpperCase()` & `String.prototype.toLowerCase()`
+
+`toUpperCase()` and `toLowerCase()` convert strings to uppercase and lowercase respectively.
+
+```sh
+> 'pete'.toUpperCase()
+'PETE'
+
+> 'PETE'.toLowerCase()
+'pete'
+```
+
+Sometimes, you want to convert only the first character of a string to it uppercase equivalent. You can do that by combining toUpperCase() with slice() and any of the string concatenation methods:
+
+```js
+function capitalize(str) {
+  return str[0].toUpperCase() + str.slice(1);
+}
+
+capitalize('pete'); // => 'Pete'
+```
+
+#### `String.prototype.charAt()`
+
+RR
 
 ## 20. Truthiness vs. Boolean
 

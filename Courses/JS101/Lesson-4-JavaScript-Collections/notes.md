@@ -605,7 +605,7 @@ There are a couple of variations and the `trim` method that are also very useful
 
  ```js
 function capitalize(str) {
-  return str[0].toUpperCase() + str.slice();
+  return str[0].toUpperCase() + str.slice(1);
 }
 
 capitalize('pete'); // => 'Pete'

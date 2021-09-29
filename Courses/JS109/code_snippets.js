@@ -53,7 +53,17 @@
 
 // What will the following code output?
 
-let str1 = 'hello there';
-let str2 = str1;
-str2 = 'goodbye!';
-console.log(str1);
+// let str1 = 'hello there';
+// let str2 = str1;
+// str2 = 'goodbye!';
+// console.log(str1);
+
+// let str1 = 'Hello';
+// let str2 = 'World!'
+// console.log(str1.concat(' Beautiful ', 'Strange ', str2)); // => Hello Beautiful Strange World!
+
+function capitalize(str) {
+ return str[0].toUpperCase() + str.slice(1);
+}
+
+console.log(capitalize('pete')); // => 'Pete'
