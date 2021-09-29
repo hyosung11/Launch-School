@@ -853,9 +853,28 @@ capitalize('pete'); // => 'Pete'
 
 #### `String.prototype.charAt()`
 
-RR
+The `charAt()` method takes an index as an argument and returns the character at that index in the given string.
+
+```sh
+> let sentence = "It's a walk in the park."
+> sentence.charAt(5)
+'a'
+```
+
+#### `String.prototype.charCodeAt()`
+
+The `charCodeAt()` method returns the Unicode code point or character code of the character at the index. If an index is not provided, `charCodeAt()` assumes the index `0`.
+
+```sh
+> 'abcdef'.charCodeAt(1)
+98
+```
+
+Index `1` contains the character `'b'` and the code point for `'b'` is 99. 
 
 ## 20. Truthiness vs. Boolean
+
+RR
 
 ## 21. Variable Scope (especially how variables interact with function definitions and blocks)
 
