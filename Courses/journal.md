@@ -3484,3 +3484,4 @@ How awesome are the engineers in the company? If you're the best one there, that
 11:08 I found a mistake in my notes as I prepare my glossary. That's good to know that I do know my code.
 
 11:18 Finished first draft of glossary on "Working with Strings".
+

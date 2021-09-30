@@ -874,7 +874,19 @@ Index `1` contains the character `'b'` and the code point for `'b'` is 99.
 
 ## 20. Truthiness vs. Boolean
 
-RR
+Notice that every `if` statement has an expression that evaluates as true or false. However, the expression doesn't have to be one of the boolean values, `true` or `false`. JavaScript can coerce any value to a boolean value, and that's what it does in conditional contexts like the `if` statement.
+
+JavaScript can coerce any value to a boolean. Thus, you can use any expression in a conditional expression. We often say that the expression **evaluates as** or **evaluates to** true or false.
+
+JavaScript treats the following values as false: 0funN is empty: `0`, `false`, `undefined`, `null`, `NaN`, and `''`. Everything else evaluates as true.
+
+The term **falsy** refers to values
+
+
+### Boolean
+
+Comparison operators return a boolean value: `true` or `false`.
+
 
 ## 21. Variable Scope (especially how variables interact with function definitions and blocks)
 
