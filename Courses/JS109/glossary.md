@@ -841,7 +841,7 @@ The `trimStart()` method removes whitespace from the beginning of a string while
 'pete'
 ```
 
-Sometimes, you want to convert only the first character of a string to it uppercase equivalent. You can do that by combining toUpperCase() with slice() and any of the string concatenation methods:
+Sometimes, you want to convert only the first character of a string to it uppercase equivalent. You can do that by combining `toUpperCase()` with `slice()` and any of the string concatenation methods:
 
 ```js
 function capitalize(str) {
@@ -870,62 +870,279 @@ The `charCodeAt()` method returns the Unicode code point or character code of th
 98
 ```
 
-Index `1` contains the character `'b'` and the code point for `'b'` is 99. 
+Index `1` contains the character `'b'` and the code point for `'b'` is 99.
 
 ## 20. Truthiness vs. Boolean
 
+The ability to express **true** or **false** is vital in any programming language. It helps us build *conditional logic* and to understand the state of an object or expression. Typically, we capture the notion of whether a value is true or false in a **boolean** data type. A boolean is an **object** whose only purpose is to *convey whether it is true or false*.
+
+In the assessment, we want you to be very clear about the distinction between *truthy* and *falsy* values and the boolean values `true` and `false`.
+
+In JavaScript, the *falsy* values `false`, `0`, `NaN`, `""`, `undefined`, and `null` are all said to *evaluate to false* when used in a boolean context. All other values, the *truthy* values, are all said to *evaluate to true*. Note that saying that a value evaluates to true or false is **not** the same as saying that those values **are** `true` or `false`, or that they are **equal to** `true` or `false`. These may seem like subtle distinctions, but they are important ones.
+
+Suppose we ask you to describe what is happening in this code:
+
+```js
+let a = "Hello";
+
+if (a) {
+  console.log("Hello is truthy");
+} else {
+  console.log("Hello is falsy");
+}
+```
+
+If your answer says that "`a` is `true`" or that "`a` is equal to `true`" in the conditional on line 3, we would likely deduct points from your score. A much better answer would say that "`a` is truthy" or that "`a` evaluates to true" on line 3.
+
+To sum up:
+
+* Use "evaluates to true" or "is truthy" when discussing expressions that only have to be truthy.
+* Use "evaluates to false" or "is falsy" when discussing expressions that only have to be falsy.
+* Do not use "is `true`" or "is equal to `true`" unless you are specifically discussing the boolean value `true`.
+* Do not use "is `false`" or "is equal to `false`" unless you are specifically discussing the boolean value `false`.
+
 Notice that every `if` statement has an expression that evaluates as true or false. However, the expression doesn't have to be one of the boolean values, `true` or `false`. JavaScript can coerce any value to a boolean value, and that's what it does in conditional contexts like the `if` statement.
 
+```js
+// Example 1
+a = 5
+if (a) {
+  console.log("how can this be true?");
+} else {
+  console.log("it is not true");
+}
+
+// Example 2
+b = 0
+if (b) {
+  console.log("how can this be true?");
+} else {
+  console.log("it is not true");
+}
+```
+
+The first example logs "how can this be true?" while the second logs "it is not true." This works since JavaScript coerces the value `5` to `true`, and the value `0` to `false`.
 JavaScript can coerce any value to a boolean. Thus, you can use any expression in a conditional expression. We often say that the expression **evaluates as** or **evaluates to** true or false.
 
 JavaScript treats the following values as false: 0funN is empty: `0`, `false`, `undefined`, `null`, `NaN`, and `''`. Everything else evaluates as true.
 
-The term **falsy** refers to values
-
-
-### Boolean
+The term **falsy** refers to values that evaluate as false, while the values that evaluate as true are **truthy**. These terms are used to distinguish between boolean `true` and `false` values. We can also discuss **truthiness**: whether something is a truthy or falsy value.
 
 Comparison operators return a boolean value: `true` or `false`.
 
+Expression involving the logical operators of `||` and `&&` use short-circuit evaluation; they also return **truthiness** values.
 
 ## 21. Variable Scope (especially how variables interact with function definitions and blocks)
+
+A variable's scope is the part of the program that can access that variable by name. Specifically, variable scoping rules describe how and where the program finds previously declared variables.
+
+In JavaScript, we have two different types of scope: **global** (outer) and **local** (inner). Any variable declared inside a function or block is a local variable - everything else is a global variable.
+
+Local variables are short-lived; they go away when the function that corresponds to their scope stops running. When we invoke the function, we start a new scope. If the code within that scope declares a new variable, that variable belongs to the scope. When the last bit of code in that scope finishes running, the scope goes away, as do any local variables declared within it. JavaScript repeats this process each time we invoke a function.
+
+### Local Scope
+
+Local scopes comes in two forms: **block scope** and **function scope**.
+
+### Function Scope Rules
+
+#### Rule 1: **outer scope variables can be accessed by the inner scope:**
+
+```js
+let a = 1; // outer scope variable
+
+function logA() {
+  console.log(a); // => 1
+  a += 1; // a is reassigned to a new value
+}
+
+logA();
+console.log(a) // => 2 because 'a' was reassigned in the inner scope
+```
+
+#### Rule 2: **inner scope variables cannot be accessed in the outer scope:**
+
+```js
+function aFunc() {
+  let a = 1;
+}
+
+aFunc();
+console.log(a); // ReferenceError: a is not defined
+```
+
+Here, the outer scope is the global scope, and it does not have an `a` variable. Remember that where a variable is declared determines its scope. In the above code, `a` is declared in an inner scope and thus cannot be accessed from an outer scope.
+
+Note that a *local variable only comes into existence when you call that function*. The mere act of defining a function doesn't create any variables. The function declaration does, however, *define* the scope of the variables. For example, in the `aFunc` function above, the function body defines where variable `a`, when created, will be accessible. However, the variable `a` doesn't get created and assigned a value **unless** we invoke the function. When we call the function on line 5, a variable `a` is created, assigned the value `1` and *immediately discarded* once the function finishes execution and control returns to the main flow of the program.
+
+Because of this, when we talk about the scope of a variable, it doesn't matter whether we ever execute the code. For instance, suppose we had the following complete program:
+
+```js
+function aFunc() {
+  let foo = 1;
+}
+```
+
+Though we never invoke `aFunc` and never create the `foo` variable, we still talk of it as in scope within `aFunc`.
+
+In JavaScript, variables declared with the `let` or `const` keywords have **block** scope which confines the variable's scope to that block.
+
+Parameters have local scope within a function.
+
+#### Rule 3: **peer scopes do not conflict:**
+
+```js
+function funcA() {
+  let a = 'hello';
+  console.log(a);
+}
+
+function funcB() {
+  console.log(a); // ReferenceError: a is not defined
+}
+
+funcA();
+funcB();
+```
+
+Executing `console.log(a)` on line 7 throws an error since `a` is not in scope in `funcB`. The declaration on line 2 does declare a variable named `a`, but that variable's scope is confined to `funcA`. `funcB` can't see the variable at all. That also means that we could declare a separate `a` variable in `funcB` if we wanted. The two a variables would have different local scopes and would also be independent of each other.
+
+#### Rule 4: **nested functions have their own variable scope:**
+
+Nested functions follow the same rules of inner and outer scoped variables. When dealing with nested functions, our usage of what's "outer" or "inner" is going to be *relative*. We'll switch vocabulary and talk about the "first level," "second level," and "third level."
+
+```js
+let a = 1; // first level variable
+
+function foo() { // second level variable
+  let b = 2;
+
+  function bar() { // third level
+  let c = 3;
+  console.log(a); // => 1
+  console.log(b); // => 2
+  console.log(c); // => 3
+  }
+
+  bar();
+
+  console.log(a) // => 1
+  console.log(b) // => 2
+  console.log(c) // => ReferenceError
+}
+
+foo();
+```
+
+#### Rule 5: **inner scope variables can *shadow* outer scope variables**
+
+Take a look at the following code:
+
+```js
+[1, 2, 3].forEach(number => {
+  console.log(number);
+});
+```
+
+Here, `number` is the parameter that represents the value that the callback function expects when it is invoked. It represents each element as the `forEach` method iterates through the array. *Parameters* are also local variables and the same scoping rules apply to them.
+
+Suppose we had a variable named `number` in the outer scope, though. We know that the inner scope has access to the outer scope, so we'd essentially have two local variables in the inner scope with the same name. When that happens, it's called **variable shadowing**, and it prevents access to the outer scope local variable. See this example:
+
+```js
+let number = 10;
+
+[1, 2, 3].forEach(number => {
+  console.log(number);
+});
+```
+
+`console.log(number)` will use the parameter `number` and discard the outer scoped local variable. Variable shadowing also prevents us from making changes to the outer scoped `number`.
+
+Variable shadowing isn't limited to callback functions. Whenever you have one scope nested within another, **variables in the inner scope** will shadow variables in the outer scope having the same name.
+
+```js
+let a = 1;
+
+function doit(a) {
+  console.log(a); // => 3
+}
+
+doit(3);
+console.log(a); // => 1
+```
+
+Note that, in this case, it's the parameter `a` that is shadowing the global variable `a`. Most names -- variables, parameters, function names, or class names -- can shadow names from the outer scope. The only names that don't get involved in shadowing are property names for objects.
+
+### Block Scope Rules
+
+In JavaScript, blocks are segments of one or more statements and expressions grouped by opening and closing curly braces (`{}`). Each pair of braces in the constructs like `if/else` and the `for` and `while` loops define new block scopes. The rules for block scopes are identical to those for function scopes.
+
+1. Outer blocks cannot access variables from inner scopes.
+2. Inner blocks can access variables from outer scopes.
+3. Variables defined in an inner block can shadow variables from outer scopes.
+
+Not all code between **curly braces** is a block.
+
+* For instance, the code inside a function definition is not technically a block, but is, instead, called the **function body**.
+  * Although blocks and function bodies are very similar, there are subtle differences that you will encounter in a later course.
+* There are also other types of things between curly braces that are not considered blocks:
+  * class definitions (introduced in a later course) and
+  * object literals are not blocks.
+  * The differences are more substantial with these constructs than with function bodies.
+
+```js
+// Examples:
+
+// 1. outer blocks cannot access variables from inner scope
+if (true) {
+  let a = 'foo'
+}
+
+console.log(a); // ReferenceError
+
+// 2. inner blocks can access variables from outer scope
+let a = 'foo';
+
+if (true) {
+  console.log(a); // => 'foo'
+}
+
+// 3.
+function aFunc() {
+  let a = 'foo';
+
+  if (true) {
+    let b = 'bar';
+    console.log(a); // => 'foo'
+
+    if (true) {
+      let c = 'baz';
+    }
+
+    console.log(a); // => 'foo'
+    console.log(b); // => 'bar'
+    console.log(c); // => ReferenceError
+  }
+
+  console.log(a); // => 'foo'
+  console.log(b); // ReferenceError
+  console.log(c); // ReferenceError
+}
+
+aFunc();
+```
+
+If you run the above example, you'll see that only one exception gets raised: `ReferenceError: c is not defined` even though we expect three exceptions. That's how exceptions work in JavaScript; they halt the execution of the program *immediately*. Once execution reaches line 14, it raises an error and immediately stops executing the rest of the code. The point of the example is to show that the variable `c` will not be accessible outside the inner `if` block and variables `b` and `c` will not be accessible outside the outer `if` block.
+
+---
+
+Sample wording:
 
 The function outputs `Hello, world!`, which it obtains from the global variable `hello`, then returns `undefined`. The function can use `hello` since functions have access to variables defined in the outer scope.
 
 This example demonstrates variable scoping rules in JavaScript; specifically the fact that a variable declared in the outer scope is accessible from a nested inner scope.
 
-In JavaScript, variables declared with the `let` or `const` keywords have **block** scope.
-
 ### Non-local Variable Use
 
 ## 22. Variables as Pointers
 
-== Study Tips ==
-
-20210927 Study Session with Alex
-
-What will the following code log to the console and why?
-
-```js
-function myFunction() {
-  let a = 1;
-
-  if (true) {
-    console.log(a);
-  }
-}
-
-myFunction();
-```
-
-This code logs `1`. Variables declared in an outer scope can be accessed in an inner scope. Here, `a` is declared within an outer scope in `myFunction`, and accessed in the `if` statement's inner scope. The `if` statement evaluates as true, so the `console.log(a)` method then logs `1` when `myFunction` is called on line 11.
-
-Formula:
-
-1. logs
-2. general principle
-3. application
-
-This code logs `1`. Variables declared in an outer scope are accessible in an inner scope. Here, `a` is declared and initialized to the value of `1` within `myFunction` which has an outer scope to the `if` statement's inner scope. Since the `if` statement evaluates to `true`, the `console.log(a)` method logs `1` when `myFunction` is invoked on line 11.
-
-This code logs ____ . Variables declared in an outer scope are accessible in an inner scope. [Here connect specific instance to general principle]

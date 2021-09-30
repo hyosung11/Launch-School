@@ -3485,3 +3485,29 @@ How awesome are the engineers in the company? If you're the best one there, that
 
 11:18 Finished first draft of glossary on "Working with Strings".
 
+## 20210930 목요일
+
+10:27 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex and Laurent
+   * [ ] 2. JS109 > Lesson 1 > Assignment 3. Part 1: Glossary Topics: Truthiness vs Boolean, Variable Scope, and Variables as Pointers
+   * [x] 3. Listened to the Launch School Podcast S3E6: Getting to Know Srdjan
+
+2. What will you do today?
+   * [x] 1. JS109 > Lesson 1 > Assignment 3. Part 1: Glossary Topics: Truthiness vs Boolean, Variable Scope, and Variables as Pointers
+   * [x] 2. JS109 Study Session with Juliette
+   * [x] 3. Read *The Programmer's Brain* chapter 5: Reaching a deeper understanding of code
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I had marriage counseling this morning. I woke up late. I have a soccer game to officiate in the late afternoon.
+
+10:30 My hip still hurts. I'm going to test it out at the gym later today.
+
+10:52 I've added to my glossary on "Truthiness vs Boolean" but I'm not sure how much detail I need on this topic. I need to practice more questions. Not sure when to go to the gym as I have a study session and I have to referee this afternoon. I'm adjusting my schedule to keep studying and then go to the gym after my study session and before I referee.
+
+11:09 Got glossary information for "Truthiness vs Boolean". Taking a short break now.
+
+14:34 After JS109 Study Session with Juliette. I feel closer to being ready for the written assessment.
+
+15:21 I didn't get to the gym. Omi just got home. I'm ready to get ready to officiate.

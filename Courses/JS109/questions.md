@@ -164,8 +164,6 @@ The code will log 'John'. The second-to-last line will return 'john'. This is be
 Third segment
 Another good explanation. I would also add that the function cannot access or reassign the variable firstName because only a copy of the value of firstName is passed into the function, and not the actual variable firstName itself (since it’s a primitive and hence pass-by-value). Don’t forget that because strings are primitives (immutable), all string methods are non-mutating. Although .concat() is indeed non-mutating on arrays, it isn’t entirely correct to say it’s non-mutating when called on strings, because no methods can mutate strings. I’d probably say something to the effect of “The name.concat(' Doe') call on line 3 does not change the value of name, since strings cannot be mutated. The reassignment name = name.toLowerCase(); does change the value of name, because it reassigns name to its own value with the toLowerCase() method performed on it.” On the last line, I’d also clarify that the function returns john on the second to last line, since it could be somewhat unclear if you were referring to the getName(firstName) call or the console.log(firstName) call.
 
-# Written Assessment Practice Problems
-
 ## Example 1 - What does this code log and why?
 
 ```js
@@ -256,3 +254,32 @@ function myFunc() {
 
 myFunc();
 
+== Study Tips ==
+
+20210927 Study Session with Alex
+
+What will the following code log to the console and why?
+
+```js
+function myFunction() {
+  let a = 1;
+
+  if (true) {
+    console.log(a);
+  }
+}
+
+myFunction();
+```
+
+This code logs `1`. Variables declared in an outer scope can be accessed in an inner scope. Here, `a` is declared within an outer scope in `myFunction`, and accessed in the `if` statement's inner scope. The `if` statement evaluates as true, so the `console.log(a)` method then logs `1` when `myFunction` is called on line 11.
+
+Formula:
+
+1. logs
+2. general principle
+3. application
+
+This code logs `1`. Variables declared in an outer scope are accessible in an inner scope. Here, `a` is declared and initialized to the value of `1` within `myFunction` which has an outer scope to the `if` statement's inner scope. Since the `if` statement evaluates to `true`, the `console.log(a)` method logs `1` when `myFunction` is invoked on line 11.
+
+This code logs ____ . Variables declared in an outer scope are accessible in an inner scope. [Here connect specific instance to general principle]
