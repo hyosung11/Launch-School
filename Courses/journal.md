@@ -3511,3 +3511,25 @@ How awesome are the engineers in the company? If you're the best one there, that
 14:34 After JS109 Study Session with Juliette. I feel closer to being ready for the written assessment.
 
 15:21 I didn't get to the gym. Omi just got home. I'm ready to get ready to officiate.
+
+## 20211001 금요일
+
+05:30 Study session with Alex and Laurent.
+
+08:55 Ready to start another study session. My hands are cold. I will take the JS109 Written Assessment on Tuesday, 12 October 2021 at 9:00 AM.
+
+09:02 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS109 > Lesson 1 > Assignment 3. Part 1: Glossary Topics: Truthiness vs Boolean and Variables as Pointers
+   * [x] 2. JS109 Study Session with Juliette
+   * [ ] 3. Read *The Programmer's Brain* chapter 5: Reaching a deeper understanding of code
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex and Laurent
+   * [ ] 2. JS109 > Lesson 1 > Assignment 3. Part 1: Glossary Topic: Variables as Pointers
+   * [ ] 3. JS101-109 & 210-211 Fundamentals of JavaScript for Programmers Study Group
+   * [ ] 4. Review Small Problems and take note of wording in the Discussion
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I need to put more emphasis on my job search sooner than later.

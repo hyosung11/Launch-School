@@ -283,3 +283,71 @@ Formula:
 This code logs `1`. Variables declared in an outer scope are accessible in an inner scope. Here, `a` is declared and initialized to the value of `1` within `myFunction` which has an outer scope to the `if` statement's inner scope. Since the `if` statement evaluates to `true`, the `console.log(a)` method logs `1` when `myFunction` is invoked on line 11.
 
 This code logs ____ . Variables declared in an outer scope are accessible in an inner scope. [Here connect specific instance to general principle]
+
+---
+
+// What will it log and why?
+
+```js
+let person = {
+  name: "Corine",
+  age: 12
+}
+
+function changeAge(age) {
+  person.age = age;
+}
+
+function changeAgeName(name, age) {
+  let person = {}
+  person.name = name;
+  if (age) {
+    changeAge(age);
+  }
+}
+
+changeAgeName("Franck", 25);
+
+console.log(person);
+```
+
+This code will log `{ name: 'Corine', age: 25}`. The global `person` variable is assigned to an object that is passed by reference into the functions. The `changeAge(age)` function
+
+The `console.log(person)` method
+peer functions
+
+/*Alex
+The code will log {name: Corine, age: 25}. There is a global variable `person` assigned to an object; there is also a variable of the same name local to the `changeAgeName()` function. Since the local variable is declared with let, it shadows (hides) the global `person` variable and the assignment of the passed argument to the name property only affects the local `person` object. However, `changeAge(age)` is also called within the `changeAgeName()` function, and since let is not used in this instance, there is no variable shadowing happening and the function has access to the global `person` object. Therefore, the reassignment of `person.age` to the `age` passed as an argument to the other function changes the property of the original object and the change is logged to the console on line 22.
+++has access to variables depending on where its defined, not where its invoked
+
+
+L
+The code will log { name: 'Corine', age: 25 }.
+
+On line 1, we declare a variable person and assign the object person to it. This object has 2 properties `name`and `age`. 
+
+Then we call `changeAgeName` with `Franck` and `25` as arguments to the function. These arguments will be assigned to the parameters `name` and `age` . Then, we declare the variable `person`and assign it an empty object. This variable will shadow the `person` variable from the outer scope. When we assign the `name` property on line 14, we assign it to the empty object.
+
+On line 15, as we have passed `25` to the `changeAgeName` variable, the if condition will evaluate to true and the block will execute the function `changeAge` with `age` passed-in as an argument. When changeAge assigns `age` on line 9, it re-assigns `age` on the object `person` from the global scope as `changeAge` has acess to variables from where it is defined.
+
+So, when we `console.log(person)` on the last line, we log the global object with the `name: "Corinne"` and the `age: 25`.
+
+---
+
+What does this code log to the console, and what concepts does this demonstrate?
+
+```js
+const checkEmpty = object => {
+  return object == false;
+}
+
+console.log(checkEmpty(''));
+console.log(checkEmpty('hi'));
+
+console.log(checkEmpty([]));
+console.log(checkEmpty([1]));
+
+console.log(checkEmpty({}));
+
+console.log(checkEmpty());
+```

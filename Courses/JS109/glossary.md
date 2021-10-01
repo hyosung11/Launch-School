@@ -183,7 +183,7 @@ On line 1, we declare a (global/local) variable named `count`, and initialize it
 
 Be sure to always declare your variables and constants with `let` and `const`. Undeclared variables have global scope.
 
-## 5. Equality: loose and strict equality
+## 5. Equality: Loose and Strict Equality
 
 What will the following code output?
 
