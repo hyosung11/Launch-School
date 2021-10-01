@@ -1146,3 +1146,104 @@ This example demonstrates variable scoping rules in JavaScript; specifically the
 
 ## 22. Variables as Pointers
 
+Some variables act as pointers to a place (or address space) in memory, while others contain values. JavaScript stores primitive values in variables, but it uses *pointers* for non-primitive values like arrays and other objects.
+
+### Working with Primitive Values
+
+```sh
+> let a = 5
+> let b = a
+> a = 8
+> a
+= 8
+
+> b
+= 5
+```
+
+Nothing is surprising in that code. We initialize `a` to the value `5`, then assign `b` to the value of `a`: both variables contain `5` after line 2 runs.
+
+Next, we reassign variable `a` to a value of `8` on line 3, and on lines 4 and 5 we see that a does indeed now have the value `8`. On lines 7 and 8 we see that `b`'s value did not change: it is still `5`.
+
+Each variable has a value, and reassigning values does not affect any other variables that happen to have the same value. Thus, `a` and `b` are independent: changing one doesn't affect the other.
+
+Variables that have **primitive** values store those values at the memory location associated with the variable. In our example, `a` and `b` point to different memory locations. When we assign a value to either variable, the value gets stored in the appropriate memory location. If you later change one of those memory locations, it does not affect the other memory location, even if they started off with the same value. Therefore, the variables are *independent* when they contain primitive values.
+
+### Working with Objects and Non-mutating Operations
+
+Consider the following code:
+
+```js
+let obj = { a: 1 };
+obj = { b: 2 };
+obj.c = 3;
+```
+
+On line 1, we declare a variable named `obj`, and initialize it to `{ a: 1 }`, which is an object value. Line 2 reassigns `obj` to a new object, `{ b: 2 }`. Finally, on line 3, we mutate the object currently referenced by `obj` by adding a new property to the object.
+
+Creating new variables causes JavaScript to allocate space somewhere in its memory for the value. However, with objects, JavaScript doesn't store the value of the object in the same place. Instead, it allocates additional memory for the object, and places a pointer to the object in the space allocated for the variable. Thus, we need to follow two pointers to get the value of our object from its variable name.
+
+In the above example, `obj` is always at the same address. The value at that address is a pointer to the actual object. While the pointer to the object can change, `obj` itself always has the same address. In other words, `obj`'s address doesn't change, but its value changes to the address of the object currently assigned to the variable.
+
+Let's look at another example. This time, we'll use arrays. Remember that arrays in JavaScript are objects, and almost everything we say about arrays holds for objects as well.
+
+```sh
+> let c = [1, 2]
+> let d = c
+> c = [3, 4]
+> c
+= [ 3, 4 ]
+
+> d
+= [ 1, 2 ]
+```
+
+Again, this example holds no surprises. For the moment, though, let's ignore what happens on line 2. We can assume that variables `c` and `d` end up with the same value after line 2 runs. Reassigning `c` on line 3 creates a new array, but the code doesn't affect the value of `d`. The two variables reference different arrays.
+
+This code works as expected since reassignment changes the pointer value of `c` to reference the new `[3, 4]` object. Though `d` originally had the same pointer value as `c`, it was stored in a different memory location (the location of `d`). Thus, when we reassign `c`, we're not changing `d` -- it still points to the original array.
+
+As with primitive values, this is straightforward: each variable has a value, and reassigning values does not affect any other variables that happen to have the same value. Thus, `c` and `d` are independent variables.
+
+Let's see what happens with a **mutating** operation like the `push` method:
+
+```sh
+> let e = [1, 2]
+> let f = e
+> e.push(3, 4)
+> e
+= [ 1, 2, 3, 4 ]
+
+> f
+= [ 1, 2, 3, 4 ]
+```
+
+We mutated the array referenced by `e`, but it also changed the array referenced by `f`!
+
+As we saw a little earlier, objects (and arrays) aren't stored in the memory location used by the variable. Instead, that memory location points to yet another memory location. That's where the object is ultimately stored.
+
+The use of pointers has a curious effect when you assign a variable that references an object to another variable. Instead of copying the object, *JavaScript only copies the pointer*. Thus, when we initialize `f` with `e`, we're making both `e` and `f` point to the same array: `[1, 2]`. It's not just the same value, but the same array in the same location in memory. The two variables are independent, but since they point to the same array, that array is dependent on what you do to both `e` and `f`.
+
+With `e` and `f` pointing to the same array, line 3 uses the pointer in the `e` variable to access and mutate the array by appending `3` and `4` to its original value. Since `f` also points to that same array, both `e` and `f` reflect the updated contents of the array. Some developers call this aliasing: `e` and `f` are aliases for the same value.
+
+Okay, that's good. What happens if we mutate a primitive value? Oops! You can't do that: all primitive values are immutable. Two variables can have the same primitive value. However, since primitive values are stored in the memory address allocated for the variable, they can never be aliases. If you give one variable a new primitive value, it doesn't affect the other.
+
+Reassignment of a specific element:
+
+```sh
+> let g = ['a', 'b', 'c']
+> let h = g
+> g[1] = 'x'
+> g
+= [ 'a', 'x', 'c' ]
+
+> h
+= [ 'a', 'x', 'c' ]
+```
+
+The key thing to observe here is that we're reassigning a specific element in the array, not the array itself. This code doesn't mutate the element, but it does mutate the array. Reassignment applies to the item you're replacing, not the object or array that contains that item.
+
+### Takeaway
+
+The takeaway of this section is that JavaScript stores primitive values in variables, but it uses pointers for non-primitive values like arrays and other objects. Pointers can lead to surprising and unexpected behavior when two or more variables reference the same object in the heap. Primitive values don't have this problem.
+
+When using pointers, it's also important to keep in mind that some operations mutate objects, while others don't. For instance, push mutates an array, but map does not. In particular, you must understand how something like x = [1, 2, 3] and x[2] = 4 differ: both are reassignments, but the second mutates x while the first does not.

@@ -101,7 +101,7 @@ test(greeting);
 console.log(greeting);
 
 /*
-logs 'Hello' 
+logs 'Hello'
 arrays get passed into functions by reference
 the concat method returns a new array - non-mutating
 doesn't affect the original array

@@ -95,26 +95,30 @@
 // }
 
 // // 3.
-function aFunc() {
-  let a = 'foo';
+// function aFunc() {
+//   let a = 'foo';
 
-  if (true) {
-    let b = 'bar';
-    console.log(a); // => 'foo'
+//   if (true) {
+//     let b = 'bar';
+//     console.log(a); // => 'foo'
 
-    if (true) {
-      let c = 'baz';
-    }
+//     if (true) {
+//       let c = 'baz';
+//     }
 
-    console.log(a); // => 'foo'
-    console.log(b); // => 'bar'
-    console.log(c); // => ReferenceError: c is not defined
-  }
+//     console.log(a); // => 'foo'
+//     console.log(b); // => 'bar'
+//     console.log(c); // => ReferenceError: c is not defined
+//   }
 
-  console.log(a); // => 'foo'
-  console.log(b); // ReferenceError
-  console.log(c); // ReferenceError
-}
+//   console.log(a); // => 'foo'
+//   console.log(b); // ReferenceError
+//   console.log(c); // ReferenceError
+// }
 
-aFunc();
+// aFunc();
 
+let obj = { a: 1 };
+obj = { b: 2 };
+console.log(obj.c = 3);
+console.log(obj);
