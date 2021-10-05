@@ -118,7 +118,18 @@
 
 // aFunc();
 
-let obj = { a: 1 };
-obj = { b: 2 };
-console.log(obj.c = 3);
-console.log(obj);
+// let obj = { a: 1 };
+// obj = { b: 2 };
+// console.log(obj.c = 3);
+// console.log(obj);
+
+let greeting = ['Hello'];
+
+const test = arr => {
+  arr = ['ByeBye'];
+  arr.push('World');
+  return arr;
+};
+
+console.log(test(greeting)); // => [ 'ByeBye', 'World' ]
+console.log(greeting); // => [ 'Hello' ]

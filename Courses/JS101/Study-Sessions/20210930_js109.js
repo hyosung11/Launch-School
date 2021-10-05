@@ -32,6 +32,20 @@ This program logs "Bark". On line 18, the global variable `animal` is declared a
 
 - variable shadowing
 - function without required argument js takes the value undefined
+
+
+Elaine's Answer
+Elaine Vuong  4 days ago
+Hi H - one thing I would do (perhaps it's just me) is to just highlight the concepts up front. This was well done though, good job! :slightly_smiling_face:
+This was my answer if it helps at all!
+This program logs 'Bark' to the console. This code snippet demonstrates
+concepts of variable shadowing
+if no arguments are passed to a function's parameters, the parameters are assigned the default value undefined.
+On line 11 we call the speak() function and we do not pass any arguments to the function.
+The speak() function has one parameter, animal, however as no arguments are passed to it, animal is assigned the default value undefined.
+The function definition of speak() creates a new function scope for local variables. Because the local function variable animal shares the same name as the global variable animal declared on line 1, variable shadowing prevents us from using the outer scoped variable.
+Therefore, on line 4 since animal contains the primitive value undefined, this results in the strict equality operator returning true, which is a truthy value. The if clause is then executed, and Bark is logged to the console. (edited) 
+
 */
 
 // let animal = "dog"
@@ -178,7 +192,7 @@ Array.prototype.map()
 - takes a callback function as an argument
 - returns a new array
 - used for transformation
-- map uses the return value of the callback function to transform the inital elements into new array elements
+- map uses the return value of the callback function to transform the initial elements into new array elements
 */
 // [0, 1, 2].map(num => num)
 

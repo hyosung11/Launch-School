@@ -1,5 +1,59 @@
 # Written Assessment Practice Questions
 
+## [Answer Template](https://www.dmytronaida.com/2020/05/27/js109-written-assessment.html)
+
+### Question Example: What will line 17 log to the console and why?
+
+```js
+let greeting = ["Hello"];
+
+const test = arr => {
+  arr = ["ByeBye"];
+  arr.push("World");
+  return arr;
+}
+
+test(greeting);
+console.log(greeting);
+```
+
+On line 17, the `console.log(greeting)` method will log `["Hello"]` because 1) the global variable `greeting` is not reassigned within the body of the function `test` and 2) the object variable `greeting` points to is not mutated within the function `test`. On line 8, the global variable `greeting` is declared and assigned to reference the array `["Hello]`. On line 16, the function `test` is called with the passed in argument `greeting`. At this point both the global variable `greeting` and the parameter `arr` reference the same array. On line 11, `arr` is reassigned to the new array `["ByeBye"]`. Therefore, parameter `arr` no longer references the place in computer memory where the object `greeting` variable points. The object variable `greeting` is no longer mutable because `arr` now references a different object.
+
+### Example from Study Guide
+
+Examine the code example below. The last line outputs the string `'Hi'` rather than the string `'Hello'`. Explain what is happening here and identify the underlying principle that this demonstrates.
+
+```js
+let greeting = 'Hello';
+
+while (true) {
+  greeting = 'Hi';
+  break;
+}
+
+console.log(greeting);
+```
+
+Compare the following possible answers to this question:
+
+A) `greeting` is set to `Hello` on line 1. `greeting` is set to `Hi` on line 4. Line 8 outputs `greeting`, which is `Hi`.
+
+B) The global variable `greeting` is assigned to the string `Hello` on line 1. Within the loop, `greeting` is then reassigned to the string `Hi` on line 4. On line 8, `console.log` is called with the variable `greeting` passed to it as an argument; since `greeting` is now assigned to `Hi`, this is what is output.
+
+C) The global variable `greeting` is initialized to the string `Hello` on line 1. Within the loop, lines 3 to 6 define a block within which `greeting` is reassigned to the string `Hi` on line 4. On line 8, `console.log` is called with the variable `greeting` passed to it as an argument; since `greeting` is now assigned to `Hi`, this is what is output.
+
+D) The global variable `greeting` is declared and initialized to the string `Hello` on line 1. Lines 3 to 6 define a loop that will execute forever, unless something happens to end the loop. When the loop begins, it first reassigns the `greeting` global variable to `Hi` on line 4. On the next line, `break`, causes the loop to end, with execution resuming after line 6. Finally, on line 8, `console.log` is called with the value of the variable `greeting` passed to it as an argument. Since `greeting` is now assigned to `Hi`, that is what gets output. This example demonstrates variable scoping rules in JavaScript; specifically the fact that a variable declared in the outer scope is accessible from a nested inner scope.
+
+While none of these answers is technically incorrect, they all answer the question with varying degrees of detail and precision.
+
+* Answer **A** describes what is happening in the code example, but does so in a fairly basic way with imprecise language. This response wouldn't be sufficient to receive full points for any of the questions in the assessment.
+
+* Answer **B** again describes what is happening, but with greater precision of language. This answer would score higher than answer **A**, but generally wouldn't be sufficient to receive full points for the majority of questions; most questions in the assessment are looking for something more, such as *a specific piece of syntactical knowledge* and perhaps *identification of some fundamental concept.*
+
+* Answer **C**, as well as precisely describing the example, *identifies an important JavaScript syntactical convention* that is relevant to the example code: the fact that braces next to a while statement form a block in JavaScript. We also use more precise terminology by saying that greeting is initialized instead of assigned. For some assessment questions, this answer might be enough to receive full points, but many questions expect you to demonstrate a deeper understanding of the fundamental concept that this illustrates.
+
+* Answer **D** goes a step further than **C** by **explaining why this is important** and the *underlying principle that it demonstrates*; i.e., the fact that JavaScript has particular scoping rules which affect whether or not a variable can be referenced or reassigned. It also talks about how the `break` statement influences the execution of the loop. Finally, we also mention that we're declaring a global variable. Based on the way that this question is phrased, answer **D** would be the only answer of the four to receive full points in an actual assessment.
+
 [9.](https://launchschool.com/books/javascript/read/objects#exercises)
 
 ## 1. What does the following program log to the console? Why?
@@ -220,7 +274,6 @@ The code will log 'jim' and then undefined. When anotherFunction() is invoked on
 /*
 This code logs `3` on the invocation of the function `doit` on line 8 and `1` from the `console.log` method on line 9. On line 2, the global variable `a` is declared and initialized to the value of `1`. The `doit` function is declared on line 4 and accepts one argument, here the variable `a`. This variable `a` shadows the global variable `a` on line 2. The `console.log` method logs the global variable `a` from line 2.
 
-
 */
 
 // 2.
@@ -320,15 +373,14 @@ peer functions
 The code will log {name: Corine, age: 25}. There is a global variable `person` assigned to an object; there is also a variable of the same name local to the `changeAgeName()` function. Since the local variable is declared with let, it shadows (hides) the global `person` variable and the assignment of the passed argument to the name property only affects the local `person` object. However, `changeAge(age)` is also called within the `changeAgeName()` function, and since let is not used in this instance, there is no variable shadowing happening and the function has access to the global `person` object. Therefore, the reassignment of `person.age` to the `age` passed as an argument to the other function changes the property of the original object and the change is logged to the console on line 22.
 ++has access to variables depending on where its defined, not where its invoked
 
-
 L
 The code will log { name: 'Corine', age: 25 }.
 
-On line 1, we declare a variable person and assign the object person to it. This object has 2 properties `name`and `age`. 
+On line 1, we declare a variable person and assign the object person to it. This object has 2 properties `name`and `age`.
 
 Then we call `changeAgeName` with `Franck` and `25` as arguments to the function. These arguments will be assigned to the parameters `name` and `age` . Then, we declare the variable `person`and assign it an empty object. This variable will shadow the `person` variable from the outer scope. When we assign the `name` property on line 14, we assign it to the empty object.
 
-On line 15, as we have passed `25` to the `changeAgeName` variable, the if condition will evaluate to true and the block will execute the function `changeAge` with `age` passed-in as an argument. When changeAge assigns `age` on line 9, it re-assigns `age` on the object `person` from the global scope as `changeAge` has acess to variables from where it is defined.
+On line 15, as we have passed `25` to the `changeAgeName` variable, the if condition will evaluate to true and the block will execute the function `changeAge` with `age` passed-in as an argument. When changeAge assigns `age` on line 9, it re-assigns `age` on the object `person` from the global scope as `changeAge` has access to variables from where it is defined.
 
 So, when we `console.log(person)` on the last line, we log the global object with the `name: "Corinne"` and the `age: 25`.
 
@@ -351,3 +403,34 @@ console.log(checkEmpty({}));
 
 console.log(checkEmpty());
 ```
+
+---
+
+What does this program log and why?
+
+```js
+let animal = "dog"
+
+const speak = animal => {
+  if (animal === undefined) {
+    console.log("Bark")
+  } else {
+    console.log("Meow")
+  }
+}
+
+speak();
+```
+
+My Answer
+This program logs "Bark". On line 18, the global variable `animal` is declared and initialized to the string "dog". On line 20, the function `speak` is declared with the parameter `animal`. This `animal` variable shadows the global `animal` variable on line 18 making the global variable inaccessible inside the function `speak`. When `speak` is invoked on line 28, it doesn't pass an argument. Instead of throwing an error, JavaScript defaults this argument's value to `undefined`. In the `if` statement `animal`'s value is evaluated as `undefined` and the `console.log("Bark")` method executes and logs "Bark".
+
+* variable shadowing
+* function without required argument js takes the value undefined
+
+Elaine's Answer
+Elaine Vuong  4 days ago
+Hi H - one thing I would do (perhaps it's just me) is to just highlight the concepts up front. This was well done though, good job! :slightly_smiling_face:
+This was my answer if it helps at all!
+
+This program logs 'Bark' to the console. This code snippet demonstrates a) concepts of variable shadowing and b) if no arguments are passed to a function's parameters, the parameters are assigned the default value undefined. On line 11 we call the speak() function and we do not pass any arguments to the function. The speak() function has one parameter, animal, however as no arguments are passed to it, animal is assigned the default value undefined. The function definition of speak() creates a new function scope for local variables. Because the local function variable animal shares the same name as the global variable animal declared on line 1, variable shadowing prevents us from using the outer scoped variable. Therefore, on line 4 since animal contains the primitive value undefined, this results in the strict equality operator returning true, which is a truthy value. The if clause is then executed, and Bark is logged to the console.

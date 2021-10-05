@@ -3537,3 +3537,28 @@ How awesome are the engineers in the company? If you're the best one there, that
 10:32 I finished the first draft of my glossary. Yes! Ready to take a break and go to the gym now.
 
 14:37 After SPOT Study Session with Iuliu. He was kind of all over the place.
+
+## 20211005 화요일
+
+09:14 I took three days off from Launch School and now I'm back. I see that Elaine passed the JS109 Written Assessment. I scheduled to take it a week from today. Get on my horse and ride. Louis decided to leave our soccer meetup group. That's the drama in my life right now. I haven't talked to Omar about it. I was so tired yesterday. I feel a little better today. It seems that people are dropping out of of Jersey United. Louis said he would play with us if we need him. Okay. I sat and meditated this morning. I wonder how I would actually do on the written assessment if I took it right now. Focus time now.
+
+09:17 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * Nothing for the past three days.
+
+2. What will you do today?
+   * [x] 1. Print out and review glossary
+   * [ ] 2. Review small problems and annotate the discussion section
+   * [ ] 3. Read *The Programmer's Brain* chapter 5: Reaching a deeper understanding of code
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Referee this afternoon.
+
+09:44 I need to know my stuff so I can stay relaxed and handle the time pressure to answer twenty questions in 180 minutes.
+
+11:12 Weird situation with Omar and Louis. I talked to Omar today and got his side of the story. I'm focusing on answer template format this morning. Ready to go to the gym now.
+
+14:15 On the phone with Louis and was on the phone with Omar earlier.
+
+15:30 I didn't get much studying done today. I have to leave to referee now.
