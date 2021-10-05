@@ -89,7 +89,7 @@ Because re-assignment of pets does not affect the the reference stored in newPet
 
 
 
-/* emma 
+/* emma
 
 On line 7, `console.log` will log `['dragon', 'turtle']`. On line 5, we reassigned the `pets` variable to a new empty array, but this has no impact on `newPets`, which is still pointing at the original array created on line 1.
 
@@ -132,5 +132,14 @@ This demonstrates that the reassignment operation on `pets` does not affect the 
 Chris answer: The log method on line 7 will call the original array value of ['dragon', 'turtle']
 Reassigning a new value on line 5 for the variable pets does not change the value of the variable newPets on line 3.
 This is because variables are not deeply linked to each other.
-*/
 
+
+
+Iuliu Pop (JS239)  2 hours ago
+Here's my full revised answer:
+Line 7, `log` method call with the value referenced by the `newPets` global variable passed in as an argument will output `[ 'dragon', 'turtle' ]`, because:
+1) `newPets` is initialized to the value referenced by the global variable `pets`
+2) `newPets` isn't reasigned to another value
+On line 1, the global variable `pets` is initialized to an array value. On line 2, the global variable `newPets` is initialized to the value referenced by the global variable `pets`. Now, each variable references the same array object in memory. On line 5, `pets` is reassigned to an empty array. The reassignment of `pets` doesn't affect what `newPets` references. Each variable points to a value and reassigning either one doesn't affect the other. On line 7, when the value referenced by `newPets` is passed as an argument to the `log` method call, `newPets` still references the array `['dragon', 'turtle']`.
+This illustrates the concept of variables as pointers. A variable cannot point to another variable. Variables always point to values in memory. If a variable is assigned to another variable, it points to the value referenced by the other variable. When a variable is reassigned, it is reassigned without affecting what other variables point to. (edited)
+*/
