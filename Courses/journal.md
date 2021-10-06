@@ -3593,3 +3593,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 3. Practice problems
 
 11:00 Reviewing Elaine's notes and using her notes to update my glossary.
+
+17:21 Grinding through Elaine's notes and synthesizing them into my glossary. Time to make dinner.

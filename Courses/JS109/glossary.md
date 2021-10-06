@@ -998,17 +998,88 @@ Expression involving the logical operators of `||` and `&&` use short-circuit ev
 
 ## 21. Variable Scope (especially how variables interact with function definitions and blocks)
 
-A variable's scope is the part of the program that can access that variable by name. Specifically, variable scoping rules describe how and where the program finds previously declared variables.
+### Variable Scope
+
+A variable's scope is the part of the program that can access that variable by name. Specifically, variable scoping rules describe how and where the language finds previously declared variables.
 
 In JavaScript, we have two different types of scope: **global** (outer) and **local** (inner). Any variable declared inside a function or block is a local variable - everything else is a global variable.
 
-Local variables are short-lived; they go away when the function that corresponds to their scope stops running. When we invoke the function, we start a new scope. If the code within that scope declares a new variable, that variable belongs to the scope. When the last bit of code in that scope finishes running, the scope goes away, as do any local variables declared within it. JavaScript repeats this process each time we invoke a function.
+There are two types of variables, based on where they are accessible: global and local variables. Global variables are available throughout a program, while local variables are confined to a function or a block. The keyword used (`let` and `const`) and the location where the variable is declared combine to determine if the variable is global or local.
+
+### Block
+
+A block is a segments of one or more statements and expressions grouped by opening and closing curly braces `{}`. Blocks appear in:
+
+* Control Flow - `if`, `else if`, `else`
+* Loops - `while`, `do...while`
+* For Statements - `for`
+* Switch and Try/Catch Statements - `switch`, and `try...catch` statements
+* On Their Own - by themselves `{}`
+
+Note that the `{}` that surround an **object literal** are NOT a block and **function bodies** are also ***technically*** NOT blocks, however since they look and behave so much like blocks, many developers do not distinguish between the two.
+
+Variables declared **within** a block scope are **only available to the block**. Variables initialized **outside** of the block scope are ***available within the block,*** and ***after the block ends.***
+
+Code Examples:
+
+```js
+// Variables declared within a block scope are only accessible within the block
+if (1 === 1) {
+  let a = 'hello'
+  console.log(a) // => logs 'hello'
+}
+
+console.log(a) // Uncaught ReferenceError: a is not defined
+/* Since `a` is declared within the block scope, it is not accessible OUTSIDE of the block. Therefore, the `console.log(a)` method that runs outside the block on line 1034 cannot access the `a` variable which was declared within the block */
+
+// Variables declared outside of block scope are available within and after the block ends.
+let b = 'hello'
+if (1 === 1) {
+  console.log(b) // => logs 'hello'
+  b = 'bye'
+}
+
+console.log(b) // => logs 'bye'
+/* Since `b` is declared outside the block scope, it has global scope. Therefore, within the block of the `if` statement, the `b` variable is visible within the block and is reassigned to the string literal 'bye'. Thus, when we `console.log(b)` on line 1044, we log 'bye' to the terminal. */
+
+// Undeclared variables have global scope and ignore all scope entirely.
+if (1 === 1) {
+  c = 'hello'
+  console.log(c)      // => logs 'hello'
+}
+
+console.log(c)        // => logs 'hello'
+/* Since `c` is declared without `let` or `const`, the variable has global scope. Therefore, even though it is declared within the block of the `if` statement, since `c` has global scope, the variable `c` can still be accessed by the `console.log(c)` method on line 1053 OUTSIDE of the block scope. Thus the second `console.log(c)` method logs the string literal 'hello' to the terminal */
+
+// Does the function invocation `foo()` alter the text logged to the console?
+let bar = 1;
+function foo() {
+  let bar = 2;
+}
+
+foo();
+
+console.log(bar);     // => logs 1
+/* No because of variable scoping rules. This code invokes the `foo()` function. The `foo` function body creates an inner scope, and within that inner scope it declares and initializes a new `bar` variable, and assigns it the number value `2`. Note that this `bar` variable is NOT the same as the `bar` variable created in the global scope on line 1. Once the `foo()` function call is finished, the function's inner scope is destroyed, along with the `bar` variable that was created and initialized to `2`. Therefore, when we log `bar`, the `console.log(bar)` method on line 1063 uses the `bar` variable that was declared and initialized on line 1. Thus, this code logs '1' to the console.
+```
+
+### Undeclared Variable
+
+Undeclared Variables are variables declared without the keyword `let`, `const`, or `var`. If you fail to declare a variable, JavaScript will NOT throw an error. Undeclared variables have global scope, and they ignore block and function scope entirely!
+
+### Global Scope
+
+Variables declared in a global scope are variables that are available across your program. You can use them anywhere in the program, either globally or from inside a function or a block.
 
 ### Local Scope
 
 Local scopes comes in two forms: **block scope** and **function scope**.
 
 ### Function Scope Rules
+
+**Functions** define a *new scope* for local variables. You can think of the scope defined by a function as an inner scope. Local variables are short-lived; they go away when the function that corresponds to their scope stops running. When we invoke the function, we start a new scope. If the code within that scope declares a new variable, that variable belongs to the scope. When the last bit of code in that scope finishes running, the scope goes away, as do any local variables declared within it. JavaScript repeats this process each time we invoke a function.
+
+**Nested functions** define nested scopes. A variable's scope is determined by **where** it is declared.
 
 #### Rule 1: **outer scope variables can be accessed by the inner scope:**
 
@@ -1024,6 +1095,10 @@ logA();
 console.log(a) // => 2 because 'a' was reassigned in the inner scope
 ```
 
+Since the variable `a` is declared and initialized in the outer scope (i.e., the global scope), it can be accessed within the inner scope of the function `logA`. Here, when the function `logA` is called on line 1094, the value of `a` is reassigned to a new value of `2` within the function body. Thus, when the `console.log(a)` method executes on line 1095, the value `2` is logged to the console.
+
+**Takeaway:** When instantiating variables in an inner scope, be careful that we are NOT accidentally re-assigning an existing variable in an outer scope.
+
 #### Rule 2: **inner scope variables cannot be accessed in the outer scope:**
 
 ```js
@@ -1035,9 +1110,11 @@ aFunc();
 console.log(a); // ReferenceError: a is not defined
 ```
 
-Here, the outer scope is the global scope, and it does not have an `a` variable. Remember that where a variable is declared determines its scope. In the above code, `a` is declared in an inner scope and thus cannot be accessed from an outer scope.
+Here, the outer scope is the global scope, and it does not have an `a` variable. Where a variable is declared determines its scope. In the above code, `a` is declared in an inner scope and thus cannot be accessed from an outer scope.
 
 Note that a *local variable only comes into existence when you call that function*. The mere act of defining a function doesn't create any variables. The function declaration does, however, *define* the scope of the variables. For example, in the `aFunc` function above, the function body defines where variable `a`, when created, will be accessible. However, the variable `a` doesn't get created and assigned a value **unless** we invoke the function. When we call the function on line 5, a variable `a` is created, assigned the value `1` and *immediately discarded* once the function finishes execution and control returns to the main flow of the program.
+
+**EV -** the `aFunc()` function is invoked, and defines a new scope for local variables. The local variable `a` is declared with the `let` keyword, and initially assigned the Number literal value `1`. After the function `aFunc()` completes execution, the variable `a` is immediately discarded and control returns to the main flow. Therefore, when we try to log the value stored in variable `a` to the console, a `ReferenceError` is thrown because the local variable `a` only existed within the function scope and was destroyed after the function completed exeuction, and therefore DOES NOT exist in the global scope. This demonstrates the principle of variable scoping, particularly that inner scope variable CANNOT be accessed or modified in the outer scope.
 
 Because of this, when we talk about the scope of a variable, it doesn't matter whether we ever execute the code. For instance, suppose we had the following complete program:
 
@@ -1071,6 +1148,8 @@ funcB();
 
 Executing `console.log(a)` on line 7 throws an error since `a` is not in scope in `funcB`. The declaration on line 2 does declare a variable named `a`, but that variable's scope is confined to `funcA`. `funcB` can't see the variable at all. That also means that we could declare a separate `a` variable in `funcB` if we wanted. The two a variables would have different local scopes and would also be independent of each other.
 
+**EV -** the function `funcA()` is invoked, and defines a new scope for local variables. The local variable `a` is declared with the `let` keyword, and initially assigned the String literal `'hello'`. The String `'hello'` is then logged to the terminal. After the `funcA()` function completes execution, the variable `a` is immediately discarded and control returns to the main flow. The function `funcB()` is invoked, and attempts to log the value stored in the variable `a` to the terminal, however, a `ReferenceError` is thrown because the local variable `a` only existed within the function scope of `funcA()` and was destroyed after `funcA()` completed execution. Therefore, `a` is NOT in scope in `funcB()`. This demonstrates the principle of variable scoping, particularly that peer scopes do **NOT** conflict.
+
 #### Rule 4: **nested functions have their own variable scope:**
 
 Nested functions follow the same rules of inner and outer scoped variables. When dealing with nested functions, our usage of what's "outer" or "inner" is going to be *relative*. We'll switch vocabulary and talk about the "first level," "second level," and "third level."
@@ -1098,7 +1177,15 @@ function foo() { // second level variable
 foo();
 ```
 
+**LS -** This code logs the values: `1`, `2`, `3`, `1`, `2` and then throws a `ReferenceError`.
+Executing `console.log(c)` on line 17 throws an error since `c` is **NOT IN SCOPE** on line 17 of the `foo()` function. The declaration on line 7 does declare a variable named `c`, but that variable's scope is confined to the function `bar`. Once the `bar` function completes execution, the variable `c` is immediately discarded. On line 17, `foo` CANNOT see the variable `c` at all. Therefore, `c` is NOT in scope on line 17 of the `foo()` function, and a `ReferenceError` is thrown. This demonstrates the principle of variable scoping, particularly that nested function have their own variable scope, and that inner scope variables **CANNOT** be accessed in the outer scope.
+
+**EV -** This code logs the values: `1`, `2`, `3`, `1`, `2` and then throws a `ReferenceError`.
+A global variable `a` is declared and initialized to the Number `1`. The `foo()` function is invoked and creates a new scope for local variables. The local variable `b` is declared and initialized to the Number `2`. Within the `foo()` function, the function `bar()` is invoked, which creates a new scope for local variables. The local variable `c` is then declared and initialized to the Number `3`. Since the function `bar()` is nested within the function `foo()`, it can access the outer scoped variables: `a` (global scope) and `b` (outer scoped variable declared within the `foo()` function). Therefore, the values `1`, `2`, and `3` are logged to the console. After the `bar()` function completes execution, the local variable `c` is **immediately discarded**, and control returns to the `foo()` function on line 15. The `foo()` function then calls the `console.log()` method, and values of the variable `a` and `b` (i.e. `1` and `2`) are logged to the console. However, when the `foo()` function attempts to access the value stored in the variable `c`, a `ReferenceError` is thrown as the variable `c` was created in the nested function `bar()` which only existed within the function scope of `bar()` and was destroyed after `bar()` completed execution. Therefore, `c` is NOT in scope on line 15 of the `foo()` function, and a `ReferenceError` is thrown. This demonstrates the principle of variable scoping, particularly that nested function have their own variable scope, and that inner scope variables **CANNOT** be accessed in the outer scope.
+
 #### Rule 5: **inner scope variables can *shadow* outer scope variables**
+
+Inner scope variables can shadow outer scope variables. Variables, parameters, function names, or class names can shadow names from the outer scope. The only names that don't get involved in shadowing are property names for objects.
 
 Take a look at the following code:
 
@@ -1120,6 +1207,8 @@ let number = 10;
 });
 ```
 
+EV - This code logs the numbers `1`, `2`, `3` to the terminal. In the global scope, a variable `number` is declared with the `let` keyword and initialized to the Number `10`. The `forEach()` method is then called on the array `[1, 2, 3]` and each element within the `[1, 2, 3]` array is passed as an argument to the callback function, and assigned the parameter `number`. Since the parameter `number` shares the same variable name as the global variable `number`, variable shadowing occurs. Although the variable `number` declared on line 1 is STILL visible at this point, since the variable was declared OUTSIDE and before block scope, the new local variable `number` shadows (hides) the outer scope variable. Therefore, this code logs the numbers `1`, `2`, `3`.
+
 `console.log(number)` will use the parameter `number` and discard the outer scoped local variable. Variable shadowing also prevents us from making changes to the outer scoped `number`.
 
 Variable shadowing isn't limited to callback functions. Whenever you have one scope nested within another, **variables in the inner scope** will shadow variables in the outer scope having the same name.
@@ -1135,42 +1224,39 @@ doit(3);
 console.log(a); // => 1
 ```
 
+**EV** - this code logs the number `3` and the number `1` to the terminal. First, the global variable `a` is declared and initialized on line 1. On line 5, we invoke the `doit` method, and pass the value `3` as an argument to the function. Within the `doit` function, the parameter `a` is assigned the value of `3`. Although the global variable `a` is still visible, since the parameter `a` shares the same name as the global variable `a` defined on line 1, variable shadowing prevents the outer-scope variable from being accessed. Therefore, within the `doit` function's execution, `3` is logged to the console. Line 6 then logs `1` to the console by passing the value of the global variable `a` from line 1.
+
 Note that, in this case, it's the parameter `a` that is shadowing the global variable `a`. Most names -- variables, parameters, function names, or class names -- can shadow names from the outer scope. The only names that don't get involved in shadowing are property names for objects.
 
 ### Block Scope Rules
 
 In JavaScript, blocks are segments of one or more statements and expressions grouped by opening and closing curly braces (`{}`). Each pair of braces in the constructs like `if/else` and the `for` and `while` loops define new block scopes. The rules for block scopes are identical to those for function scopes.
 
-1. Outer blocks cannot access variables from inner scopes.
-2. Inner blocks can access variables from outer scopes.
-3. Variables defined in an inner block can shadow variables from outer scopes.
-
-Not all code between **curly braces** is a block.
-
-* For instance, the code inside a function definition is not technically a block, but is, instead, called the **function body**.
-  * Although blocks and function bodies are very similar, there are subtle differences that you will encounter in a later course.
-* There are also other types of things between curly braces that are not considered blocks:
-  * class definitions (introduced in a later course) and
-  * object literals are not blocks.
-  * The differences are more substantial with these constructs than with function bodies.
+#### Outer blocks cannot access variables from inner scopes
 
 ```js
-// Examples:
-
-// 1. outer blocks cannot access variables from inner scope
 if (true) {
   let a = 'foo'
 }
 
 console.log(a); // ReferenceError
+```
 
-// 2. inner blocks can access variables from outer scope
+Within the `if` statement, the local variable `a` is declared and initialized to the string `foo`. After line 3, the variable `a` is no longer in scope. Thus, when we execute the `console.log(a)` method on line 5 and attempt to log the value stored in `a`, a `ReferenceError` is thrown. This demonstrates the variable scoping principle that outer blocks cannot access variables from inner scopes.
+
+#### Inner blocks can access variables from outer scopes
+
+```js
 let a = 'foo';
 
 if (true) {
   console.log(a); // => 'foo'
 }
+```
 
+On line 1, the global variable `a` is declared and initialized to the string `'foo'`. On line 4, the block within the `if` statement accesses the variable `a` defined in the outer scope, and logs the value `foo` to the console. This demonstrates the variable scoping principle that inner blocks can access variables from outer scopes.
+
+```js
 // 3.
 function aFunc() {
   let a = 'foo';
@@ -1197,6 +1283,63 @@ aFunc();
 ```
 
 If you run the above example, you'll see that only one exception gets raised: `ReferenceError: c is not defined` even though we expect three exceptions. That's how exceptions work in JavaScript; they halt the execution of the program *immediately*. Once execution reaches line 14, it raises an error and immediately stops executing the rest of the code. The point of the example is to show that the variable `c` will not be accessible outside the inner `if` block and variables `b` and `c` will not be accessible outside the outer `if` block.
+
+#### Variables defined in an inner block can **shadow** variables from outer scopes
+
+### Variable Shadowing
+
+Variable shadowing occurs when you choose a **local variable in an inner scope** that *shares the same name* as a **variable in an outer scope**. If you pick a name that is **identical** to an outer scope variable, *variable shadowing* will **prevent** you from **using the outer scope variable!**
+
+```js
+// Example 1 - Variable Shadowing
+let foo = 'bar';
+{
+  let foo = 'qux';
+}
+
+console.log(foo); // => logs 'bar'
+```
+
+The program logs `bar`. Line 1 declares and initializes a variable called `foo` and assigns it a value `'bar'`. Line 2 begins a new block, which creates a new scope for `let` variables. The variable on line 1 is STILL visible at this point, since the variable is declared OUTSIDE and before the block scope; however, since line 3 declares a new variable named `foo`, which has the same name as the variable on line 1, this new variable shadows (hides) the variable from line 1. This second variable `foo` gets initialized to a value `'qux'`, but it goes out of scope on line 4, when the block ends. That brings the `foo` variable from line 1 back into scope, so line 6 logs its value: `'bar'` to the console.
+
+// Example 2 - Variable Shadowing
+const FOO = 'bar';
+{
+  const FOO = 'qux';
+}
+console.log(FOO); // => logs 'bar'
+/* This program logs 'bar'. Line 1 declares and initializes a const called FOO and assigns it a value 'bar. Line 2 begins a new block, which creates a new scope 
+for let and const variables. The variable on line 1 is STILL visible at this point, since the variable was declared OUTSIDE and before block scope, however, 
+since line 3 declares a new const variable named FOO which has the same name as the variable on line 1, this new variable shadows (hides) the variable from line 1. 
+This second variable FOO gets initialized to a value 'qux', but it goes out of scope on line 4, when the block ends. That brings the const FOO variable from line 1
+back into scope, so line 6 logs it's value 'bar' to the console. The key takeaway is that the const variable initialized within the global scope and the const 
+variable declared and initialized within the block scope are separate entities - therefore, no error occurs. */
+
+// Example 3 - Variable Shadowing
+let number = 5;
+function test(number) { // <-- since the number parameter is the same as the variable declared on line 1, the number parameter SHADOWS the line 1 number variable
+  number = 3;
+}
+test(number);
+console.log(number); // => logs 5
+/* This code logs 5 to the console. The reason that the second code snippet doesn't change the value of number defined on line 1 is that 
+the number parameter on line 3 SHADOWS the number variable by creating a separate and independent variable with the same name, but with the 
+scope limited to the function. */
+```
+
+
+---
+
+Not all code between **curly braces** is a block.
+
+* For instance, the code inside a function definition is not technically a block, but is, instead, called the **function body**.
+  * Although blocks and function bodies are very similar, there are subtle differences that you will encounter in a later course.
+* There are also other types of things between curly braces that are not considered blocks:
+  * class definitions (introduced in a later course) and
+  * object literals are not blocks.
+  * The differences are more substantial with these constructs than with function bodies.
+
+
 
 ---
 

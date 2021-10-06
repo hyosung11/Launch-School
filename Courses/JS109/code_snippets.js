@@ -134,9 +134,17 @@
 // console.log(test(greeting)); // => [ 'ByeBye', 'World' ]
 // console.log(greeting); // => [ 'Hello' ]
 
-for (let i = 0; i < 5; i += 1) {
-  greeting = "Hello";
-  break;
+// for (let i = 0; i < 5; i += 1) {
+//   greeting = "Hello";
+//   break;
+// }
+
+// console.log(greeting); // Hello
+
+// Example 1 - Variable Shadowing
+let foo = 'bar';
+{
+  let foo = 'qux';
 }
 
-console.log(greeting); // Hello
+console.log(foo); // => logs 'bar'
