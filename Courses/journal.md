@@ -3562,3 +3562,26 @@ How awesome are the engineers in the company? If you're the best one there, that
 14:15 On the phone with Louis and was on the phone with Omar earlier.
 
 15:30 I didn't get much studying done today. I have to leave to referee now.
+
+## 20211006 수요일
+
+05:35 Study Session with Alex and Laurent.
+
+06:30 Not ready to take the written assessment.
+
+09:00 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Print out and review glossary
+   * [ ] 2. Review small problems and annotate the discussion section
+   * [ ] 3. Read *The Programmer's Brain* chapter 5: Reaching a deeper understanding of code
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex and Laurent
+   * [ ] 2. Review small problems and annotate the discussion section
+   * [ ] 3. SPOT Study Session
+   * [ ] 4. Algorithm Writing Clinic
+   * [ ] 3. Read *The Programmer's Brain* chapter 5: Reaching a deeper understanding of code
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I don't feel ready to take the written assessment. I need to sharpen my code analysis skills and identify the underlying concept faster. This requires more practice.

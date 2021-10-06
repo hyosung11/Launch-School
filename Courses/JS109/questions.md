@@ -91,8 +91,7 @@ The code will log 'hi' and then 'hello'. This demonstrates the difference betwee
 Solution
 The program logs `'hi'` and `'hello'`. The reason behind this is that objects are mutable; strings and other primitives are not. Also, variable reassignment, such as that on line 10, doesn't mutate the original object even when the object is mutable. Thus, line 9 mutates `foo` by assigning its `a` property to a new value (`'hi'`). Therefore, the code on line 15 logs `hi`. On the other hand, line 10 reassigns the `argument2` variable, but it doesn't mutate the string represented by `qux`. Thus, line 16 logs `hello`: the original value of the `qux` variable.
 
-=======================
-What is output and why?
+## What is output and why?
 
 ```js
 let firstName = 'John';
@@ -117,7 +116,7 @@ The code will log 'John'. The second-to-last line will return 'john'. This is be
 
 The `console.log(firstName)` method outputs 'John'. It takes the global variable `firstName` whose values is assigned to the string 'John'. The call to the getName function returns 'john' because within the function 'name' is reassigned to `name.toLowerCase()` and that is what's returned. This is an example of pass by value.
 
-What will the following code log to the console and why?
+## What will the following code log to the console and why?
 
 ```js
 const a = 1;
@@ -131,16 +130,6 @@ myFunction(a);
 
 This code logs `TypeError: Assignment to a constant variable`. Variables declared by `const` are block scoped and their value cannot be changed through reassignment. So when we try to reassign `a` on line 6, we get an error. Passing `a` as an argument to `myFunction` doesn't do anything because `myFunction` does not accept any parameters.
 
-// What will the following code log to the console and why?
-
-const a = 1;
-
-function myFunction() {
-  a = 2;
-}
-
-myFunction(a);
-
 Alex
 The code will log a type error. This is because once variables are declared as constants, they cannot be reassigned. Moreover, the function has access to the global variable `a` as a result of scoping rules: inner scopes can access outer scope variables. But when the function is invoked on line 7 and the function executes, it returns an error because const cannot be reassigned.
 
@@ -150,7 +139,7 @@ This code logs `TypeError: Assignment to a constant variable`. Variables declare
 L
 It will log a TypeError. We declare a constant `a` and assign it a value of `1`. When we call myFunction on the last line, we pass `a` as an argument, so when we try to assign `a` a value of 2 in the function, JS will look in the closest outer scope with a variable `a`, in this case the constant `a` from line 1. As `a is a constant, we can not re-assign it and this code will log a TypeError when we run it.
 
-What gets logged and why?
+## What gets logged and why?
 
 ```js
 let name = 'nina;
@@ -261,20 +250,21 @@ variable shadowing
 Alex's Answer
 The code will log 'jim' and then undefined. When anotherFunction() is invoked on line X, it comes into scope and within its scope, the variable 'name is declared and initialized to the string 'jim' on line 6. On line 7, the function changeName is invoked and passed the variable name as an argument. At this point, the variable name that is local to the function changeName and the outer scope variable of the same name that is local to anotherFunction() are both set to string 'jim'. However, when changeName() is invoked the variable name that is local to that function gets reassigned to the string 'bob'. This does not affect the name variable in anotherFunction() - the two values have now diverged. WHen the changeName function terminates on the next line and the name variable is logged to teh console, this reverts to the version that is local to anotherFunction(), and 'jim' is logged to the console. This is an example of variable shadowing.
 
-// 1. What does this code log and why?
-// let a = 1;
+## What does this code log and why?
 
-// function doit(a) {
-//   console.log(a);
-// }
+```js
+let a = 1;
 
-// doit(3); // => 3
-// console.log(a); // => 1
+function doit(a) {
+  console.log(a);
+}
 
-/*
-This code logs `3` on the invocation of the function `doit` on line 8 and `1` from the `console.log` method on line 9. On line 2, the global variable `a` is declared and initialized to the value of `1`. The `doit` function is declared on line 4 and accepts one argument, here the variable `a`. This variable `a` shadows the global variable `a` on line 2. The `console.log` method logs the global variable `a` from line 2.
+doit(3); // => 3
+console.log(a); // => 1
+```
 
-*/
+This code returns `3` on the invocation of the function `doit` on line 8 and `1` from the `console.log` method on line 9. On line 2, the global variable `a` is declared and initialized to the value of `1`. The `doit` function is declared on line 4 and accepts one argument, here the variable `a`. This variable `a` shadows the global variable `a` on line 2. The `console.log` method logs the global variable `a` from line 2.
+
 
 // 2.
 // function changeName(name) {
@@ -339,7 +329,7 @@ This code logs ____ . Variables declared in an outer scope are accessible in an 
 
 ---
 
-// What will it log and why?
+What will it log and why?
 
 ```js
 let person = {
@@ -406,7 +396,7 @@ console.log(checkEmpty());
 
 ---
 
-What does this program log and why?
+## What does this program log and why?
 
 ```js
 let animal = "dog"
@@ -423,14 +413,86 @@ speak();
 ```
 
 My Answer
-This program logs "Bark". On line 18, the global variable `animal` is declared and initialized to the string "dog". On line 20, the function `speak` is declared with the parameter `animal`. This `animal` variable shadows the global `animal` variable on line 18 making the global variable inaccessible inside the function `speak`. When `speak` is invoked on line 28, it doesn't pass an argument. Instead of throwing an error, JavaScript defaults this argument's value to `undefined`. In the `if` statement `animal`'s value is evaluated as `undefined` and the `console.log("Bark")` method executes and logs "Bark".
+This program logs "Bark" to the console. On line 18, the global variable `animal` is declared and initialized to the string "dog". On line 20, the function `speak` is declared with the parameter `animal`. This `animal` variable shadows the global `animal` variable on line 18 making the global variable inaccessible inside the function `speak`. When `speak` is invoked on line 28, it doesn't pass an argument. Instead of throwing an error, JavaScript defaults this argument's value to `undefined`. In the `if` statement `animal`'s value is evaluated as `undefined` and the `console.log("Bark")` method executes and logs "Bark".
 
 * variable shadowing
-* function without required argument js takes the value undefined
+* function without required argument in js takes the value `undefined`
 
 Elaine's Answer
 Elaine Vuong  4 days ago
 Hi H - one thing I would do (perhaps it's just me) is to just highlight the concepts up front. This was well done though, good job! :slightly_smiling_face:
 This was my answer if it helps at all!
 
-This program logs 'Bark' to the console. This code snippet demonstrates a) concepts of variable shadowing and b) if no arguments are passed to a function's parameters, the parameters are assigned the default value undefined. On line 11 we call the speak() function and we do not pass any arguments to the function. The speak() function has one parameter, animal, however as no arguments are passed to it, animal is assigned the default value undefined. The function definition of speak() creates a new function scope for local variables. Because the local function variable animal shares the same name as the global variable animal declared on line 1, variable shadowing prevents us from using the outer scoped variable. Therefore, on line 4 since animal contains the primitive value undefined, this results in the strict equality operator returning true, which is a truthy value. The if clause is then executed, and Bark is logged to the console.
+This program logs 'Bark' to the console. This code snippet demonstrates a) concepts of variable shadowing and b) if no arguments are passed to a function's parameters, the parameters are assigned the default value `undefined`. On line 11 we call the `speak()` function and we do not pass any arguments to the function. The `speak()` function has one parameter, `animal`, however as no arguments are passed to it, `animal` is assigned the default value `undefined`. The function definition of `speak()` creates a new function scope for local variables. Because the local function variable `animal` shares the same name as the global variable `animal` declared on line 1, variable shadowing prevents us from using the outer scoped variable. Therefore, on line 4 since `animal` contains the primitive value `undefined`, this results in the strict equality operator returning `true`, which is a truthy value. The `if` clause is then executed, and "Bark" is logged to the console.
+
+## What is the return value of the final line? Why? What concept does this illustrate?
+
+```js
+function evenValues(array) {
+  let evens = [];
+
+  array.forEach(value => {
+    if (value % 2 === 0) {
+      evens.push(value);
+    }
+    array.shift();
+  });
+
+  return evens;
+}
+
+evenValues([1, 3, 4, 2, 4, 6, 5, 7, 9, 10, 12]);
+```
+
+The return value of the final line will be `[ 4, 4, 12 ]`. This problem illustrates the problem of mutating an array while iterating over it. The function `evenValues` is defined on line 3 and takes a single parameter called `array`. The `forEach` method, during each iteration, invokes the callback with the element's value as an argument. The callback then adds even numbers to the `evens` array. In the end, `forEach` returns `undefined`.
+
+The push() method adds one or more elements to the end of an array and returns the new length of the array.
+
+The shift() method removes the first element from an array and returns that removed element. This method changes the length of the array.
+
+/*Alex
+The function will return the array `[4, 4, 12]`. It demonstrates what happens when you mutate an array while iterating through it--the program ostensibly intends to return a new array containing only even numbers from the original array, but misses some of the even elements because the `shift()` method mutates the original array in the course of iterating. A better choice would be to use filter() to select the even elements without mutating the original array or even just to omit the shift() method.
+
+Laurent
+This code will log `[4, 4, 12]`. It illustrates the problems of mutating an array when iterating over it.
+
+On line 14, we call the global scope function `evenValues` with `[1, 3, 4, 2, 4, 6, 5, 7, 9, 10, 12]` as argument. Inside, this function, we declare `evens` that will hold a pointer to the new array to be returned at the end of the function. We then iterate over the passed-in array with `forEach` and push the value to the `evens` array if the number is even, that is, if the expression `value % 2 === 0` returns `true`. Then we remove the first element of the array with the `shift` method. This will cause the iteration to pass some elements and not return all the even elements.
+
+HyoSung
+The return value of the final line will be `[ 4, 4, 12 ]`. The function `evenValues` is defined on line 3 and takes a single parameter called `array`. The `forEach` method, during each iteration, invokes the callback with the element's value as an argument. The callback then adds even numbers to the `evens` array. In the end, `forEach` returns `undefined`.
+
+The push() method adds one or more elements to the end of an array and returns the new length of the array.
+
+The shift() method removes the first element from an array and returns that removed element. This method changes the length of the array.
+
+Explain why line 7 outputs 'hello' rather than some other String. Be precise.
+
+```js
+function change(param) {
+  param += " greeting";
+  return param;
+}
+
+let greeting = "hello";
+change(greeting);
+
+console.log(greeting);
+```
+
+Line 7 outputs 'hello' because the `console.log(greeting)` method passes the global variable `greeting` from line 8 as an argument. This code demonstrates variable scope and that primitive values cannot be mutated. The function `change` is declared on line 3 with the single parameter `param`. `param` is then reassigned to " greeting" but this doesn't change the value of the `greeting` variable. Thus, "hello" is logged to the console.
+
+LAURENT
+The call to the `console.log` method on line 7 will output `hello` to the console because:
+
+1/ the value `greeting` is passed-by-value as argument to the function call to `change` on line 7
+
+2/ The returned value from the call to `change` is not assigned to the global scope
+
+On line 6, we declare the global variable `greeting` and assign to it the value `hello`. On the next line, we call the function `change` with the the string `greeting` as argument. This is being passed to the function by value, which means that a copy of the variable is assigned to `param`. Inside the function, we re-assign `greeting` to `hello greeting` and return it. But the returned value is not being assigned in the global scope, and the original `greeting` string has not been modified, only a copy of it.
+
+Alex
+The code will log 'hello''. The global variable `greeting` declared on line 8 is unchanged by the function `change` because strings are primitive values and are pass-by-value, meaning a copy of the value is passed to the function, not the variable itself. A copy of the string "hello" is passed to the `change()` function on line 3 and assigned to the local variable `param`. `param is then reassigned to concatenate the string `greeting`, which is returned on line 5. When the function is invoked with `greeting` as its argument on line 9, it returns "hello greeting"-- but this does not affect the global variable `greeting`, which is logged as its original, unchanged value `hello`on line 11.
+
+HyoSung
+Line 7 outputs 'hello' because the `console.log(greeting)` method passes the global variable `greeting` from line 8 as an argument. This code demonstrates variable scope and that primitive values cannot be mutated. The function `change` is declared on line 3 with the single parameter `param`. `param` is then reassigned to " greeting" but this doesn't change the value of the `greeting` variable. Thus, "hello" is logged to the console.
+*/

@@ -2,6 +2,20 @@
 
 ## 1. Arrays: working with Arrays, especially the iteration methods (`forEach`, `map`, `filter`, and `find`)
 
+### `Array.prototype.concact()`
+
+```js
+function addToArray(array) {
+  return array.concat(10);
+}
+
+let oneToFive = [1, 2, 3, 4, 5];
+console.log(addToArray(oneToFive)); // => [1, 2, 3, 4, 5, 10]
+console.log(oneToFive);             // => [1, 2, 3, 4, 5]
+```
+
+The `concat` method returns a new array that contains a copy of the original array combined with additional elements supplied with the arguments. Since `concat` creates a copy of the original array and then mutates the copy, it leaves the original array intact.
+
 ### `Array.prototype.filter()`
 
 The `filter` method returns a new array that includes all elements from the calling array for which the callback returns a truthy value.
@@ -89,6 +103,16 @@ The `map` method takes a function as an argument and calls it for each element o
 ```
 
 However, `map` returns a new array that contains one element for each element in numbers, with each element set to the return value of the callback: the squares of the numbers in this case. This code is more compact than the `forEach` code, and, better yet, it has no side effects; the callback doesn't update squares (the return value of map does that), and we don't have to reset the variable if we rerun the same code.
+
+### `Array.prototype.pop()`
+
+```js
+let oddNumbers = [1, 3, 5, 7, 9];
+oddNumbers.pop();
+console.log(oddNumbers); // => [1, 3, 5, 7]
+```
+
+The pop() method removes the last element from an array, but it does so destructively: the change is permanent. `pop` alters the array in-place. In other words, it mutates its caller (the array).
 
 ## 2. Arrays Are Objects
 
@@ -315,7 +339,7 @@ Functions and methods perform actions and return values.
 
 ## 10. Functions: Implicit Return Value of Function Invocations
 
-All JavaScript function calls evaluate to a value. By default, that value is `undefined`; this is the **implicit return value** of most JavaScript functions. However, when you use a `return` statement, you can return a specific value from a function. This is an **explicit return value**. Outside of the function, there is no distinction between implicit and explicit return values, but it's important to remember that all functions return something unless they raise an exception, even if they don't execute a return statement.
+All JavaScript function calls evaluate to a value. By default, that value is `undefined`; this is the **implicit return value** of most JavaScript functions. However, when you use a `return` statement, you can return a specific value from a function. This is an **explicit return value**. Outside of the function, there is no distinction between implicit and explicit return values, but it's important to remember that all functions return something unless they raise an exception, even if they don't execute a `return` statement.
 
 ## 11. Functions: passing arguments into and return values out of functions
 
@@ -337,10 +361,9 @@ Operations on **mutable** values (arrays and objects) may or may not return a ne
 
 ### Immutability
 
-Primitive values are not mutable.
-`NaN` is a number in JavaScript, so it is a primitive value
-
 Primitive values are **immutable**. That means their values never change: operations on immutable values always return new values.
+
+`NaN` is a number in JavaScript, so it is a primitive value
 
 ### `const`
 
@@ -985,7 +1008,7 @@ function aFunc() {
 
 Though we never invoke `aFunc` and never create the `foo` variable, we still talk of it as in scope within `aFunc`.
 
-In JavaScript, variables declared with the `let` or `const` keywords have **block** scope which confines the variable's scope to that block.
+In JavaScript, variables declared with the `let` or `const` keywords have **block** scope which confines the variable's scope to that block. In other words, when you use `let` or `const` inside a block it confines the variable's scope to that block.
 
 Parameters have local scope within a function.
 

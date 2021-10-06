@@ -123,13 +123,20 @@
 // console.log(obj.c = 3);
 // console.log(obj);
 
-let greeting = ['Hello'];
+// let greeting = ['Hello'];
 
-const test = arr => {
-  arr = ['ByeBye'];
-  arr.push('World');
-  return arr;
-};
+// const test = arr => {
+//   arr = ['ByeBye'];
+//   arr.push('World');
+//   return arr;
+// };
 
-console.log(test(greeting)); // => [ 'ByeBye', 'World' ]
-console.log(greeting); // => [ 'Hello' ]
+// console.log(test(greeting)); // => [ 'ByeBye', 'World' ]
+// console.log(greeting); // => [ 'Hello' ]
+
+for (let i = 0; i < 5; i += 1) {
+  greeting = "Hello";
+  break;
+}
+
+console.log(greeting); // Hello
