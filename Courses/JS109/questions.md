@@ -265,7 +265,6 @@ console.log(a); // => 1
 
 This code returns `3` on the invocation of the function `doit` on line 8 and `1` from the `console.log` method on line 9. On line 2, the global variable `a` is declared and initialized to the value of `1`. The `doit` function is declared on line 4 and accepts one argument, here the variable `a`. This variable `a` shadows the global variable `a` on line 2. The `console.log` method logs the global variable `a` from line 2.
 
-
 // 2.
 // function changeName(name) {
 //   name = 'bob';
@@ -491,7 +490,7 @@ The call to the `console.log` method on line 7 will output `hello` to the consol
 On line 6, we declare the global variable `greeting` and assign to it the value `hello`. On the next line, we call the function `change` with the the string `greeting` as argument. This is being passed to the function by value, which means that a copy of the variable is assigned to `param`. Inside the function, we re-assign `greeting` to `hello greeting` and return it. But the returned value is not being assigned in the global scope, and the original `greeting` string has not been modified, only a copy of it.
 
 Alex
-The code will log 'hello''. The global variable `greeting` declared on line 8 is unchanged by the function `change` because strings are primitive values and are pass-by-value, meaning a copy of the value is passed to the function, not the variable itself. A copy of the string "hello" is passed to the `change()` function on line 3 and assigned to the local variable `param`. `param is then reassigned to concatenate the string `greeting`, which is returned on line 5. When the function is invoked with `greeting` as its argument on line 9, it returns "hello greeting"-- but this does not affect the global variable `greeting`, which is logged as its original, unchanged value `hello`on line 11.
+The code will log 'hello'. The global variable `greeting` declared on line 8 is unchanged by the function `change` because strings are primitive values and are pass-by-value, meaning a copy of the value is passed to the function, not the variable itself. A copy of the string "hello" is passed to the `change()` function on line 3 and assigned to the local variable `param`. `param is then reassigned to concatenate the string`greeting`, which is returned on line 5. When the function is invoked with`greeting` as its argument on line 9, it returns "hello greeting"-- but this does not affect the global variable `greeting`, which is logged as its original, unchanged value`hello`on line 11.
 
 HyoSung
 Line 7 outputs 'hello' because the `console.log(greeting)` method passes the global variable `greeting` from line 8 as an argument. This code demonstrates variable scope and that primitive values cannot be mutated. The function `change` is declared on line 3 with the single parameter `param`. `param` is then reassigned to " greeting" but this doesn't change the value of the `greeting` variable. Thus, "hello" is logged to the console.

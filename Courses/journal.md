@@ -3591,3 +3591,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 1. Understand concepts very deeply
 2. Refine language / terminology
 3. Practice problems
+
+11:00 Reviewing Elaine's notes and using her notes to update my glossary.

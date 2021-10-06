@@ -2,7 +2,7 @@
 
 ## 1. Arrays: working with Arrays, especially the iteration methods (`forEach`, `map`, `filter`, and `find`)
 
-### `Array.prototype.concact()`
+### `Array.prototype.concat()`
 
 ```js
 function addToArray(array) {
@@ -215,7 +215,34 @@ When a variable is declared, it is initialized with the implicit value `undefine
 
 ### Assignment
 
-Variable assignment
+Variable assignment is the assigning of a value to a variable that has been declared and initialized using the assignment operator. When used in a declaration, the `=` is a syntactic token that tells JavaScript that you will supply an initial value for the variable. However, in an assignment, the `=` is called the assignment operator. The return value of an assignment is the value on the right-hand side of the `=` assignment operator.
+
+### Reassignment
+
+After a variable has been assigned, it can be re-assigned. This means that the variable can be made to refer to a new value. A key concept to understand is that when we re-assign a value to a variable, we are NOT changing the original value - we are putting a completely new value in the variable.
+
+### Constant
+
+The `const` keyword is similar to the `let` keyword, but it lets you declare and initialize **constant** identifiers. Constants have an **immutable binding** to their values. Unlike an ordinary variable, once you declare a constant, you **cannot** assign it a new value. The constant will continue to have that value until the constant is no longer needed. When naming constants, a common convention is to use all capital letters and digits in the name with underscores to separate words, or `SCREAMING_SNAKE_CASE`.
+
+The `const` declaration creates a **read-only reference** to a value. It does not mean the value it holds is **immutable** —- just that the **variable identifier cannot be reassigned**. For instance, in the case where the content is an object, this means the object's contents (e.g., its properties) can be **altered**.
+
+### Common Errors with Constants
+
+* Declaration without an initial value supplied throws a `SyntaxError`.
+  * When you declare a `const` in JavaScript, it requires an initial value to be supplied; otherwise, it will a throw a `SyntaxError: Missing initializer in a const declaration`.
+* Reassignment of a `const` variable throws an `Uncaught TypeError`.
+  * Reassigning a `const` in JavaScript will throw an `Uncaught TypeError: Assignment to a constant variable`.
+
+```js
+// Playing with constants
+> let const FIRST_NAME = 'Mitchell';
+undefined // => declaration (with or without an initial value)  always returns `undefined`.
+
+// Common Errors
+> let const LAST_NAME; // Declaration without an initial value -> SyntaxError: Missing initializer in const declaration
+FIRST_NAME = 'Harry'; // Reassignment -> Uncaught TypeError: Assignment to a constant variable.
+```
 
 ## 5. Equality: Loose and Strict Equality
 
