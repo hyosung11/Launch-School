@@ -3585,3 +3585,9 @@ How awesome are the engineers in the company? If you're the best one there, that
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I don't feel ready to take the written assessment. I need to sharpen my code analysis skills and identify the underlying concept faster. This requires more practice.
+
+09:17 Elaine's Suggestions
+
+1. Understand concepts very deeply
+2. Refine language / terminology
+3. Practice problems

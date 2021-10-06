@@ -163,7 +163,7 @@ Arrays are objects. One side effect of this is that the `typeof` operator doesn'
 
 Output and return values are different concepts.
 
-`console.log`
+### `console.log`
 
 When we invoke the `console.log` method, we're telling JavaScript to write something to the console. In Node, that is your screen; in your browser, it's the Console in your Developer Tools application. The term log is a synonym for printing or displaying something on the console.
 
@@ -183,7 +183,7 @@ Howdy // displayed on the console
 
 The value returned by `console.log("Howdy")` is `undefined`, so that's the value to which `a` gets assigned. Therefore, `a` on the second line evaluates to `undefined`, and `node` shows it as the return value.
 
-`return`
+### `return`
 
 JavaScript uses the `return` statement to return a value to the code that called the function: the **caller**. If you don't specify a value, it returns `undefined`. Either way, the `return` statement causes the function to stop running and returns control to the caller.
 
@@ -191,21 +191,31 @@ The **return value** is the evaluated value of the expression.
 
 ## 4. Declarations, Initialization, Assignment, and Re-assignment
 
+### Declaration
+
+A declaration is a statement that asks the JavaScript engine to reserve space in memory for a variable with a particular name. Optionally, it may also specify an initial value for the variable. Note that regardless of whether we provide a value in a declaration, the variable is initialized. If we don't provide an explicit value, that initial value is `undefined`. Variable declarations, with or without initial assignment, always return `undefined`. In JavaScript, variables can be declared with the `let`, `const`, or `var` keywords. Be sure to always declare your variables and constants with `let` and `const`. Undeclared variables have global scope. When used in a declaration, the `=` is a syntactic token that tells JavaScript that you will supply an initial value for the variable. However, in an assignment, the `=` is called the assignment operator.
+
 ```sh
 > let firstName = "Sohee"; // Declare and initialize variable with an explicit value on the same line.
 = undefined
 ```
 
-Note that regardless of whether we provide a value in a declaration, the variable is initialized. If we don't provide an explicit value, that initial value is `undefined`.
+The variable `firstName` is declared and initialized with the explicit value of the string `'Sohee'` on the same line and returns `undefined`.
 
 ```js
 let count = 1;
 count = 2;
 ```
 
-On line 1, we declare a (global/local) variable named `count`, and initialize it to a value of `1`, which is a primitive value. Line 2 reassigns `count` to a new primitive value, `2`.
+On line 1, we declare a global variable named `count`, and initialize it to a value of `1`, which is a primitive value. Line 2 reassigns `count` to a new primitive value, `2`.
 
-Be sure to always declare your variables and constants with `let` and `const`. Undeclared variables have global scope.
+### Initialization
+
+When a variable is declared, it is initialized with the implicit value `undefined`. A more useful value can be assigned to a variable with an **initializer** in the declaration. Variables can be declared and initialized with an explicit value on the same line.
+
+### Assignment
+
+Variable assignment
 
 ## 5. Equality: Loose and Strict Equality
 
@@ -318,7 +328,7 @@ Above we define an arrow function `getNumber` that requires one parameter. The p
 
 ## 9. Functions: Function Definition and Invocation
 
-Before you can use a function, you must first define it with the reserved keyword, `function`. After the word function, you write the function's name followed by a pair of parentheses (`()`). After the closing parenthesis, the code you want to associate with the function -- the **function body** -- gets placed between curly braces (`{}`).
+Before you can use a function, you must first define it with the reserved keyword, `function`. After the word `function`, you write the function's name followed by a pair of parentheses (`()`). After the closing parenthesis, the code you want to associate with the function -- the **function body** -- gets placed between curly braces (`{}`).
 
 In the definition of a function, the names between parentheses are called **parameters**. The **arguments** are the values of those parameters.
 
@@ -350,6 +360,10 @@ Functions can perform an operation and **return** a result to the call location 
 JavaScript uses the `return` statement to return a value to the code that called the function: the **caller**. If you don't specify a value, it returns `undefined`. Either way, the `return` statement causes the function to stop running and returns control to the caller.
 
 Functions that always return a boolean value, i.e., `true` or `false`, are called **predicates**. You will almost certainly encounter this term in future readings and videos, so commit it to memory.
+
+**Function composition** lets us use a function call as an argument to another function.
+
+We've seen that function calls always return a value, and we can pass that function call as an argument to another function call. Thus, it's vital to know what values our functions return. In the final analysis, those values get passed as arguments to other functions.
 
 ## 12. Mutability vs. Immutability vs `const`
 
