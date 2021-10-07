@@ -244,6 +244,73 @@ FIRST_NAME = 'Harry'; // Reassignment -> Uncaught TypeError: Assignment to a con
 
 ## 5. Equality: Loose and Strict Equality
 
+In JavaScript, there are two equality operators: strict equality `(===)` and non-strict (or weak) equality `(==).` The `===` operator behaves as a traditional equality operator does in most languages: it evaluates as true when the two expressions on either side have the same **type** and **value**. On the other hand, the `==` operator *coerces* the values to the same type before comparing them. Coercions can produce unexpected and confusing behavior. Thus, it's good practice to use `===` rather than `==.` The same holds for the `!==` vs. `!=` operators: prefer `!==`.
+
+### Strict Equality `===` Operator
+
+The strict equality operator returns `true` when the operands have the **same type** and **value**, `false` otherwise. For an object, it will return `true` ONLY if both operands refer to the same object.
+
+Unlike the non-strict equality operator, the strict equality operator always considers operands of different types to be different.
+
+* **Different Types → `false` -** If the operands are of **different types**, returns `false`.
+* **Same Object → `true` -** If both operands are objects, returns `true` only if they refer to the same object.
+* **Both `null` or Both `undefined` →** If both operands are `null` or both operands are `undefined`, returns `true`.
+* **Comparison with `NaN` → `false`** If either operand is `NaN`, returns `false`.
+* **Otherwise**, compare the two operand's values:
+  * Numbers must have the **same numeric values**.
+    * `0`, `+0`, and `-0` are considered to be the same value.
+    * `0n` is NOT `===` to `0`, `+0` or `-0`
+  * Strings must have the **same characters in the same order.**
+  * Booleans must be **both `true` or both `false`.**
+
+### Loose Equality `==` Operator
+
+The loose equality operator (`==`) checks whether its two operands are equal, returning a Boolean result. Unlike the strict equality operator, if the operands are different data types, it will attempt to **coerce** one or both operands before comparison.
+
+1. `==` Comparison of a String and a Number → the **string** is a coerced to a number, and the values are compared.
+2. `==` Comparison of a Boolean and a Number → the **boolean** is coerced to a number, and the values are compared.
+3. `==` Comparison of a Boolean and a String → the boolean gets coerced to a number, and then the string is coerced to a number, the values are compared.
+4. `==` Note that `null` and `undefined` are considered equivalent, **however** these values do NOT get coerced to 0.
+5. `==` with Arrays and Objects - it considers two objects equal only when they're the same object. When an object is compared with a primitive value, the **object** is **coerced into a primitive value** and compared again using the `==` operator.
+    * Empty Object `{}` - when compared to a string, is coerced to the string `'[object Object]'`
+    * Array `[]` - when compared to a string, is coerced to the empty string `''`
+    * Array (single value) `[4]` - when compared, is coerced to the value of the first element
+    * Array (multiple values) `[4, 7]` - when compared, is coerced to the String `'4,7'` - notice NO SPACES!
+
+```js
+// Non-Strict Equality - String and a Number
+'1' == 1  // coerces the string '1' to a number, and then compares them => returns true
+1 == '1'  // coerces the string '1' to a number, and then compares them -> note that operand order does NOT matter => returns true
+
+// Non-Strict Equality - Boolean and a Number
+1 == true   // coerces the boolean true to a number 1, and then compares 1 and 1 => returns true
+3 == true   // coerces the boolean true to a number 1, and then compares 1 and 3 => returns false
+0 == false  // coerces the boolean false to a number 0, and then compares 0 and 0 => returns true
+
+// Non-Strict Equality - Boolean and a String
+'1' == true // coerces the boolean true to a number 1, and then the string '1' is coerced to a number, compares 1 == 1 => returns true
+'' == false // coerces the boolean false to a number 0, and then the string '' is coerced to the number 0, compares 0 == 0 => returns true
+
+// Non-Strict Equality - undefined and null
+undefined == 0     // returns false -> note that undefined is NOT coerced to 0
+undefined == ''    // returns false -> note that undefined is NOT coerced to 0
+null == 0          // returns false -> note that null is NOT coerced to 0
+null == ''         // returns false -> note that null is NOT coerced to 0
+undefined == null  // returns true  -> interesting behavior in that undefined and null are considered equivalent
+
+// Non-Strict Equality - Array Comparison
+let arr = []  // returns undefined
+arr == []     // returns false
+arr == arr    // returns true -> HAS to be the SAME object
+
+// Non-Strict Equality - Object and a Primitive
+'' == {} // the plain object {}  is coerced into to the string '[object Object]', and is compared with the string '' which is coerced to the number 0, compares '[object Object]' and 0 => returns false
+'[object Object]' == {}  // coerces the plain object{} to string '[object Object]' and compared with string '[object Object]' -> returns true
+[] == '' // empty array is coerced to an empty string; both empty strings are coerced to the number 0 and compared => returns true
+[] == 0  // empty array is coerced to an empty string; empty string is coerced to the number 0 and compared => returns true
+[] == false // empty array is coerced to an empty string; empty string is coerced to the number 0, boolean false coerced to number 0 => returns true
+```
+
 What will the following code output?
 
 ```js
@@ -257,8 +324,6 @@ The code outputs:
 true
 false
 ```
-
-In JavaScript, there are two equality operators: strict equality `(===)` and non-strict (or weak) equality `(==).` The `===` operator behaves as a traditional equality operator does in most languages: it evaluates as true when the two expressions on either side have the same **type** and **value**. On the other hand, the `==` operator *coerces* the values to the same type before comparing them. Coercions can produce unexpected and confusing behavior. Thus, it's good practice to use `===` rather than `==.` The same holds for the `!==` vs. `!=` operators: prefer `!==`.
 
 The **strict equality operator**, also known as the **identity operator**, returns true when the operands have the same type _and_ value, **false** otherwise.
 
@@ -1184,7 +1249,39 @@ The ability to express **true** or **false** is vital in any programming languag
 
 In the assessment, we want you to be very clear about the distinction between *truthy* and *falsy* values and the boolean values `true` and `false`.
 
-In JavaScript, the *falsy* values `false`, `0`, `NaN`, `""`, `undefined`, and `null` are all said to *evaluate to false* when used in a boolean context. All other values, the *truthy* values, are all said to *evaluate to true*. Note that saying that a value evaluates to true or false is **not** the same as saying that those values **are** `true` or `false`, or that they are **equal to** `true` or `false`. These may seem like subtle distinctions, but they are important ones.
+### Boolean
+
+A boolean is a data type whose only purpose is to convey whether something is `true` or `false`.
+
+### Truthiness
+
+Truthiness differs from Boolean values. In JavaScript, almost all values *evaluate as true* or are *truthy*. The only values that *evaluate as false* or are *falsy* are (0 funN is empty ''):
+
+* `0`
+* `false`
+* `undefined`
+* `null`
+* `NaN`
+* `''`
+
+In JavaScript, the *falsy* values `0`, `false`, `undefined`, `null`, `NaN`, `""` are all said to *evaluate to false* when used in a boolean context. All other values, the *truthy* values, are all said to *evaluate to true*. Note that saying that a value evaluates to true or false is **not** the same as saying that those values **are** `true` or `false`, or that they are **equal to** `true` or `false`.
+
+```js
+// All of These Values are Considered `truthy`
+if (true)
+if ({})
+if ([])         // <-- considered truthy
+if (42)
+if ("0")        // <-- considered truthy
+if ("false")
+if (new Date())
+if (-42)
+if (12n)
+if (3.14)
+if (-3.14)
+if (Infinity)
+if (-Infinity)
+```
 
 Suppose we ask you to describe what is happening in this code:
 
@@ -1228,11 +1325,7 @@ if (b) {
 ```
 
 The first example logs "how can this be true?" while the second logs "it is not true." This works since JavaScript coerces the value `5` to `true`, and the value `0` to `false`.
-JavaScript can coerce any value to a boolean. Thus, you can use any expression in a conditional expression. We often say that the expression **evaluates as** or **evaluates to** true or false.
-
-JavaScript treats the following values as false: 0funN is empty: `0`, `false`, `undefined`, `null`, `NaN`, and `''`. Everything else evaluates as true.
-
-The term **falsy** refers to values that evaluate as false, while the values that evaluate as true are **truthy**. These terms are used to distinguish between boolean `true` and `false` values. We can also discuss **truthiness**: whether something is a truthy or falsy value.
+JavaScript can coerce any value to a boolean. Thus, you can use any expression in a conditional expression.
 
 Comparison operators return a boolean value: `true` or `false`.
 
