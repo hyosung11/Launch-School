@@ -185,7 +185,7 @@ return of greeting is undefined
 // algo:
 // - split string into word array on spaces
 // - transform word array to wordPoints array:
-//   - for current word, tranform to word points (helper method)
+//   - for current word, transform to word points (helper method)
 // - get the position of the max value of wordPoints array
 // - return the word with that position in word array
 

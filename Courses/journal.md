@@ -3613,3 +3613,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Playing ping pong with Louis and reffing this afternoon.
+
+09:53 Working through Variable Shadowing. I think it's dumb because it's not something you want to do in a program.

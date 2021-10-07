@@ -1114,7 +1114,7 @@ Here, the outer scope is the global scope, and it does not have an `a` variable.
 
 Note that a *local variable only comes into existence when you call that function*. The mere act of defining a function doesn't create any variables. The function declaration does, however, *define* the scope of the variables. For example, in the `aFunc` function above, the function body defines where variable `a`, when created, will be accessible. However, the variable `a` doesn't get created and assigned a value **unless** we invoke the function. When we call the function on line 5, a variable `a` is created, assigned the value `1` and *immediately discarded* once the function finishes execution and control returns to the main flow of the program.
 
-**EV -** the `aFunc()` function is invoked, and defines a new scope for local variables. The local variable `a` is declared with the `let` keyword, and initially assigned the Number literal value `1`. After the function `aFunc()` completes execution, the variable `a` is immediately discarded and control returns to the main flow. Therefore, when we try to log the value stored in variable `a` to the console, a `ReferenceError` is thrown because the local variable `a` only existed within the function scope and was destroyed after the function completed exeuction, and therefore DOES NOT exist in the global scope. This demonstrates the principle of variable scoping, particularly that inner scope variable CANNOT be accessed or modified in the outer scope.
+**EV -** the `aFunc()` function is invoked, and defines a new scope for local variables. The local variable `a` is declared with the `let` keyword, and initially assigned the Number literal value `1`. After the function `aFunc()` completes execution, the variable `a` is immediately discarded and control returns to the main flow. Therefore, when we try to log the value stored in variable `a` to the console, a `ReferenceError` is thrown because the local variable `a` only existed within the function scope and was destroyed after the function completed execution, and therefore DOES NOT exist in the global scope. This demonstrates the principle of variable scoping, particularly that inner scope variable CANNOT be accessed or modified in the outer scope.
 
 Because of this, when we talk about the scope of a variable, it doesn't matter whether we ever execute the code. For instance, suppose we had the following complete program:
 
@@ -1288,7 +1288,7 @@ If you run the above example, you'll see that only one exception gets raised: `R
 
 ### Variable Shadowing
 
-Variable shadowing occurs when you choose a **local variable in an inner scope** that *shares the same name* as a **variable in an outer scope**. If you pick a name that is **identical** to an outer scope variable, *variable shadowing* will **prevent** you from **using the outer scope variable!**
+Variable shadowing occurs when a **local variable in an inner scope** *shares the same name* as a **variable in an outer scope**. If a variable's name in an inner scope is **identical** to an outer scope variable, *variable shadowing* will **prevent** you from **using the outer scope variable!**
 
 ```js
 // Example 1 - Variable Shadowing
@@ -1300,33 +1300,30 @@ let foo = 'bar';
 console.log(foo); // => logs 'bar'
 ```
 
-The program logs `bar`. Line 1 declares and initializes a variable called `foo` and assigns it a value `'bar'`. Line 2 begins a new block, which creates a new scope for `let` variables. The variable on line 1 is STILL visible at this point, since the variable is declared OUTSIDE and before the block scope; however, since line 3 declares a new variable named `foo`, which has the same name as the variable on line 1, this new variable shadows (hides) the variable from line 1. This second variable `foo` gets initialized to a value `'qux'`, but it goes out of scope on line 4, when the block ends. That brings the `foo` variable from line 1 back into scope, so line 6 logs its value: `'bar'` to the console.
+The program logs `bar`. Line 1 declares and initializes a variable called `foo` and assigns it the value `'bar'`. Line 2 begins a new block, which creates a new scope for `let` variables. The variable on line 1 is STILL visible at this point, since the variable is declared OUTSIDE and before the block scope; however, since line 3 declares a new variable named `foo`, which has the same name as the variable on line 1, this new variable shadows the variable from line 1. This second variable `foo` gets initialized to the value `'qux'`, but it goes out of scope on line 4, when the block ends. That brings the `foo` variable from line 1 back into scope, so line 6 logs its value: `'bar'` to the console.
 
+```js
 // Example 2 - Variable Shadowing
 const FOO = 'bar';
 {
   const FOO = 'qux';
 }
 console.log(FOO); // => logs 'bar'
-/* This program logs 'bar'. Line 1 declares and initializes a const called FOO and assigns it a value 'bar. Line 2 begins a new block, which creates a new scope 
-for let and const variables. The variable on line 1 is STILL visible at this point, since the variable was declared OUTSIDE and before block scope, however, 
-since line 3 declares a new const variable named FOO which has the same name as the variable on line 1, this new variable shadows (hides) the variable from line 1. 
-This second variable FOO gets initialized to a value 'qux', but it goes out of scope on line 4, when the block ends. That brings the const FOO variable from line 1
-back into scope, so line 6 logs it's value 'bar' to the console. The key takeaway is that the const variable initialized within the global scope and the const 
-variable declared and initialized within the block scope are separate entities - therefore, no error occurs. */
+```
 
+This program logs 'bar'. Line 1 declares and initializes a const called `FOO` and assigns it the value `'bar'`. Line 2 begins a new block which creates a new scope for `let` and `const` variables. The variable on line 1 is STILL visible at this point, since the variable was declared OUTSIDE and before block scope; however, since line 3 declares a new `const` variable named `FOO` which has the same name as the variable on line 1, this new variable shadows the variable from line 1. This second variable `FOO` gets initialized to the value `'qux'`, but it goes out of scope on line 4, when the block ends. That brings the `const` `FOO` variable from line 1 back into scope, so line 6 logs its value `'bar'` to the console. The key takeaway is that the `const` variable initialized with global scope and the `const` variable declared and initialized within the block scope are separate entities - therefore, no error occurs.
+
+```js
 // Example 3 - Variable Shadowing
 let number = 5;
-function test(number) { // <-- since the number parameter is the same as the variable declared on line 1, the number parameter SHADOWS the line 1 number variable
+function test(number) { // <-- since the `number` parameter is the same as the variable declared on line 1, the `number` parameter SHADOWS the line 1 `number` variable
   number = 3;
 }
 test(number);
 console.log(number); // => logs 5
-/* This code logs 5 to the console. The reason that the second code snippet doesn't change the value of number defined on line 1 is that 
-the number parameter on line 3 SHADOWS the number variable by creating a separate and independent variable with the same name, but with the 
-scope limited to the function. */
 ```
 
+This code logs `5` to the console. The reason that the second code snippet doesn't change the value of `number` defined on line 1 is that the `number` parameter on line 3 SHADOWS the `number` variable by creating a separate and independent variable with the same name, but with the scope limited to the function.
 
 ---
 
@@ -1338,8 +1335,6 @@ Not all code between **curly braces** is a block.
   * class definitions (introduced in a later course) and
   * object literals are not blocks.
   * The differences are more substantial with these constructs than with function bodies.
-
-
 
 ---
 
