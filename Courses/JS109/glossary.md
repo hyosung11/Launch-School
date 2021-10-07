@@ -159,7 +159,7 @@ Arrays are objects. One side effect of this is that the `typeof` operator doesn'
 = 'object'
 ```
 
-## 3. `console.log` vs. `return`
+## 3. `console.log()` vs. `return`
 
 Output and return values are different concepts.
 
@@ -167,18 +167,14 @@ Output and return values are different concepts.
 
 When we invoke the `console.log` method, we're telling JavaScript to write something to the console. In Node, that is your screen; in your browser, it's the Console in your Developer Tools application. The term log is a synonym for printing or displaying something on the console.
 
-```sh
+```js
 > console.log('Howdy')
 Howdy // displayed on the console
 = undefined // this is return value of the expression that returned nothing
 
 > let a = console.log("Howdy")
 > a
-```
-
-```sh
-> let a = console.log("Howdy")
-> a
+= undefined
 ```
 
 The value returned by `console.log("Howdy")` is `undefined`, so that's the value to which `a` gets assigned. Therefore, `a` on the second line evaluates to `undefined`, and `node` shows it as the return value.
@@ -186,6 +182,8 @@ The value returned by `console.log("Howdy")` is `undefined`, so that's the value
 ### `return`
 
 JavaScript uses the `return` statement to return a value to the code that called the function: the **caller**. If you don't specify a value, it returns `undefined`. Either way, the `return` statement causes the function to stop running and returns control to the caller.
+
+An expression is anything that JavaScript can evaluate, even if that value is `undefined` or `null`. Expressions do something, but they also return or evaluate to a value. The returned value may not always be what you expect.
 
 The **return value** is the evaluated value of the expression.
 
