@@ -1687,7 +1687,9 @@ Some variables act as pointers to a place (or address space) in memory, while ot
 
 ### Working with Primitive Values
 
-```sh
+When a variable contains a primitive value, in most cases, JavaScript will store the primitive value itself in the allocated memory of the variable. Therefore, if you have two variables that have the same primitive value, those values are stored in two different memory locations, each one associated with that specific value. This means that the two variables are independent and changing one has no impact on the other, even if they contain the same values.
+
+```js
 > let a = 5
 > let b = a
 > a = 8
@@ -1698,15 +1700,18 @@ Some variables act as pointers to a place (or address space) in memory, while ot
 = 5
 ```
 
-Nothing is surprising in that code. We initialize `a` to the value `5`, then assign `b` to the value of `a`: both variables contain `5` after line 2 runs.
-
-Next, we reassign variable `a` to a value of `8` on line 3, and on lines 4 and 5 we see that a does indeed now have the value `8`. On lines 7 and 8 we see that `b`'s value did not change: it is still `5`.
-
-Each variable has a value, and reassigning values does not affect any other variables that happen to have the same value. Thus, `a` and `b` are independent: changing one doesn't affect the other.
+We initialize `a` to the value `5`, then assign `b` to the value of `a`: both variables contain `5` after line 2 runs. Next, we reassign variable `a` to a value of `8` on line 3, and on lines 4 and 5 we see that `a` does indeed now have the value `8`. On lines 7 and 8 we see that `b`'s value did not change: it is still `5`. Each variable has a value, and reassigning values does not affect any other variables that happen to have the same value. Thus, `a` and `b` are independent: changing one doesn't affect the other.
 
 Variables that have **primitive** values store those values at the memory location associated with the variable. In our example, `a` and `b` point to different memory locations. When we assign a value to either variable, the value gets stored in the appropriate memory location. If you later change one of those memory locations, it does not affect the other memory location, even if they started off with the same value. Therefore, the variables are *independent* when they contain primitive values.
 
 ### Working with Objects and Non-mutating Operations
+
+Creating new variables causes JavaScript to allocate space somewhere in its memory for the value. However, with objects, JavaScript doesn't store the value of the object in the same place. Instead, it allocates additional memory for the object, and places a pointer to the object in the space allocated for the variable. Thus, we need to follow two pointers to get the value of our object from its variable name.
+
+Two Pointers:
+
+* 1. Memory Address of the pointer
+* 2. The Pointer --> points to the Memory Address of the Object
 
 Consider the following code:
 
@@ -1718,9 +1723,20 @@ obj.c = 3;
 
 On line 1, we declare a variable named `obj`, and initialize it to `{ a: 1 }`, which is an object value. Line 2 reassigns `obj` to a new object, `{ b: 2 }`. Finally, on line 3, we mutate the object currently referenced by `obj` by adding a new property to the object.
 
-Creating new variables causes JavaScript to allocate space somewhere in its memory for the value. However, with objects, JavaScript doesn't store the value of the object in the same place. Instead, it allocates additional memory for the object, and places a pointer to the object in the space allocated for the variable. Thus, we need to follow two pointers to get the value of our object from its variable name.
-
 In the above example, `obj` is always at the same address. The value at that address is a pointer to the actual object. While the pointer to the object can change, `obj` itself always has the same address. In other words, `obj`'s address doesn't change, but its value changes to the address of the object currently assigned to the variable.
+
+Code | obj | The Object
+---------|----------|---------
+ let obj = { a: 1 }; | mem addr: 0x1248 | mem addr: 0x40011fe0
+  | value: 0x40011fe0 | value: { a: 1 }
+ obj = { b: 2}; | mem addr: 0x1248 | mem addr: 0x40012000
+  | value: 0x40012000 | value: { b: 2 }
+ obj.c = 3; | mem addr: 0x1248 | mem addr: 0x40012000
+  | value: 0x40012000 | value: { b: 2, c: 3 }
+
+Looking at the table above, we can see that the memory address of `obj` is always 0x1248, and the value at that address is a pointer/reference to the actual object. On line 1, the value at memory address 0x1248 is the **pointer** to the memory address of the Object `{ a: 1 }`. On line 2, the variable `obj` is reassigned to reference a different Object. The memory address of `obj` has not changed, it is still 0x1248, but the value at memory address 0x1248 has been changed to a different pointer/reference which contains the memory address of Object `{ b: 2 }`.
+
+When we reassign the variable `obj`, the memory address of `obj` does not change, but its value changes to the address of object currently assigned to the variable.
 
 Let's look at another example. This time, we'll use arrays. Remember that arrays in JavaScript are objects, and almost everything we say about arrays holds for objects as well.
 
