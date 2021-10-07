@@ -696,6 +696,10 @@ Number(true)                  // returns 1
 Number(false)                 // returns 0
 ```
 
+`parseInt(string, radix)` - function parses a **string** argument and returns an **integer number** of the specified radix (the base in mathematical numeral systems). An unusual feature of `parseInt` is that it converts strings to numbers even when the string contains non-numeric characters. As long as the string begins with a digit (can be optionally preceded by a `+` or `-` sign) `parseInt` returns an integer number.
+
+`parseFloat(string)` - function parses an argument (converting it to a string first if needed) and returns a **floating point number**. `parseFloat` parses the **numeric** part of the string, and *stops parsing once* it finds a character that can't be part of a number. `parseFloat()` does not accept a radix argument.
+
 ```js
 // More Examples
 > Number('1') // The `Number` function explicitly coerces a string to a number.
@@ -719,18 +723,80 @@ Number(false)                 // returns 0
 = 12.5 // Coerces a string to a floating-point (decimal) number.
 ```
 
-Numbers to Strings
+##### Coercing Values to Numbers Using `+` (Unary Operator)
+
+The unary `+` operator attempts to coerce a value to a number. It works like the Number function, but is more succinct. Although it is more succinct, for clarity - consider using `Number(value)` as this method makes your intention very clear.
+
+```js
+// Examples of the Unary operator (+)
+> +""     // returns 0
+> +'1'.   // returns 1
+> +'2.3'  // returns 2.3
+> +[]     // returns 0
+> +'abc'  // returns NaN
+```
+
+##### Numbers to Strings (String Coercion)
+
+* `Object.prototype.toString()` - this method returns a string representation of a value.
+  * Throws an Error for the data types - `null` and `undefined`.
+  * Number Literals - This method does **not work on a number literal** - see examples.
+  * Objects - on all objects (empty or non-empty) this method returns `[object Object]`
+
+* `Array.prototype.toString()` - converts every element of an array to a string, then concatenates them all with a `,` between each string. `null` and `undefined` are treated as **empty values**.
+
+* `String()`- performs type conversion when called as a function, and this function works on both `null` and `undefined`. This is useful because using `Object.prototype.toString()` can lead to a program-halting error if the value turns out to be `undefined` or `null`.
+  * Empty Array - when the `String()` function is called on an empty array, an empty string `''` is returned
+  * Single Element Array - when the `String()` function is called on a single element array, the element is returned
+  * Multi-element Array - when the `String()` function is called on a multi-element array, it converts every element of an array to a string, then concatenates them all with a `,` between each string. `null` and `undefined` are treated as **empty values.**
 
 ```js
 > String(20)
 = '20'
+
+// Examples using toString() Method with Number Literals
+let number = 42     // returns undefined
+number.toString()   // returns '42'
+42.toString()       // returns SyntaxError: Invalid or unexpected token
+// Note that JavaScript doesn't let you call a method directly on a number literal, we first assign 42 to a variable before we call the toString() method
+(42).toString()     // returns '42' -> alternatively, you can wrap the number in parentheses
+42..toString()      // returns '42' -> alternatively, you can use two dots
+
+// Examples using toString() with Booleans
+true.toString()   // returns 'true'
+false.toString()  // returns 'false'
+
+// Example using Array.prototype.toString()
+[1, 2, 3].toString() // returns '1,2,3'
+[1, null, 2, undefined, 3].toString() // returns '1,,2,,3' => null and undefined are treated as EMPTY values
+
+// Examples of Object.prototype.toString()
+let obj = {a: 'foo', b: 'bar'}  // returns undefined
+obj.toString()                  // returns '[object Object]'
+
+// toString() - Attempting to call on null and undefined
+undefined.toString() // Uncaught TypeError: Cannot read property 'toString' of undefined
+null.toString()      // Uncaught TypeError: Cannot read property 'toString' of null
+
+// Examples of String() Function
+String(42)        // returns '42'
+String([1, 2, 3]) // returns '1,2,3'
+String({ a: 'foo', b: 'bar' }) // returns '[object Object]'
+
+// String() - null and undefined
+String(null)      // returns 'null'
+String(undefined) // returns 'undefined'
 ```
+
+##### Template Literals
+
+Inside template literals, JavaScript implicitly coerces interpolation expressions like `${something}` to string values. Don't write `${something.toString()}` or `${String(something)}`.
 
 #### Implicit Type Coercion
 
 **Implicit type coercion** happens when you perform an operation involving values of two different types and JavaScript coerces the values to have the same type; that type varies based on the specific combination of types involved in the original expression. How different values get coerced depends on the operation. The most common operations in this context are `==` and `+`.
 
-The `==` operator implicitly coerces one of its operands when the operands have different types. The most common case occurs when comparing a string with a number:
+The `==` non-strict equality operator implicitly coerces one of its operands when the operands have different types. The most common case occurs when comparing a string with a number:
 
 ```js
 > '1' === 1 // The strict equality operator compares the two value directly. It returns `false` here since the two values have different types, so they aren't identical values.
@@ -752,6 +818,126 @@ false
 > 0 == false
 true
 ```
+
+##### Implicit Type Coercion with the `==` Operator
+
+1. `==` Comparison of a `String` and a `Number` → the **string** is a coerced to a number, and the values are compared.
+2. `==` Comparison of a `Boolean` and a `Number` → the **boolean** is coerced to a number, and the values are compared.
+3. `==` Comparison of a `Boolean` and a `String` → the **boolean** gets coerced to a number, and then the **string** is coerced to a number, the values are compared.
+4. `==` Note that `null` and `undefined` are considered equivalent, **however** these values do NOT get coerced to 0.
+5. `==` with Arrays and Objects - when used with two objects, it considers the two objects equal **only when they're the same object**.
+6. `==` with Objects and Primitive Values - when an object is compared with a primitive value, the **object** is **coerced into a primitive value** and compared again using the `==` operator.
+    * Empty Array - an empty array is coerced to the empty string `''`
+    * Object - all object are coerced to the string `'[object Object]'`
+
+```js
+// Non-Strict Equality - String and a Number
+'1' == 1  // coerces the string '1' to a number, and then compares them => returns true
+1 == '1'  // coerces the string '1' to a number, and then compares them => returns true
+
+// Non-Strict Equality - Boolean and a Number
+1 == true   // coerces the boolean true to a number 1, and then compares 1 and 1 => returns true
+3 == true   // coerces the boolean true to a number 1, and then compares 1 and 3 => returns false
+0 == false  // coerces the boolean false to a number 0, and then compares 0 and 0 => returns true
+
+// Non-Strict Equality - Boolean and a String
+'1' == true // coerces the boolean true to a number 1, and then the string '1' is coerced to a number 1, compares 1 === 1 => returns true
+'' == false // coerces the boolean false to a number 0, and then the string '' is coerced to the number 0, compares 0 === 0 => returns true
+
+// Non-Strict Equality - undefined and null
+undefined == 0     // returns false -> note that undefined is NOT coerced to 0
+undefined == ''    // returns false -> note that undefined is NOT coerced to 0, the string '' is coerced to the number 0
+null == 0          // returns false -> note that null is NOT coerced to 0
+null == ''         // returns false -> note that null is NOT coerced to 0, the string '' is coerced to the number 0
+undefined == null  // returns true  -> interesting behavior in that undefined and null are considered equivalent
+
+// Non-Strict Equality - Array Comparison
+let arr = []  // returns undefined
+arr == []     // returns false
+arr == arr    // returns true -> HAS to be the SAME object
+
+// Non-Strict Equality - Object and a Primitive
+'' == {} // the empty object {} is coerced into the string '[object Object]', and is compared with the string '' which is coerced to the number 0, compares '[object Object]' === 0 => returns false
+'[object Object]' == {} // coerces the empty object {} to string '[object Object]' and compares with the string '[object Object]' => returns true
+{a: 1} == '[object Object]'// coerces the object {a: 1} to string '[object Object]' and compares with string '[object Object]' => returns true
+[1, 2] == '1,2' // the array [1, 2] is coerced to the string '1,2' - both strings are compared => returns true
+[] == '' // empty array is coerced to an empty string; both empty strings are coerced to the number 0 and compared => returns true
+[] == 0  // empty array is coerced to an empty string; empty string is coerced to the number 0 and compared => returns true
+[] == false // empty array is coerced to an empty string; empty string is coerced to the number 0, boolean false coerced to number 0 => returns true
+```
+
+##### Implicit Coercion with the Binary `+` Operator
+
+1. `+` of a `String` and Another Value - the other operand is coerced to a string and concatenated.
+2. `+` when both operands are a **combination** of `numbers`, `booleans`, `null`, or `undefined`, they are **converted** to numbers (`Number()`) and added together.
+3. `+` when one of the operands is an Object, both operands are converted to strings and concatenated together.
+
+`undefined` and `null`
+
+* `Number(undefined)` - returns `NaN`;  `String(undefined)` - returns `'undefined'`
+* `Number(null)` - returns `0`; `String(null)` - returns `'null'`
+
+```js
+// Binary Operator - String and Another Value
+'hi' + {}        // returns 'hi[object Object]'
+'hi' + []        // returns 'hi' => note that the empty array is coerced to an empty string
+'hi' + true      // returns 'hitrue'
+'hi' + 5         // returns 'hi5'
+'hi' + undefined // returns 'hiundefined'
+'hi' + null      // returns 'hinull'
+
+// Binary Operator - Numbers, Booleans, Null, undefined
+1 + true;       // true is coerced to the number 1, and 1 + 1 => returns 2
+1 + false;      // false is coerced to the number 0, and 1 + 0 => returns 1
+true + false;   // false is coerced to the number 0, and true is coerced to the number 1 => returns 1
+null + false;   // Number(null) is 0 + Number(false) is 0 => 0 + 0 => returns 0
+null + null;    // Number(null) is 0 + Number(null) is 0 => 0 + 0 => returns 0
+1 + undefined;  // Number(undefined) returns NaN, NaN + 1 => returns NaN
+
+// Binary Operator - one of the operands is an Object
+[1] + 2;        // String([1]) returns '1' + number 2 -> coerced into the string '2' => returns "12"
+[1] + '2';      // String([1]) returns '1' + string '2' => returns "12"
+[1, 2] + 3;     // String([1, 2]) is converted to the string '1,2'; the number 3 is converted to '3' => '1,2' + '3' => '1,23'
+[] + 5;         // String([]) is converted to the string '' + number 5 (converted to '5') => '' + '5' => returns '5'
+[] + true;      // String([]) is converted to the string '' + boolean true (converted to 'true') => '' + 'true' => returns 'true'
+42 + {};        // number 42 is converted to the string '42' + String({}) is converted to the string [object Object] => '42[object Object]'
+```
+
+##### Implicit Coercion with Relational Operators (`<=, <, >=, >`)
+
+The relational operators, `<, >, <=, and >=` are defined for numbers (numeric comparison) and strings (lexicographic order).
+
+String Comparisons - JavaScript compares them lexicographically. When comparing strings, the comparison is character-by-character. JavaScript moves from left-to-right in the strings looking for the first character that is different from its counterpart in the other string. Once it finds a character that differs, it compares that character with its counterpart, and makes a decision based on that. If both strings are equal up to the length of the shorter string as in the next to last example, then the shorter string is considered less than the longer string.
+
+1. **When Both Operands are Strings** - JavaScript compares them lexicographically.
+2. **Otherwise** - JavaScript converts both operands to numbers before comparing them.
+
+```js
+11 > '9';       // one operand is a number -> the string '9' is coerced to the number 9 and compared => 11 > 9 => returns true
+'11' > 9;       // one operand is a number -> the string '11' is coerced to the number 11 and compared => 11 > 9 => returns true
+123 > 'a';      // one operand is a number -> the string 'a' is coerced to NaN and compared => any comparison with NaN => returns false
+123 <= 'a';     // one operand is a number -> the string 'a' is coerced to NaN and compared => any comparison with NaN => returns false
+true > null;    // both operands are NOT strings -> true is coerced to 1 and null is converted to 0 => 1 > 0 => returns true
+true > false;   // both operands are NOT strings -> true is coerced to 1 and false is coerced to 0 => 1 > 0 => returns true
+null <= false;  // both operands are NOT strings -> null is converted to 0 and false is coerced to 0 => 0 <= 0 -> returns true
+undefined >= 1; // both operands are not strings -> undefined is converted to NaN => any comparison with NaN => returns false
+```
+
+##### Best Practices
+
+* Explicit Type Coercion - always use explicit type coercion
+* Strict Equality & Inequality - always use strict equality and strict inequality operators (`===` and `!==`)/
+* Two Exceptions
+  * Don't use `String()` or `toString()` inside `${...}` expression in template literals.
+  * Use the unary `+` operator to convert strings to numbers.
+
+#### Primitive Values & Objects Summary
+
+1. Every value in JavaScript is either a primitive or an object.
+2. Primitives are atomic values.
+3. Objects are "compound" values made up of primitives or other objects.
+4. Primitive values are **immutable**. You can't add to, remove from, or otherwise change a primitive value. Any operation performed on a primitive value returns a new primitive value.
+5. Objects are **mutable**. Certain operations on objects can change the object in place. All variables that have a reference to that object will see that change.
 
 ## 18. Side-effects
 
