@@ -3595,3 +3595,21 @@ How awesome are the engineers in the company? If you're the best one there, that
 11:00 Reviewing Elaine's notes and using her notes to update my glossary.
 
 17:21 Grinding through Elaine's notes and synthesizing them into my glossary. Time to make dinner.
+
+## 20211007 목요일
+
+09:08 Back from my walk through the duck pond and the one mosquito got me. I see that Elaine and I have similar or almost the same notes. I just need to do more practice problems and increase my speed. I can do this.
+
+09:00 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex and Laurent
+   * [x] 2. Study Elaine's notes and integrate them into my glossary
+   * [x] 3. SPOT Study Session
+   * [ ] 4. Read *The Programmer's Brain* chapter 5: Reaching a deeper understanding of code
+
+2. What will you do today?
+   * [x] 1. Study Elaine's notes and integrate them into my glossary
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Playing ping pong with Louis and reffing this afternoon.
