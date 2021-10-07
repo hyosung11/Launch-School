@@ -3615,3 +3615,5 @@ How awesome are the engineers in the company? If you're the best one there, that
    * Playing ping pong with Louis and reffing this afternoon.
 
 09:53 Working through Variable Shadowing. I think it's dumb because it's not something you want to do in a program.
+
+10:26 Getting into the weeds of Elaine's notes. I don't think I need to know this stuff that well for the written assessment.

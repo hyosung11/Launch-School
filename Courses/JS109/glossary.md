@@ -615,9 +615,26 @@ Another example:
 
 ## 17. Primitive Values, Objects and Type Coercion
 
+### Data Types
+
+Data types are used to represent different kinds of data. Data types are used by programs to determine what they can or cannot do with a given piece of data.
+
+`typeof` operator - to see what type a particular value has, you can use the typeof operator. `typeof` returns a string that contains the type of its operand's value.
+
+Literals - data type values can be represented by literals. A literal is any notation that lets you represent a fixed value in source code.
+
+```js
+'Hello, world!'     // string literal
+3.141528            // numeric literal
+true                // boolean literal
+{ a: 1, b: 2 }      // object literal
+[ 1, 2, 3 ]         // array literal
+undefined           // undefined literal
+```
+
 ### Primitive Values
 
-The primitive data types are strings, numbers, booleans, `null`, and `undefined`, bigints, and symbols. Primitive types are the simplest, most basic types in JavaScript.
+The seven primitive data types are strings, numbers, booleans, `null`, and `undefined`, bigints, and symbols. Primitive types are the simplest, most basic types in JavaScript.
 
 With (most) primitive values, the **actual value** of the variable gets stored in allocated memory.
 
@@ -625,9 +642,19 @@ Primitive values are always *immutable*; they don't have parts that one can chan
 
 ### Objects
 
+Objects are complex values composed of primitive values or other objects. For example, an array object (remember: arrays **are** objects) has a length property that contains a number: a primitive value. Objects are usually (but not always) mutable: you can add, remove, and change their various component values.
+
 Objects include, but aren't limited to, the following types: Simple Objects, Arrays, Dates, and Functions.
 
-Objects are complex values composed of primitive values or other objects. For example, an array object (remember: arrays **are** objects) has a length property that contains a number: a primitive value. Objects are usually (but not always) mutable: you can add, remove, and change their various component values.
+### Neither a Primitive Value or an Object
+
+Objects and primitive values are the data and functions that you use in your program. Anything that isn't data or a function is neither a primitive value nor an object. That includes:
+
+* variables and other identifiers such as function names
+* statements such as `if`, `return`, `try`, `while`, and `break`
+* keywords such as `new`, `function`, `let`, `const`, and `class`
+* comments
+* anything else that is neither data nor a function
 
 ### Type Coercion
 
@@ -637,9 +664,40 @@ Type coercion is the conversion of one type of value into another.**Explicit typ
 
 **Explicit type coercion** happens when the programmer intentionally uses one of the many built-in functions and operators to coerce one type of value to another.
 
-Strings to Numbers
+##### Strings to Numbers (Numeric Coercion)
+
+`Number()` - when used as a function converts a string or other value to the Number type. If the value can't be converted, it returns `NaN`.
+
+* Can't convert string to a Number - returns the value `NaN`.
+* Single element array that consists of a Number - returns the number.
+* Called on an empty string `''`, `null`, or `undefined` - returns `0`.
+* Called on a multi-element array, or an object - returns `NaN`.
+
+`Number('')` - attempting to convert an empty string or whitespace with `Number('')` returns `0`.
+`Number(true)` || `Number(false)` - coerces the boolean value `true` to `1`, and the boolean value `false` to `0`.
 
 ```js
+// Examples of Number Coercion
+let one = Number('1')         // returns undefined
+one                           // returns 1
+typeof one                    // returns 'number'
+let friend = Number("cat")    // returns undefined
+friend                        // returns NaN
+typeof friend                 // returns 'number' -> typeof NaN is a number and not a standalone primitive data type (null, undefined)
+Number(' ')                   // returns 0 -> coercing an empty string to a number returns 0 (because an empty string is false)
+Number(null)                  // returns 0
+Number({})                    // returns NaN
+Number([])                    // returns 0
+Number([undefined])           // returns 0
+Number([4])                   // returns 4
+Number([1, 2, 3])             // returns NaN
+Number(undefined)             // returns NaN
+Number(true)                  // returns 1
+Number(false)                 // returns 0
+```
+
+```js
+// More Examples
 > Number('1') // The `Number` function explicitly coerces a string to a number.
 = 1 // Can perform arithmetic operations on the result
 
@@ -1232,7 +1290,7 @@ Note that, in this case, it's the parameter `a` that is shadowing the global var
 
 In JavaScript, blocks are segments of one or more statements and expressions grouped by opening and closing curly braces (`{}`). Each pair of braces in the constructs like `if/else` and the `for` and `while` loops define new block scopes. The rules for block scopes are identical to those for function scopes.
 
-#### Outer blocks cannot access variables from inner scopes
+#### 1. Outer blocks cannot access variables from inner scopes
 
 ```js
 if (true) {
@@ -1244,7 +1302,7 @@ console.log(a); // ReferenceError
 
 Within the `if` statement, the local variable `a` is declared and initialized to the string `foo`. After line 3, the variable `a` is no longer in scope. Thus, when we execute the `console.log(a)` method on line 5 and attempt to log the value stored in `a`, a `ReferenceError` is thrown. This demonstrates the variable scoping principle that outer blocks cannot access variables from inner scopes.
 
-#### Inner blocks can access variables from outer scopes
+#### 2. Inner blocks can access variables from outer scopes
 
 ```js
 let a = 'foo';
@@ -1284,7 +1342,7 @@ aFunc();
 
 If you run the above example, you'll see that only one exception gets raised: `ReferenceError: c is not defined` even though we expect three exceptions. That's how exceptions work in JavaScript; they halt the execution of the program *immediately*. Once execution reaches line 14, it raises an error and immediately stops executing the rest of the code. The point of the example is to show that the variable `c` will not be accessible outside the inner `if` block and variables `b` and `c` will not be accessible outside the outer `if` block.
 
-#### Variables defined in an inner block can **shadow** variables from outer scopes
+#### 3. Variables defined in an inner block can **shadow** variables from outer scopes
 
 ### Variable Shadowing
 
