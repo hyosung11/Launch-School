@@ -459,7 +459,7 @@ We've seen that function calls always return a value, and we can pass that funct
 
 ### Mutability
 
-Objects are usually (but not always) mutable: you can add, remove, and change their various component values.
+Objects are usually (but not always) mutable, meaning you can add, remove, and change their various component values. Recall that Objects are complex values composed of primitive values or other objects. For example, an array object (remember: arrays are objects) has a length property that contains a number: a primitive value.
 
 Operations on **mutable** values (arrays and objects) may or may not return a new value and may or may not mutate data.
 
@@ -472,6 +472,33 @@ Primitive values are **immutable**. That means their values never change: operat
 ### `const`
 
 A `const` declaration prohibits changing what thing the `const` points to, but it does not prohibit changing the content of that thing. Thus, we can change a property in a `const` object, but we can't change which object the `const` points to.
+
+### Strings
+
+Strings are similar to arrays in two ways:
+
+1. String Character Reference - similar to arrays, characters of a String can be referenced using String Element Reference. Strings use an integer-based index that represents each character in the string. The index starts counting at zero and increments by one for the remaining index values. You can reference a specific character using this index.
+2. String.length - similar to arrays, Strings also have a `length` property
+3. Similar Methods - the following methods are available to both Strings and Arrays:
+    * `Array.prototype.slice()`; `String.prototype.slice()`
+    * `Array.prototype.concat()`; `String.prototype.concat()`
+    * `Array.prototype.includes()`; `String.prototype.includes()`
+
+However, although Strings can be referenced using String Character Reference (similar to Array Element Reference); Array Elements can be **assigned** and **reassigned**; whereas String Characters **CANNOT** be assigned or reassigned. Attempting to perform String Character Assignment will not throw an error, but it does NOT affect the Sting. This is because Strings are immutable. In order to make modifications to a string, you must create a new String with the desired changes, and reassign the value to a new variable.
+
+```js
+// Array Element Re-Assignment
+let arr = [ 1, 2, 3 ]; // returns undefined
+arr[0] = 5;            // returns 5
+arr;                   // [5, 2, 3]
+
+// Attempted String Element Re-Assignment (no error is thrown, but the string is NOT affected)
+let numString = '123'                  // returns undefined
+numString[0] = '5';                    // returns '5'
+numString;                             // returns '123'
+numString = '5' + numString.slice(1);  // returns '523'
+numString;                             // returns '523'
+```
 
 ## 13. Naming Conventions (legal vs idiomatic)
 
@@ -641,7 +668,9 @@ This code mutates neither objA nor objB and returns an entirely new object.
 
 ### Pass-by-value
 
-Pass-by-value relates to **primitive** values that are passed into a function. With all primitive values, the value is passed by value and the function will receive a copy of the original value.
+Pass-by-value relates to **primitive** values that are passed into a **function**. With all primitive values, the value is passed by value and the function will receive a **copy** of the original value.
+
+When you pass primitive values to functions, you can treat JavaScript like pass-by-value. No operation performed on a primitive value can permanently alter the value. In other words, when you pass a primitive value to a function, you won't be able to affect the value of the argument passed to the function.
 
 Here's an example of pass-by-value:
 
@@ -658,7 +687,11 @@ getNumber(luckyNumber); // returns 7
 
 ### Pass-by-reference
 
-Pass-by-reference relates to **object** values that are passed into a function. When we declare and initialize a variable to an object value, e.g., `let arr = [1, 2, 3]`, we are initializing that variable to hold a *reference* which points to the actual object in memory. Therefore, when we pass `arr` into a function, we pass the reference that points to the actual object.
+Pass-by-reference relates to **object** values that are passed into a function. When we declare and initialize a variable to an object value, e.g., `let arr = [1, 2, 3]`, we are initializing that variable to hold a *reference* which points to the actual object in memory. Therefore, when we pass `arr` into a function, we pass the reference that points to the actual object. Therefore, any destructive changes that the function may implement on the Object affects the original object as well.
+
+With objects, JavaScript exhibits a combination of behaviors from both pass-by-reference as well as pass-by-value. Some people call this pass-by-value-of-the-reference or call-by-sharing. Whatever you call it, the most important concept you should remember is:
+
+When an operation within the function mutates its argument, it affects the original object.
 
 Here's an example of pass-by-reference:
 
@@ -1776,9 +1809,15 @@ As we saw a little earlier, objects (and arrays) aren't stored in the memory loc
 
 The use of pointers has a curious effect when you assign a variable that references an object to another variable. Instead of copying the object, *JavaScript only copies the pointer*. Thus, when we initialize `f` with `e`, we're making both `e` and `f` point to the same array: `[1, 2]`. It's not just the same value, but the same array in the same location in memory. The two variables are independent, but since they point to the same array, that array is dependent on what you do to both `e` and `f`.
 
-With `e` and `f` pointing to the same array, line 3 uses the pointer in the `e` variable to access and mutate the array by appending `3` and `4` to its original value. Since `f` also points to that same array, both `e` and `f` reflect the updated contents of the array. Some developers call this aliasing: `e` and `f` are aliases for the same value.
+With `e` and `f` pointing to the same array, line 3 uses the pointer in the `e` variable to access and mutate the array by appending `3` and `4` to its original value. Since `f` also points to that same array, both `e` and `f` reflect the updated contents of the array. Some developers call this **aliasing**: `e` and `f` are aliases for the same value.
 
 Okay, that's good. What happens if we mutate a primitive value? Oops! You can't do that: all primitive values are immutable. Two variables can have the same primitive value. However, since primitive values are stored in the memory address allocated for the variable, they can never be aliases. If you give one variable a new primitive value, it doesn't affect the other.
+
+### Reassignment and Mutation
+
+Primitive - when you reassign a primitive value, you do not mutate the primitive value. Instead, the variable refers to a new value. This does not change the original value as we are putting a completely new value in the variable when its reassigned.
+
+Object - when you use Array Element Assignment, you can reassign a specific element in the array. Note that this does not mutate the element, but it does mutate the array. Therefore, Array Element Assignment can be used to destructively mutate an array.
 
 Reassignment of a specific element:
 
@@ -1799,4 +1838,7 @@ The key thing to observe here is that we're reassigning a specific element in th
 
 The takeaway of this section is that JavaScript stores primitive values in variables, but it uses pointers for non-primitive values like arrays and other objects. Pointers can lead to surprising and unexpected behavior when two or more variables reference the same object in the heap. Primitive values don't have this problem.
 
-When using pointers, it's also important to keep in mind that some operations mutate objects, while others don't. For instance, push mutates an array, but map does not. In particular, you must understand how something like x = [1, 2, 3] and x[2] = 4 differ: both are reassignments, but the second mutates x while the first does not.
+When using pointers, it's also important to keep in mind that some operations **mutate** objects, while others don't. For instance, `push` mutates an array, but `map` does not. In particular, you must understand how something like `x = [1, 2, 3]` and `x[2] = 4` differ: both are reassignments, but the second mutates `x` while the first does not.
+
+* **Primitive Values -** variables contain/store the primitive value. Even if two variables have the same primitive values, the primitive values are stored in different memory locations associated with the specific variable, and are **independent** of one another.
+* **Objects** - variables contain/store references or pointers for objects. When two variables point to the same object, mutating the shared object will result in change being reflected in both variables; another way to put it is that the two variables are aliases. When working with objects, be wary of operations that are **destructive/mutate.**

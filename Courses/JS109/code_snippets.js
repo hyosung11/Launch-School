@@ -142,9 +142,9 @@
 // console.log(greeting); // Hello
 
 // Example 1 - Variable Shadowing
-let foo = 'bar';
-{
-  let foo = 'qux';
-}
+// let foo = 'bar';
+// {
+//   let foo = 'qux';
+// }
 
-console.log(foo); // => logs 'bar'
+// console.log(foo); // => logs 'bar'
