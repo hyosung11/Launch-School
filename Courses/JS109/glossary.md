@@ -1129,6 +1129,33 @@ let str = 'abcdefghi';
 str[2]; // => 'c'
 ```
 
+#### String Element Assignment
+
+Recall that JavaScript strings are immutable, primitive values. Attempting to use element assignment on a string will not throw an error, but it does not modify the string.
+
+```js
+let str1 = 'hello'; // returns undefined
+str1[0] = 'b';      // returns 'b'
+str1;               // returns 'hello' -> notice how no modification to the string was made, because strings are immutable
+```
+
+To modify a string, create a new string with the desired changes.
+
+#### Out of Bounds Indices
+
+Attempting to reference an out of bound index returns `undefined`. This is true for both positive and negative string indices.
+
+```js
+let str1 = 'hello'
+
+str1[9] // => returns undefined
+str1[-5] // => returns undefined
+```
+
+### String Length
+
+The `length` property of a String object contains the length of the string in UTF-16 code units. Unlike arrays, the `length` is a read-only data property of string instances.
+
 ### String Methods
 
 You can think of strings as collections of characters. You can access individual characters or multiple characters of the string and can loop through all the characters by using the `length` property in conjunction with `for` and `while` loops.
@@ -1138,6 +1165,8 @@ Since JavaScript strings are **primitive values**, any operation performed on th
 #### `String.prototype.concat()`
 
 The `concat()` method concatenates the string arguments to the calling string and returns a new string. If the arguments are not of the type string, they are converted to string values before concatenating. `concat` can take more than one string as arguments: `concat(str1, str2, ..., strN)`.
+
+It is strongly recommended that the assignment operators `+` and `+=` are used instead of the `concat()` method.
 
 ```sh
 > let str = 'Hello'
@@ -1150,7 +1179,7 @@ undefined
 
 #### `String.prototype.includes()`
 
-The `includes` method takes a string as the argument and returns a boolean signifying whether that string exists within the string that `includes` was called on.
+The `includes` method takes a string as the argument and returns a boolean signifying whether that string exists within the string that `includes` was called on. The search is case-sensitive.
 
 ```sh
 > 'One potato, two potato, three potato, four'.includes('three')
@@ -1188,6 +1217,9 @@ str.slice(2) // => 'cdefghi'
 
 // When given negative numbers as the indices, `slice` treats them as `string length + index`. Below, an index of `-4` is equivalent `9 + (-4)` since the length of the string is 9 and `9 + (-4)` equals `5`. Likewise, `-2` is equivalent to `7`.
 'abcdefghi'.slice(-4, -2) // => 'fg'
+
+// `NaN` argument is treated as if it were `0`
+'abcdefghi'.slice(NaN) // => 'abcdefghi'
 ```
 
 #### `String.prototype.split()`
@@ -1217,16 +1249,25 @@ Any other string provided to `split` as the argument will be used to separate th
 
 #### `String.prototype.substring()`
 
-The `substring` method takes a start index and an end index and returns a substring from the start of the index up to, but not including, the end index.
+The `substring` method takes a start index and an end index and returns a substring from the start of the index up to, but not including, the end index. `substring` does not mutate the caller and returns a new string.
+
+Negative arguments provided to `substring` are treated as if they were `0`.
+`NaN` arguments are treated as `0`.
 
 ```js
 const str = 'Mozilla';
 
+// Returns a substring from the start index up to, but not including, the end index.
 console.log(str.substring(1, 3));
 // expected output: "oz"
 
+// Returns a substring from the start index to the end of the string
 console.log(str.substring(2));
 // expected output: "zilla"
+
+// If the start index is greater than the end index, the arguments are swapped.
+console.log(str.substring(5, 3));
+//  => 'il'
 ```
 
 #### `String.prototype.trim()`

@@ -515,7 +515,7 @@ Alex
 The code will log `1`.  This demonstrates JavaScript scoping rules - specifically, that inner scope variables shadow outer scope variables of the same name. Moreover, it demonstrates that inner scope variables cannot be accessed in an outer scope. On line 1, the variable `bar` is declared and initialized to the value of 1. Then the function `foo()` is invoked on line 6 without an argument and a local variable `bar` is declared within the function. Since this variable is declared with let, it is a new variable that has local scope to the function and the global variable `bar` is shadowed or hidden within the function. The `}` terminates the function on line 4, thereby disposing of the variable that only has local scope and bringing the global variable back into scope. When `console.log(bar)` is called on line 7, it logs the value of the global variable to the console.
 
 Laurent
-This code will log the number value `1` . This code snippet demonstrates the concept of variable shadowing and variable scoping. 
+This code will log the number value `1` . This code snippet demonstrates the concept of variable shadowing and variable scoping.
 
 On line 1, we initialize the variable `var` with the value number `1` . Then on line 6, we call the function `foo` without any argument. The call to function `foo` creates a new local scope, where we initialize the variable `bar` with the number value `2` , that shadows the global scope `bar`and therefore, it will not modify it. The local variable `bar` will cease exist when the function call ends, its scope is limited to the function. So, on line line 7, the call to `console.log` will print the value of the global variable `bar` , the number value `1`, to the console.
 
@@ -536,6 +536,7 @@ const FOO = 'bar';
 
 console.log(FOO);
 ```
+
 HyoSung
 
 This program will not produce an error and log 'bar' to the console. This code demonstrates variable scoping rules and the use of `const` declarations in JavaScript. On line 1, the global variable `FOO` is declared with the `const` keyword and initialized to the value of the string 'bar'. Because `FOO` is declared with `const` it cannot be reassigned. However, lines 3-5 define a block scope and within this scope another `FOO` variable is declared with the `const` keyword. Since this variable `FOO` has inner scope it is local to the block and independent of the global `FOO` on line 1. This `FOO` is block-scoped and inaccessible to the outer-scoped `console.log(FOO)` method on line 7. Thus, when the `console.log(FOO)` method executes, it logs 'bar' because it passes in the global `FOO` variable form line 1.
