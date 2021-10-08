@@ -17,7 +17,7 @@ test(greeting);
 console.log(greeting);
 ```
 
-On line 17, the `console.log(greeting)` method will log `["Hello"]` because 1) the global variable `greeting` is not reassigned within the body of the function `test` and 2) the object variable `greeting` points to is not mutated within the function `test`. On line 8, the global variable `greeting` is declared and assigned to reference the array `["Hello]`. On line 16, the function `test` is called with the passed in argument `greeting`. At this point both the global variable `greeting` and the parameter `arr` reference the same array. On line 11, `arr` is reassigned to the new array `["ByeBye"]`. Therefore, parameter `arr` no longer references the place in computer memory where the object `greeting` variable points. The object variable `greeting` is no longer mutable because `arr` now references a different object.
+On line 17, the `console.log(greeting)` method will log `["Hello"]` because 1) the global variable `greeting` is not reassigned within the body of the function `test` and 2) the object that the variable `greeting` points to is not mutated within the function `test`. On line 8, the global variable `greeting` is declared and assigned to reference the array `["Hello"]`. On line 16, the function `test` is called with the passed in argument `greeting`. At this point both the global variable `greeting` and the parameter `arr` reference the same array. On line 11, `arr` is reassigned to the new array `["ByeBye"]`. Therefore, parameter `arr` no longer references the place in computer memory where the object `greeting` variable points. The object variable `greeting` is no longer mutable because `arr` now references a different object.
 
 ### Example from Study Guide
 
@@ -128,13 +128,10 @@ function myFunction() {
 myFunction(a);
 ```
 
-This code logs `TypeError: Assignment to a constant variable`. Variables declared by `const` are block scoped and their value cannot be changed through reassignment. So when we try to reassign `a` on line 6, we get an error. Passing `a` as an argument to `myFunction` doesn't do anything because `myFunction` does not accept any parameters.
+This code will log `TypeError: Assignment to a constant variable`. Variables declared by `const` are block scoped and their value cannot be changed through reassignment. So when we try to reassign `a` on line 6, we get an error. Passing `a` as an argument to `myFunction` doesn't do anything because `myFunction` does not accept any parameters.
 
 Alex
 The code will log a type error. This is because once variables are declared as constants, they cannot be reassigned. Moreover, the function has access to the global variable `a` as a result of scoping rules: inner scopes can access outer scope variables. But when the function is invoked on line 7 and the function executes, it returns an error because const cannot be reassigned.
-
-H
-This code logs `TypeError: Assignment to a constant variable`. Variables declared by `const` are block scoped and their value cannot be changed through reassignment. So when we try to reassign `a` on line 6, we get an error. Passing `a` as an argument to `myFunction` doesn't do anything because `myFunction` does not accept any parameters.
 
 L
 It will log a TypeError. We declare a constant `a` and assign it a value of `1`. When we call myFunction on the last line, we pass `a` as an argument, so when we try to assign `a` a value of 2 in the function, JS will look in the closest outer scope with a variable `a`, in this case the constant `a` from line 1. As `a is a constant, we can not re-assign it and this code will log a TypeError when we run it.
@@ -162,6 +159,8 @@ This code will log Nina. This is because name is re-declared with let within the
 
 First segment
  I would also say that this example is more of an example of variable scope, rather than variable shadowing- when the variable jill is declared within the scope of the function outer(), it is limited to the scope of that function, and is terminated when the function is finished. The console.log(name) call on the last line only has access to global variables, and nothing within the scope of outer() since it’s called outside of the scope of outer. Therefore, when console.log() is called on the last line of the segment, it only has access to the global variable name declared on line one. If you were to call console.log(name) within the function outer(), then that would be variable shadowing, since it would log the value of name within the scope of outer(), which would be Jill. Also, this very easily could have been autocorrect, but the code logs nina with a lower case n- in the first sentence you said Nina with an uppercase N so just be sure to be stingy on details like that.
+
+## Question
 
 ```js
 let foo = {
@@ -538,8 +537,7 @@ console.log(FOO);
 ```
 
 HyoSung
-
-This program will not produce an error and log 'bar' to the console. This code demonstrates variable scoping rules and the use of `const` declarations in JavaScript. On line 1, the global variable `FOO` is declared with the `const` keyword and initialized to the value of the string 'bar'. Because `FOO` is declared with `const` it cannot be reassigned. However, lines 3-5 define a block scope and within this scope another `FOO` variable is declared with the `const` keyword. Since this variable `FOO` has inner scope it is local to the block and independent of the global `FOO` on line 1. This `FOO` is block-scoped and inaccessible to the outer-scoped `console.log(FOO)` method on line 7. Thus, when the `console.log(FOO)` method executes, it logs 'bar' because it passes in the global `FOO` variable form line 1.
+This program will not produce an error and will log 'bar' to the console. This code demonstrates variable scoping rules and the use of `const` declarations in JavaScript. On line 1, the global variable `FOO` is declared with the `const` keyword and initialized to the value of the string 'bar'. Because `FOO` is declared with `const` it cannot be reassigned. However, lines 3-5 define a block scope and within this scope another `FOO` variable is declared with the `const` keyword. Since this variable `FOO` has inner scope it is local to the block and independent of the global `FOO` on line 1. This `FOO` is block-scoped and inaccessible to the outer-scoped `console.log(FOO)` method on line 7. Thus, when the `console.log(FOO)` method executes, it logs 'bar' because it passes in the global `FOO` variable form line 1.
 
 Alex
 The code will not return an error.  This is because of JavaScript scoping rules - specifically, that inner scope variables cannot be accessed in an outer scope. `FOO` is declared as a constant and initialized to the string `bar` on line 1. When FOO is declared as a constant within the block scope on line 3, this is an inner scope variable local to the block and independent from the global constant. Therefore, initializing the inner scope `FOO` to `qux` is permissible--whereas it would be impermissible to reassign a constant, this variable is a new variable entirely. The `}` on line 4 terminates the block scope and brings the global constant `FOO` back into scope, and logs it on line 6.

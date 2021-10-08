@@ -516,9 +516,55 @@ Note that non-idiomatic names are not invalid names. Non-idiomatic names are com
 
 ## 14. Objects: Object Properties
 
-Key-value pairs are also called object properties in JavaScript. We can also use "property" to refer to the key name.
+### Objects
 
-If a variable declared with `const` is initialized with an object, you can't change what object that variable refers to. You can, however, modify that object's properties and property values:
+Objects are data structures that store a collection of key-value pairs. Each item in the collection has a name that is called the key and an associated value. Key-value pairs are also called object properties in JavaScript. We can also use "property" to refer to the key name.
+
+An object's keys are strings, but the value can be any type, including other objects. If a non-string key value is attempted, JavaScript will coerce the non-string key value to a string.
+
+### Key-Value Pair
+
+Objects can be created using object literal syntax. Braces (`{}`) delimit the list of key-value pairs contained by the object. Each key-value pair ends with a comma (`,`), and each pair has a key, a colon (`:`), and a value. The comma that follows the last pair is optional. Though the keys are strings, we typically omit the quotes when the key consists entirely of alphanumeric characters and underscores. The values of each pair can be any type.
+
+### Dot Notation vs Bracket Notation
+
+To access a specific value in an object, use **dot notation**, or **bracket notation.**
+
+* **Dot Notation -** With dot notation, a `.` and a key name is placed after the variable that references the object. When dot notation is used, the property name must be a valid JavaScript ***identifier*** - this means that it can contain letters, `$`, `_` and digits - but it may not START with a digit. If you are trying to use the *value stored in a variable as a property name*, you cannot use dot notation - because expressions are **NOT** permitted - only a valid JavaScript identifier can be used as the property name. Trying to access a property using incorrect dot notation syntax throws a `SyntaxError`.
+
+* **Bracket Notation -** With bracket notation, the property is the expression within the square brackets, that is evaluated and coerced to a string, if it is not already a string. If you have a variable that contains a key's name, you must use bracket notation, and the variable name MUST be unquoted.
+
+LS - with bracket notation, we write the key as a **quoted string** and put it **inside square brackets**. Most developers prefer **dot notation** when they can use it. However, if you have a variable that **contains a key's name,** you must use bracket notation, and the variable MUST be unquoted.
+
+```js
+// Dot Notation
+let character = {}
+character.name = 'Helen'; // returns 'Helen'
+character.'age' = 13;     // Uncaught SyntaxError: Unexpected string => NO illegal identifier characters such as punctuation
+
+// Bracket Notation
+character[age] = 13;      // Uncaught ReferenceError: age is not defined => the key must be a quoted string
+character['age'] = 13;    // returns 13
+let type = 'friend'       // returns undefined
+character[type] = 'Patty'; // returns 'Patty' => notice that the variable type does NOT require brackets
+```
+
+### Deleting Properties
+
+The `delete` operator removes a key-value pair from the object and returns `true` unless it cannot delete the property (for instance, if the property is non-configurable).
+
+```js
+let person = {};
+person.age = 13;
+person['name'] = 'Joe';
+delete person.name;   // returns true
+delete person['age']; // returns true
+person; // logs {}
+```
+
+### `const`
+
+If a variable declared with `const` is initialized with an object, you can't change what object that variable refers to. You can, however, modify that object's properties and property values. Essentially, a `const` declaration prohibits changing what thing the `const` points to, but it does not prohibit changing the contents of that thing.
 
 ```sh
 > const MyObj = { foo: "bar", qux: "xyz" }
@@ -530,13 +576,21 @@ If a variable declared with `const` is initialized with an object, you can't cha
 > MyObj = {} // Uncaught TypeError: Assignment to constant variable.
 ```
 
-Use `Object.freeze` with objects to freeze the property values of an object (like with arrays):
+### `Object.freeze(obj)`
 
-```sh
-> const MyObj = Object.freeze({ foo: "bar", qux: "xyz" })
-> MyObj.qux = "hey there"
-> MyObj
-= { foo: 'bar', qux: 'xyz' }
+The `Object.freeze()` method freezes an object. Note that `Object.freeze()` only freezes the object that is passed to it. If the object passed to it contains other objects, those objects won't be frozen. For example, if we have a nested array, the nested objects can still be modified after passing it to `Object.freeze`. Use `Object.freeze` with objects to freeze the property values of an object (like with arrays).
+
+Trying to modify a frozen object with **assignment** does not throw an error, but it fails silently.
+
+Trying to modify a frozen object with a **destructive** method (e.g., `Array.prototype.push()`) throws a TypeError / raises an exception.
+
+```js
+const MyObj = Object.freeze({ foo: "bar", qux: "xyz" });
+MyObj.qux = "hey there";
+MyObj; // => { foo: 'bar', qux: 'xyz' }
+
+// To determine if an object is frozen, use the `Object.isFrozen` method with returns `true` if an object is frozen, and returns `false` otherwise.
+Object.isFrozen(myObj); // => returns true
 ```
 
 Not all object properties are variables; only those on the global object.
@@ -608,7 +662,7 @@ console.log(personValues); // => [ 'Bob', 30, '6 ft' ]
 // Remember that you can't predict the order of the values in the returned array
 ```
 
-### `Object.entries`
+### `Object.entries()`
 
 While `Object.keys` and `Object.values` return the keys and values of an object, respectively, the `Object.entries` static method returns an array of nested arrays. Each nested array has two elements: one of the object's keys and its corresponding value:
 
@@ -618,7 +672,7 @@ let person = { name: 'Bob', age: 30, height: '6ft' };
 console.log(Object.entries(person)); // => [[ 'name', 'Bob' ], [ 'age', 30 ], [ 'height', '6ft' ]]
 ```
 
-### `Object.assign`
+### `Object.assign()`
 
 You may sometimes want to merge two or more objects, i.e., combine the key-value pairs into a single object. The `Object.assign` static method provides this functionality:
 
@@ -758,7 +812,7 @@ With (most) primitive values, the **actual value** of the variable gets stored i
 
 Primitive values are always *immutable*; they don't have parts that one can change. Such values are said to be **atomic**; they're indivisible. If a variable contains a primitive value, all you can do to that variable is use it in an expression or *reassign* it: give it an entirely new value. All operations on primitive values evaluate as new values. Even something like `0 + 0` evaluates to a new value of `0`.
 
-### Objects
+### Objects are Complex Values
 
 Objects are complex values composed of primitive values or other objects. For example, an array object (remember: arrays **are** objects) has a length property that contains a number: a primitive value. Objects are usually (but not always) mutable: you can add, remove, and change their various component values.
 

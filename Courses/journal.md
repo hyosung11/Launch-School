@@ -3623,3 +3623,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 06:41 Just finished study session with Alex and Laurent. I'm getting closer to taking the written assessment.
 
 10:11 Still studying Elaine's notes and adding to my glossary.
+
+13:48 I forgot to answer my daily scrum questions. I'm now ready to head out an play ping pong.
