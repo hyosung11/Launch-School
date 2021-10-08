@@ -3617,3 +3617,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 09:53 Working through Variable Shadowing. I think it's dumb because it's not something you want to do in a program.
 
 10:26 Getting into the weeds of Elaine's notes. I don't think I need to know this stuff that well for the written assessment.
+
+## 20211008 금요일
+
+06:41 Just finished study session with Alex and Laurent. I'm getting closer to taking the written assessment.

@@ -666,9 +666,9 @@ This code mutates neither objA nor objB and returns an entirely new object.
 
 ## 16. Pass-by-value / Pass-by-reference
 
-### Pass-by-value
+### Pass-by-value (Primitive Values - immutable)
 
-Pass-by-value relates to **primitive** values that are passed into a **function**. With all primitive values, the value is passed by value and the function will receive a **copy** of the original value.
+Pass-by-value relates to **primitive** values that are passed as arguments into a **function**. With all primitive values, the value is passed by value and the function will receive a **copy** of the original value.
 
 When you pass primitive values to functions, you can treat JavaScript like pass-by-value. No operation performed on a primitive value can permanently alter the value. In other words, when you pass a primitive value to a function, you won't be able to affect the value of the argument passed to the function.
 
@@ -685,7 +685,7 @@ let luckyNumber = 7;
 getNumber(luckyNumber); // returns 7
 ```
 
-### Pass-by-reference
+### Pass-by-reference (Objects -> mutable)
 
 Pass-by-reference relates to **object** values that are passed into a function. When we declare and initialize a variable to an object value, e.g., `let arr = [1, 2, 3]`, we are initializing that variable to hold a *reference* which points to the actual object in memory. Therefore, when we pass `arr` into a function, we pass the reference that points to the actual object. Therefore, any destructive changes that the function may implement on the Object affects the original object as well.
 
@@ -707,7 +707,29 @@ function getPets(arr) {
 }
 ```
 
-Another example:
+### Simple Assignment
+
+Simple assignments in JavaScript work a lot like pass-by-value and pass-by-reference, but it is **incorrect to speak of them in terms of pass-by-value or pass-by-reference.**
+
+This similarity is a useful mental model. However, it's incorrect to speak of assignment in terms of pass-by-value or pass-by-reference. In JavaScript, those terms only apply when calling and returning from functions, not assignments. It is more correct to state that:
+
+```js
+let number = 1;
+let newNumber = number; // is this pass by value? -> NO because the values are distinct, if you increment one, the other is unaffected
+
+let arr = [1, 2, 3];
+let newArr = arr; // is this pass by reference? -> NO because arr and newArr point to the exact same array
+```
+
+In the above code, `number` and `newNumber` have the same values, but those values are distinct - if you increment one, the other is unaffected. Thus, it **looks** a lot like pass-by-value.
+
+* **Accurate Terminology -** `number` is declared and initialized to the value `1`; and `newNumber` is declared and initialized to the value `1`. Although the variable `number` and `newNumber` both contain the value `1`, the values are **stored in two different memory locations, each one associated with that specific variable.** That means that if you later change the value stored in one of those memory locations, it does NOT affect the value stored in the other memory location, **even** if they started off with the same values. Variables that contain primitive values are **independent** of one another.
+
+Therefore, if you attempt to increment `number`, `newNumber` is unaffected - this is because the values are distinct and the variables are independent of one another.
+
+On the other hand, `arr` and `newArr` point to the exact same array. If you use `arr` to modify the array, the array referenced by `newArr` also changes. That **looks** like pass-by-reference.
+
+* **Accurate Terminology -** On `line 1`, we declare the variable `arr` and initialize it to point to the array `[1, 2, 3]`. On `line 2` we declare the variable `newArr` and initialize it to point to the same array `[1, 2, 3]` that `arr` points to. Since `newArr` and `arr` point to the same array object, they are considered aliases. This means that if we were to perform a destructive action on the array object (i.e. `arr.push(4)`) we would see the updated array reflected when we inspect `arr` AND when we inspect `newArr` Both would display `[1, 2, 3, 4]`
 
 ## 17. Primitive Values, Objects and Type Coercion
 
