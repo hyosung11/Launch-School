@@ -1058,6 +1058,12 @@ numString;                             // returns '523'
 
 Names that follow the naming conventions in the [Naming Conventions section of the JavaScript Book](https://launchschool.com/books/javascript/read/preparations#namingconventions) are referred to as **idiomatic names**. In particular, whether a name is idiomatic or not depends on what kind of name we're describing.
 
+Category | Name | Notes
+---------|----------|---------
+ Non-constant variables and object properties | `employee` |
+ A2 | B2 | C2
+ A3 | B3 | C3
+
 The following [tables](https://github.com/hyosung11/Launch-School/blob/d578bc76f9ed805b2d255d5761622e7261b692a8/Courses/JS101/Lesson-2-Small-Programs/notes.md) show which names are and aren't idiomatic in the various categories and when.
 
 ### Legal / Non-Idiomatic
@@ -1665,7 +1671,7 @@ undefined >= 1; // both operands are not strings -> undefined is converted to Na
 
 ## 18. Side-effects
 
-A function is said to have **side-effects** if it does any of the following:
+Ideally, you want a function to do one thing and limit its responsibility. A function is said to have **side-effects** if it does any of the following:
 
 1. It reassigns any non-local variable. Reassigning a variable in the outer scope would be a side-effect.
 2. It mutates the value of any object referenced by a non-local variable. Mutating an array or object argument, for instance, would be a side-effect.
@@ -1747,7 +1753,7 @@ str1;               // returns 'hello' -> notice how no modification to the stri
 
 To modify a string, create a new string with the desired changes.
 
-#### Out of Bounds Indices
+#### Out of Bounds Indices of Strings
 
 Attempting to reference an out of bound index returns `undefined`. This is true for both positive and negative string indices.
 
