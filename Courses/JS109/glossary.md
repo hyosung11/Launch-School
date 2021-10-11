@@ -1021,7 +1021,7 @@ Primitive values are **immutable**. That means their values never change: operat
 
 `NaN` is a number in JavaScript, so it is a primitive value
 
-### `const`
+### `const` declaration
 
 A `const` declaration prohibits changing what thing the `const` points to, but it does not prohibit changing the content of that thing. Thus, we can change a property in a `const` object, but we can't change which object the `const` points to.
 
@@ -1079,11 +1079,43 @@ Other`const` names | `employeeOfMonth`| Local style
 
 The following [tables](https://github.com/hyosung11/Launch-School/blob/d578bc76f9ed805b2d255d5761622e7261b692a8/Courses/JS101/Lesson-2-Small-Programs/notes.md) show which names are and aren't idiomatic in the various categories and when.
 
-### Legal / Non-Idiomatic
+### Legal / Valid But Non-Idiomatic
 
 Note that non-idiomatic names are not invalid names. Non-idiomatic names are commonly used by external libraries to provide names that are easy to type yet unlikely to conflict with names in other libraries.
 
+Category  | Name  | Notes
+----------|-------|------
+Universally non-idiomatic  | $number  | Begins with $
+fizz_buzz  | snake_case not allowed  |
+fizzBUZZ  | BUZZ is not an acronym  |
+_hello  | Begins with _  |
+goodbye_  | Ends with _  |
+milesperhour  | Undifferentiated words  |
+MILESPERHOUR  | Undifferentiated words  |
+Non-constant variables and object properties  | Employee Begins with capital letter  |
+fizzBUZZ  | BUZZ is not an acronym  |
+FIZZ_BUZZ  | SCREAMING_SNAKE_CASE  |
+Constructor functions and classes  | cat  | Begins with lowercase letter
+makeTurtle  | Begins with lowercase letter  |
+FIZZ_BUZZ  | SCREAMING_SNAKE_CASE  |
+Other functions  | ParseURL  | Begins with capital letter
+FIZZ_BUZZ  | SCREAMING_SNAKE_CASE  |
+Configuration and magic constants  | absolutePath  | Not SCREAMING_SNAKE_CASE
+Today  | Not SCREAMING_SNAKE_CASE  |
+
 ### Invalid Names
+
+Name  | Notes
+------|------
+42ndStreet  | Begins with number
+fizz-buzz  | Hyphen not allowed
+fizz.buzz  | Looks like property reference
+
+### Avoid Magic Numbers
+
+A magic number is a number (or other simple value) that appears in your program without any information that describes what that number represents. For instance, a card game in which each player is dealt 5 cards may use the number `5` at various points in the program, such as a loop that deals the cards or when determining how many cards a player should receive to get back to the 5-card level. If you just use the number `5` in your program, there's no way to tell by just looking at the code why you are using that particular number. The situation becomes even more confusing when you use the same number in other contexts. For instance, your game may also use a best-of-five approach to determine the overall winner.
+
+The way to avoid magic numbers is to use constants.
 
 ## 14. Objects: Object Properties
 
