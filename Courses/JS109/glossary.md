@@ -1062,19 +1062,19 @@ Category | Name | Notes
 ---------|----------|---------
 Non-constant variables and object properties | `employee` |
 --------- | `number` |
-  | `fizzBuzz` |
+--------- | `fizzBuzz` |
 --------- | `speedOfLight` |
-  | `destinationURL` | URL is an acronym
-  | `m00n` |
+--------- | `destinationURL` | URL is an acronym
+--------- | `m00n` |
 Constructor functions and classes | `Cat` |
-  | `BoxTurtle` |
-  | `FlightlessBird |
+--------- | `BoxTurtle` |
+--------- | `FlightlessBird |
 Other functions |`parseURL`| URL is an acronym
-|`goFaster`|
+--------- |`goFaster`|
 Configurations and magic constants |`ABSOLUTE_PATH`|
-|`TODAY`|
-Other `const` names | `employeeOfMonth` | Local style
-| `HairyCat` | Local style
+--------- | `TODAY`|
+Other `const` names | `employeeOfMonth`| Local style
+| `HairyCat`| Local style
 | `ABSOLUTE_PATH | Local style
 
 The following [tables](https://github.com/hyosung11/Launch-School/blob/d578bc76f9ed805b2d255d5761622e7261b692a8/Courses/JS101/Lesson-2-Small-Programs/notes.md) show which names are and aren't idiomatic in the various categories and when.
