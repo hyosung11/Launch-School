@@ -3625,3 +3625,9 @@ How awesome are the engineers in the company? If you're the best one there, that
 10:11 Still studying Elaine's notes and adding to my glossary.
 
 13:48 I forgot to answer my daily scrum questions. I'm now ready to head out an play ping pong.
+
+## 20211011 월요일
+
+08:30 The kids are off of school today and I haven't done any studying since Friday. I'm tired and bored of coding right now. Actually, I just want to get this written assessment done. I don't think I'm ready to take it yet though. I feel sluggish and low energy lately but I'm not sure why.
+
+09:01 Stopping studying to hang out with the kids. Elaine got into the weeds with arrays in a way that I don't think is necessary for the written assessment. So not sure how much to copy into my glossary. Step back and reflect.

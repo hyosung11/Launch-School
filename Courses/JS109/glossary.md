@@ -2,7 +2,323 @@
 
 ## 1. Arrays: working with Arrays, especially the iteration methods (`forEach`, `map`, `filter`, and `find`)
 
-### `Array.prototype.concat()`
+### Arrays
+
+Arrays are lists of elements that are ordered by index, where each element can be any value. *Arrays associate values with ordered indexes*. Arrays use an integer-based index to maintain the order of its elements. A specific element can be referenced using its index. Arrays in JavaScript can contain any JavaScript values, regardless of type, and can contain different types at the same time. This is referred to as being heterogenous.
+
+### Array Element Referencing
+
+You can refer to any element of an array by its index number. The last item in an array is always located at index position `array.length - 1`. This is because arrays are zero-based, meaning the first item in an array occurs at index position `0`. If an array has 5 elements within it, it has an `array.length` of 5, which means the last element has an index position of `4` (5 - 1). Therefore, to add a new value to the end of an array, you can also use the syntax `array[array.length]` which would add a new value to the very end of the array.
+
+```js
+// Arrays can be Heterogenous
+let arr = [1, 2, 'string', false, null, undefined, {}, [5, 'a']]
+
+// Array Declared and Initialized with Const - contents within the Array can still be modified
+const frozenArr = ['I', 'am', 'a', 'frozen', 'array', '!'] // returns undefined
+frozenArr.push('!') // push returns 7, which is the length of the array
+console.log(frozenArr) // logs['I', 'am', 'a', 'frozen', 'array', '!', '!'], and returns undefined
+
+// Array Declared and Initialized with Const - cannot be reassigned -> throws an error
+frozenArr = [1, 2, 3]; // Uncaught TypeError: Assignment to constant variable.
+
+// Const Array with Frozen Elements
+const frozenCount = [1, 2, 3] // returns undefined
+Object.freeze(frozenCount) // returns [1, 2, 3]
+frozenCount.push(4) // returns Uncaught TypeError: Cannot add property, object is not extensible
+```
+
+### Array Keys
+
+```js
+// Standard Characteristics of the Array (length and Object.keys(arr))
+let arr = [2, 4, 6];
+console.log(arr);              // [2, 4, 6]
+console.log(arr.length);       // 3
+console.log(Object.keys(arr))  // ['0', '1', '2']
+
+// Adding Object Properties to the arr Object
+arr[-3] = 5;                   // adds a property '-3' with a value 5 to the array object
+arr['foo'] = 'a';              // adds a property 'foo' with the value 'a' to the array object
+console.log(arr);              // [ 2, 4, 6, '-3': 5, foo: 'a' ]
+console.log(arr.length);       // 3 -> Object Properties added to an Array Object are NOT included in the length of the array
+console.log(Object.keys(arr))  // [ '0', '1', '2', '-3', 'foo' ]
+arr.map(x => x + 1);           // [ 3, 5, 7 ] => All built-in Array methods ignore properties that are not elements, so map ignores arr[-3] and arr['foo']
+```
+
+### Sparse Arrays
+
+```js
+// Sparse Arrays - consisting of unset values created by increasing the length property
+1 let arr = [2, 4, 6];
+2 arr.length = 5;
+3 console.log(arr);              // [2, 4, 6, <2 empty items> ]
+4 console.log(arr.length);       // 5
+5 console.log(Object.keys(arr))  // ['0', '1', '2']
+```
+
+Notice that the array now contains 5 elements, as shown on line 3 and line 4. Curiously, though, two of the elements are shown as empty items. The empty items, `arr[3]` and `arr[4]`, have no value at all. In fact, those elements don't exist; you can see that on line 5 where `Object.keys` makes no mention of keys '3' and '4'. If you try to access either value, JavaScript will tell you that it is `undefined`. However, that does not mean its value is undefined. The value is NOT SET at all. Let's see what happens when we change one of these elements to an explicit undefined value:
+
+```js
+// Sparse Arrays - Explicitly Set as undefined
+arr[4] = undefined
+console.log(arr);              // [2, 4, 6, <1 empty item>, undefined ]
+console.log(arr.length);       // 5
+console.log(Object.keys(arr))  // ['0', '1', '2', '4']
+```
+
+`arr[3]` is still an empty item, but `arr[4]` is assigned the value `undefined`. `arr[4]` has a value; `arr[3]` does not. Note, also, that `Object.keys()` includes the index/key of the explicitly `undefined` element (`'4'`) in its return value. However, it still does not include the key for the gap at `arr[3]`.
+
+### An Empty Array - Gaps vs Object Keys
+
+* `Array.length` - includes elements that that have been set, as well as any gaps (i.e., unset elements)
+* `Object.keys(arr)` - includes the indices of all set elements **as well as non-element properties** that have been added to the Array object.
+
+### Odd Array Properties - Increasing, Decreasing, Negative Array Indices, Unset Values vs `undefined`
+
+* **Decreasing the Array.length Property -** If you change an array's `length` property to a new, **smaller** value, the array gets **truncated**; and JavaScript ***removes all elements beyond the new final element***.
+* **Increasing the Array.length Property** - if you change an array's `length` property to a new, **larger** value, the array expands to the new size. However, the new elements do **not get initialized**. Indexing into an element that is **not** initialized or that is **unset** returns `undefined`. Elements of an array that are **NOT** initialized will **NOT** be iterated over and included in the callback function for array iteration functions (i.e., `forEach`, `map`); however values that **ARE** initialized (even if they are initialized with a value of `undefined`) **WILL** be included in those functions.
+* **Negative Array Indices (adding to the Array Properties)** - if you create 'negative array indices', ***JavaScript does NOT throw an error***; instead these are added as **properties to the array object.** Recall that object keys are **always strings.**
+
+```js
+// Investigating Increasing & Decreasing the Array.length Property, and Array Iteration with Unset Elements
+let arr = [] // returns undefined
+arr.length = 3 // returns 3
+arr // returns [ <3 empty items> ]
+
+arr[0] // returns undefined
+arr[0] === undefined // returns true
+arr.filter(element => element === undefined) // returns [] -> **this is because uninitialized elements within an array are NOT iterated through**
+arr.forEach(element => console.log(element)) // does not log anything, because **uninitialized elements are NOT iterated through**, and returns undefined
+
+arr[1] = 3 // returns 3
+arr // returns [ <1 empty item>, 3, <1 empty item>]
+arr.length // returns 3
+arr.forEach(element => console.log(element)) // logs 3 to the console, and forEach() returns undefined
+
+Object.keys(arr)   // only the initialized or set elements are included in Object.keys(arr) => returns the element index position of ['1']
+arr.length = 2 // returns 2
+arr // returns [ <1 empty item>, 3]
+
+// Examples of Negative Arrays and Adding Array Properties
+> arr = [1, 2, 3] // returns [1, 2, 3]
+> arr[-3] = 4 // returns 4
+> arr // returns [ 1, 2, 3, '-3': 4 ]
+
+> arr[3.1415] = 'pi' // returns 'pi'
+> arr['cat'] = 'Fluffy' // returns 'Fluffy' -> NOTE: When using bracket notation, the key must be a quoted string
+> arr // returns [1, 2, 3, '-3': 4, '3.1415': 'pi', cat: 'Fluffy']
+
+> arr.length // returns 3 -> it only counts the set and unset elements [1, 2, 3], and does NOT include properties on the array object
+> Object.keys(arr) // returns ['0', '1', '2', '-3', '3.1415', 'cat'] -> returns both the set element indices and all keys of the array object
+> Object.values(arr) // returns [1, 2, 3, 4, 'pi', 'Fluffy'] -> returns both the set elements and all values of the array object
+```
+
+### Unset Values vs `undefined`
+
+If you attempt to access the index of an unset value, it is uninitialized and it returns `undefined`. How do you determine between an unset item that happens to be `undefined`, and a set item that has been ***initialized and assigned*** to `undefined`?
+A key things to remember:
+
+* array.length **includes both SET and UNSET element values in its length, and DOES NOT include other array object keys or array object properties;**
+* Object.keys(array) only **includes SET element values and other array object keys in its length, and does NOT include UNSET element values in its length**
+
+```js
+// Exploring Empty/Unset Value vs. undefined
+let a = new Array(3); // returns undefined -> let a = new Array(3) this is another alternative to creating an array
+a                     // returns [ <3 empty items> ]
+a[0] === undefined;   // returns true
+
+let b = [];           // returns undefined
+b.length = 3;         // returns 3
+b[-1] = 'yeah'        // returns 'yeah'
+b                     // returns [ <3 empty items>, '-1': 'yeah' ]
+b[0] === undefined;   // returns true
+
+let c = [undefined, undefined, undefined] // returns undefined
+c                                         // returns [ undefined, undefined, undefined ]
+c[0] === undefined;                       // returns true
+c['a'] = 5                                // returns 5
+
+// Exploring Array Length Property vs. Object.keys(array).lengths
+a.length                   // returns 3 -> unset items is 3; set items is 0
+Object.keys(a).length;     // returns 0 -> set items is 0; array object property keys is 0
+
+b.length                   // returns 3 -> unset items is 3; set items is 0
+Object.keys(b).length      // returns 1 -> set items is 0; array object property keys is 1
+
+c.length                   // returns 3 -> unset items is 0; set items is 3
+Object.keys(c).length      // returns 4 -> set items is 3; array object property keys is 1
+```
+
+### Array Element Assignment || Object Element Assignment
+
+Since Arrays are objects, they are mutable. As such, element assignment notation can be used to modify specific elements of arrays, or specific values of objects, by referring to their index and key respectively. Note that array and object element assignment notation is **destructive** and mutates the array/object directly.
+
+```js
+// Array Modification
+let arr = [1, 2, 3]
+arr[2] = 5
+arr                  //  => logs [1, 2, 5]
+
+// Object Modification
+let obj = { a: 1, b: 2, c: 3};
+obj['b'] = 5;
+obj;                 //  => logs { a: 1, b: 5, c: 3}
+```
+
+### Array Destructuring Assignment
+
+In an array destructuring assignment, we can assign elements of the array to multiple variables by wrapping the variable names in brackets. The first element gets assigned to the first variable, the second element gets assigned to the second variable, and so on.
+
+```js
+let produce = {
+  apple: 'Fruit',
+  carrot: 'Vegetable',
+  pear: 'Fruit',
+  broccoli: 'Vegetable'
+};
+
+let produceEntries = Object.entries(produce);
+
+produceEntries.forEach(keyVal => {
+  let [ key, value ] = keyVal; // => Array Destructuring Assignment!
+
+  console.log(`${key} is a ${value}`);
+});
+// logs: apple is a Fruit, carrot is a Vegetable pear is a Fruit broccoli is a Vegetable
+```
+
+### Out of Bounds Indices
+
+Attempting to reference an out of bound index returns `undefined`. This is true for both positive and negative array indices. It does NOT throw an error. Attempting to increment an element located at an out of bound index returns `NaN` (because `undefined` + any value returns `NaN`.
+
+```js
+let arr1 = ['h', 'e', 'l', 'l', 'o']
+
+arr1[6]                  // => returns undefined
+arr1[-5]                 // => returns undefined
+arr1[6] = arr1[6] + 1    // => returns NaN -> note that the sum of undefined and a number returns NaN
+arr1                     // => ['h', 'e', 'l', 'l', 'o', <1 empty item>, NaN]
+```
+
+### Destructive Methods that Add/Remove Elements from Beginning or End of an Array
+
+#### `Array.prototype.pop()`
+
+```js
+let oddNumbers = [1, 3, 5, 7, 9];
+oddNumbers.pop();
+console.log(oddNumbers); // => [1, 3, 5, 7]
+```
+
+The pop() method removes the last element from an array, but it does so destructively: the change is permanent. `pop` alters the array in-place. In other words, it mutates its caller (the array).
+
+#### `Array.prototype.push()`
+
+The `push()` method adds one or more elements to the end of an array and returns the length of the new array.
+
+```js
+let sports = ['soccer', 'baseball']
+let total = sports.push('football', 'swimming')
+
+console.log(sports)  // ['soccer', 'baseball', 'football', 'swimming']
+console.log(total)   // 4
+```
+
+#### `Array.prototype.shift()`
+
+The `shift()` method removes the **first** element from an array and returns the removed element. This method changes the length of the array.
+
+```js
+const array1 = [1, 2, 3];
+
+const firstElement = array1.shift();
+
+console.log(array1);
+// expected output: Array [2, 3]
+
+console.log(firstElement);
+// expected output: 1
+```
+
+#### `Array.prototype.unshift()`
+
+The `unshift()` method adds one or more elements to the beginning of an array and returns the length of the new array.
+
+```js
+const array1 = [1, 2, 3];
+
+console.log(array1.unshift(4, 5));
+// expected output: 5
+
+console.log(array1);
+// expected output: Array [4, 5, 1, 2, 3]
+```
+
+### Other Destructive Array Methods
+
+#### `Array.prototype.sort(a, b) => {...} )`
+
+The `sort()` method sorts the elements of an array in place (mutating the calling array) and returns the sorted array. The default sort order is ascending, built upon converting the elements into strings, then comparing their sequences of UTF-16 code units values.
+
+* No Callback - The default sort order is **ascending**, built upon *converting the elements into strings*, then **comparing their sequences of UTF-16 code units values.**
+* Callback - if a callback function is defined, `sort` method utilizes the return value of the callback function to determine the sort order.
+  * return value of callback - less than 0; sort `a before b`;
+  * return value of callback - greater than 0; sort `b before a`;
+  * return value of callback - is zero, the two elements are equal. Stable sorting will be maintained.
+
+```js
+const months = ['March', 'Jan', 'Feb', 'Dec'];
+months.sort();
+console.log(months);
+// expected output: Array ["Dec", "Feb", "Jan", "March"]
+
+const array1 = [1, 30, 4, 21, 100000];
+array1.sort();
+console.log(array1);
+// expected output: Array [1, 100000, 21, 30, 4]
+```
+
+#### `Array.prototype.reverse()`
+
+The `reverse()` method reverses an array in place. The first array element becomes the last, and the last array element becomes the first.
+
+```js
+const array1 = ['one', 'two', 'three'];
+console.log('array1:', array1);
+// expected output: "array1:" Array ["one", "two", "three"]
+
+const reversed = array1.reverse();
+console.log('reversed:', reversed);
+// expected output: "reversed:" Array ["three", "two", "one"]
+
+// Careful: reverse is destructive -- it changes the original array.
+console.log('array1:', array1);
+// expected output: "array1:" Array ["three", "two", "one"]
+```
+
+#### `Array.prototype.splice(start, [deleteCount], [addItem])`
+
+The `splice()` method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.
+
+```js
+const months = ['Jan', 'March', 'April', 'June'];
+months.splice(1, 0, 'Feb');
+// inserts at index 1
+console.log(months);
+// expected output: Array ["Jan", "Feb", "March", "April", "June"]
+
+months.splice(4, 1, 'May');
+// replaces 1 element at index 4
+console.log(months);
+// expected output: Array ["Jan", "Feb", "March", "April", "May"]
+```
+
+### Non-destructive Array Methods
+
+#### `Array.prototype.concat()`
+
+The `concat` method returns a new array that contains a copy of the original array combined with additional elements supplied with the arguments. Since `concat` creates a copy of the original array and then mutates the copy, it leaves the original array intact.
 
 ```js
 function addToArray(array) {
@@ -14,9 +330,57 @@ console.log(addToArray(oneToFive)); // => [1, 2, 3, 4, 5, 10]
 console.log(oneToFive);             // => [1, 2, 3, 4, 5]
 ```
 
-The `concat` method returns a new array that contains a copy of the original array combined with additional elements supplied with the arguments. Since `concat` creates a copy of the original array and then mutates the copy, it leaves the original array intact.
+#### `Array.prototype.slice([start], [end])`
 
-### `Array.prototype.filter()`
+ The `slice()` method returns a shallow copy of a portion of an array into a new array object selected from `start` to `end` (end not included) where `start` and `end` represent the index of items in that array. The original array will not be modified.
+
+```js
+const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+
+console.log(animals.slice(2));
+// expected output: Array ["camel", "duck", "elephant"]
+
+console.log(animals.slice(2, 4));
+// expected output: Array ["camel", "duck"]
+
+console.log(animals.slice(1, 5));
+// expected output: Array ["bison", "camel", "duck", "elephant"]
+
+console.log(animals.slice(-2));
+// expected output: Array ["duck", "elephant"]
+
+console.log(animals.slice(2, -1));
+// expected output: Array ["camel", "duck"]
+```
+
+### Searching Arrays - Truthiness
+
+#### `Array.prototype.find()`
+
+The `find()` method returns the value of the **first** element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, `undefined` is returned.
+
+The `find` method executes the `callbackFn` function once for each index of the array until the `callbackFn` returns a truthy value. If so, `find` immediately returns the value of that element. Otherwise, `find` returns `undefined`.
+
+```js
+let array = [5, 12, 8, 130, 44];
+
+let found = array.find(element => element > 10);
+
+console.log(found)
+// => 12
+```
+
+#### `Array.prototype.findIndex(callbackFn)`
+
+The `findIndex()` method returns the **index** of the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, `-1` is returned.
+
+#### `Array.prototype.lastIndexOf(searchElem, [fromIndex])`
+
+The `lastIndexOf()` method returns the last index of the element that matches the `searchElem` if it is found within the array. The array is searched backwards, starting at `fromIndex`. Returns `-1` if not found.
+
+### Arrays - Collection Methods
+
+#### `Array.prototype.filter()`
 
 The `filter` method returns a new array that includes all elements from the calling array for which the callback returns a truthy value.
 
@@ -33,24 +397,9 @@ The `filter` method returns a new array that includes all elements from the call
 
 `filter` doesn't mutate the caller.
 
-### `Array.prototype.find()`
+#### `Array.prototype.forEach()`
 
-The `find()` method returns the value of the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, `undefined` is returned.
-
-The `find` method executes the `callbackFn` function once for each index of the array until the `callbackFn` returns a truthy value. If so, `find` immediately returns the value of that element. Otherwise, find returns `undefined`.
-
-```js
-let array = [5, 12, 8, 130, 44];
-
-let found = array.find(element => element > 10);
-
-console.log(found)
-// => 12
-```
-
-### `Array.prototype.forEach()`
-
-To use `forEach`, you need a callback function that you pass to `forEach` as an argument. A callback function is a function that you pass to another function as an argument. The called function invokes the callback function when it runs. The `forEach` method invokes its callback once for each element, passing it the element's value as an argument. `forEach` always returns `undefined`.
+The `forEach` method executes a callback function for each element in the calling array. The return value of the callback function is not used by the `forEach` method. `forEach` always returns `undefined`.
 
 ```js
 let array = [1, 2, 3];
@@ -83,13 +432,9 @@ This paragraph talks about the `forEach` method being called by the object refer
 
 `forEach` performs simple iteration and returns `undefined`.
 
-### `Array.prototype.map()`
+#### `Array.prototype.map()`
 
-`map` transforms an array's elements and returns a new array with the transformed values.
-
-The `map` method takes a function as an argument and calls it for each element of the array used to call `map`.
-
-`map` uses the return value of the callback to perform a transformation.
+The `map()` method returns a new array populated with the return values of executing a callback function for each element of the calling array.
 
 ```js
 // The map method handles this situation more cleanly:
@@ -104,15 +449,17 @@ The `map` method takes a function as an argument and calls it for each element o
 
 However, `map` returns a new array that contains one element for each element in numbers, with each element set to the return value of the callback: the squares of the numbers in this case. This code is more compact than the `forEach` code, and, better yet, it has no side effects; the callback doesn't update squares (the return value of map does that), and we don't have to reset the variable if we rerun the same code.
 
-### `Array.prototype.pop()`
+#### `Array.prototype.reduce((prevVal, currVal, currIndex, array) => {...}, initialValue)`
 
-```js
-let oddNumbers = [1, 3, 5, 7, 9];
-oddNumbers.pop();
-console.log(oddNumbers); // => [1, 3, 5, 7]
-```
+The `reduce()` method executes a user-supplied “reducer” callback function on each element of the array, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value.
 
-The pop() method removes the last element from an array, but it does so destructively: the change is permanent. `pop` alters the array in-place. In other words, it mutates its caller (the array).
+#### `Array.prototype.some(callbackFn)`
+
+The `some()` method executes a callback function once for each element in the calling array, until it finds an occurrence where the callback function returns a **truthy** value. If such an element is found, the method **immediately** returns `true`. Otherwise, if the callback function returns a falsy value for all elements, the method returns `false`.
+
+#### `Array.prototype.every(callbackFn)`
+
+The `every()`method executes a callback function once for each element in the calling array, until it finds an occurrence where the callback function returns a **falsy** value. If such an element is found, the method **immediately** returns `false`. Otherwise, if callback function returns a truthy value for all elements, the method returns `true`.
 
 ## 2. Arrays Are Objects
 
@@ -621,7 +968,7 @@ for (let prop in person) {
 
 In the above example, we iterate over the `person` object using the `for/in` loop. Line 376 declares a variable `prop` which, in each iteration, receives a key from the the object until the object runs out of key-value pairs. We use `prop` inside the loop body to access and log the corresponding value.
 
-### `Object.keys`
+### `Object.keys()`
 
 The `Object.keys` static method returns an object's keys as an array. You can iterate over that array using any technique that works for arrays. For instance:
 
@@ -644,7 +991,7 @@ personKeys.forEach(key => {
 // undefined
 ```
 
-### `Object.values`
+### `Object.values()`
 
 The `Object.values` static method extracts the values from every own property in an object to an array:
 
@@ -664,7 +1011,7 @@ console.log(personValues); // => [ 'Bob', 30, '6 ft' ]
 
 ### `Object.entries()`
 
-While `Object.keys` and `Object.values` return the keys and values of an object, respectively, the `Object.entries` static method returns an array of nested arrays. Each nested array has two elements: one of the object's keys and its corresponding value:
+While `Object.keys` and `Object.values` return the keys and values of an object, respectively, the `Object.entries` static method *returns an array of nested arrays*. Each nested array has two elements: one of the object's keys and its corresponding value:
 
 ```js
 let person = { name: 'Bob', age: 30, height: '6ft' };

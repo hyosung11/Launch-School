@@ -77,8 +77,6 @@ console.log(foo.a); // => 'hi'
 console.log(qux); // => 'hello'
 ```
 
-This program logs `hi` and `hello`. Since objects are mutable, `console.log(foo.a)` logs `hi` because the function `bar` passes in `foo` as its argument and the variable `a` is reassigned when passed as an argument. Passing the `qux` variable into the function `bar` doesn't mutate the string `qux`, so `console.log(qux)` logs `hello`. This program demonstrates the difference between pass by reference and pass by value.
-
 HyoSung
 This program logs `hi` and `hello`. Since objects are mutable, `console.log(foo.a)` logs `hi` because the function `bar` passes in `foo` as its argument and the variable `a` is reassigned when passed as an argument. Passing the `qux` variable into the function `bar` doesn't mutate the string `qux`, so `console.log(qux)` logs `hello`. This program demonstrates the difference between pass by reference and pass by value.
 
