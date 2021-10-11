@@ -3484,3 +3484,150 @@ How awesome are the engineers in the company? If you're the best one there, that
 11:08 I found a mistake in my notes as I prepare my glossary. That's good to know that I do know my code.
 
 11:18 Finished first draft of glossary on "Working with Strings".
+
+## 20210930 목요일
+
+10:27 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex and Laurent
+   * [ ] 2. JS109 > Lesson 1 > Assignment 3. Part 1: Glossary Topics: Truthiness vs Boolean, Variable Scope, and Variables as Pointers
+   * [x] 3. Listened to the Launch School Podcast S3E6: Getting to Know Srdjan
+
+2. What will you do today?
+   * [x] 1. JS109 > Lesson 1 > Assignment 3. Part 1: Glossary Topics: Truthiness vs Boolean, Variable Scope, and Variables as Pointers
+   * [x] 2. JS109 Study Session with Juliette
+   * [x] 3. Read *The Programmer's Brain* chapter 5: Reaching a deeper understanding of code
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I had marriage counseling this morning. I woke up late. I have a soccer game to officiate in the late afternoon.
+
+10:30 My hip still hurts. I'm going to test it out at the gym later today.
+
+10:52 I've added to my glossary on "Truthiness vs Boolean" but I'm not sure how much detail I need on this topic. I need to practice more questions. Not sure when to go to the gym as I have a study session and I have to referee this afternoon. I'm adjusting my schedule to keep studying and then go to the gym after my study session and before I referee.
+
+11:09 Got glossary information for "Truthiness vs Boolean". Taking a short break now.
+
+14:34 After JS109 Study Session with Juliette. I feel closer to being ready for the written assessment.
+
+15:21 I didn't get to the gym. Omi just got home. I'm ready to get ready to officiate.
+
+## 20211001 금요일
+
+05:30 Study session with Alex and Laurent.
+
+08:55 Ready to start another study session. My hands are cold. I will take the JS109 Written Assessment on Tuesday, 12 October 2021 at 9:00 AM.
+
+09:02 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS109 > Lesson 1 > Assignment 3. Part 1: Glossary Topics: Truthiness vs Boolean and Variables as Pointers
+   * [x] 2. JS109 Study Session with Juliette
+   * [ ] 3. Read *The Programmer's Brain* chapter 5: Reaching a deeper understanding of code
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex and Laurent
+   * [ ] 2. JS109 > Lesson 1 > Assignment 3. Part 1: Glossary Topic: Variables as Pointers
+   * [ ] 3. JS101-109 & 210-211 Fundamentals of JavaScript for Programmers Study Group
+   * [ ] 4. Review Small Problems and take note of wording in the Discussion
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I need to put more emphasis on my job search sooner than later.
+
+10:32 I finished the first draft of my glossary. Yes! Ready to take a break and go to the gym now.
+
+14:37 After SPOT Study Session with Iuliu. He was kind of all over the place.
+
+## 20211005 화요일
+
+09:14 I took three days off from Launch School and now I'm back. I see that Elaine passed the JS109 Written Assessment. I scheduled to take it a week from today. Get on my horse and ride. Louis decided to leave our soccer meetup group. That's the drama in my life right now. I haven't talked to Omar about it. I was so tired yesterday. I feel a little better today. It seems that people are dropping out of of Jersey United. Louis said he would play with us if we need him. Okay. I sat and meditated this morning. I wonder how I would actually do on the written assessment if I took it right now. Focus time now.
+
+09:17 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * Nothing for the past three days.
+
+2. What will you do today?
+   * [x] 1. Print out and review glossary
+   * [ ] 2. Review small problems and annotate the discussion section
+   * [ ] 3. Read *The Programmer's Brain* chapter 5: Reaching a deeper understanding of code
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Referee this afternoon.
+
+09:44 I need to know my stuff so I can stay relaxed and handle the time pressure to answer twenty questions in 180 minutes.
+
+11:12 Weird situation with Omar and Louis. I talked to Omar today and got his side of the story. I'm focusing on answer template format this morning. Ready to go to the gym now.
+
+14:15 On the phone with Louis and was on the phone with Omar earlier.
+
+15:30 I didn't get much studying done today. I have to leave to referee now.
+
+## 20211006 수요일
+
+05:35 Study Session with Alex and Laurent.
+
+06:30 Not ready to take the written assessment.
+
+09:00 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Print out and review glossary
+   * [ ] 2. Review small problems and annotate the discussion section
+   * [ ] 3. Read *The Programmer's Brain* chapter 5: Reaching a deeper understanding of code
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex and Laurent
+   * [ ] 2. Review small problems and annotate the discussion section
+   * [ ] 3. SPOT Study Session
+   * [ ] 4. Algorithm Writing Clinic
+   * [ ] 3. Read *The Programmer's Brain* chapter 5: Reaching a deeper understanding of code
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I don't feel ready to take the written assessment. I need to sharpen my code analysis skills and identify the underlying concept faster. This requires more practice.
+
+09:17 Elaine's Suggestions
+
+1. Understand concepts very deeply
+2. Refine language / terminology
+3. Practice problems
+
+11:00 Reviewing Elaine's notes and using her notes to update my glossary.
+
+17:21 Grinding through Elaine's notes and synthesizing them into my glossary. Time to make dinner.
+
+## 20211007 목요일
+
+09:08 Back from my walk through the duck pond and the one mosquito got me. I see that Elaine and I have similar or almost the same notes. I just need to do more practice problems and increase my speed. I can do this.
+
+09:00 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex and Laurent
+   * [x] 2. Study Elaine's notes and integrate them into my glossary
+   * [x] 3. SPOT Study Session
+   * [ ] 4. Read *The Programmer's Brain* chapter 5: Reaching a deeper understanding of code
+
+2. What will you do today?
+   * [x] 1. Study Elaine's notes and integrate them into my glossary
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Playing ping pong with Louis and reffing this afternoon.
+
+09:53 Working through Variable Shadowing. I think it's dumb because it's not something you want to do in a program.
+
+10:26 Getting into the weeds of Elaine's notes. I don't think I need to know this stuff that well for the written assessment.
+
+## 20211008 금요일
+
+06:41 Just finished study session with Alex and Laurent. I'm getting closer to taking the written assessment.
+
+10:11 Still studying Elaine's notes and adding to my glossary.
+
+13:48 I forgot to answer my daily scrum questions. I'm now ready to head out an play ping pong.
+
+## 20211011 월요일
+
+08:30 The kids are off of school today and I haven't done any studying since Friday. I'm tired and bored of coding right now. Actually, I just want to get this written assessment done. I don't think I'm ready to take it yet though. I feel sluggish and low energy lately but I'm not sure why.
+
+09:01 Stopping studying to hang out with the kids. Elaine got into the weeds with arrays in a way that I don't think is necessary for the written assessment. So not sure how much to copy into my glossary. Step back and reflect.
