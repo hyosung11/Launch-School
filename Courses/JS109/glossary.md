@@ -1061,9 +1061,9 @@ Names that follow the naming conventions in the [Naming Conventions section of t
 Category | Name | Notes
 ---------|----------|---------
 Non-constant variables and object properties | `employee` |
- | `number` |
+--------- | `number` |
 --------- | `fizzBuzz` |
- | `speedOfLight` |
+--------- | `speedOfLight` |
 --------- | `destinationURL` | URL is an acronym
 --------- | `m00n` |
 Constructor functions and classes | `Cat` |
@@ -1072,10 +1072,10 @@ Constructor functions and classes | `Cat` |
 Other functions |`parseURL`| URL is an acronym
 --------- |`goFaster`|
 Configurations and magic constants |`ABSOLUTE_PATH`|
---------- | `TODAY`|
-Other `const` names | `employeeOfMonth`| Local style
-| `HairyCat`| Local style
-| `ABSOLUTE_PATH | Local style
+--------- |`TODAY`|
+Other`const` names | `employeeOfMonth`| Local style
+--------- |`HairyCat`| Local style
+--------- |`ABSOLUTE_PATH` | Local style
 
 The following [tables](https://github.com/hyosung11/Launch-School/blob/d578bc76f9ed805b2d255d5761622e7261b692a8/Courses/JS101/Lesson-2-Small-Programs/notes.md) show which names are and aren't idiomatic in the various categories and when.
 
