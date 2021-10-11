@@ -1061,9 +1061,9 @@ Names that follow the naming conventions in the [Naming Conventions section of t
 Category | Name | Notes
 ---------|----------|---------
 Non-constant variables and object properties | `employee` |
-  | `number` |
+--------- | `number` |
   | `fizzBuzz` |
-  | `speedOfLight` |
+--------- | `speedOfLight` |
   | `destinationURL` | URL is an acronym
   | `m00n` |
 Constructor functions and classes | `Cat` |
