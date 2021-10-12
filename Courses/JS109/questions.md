@@ -2,7 +2,7 @@
 
 ## [Answer Template](https://www.dmytronaida.com/2020/05/27/js109-written-assessment.html)
 
-### Question Example: What will line 17 log to the console and why?
+## 1. Question Example: What will line 17 log to the console and why?
 
 ```js
 let greeting = ["Hello"];
@@ -19,7 +19,7 @@ console.log(greeting);
 
 On line 17, the `console.log(greeting)` method will log `["Hello"]` because 1) the global variable `greeting` is not reassigned within the body of the function `test` and 2) the object that the variable `greeting` points to is not mutated within the function `test`. On line 8, the global variable `greeting` is declared and assigned to reference the array `["Hello"]`. On line 16, the function `test` is called with the passed in argument `greeting`. At this point both the global variable `greeting` and the parameter `arr` reference the same array. On line 11, `arr` is reassigned to the new array `["ByeBye"]`. Therefore, parameter `arr` no longer references the place in computer memory where the object `greeting` variable points. The object variable `greeting` is no longer mutable because `arr` now references a different object.
 
-### Example from Study Guide
+## 2. Example from Study Guide
 
 Examine the code example below. The last line outputs the string `'Hi'` rather than the string `'Hello'`. Explain what is happening here and identify the underlying principle that this demonstrates.
 
@@ -42,7 +42,7 @@ B) The global variable `greeting` is assigned to the string `Hello` on line 1. W
 
 C) The global variable `greeting` is initialized to the string `Hello` on line 1. Within the loop, lines 3 to 6 define a block within which `greeting` is reassigned to the string `Hi` on line 4. On line 8, `console.log` is called with the variable `greeting` passed to it as an argument; since `greeting` is now assigned to `Hi`, this is what is output.
 
-D) The global variable `greeting` is declared and initialized to the string `Hello` on line 1. Lines 3 to 6 define a loop that will execute forever, unless something happens to end the loop. When the loop begins, it first reassigns the `greeting` global variable to `Hi` on line 4. On the next line, `break`, causes the loop to end, with execution resuming after line 6. Finally, on line 8, `console.log` is called with the value of the variable `greeting` passed to it as an argument. Since `greeting` is now assigned to `Hi`, that is what gets output. This example demonstrates variable scoping rules in JavaScript; specifically the fact that a variable declared in the outer scope is accessible from a nested inner scope.
+D) The global variable `greeting` is declared and initialized to the string `Hello` on line 1. Lines 3 to 6 define a loop that will execute forever, unless something happens to end the loop. When the loop begins, it first reassigns the `greeting` global variable to `Hi` on line 4. On the next line, `break`, causes the loop to end, with execution resuming after line 6. Finally, on line 8, `console.log` is called with the value of the variable `greeting` passed to it as an argument. Since `greeting` is now assigned to `Hi`, that is what gets output. **This example demonstrates variable scoping rules in JavaScript; specifically the fact that a variable declared in the outer scope is accessible from a nested inner scope.**
 
 While none of these answers is technically incorrect, they all answer the question with varying degrees of detail and precision.
 
@@ -56,7 +56,7 @@ While none of these answers is technically incorrect, they all answer the questi
 
 [9.](https://launchschool.com/books/javascript/read/objects#exercises)
 
-## 1. What does the following program log to the console? Why?
+## 3. What does the following program log to the console? Why?
 
 ```js
 let foo = {

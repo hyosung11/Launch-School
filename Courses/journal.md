@@ -3631,3 +3631,21 @@ How awesome are the engineers in the company? If you're the best one there, that
 08:30 The kids are off of school today and I haven't done any studying since Friday. I'm tired and bored of coding right now. Actually, I just want to get this written assessment done. I don't think I'm ready to take it yet though. I feel sluggish and low energy lately but I'm not sure why.
 
 09:01 Stopping studying to hang out with the kids. Elaine got into the weeds with arrays in a way that I don't think is necessary for the written assessment. So not sure how much to copy into my glossary. Step back and reflect.
+
+19:27 Finally got through all of Elaine's notes and integrated them into my glossary.
+
+## 20211012 화요일
+
+09:38 I started studying earlier, but am now focusing on analyzing questions and answers.
+
+09:40 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Annotated my glossary with the notes that Elaine shared with me.
+
+2. What will you do today?
+   * [ ] 1. Review practice questions and answers
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Referee two games, one in the afternoon, and one in the evening.
+

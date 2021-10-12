@@ -169,9 +169,22 @@
 // let sum = add(3, 6); // 3 and 6 are arguments
 // console.log(sum);    // logs 9 to the console
 
-function say(words) {
-  // function body
-  console.log(words)
-}
+// function say(words) {
+//   // function body
+//   console.log(words)
+// }
 
-say("hello"); // => logs 'hello'
+// say("hello"); // => logs 'hello'
+
+/*=======================*/
+let greeting = ['Hello'];
+
+const test = (arr) => {
+  // console.log(arr);
+  arr = ['ByeBye'];
+  arr.push('World');
+  return arr;
+};
+
+console.log(test(greeting));
+console.log(greeting);
