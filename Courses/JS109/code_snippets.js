@@ -176,15 +176,31 @@
 
 // say("hello"); // => logs 'hello'
 
-/*=======================*/
-let greeting = ['Hello'];
+/* ======================= */
+// let greeting = ['Hello'];
 
-const test = (arr) => {
-  // console.log(arr);
-  arr = ['ByeBye'];
-  arr.push('World');
-  return arr;
-};
+// const test = (arr) => {
+//   // console.log(arr);
+//   arr = ['ByeBye'];
+//   arr.push('World');
+//   return arr;
+// };
 
-console.log(test(greeting));
-console.log(greeting);
+// console.log(test(greeting));
+// console.log(greeting);
+
+/* ======================= */
+let name = 'nina';
+
+function outer() {
+  let name = 'jill';
+
+  function inner() {
+    return name[0].toUpperCase() + name.slice(1);
+  }
+
+  return inner();
+}
+
+console.log(outer()); // => 'Jill'
+console.log(name); // => 'nina'

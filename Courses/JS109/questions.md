@@ -1,8 +1,16 @@
 # Written Assessment Practice Questions
 
+## Detail and Precision
+
+* Describe what is happening in the code example with detail and precision.
+* Identify important JavaScript syntactical conventions that are relevant to the example code.
+  * E.g., the fact that braces next to a while statement form a block in JavaScript
+* Explain why a JavaScript syntactical convention is important and the underlying principle that it demonstrates.
+  * E.g., the fact that JavaScript has particular scoping rules which affect whether or not a variable can be referenced or reassigned.
+
 ## [Answer Template](https://www.dmytronaida.com/2020/05/27/js109-written-assessment.html)
 
-## 1. Question Example: What will line 17 log to the console and why?
+## 1. Question Example: What will line 25 log to the console and why?
 
 ```js
 let greeting = ["Hello"];
@@ -17,7 +25,7 @@ test(greeting);
 console.log(greeting);
 ```
 
-On line 17, the `console.log(greeting)` method will log `["Hello"]` because 1) the global variable `greeting` is not reassigned within the body of the function `test` and 2) the object that the variable `greeting` points to is not mutated within the function `test`. On line 8, the global variable `greeting` is declared and assigned to reference the array `["Hello"]`. On line 16, the function `test` is called with the passed in argument `greeting`. At this point both the global variable `greeting` and the parameter `arr` reference the same array. On line 11, `arr` is reassigned to the new array `["ByeBye"]`. Therefore, parameter `arr` no longer references the place in computer memory where the object `greeting` variable points. The object variable `greeting` is no longer mutable because `arr` now references a different object.
+On line 25, the `console.log(greeting)` method will log `["Hello"]` because 1) the global variable `greeting` is not reassigned within the body of the function `test`, and 2) the object that the variable `greeting` points to is not mutated within the function `test`. On line 8, the global variable `greeting` is declared and assigned to reference the array `["Hello"]`. On line 16, the function `test` is called with the passed in argument `greeting`. At this point, both the global variable `greeting` and the parameter `arr` reference the same array. On line 11, `arr` is reassigned to the new array `["ByeBye"]`. Therefore, parameter `arr` and the object `greeting` variable no longer reference the same place in computer memory. Thus, the object variable `greeting` is no longer mutable because `arr` now references a different object.
 
 ## 2. Example from Study Guide
 
@@ -34,15 +42,11 @@ while (true) {
 console.log(greeting);
 ```
 
-Compare the following possible answers to this question:
+Best Answer from Study Guide:
 
-A) `greeting` is set to `Hello` on line 1. `greeting` is set to `Hi` on line 4. Line 8 outputs `greeting`, which is `Hi`.
+The global variable `greeting` is declared and initialized to the string `Hello` on line 35. Lines 37 to 40 define a loop that will execute forever, unless something happens to end the loop. When the loop begins, it first reassigns the `greeting` global variable to `Hi` on line 38. On the next line, `break`, causes the loop to end, with execution resuming after line 40. Finally, on line 42, `console.log` is called with the value of the variable `greeting` passed to it as an argument. Since `greeting` is now assigned to `Hi`, that is what gets output. **This example demonstrates variable scoping rules in JavaScript; specifically the fact that a variable declared in the outer scope is accessible from a nested inner scope.**
 
-B) The global variable `greeting` is assigned to the string `Hello` on line 1. Within the loop, `greeting` is then reassigned to the string `Hi` on line 4. On line 8, `console.log` is called with the variable `greeting` passed to it as an argument; since `greeting` is now assigned to `Hi`, this is what is output.
-
-C) The global variable `greeting` is initialized to the string `Hello` on line 1. Within the loop, lines 3 to 6 define a block within which `greeting` is reassigned to the string `Hi` on line 4. On line 8, `console.log` is called with the variable `greeting` passed to it as an argument; since `greeting` is now assigned to `Hi`, this is what is output.
-
-D) The global variable `greeting` is declared and initialized to the string `Hello` on line 1. Lines 3 to 6 define a loop that will execute forever, unless something happens to end the loop. When the loop begins, it first reassigns the `greeting` global variable to `Hi` on line 4. On the next line, `break`, causes the loop to end, with execution resuming after line 6. Finally, on line 8, `console.log` is called with the value of the variable `greeting` passed to it as an argument. Since `greeting` is now assigned to `Hi`, that is what gets output. **This example demonstrates variable scoping rules in JavaScript; specifically the fact that a variable declared in the outer scope is accessible from a nested inner scope.**
+Answer Explanations:
 
 While none of these answers is technically incorrect, they all answer the question with varying degrees of detail and precision.
 
@@ -68,7 +72,7 @@ let qux = 'hello';
 
 function bar(argument1, argument2) {
   argument1.a = 'hi';
-  argument2 = 'hi';
+// 10  argument2 = 'hi';
 }
 
 bar(foo, qux);
@@ -77,19 +81,14 @@ console.log(foo.a); // => 'hi'
 console.log(qux); // => 'hello'
 ```
 
-HyoSung
-This program logs `hi` and `hello`. Since objects are mutable, `console.log(foo.a)` logs `hi` because the function `bar` passes in `foo` as its argument and the variable `a` is reassigned when passed as an argument. Passing the `qux` variable into the function `bar` doesn't mutate the string `qux`, so `console.log(qux)` logs `hello`. This program demonstrates the difference between pass by reference and pass by value.
-
-Laurent
-It will log 'hi' and 'hello'. We call 'bar' on line 15 with 2 arguments : the first one 'foo' is passed by reference as 'foo' is an object and the second one is passed by value as 'qux' is a string. When we try to re-assign the 'a' property on 'foo', the 'foo' object is mutated and foo.a value is mutated to 'hello'. On the other hand, when we re-assign the value of qux in the outer scope, it doesn't re-assigned to 'hi'.
-
-Alex
-The code will log 'hi' and then 'hello'. This demonstrates the difference between pass-by-reference and pass-by-value. Foo is an object, and so when we pass it into the function bar as argument1, the local variable argument1 then points to the same place in memory as the object foo. Therefore, when we reassign the property 'a' of local variable argument1, we are mutating the same object that global variable foo points to, hence 'hi' is logged on the second to last line. On the other hand, qux is a string, which is a primitive, which means it is pass-by-value. reassigning the local variable argument2 does not mutate the original value of qux because strings are immutable and the local variable argument2 now merely has a new value that no longer coincides with the original value of qux passed to it as an argument. It therefore logs the original value of qux, 'hello' on the last line.
-
 Solution
-The program logs `'hi'` and `'hello'`. The reason behind this is that objects are mutable; strings and other primitives are not. Also, variable reassignment, such as that on line 10, doesn't mutate the original object even when the object is mutable. Thus, line 9 mutates `foo` by assigning its `a` property to a new value (`'hi'`). Therefore, the code on line 15 logs `hi`. On the other hand, line 10 reassigns the `argument2` variable, but it doesn't mutate the string represented by `qux`. Thus, line 16 logs `hello`: the original value of the `qux` variable.
+The program logs `'hi'` and `'hello'` and demonstrates the difference between pass by value and pass by reference. When passed as arguments into functions, objects are mutable; strings and other primitives are not. `foo` as an object is pass by reference, so when it is passed into the function `bar` as parameter `argument1`, it points to the same place in memory as the object `foo`. Therefore, when we reassign the property `a` of the local variable `argument1`, we are mutating the same object that the global variable `foo` points to. Thus, when the `console.log(foo.a)` method is called on line x, `'hi'` is logged.
 
-## What is output and why?
+On the other hand, `qux` as a string is pass by value. When `qux` is supplied as an argument to `bar`, `argument2` is initialized with a copy of the value of `qux`, and not the actual variable `quz` itself. Therefore, reassigning `argument2` will not reassign `qux`, since they are two different copies of the same value, and not the actual same variable. Thus, line x logs `hello`: the original value of the `qux` variable.
+
+Also, variable reassignment, such as that on line 10, doesn't mutate the original object even when the object is mutable. Thus, line 9 mutates `foo` by assigning its `a` property to a new value (`'hi'`). Therefore, the code on line 15 logs `hi`. On the other hand, line 10 reassigns the `argument2` variable, but it doesn't mutate the string represented by `qux`. Thus, line 16 logs `hello`: the original value of the `qux` variable.
+
+## 4. What is output and why?
 
 ```js
 let firstName = 'John';
@@ -104,17 +103,21 @@ getName(firstName);
 console.log(firstName);
 ```
 
-The `console.log(firstName)` method outputs 'John'. It takes the global variable `firstName` whose values is assigned to the string 'John'. The call to the getName function returns 'john' because within the function 'name' is reassigned to `name.toLowerCase()` and that is what's returned. This is an example of pass by value.
+The `console.log(firstName)` method outputs 'John'. It takes the global variable `firstName` whose values is assigned to the string 'John', which is a primitive value, as its argument. This is an example of pass by value. 
 
-Laurent
-It will log 'John'. When we call getName() with firstName as an argument, we pass firstName by value, which means that the concat() and toLowercase() executions is done on a copy of firstName. Then, as the returned value of getName() is not assigned to any variable in the global scope, we can't access it. Therefore, when we log firstName, the original firstName variable gets logged.
+The call to the `getName` function returns 'john' because within the function `name` is reassigned to `name.toLowerCase()` and that is what's returned. 
+
+This is an example of pass by value.
+
+ When we call getName() with firstName as an argument, we pass firstName by value, which means that the concat() and toLowercase() executions is done on a copy of firstName. Then, as the returned value of getName() is not assigned to any variable in the global scope, we can't access it. Therefore, when we log firstName, the original firstName variable gets logged.
 
 Alex
 The code will log 'John'. The second-to-last line will return 'john'. This is because the firstName variable is a primitive value and is therefore pass-by-value. The variable is passed into the function getName() as an argument, but since nothing that happens in the function accesses or reassigns the original variable firstName, everything that happens within the function is merely changing the value of the local variable name, which starts off with the same value as firstName, but is not otherwise connected to the variable firstName. Moreover, since .concat() is a non-mutating method, it does not mutate the value of the local variable name. The reassignment on the next line does, however, when it calls the .toLowerCase method on the original value of the local variable and then reassigns that to the variable name. Therefore, the function returns 'john'
 
-The `console.log(firstName)` method outputs 'John'. It takes the global variable `firstName` whose values is assigned to the string 'John'. The call to the getName function returns 'john' because within the function 'name' is reassigned to `name.toLowerCase()` and that is what's returned. This is an example of pass by value.
+Third segment
+Another good explanation. I would also add that the function cannot access or reassign the variable `firstName` because only a copy of the value of `firstName` is passed into the function, and not the actual variable `firstName` itself (since it’s a primitive and hence pass-by-value). Don’t forget that because strings are primitives (immutable), all string methods are non-mutating. Although .concat() is indeed non-mutating on arrays, it isn’t entirely correct to say it’s non-mutating when called on strings, because no methods can mutate strings. I’d probably say something to the effect of “The name.concat(' Doe') call on line 3 does not change the value of name, since strings cannot be mutated. The reassignment name = name.toLowerCase(); does change the value of name, because it reassigns name to its own value with the toLowerCase() method performed on it.” On the last line, I’d also clarify that the function returns john on the second to last line, since it could be somewhat unclear if you were referring to the getName(firstName) call or the console.log(firstName) call.
 
-## What will the following code log to the console and why?
+## 5. What will the following code log to the console and why?
 
 ```js
 const a = 1;
@@ -128,16 +131,10 @@ myFunction(a);
 
 This code will log `TypeError: Assignment to a constant variable`. Variables declared by `const` are block scoped and their value cannot be changed through reassignment. So when we try to reassign `a` on line 6, we get an error. Passing `a` as an argument to `myFunction` doesn't do anything because `myFunction` does not accept any parameters.
 
-Alex
-The code will log a type error. This is because once variables are declared as constants, they cannot be reassigned. Moreover, the function has access to the global variable `a` as a result of scoping rules: inner scopes can access outer scope variables. But when the function is invoked on line 7 and the function executes, it returns an error because const cannot be reassigned.
-
-L
-It will log a TypeError. We declare a constant `a` and assign it a value of `1`. When we call myFunction on the last line, we pass `a` as an argument, so when we try to assign `a` a value of 2 in the function, JS will look in the closest outer scope with a variable `a`, in this case the constant `a` from line 1. As `a is a constant, we can not re-assign it and this code will log a TypeError when we run it.
-
-## What gets logged and why?
+## 6. What gets logged and why?
 
 ```js
-let name = 'nina;
+let name = 'nina';
 
 function outer() {
  let name = 'jill';
@@ -153,58 +150,11 @@ outer();
 console.log(name);
 ```
 
-This code will log Nina. This is because name is re-declared with let within the outer () function. This results in whats called variable shadowing, wherein the inner scope does not have access to the global variable , only the local variable of the same name. Therefore, invoking outer() on the second-to-last line has no impact on the global variable name, which is logged as it originally appeared on line 1 in the console.log on the last line.
+This code will log `'nina'` because of variable scoping rules in JavaScript. When the `name` variable is declared within the scope of the function `outer`, it is limited to the scope of that function, and is terminated when the function is finished. The `console.log(name)` method only has access to variables in the global scope and cannot access variables within the scope of the function `outer`. Here, when `console.log()` is called on the last line, it only has access to the global variable `name` declared on line 1. Thus it logs `'nina'`.
 
-First segment
- I would also say that this example is more of an example of variable scope, rather than variable shadowing- when the variable jill is declared within the scope of the function outer(), it is limited to the scope of that function, and is terminated when the function is finished. The console.log(name) call on the last line only has access to global variables, and nothing within the scope of outer() since it’s called outside of the scope of outer. Therefore, when console.log() is called on the last line of the segment, it only has access to the global variable name declared on line one. If you were to call console.log(name) within the function outer(), then that would be variable shadowing, since it would log the value of name within the scope of outer(), which would be Jill. Also, this very easily could have been autocorrect, but the code logs nina with a lower case n- in the first sentence you said Nina with an uppercase N so just be sure to be stingy on details like that.
+If you were to call console.log(name) within the function outer(), then that would be variable shadowing, since it would log the value of name within the scope of outer(), which would be Jill.
 
-## Question
-
-```js
-let foo = {
- a: 'hello',
- b: 'world',
-};
-
-let qux = 'hello';
-
-function bar(argument1, argument2) {
- argument1.a = 'hi';
- argument2 = 'hi';
-}
-
-bar(foo, qux);
-
-console.log(foo.a);
-console.log(qux);
-```
-
-Second segment
-
-The code will log 'hi' and then 'hello'. This demonstrates the difference between pass-by-reference and pass-by-value. Foo is an object, and so when we pass it into the function bar as argument1, the local variable argument1 then points to the same place in memory as the object foo. Therefore, when we reassign the property 'a' of local variable argument1, we are mutating the same object that global variable foo points to, hence 'hi' is logged on the second to last line. On the other hand, qux is a string, which is a primitive, which means it is pass-by-value. reassigning the local variable argument2 does not mutate the original value of qux because strings are immutable and the local variable argument2 now merely has a new value that no longer coincides with the original value of qux passed to it as an argument. It therefore logs the original value of qux, 'hello' on the last line.
-
-Good explanation- I would add that when qux is supplied as an argument to bar, argument2 is initialized with a copy of the value of qux, and not the variable qux itself, which is why reassigning argument2 doesn’t reassign qux. Almost the exact same as what you said but just a little more specific as to the inner mechanics of why primitives can’t be reassigned within functions. To be more specific, I would reword the second to last sentence as something like “Because qux is a string and hence pass-by-value, argument2 is initialized with a copy of the value of qux and not the actual variable qux itself. Therefore, reassigning argument2 will not reassign qux, since they are two different copies of the same value, and not the actual same variable.”
-
-```js
-let firstName = 'John';
-
-const getName = (name) => {
- name.concat(' Doe');
- name = name.toLowerCase();
- return name;
-};
-
-getName(firstName);
-console.log(firstName);
-```
-
-/*
-The code will log 'John'. The second-to-last line will return 'john'. This is because the firstName variable is a primitive value and is therefore pass-by-value. The variable is passed into the function getName() as an argument, but since nothing that happens in the function accesses or reassigns the original variable firstName, everything that happens within the function is merely changing the value of the local variable name, which starts off with the same value as firstName, but is not otherwise connected to the variable firstName. Moreover, since .concat() is a non-mutating method, it does not mutate the value of the local variable name. The reassignment on the next line does, however, when it calls the .toLowerCase method on the original value of the local variable and then reassigns that to the variable name. Therefore, the function returns 'john'
-
-Third segment
-Another good explanation. I would also add that the function cannot access or reassign the variable firstName because only a copy of the value of firstName is passed into the function, and not the actual variable firstName itself (since it’s a primitive and hence pass-by-value). Don’t forget that because strings are primitives (immutable), all string methods are non-mutating. Although .concat() is indeed non-mutating on arrays, it isn’t entirely correct to say it’s non-mutating when called on strings, because no methods can mutate strings. I’d probably say something to the effect of “The name.concat(' Doe') call on line 3 does not change the value of name, since strings cannot be mutated. The reassignment name = name.toLowerCase(); does change the value of name, because it reassigns name to its own value with the toLowerCase() method performed on it.” On the last line, I’d also clarify that the function returns john on the second to last line, since it could be somewhat unclear if you were referring to the getName(firstName) call or the console.log(firstName) call.
-
-## Example 1 - What does this code log and why?
+## 7. Example 1 - What does this code log and why?
 
 ```js
 let a = 1;
