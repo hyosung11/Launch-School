@@ -11,18 +11,18 @@ Arrays are lists of elements that are ordered by index, where each element can b
 You can refer to any element of an array by its index number. The last item in an array is always located at index position `array.length - 1`. This is because arrays are zero-based, meaning the first item in an array occurs at index position `0`. If an array has 5 elements within it, it has an `array.length` of 5, which means the last element has an index position of `4` (5 - 1). Therefore, to add a new value to the end of an array, you can also use the syntax `array[array.length]` which would add a new value to the very end of the array.
 
 ```js
-// Arrays can be Heterogenous
+// Arrays can be heterogenous.
 let arr = [1, 2, 'string', false, null, undefined, {}, [5, 'a']]
 
-// Array Declared and Initialized with Const - contents within the Array can still be modified
+// Array declared and initialized with `const` - contents within the Array can still be modified.
 const frozenArr = ['I', 'am', 'a', 'frozen', 'array', '!'] // returns undefined
 frozenArr.push('!') // push returns 7, which is the length of the array
 console.log(frozenArr) // logs['I', 'am', 'a', 'frozen', 'array', '!', '!'], and returns undefined
 
-// Array Declared and Initialized with Const - cannot be reassigned -> throws an error
+// Array declared and initialized with `const` - cannot be reassigned -> throws an error
 frozenArr = [1, 2, 3]; // Uncaught TypeError: Assignment to constant variable.
 
-// Const Array with Frozen Elements
+// `const` Array with Frozen Elements
 const frozenCount = [1, 2, 3] // returns undefined
 Object.freeze(frozenCount) // returns [1, 2, 3]
 frozenCount.push(4) // returns Uncaught TypeError: Cannot add property, object is not extensible
@@ -38,12 +38,12 @@ console.log(arr.length);       // 3
 console.log(Object.keys(arr))  // ['0', '1', '2']
 
 // Adding Object Properties to the arr Object
-arr[-3] = 5;                   // adds a property '-3' with a value 5 to the array object
-arr['foo'] = 'a';              // adds a property 'foo' with the value 'a' to the array object
-console.log(arr);              // [ 2, 4, 6, '-3': 5, foo: 'a' ]
-console.log(arr.length);       // 3 -> Object Properties added to an Array Object are NOT included in the length of the array
+arr[-3] = 5; // adds a property '-3' with a value 5 to the array object
+arr['foo'] = 'a'; // adds a property 'foo' with the value 'a' to the array object
+console.log(arr); // [ 2, 4, 6, '-3': 5, foo: 'a' ]
+console.log(arr.length); // 3 -> Object Properties added to an Array Object are NOT included in the length of the array
 console.log(Object.keys(arr))  // [ '0', '1', '2', '-3', 'foo' ]
-arr.map(x => x + 1);           // [ 3, 5, 7 ] => All built-in Array methods ignore properties that are not elements, so map ignores arr[-3] and arr['foo']
+arr.map(x => x + 1);  // [ 3, 5, 7 ] => All built-in Array methods ignore properties that are not elements, so map ignores arr[-3] and arr['foo']
 ```
 
 ### Sparse Arrays
@@ -52,9 +52,9 @@ arr.map(x => x + 1);           // [ 3, 5, 7 ] => All built-in Array methods igno
 // Sparse Arrays - consisting of unset values created by increasing the length property
 1 let arr = [2, 4, 6];
 2 arr.length = 5;
-3 console.log(arr);              // [2, 4, 6, <2 empty items> ]
-4 console.log(arr.length);       // 5
-5 console.log(Object.keys(arr))  // ['0', '1', '2']
+3 console.log(arr); // [2, 4, 6, <2 empty items> ]
+4 console.log(arr.length); // 5
+5 console.log(Object.keys(arr)) // ['0', '1', '2']
 ```
 
 Notice that the array now contains 5 elements, as shown on line 3 and line 4. Curiously, though, two of the elements are shown as empty items. The empty items, `arr[3]` and `arr[4]`, have no value at all. In fact, those elements don't exist; you can see that on line 5 where `Object.keys` makes no mention of keys '3' and '4'. If you try to access either value, JavaScript will tell you that it is `undefined`. However, that does not mean its value is undefined. The value is NOT SET at all. Let's see what happens when we change one of these elements to an explicit undefined value:
@@ -1165,7 +1165,7 @@ delete person['age']; // returns true
 person; // logs {}
 ```
 
-### `const`
+### `const` with Objects
 
 If a variable declared with `const` is initialized with an object, you can't change what object that variable refers to. You can, however, modify that object's properties and property values. Essentially, a `const` declaration prohibits changing what thing the `const` points to, but it does not prohibit changing the contents of that thing.
 
