@@ -694,12 +694,26 @@ The `myFunc` function outputs `Hello, world!`, which it obtains from the global 
 
 JavaScript functions are **first-class functions**. The key feature of first-class functions is that you can treat them like any other value. In fact, **all JavaScript functions are objects**. Thus, you can assign them to variables, pass them as arguments to other functions, and return them from a function call.
 
+Functions in JavaScript are first-class values or first-class objects. This term is used to describe values that can be: assigned, passed, and returned. In JavaScript, functions can be:
+
+* **assigned** to a variable or an element of a data structure (such as an array or object).
+* **passed** as an argument to a function.
+* **returned** as the return value of a function.
+
+All **primitive values, arrays, objects,** and **even functions** meet this criteria! Not only can you invoke functions, but you can also **pass** them around your program like any other value. Since functions can be treated as values, we can **create** functions that **can take other functions as arguments and return other functions**.
+
+**Higher Order Function -** is a function that **takes** other functions as **arguments**, ***OR*** a function that **returns** another function.
+
+**Callback Functions -** functions that we **pass** to other functions are often called ***callback functions, or callbacks***. Note that all functions that accept callback functions as arguments are examples of higher-order functions (because they accept the callback function as an argument to the function).
+
 ## 8. Functions: Function Declarations, Function Expressions, and Arrow Functions
 
 ### Function Declaration
 
+A function declaration defines a function with the specified parameters. Function declarations always begin with the keyword `function`.
+
 ```js
-function functionName(zeroOrMoreArguments ...) {
+function functionName(zeroOrMoreParameters ...) {
   // function body
 }
 ```
@@ -716,6 +730,39 @@ function greetPeople() {
 
 ### Function Expression
 
+A function expression is very similar to and has almost the same syntax as a function declaration (see function statement for details). The main difference between a function expression and a function declaration is that a function expression **does NOT have the keyword function** at the very beginning of a statement. Function expression also CANNOT be called before declaration - trying to call a function expression before declaration results in: `ReferenceError: Cannot access 'funcName' before initialization`.
+
+```js
+// Example of a Function Expression
+let greetPeople = function() {
+  console.log("Good Morning!");
+};
+
+greetPeople();
+```
+
+In the first example, we declare a variable named `greetPeople` and assign it to the function expression after the `=` sign. We can do that since JavaScript functions are first-class functions. The key feature of first-class functions is that you can treat them like any other value. In fact, all JavaScript functions are objects, meaning they can be assigned to variables, passed as arguments to functions, and be used as return values from functions.
+
+```js
+// Example of a Wrapped Function Expression
+(function greetPeople() {
+  console.log("Good Morning!");
+});
+```
+
+This is a function expression, not a declaration, because the statement does NOT begin with the keyword function, it begins with a parentheses.
+
+```js
+// Example of a Function Expression in a Higher Order Function
+function makeGreeter(name) {
+  return function greeter() {
+    console.log(`Hello ${name}`);
+  };
+}
+```
+
+The function `greeter()` is a function expression, and NOT a function declaration. This is because the `greeter()` function is preceded by the keyword 'return'
+
 ```js
 let greetPeople = function () { // space after function keyword not required
   console.log("Good Morning!");
@@ -724,30 +771,67 @@ let greetPeople = function () { // space after function keyword not required
 greetPeople();
 ```
 
-Function expressions have one key difference from a function declaration: you cannot invoke a function expression before it appears in your program.
-
-Any function definition that doesn't have the word `function` at the very beginning of a statement is a function expression. Even wrapping what looks like a function declaration in parentheses creates a function expression:
-
-```js
-(function greetPeople() { // This is a function expression, not a declaration
-  console.log("Good Morning!");
-});
-```
-
 ### Arrow Functions
 
-```js
-let greetPeople = () => console.log("Good Morning!");
-greetPeople();
-```
+An arrow function expression is a compact alternative to a traditional function expression, but is limited and can't be used in all situations. Aside from syntax, arrow functions have **implicit returns.**
 
-For now, let's look at one interesting property of arrow functions: *implicit returns*. First, we'll convert the add function from the previous section to use arrow function syntax:
+We can omit the `return` statement in arrow functions ***when and only when*** the function body **contains a single expression** (the expression may have subexpressions, but the **entire expression must evaluate to a single value**). Suppose it contains two or more expressions or statements. In that case, you must **explicitly return a value if you need it, and you must also use curly braces.**
 
 ```js
-let add = (a, b) => a + b;
+// Examples of Arrow Functions
+let greetPeople = () => console.log("Hi!");
+greetPeople(); // logs 'Hi'
+
+// MDN Documentation - Unnamed Arrow Function with No Parameters
+// Arrow Function (no parameters)
+let a = 4;
+let add = () => a + 100;
+console.log( add() ); // logs 104
+
+// MDN Documentation - Unnamed Arrow Function with 1 Parameter
+// Traditional Function
+function (a){
+  return a + 10;
+}
+
+// Arrow Function
+let addTen = a => a + 10;
+console.log( addTen(40) ); // logs 50
+
+// MDN Documentation - Unnamed Arrow Function with Multiple Parameters
+// Traditional Function
+function (a, b) {
+  return a + b + 100;
+}
+
+// Arrow Function
+let multiAdd = (a, b) => a + b;
+console.log(multiAdd(5, 10)); // logs 15
+
+// MDN Documentation - Unnamed Multi-line Function with Multiple Parameters
+// Traditional Function
+function (a, b) {
+  let chuck = 42;
+  return a + b + chuck;
+}
+
+// Arrow Function
+(a, b) => {
+  let chuck = 42;
+  return a + b + chuck;
+}
+
+// MDN Documentation - Named Functions with 1 Parameter
+// Traditional Function
+function bob (a){
+  return a + 100;
+}
+
+// Arrow Function
+let bob = a => a + 100;
 ```
 
-Note the lack of a `return` statement. We can omit it in arrow functions *when and only when the function body contains a single expression* (the expression may have subexpressions, but the entire expression must evaluate to a single value). Suppose it contains two or more expressions or statements. In that case, you must explicitly return a value if you need it, and you must also use curly braces:
+Below we define an arrow function `getNumber` that requires one parameter. The parentheses around the parameter name are optional in this case and are often omitted.
 
 ```js
 let add = (a, b) => a + b;
@@ -761,11 +845,23 @@ let number2 = getNumber("Enter another number: ");
 console.log(add(number1, number2));
 ```
 
-Above we define an arrow function `getNumber` that requires one parameter. The parentheses around the parameter name are optional in this case and are often omitted.
-
 ## 9. Functions: Function Definition and Invocation
 
+### Function
+
+A function is a procedure that lets you extract code and run it as a separate unit.
+
 Before you can use a function, you must first define it with the reserved keyword, `function`. After the word `function`, you write the function's name followed by a pair of parentheses (`()`). After the closing parenthesis, the code you want to associate with the function -- the **function body** -- gets placed between curly braces (`{}`).
+
+```js
+// Function declaration example
+function say(words) {
+  // function body
+  console.log(words)
+}
+
+say("hello"); // => logs 'hello'
+```
 
 In the definition of a function, the names between parentheses are called **parameters**. The **arguments** are the values of those parameters.
 
@@ -784,13 +880,45 @@ Programmers often talk about function invocation and invoking functions. The ter
 
 Functions and methods perform actions and return values.
 
+### Function vs Method
+
+Functions are called or invoked by typing their name, and providing optional values, called **arguments**. Arguments let you pass data from **outside** the function's scope **into the function**, so that it can access the data.
+
+In a **function definition**, the names between parentheses are called parameters, and *arguments are the values of those parameters*.
+
+**Function and Function Invocation -** Function Invocation (function calls) occur by writing parentheses after its name and passing it zero or more arguments. It uses the syntax `functionName(object)`.
+
+**Method & Method Invocation -** Method invocation occurs when you prepend a variable name or value followed by a period `.` to a function invocation, `'xyzzy'.toUpperCase()`. We call such functions **methods**.
+
+**Recall**: JavaScript uses the `return` statement to return a value to the code that called the function: the caller. Some functions are destructive - that means that they **mutate the caller**. Examples of this include `Array.prototype.pop()` and `Array.prototype.reverse()`.
+
 ## 10. Functions: Implicit Return Value of Function Invocations
 
 All JavaScript function calls evaluate to a value. By default, that value is `undefined`; this is the **implicit return value** of most JavaScript functions. However, when you use a `return` statement, you can return a specific value from a function. This is an **explicit return value**. Outside of the function, there is no distinction between implicit and explicit return values, but it's important to remember that all functions return something unless they raise an exception, even if they don't execute a `return` statement.
 
+**Caller -** JavaScript uses the `return` statement to *return a value to the code that **called** the function:* the **caller**. If you don't specify a value, it returns the implicit return value of `undefined`. Either way, the `return` statement **causes the function to stop running and returns control to the caller.**
+
+**Predicates** are functions that always return a boolean value, i.e., `true` or `false.`
+
 ## 11. Functions: passing arguments into and return values out of functions
 
-Functions are called by typing their name and providing some optional values that we call **arguments**. In `say.js`, the function definition includes (`words`) after the function name. This syntax tells us that we should supply (**pass**) a single argument to the function when we call it. Arguments let you pass data from outside the function's scope into the function so it can access the data. If the function definition doesn't need access to outside data, you don't need any arguments.
+### Function Names and Parameters
+
+Functions are called by typing their name and providing some optional values that we call **arguments**.
+
+Function Names and Parameters are both considered variable names in JavaScript. Parameters are local variables - they are only defined locally, within the body of the function. Given the function `say`, we must provide a value, an argument, for the `word` parameter. For instance, we can pass the value `'hello'` as an argument to the `say()` function, which it uses to initialize the `words` parameter to. The function can use the value in any way it needs to. Note that the parameter's scope is the function definition; you can't use it outside of `say`.
+
+```js
+function say(word) {
+  console.log(word);
+}
+```
+
+In `say.js`, the function definition includes (`words`) after the function name. This syntax tells us that we should supply (**pass**) a single argument to the function when we call it. Arguments let you pass data from outside the function's scope into the function so it can access the data. If the function definition doesn't need access to outside data, you don't need any arguments.
+
+### Function Composition & Return Value Importance
+
+Function Composition is a process whereby JavaScript lets us use a function call, as an ***argument** to another function.* This can be done because functions are treated as *first-class objects in JavaScript* - they can be assigned to variables, passed as arguments to other functions [HOF], and returned from other functions [HOF].
 
 Functions can perform an operation and **return** a result to the call location for later use. We do that with **return values** and the `return` statement.
 
@@ -798,9 +926,86 @@ JavaScript uses the `return` statement to return a value to the code that called
 
 Functions that always return a boolean value, i.e., `true` or `false`, are called **predicates**. You will almost certainly encounter this term in future readings and videos, so commit it to memory.
 
-**Function composition** lets us use a function call as an argument to another function.
-
 We've seen that function calls always return a value, and we can pass that function call as an argument to another function call. Thus, it's vital to know what values our functions return. In the final analysis, those values get passed as arguments to other functions.
+
+### Parameter vs Argument
+
+The local variable names between parentheses `()` are called **parameters**, not arguments. *Arguments are the values you pass into the function* for each of those parameters. The **parameter values inside the function are also called arguments**. You can think of **parameters as placeholders**, while **arguments refer to the values that get stored in the placeholders.**
+
+During execution, JavaScript makes the **arguments** passed to a function available to the function as local variables with the same names as the function's **parameters**.
+
+When defining a function, you should use **parameters,** and when invoking a function, you should use **arguments**
+
+```js
+// Comparing Arguments and Parameters
+function add(left, right) { // left & right are parameters here
+  let sum = left + right;   // left & right are arguments here
+  return sum;
+}
+
+let sum = add(3, 6); // 3 and 6 are arguments
+console.log(sum);    // logs 9 to the console
+```
+
+This code logs a string representation of the number `9` to the console. On line 6, we declare the global variable `sum` with the `let` keyword, and assign it the return value from calling the `add` function, and passing the values `3` and `6` as arguments to `add()`. The arguments `3` and `6` are assigned to the parameters `left` and `right` respectively. The function body creates a new local scope for variables declared with the `let` and `const` keywords. We declare a local variable `sum` and initialize it to the return value of adding left and right, which evaluates to `9`. We then return the value of `sum`, which is `9`, and `9` is assigned to the `sum` global variable.
+
+### Default Parameters
+
+When a function is defined, sometimes you may want to structure it so that it has a default value, when the caller does NOT provide an argument. This can be done with default parameters.
+
+```js
+// Example of Default Parameters
+function say(words = "hello") {
+  console.log(words + "!");
+}
+
+say("Howdy"); // => Howdy!
+say();        // => hello!
+```
+
+The default parameter of `words` is assigned the value `'hello'`. In the case where the caller does NOT provide an argument, `words` is assigned the value `'hello'`.
+
+### Nested Functions
+
+Functions may also be nested within other functions. Such nested functions get created and destroyed every time the outer function runs. For variable scoping purposes, nested functions have their own variable scope, and follow the same rules of inner and outer scoped variables.
+
+```js
+function foo() {
+  function bar() {
+    console.log("BAR");
+  }
+  bar(); // => BAR
+}
+
+foo();
+bar(); // ReferenceError: bar is not defined
+```
+
+The `bar()` function is only created within the scope of the `foo()` outer function, and the `bar()` function gets destroyed once the outer function `foo()` stops running. This is why a ReferenceError is thrown that says bar is not defined.
+
+### Functions Create a New Scope
+
+Note that a local variable only comes into existence when you call that function. The mere act of defining a function doesn't create any variables. The function declaration does, however, *define* the scope of the variables.
+
+```js
+function aFunc() {
+  let a = 1;
+}
+
+aFunc();
+```
+
+For example, in the `aFunc` function above, the function body defines where variable `a`, when created, will be accessible. However, the variable `a` doesn't get created and assigned a value unless we invoke the function. When we call the function on line 5, a variable `a` is created, assigned the value `1` and immediately discarded once the function finishes execution and control returns to the main flow of the program.
+
+Because of this, when we talk about the scope of a variable, it doesn't matter whether we ever execute the code. For instance, suppose we had the following complete program:
+
+```js
+function aFunc() {
+  let foo = 1;
+}
+```
+
+Though we never invoke `aFunc` and never create the `foo` variable, we still talk of it as in the scope of `aFunc`.
 
 ## 12. Mutability vs. Immutability vs `const`
 
@@ -816,7 +1021,7 @@ Primitive values are **immutable**. That means their values never change: operat
 
 `NaN` is a number in JavaScript, so it is a primitive value
 
-### `const`
+### `const` declaration
 
 A `const` declaration prohibits changing what thing the `const` points to, but it does not prohibit changing the content of that thing. Thus, we can change a property in a `const` object, but we can't change which object the `const` points to.
 
@@ -853,13 +1058,64 @@ numString;                             // returns '523'
 
 Names that follow the naming conventions in the [Naming Conventions section of the JavaScript Book](https://launchschool.com/books/javascript/read/preparations#namingconventions) are referred to as **idiomatic names**. In particular, whether a name is idiomatic or not depends on what kind of name we're describing.
 
+Category | Name | Notes
+---------|----------|---------
+Non-constant variables and object properties | `employee` |
+--------- | `number` |
+--------- | `fizzBuzz` |
+--------- | `speedOfLight` |
+--------- | `destinationURL` | URL is an acronym
+--------- | `m00n` |
+Constructor functions and classes | `Cat` |
+--------- | `BoxTurtle` |
+--------- | `FlightlessBird |
+Other functions |`parseURL`| URL is an acronym
+--------- |`goFaster`|
+Configurations and magic constants |`ABSOLUTE_PATH`|
+--------- |`TODAY`|
+Other`const` names | `employeeOfMonth`| Local style
+--------- |`HairyCat`| Local style
+--------- |`ABSOLUTE_PATH` | Local style
+
 The following [tables](https://github.com/hyosung11/Launch-School/blob/d578bc76f9ed805b2d255d5761622e7261b692a8/Courses/JS101/Lesson-2-Small-Programs/notes.md) show which names are and aren't idiomatic in the various categories and when.
 
-### Legal / Non-Idiomatic
+### Legal / Valid But Non-Idiomatic
 
 Note that non-idiomatic names are not invalid names. Non-idiomatic names are commonly used by external libraries to provide names that are easy to type yet unlikely to conflict with names in other libraries.
 
+Category  | Name  | Notes
+----------|-------|------
+Universally non-idiomatic  | $number  | Begins with $
+fizz_buzz  | snake_case not allowed  |
+fizzBUZZ  | BUZZ is not an acronym  |
+_hello  | Begins with _  |
+goodbye_  | Ends with _  |
+milesperhour  | Undifferentiated words  |
+MILESPERHOUR  | Undifferentiated words  |
+Non-constant variables and object properties  | Employee Begins with capital letter  |
+fizzBUZZ  | BUZZ is not an acronym  |
+FIZZ_BUZZ  | SCREAMING_SNAKE_CASE  |
+Constructor functions and classes  | cat  | Begins with lowercase letter
+makeTurtle  | Begins with lowercase letter  |
+FIZZ_BUZZ  | SCREAMING_SNAKE_CASE  |
+Other functions  | ParseURL  | Begins with capital letter
+FIZZ_BUZZ  | SCREAMING_SNAKE_CASE  |
+Configuration and magic constants  | absolutePath  | Not SCREAMING_SNAKE_CASE
+Today  | Not SCREAMING_SNAKE_CASE  |
+
 ### Invalid Names
+
+Name  | Notes
+------|------
+42ndStreet  | Begins with number
+fizz-buzz  | Hyphen not allowed
+fizz.buzz  | Looks like property reference
+
+### Avoid Magic Numbers
+
+A magic number is a number (or other simple value) that appears in your program without any information that describes what that number represents. For instance, a card game in which each player is dealt 5 cards may use the number `5` at various points in the program, such as a loop that deals the cards or when determining how many cards a player should receive to get back to the 5-card level. If you just use the number `5` in your program, there's no way to tell by just looking at the code why you are using that particular number. The situation becomes even more confusing when you use the same number in other contexts. For instance, your game may also use a best-of-five approach to determine the overall winner.
+
+The way to avoid magic numbers is to use constants.
 
 ## 14. Objects: Object Properties
 
@@ -1460,7 +1716,7 @@ undefined >= 1; // both operands are not strings -> undefined is converted to Na
 
 ## 18. Side-effects
 
-A function is said to have **side-effects** if it does any of the following:
+Ideally, you want a function to do one thing and limit its responsibility. A function is said to have **side-effects** if it does any of the following:
 
 1. It reassigns any non-local variable. Reassigning a variable in the outer scope would be a side-effect.
 2. It mutates the value of any object referenced by a non-local variable. Mutating an array or object argument, for instance, would be a side-effect.
@@ -1542,7 +1798,7 @@ str1;               // returns 'hello' -> notice how no modification to the stri
 
 To modify a string, create a new string with the desired changes.
 
-#### String Out of Bounds Indices
+#### Out of Bounds Indices of Strings
 
 Attempting to reference an out of bound index returns `undefined`. This is true for both positive and negative string indices.
 

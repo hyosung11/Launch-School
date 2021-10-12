@@ -149,13 +149,29 @@
 
 // console.log(foo); // => logs 'bar'
 
-const str = 'Mozilla';
+// const str = 'Mozilla';
 
-console.log(str.substring(1, 3));
-// expected output: "oz"
+// console.log(str.substring(1, 3));
+// // expected output: "oz"
 
-console.log(str.substring(2));
-// expected output: "zilla"
+// console.log(str.substring(2));
+// // expected output: "zilla"
 
-console.log(str.substring(5, 3));
+// console.log(str.substring(5, 3));
 //  => 'il'
+
+// Comparing Arguments and Parameters
+// function add(left, right) { // left & right are parameters here
+//   let sum = left + right;   // left & right are arguments here
+//   return sum;
+// }
+
+// let sum = add(3, 6); // 3 and 6 are arguments
+// console.log(sum);    // logs 9 to the console
+
+function say(words) {
+  // function body
+  console.log(words)
+}
+
+say("hello"); // => logs 'hello'
