@@ -38,12 +38,12 @@ console.log(arr.length);       // 3
 console.log(Object.keys(arr))  // ['0', '1', '2']
 
 // Adding Object Properties to the arr Object
-arr[-3] = 5;                   // adds a property '-3' with a value 5 to the array object
-arr['foo'] = 'a';              // adds a property 'foo' with the value 'a' to the array object
-console.log(arr);              // [ 2, 4, 6, '-3': 5, foo: 'a' ]
-console.log(arr.length);       // 3 -> Object Properties added to an Array Object are NOT included in the length of the array
+arr[-3] = 5; // adds a property '-3' with a value 5 to the array object
+arr['foo'] = 'a'; // adds a property 'foo' with the value 'a' to the array object
+console.log(arr); // [ 2, 4, 6, '-3': 5, foo: 'a' ]
+console.log(arr.length); // 3 -> Object Properties added to an Array Object are NOT included in the length of the array
 console.log(Object.keys(arr))  // [ '0', '1', '2', '-3', 'foo' ]
-arr.map(x => x + 1);           // [ 3, 5, 7 ] => All built-in Array methods ignore properties that are not elements, so map ignores arr[-3] and arr['foo']
+arr.map(x => x + 1);  // [ 3, 5, 7 ] => All built-in Array methods ignore properties that are not elements, so map ignores arr[-3] and arr['foo']
 ```
 
 ### Sparse Arrays
@@ -52,9 +52,9 @@ arr.map(x => x + 1);           // [ 3, 5, 7 ] => All built-in Array methods igno
 // Sparse Arrays - consisting of unset values created by increasing the length property
 1 let arr = [2, 4, 6];
 2 arr.length = 5;
-3 console.log(arr);              // [2, 4, 6, <2 empty items> ]
-4 console.log(arr.length);       // 5
-5 console.log(Object.keys(arr))  // ['0', '1', '2']
+3 console.log(arr); // [2, 4, 6, <2 empty items> ]
+4 console.log(arr.length); // 5
+5 console.log(Object.keys(arr)) // ['0', '1', '2']
 ```
 
 Notice that the array now contains 5 elements, as shown on line 3 and line 4. Curiously, though, two of the elements are shown as empty items. The empty items, `arr[3]` and `arr[4]`, have no value at all. In fact, those elements don't exist; you can see that on line 5 where `Object.keys` makes no mention of keys '3' and '4'. If you try to access either value, JavaScript will tell you that it is `undefined`. However, that does not mean its value is undefined. The value is NOT SET at all. Let's see what happens when we change one of these elements to an explicit undefined value:
