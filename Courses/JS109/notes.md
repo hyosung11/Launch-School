@@ -6,9 +6,9 @@ Assessment on your knowledge and mastery of course JS101.
 
 ## Prerequisites
 
-Course No.  | Name
+Course No. | Name
 ------------|-----
-JS101  | Programming Foundations with JavaScript
+JS101 | Programming Foundations with JavaScript
 
 You have met prerequisites for this course.
 
