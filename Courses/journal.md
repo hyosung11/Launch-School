@@ -3649,3 +3649,6 @@ How awesome are the engineers in the company? If you're the best one there, that
 3. Are there any blockers or impediments preventing you from doing your work?
    * Referee two games, one in the afternoon, and one in the evening.
 
+13:02 Worked straight through the morning and took a break to train with kettlebells. Now going to eat some eggs and go for a walk and come back to work on more questions.
+
+15:28 Cranking through sample questions and fine-tuning answers. Getting there. Ready to referee now two games. Let's be strong my hamstring.

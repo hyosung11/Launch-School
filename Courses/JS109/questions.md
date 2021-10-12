@@ -1,5 +1,13 @@
 # Written Assessment Practice Questions
 
+## Formula
+
+1. logs
+2. general principle
+3. application
+
+This code logs __. Variables declared in an outer scope are accessible in an inner scope. [Here connect specific instance to general principle]
+
 ## Detail and Precision
 
 * Describe what is happening in the code example with detail and precision.
@@ -72,7 +80,7 @@ let qux = 'hello';
 
 function bar(argument1, argument2) {
   argument1.a = 'hi';
-// 10  argument2 = 'hi';
+  argument2 = 'hi';
 }
 
 bar(foo, qux);
@@ -82,10 +90,11 @@ console.log(qux); // => 'hello'
 ```
 
 Solution
-The program logs `'hi'` and `'hello'` and demonstrates the difference between pass by value and pass by reference. When passed as arguments into functions, objects are mutable; strings and other primitives are not. `foo` as an object is pass by reference, so when it is passed into the function `bar` as parameter `argument1`, it points to the same place in memory as the object `foo`. Therefore, when we reassign the property `a` of the local variable `argument1`, we are mutating the same object that the global variable `foo` points to. Thus, when the `console.log(foo.a)` method is called on line x, `'hi'` is logged.
+The program logs `'hi'` and `'hello'` and demonstrates the difference between pass by value and pass by reference. When passed as arguments into functions, objects are mutable; strings and other primitives are not. `foo` as an object is pass by reference, so when it is passed into the function `bar` to the parameter `argument1`, it points to the same place in memory as the object `foo`. Therefore, when we reassign the property `a` of the local variable `argument1`, we are mutating the same object that the global variable `foo` points to. Thus, when the `console.log(foo.a)` method is called on line 80, `hi` is logged.
 
-On the other hand, `qux` as a string is pass by value. When `qux` is supplied as an argument to `bar`, `argument2` is initialized with a copy of the value of `qux`, and not the actual variable `quz` itself. Therefore, reassigning `argument2` will not reassign `qux`, since they are two different copies of the same value, and not the actual same variable. Thus, line x logs `hello`: the original value of the `qux` variable.
+On the other hand, `qux` as a string is pass by value. When `qux` is supplied as an argument to `bar`, `argument2` is initialized with a copy of the value of `qux`, and not the actual variable `qux` itself. Therefore, reassigning `argument2` will not reassign `qux`, since they are two different copies of the same value. Thus, line x logs `hello`: the original value of the `qux` variable.
 
+Launch School
 Also, variable reassignment, such as that on line 10, doesn't mutate the original object even when the object is mutable. Thus, line 9 mutates `foo` by assigning its `a` property to a new value (`'hi'`). Therefore, the code on line 15 logs `hi`. On the other hand, line 10 reassigns the `argument2` variable, but it doesn't mutate the string represented by `qux`. Thus, line 16 logs `hello`: the original value of the `qux` variable.
 
 ## 4. What is output and why?
@@ -103,19 +112,7 @@ getName(firstName);
 console.log(firstName);
 ```
 
-The `console.log(firstName)` method outputs 'John'. It takes the global variable `firstName` whose values is assigned to the string 'John', which is a primitive value, as its argument. This is an example of pass by value. 
-
-The call to the `getName` function returns 'john' because within the function `name` is reassigned to `name.toLowerCase()` and that is what's returned. 
-
-This is an example of pass by value.
-
- When we call getName() with firstName as an argument, we pass firstName by value, which means that the concat() and toLowercase() executions is done on a copy of firstName. Then, as the returned value of getName() is not assigned to any variable in the global scope, we can't access it. Therefore, when we log firstName, the original firstName variable gets logged.
-
-Alex
-The code will log 'John'. The second-to-last line will return 'john'. This is because the firstName variable is a primitive value and is therefore pass-by-value. The variable is passed into the function getName() as an argument, but since nothing that happens in the function accesses or reassigns the original variable firstName, everything that happens within the function is merely changing the value of the local variable name, which starts off with the same value as firstName, but is not otherwise connected to the variable firstName. Moreover, since .concat() is a non-mutating method, it does not mutate the value of the local variable name. The reassignment on the next line does, however, when it calls the .toLowerCase method on the original value of the local variable and then reassigns that to the variable name. Therefore, the function returns 'john'
-
-Third segment
-Another good explanation. I would also add that the function cannot access or reassign the variable `firstName` because only a copy of the value of `firstName` is passed into the function, and not the actual variable `firstName` itself (since it’s a primitive and hence pass-by-value). Don’t forget that because strings are primitives (immutable), all string methods are non-mutating. Although .concat() is indeed non-mutating on arrays, it isn’t entirely correct to say it’s non-mutating when called on strings, because no methods can mutate strings. I’d probably say something to the effect of “The name.concat(' Doe') call on line 3 does not change the value of name, since strings cannot be mutated. The reassignment name = name.toLowerCase(); does change the value of name, because it reassigns name to its own value with the toLowerCase() method performed on it.” On the last line, I’d also clarify that the function returns john on the second to last line, since it could be somewhat unclear if you were referring to the getName(firstName) call or the console.log(firstName) call.
+The `console.log(firstName)` method outputs `John` on line 104. The call to the `getName` function returns `john` on line 103. This example illustrates pass by value. The function `getName` cannot access or reassign the variable `firstName` because only a copy of the value of `firstName` is passed into the function, and not the actual variable `firstName` itself since it’s a primitive and hence pass-by-value. The `name.concat(' Doe')` call on line 3 does not change the value of `name`, since strings cannot be mutated. The reassignment `name = name.toLowerCase()` does change the value of `name` because it reassigns `name` to its own value with the `toLowerCase()` method performed on it.
 
 ## 5. What will the following code log to the console and why?
 
@@ -150,9 +147,9 @@ outer();
 console.log(name);
 ```
 
-This code will log `'nina'` because of variable scoping rules in JavaScript. When the `name` variable is declared within the scope of the function `outer`, it is limited to the scope of that function, and is terminated when the function is finished. The `console.log(name)` method only has access to variables in the global scope and cannot access variables within the scope of the function `outer`. Here, when `console.log()` is called on the last line, it only has access to the global variable `name` declared on line 1. Thus it logs `'nina'`.
+This code will log `nina` because of variable scoping rules in JavaScript. When the `name` variable is declared within the scope of the function `outer`, it is limited to the scope of that function, and is terminated when the function is finished. The `console.log(name)` method only has access to variables in the global scope and cannot access variables within the scope of the function `outer`. Here, when `console.log()` is called on the last line, it only has access to the global variable `name` declared on line 1. Thus it logs `nina`.
 
-If you were to call console.log(name) within the function outer(), then that would be variable shadowing, since it would log the value of name within the scope of outer(), which would be Jill.
+If you were to call `console.log(name)` within the function `outer()`, that would be variable shadowing, since it would log the value of `name` within the scope of `outer()`, which would be `Jill`.
 
 ## 7. Example 1 - What does this code log and why?
 
@@ -167,14 +164,9 @@ doit(3); // => 3
 console.log(a); // => 1
 ```
 
-This code returns `3` on the invocation of the function `doit` on line 8 and logs `1` from the `console.log` method on line 9. On line 2, the global variable `a` is declared and initialized to the value of `1`. The `doit` function is declared on line 4 and accepts one argument, here the variable `a`. This variable `a` shadows the global variable `a` on line 2. The `console.log` method logs the global variable `a` from line 2.
+This code returns `3` on the invocation of the function `doit` on line 7 and logs `1` from the `console.log` method on line 8. This code is an example of variable shadowing. On line 1, the global variable `a` is declared and initialized to the value of `1`. The `doit` function is declared on line 3 and accepts one argument, here the variable `a`. This parameter variable `a` shadows the global variable `a` on line 1 making it inaccessible within the function `doit`. When the `doit` function is invoked, it passes the value `3`. The `console.log` method on line 8 logs the global variable `a` from line 1.
 
-Alex's Answer
-The code logs 3 and then 1. This is an example of variable shadowing -- the parameter 'a' makes the global variable 'a' inaccessible within the function doit. Instead, the local variable a is assigned the value of the argument passed to the function when it is invoked in line 7, which is 3. Therefore, when the function is invoked and the local variable 'a' is logged, this logs 3. Later, after the function has terminated and the global variable a is logged on line 8, this logs 1. This demonstrates inner and outer scoping.
-
-## Example 2
-
-What does this code log and why?
+## 8. Example 2 - What does this code log and why?
 
 ```js
 function changeName(name) {
@@ -184,20 +176,20 @@ function changeName(name) {
 function anotherFunction() {
   let name = "jim";
   changeName(name);
-  console.log(name);
+  console.log(name); // => jim
 }
 
-anotherFunction(); // => 'jim`
+anotherFunction(); // => undefined
 ```
+
+The code will log `jim` from the `console.log(name)` method call on line 8, and the invocation of `anotherFunction` on line 11 will return `undefined`. This is an example of variable shadowing.
 
 This code logs 'jim'. The `changeName` function is declared on line 1 and takes an argument called `name`. On line 2, an uninitialized variable `name` is assigned the value of 'bob'. The function `anotherFunction` is declared on line 5 without an argument. On line 6 the variable `name` is initialized and assigned the value of 'jim'. The `changeName` function is called on line 6 with argument local variable'name' passed in from the inner scope of `anotherFunction`. The 'name' variable is
 
-variable shadowing
-
 Alex's Answer
-The code will log 'jim' and then undefined. When anotherFunction() is invoked on line X, it comes into scope and within its scope, the variable 'name is declared and initialized to the string 'jim' on line 6. On line 7, the function changeName is invoked and passed the variable name as an argument. At this point, the variable name that is local to the function changeName and the outer scope variable of the same name that is local to anotherFunction() are both set to string 'jim'. However, when changeName() is invoked the variable name that is local to that function gets reassigned to the string 'bob'. This does not affect the name variable in anotherFunction() - the two values have now diverged. WHen the changeName function terminates on the next line and the name variable is logged to teh console, this reverts to the version that is local to anotherFunction(), and 'jim' is logged to the console. This is an example of variable shadowing.
+The code will log 'jim' and then undefined. When anotherFunction() is invoked on line X, it comes into scope and within its scope, the variable 'name is declared and initialized to the string 'jim' on line 6. On line 7, the function changeName is invoked and passed the variable name as an argument. At this point, the variable name that is local to the function changeName and the outer scope variable of the same name that is local to anotherFunction() are both set to string 'jim'. However, when changeName() is invoked the variable name that is local to that function gets reassigned to the string 'bob'. This does not affect the name variable in anotherFunction() - the two values have now diverged. When the changeName function terminates on the next line and the name variable is logged to teh console, this reverts to the version that is local to anotherFunction(), and 'jim' is logged to the console. This is an example of variable shadowing.
 
-## What does this code log and why?
+## 9. What does this code log and why?
 
 ```js
 let a = 1;
@@ -212,42 +204,19 @@ console.log(a); // => 1
 
 This code returns `3` on the invocation of the function `doit` on line 8 and `1` from the `console.log` method on line 9. On line 2, the global variable `a` is declared and initialized to the value of `1`. The `doit` function is declared on line 4 and accepts one argument, here the variable `a`. This variable `a` shadows the global variable `a` on line 2. The `console.log` method logs the global variable `a` from line 2.
 
-// 2.
-// function changeName(name) {
-//   name = 'bob';
-// }
+## 10. What does this code log and why?
 
-// function anotherFunction() {
-//   let name = 'jim';
-//   changeName(name);
-//   console.log(name);
-// }
-
-// anotherFunction(); // => 'jim'
-
-// 3.
-let greeting = 'Hello';
-
-while (true) {
-  greeting = 'Hi';
-  break;
-}
-
-console.log(greeting);
-
-// 4.
+```js
 let hello = 'Hello, world!';
+
 function myFunc() {
   console.log(hello);
 }
 
 myFunc();
+```
 
-== Study Tips ==
-
-20210927 Study Session with Alex
-
-What will the following code log to the console and why?
+## 11. What does this code log and why?
 
 ```js
 function myFunction() {
@@ -261,21 +230,11 @@ function myFunction() {
 myFunction();
 ```
 
-This code logs `1`. Variables declared in an outer scope can be accessed in an inner scope. Here, `a` is declared within an outer scope in `myFunction`, and accessed in the `if` statement's inner scope. The `if` statement evaluates as true, so the `console.log(a)` method then logs `1` when `myFunction` is called on line 11.
-
-Formula:
-
-1. logs
-2. general principle
-3. application
-
-This code logs `1`. Variables declared in an outer scope are accessible in an inner scope. Here, `a` is declared and initialized to the value of `1` within `myFunction` which has an outer scope to the `if` statement's inner scope. Since the `if` statement evaluates to `true`, the `console.log(a)` method logs `1` when `myFunction` is invoked on line 11.
-
-This code logs ____ . Variables declared in an outer scope are accessible in an inner scope. [Here connect specific instance to general principle]
+This code logs `1`. Variables declared in an outer scope are accessible from an inner scope. Here, `a` is declared and initialized to the value of `1` within `myFunction` which has an outer scope to the `if` statement's inner scope. Since the `if` statement evaluates to `true`, the `console.log(a)` method logs `1` when `myFunction` is invoked on line 9.
 
 ---
 
-What will it log and why?
+## 12. What will it log and why?
 
 ```js
 let person = {
@@ -472,8 +431,7 @@ This code will log `1` and illustrates the concepts of variable scope and variab
 LS
 The code logs 1 to the console. `foo` doesn't affect the value assigned to `bar` on line 1 since JavaScript functions create an inner scope. Thus, the `bar` variable on line 3 is not the same as the one on line 1. In the end, `foo()` has no bearing on the final output.
 
-============================================================
-Will this program produce an error when run? Why or why not?
+## Will this program produce an error when run? Why or why not?
 
 ```js
 const FOO = 'bar';
@@ -485,7 +443,7 @@ console.log(FOO);
 ```
 
 HyoSung
-This program will not produce an error and will log 'bar' to the console. This code demonstrates variable scoping rules and the use of `const` declarations in JavaScript. On line 1, the global variable `FOO` is declared with the `const` keyword and initialized to the value of the string 'bar'. Because `FOO` is declared with `const` it cannot be reassigned. However, lines 3-5 define a block scope and within this scope another `FOO` variable is declared with the `const` keyword. Since this variable `FOO` has inner scope it is local to the block and independent of the global `FOO` on line 1. This `FOO` is block-scoped and inaccessible to the outer-scoped `console.log(FOO)` method on line 7. Thus, when the `console.log(FOO)` method executes, it logs 'bar' because it passes in the global `FOO` variable form line 1.
+This program will not produce an error and will log 'bar' to the console. This code demonstrates variable scoping rules and the use of `const` declarations in JavaScript. On line 1, the global variable `FOO` is declared with the `const` keyword and initialized to the value of the string 'bar'. Because `FOO` is declared with `const` it cannot be reassigned. However, lines 3-5 define a block scope and within this scope another `FOO` variable is declared with the `const` keyword. Since this variable `FOO` has inner scope it is local to the block and independent of the global `FOO` on line 1. This `FOO` is block-scoped and inaccessible to the outer-scoped `console.log(FOO)` method on line 7. Thus, when the `console.log(FOO)` method executes, it logs 'bar' because it passes in the global `FOO` variable from line 1.
 
 Alex
 The code will not return an error.  This is because of JavaScript scoping rules - specifically, that inner scope variables cannot be accessed in an outer scope. `FOO` is declared as a constant and initialized to the string `bar` on line 1. When FOO is declared as a constant within the block scope on line 3, this is an inner scope variable local to the block and independent from the global constant. Therefore, initializing the inner scope `FOO` to `qux` is permissible--whereas it would be impermissible to reassign a constant, this variable is a new variable entirely. The `}` on line 4 terminates the block scope and brings the global constant `FOO` back into scope, and logs it on line 6.

@@ -190,17 +190,69 @@
 // console.log(greeting);
 
 /* ======================= */
-let name = 'nina';
+// let name = 'nina';
 
-function outer() {
-  let name = 'jill';
+// function outer() {
+//   let name = 'jill';
 
-  function inner() {
-    return name[0].toUpperCase() + name.slice(1);
-  }
+//   function inner() {
+//     return name[0].toUpperCase() + name.slice(1);
+//   }
 
-  return inner();
+//   return inner();
+// }
+
+// console.log(outer()); // => 'Jill'
+// console.log(name); // => 'nina'
+
+/* ======================= */
+// let a = 1;
+
+// function doit(a) {
+//   console.log(a);
+// }
+
+// doit(3); // => 3
+// console.log(a); // => 1
+
+/* ======================= */
+// let firstName = 'John';
+
+// const getName = (name) => {
+//   console.log(name.concat(' Doe'));
+//   console.log(name = name.toLowerCase());
+//   return name;
+// };
+
+// console.log(getName(firstName));
+// console.log(firstName); // => John
+
+/* ======================= */
+// let name = 'nina';
+
+// function outer() {
+//   let name = 'jill';
+
+//   function inner() {
+//     return name[0].toUpperCase() + name.slice(1);
+//     console.log(name);
+//   }
+
+//   return inner();
+// }
+
+// console.log(outer()); // => Jill
+// console.log(name); // => nina
+
+/* ======================= */
+function changeName(name) {
+  name = "bob";
 }
 
-console.log(outer()); // => 'Jill'
-console.log(name); // => 'nina'
+function anotherFunction() {
+  let name = "jim";
+  changeName(name);
+  console.log(name); //=> jim
+}
+
+console.log(anotherFunction()); // => undefined
