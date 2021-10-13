@@ -349,7 +349,7 @@ function evenValues(array) {
 evenValues([1, 3, 4, 2, 4, 6, 5, 7, 9, 10, 12]);
 ```
 
-The return value of the final line will be `[ 4, 4, 12 ]`. This problem illustrates the problem of mutating an array while iterating over it. The function `evenValues` is defined on line 3 and takes a single parameter called `array`. The `forEach` method, during each iteration, invokes the callback with the element's value as an argument. The callback then adds even numbers to the `evens` array. In the end, `forEach` returns `undefined`.
+The return value of the final line will be `[ 4, 4, 12 ]`. This example illustrates the problem of mutating an array while iterating over it. The function `evenValues` is defined on line 3 and takes a single parameter called `array`. The `forEach` method, during each iteration, invokes the callback with the element's value as an argument. The callback then adds even numbers to the `evens` array. In the end, `forEach` returns `undefined`.
 
 The push() method adds one or more elements to the end of an array and returns the new length of the array.
 
@@ -370,7 +370,7 @@ The push() method adds one or more elements to the end of an array and returns t
 
 The shift() method removes the first element from an array and returns that removed element. This method changes the length of the array.
 
-Explain why line 7 outputs 'hello' rather than some other String. Be precise.
+## Explain why line 7 outputs 'hello' rather than some other String. Be precise.
 
 ```js
 function change(param) {
@@ -697,3 +697,21 @@ switch (weather) {
 /*
 Our switch statement evaluates the provided expression, weather, and when it finds a case clause matching the value of that expression, the code within that case clause is executed. If the value of the provided expression does not match any case clause, the default clause is executed.
 */
+
+## What is logged and why?
+
+```js
+let numArray = [1, [2], 3];
+
+function passByValue(arr) {
+  arr.forEach(num => {
+    typeof num === 'object' ? num[0] += 1 : num += 1;
+    console.log(num);
+  });
+}
+
+passByValue(numArray);
+console.log(numArray);
+```
+
+This code example logs `2`, `[3]` and `4` respectively, and `[1, [3], 3]`. It illustrates the concepts of pass by value and pass by reference. On line 1, `numArray` is declared and initialized to reference a nested array. On line x, the function `passByValue` is called with the variable `numArray` passed as an argument. 

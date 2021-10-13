@@ -3670,3 +3670,6 @@ How awesome are the engineers in the company? If you're the best one there, that
 3. Are there any blockers or impediments preventing you from doing your work?
    * Just a little tired.
 
+10:36 After the SPOT Study Session with Miles I feel closer to ready to take the written assessment.
+
+12:21 I'm all over the place right now and a little tired. Take a break now.
