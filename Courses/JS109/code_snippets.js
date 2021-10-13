@@ -245,14 +245,28 @@
 // console.log(name); // => nina
 
 /* ======================= */
-function changeName(name) {
-  name = "bob";
-}
+// function changeName(name) {
+//   name = "bob";
+// }
 
-function anotherFunction() {
-  let name = "jim";
-  changeName(name);
-  console.log(name); //=> jim
-}
+// function anotherFunction() {
+//   let name = "jim";
+//   changeName(name);
+//   console.log(name); //=> jim
+// }
 
-console.log(anotherFunction()); // => undefined
+// console.log(anotherFunction()); // => undefined
+
+/* ======================= */
+let animal = "dog";
+
+const speak = animal => {
+  console.log(animal); // => undefined
+  if (animal) {
+    console.log("Bark");
+  } else {
+    console.log("Meow"); // => Meow
+  }
+};
+
+speak();
