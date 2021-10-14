@@ -6,9 +6,7 @@ AGENDA
 - Pass-by-reference & Pass-by-value (show example animation)
 - Variables as pointers
 - Talk about code with precision and detail
-
 - Variable Shadowing
-
 - PEDAC
 
 Introductions
@@ -23,17 +21,15 @@ JS109 Study Sessions review questions for the assessment
 
 Example Question
 */
-// let hello = "Hello, world!";
+let hello = "Hello, world!";
 
-// function myFunc() {
-//   console.log(hello);
-// }
+function myFunc() {
+  console.log(hello);
+}
 
-// myFunc(); // => Hello, world!
+myFunc(); // => Hello, world!
 
-// EXPLANATION
-// EXPLANATION
-/*
+/*  EXPLANATION
 Line 14, initialize a global variable `hello` to the String "hello world!"
 
 Line 20, we invoke `myFunc()`
@@ -132,5 +128,3 @@ EXPLANATION
 // console.log(arr);
 
 // Variables as Pointers - https://launchschool.com/books/javascript/read/more_stuff#variablesaspointers
-
-

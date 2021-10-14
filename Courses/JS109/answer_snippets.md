@@ -255,6 +255,20 @@ function setBoo() {
 
 This snippet changes the value of the global variable `boo`.
 
+## 19. Strings (working with Strings)
+
+Consider the following variable declaration. Which of the following expressions return `'o'`?
+
+```js
+let cat = 'Butterscotch';
+
+cat[8];
+cat[-4]; // => returns `undefined` if you try to access a character with a negative integer
+cat[cat.indexOf('o')];
+cat.slice(-4, -3); // => `string.length + -4` -> 12 - 4 = 8 and `string.length + -3` -> 12 - 3 = 9; same as `cat.slice(8, 9)
+cat[cat.length - 4];
+```
+
 ## 20. Truthiness vs. Boolean
 
 `[undefined]` is truthy since it's an array value, even though the array contains just a single `undefined` element.
