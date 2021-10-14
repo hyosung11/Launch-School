@@ -3673,3 +3673,8 @@ How awesome are the engineers in the company? If you're the best one there, that
 10:36 After the SPOT Study Session with Miles I feel closer to ready to take the written assessment.
 
 12:21 I'm all over the place right now and a little tired. Take a break now.
+
+## 20211014 목요일
+
+08:37 Going to get Sohee for our marriage counseling session and to get tested for Covid-19 before Don's wedding on Saturday.
+

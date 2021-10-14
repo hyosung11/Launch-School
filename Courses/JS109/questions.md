@@ -518,7 +518,7 @@ On line 5, we access the array element at the current index, and log the returne
 After each iteration of the loop, our while condition is evaluated. Since JavaScript arrays have a zero-based index, we want to terminate the loop when index is equal to array.length, because the last index of an array is always one less than the array's length.
 */
 
-## Take a moment to read the MDN documentation on the continue statement.
+## Take a moment to read the MDN documentation on the continue statement
 
 Then write a for loop that loops over the elements of the array cities and logs the length of each string to the console. If the element is null, skip forward to the next iteration without logging anything to the console.
 
