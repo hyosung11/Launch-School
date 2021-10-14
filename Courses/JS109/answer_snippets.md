@@ -65,6 +65,196 @@ When comparing a `number` and a `string`, JavaScript coerces the `string` to a `
 * It doesn't matter which side of the `==` contains the string operand.
 * If the string contains a non-numeric value, JavaScript coerces it to `NaN`.
 
+## 8. Functions: Function Declarations, Function Expressions, and Arrow Functions
+
+```js
+let foo = function() {
+  function bar() {};
+}
+```
+
+Function declarations are statements that must begin with the `function` keyword. Here, a function declaration is nested within a function expression.
+
+## 11. Functions: passing arguments into and return values out of functions
+
+During execution, JavaScript makes the arguments passed to a function available to the function as local variables with the same name as the function's parameters.
+
+Defining a function involves parameters.
+Invoking a function involves arguments.
+
+## 16. Pass-by-value / Pass-by-reference
+
+When passing a **primitive value** as an argument to a function
+
+* reassigning the parameter that corresponds to the primitive value does not affect the original value.
+
+Primitive values, such as strings, numbers, and undefined, are immutable values that get stored in a variable. Unlike objects, we don't store pointers to the primitive values in the variable.
+
+Primitive values are always immutable. Thus, no matter what happens inside the function, the original value passed to the function never changes.
+
+When we pass objects into functions as arguments, we pass a pointer for the object into the function; when we pass primitive values as arguments, we pass a copy of the primitive value.
+
+---
+
+Which of the following code snippets use pass-by-value at least once?
+
+```js
+function foo(a) {
+  return a + 1;
+}
+
+foo(5);
+```
+
+This snippet uses pass-by-value when it passes a primitive value (`5`) to the function and then the function returns a primitive value (`6`).
+
+```js
+function foo(a) {
+  return [a, a, a];
+}
+
+foo(5);
+```
+
+This snippet uses pass-by-value when it passes a primitive value (`5`) to the function. Note that it uses pass-by-reference when it returns an array.
+
+```js
+function foo() {
+  return [1, 2, 3];
+}
+
+foo();
+```
+
+This snippet does not use pass-by-value at all. No arguments are passed to the function, and the function returns an array using pass-by-reference.
+
+```js
+let foo = 5;
+let bar = foo;
+```
+
+Snippet D does not use pass-by-value at all. The term pass-by-value only applies to functions, not assignments and initializations.
+
+```js
+function foo(a) {
+  return 6;
+}
+
+foo([1, 2, 3]);
+```
+
+Snippet E uses pass-by-value when it returns a primitive value (6) from the function. It uses pass-by-reference when it passes an array argument to the function.
+
+---
+
+When passing an **object** (includes arrays) as an argument to a function:
+
+* the parameter assigned to the objects acts as a pointer to the original object
+* the function can mutate the original object
+* reassigning the parameter that corresponds to the object does not affect the original object
+
+Objects are passed into functions as references; that is, the function sees a pointer to the original object.
+
+A function can use an object pointer to mutate the original object.
+
+If the function somehow received a copy of the object, it would lose the ability to mutate the original object; it can only mutate the copy. Since we mutate the object, JavaScript must not be passing a copy to the function.
+
+Reassigning a variable that points to an object merely changes what the variable points to; it doesn't change the value of the original object.
+
+---
+
+Which of the following code snippets use pass-by-reference at least once?
+
+```js
+function foo(s) {
+  return s + s;
+}
+
+foo("abc");
+```
+
+Snippet A does not use pass-by-reference at all. It passes a primitive value (`"abc"`) to the function and then the function returns a primitive value (`"abcabc"`).
+
+```js
+function foo(s) {
+  return { qux: s };
+}
+
+foo("abc");
+```
+
+Snippet B uses pass-by-reference when it returns an object (`{ qux: s }`). It uses pass-by-value when passing the primitive string value to the function as an argument.
+
+```js
+function foo() {
+  return { qux: "xyzzy" };
+}
+
+foo();
+```
+
+Snippet C uses pass-by-reference when it returns an object (`{ qux: "xyzzy" }`). It does not use pass-by-value at all.
+
+```js
+let foo = { qux: "xyzzy" };
+let bar = foo;
+```
+
+Snippet D does not use pass-by-reference at all. The term pass-by-reference only applies to functions, not assignments and initializations.
+
+```js
+function foo(obj) {
+  return "def";
+}
+
+foo({ qux: "xyzzy" });
+```
+
+Snippet E uses pass-by-reference when we pass an object (`{ qux: "xyzzy" }`) to the function. It uses pass-by-value when the function returns a primitive value ("def").
+
+## 18. Side-effects
+
+Which of the following code snippets have functions that have side-effects? Choose all that apply.
+
+```js
+function volume(height, width, depth) {
+  let result = height * width * depth;
+  console.log(result);
+  return result;
+}
+```
+
+This snippet writes output to the console.
+
+```js
+let readline = require("readline-sync");
+
+function askYesOrNo(prompt) {
+  let answer = readline.question(prompt);
+  return answer;
+}
+```
+
+This snippet gets input from the keyboard.
+
+```js
+function multiply(a, b) {
+  a * b;
+}
+```
+
+This snippet doesn't do anything that is considered a side-effect.
+
+```js
+let boo = "gar";
+
+function setBoo() {
+  boo = "xyz";
+}
+```
+
+This snippet changes the value of the global variable `boo`.
+
 ## 20. Truthiness vs. Boolean
 
 `[undefined]` is truthy since it's an array value, even though the array contains just a single `undefined` element.
@@ -77,3 +267,46 @@ Passing the value of a variable into a function as an argument gives that functi
 
 The type of variable's value plays no part in its scope, nor does its truthiness.
 
+Scope describes where JavaScript looks for any variables used in an expression.
+
+Functions create new scopes in JavaScript.
+
+Variables declared with `let` and constants declared with `const` inside code blocks have local scope. Variables declared with either keyword inside a block aren't accessible outside the block.
+
+* Scope determines where JavaScript can find declared variables that it needs to use.
+* Functions and blocks always create new scopes.
+* Scopes exist even if there are no variables defined within that scope.
+* Scopes involve the names of variables, constants, and functions; the values associated with those names play no part.
+
+### Question 1
+
+Does `foo` in the `bar` function shadow the `foo` outside the function?
+
+```js
+let foo = 1;
+
+function bar() {
+  let foo = 2;
+  console.log(foo);  // logs 2
+}
+
+bar();
+```
+
+Yes because functions create scope in JavaScript. The `foo` in the body of the `bar` function is distinct from the `foo` declared on line 1 in the global scope. Thus, `foo` in the `bar` function shadows the `foo` in the global scope which is why the `console.log(foo)` method logs `2` to the console.
+
+### Question 2
+
+Let's make a small change to the code from the previous question. Does `foo` in the `bar` function shadow the `foo` outside the function?
+
+```js
+function bar() {
+  let foo = 2;
+  console.log(foo);  // logs 2
+}
+
+let foo = 1;
+bar();
+```
+
+Yes, `foo` on line 2 shadows `foo` on line 6 even though line 6 occurs later in the code file. Shadowing occurs based on when the variable is declared: in this code, line 6 runs before line 2, so the `foo` on line 2 shadows `foo` on line 6.
