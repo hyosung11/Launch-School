@@ -349,7 +349,7 @@ function evenValues(array) {
 evenValues([1, 3, 4, 2, 4, 6, 5, 7, 9, 10, 12]);
 ```
 
-The return value of the final line will be `[ 4, 4, 12 ]`. This problem illustrates the problem of mutating an array while iterating over it. The function `evenValues` is defined on line 3 and takes a single parameter called `array`. The `forEach` method, during each iteration, invokes the callback with the element's value as an argument. The callback then adds even numbers to the `evens` array. In the end, `forEach` returns `undefined`.
+The return value of the final line will be `[ 4, 4, 12 ]`. This example illustrates the problem of mutating an array while iterating over it. The function `evenValues` is defined on line 3 and takes a single parameter called `array`. The `forEach` method, during each iteration, invokes the callback with the element's value as an argument. The callback then adds even numbers to the `evens` array. In the end, `forEach` returns `undefined`.
 
 The push() method adds one or more elements to the end of an array and returns the new length of the array.
 
@@ -370,7 +370,7 @@ The push() method adds one or more elements to the end of an array and returns t
 
 The shift() method removes the first element from an array and returns that removed element. This method changes the length of the array.
 
-Explain why line 7 outputs 'hello' rather than some other String. Be precise.
+## Explain why line 7 outputs 'hello' rather than some other String. Be precise.
 
 ```js
 function change(param) {
@@ -452,3 +452,266 @@ Laurent
 This code will not output an error and will log `bar` to the console. Since variable are declared with `const` in different scopes, the global variable `FOO` will not be affected by the initialization of the variable `FOO` in the inner scope.
 
 On line 1, we initialize the global variable `FOO` with the value string `bar` with the `const` keyword . Then, inside the curly braces, we initialize another variable `FOO` that will exist only in the inner scope of the curly braces. Then on line 7, the call to `console.log` will print the value of the global variable `FOO` , `bar` , to the console as it doesn't have access to the inner scope `FOO`.
+
+## Add some code inside of the for loop below that logs the current value of i to the console on each iteration. Before you run the code: What sequence of numbers do you expect to be logged?
+
+```js
+for (let i = 0; i <= 10; i += 2) {
+  console.log(i);
+}
+
+/*
+0
+2
+4
+6
+8
+10
+*/
+```
+
+The initialExpression initially assigns i to 0. Then, on each iteration of the `for` loop, i is re-assigned via the incrementExpression. The expression `i += 2` in our loop is short-hand for `i = i + 2`, and thus re-assigns `i` to the current value of i plus 2. When the value of i is greater than 10, the condition provided to our for loop is no longer true and the loop terminates.
+
+## The code below logs the numbers from 1 to 10. Change it, so that it instead logs the numbers from 10 to 1 in decreasing order, and then logs 'Launch!'.
+
+```js
+for (let i = 10; i > 0; i -= 1) {
+  console.log(i);
+}
+
+console.log('Launch!');
+```
+
+In our solution code, we initialize i to 10, and decrement i by 1 on each iteration, using the short-hand expression i -= 1. Once i is equal to 0, the condition provided to our for loop is false and the loop terminates. Finally, we log 'Launch!'.
+
+There are different ways to achieve this behavior. For example, you could also use i >= 0 as condition and then check whether i reached the value of 0 inside the loop, in order to determine whether to log the number or 'Launch!'.
+
+/*
+Write a loop that logs greeting three times.
+*/
+
+let greeting = 'Aloha!';
+
+for (let i = 0; i < 3; i += 1) {
+  console.log(greeting);
+}
+
+/*
+For both kinds of loops, we declare a counter variable count to keep track of how many iterations we've been through. We start by assigning it to 1, and then increment it on each iteration of the loop. As soon as it is greater than 3, the condition provided to the loop returns false and the loop is terminated.
+*/
+
+/*
+Using the code below as a starting point, write a while loop that logs the elements of array at each index, and terminates after logging the last element of the array.
+*/
+
+let array = [1, 2, 3, 4];
+let index = 0;
+
+while (index < array.length) {
+  console.log(array[index]);
+  index += 1;
+}
+
+/*
+On line 5, we access the array element at the current index, and log the returned element to the console with console.log. Subsequently, we increment index by 1.
+
+After each iteration of the loop, our while condition is evaluated. Since JavaScript arrays have a zero-based index, we want to terminate the loop when index is equal to array.length, because the last index of an array is always one less than the array's length.
+*/
+
+## Take a moment to read the MDN documentation on the continue statement
+
+Then write a for loop that loops over the elements of the array cities and logs the length of each string to the console. If the element is null, skip forward to the next iteration without logging anything to the console.
+
+```js
+let cities = ['Istanbul', 'Los Angeles', 'Tokyo', null, 'Vienna', null, 'London', 'Beijing', null];
+
+for (let index = 0; index < cities.length; index += 1) {
+  if (cities[index] === null) continue;
+  console.log(cities[index].length);
+}
+```
+
+`continue` terminates the current iteration and continues with execution of the next iteration. This allows us to skip each element that is equal to `null`.
+
+```
+for (initialization; condition; increment) {
+  // loop body
+}
+```
+
+/*
+The following code keeps looping forever. (You can hit Ctrl-C to stop it.) Why is that? Also modify it so that it stops after the first iteration.
+*/
+
+for (let i = 0; i < 1 ; i += 1) {
+  console.log("and on");
+}
+
+/*
+The above code never terminates, because the condition of the for loop was left empty. In this case, JavaScript treats it as true.
+
+One way to terminate the loop from within the body is to use the break statement:
+*/
+
+for (let i = 0; ; i += 1) {
+  console.log("and on");
+  break;
+}
+
+/*
+Write a while loop that logs all odd natural numbers between 1 and 40.
+*/
+
+
+// let counter = 1;
+
+while (counter < 41) {
+  console.log(counter)
+  counter += 2;
+}
+
+/*
+It loops over all numbers from 1 to 40 and uses an if statement to determine whether or not num should be logged. In order to check whether num is even, we would use the condition num % 2 === 0, which checks whether num is divisible by 2 without remainder. In order to determine whether a number is odd, we simply negate it.
+
+The trick in our solution code is that we know that each second number is odd, so if we start at 1, we can simply increment the number by 2 on each iterating, effectively looping only over the odd numbers.
+*/
+
+let counter = 1;
+
+while (counter < 41) {
+  if (counter % 2 !== 0) {
+    console.log(counter);
+  }
+  counter += 1;
+}
+
+/*
+The code provided below will randomly initialize randomNumber to either 0 or 1 each time it is executed.
+
+Write an if statement that logs 'Yes!' if randomNumber is 1, and 'No.' if randomNumber is 0.
+*/
+
+let randomNumber = Math.round(Math.random());
+
+if (randomNumber) {
+  console.log('Yes!');
+} else {
+  console.log('No.');
+}
+
+/*
+Recall that that 0 is falsy in Javascript, while 1 is truthy. Our if statement will execute the code on line 4 if the condition provided on line 3 (randomNumber) is truthy; otherwise it will execute the code on line 6.
+
+Alternatively, you could have used as conditions if (randomNumber === 0) and if (randomNumber === 1). Just remember to make it a habit to use strict equality ===.
+*/
+
+/*
+Take your code from the previous exercise and rewrite the conditional so that it uses the ternary if-then-else operator.
+*/
+
+let randomNumber = Math.round(Math.random());
+
+console.log(randomNumber ? 'Yes!' : 'No.');
+
+/*
+The syntactical structure of the ternary operator is like so:
+
+condition ? expression1 : expression2
+
+If the condition provided is truthy, expression1 will be evaluated. If the condition is falsy, expression2 will be evaluated.
+
+You may have come up with a solution like the following:
+
+randomNumber ? console.log('Yes!') : console.log('No.');
+
+This is a perfectly fine solution. Ours is an alternative that uses the ternary operator only to decide on the string that is going to be logged. Take a close look at it: The expression randomNumber ? 'Yes!' : 'No.' evaluates to either the string 'Yes!' or the string 'No.'. Since it is an expression that evaluates to a string value, we can use it as an argument to console.log. It's similar to using other complex expressions with operators, as in console.log('Hello' + 'World').
+*/
+
+/*
+Initialize a variable weather with a string value being "sunny", "rainy", or anything else.
+
+Write an if statement that logs:
+
+"It's a beautiful day!" if weather is assigned to the string "sunny",
+"Grab your umbrella." if weather is assigned to the string "rainy", and
+"Let's stay inside." otherwise.
+Test your code with different values for weather.
+*/
+
+let weather = "rainy";
+
+if (weather === "sunny") {
+  console.log("It's a beautiful day");
+} else if (weather === "rainy") {
+    console.log("Grab your umbrella");
+} else {
+  console.log("Let's stay inside");
+}
+
+/*
+Note that we used the strict equality operator, ===, to determine if weather was 'sunny' or 'rainy'. If both of these comparisons return false, the else branch of our if statement will be executed.
+*/
+
+/*
+Take a look at the code below. Without running it, determine what it will log to the console. If you're not sure, refer to the MDN documentation on switch statements.
+*/
+
+let animal = 'horse';
+
+switch (animal) {
+  case 'duck':
+    console.log('quack');
+  case 'squirrel':
+    console.log('nook nook');
+  case 'horse':
+    console.log('neigh');
+  case 'bird':
+    console.log('tweet tweet');
+  default:
+    console.log('*cricket*');
+}
+
+/*
+The switch statement evaluates the provided expression (animal in our case) and will execute the statement associated with the case that matches, as well as the statements in all cases following the matching case until reaching either the end of the switch statement or a break.
+
+In the provided code, this means that after finding a matching case ('horse'), JavaScript will execute console.log('neigh') as well as the console.log invocations in all following clauses.
+*/
+
+/*
+Take your code from the previous Check the Weather exercise and rewrite it as a switch statement. Feel free to add more cases besides 'sunny' and 'rainy'.
+*/
+
+let weather = 'sunny'; // 'sunny', 'rainy', ...
+
+switch (weather) {
+  case 'sunny':
+    console.log("It's a beautiful day!");
+    break;
+  case 'rainy':
+    console.log("Grab your umbrella.");
+    break;
+  default:
+    console.log("Let's stay inside.");
+}
+
+/*
+Our switch statement evaluates the provided expression, weather, and when it finds a case clause matching the value of that expression, the code within that case clause is executed. If the value of the provided expression does not match any case clause, the default clause is executed.
+*/
+
+## What is logged and why?
+
+```js
+let numArray = [1, [2], 3];
+
+function passByValue(arr) {
+  arr.forEach(num => {
+    typeof num === 'object' ? num[0] += 1 : num += 1;
+    console.log(num);
+  });
+}
+
+passByValue(numArray);
+console.log(numArray);
+```
+
+This code example logs `2`, `[3]` and `4` respectively, and `[1, [3], 3]`. It illustrates the concepts of pass by value and pass by reference. On line 1, `numArray` is declared and initialized to reference a nested array. On line x, the function `passByValue` is called with the variable `numArray` passed as an argument. 

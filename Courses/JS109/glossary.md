@@ -382,7 +382,7 @@ The `lastIndexOf()` method returns the last index of the element that matches th
 
 #### `Array.prototype.filter()`
 
-The `filter` method returns a new array that includes all elements from the calling array for which the callback returns a truthy value.
+The `filter` method returns a new array that includes all elements from the calling array for which the callback returns a truthy value. If no elements are found, it returns an empty array. `filter` doesn't mutate the caller.
 
 ```js
 > let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2]
@@ -395,11 +395,9 @@ The `filter` method returns a new array that includes all elements from the call
 
 `filter` iterates over the elements of the array. During each iteration, it invokes the callback function, using the value of the current element as an argument. If the callback returns a truthy value, `filter` appends the element's value to a new array. Otherwise, it ignores the element's value and does nothing. When `filter` finishes iterating, it returns the array of *selected* elements: the elements for which the callback returned a truthy value. In this example, `filter` selects all of the elements with a value greater than 4.
 
-`filter` doesn't mutate the caller.
-
 #### `Array.prototype.forEach()`
 
-The `forEach` method executes a callback function for each element in the calling array. The return value of the callback function is not used by the `forEach` method. `forEach` always returns `undefined`.
+The `forEach` method executes a callback function for each element in the calling array. The return value of the callback function is not used by the `forEach` method. `forEach` always returns `undefined`. `forEach` performs simple iteration and returns `undefined`.
 
 ```js
 let array = [1, 2, 3];
@@ -429,8 +427,6 @@ array.forEach(element => {
 ```
 
 This paragraph talks about the `forEach` method being called by the object referenced by `array` in the above code. It invokes the callback function for each element, passing that element to the callback as an argument. Within the callback, the element is known by the parameter name `element`, and the callback uses the `console.log` method to log the value of `element.foo`.
-
-`forEach` performs simple iteration and returns `undefined`.
 
 #### `Array.prototype.map()`
 

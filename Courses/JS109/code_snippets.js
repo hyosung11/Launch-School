@@ -245,14 +245,43 @@
 // console.log(name); // => nina
 
 /* ======================= */
-function changeName(name) {
-  name = "bob";
+// function changeName(name) {
+//   name = "bob";
+// }
+
+// function anotherFunction() {
+//   let name = "jim";
+//   changeName(name);
+//   console.log(name); //=> jim
+// }
+
+// console.log(anotherFunction()); // => undefined
+
+/* ======================= */
+// let animal = "dog";
+
+// const speak = animal => {
+//   console.log(animal); // => undefined
+//   if (animal) {
+//     console.log("Bark");
+//   } else {
+//     console.log("Meow"); // => Meow
+//   }
+// };
+
+// speak();
+
+/* ======================= */
+let numArray = [1, [2], 3];
+
+function passByValue(arr) { /*This line we have pass-by-reference, b/c an array is passed in when called*/
+
+  arr.forEach(num => { /*This line we have pass-by-value for index 0, pass-by-reference for index 1, then back to pass-by-value for index 2*/
+    typeof num === 'object' ? num[0] += 1 : num += 1;
+    console.log(num);
+  });
 }
 
-function anotherFunction() {
-  let name = "jim";
-  changeName(name);
-  console.log(name); //=> jim
-}
+passByValue(numArray); // => logs 2, [3], 4 respectively
 
-console.log(anotherFunction()); // => undefined
+console.log(numArray); // => [1, [3], 3]

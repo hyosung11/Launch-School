@@ -3652,3 +3652,29 @@ How awesome are the engineers in the company? If you're the best one there, that
 13:02 Worked straight through the morning and took a break to train with kettlebells. Now going to eat some eggs and go for a walk and come back to work on more questions.
 
 15:28 Cranking through sample questions and fine-tuning answers. Getting there. Ready to referee now two games. Let's be strong my hamstring.
+
+## 20211013 수요일
+
+09:00 I did a study session with Laurent and went over basic exercises. It was useful.
+
+09:00 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Reviewed practice questions and edited model answers without a time limit.
+
+2. What will you do today?
+   * [ ] 1. Study Session with Laurent
+   * [ ] 2. Review practice questions and answers
+   * [ ] 3. SPOT Study Session
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Just a little tired.
+
+10:36 After the SPOT Study Session with Miles I feel closer to ready to take the written assessment.
+
+12:21 I'm all over the place right now and a little tired. Take a break now.
+
+## 20211014 목요일
+
+08:37 Going to get Sohee for our marriage counseling session and to get tested for Covid-19 before Don's wedding on Saturday.
+
