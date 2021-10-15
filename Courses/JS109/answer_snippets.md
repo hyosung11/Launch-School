@@ -327,9 +327,25 @@ aFunc();
 console.log(a); // ReferenceError: a is not defined
 ```
 
-**LS -** The outer scope (i.e. the global scope) of the program, does not have an `a` variable. Therefore, since the variable `a` is declared and initialized within the **inner scope** of the function `aFunc()` it cannot be accessed from an outer scope.
+This code will log `ReferenceError: a is not defined`. This example illustrates variable scoping rules, specifically that inner scope variables cannot be accessed in the outer scope. The function `aFunc` is invoked and defines a new scope for local variables. The local variable `a` is declared within `aFunc` and initialized to the value `1`. After the function `aFunc` executes, the variable `a` is immediately discarded and control returns to the main flow of the program. Thus, when the `console.log(a)` method executes on line 6, a `ReferenceError` is thrown because the outer scope of the program does not have an `a` variable.
 
-**EV -** the `aFunc()` function is invoked, and defines a new scope for local variables. The local variable `a` is declared with the `let` keyword, and initially assigned the Number literal value `1`. After the function `aFunc()` completes execution, the variable `a` is immediately discarded and control returns to the main flow. Therefore, when we try to log the value stored in variable `a` to the console, a `ReferenceError` is thrown because the local variable `a` only existed within the function scope and was destroyed after the function completed exeuction, and therefore DOES NOT exist in the global scope. This demonstrates the principle of variable scoping, particularly that inner scope variable CANNOT be accessed or modified in the outer scope.
+### 3. Peer scopes do not conflict
+
+```js
+function funcA() {
+  let a = 'hello';
+  console.log(a);
+}
+
+function funcB() {
+  console.log(a); // ReferenceError: a is not defined
+}
+
+funcA();
+funcB();
+```
+
+Executing `console.log(a)` on line 7 throws an error since `a` is not in scope in `funcB`. This example illustrates variable scoping rules, specifically that peer scopes do not conflict. The function `funcA` is called and defines a new scope for local variables. The local variable `a` is declared and initialized to the string `'hello'`. Then `hello` is logged to the terminal. After function `funcA` executes, the variable `a` is discarded and control returns to the main flow of the program. Function `funcB` is called and attempts to log the value stored in the variable `a`, but `ReferenceError: a is not defined` is thrown because the scope of local variable `a` was confined to `funcA`.
 
 ### Variable Shadowing
 
