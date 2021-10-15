@@ -370,7 +370,7 @@ The push() method adds one or more elements to the end of an array and returns t
 
 The shift() method removes the first element from an array and returns that removed element. This method changes the length of the array.
 
-## Explain why line 7 outputs 'hello' rather than some other String. Be precise.
+## Explain why line 7 outputs 'hello' rather than some other String. Be precise
 
 ```js
 function change(param) {
@@ -472,7 +472,7 @@ for (let i = 0; i <= 10; i += 2) {
 
 The initialExpression initially assigns i to 0. Then, on each iteration of the `for` loop, i is re-assigned via the incrementExpression. The expression `i += 2` in our loop is short-hand for `i = i + 2`, and thus re-assigns `i` to the current value of i plus 2. When the value of i is greater than 10, the condition provided to our for loop is no longer true and the loop terminates.
 
-## The code below logs the numbers from 1 to 10. Change it, so that it instead logs the numbers from 10 to 1 in decreasing order, and then logs 'Launch!'.
+## The code below logs the numbers from 1 to 10. Change it, so that it instead logs the numbers from 10 to 1 in decreasing order, and then logs 'Launch!'
 
 ```js
 for (let i = 10; i > 0; i -= 1) {
@@ -533,7 +533,7 @@ for (let index = 0; index < cities.length; index += 1) {
 
 `continue` terminates the current iteration and continues with execution of the next iteration. This allows us to skip each element that is equal to `null`.
 
-```
+```js
 for (initialization; condition; increment) {
   // loop body
 }
@@ -561,7 +561,6 @@ for (let i = 0; ; i += 1) {
 /*
 Write a while loop that logs all odd natural numbers between 1 and 40.
 */
-
 
 // let counter = 1;
 
@@ -714,4 +713,4 @@ passByValue(numArray);
 console.log(numArray);
 ```
 
-This code example logs `2`, `[3]` and `4` respectively, and `[1, [3], 3]`. It illustrates the concepts of pass by value and pass by reference. On line 1, `numArray` is declared and initialized to reference a nested array. On line x, the function `passByValue` is called with the variable `numArray` passed as an argument. 
+This code example logs `2`, `[3]` and `4` respectively, and `[1, [3], 3]`. It illustrates the concepts of pass by value and pass by reference. On line 1, `numArray` is declared and initialized to reference a nested array. On line x, the function `passByValue` is called with the variable `numArray` passed as an argument.

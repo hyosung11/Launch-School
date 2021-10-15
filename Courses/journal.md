@@ -3687,3 +3687,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 13:48 I'm tired. I didn't go for a walk yet and I just passively read the answers to the quiz on collections. I need to get up or go rest.
 
 17:09 So tired right now. Ugh.
+
+## 20211015 금요일
+
+09:28 It's been a frustrating week in terms of studying. My hands feel clammy. I missed the morning study session. I need to practice problems and get myself ready to take the written assessment. Ugh.
