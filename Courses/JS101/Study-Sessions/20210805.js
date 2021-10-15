@@ -124,7 +124,7 @@ Mark's Algorithm
 5. call function with list of strings
 
 Mandy's Algorithm
-- Initialize an String that holds the letters of the alphabet
+- Initialize a String that holds the letters of the alphabet
 - Initialize a count variable to store how many letters meet the criteria
 
 - Iterate through the Input Array (helper function)
