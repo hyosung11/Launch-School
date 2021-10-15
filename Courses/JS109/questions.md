@@ -714,3 +714,37 @@ console.log(numArray);
 ```
 
 This code example logs `2`, `[3]` and `4` respectively, and `[1, [3], 3]`. It illustrates the concepts of pass by value and pass by reference. On line 1, `numArray` is declared and initialized to reference a nested array. On line x, the function `passByValue` is called with the variable `numArray` passed as an argument.
+
+## Outer scope variables can be accessed by inner scope
+
+```js
+let a = 1;         // outer scope variable
+
+function logA() {
+  console.log(a);  // => 1
+  a += 1;          // a is reassigned to a new value
+}
+
+logA();
+console.log(a);   // => 2  "a" was re-assigned in the inner scope
+```
+
+
+## Peer scopes do not conflict
+
+```js
+function funcA() {
+  let a = 'hello';
+  console.log(a);
+}
+
+function funcB() {
+  console.log(a); // ReferenceError: a is not defined
+}
+
+funcA();
+funcB();
+```
+
+Executing `console.log(a)` on line 7 throws an error since `a` is not in scope in `funcB`. This code demonstrates variable scoping rules, specifically that peer scopes do not conflict. When function `funcA` is invoked, it defines a new scope for local variables. The local variable `a` is declared and initialized to the string `'hello'`. Within the `funcA` function the `console.log(a)` method logs `hello` to the terminal. After `funcA` completes execution, the variable `a` is discarded and control returns to the main flow of the program. Then function `funcB` is called and attempts to log the value stored in the variable `a` to the terminal, but a `ReferenceError` is thrown because the local variable `a` only existed within the scope of `funcA` and was destroyed after `funcA` completed execution. Thus, `a` is not in scope in `funcB`.
+

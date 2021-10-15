@@ -581,7 +581,7 @@ The `const` declaration creates a **read-only reference** to a value. It does no
 undefined // => declaration (with or without an initial value)  always returns `undefined`.
 
 // Common Errors
-> let const LAST_NAME; // Declaration without an initial value -> SyntaxError: Missing initializer in const declaration
+> let const LAST_NAME; // Declaration without an initial value -> SyntaxError: Missing initializer in `const` declaration
 FIRST_NAME = 'Harry'; // Reassignment -> Uncaught TypeError: Assignment to a constant variable.
 ```
 

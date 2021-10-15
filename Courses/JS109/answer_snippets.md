@@ -292,7 +292,46 @@ Variables declared with `let` and constants declared with `const` inside code bl
 * Scopes exist even if there are no variables defined within that scope.
 * Scopes involve the names of variables, constants, and functions; the values associated with those names play no part.
 
-### Question 1
+### Rules
+
+1. Outer scope variables can be accessed by the inner scope.
+2. Inner scope variables cannot be accessed by the outer scope.
+3. Peer scopes do not conflict.
+4. Nested functions have their own variable scope, and follow the same rules of inner and outer scoped variables.
+5. Inner scope variables can shadow outer scope variables.
+
+### 1. Outer scope variables can be accessed by the inner scope
+
+```js
+let a = 1; // outer scope variable
+
+function logA() {
+  console.log(a);  // => 1
+  a += 1;          // a is reassigned to a new value
+}
+
+logA();
+console.log(a);   // => 2  "a" was re-assigned in the inner scope
+```
+
+This code logs `1` from within `logA` and `2` from the `console.log(a)` method on line 9. The call to `logA` returns `undefined`. This example illustrates that outer scope variables can be accessed by the inner scope. Since the variable `a` is declared and initialized in the outer scope (i.e., the global scope), it can be accessed within the inner scope of the function `logA`. Here, `a` is reassigned to a new value within `logA` and this is the value that is logged.
+
+### 2. Inner scope variables cannot be accessed in the outer scope
+
+```js
+function aFunc() {
+  let a = 1;
+}
+
+aFunc();
+console.log(a); // ReferenceError: a is not defined
+```
+
+**LS -** The outer scope (i.e. the global scope) of the program, does not have an `a` variable. Therefore, since the variable `a` is declared and initialized within the **inner scope** of the function `aFunc()` it cannot be accessed from an outer scope.
+
+**EV -** the `aFunc()` function is invoked, and defines a new scope for local variables. The local variable `a` is declared with the `let` keyword, and initially assigned the Number literal value `1`. After the function `aFunc()` completes execution, the variable `a` is immediately discarded and control returns to the main flow. Therefore, when we try to log the value stored in variable `a` to the console, a `ReferenceError` is thrown because the local variable `a` only existed within the function scope and was destroyed after the function completed exeuction, and therefore DOES NOT exist in the global scope. This demonstrates the principle of variable scoping, particularly that inner scope variable CANNOT be accessed or modified in the outer scope.
+
+### Variable Shadowing
 
 Does `foo` in the `bar` function shadow the `foo` outside the function?
 
@@ -309,7 +348,7 @@ bar();
 
 Yes because functions create scope in JavaScript. The `foo` in the body of the `bar` function is distinct from the `foo` declared on line 1 in the global scope. Thus, `foo` in the `bar` function shadows the `foo` in the global scope which is why the `console.log(foo)` method logs `2` to the console.
 
-### Question 2
+### Variable Shadowing 2
 
 Let's make a small change to the code from the previous question. Does `foo` in the `bar` function shadow the `foo` outside the function?
 

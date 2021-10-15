@@ -272,16 +272,35 @@
 // speak();
 
 /* ======================= */
-let numArray = [1, [2], 3];
+// let numArray = [1, [2], 3];
 
-function passByValue(arr) { /*This line we have pass-by-reference, b/c an array is passed in when called*/
+// function passByValue(arr) { /*This line we have pass-by-reference, b/c an array is passed in when called*/
 
-  arr.forEach(num => { /*This line we have pass-by-value for index 0, pass-by-reference for index 1, then back to pass-by-value for index 2*/
-    typeof num === 'object' ? num[0] += 1 : num += 1;
-    console.log(num);
-  });
+//   arr.forEach(num => { /*This line we have pass-by-value for index 0, pass-by-reference for index 1, then back to pass-by-value for index 2*/
+//     typeof num === 'object' ? num[0] += 1 : num += 1;
+//     console.log(num);
+//   });
+// }
+
+// passByValue(numArray); // => logs 2, [3], 4 respectively
+
+// console.log(numArray); // => [1, [3], 3]
+
+/* ======================= */
+// let a = 1; // outer scope variable
+
+// function logA() {
+//   console.log(a); // => 1
+//   a += 1; // a is reassigned to a new value
+// }
+
+// logA(); // => returns `undefined`
+// console.log(a) // => 2 because 'a' was reassigned in the inner scope
+
+/* ======================= */
+function aFunc() {
+  let a = 1;
 }
 
-passByValue(numArray); // => logs 2, [3], 4 respectively
-
-console.log(numArray); // => [1, [3], 3]
+console.log(aFunc()); // => returns `undefined`
+console.log(a); // ReferenceError: a is not defined
