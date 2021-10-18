@@ -3693,3 +3693,8 @@ How awesome are the engineers in the company? If you're the best one there, that
 09:28 It's been a frustrating week in terms of studying. My hands feel clammy. I missed the morning study session. I need to practice problems and get myself ready to take the written assessment. Ugh.
 
 17:20 Fitting in some studying of variable scope before leaving for dinner.
+
+
+## 20211018 월요일
+
+17:07 Retire today to the dustbin of history with no studying done thus far. Ugh.

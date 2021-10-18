@@ -347,6 +347,33 @@ funcB();
 
 Executing `console.log(a)` on line 7 throws an error since `a` is not in scope in `funcB`. This example illustrates variable scoping rules, specifically that peer scopes do not conflict. The function `funcA` is called and defines a new scope for local variables. The local variable `a` is declared and initialized to the string `'hello'`. Then `hello` is logged to the terminal. After function `funcA` executes, the variable `a` is discarded and control returns to the main flow of the program. Function `funcB` is called and attempts to log the value stored in the variable `a`, but `ReferenceError: a is not defined` is thrown because the scope of local variable `a` was confined to `funcA`.
 
+### 4. Nested functions have their own variable scope, and follow the same rules of inner and outer scoped variables
+
+```js
+let a = 1;           // first level variable
+
+function foo() {     // second level
+  let b = 2;
+
+  function bar() {   // third level
+    let c = 3;
+    console.log(a);  // => 1
+    console.log(b);  // => 2
+    console.log(c);  // => 3
+  }
+
+  bar();
+
+  console.log(a);    // => 1
+  console.log(b);    // => 2
+  console.log(c);    // => ReferenceError: c is not defined
+}
+
+foo();
+```
+
+The code will logs the values `1`, `2`, `3`, `1`, `2` and then throw a `ReferencError`. This  example illustrates variable scoping rules, specifically that nested functions have their own variable scope, and that inner scope variables cannot be accessed in the outer scope.
+
 ### Variable Shadowing
 
 Does `foo` in the `bar` function shadow the `foo` outside the function?
