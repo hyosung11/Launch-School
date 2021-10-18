@@ -372,7 +372,7 @@ function foo() {     // second level
 foo();
 ```
 
-The code will logs the values `1`, `2`, `3`, `1`, `2` and then throw a `ReferencError`. This  example illustrates variable scoping rules, specifically that nested functions have their own variable scope, and that inner scope variables cannot be accessed in the outer scope.
+The code will logs the values `1`, `2`, `3`, `1`, `2` and then throw a `ReferenceError`. This  example illustrates variable scoping rules, specifically that nested functions have their own variable scope, and that inner scope variables cannot be accessed in the outer scope.
 
 ### Variable Shadowing
 
