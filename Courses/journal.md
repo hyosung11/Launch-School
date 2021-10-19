@@ -3697,3 +3697,20 @@ How awesome are the engineers in the company? If you're the best one there, that
 ## 20211018 월요일
 
 17:07 Really tired today to the dustbin of history with no studying done thus far. Ugh.
+
+## 20211019 화요일
+
+09:38 My right hamstring still hurts and my left shin is getting better after being bruised during Sunday's game.
+
+09:44 Left a message for Kate Sammis at CASO Document Management about the IT Project Coordinator position.
+
+09:45 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Looked at Nested Functions scope example
+
+2. What will you do today?
+   * [ ] 1. Write sample answers to variable scope questions
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I referee two games today, one in the afternoon and one in the evening.
