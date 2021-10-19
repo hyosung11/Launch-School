@@ -261,6 +261,8 @@ console.log(array1);
 
 The `sort()` method sorts the elements of an array in place (mutating the calling array) and returns the sorted array. The default sort order is ascending, built upon converting the elements into strings, then comparing their sequences of UTF-16 code units values.
 
+`sort` returns a reference to the array that was used to invoke it. It also mutates that array, and the return value reflects that mutation, but it returns a reference to the array that was used to invoke it.
+
 * No Callback - The default sort order is **ascending**, built upon *converting the elements into strings*, then **comparing their sequences of UTF-16 code units values.**
 * Callback - if a callback function is defined, `sort` method utilizes the return value of the callback function to determine the sort order.
   * return value of callback - less than 0; sort `a before b`;
@@ -374,6 +376,26 @@ console.log(found)
 
 The `findIndex()` method returns the **index** of the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, `-1` is returned.
 
+#### `Array.prototype.indexOf()`
+
+The `indexOf()` method returns the first index at which a given element can be found in the array, or `-1` if it is not present.
+
+The `indexOf` method lets you search an array for an element with the given value. If the value is a primitive value, `indexOf` finds the first element with that value. if the value is an object, it only finds the first element that has a reference to that object. `indexOf` uses the strict equality operator, `===`, to compare elements against the search value. If you provide a negative number as the second argument, `indexOf` uses that number to calculate the starting position of the search based on the distance from the end of the array. It does not search backward, however. `indexOf` returns `-1` if it can't find the desired value.
+
+```js
+const beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
+
+console.log(beasts.indexOf('bison'));
+// expected output: 1
+
+// start from index 2
+console.log(beasts.indexOf('bison', 2));
+// expected output: 4
+
+console.log(beasts.indexOf('giraffe'));
+// expected output: -1
+```
+
 #### `Array.prototype.lastIndexOf(searchElem, [fromIndex])`
 
 The `lastIndexOf()` method returns the last index of the element that matches the `searchElem` if it is found within the array. The array is searched backwards, starting at `fromIndex`. Returns `-1` if not found.
@@ -382,7 +404,7 @@ The `lastIndexOf()` method returns the last index of the element that matches th
 
 #### `Array.prototype.filter()`
 
-The `filter` method returns a new array that includes all elements from the calling array for which the callback returns a truthy value. If no elements are found, it returns an empty array. `filter` doesn't mutate the caller.
+The `filter` method returns a new array that includes all elements from the calling array for which the callback returns a truthy value. If no elements return a truthy value, it returns an empty array. `filter` doesn't mutate the caller. `filter`'s callback function can accept 1, 2, or 3 elements: the element value, the element index, and the array it is operating on.
 
 ```js
 > let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2]
@@ -2129,10 +2151,10 @@ console.log(b) // => logs 'bye'
 // Undeclared variables have global scope and ignore all scope entirely.
 if (1 === 1) {
   c = 'hello'
-  console.log(c)      // => logs 'hello'
+  console.log(c) // => logs 'hello'
 }
 
-console.log(c)        // => logs 'hello'
+console.log(c) // => logs 'hello'
 /* Since `c` is declared without `let` or `const`, the variable has global scope. Therefore, even though it is declared within the block of the `if` statement, since `c` has global scope, the variable `c` can still be accessed by the `console.log(c)` method on line 1053 OUTSIDE of the block scope. Thus the second `console.log(c)` method logs the string literal 'hello' to the terminal */
 
 // Does the function invocation `foo()` alter the text logged to the console?

@@ -3716,3 +3716,5 @@ How awesome are the engineers in the company? If you're the best one there, that
    * I referee two games today, one in the afternoon and one in the evening.
 
 11:40 Working on wording for variable scope answers.
+
+12:43 Working on understanding quiz questions and answers. Now going to see Dr. Mendler.

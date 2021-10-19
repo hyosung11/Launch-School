@@ -1,5 +1,7 @@
 # Answer Snippets for Written Assessment
 
+## 1. Arrays: working with Arrays, especially the iteration methods (`forEach`, `map`, `filter`, and `find`)
+
 ## Data Types
 
 JavaScript has the following built-in data types:
