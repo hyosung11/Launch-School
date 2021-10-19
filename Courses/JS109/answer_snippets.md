@@ -372,9 +372,38 @@ function foo() {     // second level
 foo();
 ```
 
-The code will logs the values `1`, `2`, `3`, `1`, `2` and then throw a `ReferenceError`. This  example illustrates variable scoping rules, specifically that nested functions have their own variable scope, and that inner scope variables cannot be accessed in the outer scope.
+My edited version of LS Shorter Answer
+The code will log the values `1`, `2`, `3`, `1`, `2` and then throw a `ReferenceError`. This  example illustrates variable scoping rules, specifically that nested functions have their own variable scope, and that inner scope variables cannot be accessed in the outer scope. Here, executing `console.log(c)` on line 17 throws an error because `c` is not in scope on line 17 of function `foo`. The variable `c` is declared on line 7, but its scope is confined to the function `bar`. Once `bar` completes execution, the variable `c` is immediately discarded. On line 17, `foo` cannot see the variable `c` at all. Thus, `c` is not in scope on line 17 of the function `foo`, and a `ReferenceError` is thrown.
 
-### Variable Shadowing
+EV Longer Answer
+A global variable `a` is declared and initialized to the Number `1`. The `foo()` function is invoked and creates a new scope for local variables. The local variable `b` is declared and initialized to the Number `2`. Within the `foo()` function, the function `bar()` is invoked, which creates a new scope for local variables. The local variable `c` is then declared and initialized to the Number `3`. Since the function `bar()` is nested within the function `foo()`, it can access the outer scoped variables: `a` (global scope) and `b` (outer scoped variable declared within the `foo()` function). Therefore, the values `1`, `2`, and `3` are logged to the console. 
+
+After the `bar()` function completes execution, the local variable `c` is **immediately discarded**, and control returns to the `foo()` function on line 15. The `foo()` function then calls the `console.log()` method, and values of the variable `a` and `b` (i.e. `1` and `2`) are logged to the console. However, when the `foo()` function attempts to access the value stored in the variable `c`, a `ReferenceError` is thrown as the variable `c` was created in the nested function `bar()` which only existed within the function scope of `bar()` and was destroyed after `bar()` completed execution. Therefore, `c` is NOT in scope on line 15 of the `foo()` function, and a `ReferenceError` is thrown. This demonstrates the principle of variable scoping, particularly that nested function have their own variable scope, and that inner scope variables **CANNOT** be accessed in the outer scope.
+
+### 5. Inner scope variables can shadow outer scope variables
+
+```js
+let number = 10;
+
+[1, 2, 3].forEach(number => {
+  console.log(number);
+});
+```
+
+This code will log the number `1`, `2`, and `3` to the terminal. This example illustrates variable shadowing. Here, the global variable `number` is declared and initialized to the Number `10`. The `forEach` method is called on the Array `[1, 2, 3]` and each element of `[1, 2, 3]` is passed as an argument to the callback function and assigned the parameter `number`. Since the parameter `number` shares the same variable name as the global variable `number` variable shadowing occurs. Although the variable `number` declared on line 1 is still visible at this point since it was declared outside of and before the block scope, the local variable `number` shadows this outer scope variable making it inaccessible to the `forEach` method. Thus, the code logs the number `1`, `2`, and `3`.
+
+```js
+let a = 1;
+function doit(a) {
+  console.log(a); // => 3
+}
+doit(3);
+console.log(a); // => 1
+```
+
+This code will log `3` and `1` to the terminal. This example illustrates variable shadowing. Here, the global variable `a` is declared and initialized to `1` on line 1. On line 5, the function `doit` is called and passed the value `3` as an argument. Within `doit` the parameter `a` is assigned the value `3`. Since the parameter `a` and the global variable `a` share the same name, the global variable `a` is shadowed by the parameter `a` making the outer scoped variable inaccessible within the function `doit`. Thus, `console.log(a)` on line 3 logs `3`. Finally, `console.log(a)` on line 6 logs `1` as it only has access to the global variable `a` from line 1.
+
+### Variable Shadowing 1
 
 Does `foo` in the `bar` function shadow the `foo` outside the function?
 
@@ -406,3 +435,27 @@ bar();
 ```
 
 Yes, `foo` on line 2 shadows `foo` on line 6 even though line 6 occurs later in the code file. Shadowing occurs based on when the variable is declared: in this code, line 6 runs before line 2, so the `foo` on line 2 shadows `foo` on line 6.
+
+### 1. Outer blocks cannot access inner scope variables
+
+```js
+if (true) {
+  let a = 'foo'
+}
+
+console.log(a); // ReferenceError
+```
+
+The code will throw a `ReferenceError`. This example illustrates the variable scoping principle that outer blocks cannot access variables from inner scope. Within the `if` statement, the local variable `a` is declared and initialized to the string `foo`. After line 3, the variable `a` is no longer in scope. Thus, when we execute the `console.log(a)` method on line 5 and attempt to log the value stored in `a`, a `ReferenceError` is thrown.
+
+### 2. Inner blocks can access variables from outer scopes
+
+```js
+let a = 'foo';
+
+if (true) {
+  console.log(a); // => 'foo'
+}
+```
+
+The code will log `foo`. This example illustrates the variable scoping principle that inner blocks can access variables from outer scopes. On line 1, the global variable `a` is declared and initialized to the string `'foo'`. On line 4, the block within the `if` statement accesses the variable `a` defined in the outer scope, and logs the value `foo` to the console.

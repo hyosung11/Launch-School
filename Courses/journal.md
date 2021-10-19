@@ -3714,3 +3714,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I referee two games today, one in the afternoon and one in the evening.
+
+11:40 Working on wording for variable scope answers.
