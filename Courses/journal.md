@@ -3694,7 +3694,6 @@ How awesome are the engineers in the company? If you're the best one there, that
 
 17:20 Fitting in some studying of variable scope before leaving for dinner.
 
-
 ## 20211018 월요일
 
-17:07 Retire today to the dustbin of history with no studying done thus far. Ugh.
+17:07 Really tired today to the dustbin of history with no studying done thus far. Ugh.
