@@ -3718,3 +3718,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 11:40 Working on wording for variable scope answers.
 
 12:43 Working on understanding quiz questions and answers. Now going to see Dr. Mendler.
+
+15:38 Reviewing and annotating quizzes. Now need to get ready to referee.

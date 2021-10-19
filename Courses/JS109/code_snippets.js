@@ -306,15 +306,118 @@
 // console.log(a); // ReferenceError: a is not defined
 
 /* ======================= */
-let arr = [1, 2, 3, 4, 5, 6, 7];
-//arr.forEach(elem => console.log(elem)); // 1, 2, 3, 4, 5, 6, 7
+// let arr = [1, 2, 3, 4, 5, 6, 7];
+// //arr.forEach(elem => console.log(elem)); // 1, 2, 3, 4, 5, 6, 7
+// // arr.forEach(elem => {
+// //   if (elem < 3) {
+// //     arr.push(100);
+// //   }
+// //   console.log(elem);
+// // }); //
 // arr.forEach(elem => {
-//   if (elem < 3) {
-//     arr.push(100);
-//   }
+//   arr.splice(0, 1);
 //   console.log(elem);
-// }); //
-arr.forEach(elem => {
-  arr.splice(0, 1);
-  console.log(elem);
-}); // 1, 3, 5, 7
+// }); // 1, 3, 5, 7
+
+/* ======================= */
+// let result = ['a', 'b', 'c'].filter(function(item) {
+//   console.log(item);
+// });
+
+// console.log(result); // []
+
+// let result = ['a', 'b', 'c'].filter(item => {
+//   console.log(item);
+// });
+
+// console.log(result); // []
+
+/* ======================= */
+// let result = [1, 2, 3, 4, 5].forEach(num => num + 1);
+// console.log(result); // undefined
+
+// `filter` returns the elements (doesn't change them)
+// let result = [1, 2, 3, 4, 5].filter(num => num + 1);
+// console.log(result); // [1, 2, 3, 4, 5]
+
+// let result = [1, 2, 3, 4, 5].map(num => num + 1);
+// console.log(result); // [2, 3, 4, 5, 6]
+
+/* ======================= */
+// let colors = ['green', 'blue', 'red'];
+// let result = colors.forEach(word => word.toUpperCase());
+// console.log(result); // undefined
+
+// let colors = ['green', 'blue', 'red'];
+// let result = colors.filter(word => word.toUpperCase());
+// console.log(result); // [ 'green', 'blue', 'red' ]
+
+// let colors = ['green', 'blue', 'red'];
+// let result = colors.map(word => word.toUpperCase());
+// console.log(result); // ['GREEN', 'BLUE', 'RED']
+
+/* ======================= */
+// const obj = { a: 'able', b: 'baker', c: 'charley' };
+// let result = Object.values(obj).map(value => value.toUpperCase());
+// console.log(result);// => [ 'ABLE', 'BAKER', 'CHARLEY' ]
+
+/* Discussion
+
+`Object.keys` returns an array that contains all the key values from the object passed as an argument.
+
+`Object.values` returns an array that contains all of the property values from the object as an argument.
+
+`Object.entries` returns an array of arrays where each sub-array contains one of the key/value pairs from the object.
+
+Only `Object.values` returns the correct array needed by map. */
+
+/* ================================== */
+// const array1 = [1, 30, 4, 21, 100000];
+// array1.sort();
+// console.log(array1);
+// expected output: Array [1, 100000, 21, 30, 4]
+
+/* ================================== */
+// let arr = [340, 15, 1, 3400];
+
+// console.log(arr.sort()); // => [ 1, 15, 340, 3400 ]
+
+/* Answer
+`Array.prototype.sort` arranges the values in the array by comparing the values of each element as strings. The resulting array contains all of the elements arranged in ascending lexicographic order based on UTF-16 codepoints.  If two strings have the same value up to the length of the shorter string, `sort` positions the shorter string before the longer one. */
+
+/* ====================================================
+Given the following code, select the code snippets that return the value for the object property key `three`. */
+
+const ARR = [
+  { one: '1', two: 2 },
+  [{ four: 5, three: 6 }, 'three'],
+  'three',
+  { 2: 'two', 3: 'three' },
+];
+
+console.log(ARR[1][0].three); //=> 6
+console.log(ARR[1][0]['three']); // => 6
+
+/* Answer
+
+There is only one object property key named `three`: it occurs inside the array at `ARR[1] as part of the object at `ARR[1][0]`. To retrieve the value associated with that key (`6`), we can write `ARR[1][0]['three']` or ARR[1][0].three`. */
+
+/* ====================================================
+Considering the following code, what is the return value of the final line? */
+
+function evenValues(array) {
+  let evens = [];
+
+  array.forEach((value) => {
+    if (value % 2 === 0) {
+      evens.push(value);
+    }
+    array.shift();
+  });
+
+  return evens;
+}
+
+evenValues([1, 3, 4, 2, 4, 6, 5, 7, 9, 10, 12]);
+
+/* This code will return `[4, 4, 12]`. This example illustrates how a function mutates an array while iterating over it. The `array.shift` method removes the first element from the array during each iteration. Because of the mutation, `value` gets set to `1`, then `4`, then `4` again, then `5`, then `9`, and finally `12`. Of those values, the even numbers are `[4, 4, 12]`. The other values get discarded as we iterate, so we never get to test them. */
