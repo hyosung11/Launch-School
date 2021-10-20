@@ -49,6 +49,6 @@ console.log(test2);
 
 /* 4. `filter`
 what does it return - new array
-what about the return of the callback matter?
+what about the return of the callback matters?
 
 */

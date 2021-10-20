@@ -3716,3 +3716,9 @@ How awesome are the engineers in the company? If you're the best one there, that
    * I referee two games today, one in the afternoon and one in the evening.
 
 11:40 Working on wording for variable scope answers.
+
+## 20211020 수요일
+
+10:47 Aric Dershem's birthday. I'm tired today. Getting diagnosis and treatment on my hamstring today should help.
+
+11:06 Getting kind of bored with studying, but I need to practice problems with time restrictions.

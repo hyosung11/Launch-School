@@ -6,7 +6,7 @@
 2. general principle
 3. application
 
-This code logs __. Variables declared in an outer scope are accessible in an inner scope. [Here connect specific instance to general principle]
+This code logs __. This example illustrates ... variables declared in an outer scope are accessible in an inner scope. [Here connect specific instance to general principle]
 
 ## Detail and Precision
 

@@ -91,16 +91,16 @@ assignment is never destructive unless it's index assignment
 // function declarations are hoisted
 
 // What will be printed to the console and why?
-// ['kim', 'joe', 'sam'].forEach((name) => {
-//   console.log(`${name} ${name}`);
-// });
+['kim', 'joe', 'sam'].forEach((name) => {
+  console.log(`${name} ${name}`);
+});
 
 // variable shadowing
-// let name = 'johnson';
+let name = 'johnson';
 
-// ['kim', 'joe', 'sam'].forEach((name) => {
-//   console.log(`${name} ${name}`);
-// });
+['kim', 'joe', 'sam'].forEach((name) => {
+  console.log(`${name} ${name}`);
+});
 
 // fix variable shadowing
 // let name = 'johnson';

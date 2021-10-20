@@ -298,9 +298,40 @@
 // console.log(a) // => 2 because 'a' was reassigned in the inner scope
 
 /* ======================= */
-function aFunc() {
-  let a = 1;
-}
+// function aFunc() {
+//   let a = 1;
+// }
 
-console.log(aFunc()); // => returns `undefined`
-console.log(a); // ReferenceError: a is not defined
+// console.log(aFunc()); // => returns `undefined`
+// console.log(a); // ReferenceError: a is not defined
+
+// function isArrayEmpty(arr) {
+//   if (arr) {
+//     console.log('Not Empty');
+//   } else {
+//     console.log('Empty');
+//   }
+// }
+
+// isArrayEmpty([]);
+
+/* This code logs `Not Empty`. This example illustrates truthiness in JavaScript. Here, the function `isArrayEmpty()` is called on line 9 with an empty array `[]` as an argument. The empty array is passed into the `if` statement and is evaluated as a truthy value. Thus, the `if` block executes and `Not Empty` is logged to the console. */
+
+// What will be printed to the console and why?
+// ['kim', 'joe', 'sam'].forEach((name) => {
+//   console.log(`${name} ${name}`);
+// });
+
+// variable shadowing
+// let name = 'johnson';
+
+// ['kim', 'joe', 'sam'].forEach((name) => {
+//   console.log(`${name} ${name}`);
+// });
+
+// fix variable shadowing
+let name = 'johnson';
+
+['kim', 'joe', 'sam'].forEach((firstName) => {
+  console.log(`${firstName} ${name}`);
+});
