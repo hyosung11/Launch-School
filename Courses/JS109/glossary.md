@@ -564,13 +564,21 @@ An expression is anything that JavaScript can evaluate, even if that value is `u
 
 The **return value** is the evaluated value of the expression.
 
+```js
+function brendanEichQuote() {
+  console.log('Always bet on JavaScript.');
+}
+```
+
+Since the function has no `return` statement, the return value of our function is `undefined.`
+
 ## 4. Declarations, Initialization, Assignment, and Re-assignment
 
 ### Declaration
 
 A declaration is a statement that asks the JavaScript engine to reserve space in memory for a variable with a particular name. Optionally, it may also specify an initial value for the variable. Note that regardless of whether we provide a value in a declaration, the variable is initialized. If we don't provide an explicit value, that initial value is `undefined`. Variable declarations, with or without initial assignment, always return `undefined`. In JavaScript, variables can be declared with the `let`, `const`, or `var` keywords. Be sure to always declare your variables and constants with `let` and `const`. Undeclared variables have global scope. When used in a declaration, the `=` is a syntactic token that tells JavaScript that you will supply an initial value for the variable. However, in an assignment, the `=` is called the assignment operator.
 
-```sh
+```js
 > let firstName = "Sohee"; // Declare and initialize variable with an explicit value on the same line.
 = undefined
 ```
@@ -583,6 +591,15 @@ count = 2;
 ```
 
 On line 1, we declare a global variable named `count`, and initialize it to a value of `1`, which is a primitive value. Line 2 reassigns `count` to a new primitive value, `2`.
+
+```js
+// What will the following code log to the console and why?
+console.log(greeting);
+
+let greeting = 'Hello world!';
+```
+
+This code logs `ReferenceError: Cannot access 'greeting' before initialization`. Variables declared with `let` are not accessible before they are declared. Thus, this code raises an error.
 
 ### Initialization
 
