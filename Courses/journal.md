@@ -3717,8 +3717,14 @@ How awesome are the engineers in the company? If you're the best one there, that
 
 11:40 Working on wording for variable scope answers.
 
+<<<<<<< HEAD
 ## 20211020 수요일
 
 10:47 Aric Dershem's birthday. I'm tired today. Getting diagnosis and treatment on my hamstring today should help.
 
 11:06 Getting kind of bored with studying, but I need to practice problems with time restrictions.
+=======
+12:43 Working on understanding quiz questions and answers. Now going to see Dr. Mendler.
+
+15:38 Reviewing and annotating quizzes. Now need to get ready to referee.
+>>>>>>> 374971a6ac50808ddbb23987807ebbfad318b39f

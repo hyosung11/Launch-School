@@ -261,10 +261,12 @@ console.log(array1);
 
 The `sort()` method sorts the elements of an array in place (mutating the calling array) and returns the sorted array. The default sort order is ascending, built upon converting the elements into strings, then comparing their sequences of UTF-16 code units values.
 
-* No Callback - The default sort order is **ascending**, built upon *converting the elements into strings*, then **comparing their sequences of UTF-16 code units values.**
+`sort` returns a reference to the array that was used to invoke it. It also mutates that array, and the return value reflects that mutation, but it returns a reference to the array that was used to invoke it.
+
+* No Callback - The default sort order is **ascending**, built upon *converting the elements into strings*, then **comparing their sequences of UTF-16 code unit values.**
 * Callback - if a callback function is defined, `sort` method utilizes the return value of the callback function to determine the sort order.
-  * return value of callback - less than 0; sort `a before b`;
-  * return value of callback - greater than 0; sort `b before a`;
+  * return value of callback - less than 0; sort `a` before `b`;
+  * return value of callback - greater than 0; sort `b` before `a`;
   * return value of callback - is zero, the two elements are equal. Stable sorting will be maintained.
 
 ```js
@@ -278,6 +280,18 @@ array1.sort();
 console.log(array1);
 // expected output: Array [1, 100000, 21, 30, 4]
 ```
+
+Another Example:
+
+```js
+let arr = [340, 15, 1, 3400];
+
+arr.sort(); // => [ 1, 15, 340, 3400 ]
+```
+
+`Array.prototype.sort` arranges the values in the array by comparing the values of each element as strings. The resulting array contains all of the elements arranged in ascending lexicographic order based on UTF-16 codepoints. If two strings have the same value up to the length of the shorter string, sort positions the shorter string before the longer one.
+
+Without arguments, `Array.prototype.sort` compares the values as strings, coercing the strings as needed. The comparisons are lexicographic; lengths only play a part when two strings match up to the length of the shorter one. In that case, sort positions the shorter value before the longer one.
 
 #### `Array.prototype.reverse()`
 
@@ -374,6 +388,26 @@ console.log(found)
 
 The `findIndex()` method returns the **index** of the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, `-1` is returned.
 
+#### `Array.prototype.indexOf()`
+
+The `indexOf()` method returns the first index at which a given element can be found in the array, or `-1` if it is not present.
+
+The `indexOf` method lets you search an array for an element with the given value. If the value is a primitive value, `indexOf` finds the first element with that value. if the value is an object, it only finds the first element that has a reference to that object. `indexOf` uses the strict equality operator, `===`, to compare elements against the search value. If you provide a negative number as the second argument, `indexOf` uses that number to calculate the starting position of the search based on the distance from the end of the array. It does not search backward, however. `indexOf` returns `-1` if it can't find the desired value.
+
+```js
+const beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
+
+console.log(beasts.indexOf('bison'));
+// expected output: 1
+
+// start from index 2
+console.log(beasts.indexOf('bison', 2));
+// expected output: 4
+
+console.log(beasts.indexOf('giraffe'));
+// expected output: -1
+```
+
 #### `Array.prototype.lastIndexOf(searchElem, [fromIndex])`
 
 The `lastIndexOf()` method returns the last index of the element that matches the `searchElem` if it is found within the array. The array is searched backwards, starting at `fromIndex`. Returns `-1` if not found.
@@ -382,7 +416,7 @@ The `lastIndexOf()` method returns the last index of the element that matches th
 
 #### `Array.prototype.filter()`
 
-The `filter` method returns a new array that includes all elements from the calling array for which the callback returns a truthy value. If no elements are found, it returns an empty array. `filter` doesn't mutate the caller.
+The `filter` method returns a new array that includes all elements from the calling array for which the callback returns a truthy value. If no elements return a truthy value, it returns an empty array. `filter` doesn't mutate the caller. `filter`'s callback function can accept 1, 2, or 3 elements: the element value, the element index, and the array it is operating on.
 
 ```js
 > let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2]
@@ -688,7 +722,13 @@ The `myFunc` function outputs `Hello, world!`, which it obtains from the global 
 
 ## 7. Functions: First-class Functions
 
-JavaScript functions are **first-class functions**. The key feature of first-class functions is that you can treat them like any other value. In fact, **all JavaScript functions are objects**. Thus, you can assign them to variables, pass them as arguments to other functions, and return them from a function call.
+All JavaScript functions are **first-class functions**. The key feature of first-class functions is that you can treat them like any other value. In fact, **all JavaScript functions are objects**. Thus, you can assign them to variables, pass them as arguments to other functions, and return them from a function call.
+
+There is no limit to the number of functions that can be passed as arguments to a first-class function.
+
+First-class functions can be passed to or returned by any other first-class function.
+
+A first-class function does not have to accept a function argument or return a function value.
 
 Functions in JavaScript are first-class values or first-class objects. This term is used to describe values that can be: assigned, passed, and returned. In JavaScript, functions can be:
 
@@ -698,9 +738,25 @@ Functions in JavaScript are first-class values or first-class objects. This term
 
 All **primitive values, arrays, objects,** and **even functions** meet this criteria! Not only can you invoke functions, but you can also **pass** them around your program like any other value. Since functions can be treated as values, we can **create** functions that **can take other functions as arguments and return other functions**.
 
-**Higher Order Function -** is a function that **takes** other functions as **arguments**, ***OR*** a function that **returns** another function.
+### Higher-order Functions
 
-**Callback Functions -** functions that we **pass** to other functions are often called ***callback functions, or callbacks***. Note that all functions that accept callback functions as arguments are examples of higher-order functions (because they accept the callback function as an argument to the function).
+A higher-order function is a function that takes other functions as arguments, OR a function that returns another function.
+
+By definition, higher-order functions must accept a function as an argument or return a function. They can do both, of course, but they must do one of these.
+
+A higher-order function can return any function, including a function that is itself another higher-order function.
+
+### Callback Functions
+
+Callback functions are functions that are passed as arguments to higher-order functions.
+
+By definition, higher-order functions accept functions as arguments or return them. Since a callback function is passed as an argument to another function, that other function must be a higher-order function.
+
+There is no limit to the number of callback functions that can be passed to another function, provided that function is prepared to deal with those callbacks.
+
+E.g., callback function is given by the expression `arr => console.log(arr[0])`.
+
+Note that all functions that accept callback functions as arguments are examples of higher-order functions (because they accept the callback function as an argument to the function).
 
 ## 8. Functions: Function Declarations, Function Expressions, and Arrow Functions
 
@@ -2129,10 +2185,10 @@ console.log(b) // => logs 'bye'
 // Undeclared variables have global scope and ignore all scope entirely.
 if (1 === 1) {
   c = 'hello'
-  console.log(c)      // => logs 'hello'
+  console.log(c) // => logs 'hello'
 }
 
-console.log(c)        // => logs 'hello'
+console.log(c) // => logs 'hello'
 /* Since `c` is declared without `let` or `const`, the variable has global scope. Therefore, even though it is declared within the block of the `if` statement, since `c` has global scope, the variable `c` can still be accessed by the `console.log(c)` method on line 1053 OUTSIDE of the block scope. Thus the second `console.log(c)` method logs the string literal 'hello' to the terminal */
 
 // Does the function invocation `foo()` alter the text logged to the console?
