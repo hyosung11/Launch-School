@@ -3728,3 +3728,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 11:06 Getting kind of bored with studying, but I need to practice problems with time restrictions.
 
 17:05 What am I doing? Get my shit together.
+
+## 20211021 목요일
+
+10:17 I've been working diligently on answer examples from the videos. I have to pee and take a break now.

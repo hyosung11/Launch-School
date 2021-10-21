@@ -331,7 +331,25 @@ function myFunction() {
 myFunction();
 ```
 
-This code will log `1`. This example illustrates variable scoping rules, specifically that outer scope variables can be accessed in any inner scope. Here, on line 2, we declare the local variable `a` with `let` and initialize it to the value of `1`. On line 4, there is an `if` statement and the condition provided to the `if` statement is the boolean `true` which means it's always going to evaluate as true and the code on line 5 will be executed each time we invoke `myFunction`. Since the `if` statement creates an inner scope within `myFunction` it can access the variable `a` in the outer scope on line 2. Thus, on line 5, we log the value of `a` to the console which is `1`.
+This code will log `1`. This example illustrates variable scoping rules, specifically that outer scope variables can be accessed in an inner scope. Here, on line 2, we declare the local variable `a` with `let` and initialize it to the value of `1`. On line 4, there is an `if` statement and the condition provided to the `if` statement is the boolean `true`. This means it's always going to evaluate as true and the code on line 5 will execute each time `myFunction` is called. Since the `if` statement creates an inner scope within `myFunction` it can access the variable `a` in the outer scope on line 2. Thus, on line 5, we log the value of `a` to the console which is `1`.
+
+```js
+// What will the following code log to the console and why?
+let a = 1;
+
+function myFunction() {
+  console.log(a);
+}
+
+myFunction();
+```
+
+The code logs `1`. This example illustrates variable scoping, specifically that outer scope variables can be accessed in an inner scope. Here, the global variable `a` is declared and initialized to the value `1` on line 1. The function `myFunction` is called on line 7. Within `myFunction` the `console.log(a)` method is invoked and it has access to the variable `a` on line 1. Thus, the value `1` is logged.
+
+This code logs `1`. On line 7 we're invoking the function `myFunction` and on line 4 within that function we're logging `a` to the console. The variable `a` is declared on line 1 outside of this
+function. The function body of `myFunction` does create an inner scope; however, inner scope can
+access variables declared in the outer scope, so on line 4 within the `myFunction` function body
+we can successfully access `a` and log its value.
 
 ### 2. Inner scope variables cannot be accessed in the outer scope
 
@@ -420,7 +438,57 @@ console.log(a); // => 1
 
 This code will log `3` and `1` to the terminal. This example illustrates variable shadowing. Here, the global variable `a` is declared and initialized to `1` on line 1. On line 5, the function `doit` is called and passed the value `3` as an argument. Within `doit` the parameter `a` is assigned the value `3`. Since the parameter `a` and the global variable `a` share the same name, the global variable `a` is shadowed by the parameter `a` making the outer scoped variable inaccessible within the function `doit`. Thus, `console.log(a)` on line 3 logs `3`. Finally, `console.log(a)` on line 6 logs `1` as it only has access to the global variable `a` from line 1.
 
+```js
+// What will the following code log to the console and why?
+function myFunction() {
+  let a = 1;
 
+  if (true) {
+    console.log(a);
+    let a = 2;
+    console.log(a);
+  }
+}
+
+myFunction();
+```
+
+The code will raise a reference error. This example illustrates variable scoping rules and variable shadowing. On line 2, we declare a variable `a` and assign it to the value `1`. On line 4, we have an `if` statement that's always going to evaluate as true. Therefore, JavaScript will
+execute the code within this block. Note that the curly braces on lines 4 and 8 define a block, so this block creates an inner scope. Within this inner scope, we attempt to log the value of `a` on line 5. Then on line 6, we declare another variable called `a` and initialize it to `2`. Finally, on line 7, we attempt to log the value of `a`. Variable, `a` declared on line 6, has a scope of this entire block. And therefore, within this block, this variable `a` is shadowing the variable `a` declared on line 2. So from within this block, we can't see or access the variable
+`a` declared on line 2. On line 5, our code is not attempting to log the variable `a` declared on line 2, it's attempting to log the variable `a` declared on line 6. However, we cannot access a variable declared with `let` prior to assigning it a value. A variable declared with `let` although it's hoisted, is not given any value, not even the value `undefined`. This is why we'll will get a reference error if we try to access a variable declared with `let` prior to initializing it to a value.
+
+```js
+// What will the following code log to the console and why?
+let a = 5;
+let b = false;
+
+if (a > 4) {
+  let b = true;
+}
+
+console.log(b);
+```
+
+The code will log `false`. This example illustrates variable scoping rules, specifically that variables in an inner scope are not accessible in an outer scope. On line 1 we declare a variable `a` and assign it the value `5`. On line 2 we declare the variable `b` and assign it the boolean `false`. On lines 4 through 6 we see that we have an if statement. The conditional is `a > 4`. Since `a` was initialized to `5` on line 1, this is always going to return `true`. So line 5 is always going to execute when we run this code. On line 5, we declare a variable `b` and initialize it to the boolean `true`. On line 8, we're passing `b` to our `console.log` invocation. In our code, we've declared two different variables called `b`. However, the curly braces on lines 4 to 6 define a block and the variable `b` declared within this block has inner scope and cannot be accessed in an outer scope. Thus, the `console.log(b)` method on line 8 will log `false`, the value of `b` on line 2.
+
+```js
+// What will the following code log to the console and why?
+let a = 1;
+
+function myFunction(a) {
+  console.log(a);
+}
+
+let b = 2;
+
+myFunction(b);
+```
+
+The code logs `2`. This example illustrates variable shadowing. The parameter `a` of `myFunction` shadows the variable `a` declared on line 1. The `a` referenced within the function body on line 4 refers to whatever argument is passed to the function. Here, the value of `b` which is then logged.
+
+
+On line 1 the global variable `a` is declared and initialized to `1`. On line 3, the function `myFunction` is declared. On line 7, the global variable `b` is declared and initialized to `2`.
+Finally on line 9, `myFunction` is called and `b` is passed in as the argument. `myFunction` has one parameter defined and its name is `a`. On line 4, within the function body, we log `a` to the console. The function parameter `a` on line 3 shadows the variable `a` declared on line 1. This makes the variable `a` on line 1 inaccessible within the function. So instead of logging the value of the variable `a` declared on line 1, the value that gets logged is whichever value passed in as an argument to `myFunction`. Here, we've passed in the variable `b` as the argument, so the value `2` gets logged.
 
 ### Variable Shadowing 1
 
