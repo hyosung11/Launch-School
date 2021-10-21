@@ -165,6 +165,21 @@ Reassigning a variable that points to an object merely changes what the variable
 
 ---
 
+What will happen when we run this code? Why?
+
+```js
+let a = ['Hello'];
+
+function changeValue(a) {
+  a[0] = 'Goodbye';
+}
+
+changeValue(a);
+console.log(a);
+```
+
+The code logs `[ 'Goodbye' ]`. This example illustrates pass by reference. On line 1, the global variable `a` is declared and initialized to reference the array `['Hello']` which is an object value. The function `changeValue` is declared on line 3 and invoked on line 7 with the argument `a` passed to it. When `a` is passed to `changeValue` it is passed as a reference to `['Hello']`. But within function `changeValue`, the argument `a` is mutated. Thus, when `console.log(a)` is called on line 8, `[ 'Goodbye' ]` is logged.
+
 Which of the following code snippets use pass-by-reference at least once?
 
 ```js
@@ -453,9 +468,7 @@ function myFunction() {
 myFunction();
 ```
 
-The code will raise a reference error. This example illustrates variable scoping rules and variable shadowing. On line 2, we declare a variable `a` and assign it to the value `1`. On line 4, we have an `if` statement that's always going to evaluate as true. Therefore, JavaScript will
-execute the code within this block. Note that the curly braces on lines 4 and 8 define a block, so this block creates an inner scope. Within this inner scope, we attempt to log the value of `a` on line 5. Then on line 6, we declare another variable called `a` and initialize it to `2`. Finally, on line 7, we attempt to log the value of `a`. Variable, `a` declared on line 6, has a scope of this entire block. And therefore, within this block, this variable `a` is shadowing the variable `a` declared on line 2. So from within this block, we can't see or access the variable
-`a` declared on line 2. On line 5, our code is not attempting to log the variable `a` declared on line 2, it's attempting to log the variable `a` declared on line 6. However, we cannot access a variable declared with `let` prior to assigning it a value. A variable declared with `let` although it's hoisted, is not given any value, not even the value `undefined`. This is why we'll will get a reference error if we try to access a variable declared with `let` prior to initializing it to a value.
+The code will raise a reference error. This example illustrates variable scoping rules and variable shadowing. On line 2, we declare a variable `a` and assign it to the value `1`. On line 4, we have an `if` statement that's always going to evaluate as true. Therefore, JavaScript will execute the code within this block. Note that the curly braces on lines 4 and 8 define a block, so this block creates an inner scope. Within this inner scope, we attempt to log the value of `a` on line 5. Then on line 6, we declare another variable called `a` and initialize it to `2`. Finally, on line 7, we attempt to log the value of `a`. Variable, `a` declared on line 6, has a scope of this entire block. And therefore, within this block, this variable `a` is shadowing the variable `a` declared on line 2. So from within this block, we can't see or access the variable `a` declared on line 2. On line 5, our code is not attempting to log the variable `a` declared on line 2, it's attempting to log the variable `a` declared on line 6. However, we cannot access a variable declared with `let` prior to assigning it a value. A variable declared with `let` although it's hoisted, is not given any value, not even the value `undefined`. This is why we'll get a reference error if we try to access a variable declared with `let` prior to initializing it to a value.
 
 ```js
 // What will the following code log to the console and why?

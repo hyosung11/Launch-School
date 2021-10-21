@@ -330,11 +330,11 @@
 // });
 
 // fix variable shadowing
-let name = 'johnson';
+// let name = 'johnson';
 
-['kim', 'joe', 'sam'].forEach((firstName) => {
-  console.log(`${firstName} ${name}`);
-});
+// ['kim', 'joe', 'sam'].forEach((firstName) => {
+//   console.log(`${firstName} ${name}`);
+// });
 /* ======================= */
 // let arr = [1, 2, 3, 4, 5, 6, 7];
 // //arr.forEach(elem => console.log(elem)); // 1, 2, 3, 4, 5, 6, 7
@@ -418,15 +418,15 @@ Only `Object.values` returns the correct array needed by map. */
 /* ====================================================
 Given the following code, select the code snippets that return the value for the object property key `three`. */
 
-const ARR = [
-  { one: '1', two: 2 },
-  [{ four: 5, three: 6 }, 'three'],
-  'three',
-  { 2: 'two', 3: 'three' },
-];
+// const ARR = [
+//   { one: '1', two: 2 },
+//   [{ four: 5, three: 6 }, 'three'],
+//   'three',
+//   { 2: 'two', 3: 'three' },
+// ];
 
-console.log(ARR[1][0].three); //=> 6
-console.log(ARR[1][0]['three']); // => 6
+// console.log(ARR[1][0].three); //=> 6
+// console.log(ARR[1][0]['three']); // => 6
 
 /* Answer
 
@@ -435,19 +435,37 @@ There is only one object property key named `three`: it occurs inside the array 
 /* ====================================================
 Considering the following code, what is the return value of the final line? */
 
-function evenValues(array) {
-  let evens = [];
+// function evenValues(array) {
+//   let evens = [];
 
-  array.forEach((value) => {
-    if (value % 2 === 0) {
-      evens.push(value);
-    }
-    array.shift();
-  });
+//   array.forEach((value) => {
+//     if (value % 2 === 0) {
+//       evens.push(value);
+//     }
+//     array.shift();
+//   });
 
-  return evens;
-}
+//   return evens;
+// }
 
-evenValues([1, 3, 4, 2, 4, 6, 5, 7, 9, 10, 12]);
+// evenValues([1, 3, 4, 2, 4, 6, 5, 7, 9, 10, 12]);
 
 /* This code will return `[4, 4, 12]`. This example illustrates how a function mutates an array while iterating over it. The `array.shift` method removes the first element from the array during each iteration. Because of the mutation, `value` gets set to `1`, then `4`, then `4` again, then `5`, then `9`, and finally `12`. Of those values, the even numbers are `[4, 4, 12]`. The other values get discarded as we iterate, so we never get to test them. */
+
+/* ==================================================== */
+// let a = ['Hello'];
+
+// function changeValue(a) {
+//   a[0] = 'Goodbye';
+// }
+
+// changeValue(a);
+// console.log(a); // => [ 'Goodbye' ]
+
+/* ==================================================== */
+let arr1 = ['h', 'e', 'l', 'l', 'o'];
+
+console.log(arr1[6]); // => returns undefined
+console.log(arr1[-5]); // => returns undefined
+console.log(arr1[6] = arr1[6] + 1); // => returns NaN -> note that the sum of undefined and a number returns NaN
+console.log(arr1); // => ['h', 'e', 'l', 'l', 'o', <1 empty item>, NaN]

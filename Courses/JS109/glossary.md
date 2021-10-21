@@ -16,8 +16,10 @@ let arr = [1, 2, 'string', false, null, undefined, {}, [5, 'a']]
 
 // Array declared and initialized with `const` - contents within the Array can still be modified.
 const frozenArr = ['I', 'am', 'a', 'frozen', 'array', '!'] // returns undefined
+
 frozenArr.push('!') // push returns 7, which is the length of the array
-console.log(frozenArr) // logs['I', 'am', 'a', 'frozen', 'array', '!', '!'], and returns undefined
+
+console.log(frozenArr) // logs ['I', 'am', 'a', 'frozen', 'array', '!', '!'], and returns undefined
 
 // Array declared and initialized with `const` - cannot be reassigned -> throws an error
 frozenArr = [1, 2, 3]; // Uncaught TypeError: Assignment to constant variable.
@@ -76,8 +78,10 @@ console.log(Object.keys(arr))  // ['0', '1', '2', '4']
 
 ### Odd Array Properties - Increasing, Decreasing, Negative Array Indices, Unset Values vs `undefined`
 
-* **Decreasing the Array.length Property -** If you change an array's `length` property to a new, **smaller** value, the array gets **truncated**; and JavaScript ***removes all elements beyond the new final element***.
+* **Decreasing the Array.length Property** - If you change an array's `length` property to a new, **smaller** value, the array gets **truncated**; and JavaScript ***removes all elements beyond the new final element***.
+
 * **Increasing the Array.length Property** - if you change an array's `length` property to a new, **larger** value, the array expands to the new size. However, the new elements do **not get initialized**. Indexing into an element that is **not** initialized or that is **unset** returns `undefined`. Elements of an array that are **NOT** initialized will **NOT** be iterated over and included in the callback function for array iteration functions (i.e., `forEach`, `map`); however values that **ARE** initialized (even if they are initialized with a value of `undefined`) **WILL** be included in those functions.
+
 * **Negative Array Indices (adding to the Array Properties)** - if you create 'negative array indices', ***JavaScript does NOT throw an error***; instead these are added as **properties to the array object.** Recall that object keys are **always strings.**
 
 ```js
@@ -88,15 +92,18 @@ arr // returns [ <3 empty items> ]
 
 arr[0] // returns undefined
 arr[0] === undefined // returns true
+
 arr.filter(element => element === undefined) // returns [] -> **this is because uninitialized elements within an array are NOT iterated through**
-arr.forEach(element => console.log(element)) // does not log anything, because **uninitialized elements are NOT iterated through**, and returns undefined
+
+arr.forEach(element => console.log(element)) // does not log anything, because **uninitialized elements are NOT iterated through**, and returns `undefined`
 
 arr[1] = 3 // returns 3
 arr // returns [ <1 empty item>, 3, <1 empty item>]
 arr.length // returns 3
-arr.forEach(element => console.log(element)) // logs 3 to the console, and forEach() returns undefined
+arr.forEach(element => console.log(element)) // logs `3` to the console, and forEach() returns `undefined`
 
 Object.keys(arr)   // only the initialized or set elements are included in Object.keys(arr) => returns the element index position of ['1']
+
 arr.length = 2 // returns 2
 arr // returns [ <1 empty item>, 3]
 
@@ -107,9 +114,10 @@ arr // returns [ <1 empty item>, 3]
 
 > arr[3.1415] = 'pi' // returns 'pi'
 > arr['cat'] = 'Fluffy' // returns 'Fluffy' -> NOTE: When using bracket notation, the key must be a quoted string
-> arr // returns [1, 2, 3, '-3': 4, '3.1415': 'pi', cat: 'Fluffy']
+> arr // returns [ 1, 2, 3, '-3': 4, '3.1415': 'pi', cat: 'Fluffy' ]
 
 > arr.length // returns 3 -> it only counts the set and unset elements [1, 2, 3], and does NOT include properties on the array object
+
 > Object.keys(arr) // returns ['0', '1', '2', '-3', '3.1415', 'cat'] -> returns both the set element indices and all keys of the array object
 > Object.values(arr) // returns [1, 2, 3, 4, 'pi', 'Fluffy'] -> returns both the set elements and all values of the array object
 ```
@@ -117,10 +125,12 @@ arr // returns [ <1 empty item>, 3]
 ### Unset Values vs `undefined`
 
 If you attempt to access the index of an unset value, it is uninitialized and it returns `undefined`. How do you determine between an unset item that happens to be `undefined`, and a set item that has been ***initialized and assigned*** to `undefined`?
+
 A key things to remember:
 
-* array.length **includes both SET and UNSET element values in its length, and DOES NOT include other array object keys or array object properties;**
-* Object.keys(array) only **includes SET element values and other array object keys in its length, and does NOT include UNSET element values in its length**
+* `array.length` **includes both SET and UNSET element values in its length, and DOES NOT include other array object keys or array object properties;**
+
+* `Object.keys(array)` only **includes SET element values and other array object keys in its length, and does NOT include UNSET element values in its length**
 
 ```js
 // Exploring Empty/Unset Value vs. undefined
@@ -135,19 +145,19 @@ b                     // returns [ <3 empty items>, '-1': 'yeah' ]
 b[0] === undefined;   // returns true
 
 let c = [undefined, undefined, undefined] // returns undefined
-c                                         // returns [ undefined, undefined, undefined ]
-c[0] === undefined;                       // returns true
-c['a'] = 5                                // returns 5
+c // returns [ undefined, undefined, undefined ]
+c[0] === undefined; // returns true
+c['a'] = 5 // returns 5
 
 // Exploring Array Length Property vs. Object.keys(array).lengths
-a.length                   // returns 3 -> unset items is 3; set items is 0
-Object.keys(a).length;     // returns 0 -> set items is 0; array object property keys is 0
+a.length // returns 3 -> unset items is 3; set items is 0
+Object.keys(a).length; // returns 0 -> set items is 0; array object property keys is 0
 
-b.length                   // returns 3 -> unset items is 3; set items is 0
-Object.keys(b).length      // returns 1 -> set items is 0; array object property keys is 1
+b.length // returns 3 -> unset items is 3; set items is 0
+Object.keys(b).length // returns 1 -> set items is 0; array object property keys is 1
 
-c.length                   // returns 3 -> unset items is 0; set items is 3
-Object.keys(c).length      // returns 4 -> set items is 3; array object property keys is 1
+c.length // returns 3 -> unset items is 0; set items is 3
+Object.keys(c).length // returns 4 -> set items is 3; array object property keys is 1
 ```
 
 ### Array Element Assignment || Object Element Assignment
@@ -158,12 +168,12 @@ Since Arrays are objects, they are mutable. As such, element assignment notation
 // Array Modification
 let arr = [1, 2, 3]
 arr[2] = 5
-arr                  //  => logs [1, 2, 5]
+arr //  => logs [1, 2, 5]
 
 // Object Modification
 let obj = { a: 1, b: 2, c: 3};
 obj['b'] = 5;
-obj;                 //  => logs { a: 1, b: 5, c: 3}
+obj; //  => logs { a: 1, b: 5, c: 3}
 ```
 
 ### Array Destructuring Assignment
@@ -195,10 +205,10 @@ Attempting to reference an out of bound index returns `undefined`. This is true 
 ```js
 let arr1 = ['h', 'e', 'l', 'l', 'o']
 
-arr1[6]                  // => returns undefined
-arr1[-5]                 // => returns undefined
-arr1[6] = arr1[6] + 1    // => returns NaN -> note that the sum of undefined and a number returns NaN
-arr1                     // => ['h', 'e', 'l', 'l', 'o', <1 empty item>, NaN]
+arr1[6] // => returns undefined
+arr1[-5] // => returns undefined
+arr1[6] = arr1[6] + 1 // => returns NaN -> note that the sum of undefined and a number returns NaN
+arr1 // => ['h', 'e', 'l', 'l', 'o', <1 empty item>, NaN]
 ```
 
 ### Destructive Methods that Add/Remove Elements from Beginning or End of an Array
@@ -211,7 +221,7 @@ oddNumbers.pop();
 console.log(oddNumbers); // => [1, 3, 5, 7]
 ```
 
-The pop() method removes the last element from an array, but it does so destructively: the change is permanent. `pop` alters the array in-place. In other words, it mutates its caller (the array).
+ The `pop()` method removes the **last** element from an array and returns that element. This method changes the length of the array.
 
 #### `Array.prototype.push()`
 
@@ -227,7 +237,7 @@ console.log(total)   // 4
 
 #### `Array.prototype.shift()`
 
-The `shift()` method removes the **first** element from an array and returns the removed element. This method changes the length of the array.
+The `shift()` method *removes* the **first** element from an array and returns the removed element. This method changes the length of the original array.
 
 ```js
 const array1 = [1, 2, 3];
@@ -243,7 +253,7 @@ console.log(firstElement);
 
 #### `Array.prototype.unshift()`
 
-The `unshift()` method adds one or more elements to the beginning of an array and returns the length of the new array.
+The `unshift()` method *adds* one or more elements to the **beginning** of an array and returns the length of the new array.
 
 ```js
 const array1 = [1, 2, 3];
@@ -264,6 +274,7 @@ The `sort()` method sorts the elements of an array in place (mutating the callin
 `sort` returns a reference to the array that was used to invoke it. It also mutates that array, and the return value reflects that mutation, but it returns a reference to the array that was used to invoke it.
 
 * No Callback - The default sort order is **ascending**, built upon *converting the elements into strings*, then **comparing their sequences of UTF-16 code unit values.**
+
 * Callback - if a callback function is defined, `sort` method utilizes the return value of the callback function to determine the sort order.
   * return value of callback - less than 0; sort `a` before `b`;
   * return value of callback - greater than 0; sort `b` before `a`;
@@ -317,13 +328,15 @@ The `splice()` method changes the contents of an array by removing or replacing 
 
 ```js
 const months = ['Jan', 'March', 'April', 'June'];
-months.splice(1, 0, 'Feb');
 // inserts at index 1
+months.splice(1, 0, 'Feb');
+
 console.log(months);
 // expected output: Array ["Jan", "Feb", "March", "April", "June"]
 
-months.splice(4, 1, 'May');
 // replaces 1 element at index 4
+months.splice(4, 1, 'May');
+
 console.log(months);
 // expected output: Array ["Jan", "Feb", "March", "April", "May"]
 ```
@@ -387,6 +400,15 @@ console.log(found)
 #### `Array.prototype.findIndex(callbackFn)`
 
 The `findIndex()` method returns the **index** of the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, `-1` is returned.
+
+```js
+const array1 = [5, 12, 8, 130, 44];
+
+const isLargeNumber = (element) => element > 13;
+
+console.log(array1.findIndex(isLargeNumber));
+// expected output: 3
+```
 
 #### `Array.prototype.indexOf()`
 

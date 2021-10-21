@@ -3734,3 +3734,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 10:17 I've been working diligently on answer examples from the videos. I have to pee and take a break now.
 
 11:07 Tired. Still transcribing video answers.
+
+13:32 Getting closer to taking the written assessment.
