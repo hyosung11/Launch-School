@@ -3732,3 +3732,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 ## 20211021 목요일
 
 10:17 I've been working diligently on answer examples from the videos. I have to pee and take a break now.
+
+11:07 Tired. Still transcribing video answers.

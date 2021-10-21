@@ -486,9 +486,43 @@ myFunction(b);
 
 The code logs `2`. This example illustrates variable shadowing. The parameter `a` of `myFunction` shadows the variable `a` declared on line 1. The `a` referenced within the function body on line 4 refers to whatever argument is passed to the function. Here, the value of `b` which is then logged.
 
-
 On line 1 the global variable `a` is declared and initialized to `1`. On line 3, the function `myFunction` is declared. On line 7, the global variable `b` is declared and initialized to `2`.
-Finally on line 9, `myFunction` is called and `b` is passed in as the argument. `myFunction` has one parameter defined and its name is `a`. On line 4, within the function body, we log `a` to the console. The function parameter `a` on line 3 shadows the variable `a` declared on line 1. This makes the variable `a` on line 1 inaccessible within the function. So instead of logging the value of the variable `a` declared on line 1, the value that gets logged is whichever value passed in as an argument to `myFunction`. Here, we've passed in the variable `b` as the argument, so the value `2` gets logged.
+Finally on line 9, `myFunction` is called and `b` is passed in as the argument. `myFunction` has one parameter defined and its name is `a`. On line 4, within the function body, we log `a` to the console. The function parameter `a` on line 3 shadows the variable `a` declared on line 1. This makes the variable `a` on line 1 inaccessible within the function. So instead of logging the value of the variable `a` declared on line 1, the value that gets logged is the value passed in as an argument to `myFunction`. Here, we've passed in the variable `b` as the argument, so the value `2` gets logged.
+
+```js
+// What will the following code log to the console and why?
+const a = 1;
+
+function myFunction() {
+  a = 2;
+}
+
+myFunction(a);
+```
+
+The code raises an error. This example illustrates that variables declared with `const` cannot have their value changed through reassignment. On line 1, the variable `a` is declared with the `const` keyword. On line 4, when we try to reassign `a` to the value `2`, the `TypeError: Assignment to constant variable.` is raised.
+
+The code raises an error. On line 1, the variable `a` is declared with `const`. A variable declared with `const` cannot be reassigned. So on line 4, within the function body we attempt to reassign `a` to `2` and that raises the error. `myFunction` doesn't have a parameter named `a` to shadow the variable `a` declared on line 1. So on line, 4 we are attempting to reassign this constant defined on line 1.
+
+On line 7, we're passing the variable `a` in as an argument to `myFunction`, but because we haven't defined any parameters for `myFunction`, passing in an argument isn't going to raise an error in JavaScript. It will simply ignore those arguments.
+
+```js
+// What will the following code log to the console and why?
+const a = {
+  firstName: 'John',
+  lastName: 'Doe'
+};
+
+function myFunction() {
+  a.firstName = 'Jane';
+}
+
+myFunction();
+
+console.log(a);
+```
+
+The code logs `{ firstName: 'Jane', lastName: 'Doe' }`. This example illustrates that while a variable declared with `const` cannot be reassigned, its object properties are mutable. On line 1, global variable `a` is declared with `const` and initialized to an object. On line 6, the function `myFunction` is declared, and invoked on line 10. Finally on line 12, we attempt to log the value of the variable `a`. On line 7, we are not reassigning the variable `a`, instead we are reassigning `firstName`, one of its properties. Although we cannot reassign a variable declared with `const` that doesn't mean it's immutable. We can mutate the object that's assigned to constant `a`. On line 10, when we call `myFunction`, we reassign the value of the `firstName` property to the string `'Jane'`. Thus, on line 12, the object logged is `{ firstName: 'Jane', lastName: 'Doe' }`
 
 ### Variable Shadowing 1
 
