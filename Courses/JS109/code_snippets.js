@@ -463,9 +463,18 @@ Considering the following code, what is the return value of the final line? */
 // console.log(a); // => [ 'Goodbye' ]
 
 /* ==================================================== */
-let arr1 = ['h', 'e', 'l', 'l', 'o'];
+// let arr1 = ['h', 'e', 'l', 'l', 'o'];
 
-console.log(arr1[6]); // => returns undefined
-console.log(arr1[-5]); // => returns undefined
-console.log(arr1[6] = arr1[6] + 1); // => returns NaN -> note that the sum of undefined and a number returns NaN
-console.log(arr1); // => ['h', 'e', 'l', 'l', 'o', <1 empty item>, NaN]
+// console.log(arr1[6]); // => returns undefined
+// console.log(arr1[-5]); // => returns undefined
+// console.log(arr1[6] = arr1[6] + 1); // => returns NaN -> note that the sum of undefined and a number returns NaN
+// console.log(arr1); // => ['h', 'e', 'l', 'l', 'o', <1 empty item>, NaN]
+
+/* ==================================================== */
+function first(array) {
+  return array[0];
+}
+
+console.log(first(['Earth', 'Moon', 'Mars'])); // 'Earth'
+console.log(first([])); // undefined
+console.log(first()); // TypeError: Cannot read property '0' of undefined

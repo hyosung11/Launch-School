@@ -3736,3 +3736,8 @@ How awesome are the engineers in the company? If you're the best one there, that
 11:07 Tired. Still transcribing video answers.
 
 13:32 Getting closer to taking the written assessment.
+
+## 20211022 금요일
+
+13:58 It's been a shit day for studying. I haven't done any as of yet. Ugh.
+
