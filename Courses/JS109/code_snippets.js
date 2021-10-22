@@ -471,10 +471,28 @@ Considering the following code, what is the return value of the final line? */
 // console.log(arr1); // => ['h', 'e', 'l', 'l', 'o', <1 empty item>, NaN]
 
 /* ==================================================== */
-function first(array) {
-  return array[0];
-}
+// function first(array) {
+//   return array[0];
+// }
 
-console.log(first(['Earth', 'Moon', 'Mars'])); // 'Earth'
-console.log(first([])); // undefined
-console.log(first()); // TypeError: Cannot read property '0' of undefined
+// console.log(first(['Earth', 'Moon', 'Mars'])); // 'Earth'
+// console.log(first([])); // undefined
+// console.log(first()); // TypeError: Cannot read property '0' of undefined
+
+/* ==================================================== */
+// let array1 = [2, 6, 4];
+// let array2 = [2, 6, 4];
+
+// console.log(array1 === array2); // => false
+
+/* ==================================================== */
+let str1 = 'hello';
+let str2 = 'hello';
+
+console.log(str1 === str2); // => true
+
+/* ==================================================== */
+let array1 = [2, 6, 4];
+let array2 = array1;
+
+console.log(array1 === array2); // => true

@@ -3741,3 +3741,6 @@ How awesome are the engineers in the company? If you're the best one there, that
 
 13:58 It's been a shit day for studying. I haven't done any as of yet. Ugh.
 
+14:36 It's time to work on questions under more test-like conditions.
+
+14:50 Almost time to leave to get the kids. I am reviewing my glossary. I want to know it inside and out before taking the written assessment.

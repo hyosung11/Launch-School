@@ -61,6 +61,22 @@ In JavaScript, whenever you see a single `=` sign in an expression, it's always 
 
 ## 5. Equality: Loose and Strict Equality
 
+What will the following code output? Why?
+
+```js
+let array1 = [2, 6, 4];
+let array2 = [2, 6, 4];
+
+console.log(array1 === array2);
+```
+
+The code outputs `false`. This example illustrates equality and the difference between comparing primitive values and object values. Primitives, like strings or numbers, are compared by their value. Here, `array1` and `array2` are objects and not primitives, so JavaScript compares whether the two objects are strictly equal on line 4 by checking whether they are the same object, i.e., whether they reference the same location in memory. Since two different array objects were constructed on line 1 and line 2, they don't have the same reference. Thus, `false` gets logged.
+
+On line 1 we declare a variable `array1` and initialize it to a 3 element array with the elements `2` `6` and `4`. On line 2 we declare a variable `array2` and initialize it to a 3 element array and within `array2` we also see `2`, `6`, `4`. So `array1` and `array2` are both 3 element arrays with the same values in the same order. In JavaScript arrays are objects. They are not primitive types. If we were to compare the output of two primitive types such as strings,
+we would see the output `true` because primitive types are compared by their value. However, when we compare two objects JavaScript is comparing their location in memory. If the two objects do not occupy the same location in memory then JavaScript will return `false`.
+
+---
+
 When comparing a `number` and a `string`, JavaScript coerces the `string` to a `number.
 
 * Even if a string isn't a number, JavaScript coerces it to a number when a string and a number are mixed with `==`.
