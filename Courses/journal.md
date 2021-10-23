@@ -3738,3 +3738,15 @@ How awesome are the engineers in the company? If you're the best one there, that
 13:32 Getting closer to taking the written assessment.
 
 19:11 Back after reffing and dinner. Checking the message from Ryan about my markdown. He says I need to improve my use of markdown which I was doing before Miles said it wasn't that important.
+
+## 20211022 금요일
+
+13:58 It's been a shit day for studying. I haven't done any as of yet. Ugh.
+
+14:36 It's time to work on questions under more test-like conditions.
+
+14:50 Almost time to leave to get the kids. I am reviewing my glossary. I want to know it inside and out before taking the written assessment.
+
+## 20211023 토요일
+
+11:37 Looking at some code. I feel tired lately with low energy. It's the middle of autumn.

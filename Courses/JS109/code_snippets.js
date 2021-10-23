@@ -471,118 +471,62 @@ Considering the following code, what is the return value of the final line? */
 // console.log(arr1); // => ['h', 'e', 'l', 'l', 'o', <1 empty item>, NaN]
 
 /* ==================================================== */
-// function isArrayEmpty(arr) {
-//   if (arr) {
-//     console.log('Not Empty');
-//   } else {
-//     console.log('Empty');
-//   }
+// function first(array) {
+//   return array[0];
 // }
 
-// isArrayEmpty([]);
-
-/* The code logs `Not Empty`. This example illustrates truthiness in JavaScript. Here, function `isArrayEmpty` is declared on line 1 and invoked on line 9 with `[]` passed as an argument to the function. The `if` statement on line 2 accepts the variable `arr` as its condition whose value is `[]` and since an empty array `[]` evaluates as true, the `if` block executes and the `console.log('Not Empty')` method logs `Not Empty` to the console. */
+// console.log(first(['Earth', 'Moon', 'Mars'])); // 'Earth'
+// console.log(first([])); // undefined
+// console.log(first()); // TypeError: Cannot read property '0' of undefined
 
 /* ==================================================== */
-// let hello = 'Hello, world!';
+// let array1 = [2, 6, 4];
+// let array2 = [2, 6, 4];
 
-// function myFunc(hello) {
-//   console.log(hello);
+// console.log(array1 === array2); // => false
+
+/* ==================================================== */
+// let str1 = 'hello';
+// let str2 = 'hello';
+
+// console.log(str1 === str2); // => true
+
+/* ==================================================== */
+// let array1 = [2, 6, 4];
+// let array2 = array1;
+
+// console.log(array1 === array2); // => true
+
+/* ==================================================== */
+// let b = 2;
+
+// function test(a) {
+//   a = b;
+//   return a;
 // }
 
-// myFunc('goodbye'); // => goodbye
-
-/* The code logs `goodbye`. This example illustrates variable scoping rules, specifically variable shadowing. Here, the global variable `hello` is declared and initialized to the String 'Hello, world!' on line 1. The function `myFunc` is declared on line 3 and invoked on line 7 with the string 'goodbye' passed as an argument. `myFunc` has the parameter `hello` which shares its name with the global variable `hello` on line 1. Because the two `hello` variables share the same name, the global `hello` is shadowed by the parameter `hello` making it inaccessible within `myFunc`. So when `console.log(hello)` is called on line 4, the value passed to it is the string `goodbye` from the call to `myFunc` and that is what gets logged. */
-
-/* ==================================================== */
-// [1, 2, 3].forEach((number) => {
-//   console.log(number);
-//   return 'abc';
-// });
-
-/* ==================================================== */
-// Variables as Pointers
-// let arr = [1, 2, 3];
-
-// let a = arr;
-
-// let b = arr;
-
-// console.log(a);
+// test(5);
 // console.log(b);
-
-// b[0] = '99';
-
 // console.log(a);
-// console.log(b);
-// console.log(arr);
 
 /* ==================================================== */
-// console.log([0, 1, 4].filter((num) => num));
-// => [ 1, 4 ] -> 0 not returned because it's a falsy value
+// let greeting = ['Hello'];
 
-/* ==================================================== */
-// console.log(['ant', 'bear'].map((elem) => {
-//   if (elem.length > 3) {
-//     return elem;
-//    }
-// })); // => [ undefined, 'bear' ]
-
-/* ==================================================== */
-// console.log(['ant', 'bear'].filter((elem) => elem.length > 3));
-
-/* ==================================================== */
-// console.log([1, 2, 3].filter((num) => {
-//   num + num;
-// })); // => []
-
-/* ==================================================== */
-// console.log([1, 2, 3].filter((num) => {
-//   return num + num;
-// })); // => [ 1, 2, 3 ]
-
-/* ==================================================== */
-// console.log([1, 2, 3].filter(num => num + num)); // => [ 1, 2, 3 ]
-
-/* ==================================================== */
-// let animal = 'dog';
-
-// const speak = (animal) => {
-//   if (animal === undefined) {
-//     console.log('Bark');
-//   } else {
-//     console.log('Meow');
-//   }
+// const test = (arr) => {
+//   arr = arr.concat('World!');
+//   return arr;
 // };
 
-// speak(); // Bark
-
-/* The code logs `Bark`. This example demonstrates a) variable shadowing and b) if no arguments are passed to a function's parameters, the parameters are assigned the default value `undefined`. Here, the global variable `animal` is declared and initialized to the String 'dog' on line 1. The function `speak` is declared on line 3, and `speak` is called on line 11 without an argument. Invoking a function without an argument in JavaScript does not raise an error, instead the default value is `undefined`. On line 3, since the parameter `animal` shares the same name as the global variable `animal` on line 1, the `animal` parameter shadows the global `animal` variable making it inaccessible to `speak`. On line 4, the `if` statement strictly compares the value of `animal` to `undefined` and since `undefined` is the value of `animal` since it was passed to the function from the invocation of `speak` without an argument, it evaluates to true. The `if` block executes and `Bark` is logged to the console.
-
-This program logs 'Bark' to the console. This code snippet demonstrates a) concepts of variable shadowing and b) if no arguments are passed to a function's parameters, the parameters are assigned the default value `undefined`. On line 11 we call the `speak()` function and we do not pass any arguments to the function. The `speak()` function has one parameter, `animal`, however as no arguments are passed to it, `animal` is assigned the default value `undefined`. The function definition of `speak()` creates a new function scope for local variables. Because the local function variable `animal` shares the same name as the global variable `animal` declared on line 1, variable shadowing prevents us from using the outer scoped variable. Therefore, on line 4 since `animal` contains the primitive value `undefined`, this results in the strict equality operator returning `true`, which is a truthy value. The `if` clause is then executed, and "Bark" is logged to the console. */
+// console.log(test(greeting)); // => [ 'Hello', 'World!' ]
+// console.log(greeting); // => [ 'Hello' ]
 
 /* ==================================================== */
-// What is logged and returned and why?
-// let greeting = 'Hello';
+let greeting = ['Hello'];
 
-// const test = (str) => {
-//   str = str.concat(' World!');
-//   return str;
-// };
+const test = (arr) => {
+  arr = arr.push('World!');
+  return arr;
+};
 
-// console.log(test(greeting)); // => Hello World!
-// console.log(greeting); // => Hello
-
-/* The code logs `‘Hello’` and returns `‘Hello World!’` from the call to function `test`. This example illustrates that strings are immutable, primitive values that are passed by value into functions. Here, the global variable `greeting` is declared and initialized to the String `‘Hello’` on line 1. The function `test` is declared on line 3 and called on line 7 with the variable `greeting` passed as an argument. Within the function `test` the value of the variable `greeting` is concatenated via `str = str.concat(' World!’)` and the new value of `‘Hello World!’` is returned by the function. On line 9, the `console.log(greeting)` method logs the original value of `greeting` which is `‘Hello’` because the value of the string is immutable and unchanged. */
-
-/* ==================================================== */
-let b = 2;
-
-function test(a) {
-  a = b;
-  return a;
-}
-
-console.log(test(5)); // 2
-console.log(b); // 2
-console.log(a); // ReferenceError: a is not defined
+console.log(test(greeting)); // => 2
+console.log(greeting); // => [ 'Hello', 'World!' ]

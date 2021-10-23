@@ -225,7 +225,7 @@ console.log(oddNumbers); // => [1, 3, 5, 7]
 
 #### `Array.prototype.push()`
 
-The `push()` method adds one or more elements to the end of an array and returns the length of the new array.
+The `push()` method **adds** one or more elements to the **end** of an array and returns the length of the new array.
 
 ```js
 let sports = ['soccer', 'baseball']
@@ -546,9 +546,9 @@ Note that `arr[-1] = 374` looks like we're creating an element at index position
 
 It's also important to note that the value of the length property *does not change after we add non-element properties* to the array. Furthermore, those properties are ignored by array methods like `forEach`, `map`, and `filter`.
 
-However, when we use an `Object` method, such as `keys`, we get a list of all of the property names. Curiously, the return value here shows the indices of the array elements as string keys, `'0'`, `'1'`, and `'2'`.
+However, when we use an Object method, such as `keys`, we get a list of all of the property names. Curiously, the return value here shows the indices of the array elements as string keys, `'0'`, `'1'`, and `'2'`.
 
-Finally, you must be careful when you need to distinguish between arrays and other objects. You might, for instance, assume that the `typeof` operator would identify an array as an `'array'`. It doesn't. It returns `'object'` instead. If you really need to detect an array, you can use the `Array.isArray` method:
+Finally, you must be careful when you need to distinguish between arrays and other objects. You might, for instance, assume that the `typeof` operator would identify an array as an `'array'`. It doesn't. It returns `'object'` instead. If you really need to detect an array, you can use the `Array.isArray()` method:
 
 ```js
 let arr = ['foo', 'bar', 'qux'];
@@ -573,7 +573,7 @@ Arrays are objects. One side effect of this is that the `typeof` operator doesn'
 
 ## 3. `console.log()` vs. `return`
 
-Output and return values are different concepts.
+**Output** and **return values** are different concepts.
 
 ### `console.log`
 
@@ -605,7 +605,7 @@ function brendanEichQuote() {
 }
 ```
 
-Since the function has no `return` statement, the return value of our function is `undefined.`
+Since the function has no `return` statement, the return value of our function is `undefined`.
 
 ## 4. Declarations, Initialization, Assignment, and Re-assignment
 
@@ -673,7 +673,7 @@ FIRST_NAME = 'Harry'; // Reassignment -> Uncaught TypeError: Assignment to a con
 
 ## 5. Equality: Loose and Strict Equality
 
-In JavaScript, there are two equality operators: strict equality `(===)` and non-strict (or weak) equality `(==).` The `===` operator behaves as a traditional equality operator does in most languages: it evaluates as true when the two expressions on either side have the same **type** and **value**. On the other hand, the `==` operator *coerces* the values to the same type before comparing them. Coercions can produce unexpected and confusing behavior. Thus, it's good practice to use `===` rather than `==.` The same holds for the `!==` vs. `!=` operators: prefer `!==`.
+In JavaScript, there are two equality operators: **strict** equality `(===)` and **non-strict** (or loose) equality `(==).` The `===` operator behaves as a traditional equality operator does in most languages: it evaluates as true when the two expressions on either side have the same **type** and **value**. On the other hand, the `==` operator *coerces* the values to the same type before comparing them. Coercions can produce unexpected and confusing behavior. Thus, it's good practice to use `===` rather than `==.` The same holds for the `!==` vs. `!=` operators: prefer `!==`.
 
 ### Strict Equality `===` Operator
 
@@ -2544,7 +2544,7 @@ Some variables act as pointers to a place (or address space) in memory, while ot
 
 ### Working with Primitive Values
 
-When a variable contains a primitive value, in most cases, JavaScript will store the primitive value itself in the allocated memory of the variable. Therefore, if you have two variables that have the same primitive value, those values are stored in two different memory locations, each one associated with that specific value. This means that the two variables are independent and changing one has no impact on the other, even if they contain the same values.
+When a variable contains a primitive value, in most cases, JavaScript will store the primitive value itself in the allocated memory of the variable. Therefore, if you have two variables that have the same primitive value, those values are stored in two different memory locations, each one associated with that specific value. This means that the two variables are **independent** and changing one has no impact on the other, even if they contain the same values.
 
 ```js
 > let a = 5
