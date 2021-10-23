@@ -178,7 +178,9 @@ changeValue(a);
 console.log(a);
 ```
 
-The code logs `[ 'Goodbye' ]`. This example illustrates pass by reference. On line 1, the global variable `a` is declared and initialized to reference the array `['Hello']` which is an object value. The function `changeValue` is declared on line 3 and invoked on line 7 with the argument `a` passed to it. When `a` is passed to `changeValue` it is passed as a reference to `['Hello']`. But within function `changeValue`, the argument `a` is mutated. Thus, when `console.log(a)` is called on line 8, `[ 'Goodbye' ]` is logged.
+The code logs `[ 'Goodbye' ]`. This example illustrates pass by reference. On line 1, the global variable `a` is declared and initialized to reference the array `['Hello']` which is an object value. The function `changeValue` is declared on line 3 and invoked on line 7 with the argument `a` passed to it. When `a` is passed to `changeValue` it is passed as a reference to `[‘Hello’]`, so within function `changeValue`, that array referenced by outer scope variable `a` is mutated. Thus, when `console.log(a)` is called on line 8, `[ 'Goodbye' ]` is logged.
+
+---
 
 Which of the following code snippets use pass-by-reference at least once?
 
@@ -361,10 +363,19 @@ myFunction();
 
 The code logs `1`. This example illustrates variable scoping, specifically that outer scope variables can be accessed in an inner scope. Here, the global variable `a` is declared and initialized to the value `1` on line 1. The function `myFunction` is called on line 7. Within `myFunction` the `console.log(a)` method is invoked and it has access to the variable `a` on line 1. Thus, the value `1` is logged.
 
-This code logs `1`. On line 7 we're invoking the function `myFunction` and on line 4 within that function we're logging `a` to the console. The variable `a` is declared on line 1 outside of this
-function. The function body of `myFunction` does create an inner scope; however, inner scope can
-access variables declared in the outer scope, so on line 4 within the `myFunction` function body
-we can successfully access `a` and log its value.
+This code logs `1`. On line 7 we're invoking the function `myFunction` and on line 4 within that function we're logging `a` to the console. The variable `a` is declared on line 1 outside of this function. The function body of `myFunction` does create an inner scope; however, inner scope can access variables declared in the outer scope, so on line 4 within the `myFunction` function body we can successfully access `a` and log its value.
+
+```js
+let hello = "Hello, world!";
+
+function myFunc() {
+  console.log(hello);
+}
+
+myFunc(); // => Hello, world!
+```
+
+The code logs `Hello, world!`. This example illustrates variable scoping rules, specifically that outer scope variables are accessible from an inner scope. Here, the global variable `hello` is declared and initialized to the String "Hello, world!" on line 1. The function `myFunc` is declared on line 3 and invoked on line 7. Within `myFunc` the `console.log(hello)` method logs the value of `hello`. So `myFunc` logs "Hello, world!" and returns `undefined`.
 
 ### 2. Inner scope variables cannot be accessed in the outer scope
 

@@ -1,4 +1,4 @@
-# Written Assessment Practice Questions
+# Written Assessment Practice Questions and Sample Answers
 
 ## Formula
 
@@ -384,7 +384,7 @@ change(greeting);
 console.log(greeting);
 ```
 
-Line 7 outputs 'hello' because the `console.log(greeting)` method passes the global variable `greeting` from line 8 as an argument. This code demonstrates variable scope and that primitive values cannot be mutated. The function `change` is declared on line 3 with the single parameter `param`. `param` is then reassigned to " greeting" but this doesn't change the value of the `greeting` variable. Thus, "hello" is logged to the console.
+Line 7 outputs `'hello'` because the `console.log(greeting)` method passes the global variable `greeting` from line 8 as an argument. This code demonstrates variable scope and that primitive values cannot be mutated. The function `change` is declared on line 3 with the single parameter `param`. `param` is then reassigned to " greeting" but this doesn't change the value of the `greeting` variable. Thus, "hello" is logged to the console.
 
 LAURENT
 The call to the `console.log` method on line 7 will output `hello` to the console because:

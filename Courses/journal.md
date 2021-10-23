@@ -3736,3 +3736,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 11:07 Tired. Still transcribing video answers.
 
 13:32 Getting closer to taking the written assessment.
+
+19:11 Back after reffing and dinner. Checking the message from Ryan about my markdown. He says I need to improve my use of markdown which I was doing before Miles said it wasn't that important.

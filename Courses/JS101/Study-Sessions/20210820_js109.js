@@ -67,7 +67,7 @@ Array.prototype.filter
 // [0, 1, 4]
 //   .filter((num) => num)
 
-// 0 is empty for falsy values
+// 0 is a falsy value
 
 // [('ant', 'bear')].map((elem) => {
 //   if (elem.length > 3) {
