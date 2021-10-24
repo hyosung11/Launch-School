@@ -3750,3 +3750,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 ## 20211023 토요일
 
 11:37 Looking at some code. I feel tired lately with low energy. It's the middle of autumn.
+
+## 20211024 일요일
+
+19:04 It's the end of the weekend and I have done very little studying. I need to study for the written assessment.
