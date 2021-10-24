@@ -521,12 +521,31 @@ Considering the following code, what is the return value of the final line? */
 // console.log(greeting); // => [ 'Hello' ]
 
 /* ==================================================== */
-let greeting = ['Hello'];
+// let greeting = ['Hello'];
 
-const test = (arr) => {
-  arr = arr.push('World!');
-  return arr;
+// const test = (arr) => {
+//   arr = arr.push('World!');
+//   return arr;
+// };
+
+// console.log(test(greeting)); // => 2
+// console.log(greeting); // => [ 'Hello', 'World!' ]
+
+/* ==================================================== */
+// no parameter
+let animal = 'dog';
+
+const speak = () => {
+  console.log(animal);
+  if (animal === undefined) {
+    console.log('Bark');
+
+  } else {
+    console.log(animal);
+    console.log('Meow');
+  }
 };
 
-console.log(test(greeting)); // => 2
-console.log(greeting); // => [ 'Hello', 'World!' ]
+console.log(speak()); // =>  'Meow'
+
+/* The code logs `'Meow'`. This example illustrates variable scope, specifically that inner scope has access to the outer scope.  */

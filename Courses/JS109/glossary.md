@@ -2666,7 +2666,3 @@ When using pointers, it's also important to keep in mind that some operations **
 
 * **Primitive Values -** variables contain/store the primitive value. Even if two variables have the same primitive values, the primitive values are stored in different memory locations associated with the specific variable, and are **independent** of one another.
 * **Objects** - variables contain/store references or pointers for objects. When two variables point to the same object, mutating the shared object will result in change being reflected in both variables; another way to put it is that the two variables are aliases. When working with objects, be wary of operations that are **destructive/mutate.**
-
-```js
-
-```

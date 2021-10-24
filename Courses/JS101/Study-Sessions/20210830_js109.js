@@ -39,9 +39,6 @@ Interview
 - practice live coding with someone else
 - expect a full algorithm at the minimum
 
-
-
-
 // What does this code do and why?
 // let animal = 'dog';
 
@@ -55,10 +52,8 @@ Interview
 
 // speak(); // =>  'Bark'
 
-/*
-Variable shadowing
-function declared without an argument
-*/
+/* Variable shadowing
+function declared without an argument */
 
 // no parameter
 // let animal = 'dog';
