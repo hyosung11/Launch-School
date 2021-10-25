@@ -6,7 +6,7 @@
 2. general principle
 3. application
 
-This code logs __. This example illustrates ... variables declared in an outer scope are accessible in an inner scope. [Here connect specific instance to general principle]
+The code logs __. This example illustrates ... variables declared in an outer scope are accessible in an inner scope. [Here connect specific instance to general principle]
 
 ## Detail and Precision
 
@@ -18,7 +18,7 @@ This code logs __. This example illustrates ... variables declared in an outer s
 
 ## [Answer Template](https://www.dmytronaida.com/2020/05/27/js109-written-assessment.html)
 
-## 1. Question Example: What will line 25 log to the console and why?
+## 1. Question Example: What will line 10 log to the console and why?
 
 ```js
 let greeting = ["Hello"];
@@ -33,7 +33,7 @@ test(greeting);
 console.log(greeting);
 ```
 
-On line 25, the `console.log(greeting)` method will log `["Hello"]` because 1) the global variable `greeting` is not reassigned within the body of the function `test`, and 2) the object that the variable `greeting` points to is not mutated within the function `test`. On line 8, the global variable `greeting` is declared and assigned to reference the array `["Hello"]`. On line 16, the function `test` is called with the passed in argument `greeting`. At this point, both the global variable `greeting` and the parameter `arr` reference the same array. On line 11, `arr` is reassigned to the new array `["ByeBye"]`. Therefore, parameter `arr` and the object `greeting` variable no longer reference the same place in computer memory. Thus, the object variable `greeting` is no longer mutable because `arr` now references a different object.
+On line 10, the `console.log(greeting)` method will log `["Hello"]` because 1) the global variable `greeting` is not reassigned within the body of the function `test`, and 2) the object that the variable `greeting` points to is not mutated within the function `test`. On line 1, the global variable `greeting` is declared and assigned to reference the array `["Hello"]`. On line 3, the function `test` is called with the passed in argument `greeting`. At this point, both the global variable `greeting` and the parameter `arr` reference the same array. On line 4, `arr` is reassigned to the new array `["ByeBye"]`. Therefore, parameter `arr` and the object `greeting` variable no longer reference the same place in computer memory. Thus, the object variable `greeting` is no longer mutable because `arr` now references a different object.
 
 ## 2. Example from Study Guide
 
@@ -52,7 +52,7 @@ console.log(greeting);
 
 Best Answer from Study Guide:
 
-The global variable `greeting` is declared and initialized to the string `Hello` on line 35. Lines 37 to 40 define a loop that will execute forever, unless something happens to end the loop. When the loop begins, it first reassigns the `greeting` global variable to `Hi` on line 38. On the next line, `break`, causes the loop to end, with execution resuming after line 40. Finally, on line 42, `console.log` is called with the value of the variable `greeting` passed to it as an argument. Since `greeting` is now assigned to `Hi`, that is what gets output. **This example demonstrates variable scoping rules in JavaScript; specifically the fact that a variable declared in the outer scope is accessible from a nested inner scope.**
+The global variable `greeting` is declared and initialized to the string `Hello` on line 1. Lines 3 to 6 define a loop that will execute forever, unless something happens to end the loop. When the loop begins, it first reassigns the `greeting` global variable to `Hi` on line 4. On the next line, `break`, causes the loop to end, with execution resuming after line 6. Finally, on line 8, `console.log` is called with the value of the variable `greeting` passed to it as an argument. Since `greeting` is now assigned to `Hi`, that is what gets output. **This example demonstrates variable scoping rules in JavaScript; specifically the fact that a variable declared in the outer scope is accessible from a nested inner scope.**
 
 Answer Explanations:
 
@@ -151,7 +151,7 @@ This code will log `nina` because of variable scoping rules in JavaScript. When 
 
 If you were to call `console.log(name)` within the function `outer()`, that would be variable shadowing, since it would log the value of `name` within the scope of `outer()`, which would be `Jill`.
 
-## 7. Example 1 - What does this code log and why?
+## 7. Variable Shadowing - What does this code log and why?
 
 ```js
 let a = 1;
@@ -164,9 +164,9 @@ doit(3); // => 3
 console.log(a); // => 1
 ```
 
-This code returns `3` on the invocation of the function `doit` on line 7 and logs `1` from the `console.log` method on line 8. This code is an example of variable shadowing. On line 1, the global variable `a` is declared and initialized to the value of `1`. The `doit` function is declared on line 3 and accepts one argument, here the variable `a`. This parameter variable `a` shadows the global variable `a` on line 1 making it inaccessible within the function `doit`. When the `doit` function is invoked, it passes the value `3`. The `console.log` method on line 8 logs the global variable `a` from line 1.
+The code returns `3` on the invocation of the function `doit` on line 7 and logs `1` from the `console.log` method on line 8. This example illustrates variable shadowing. On line 1, the global variable `a` is declared and initialized to the value of `1`. The `doit` function is declared on line 3 and accepts one argument, here the variable `a`. This parameter variable `a` shadows the global variable `a` on line 1 making it inaccessible within the function `doit`. When the `doit` function is invoked, it passes the value `3`. The `console.log` method on line 8 logs the global variable `a` from line 1.
 
-## 8. Example 2 - What does this code log and why?
+## 8. Variable Shadowing - What does this code log and why?
 
 ```js
 function changeName(name) {
@@ -189,20 +189,21 @@ This code logs 'jim'. The `changeName` function is declared on line 1 and takes 
 Alex's Answer
 The code will log 'jim' and then undefined. When anotherFunction() is invoked on line X, it comes into scope and within its scope, the variable 'name is declared and initialized to the string 'jim' on line 6. On line 7, the function changeName is invoked and passed the variable name as an argument. At this point, the variable name that is local to the function changeName and the outer scope variable of the same name that is local to anotherFunction() are both set to string 'jim'. However, when changeName() is invoked the variable name that is local to that function gets reassigned to the string 'bob'. This does not affect the name variable in anotherFunction() - the two values have now diverged. When the changeName function terminates on the next line and the name variable is logged to teh console, this reverts to the version that is local to anotherFunction(), and 'jim' is logged to the console. This is an example of variable shadowing.
 
-## 9. What does this code log and why?
+## 9. What does this code output to the console?
 
 ```js
-let a = 1;
-
-function doit(a) {
-  console.log(a);
+function isArrayEmpty(arr) {
+  if (arr) {
+    console.log('Not Empty');
+  } else {
+    console.log('Empty');
+  }
 }
 
-doit(3); // => 3
-console.log(a); // => 1
+isArrayEmpty([]);
 ```
 
-This code returns `3` on the invocation of the function `doit` on line 8 and `1` from the `console.log` method on line 9. On line 2, the global variable `a` is declared and initialized to the value of `1`. The `doit` function is declared on line 4 and accepts one argument, here the variable `a`. This variable `a` shadows the global variable `a` on line 2. The `console.log` method logs the global variable `a` from line 2.
+The code outputs `'Not Empty'`. This example illustrates truthiness in JavaScript. Here, function `isArrayEmpty` is declared on line 1 and invoked on line 10 with an empty array `[]` passed as an argument into the function. The `arr` variable, whose value is `[]`, is passed into the `if` statement and evaluates to true because an empty array is not a falsy value. Thus, the first branch of the  `if` statement executes and `'Not Empty'` is logged to the console.
 
 ## 10. What does this code log and why?
 
@@ -301,7 +302,7 @@ console.log(checkEmpty());
 
 ---
 
-## What does this program log and why?
+## 13. What does this program log and why?
 
 ```js
 let animal = "dog"
@@ -330,7 +331,7 @@ This was my answer if it helps at all!
 
 This program logs 'Bark' to the console. This code snippet demonstrates a) concepts of variable shadowing and b) if no arguments are passed to a function's parameters, the parameters are assigned the default value `undefined`. On line 11 we call the `speak()` function and we do not pass any arguments to the function. The `speak()` function has one parameter, `animal`, however as no arguments are passed to it, `animal` is assigned the default value `undefined`. The function definition of `speak()` creates a new function scope for local variables. Because the local function variable `animal` shares the same name as the global variable `animal` declared on line 1, variable shadowing prevents us from using the outer scoped variable. Therefore, on line 4 since `animal` contains the primitive value `undefined`, this results in the strict equality operator returning `true`, which is a truthy value. The `if` clause is then executed, and "Bark" is logged to the console.
 
-## What is the return value of the final line? Why? What concept does this illustrate?
+## 14. What is the return value of the final line? Why? What concept does this illustrate?
 
 ```js
 function evenValues(array) {
@@ -452,6 +453,23 @@ Laurent
 This code will not output an error and will log `bar` to the console. Since variable are declared with `const` in different scopes, the global variable `FOO` will not be affected by the initialization of the variable `FOO` in the inner scope.
 
 On line 1, we initialize the global variable `FOO` with the value string `bar` with the `const` keyword . Then, inside the curly braces, we initialize another variable `FOO` that will exist only in the inner scope of the curly braces. Then on line 7, the call to `console.log` will print the value of the global variable `FOO` , `bar` , to the console as it doesn't have access to the inner scope `FOO`.
+
+## The following code causes an infinite loop (a loop that never stops iterating). Why?
+
+```js
+let counter = 0;
+
+while (counter = 1) {
+  console.log(counter);
+  counter += 1;
+
+  if (counter > 2) {
+    break;
+  }
+}
+```
+
+The problem occurs on line 3 where we assign `1` to `counter` inside the conditional part of the `while` loop. JavaScript accepts this code since the assignment always returns a truthy value (`1` in this case), and the loop condition never becomes false. Furthermore, the test on line 7 never becomes trues since the assignment on line 3 ensures that `counter` is always equal to `2` when we execute line 7.
 
 ## Add some code inside of the for loop below that logs the current value of i to the console on each iteration. Before you run the code: What sequence of numbers do you expect to be logged?
 

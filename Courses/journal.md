@@ -3756,3 +3756,9 @@ How awesome are the engineers in the company? If you're the best one there, that
 19:04 It's the end of the weekend and I have done very little studying. I need to study for the written assessment.
 
 19:45 I need to go up for children's bedtime.
+
+## 20211025 월요일
+
+08:55 Ugh. I feel like I lost my mojo. Where did it go? I stopped doing my daily scrum questions.
+
+09:45 Time to go to PT.
