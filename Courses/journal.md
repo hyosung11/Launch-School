@@ -3766,3 +3766,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 12:10 Studying after PT. I think Laurent and I will do a study session at 13:00.
 
 12:53 I am at the point where I just want to take the written assessment, see how I do and go from there. Ugh.
+
+14:47 Helpful to do a study session together with Laurent.

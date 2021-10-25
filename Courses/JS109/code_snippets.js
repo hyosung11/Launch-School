@@ -498,12 +498,12 @@ Considering the following code, what is the return value of the final line? */
 // console.log(array1 === array2); // => true
 
 /* ==================================================== */
-let sum = add(3, 6); // 3 and 6 are arguments
+// let sum = add(3, 6); // 3 and 6 are arguments
 
-function add(left, right) { // left & right are parameters here
-  let sum = left + right;   // left & right are arguments here
-  return sum;
-}
+// function add(left, right) { // left & right are parameters here
+//   let sum = left + right;   // left & right are arguments here
+//   return sum;
+// }
 
 
-console.log(sum);
+// console.log(sum);
