@@ -841,7 +841,7 @@ Thus:
 console.log(doSomething("Pursuit of happiness")); // => [ 9, 2, 7 ]
 ```
 
-## What does line 7 return? What does line 8 return? Explain why.
+## What does line 7 return? What does line 8 return? Explain why?
 
 ```js
 let arr = [['a'], ['b'], ['c']];
@@ -858,7 +858,7 @@ Line 7 returns `[ ['a'], ['b', 'd'], ['c'] ]` and line 8 returns `[ ['a'], ['b',
 
 On line 1, we declare a variable `arr` and assign it a reference to an array `[['a'], ['b'], ['c']]`. On line 2, we declare a variable `copyOfArray` and assign it a shallow copy of the array `[['a'], ['b'], ['c']]` through the use of the method `slice` that returns a new array. Although this method returns a new array, the array still hold references to the original subarrays. So, when on line 4, we use the method `push` to add an element to the second element of the array referenced by `copyOfArr` , we are also modifying the array that `arr` points to, as both arrays holds references to the same subarrays.
 
-## What will line 10 log to the console and why?
+## What will the code log to the console and why?
 
 ```js
 let greeting = ["Hello"];
@@ -873,7 +873,7 @@ test(greeting);
 console.log(greeting);
 ```
 
-The code logs `["Hello"]` on line 10 and returns `["ByeBye", "World!"]` on line 9. This example illustrates pass by reference, variable scope, and reassignment in JavaScript. Here, on line 1, the global variable `greeting` is declared and initialized to reference `["Hello"]`. The function `test` is declared on line 3 and called on line 10 with the argument `greeting` passed into the function `test`. Within `test` the parameter `arr` which references the array `["Hello"]` from line 1 when it's passed as an argument, gets reassigned on line 4 to `["ByeBye"]`. One line 6, the `arr.push("World!")` method mutates `arr` and `["ByeBye", "World!"]` is returned from the invocation of `test`. Meanwhile, the `console.log(greeting)` method on line 10, passes in the value of `greeting` from line 1 to log `["Hello"]` because the variable `greeting` is not changed within the `test`.
+The code logs `["Hello"]` on line 10 and returns `["ByeBye", "World!"]` on line 9. This example illustrates pass by reference, variable scope, and reassignment in JavaScript. Here, on line 1, the global variable `greeting` is declared and initialized to reference `["Hello"]`. The function `test` is declared on line 3 and called on line 10 with the argument `greeting` passed into the function `test`. Within `test` the parameter `arr` which references the array `["Hello"]` from line 1 when it's passed as an argument, gets reassigned on line 4 to `["ByeBye"]`. One line 6, the `arr.push("World!")` method mutates `arr` and `["ByeBye", "World!"]` is returned from the invocation of `test`. Meanwhile, the `console.log(greeting)` method on line 10, passes in the value of `greeting` from line 1 to log `["Hello"]` because the variable `greeting` is not changed within `test`.
 
 ## What does the last line of the code return and what principle does this code snippet demonstrate?
 
@@ -891,3 +891,35 @@ The code returns `[ 2, 4, 6, 8, 10 ]`. This example illustrates variable shadowi
 The last line of code returns `[ 2, 4, 6, 8, 10 ]`. This illustrates the concept of variable shadowing.
 
 On line 1, we declare a global variable `arr` and initialize it with a reference to the array `[1, 2, 3, 4, 5]` Then on line 2, we declare a constant `index` and initialize it with a template litteral. Then on line 3,  we iterate over `arr` with the `map` array method. `map` transforms each element of an array and replace it with the return value of the provided callback function. In that case, the callback function has 2 arguments, `el`and `index` . `index` will be initialized on each iteration with the value of the index of the element on which the callback is called, shadowing the global variable `index`. Each call to `map` will return the result of the expression assignment `index = el * 2`, the value of each element will be multiplied by 2 and then assigned to `index` that will be returned to `map`.
+
+## What does the following code log and return and why?
+
+```js
+let greeting = 'Hello';
+
+const test = (str) => {
+  str = str.concat(' World!');
+  return str;
+};
+
+test(greeting);
+console.log(greeting);
+```
+
+The code logs `'Hello'` and returns `'Hello World'` from the call to function `test`. This example illustrates pass by value of a String primitive into a function. Here, on line 1, the global variable `greeting` is declared and initialized to the String `'Hello'`. On line 3, the function `test` is declared and takes the parameter `str`. On line 8, `test` is called with the argument `greeting` passed to it. Within `test` the value of `greeting` is reassigned via `str = str.concat(' World!')`. The `concat` method returns a new string which now holds the value `'Hello World!'` and this is what is returned from the function `test`. On line 9, the `console.log(greeting)` method passes in the value of `greeting` from line 1 which remains unchanged as a primitive value and logs it to console as `'Hello'`.
+
+## What does the following code log, and return and why?
+
+```js
+let greeting = ['Hello'];
+
+const test = (arr) => {
+  arr = arr.concat('World!');
+  return arr;
+};
+
+console.log(test(greeting)); // => [ 'Hello', 'World!' ]
+console.log(greeting); // => [ 'Hello' ]
+```
+
+The code logs `[ 'Hello' ]` and returns `[ 'Hello', 'World!' ]` from the call to function `test`. This example illustrates pass by reference and reassignment. Here, the global variable `greeting` is declared and initialized to reference the array `['Hello']`. On line 3, the function `test` is declared with the parameter `arr`. The function `test` is called on line 8 with the argument `greeting` passed to it. Within `test` the value of `greeting` is passed to the variable `arr` and reassigned via `arr = arr.concat('World!')` which creates a new two element array `['Hello', 'World']` and that is what's returned from the function `test`. `concat` returns a new array and doesn't mutate the original array. The reassignment of `arr` creates two different arrays in memory. Thus, the variable `greeting` still references the original array `['Hello']` on line 1 and that is what is logged when the `console.log(greeting)` method executes on line 9.

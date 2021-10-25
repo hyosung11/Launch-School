@@ -3768,3 +3768,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 12:53 I am at the point where I just want to take the written assessment, see how I do and go from there. Ugh.
 
 14:47 Helpful to do a study session together with Laurent.
+
+16:17 Practice, practice, practice is what I need to do the questions faster and more efficiently.

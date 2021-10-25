@@ -507,3 +507,25 @@ Considering the following code, what is the return value of the final line? */
 
 
 // console.log(sum);
+
+/* ==================================================== */
+// let greeting = 'Hello';
+
+// const test = (str) => {
+//   str = str.concat(' World!');
+//   return str;
+// };
+
+// console.log(test(greeting)); // => Hello World!
+// console.log(greeting); // => Hello
+
+/* ==================================================== */
+let greeting = ['Hello'];
+
+const test = (arr) => {
+  arr = arr.concat('World!');
+  return arr;
+};
+
+console.log(test(greeting)); // => [ 'Hello', 'World!' ]
+console.log(greeting); // => [ 'Hello' ]
