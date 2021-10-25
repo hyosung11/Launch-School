@@ -282,7 +282,7 @@ So, when we `console.log(person)` on the last line, we log the global object wit
 
 ---
 
-What does this code log to the console, and what concepts does this demonstrate?
+## What does this code log to the console, and what concepts does this demonstrate?
 
 ```js
 const checkEmpty = object => {
@@ -371,7 +371,7 @@ The push() method adds one or more elements to the end of an array and returns t
 
 The shift() method removes the first element from an array and returns that removed element. This method changes the length of the array.
 
-## Explain why line 7 outputs 'hello' rather than some other String. Be precise
+## Explain why line 9 outputs 'hello' rather than some other String. Be precise
 
 ```js
 function change(param) {
@@ -401,7 +401,6 @@ The code will log 'hello'. The global variable `greeting` declared on line 8 is 
 
 HyoSung
 Line 7 outputs 'hello' because the `console.log(greeting)` method passes the global variable `greeting` from line 8 as an argument. This code demonstrates variable scope and that primitive values cannot be mutated. The function `change` is declared on line 3 with the single parameter `param`. `param` is then reassigned to " greeting" but this doesn't change the value of the `greeting` variable. Thus, "hello" is logged to the console.
-*/
 
 ```js
 let bar = 1;
@@ -470,6 +469,44 @@ while (counter = 1) {
 ```
 
 The problem occurs on line 3 where we assign `1` to `counter` inside the conditional part of the `while` loop. JavaScript accepts this code since the assignment always returns a truthy value (`1` in this case), and the loop condition never becomes false. Furthermore, the test on line 7 never becomes trues since the assignment on line 3 ensures that `counter` is always equal to `2` when we execute line 7.
+
+## Does the following code produce an error? Why or why not? What output does this code send to the console?
+
+```js
+for (let i = 0; i < 5;) {
+  console.log(i += 1);
+}
+```
+
+The code doesn't produce an error since all 3 components of the `for` loop are optional. In this code, we omit the "next value" component; however, this isn't a problem here since we increment the loop variable on line 2. The code outputs `1`, `2`, `3`, `4`, and `5`. Although `i` is `0` on the first iteration, the loop logs `1` during that iteration since `i += 1` increments `i` before `console.log` gets to log anything. `i += 1` also returns a new value of `i` (`1`), and that's what gets passed to `console.log`. Similar actions occur on each iteration: the output is always `1` greater than the initial value of `i`, and `i += 1` takes care of incrementing `i` to the next higher number, then passes that value to `console.log`.
+
+## In the following code, what are the final `length` values for `array1`, `array2`, `array3`, `array4`, and `array5`?
+
+```js
+let array1 = [1, 2, undefined, 4];
+
+let array2 = [1];
+array2.length = 5;
+
+let array3 = [];
+array3[-1] = [1];
+
+let array4 = [1, 2, 3, 4, 5];
+array4.length = 3;
+
+let array5 = [];
+array5[100] = 3;
+```
+
+The length of `array1` is `4`. The length is the highest index position that has a value, plus `1`. Here, the highest index position that has a value is `3`; add `1` to that, and we get the length value of `4`.
+
+The length of `array2` is `5`. You can set the length of an array. Even if the highest index position that has a value assigned is `0`, assigning a new length of `5` overrides that length. Here, the resulting array has one element with 4 gaps at the end that each have a value of `undefined`.
+
+The length of `array3` is `0`. Index positions must be non-negative integers starting from `0`. Negative and non-integer indexes are not counted when determining an array's length.
+
+The length of `array4` is `3`. When you set an array to a length that is shorter than its current length, the array gets truncated to the new length. Here, JavaScript truncates the array by removing the last two elements, leaving a total of 3 elements.
+
+The length of `array5` is `101`. Since the length of the array is the highest index position that has a value, here the highest index position that has a value is `100`, so the length is `101`.
 
 ## Add some code inside of the for loop below that logs the current value of i to the console on each iteration. Before you run the code: What sequence of numbers do you expect to be logged?
 
@@ -764,3 +801,15 @@ funcB();
 ```
 
 Executing `console.log(a)` on line 7 throws an error since `a` is not in scope in `funcB`. This code demonstrates variable scoping rules, specifically that peer scopes do not conflict. When function `funcA` is invoked, it defines a new scope for local variables. The local variable `a` is declared and initialized to the string `'hello'`. Within the `funcA` function the `console.log(a)` method logs `hello` to the terminal. After `funcA` completes execution, the variable `a` is discarded and control returns to the main flow of the program. Then function `funcB` is called and attempts to log the value stored in the variable `a` to the terminal, but a `ReferenceError` is thrown because the local variable `a` only existed within the scope of `funcA` and was destroyed after `funcA` completed execution. Thus, `a` is not in scope in `funcB`.
+
+## How many primitive values are there in the following expression? Identify them. How many objects are there in the expression? Identify those objects
+
+```js
+[1, 2, ["a", ["b", false]], null, {}]
+```
+
+Primitive Values: `1`, `2`, `"a"`, `"b"`, `false`, `null`
+
+Objects: `[1, 2, ["a", ["b", false]], null, {}]`, `["a", ["b", false]]`, `["b", false]`, `{}`
+
+The outermost set of brackets defines an array (an object) that contains 5 elements. The elements with values `1`, `2`, and `null` are all primitive values, while [`"a"`, [`"b"`, `false`]] is a nested array, and `{}` is nested object. The nested array has 2 elements, one of which is a primitive value (`"a"`), while the other is yet another nested array. Finally, this innermost array contains two elements, `"b"` and `false`, both of which are primitive values.

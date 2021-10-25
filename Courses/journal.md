@@ -3762,3 +3762,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 08:55 Ugh. I feel like I lost my mojo. Where did it go? I stopped doing my daily scrum questions.
 
 09:45 Time to go to PT.
+
+12:10 Studying after PT. I think Laurent and I will do a study session at 13:00.
