@@ -813,3 +813,30 @@ Primitive Values: `1`, `2`, `"a"`, `"b"`, `false`, `null`
 Objects: `[1, 2, ["a", ["b", false]], null, {}]`, `["a", ["b", false]]`, `["b", false]`, `{}`
 
 The outermost set of brackets defines an array (an object) that contains 5 elements. The elements with values `1`, `2`, and `null` are all primitive values, while [`"a"`, [`"b"`, `false`]] is a nested array, and `{}` is nested object. The nested array has 2 elements, one of which is a primitive value (`"a"`), while the other is yet another nested array. Finally, this innermost array contains two elements, `"b"` and `false`, both of which are primitive values.
+
+## What does this code log to the console? Why?
+
+```js
+let array1 = [1, 2, 3];
+let array2 = array1;
+array1[1] = 4;
+console.log(array2);
+```
+
+The code logs `[1, 4, 3]`. This example illustrates variables as pointers. Here, on line 1, the variable `array1` is declared and initialized to reference the array `[1, 2, 3]`. On line 2, `array2` is declared and initialized to the value of `array1`. At this point, `array1` and `array2` reference the same array `[1, 2, 3]`. This means that if we change an element using `array1`, it also changes that element in `array2` and vice versa. So, on line 3, the expression `array1[1] = 4` changes the value of the second element in the `array1` from `2` to `4` and this change is reflected in both `array1` and `array2`. This code also demonstrates that assignment of an array to another array doesn't create a new array, but instead copies a reference from the original array (`array1` above) into the target array (`array2`).
+
+## What does the following function do?
+
+```js
+function doSomething(string) {
+  return string.split(' ').reverse().map((value) => value.length);
+}
+```
+
+The code converts a string into an array of words, reverses that array, and then returns a new array that contains the length of the words. It assumes that a single space character delimits the words in the original string.
+
+Thus:
+
+```js
+console.log(doSomething("Pursuit of happiness")); // => [ 9, 2, 7 ]
+```
