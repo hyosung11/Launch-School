@@ -3770,3 +3770,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 14:47 Helpful to do a study session together with Laurent.
 
 16:17 Practice, practice, practice is what I need to do the questions faster and more efficiently.
+
+17:38 I don't understand one problem.

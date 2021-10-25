@@ -890,7 +890,7 @@ The code returns `[ 2, 4, 6, 8, 10 ]`. This example illustrates variable shadowi
 
 The last line of code returns `[ 2, 4, 6, 8, 10 ]`. This illustrates the concept of variable shadowing.
 
-On line 1, we declare a global variable `arr` and initialize it with a reference to the array `[1, 2, 3, 4, 5]` Then on line 2, we declare a constant `index` and initialize it with a template litteral. Then on line 3,  we iterate over `arr` with the `map` array method. `map` transforms each element of an array and replace it with the return value of the provided callback function. In that case, the callback function has 2 arguments, `el`and `index` . `index` will be initialized on each iteration with the value of the index of the element on which the callback is called, shadowing the global variable `index`. Each call to `map` will return the result of the expression assignment `index = el * 2`, the value of each element will be multiplied by 2 and then assigned to `index` that will be returned to `map`.
+On line 1, we declare a global variable `arr` and initialize it with a reference to the array `[1, 2, 3, 4, 5]` Then on line 2, we declare a constant `index` and initialize it with a template literal. Then on line 3,  we iterate over `arr` with the `map` array method. `map` transforms each element of an array and replace it with the return value of the provided callback function. In that case, the callback function has 2 arguments, `el`and `index` . `index` will be initialized on each iteration with the value of the index of the element on which the callback is called, shadowing the global variable `index`. Each call to `map` will return the result of the expression assignment `index = el * 2`, the value of each element will be multiplied by 2 and then assigned to `index` that will be returned to `map`.
 
 ## What does the following code log and return and why?
 
@@ -922,4 +922,23 @@ console.log(test(greeting)); // => [ 'Hello', 'World!' ]
 console.log(greeting); // => [ 'Hello' ]
 ```
 
-The code logs `[ 'Hello' ]` and returns `[ 'Hello', 'World!' ]` from the call to function `test`. This example illustrates pass by reference and reassignment. Here, the global variable `greeting` is declared and initialized to reference the array `['Hello']`. On line 3, the function `test` is declared with the parameter `arr`. The function `test` is called on line 8 with the argument `greeting` passed to it. Within `test` the value of `greeting` is passed to the variable `arr` and reassigned via `arr = arr.concat('World!')` which creates a new two element array `['Hello', 'World']` and that is what's returned from the function `test`. `concat` returns a new array and doesn't mutate the original array. The reassignment of `arr` creates two different arrays in memory. Thus, the variable `greeting` still references the original array `['Hello']` on line 1 and that is what is logged when the `console.log(greeting)` method executes on line 9.
+The code logs `[ 'Hello' ]` and returns `[ 'Hello', 'World!' ]` from the call to function `test`. This example illustrates pass by reference and reassignment. Here, the global variable `greeting` is declared and initialized to reference the array `['Hello']`. On line 3, the function `test` is declared with the parameter `arr`. The function `test` is called on line 8 with the argument `greeting` passed to it. Within `test` the value of `greeting` is passed to the variable `arr` and reassigned via `arr = arr.concat('World!')`. The `concat` method returns a new array and doesn't mutate the original. The reassignment of `arr` creates a new two element array `['Hello', 'World']` and that is what's returned from the function `test`. The reassignment of `arr` creates two different arrays in memory. Thus, the variable `greeting` still references the original array `['Hello']` on line 1 and that is what is logged when the `console.log(greeting)` method executes on line 9.
+
+## `Object.values()` and `map()`
+
+```js
+let family = {
+  john: 54,
+  mary: 50,
+  zoe: 12,
+};
+
+function incrementAge(people) {
+  return Object.values(people).map((age) => (age += 1));
+}
+
+console.log(incrementAge(family)); // => [ 55, 51, 13 ]
+console.log(family); // => { john: 54, mary: 50, zoe: 12 }
+```
+
+The code logs `[ 55, 51, 13 ]` and `{ john: 54, mary: 50, zoe: 12 }`. This example illustrates pass by reference. On line 1, the global variable `family` is declared and initialized to reference an object. On line 6, the function `incrementAge` is declared with the parameter `people`. On line 11, `incrementAge` is called with the variable `family` passed as an argument.
