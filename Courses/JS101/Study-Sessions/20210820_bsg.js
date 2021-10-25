@@ -41,13 +41,13 @@ Within `myFunc`, log the variable `hello`, which we have access to because local
 THis is showing Variable Scoping rules in JS.
 */
 
-// let hello = 'Hello, world!';
+let hello = 'Hello, world!';
 
-// function myFunc(hello) {
-//   console.log(hello);
-// }
+function myFunc(hello) {
+  console.log(hello);
+}
 
-// myFunc('goodbye');
+myFunc('goodbye');
 
 // let hello = "Hello, world!"; // GLOBAL VARIABLE
 
@@ -84,7 +84,7 @@ THis is showing Variable Scoping rules in JS.
 
 EXPLANATION
 - `forEach` iterates over each element of the Array
-- The callback function logs each number, and return `abc`
+- The callback function logs each number, and returns `abc`
 - forEach does not use the return value of the callback
 
 - For each number, the callback function logs each number

@@ -54,25 +54,22 @@ the variable words is initialized with a reference to a nested array
 */
 
 // What does this log and why?
-// const greeting = "Hello!";
-// function change(greeting) {
-//     greeting = "Hi!";
-//     return greeting;
-// }
+const greeting = "Hello!";
+function change(greeting) {
+    greeting = "Hi!";
+    return greeting;
+}
 
-// console.log(change()); // => 'Hi!'
-// console.log(greeting); // => 'Hello!'
+console.log(change()); // => 'Hi!'
+console.log(greeting); // => 'Hello!'
 
 /* Discussion
 variable shadowing
 function without passing an argument - parameters automatically assigned to `undefined`
 
-
 scope
 shadowing
-pass-by-reference
-
-*/
+pass-by-reference */
 
 // What is going on here?
 

@@ -451,6 +451,10 @@ The `filter` method returns a new array that includes all elements from the call
 
 `filter` iterates over the elements of the array. During each iteration, it invokes the callback function, using the value of the current element as an argument. If the callback returns a truthy value, `filter` appends the element's value to a new array. Otherwise, it ignores the element's value and does nothing. When `filter` finishes iterating, it returns the array of *selected* elements: the elements for which the callback returned a truthy value. In this example, `filter` selects all of the elements with a value greater than 4.
 
+```js
+[0, 1, 4].filter(num => num);
+```
+
 #### `Array.prototype.forEach()`
 
 The `forEach` method executes a callback function for each element in the calling array. The return value of the callback function is not used by the `forEach` method. `forEach` always returns `undefined`. `forEach` performs simple iteration and returns `undefined`.
@@ -483,6 +487,15 @@ array.forEach(element => {
 ```
 
 This paragraph talks about the `forEach` method being called by the object referenced by `array` in the above code. It invokes the callback function for each element, passing that element to the callback as an argument. Within the callback, the element is known by the parameter name `element`, and the callback uses the `console.log` method to log the value of `element.foo`.
+
+```js
+[1, 2, 3].forEach((number) => {
+  console.log(number);
+  return 'abc';
+});
+```
+
+The code logs `1`, `2`, and `3`. Here, the `forEach` method is called on the array `[1,2,3]` and the callback function is passed as an argument into `forEach`. `forEach` iterates over each element of the array, the callback function logs each number and returns `abc`. `forEach` does not use the return value of the callback. Since `forEach` does not require a return value, the `return 'abc'` has no impact. In the end `forEach` returns `undefined`.
 
 #### `Array.prototype.map()`
 
@@ -2586,7 +2599,7 @@ When we reassign the variable `obj`, the memory address of `obj` does not change
 
 Let's look at another example. This time, we'll use arrays. Remember that arrays in JavaScript are objects, and almost everything we say about arrays holds for objects as well.
 
-```sh
+```js
 > let c = [1, 2]
 > let d = c
 > c = [3, 4]
@@ -2654,4 +2667,7 @@ The takeaway of this section is that JavaScript stores primitive values in varia
 When using pointers, it's also important to keep in mind that some operations **mutate** objects, while others don't. For instance, `push` mutates an array, but `map` does not. In particular, you must understand how something like `x = [1, 2, 3]` and `x[2] = 4` differ: both are reassignments, but the second mutates `x` while the first does not.
 
 * **Primitive Values -** variables contain/store the primitive value. Even if two variables have the same primitive values, the primitive values are stored in different memory locations associated with the specific variable, and are **independent** of one another.
+
 * **Objects** - variables contain/store references or pointers for objects. When two variables point to the same object, mutating the shared object will result in change being reflected in both variables; another way to put it is that the two variables are aliases. When working with objects, be wary of operations that are **destructive/mutate.**
+
+END

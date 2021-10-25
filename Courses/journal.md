@@ -3737,6 +3737,8 @@ How awesome are the engineers in the company? If you're the best one there, that
 
 13:32 Getting closer to taking the written assessment.
 
+19:11 Back after reffing and dinner. Checking the message from Ryan about my markdown. He says I need to improve my use of markdown which I was doing before Miles said it wasn't that important.
+
 ## 20211022 금요일
 
 13:58 It's been a shit day for studying. I haven't done any as of yet. Ugh.
@@ -3744,3 +3746,23 @@ How awesome are the engineers in the company? If you're the best one there, that
 14:36 It's time to work on questions under more test-like conditions.
 
 14:50 Almost time to leave to get the kids. I am reviewing my glossary. I want to know it inside and out before taking the written assessment.
+
+## 20211023 토요일
+
+11:37 Looking at some code. I feel tired lately with low energy. It's the middle of autumn.
+
+## 20211024 일요일
+
+19:04 It's the end of the weekend and I have done very little studying. I need to study for the written assessment.
+
+19:45 I need to go up for children's bedtime.
+
+## 20211025 월요일
+
+08:55 Ugh. I feel like I lost my mojo. Where did it go? I stopped doing my daily scrum questions.
+
+09:45 Time to go to PT.
+
+12:10 Studying after PT. I think Laurent and I will do a study session at 13:00.
+
+12:53 I am at the point where I just want to take the written assessment, see how I do and go from there. Ugh.
