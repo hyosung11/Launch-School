@@ -486,13 +486,24 @@ Considering the following code, what is the return value of the final line? */
 // console.log(array1 === array2); // => false
 
 /* ==================================================== */
-let str1 = 'hello';
-let str2 = 'hello';
+// let str1 = 'hello';
+// let str2 = 'hello';
 
-console.log(str1 === str2); // => true
+// console.log(str1 === str2); // => true
 
 /* ==================================================== */
-let array1 = [2, 6, 4];
-let array2 = array1;
+// let array1 = [2, 6, 4];
+// let array2 = array1;
 
-console.log(array1 === array2); // => true
+// console.log(array1 === array2); // => true
+
+/* ==================================================== */
+let sum = add(3, 6); // 3 and 6 are arguments
+
+function add(left, right) { // left & right are parameters here
+  let sum = left + right;   // left & right are arguments here
+  return sum;
+}
+
+
+console.log(sum);

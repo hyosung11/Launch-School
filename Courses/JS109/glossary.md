@@ -660,7 +660,9 @@ FIRST_NAME = 'Harry'; // Reassignment -> Uncaught TypeError: Assignment to a con
 
 ## 5. Equality: Loose and Strict Equality
 
-In JavaScript, there are two equality operators: **strict** equality `(===)` and **non-strict** (or loose) equality `(==).` The `===` operator behaves as a traditional equality operator does in most languages: it evaluates as true when the two expressions on either side have the same **type** and **value**. On the other hand, the `==` operator *coerces* the values to the same type before comparing them. Coercions can produce unexpected and confusing behavior. Thus, it's good practice to use `===` rather than `==.` The same holds for the `!==` vs. `!=` operators: prefer `!==`.
+In JavaScript, there are two equality operators: **strict** equality `(===)` and **non-strict** (or loose) equality `(==).` The `===` operator behaves as a traditional equality operator does in most languages: it evaluates as true when the two expressions on either side have the same **type** and **value**.
+
+On the other hand, the `==` operator *coerces* the values to the same type before comparing them. Coercions can produce unexpected and confusing behavior. Thus, it's good practice to use `===` rather than `==.` The same holds for the `!==` vs. `!=` operators: prefer `!==`.
 
 ### Strict Equality `===` Operator
 
@@ -743,7 +745,7 @@ false
 
 The **strict equality operator**, also known as the **identity operator**, returns true when the operands have the same type _and_ value, **false** otherwise.
 
-The **non-strict equality operator**, also known as the **loose equality operator**, is similar to `===.` However, when the operands have different types, `==` attempts to coerce one of the operands to the other operand's type before it compares them, and it may coerce both operands in some cases. The result is `true` when the final values are the same, `false` otherwise. The coercion behavior can lead to unexpected results. For instance, when we compare the number `5` to the string `'5'` using `==,` we get `true`; with `===`, we get `false`. When dealing with a string and a number, `==` coerces the string value into a number.
+The **non-strict equality operator**, also known as the **loose equality operator**, is similar to `===.` However, when the operands have different types, `==` attempts to coerce one of the operands to the other operand's type before it compares them, and it may coerce both operands in some cases. The result is `true` when the final values are the same, `false` otherwise. The coercion behavior can lead to unexpected results. For instance, when we compare the number `5` to the string `'5'` using `==`, we get `true`; with `===`, we get `false`. When dealing with a string and a number, `==` coerces the string value into a number.
 
 ## 6. Functions: be able to explain what a function does without talking about its implementation; that is, document a function's use and purpose. (See below.)
 
@@ -757,7 +759,7 @@ function myFunc() {
 myFunc();
 ```
 
-The `myFunc` function outputs `Hello, world!`, which it obtains from the global variable `hello`, then returns `undefined`. The function can use `hello` since functions have access to variables defined in the outer scope.
+The function `myFunc` outputs `'Hello, world!'` which it obtains from the global variable `hello`, then returns `undefined`. The function can use `hello` since functions have access to variables defined in the outer scope.
 
 ## 7. Functions: First-class Functions
 
@@ -789,7 +791,7 @@ A higher-order function can return any function, including a function that is it
 
 Callback functions are functions that are passed as arguments to higher-order functions.
 
-By definition, higher-order functions accept functions as arguments or return them. Since a callback function is passed as an argument to another function, that other function must be a higher-order function.
+By definition, higher-order functions accept functions as arguments or return them. Since a callback function is passed as an argument to another function that other function must be a higher-order function.
 
 There is no limit to the number of callback functions that can be passed to another function, provided that function is prepared to deal with those callbacks.
 
@@ -852,7 +854,7 @@ function makeGreeter(name) {
 }
 ```
 
-The function `greeter()` is a function expression, and NOT a function declaration. This is because the `greeter()` function is preceded by the keyword 'return'
+The function `greeter()` is a function expression, and NOT a function declaration. This is because the `greeter()` function is preceded by the keyword 'return'.
 
 ```js
 let greetPeople = function () { // space after function keyword not required
@@ -1072,7 +1074,7 @@ foo();
 bar(); // ReferenceError: bar is not defined
 ```
 
-The `bar()` function is only created within the scope of the `foo()` outer function, and the `bar()` function gets destroyed once the outer function `foo()` stops running. This is why a ReferenceError is thrown that says bar is not defined.
+The `bar()` function is only created within the scope of the `foo()` outer function, and the `bar()` function gets destroyed once the outer function `foo()` stops running. This is why a `ReferenceError` is thrown that says `bar` is not defined.
 
 ### Functions Create a New Scope
 
