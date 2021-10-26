@@ -164,7 +164,6 @@ pass-by-value
 let a = ['Hello'];
 
 function changeValue(a) {
-  
   a[0] = 'Goodbye';
 }
 

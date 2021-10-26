@@ -33,7 +33,7 @@ test(greeting);
 console.log(greeting);
 ```
 
-On line 10, the `console.log(greeting)` method will log `["Hello"]` because 1) the global variable `greeting` is not reassigned within the body of the function `test`, and 2) the object that the variable `greeting` points to is not mutated within the function `test`. On line 1, the global variable `greeting` is declared and assigned to reference the array `["Hello"]`. On line 3, the function `test` is called with the passed in argument `greeting`. At this point, both the global variable `greeting` and the parameter `arr` reference the same array. On line 4, `arr` is reassigned to the new array `["ByeBye"]`. Therefore, parameter `arr` and the object `greeting` variable no longer reference the same place in computer memory. Thus, the object variable `greeting` is no longer mutable because `arr` now references a different object.
+On line 10, the `console.log(greeting)` method will log `["Hello"]` because 1) the global variable `greeting` is not reassigned within the body of the function `test`, and 2) the object that the variable `greeting` points to is not mutated within the function `test`. On line 1, the global variable `greeting` is declared and assigned to reference the array `["Hello"]`. On line 9, the function `test` is called with the passed in argument `greeting`. At this point, both the global variable `greeting` and the parameter `arr` reference the same array. On line 4, `arr` is reassigned to the new array `["ByeBye"]`. Therefore, parameter `arr` and the object `greeting` variable no longer reference the same place in computer memory. Thus, the object variable `greeting` is no longer mutable because `arr` now references a different object.
 
 ## 2. Example from Study Guide
 
@@ -147,7 +147,7 @@ outer();
 console.log(name);
 ```
 
-This code will log `nina` because of variable scoping rules in JavaScript. When the `name` variable is declared within the scope of the function `outer`, it is limited to the scope of that function, and is terminated when the function is finished. The `console.log(name)` method only has access to variables in the global scope and cannot access variables within the scope of the function `outer`. Here, when `console.log()` is called on the last line, it only has access to the global variable `name` declared on line 1. Thus it logs `nina`.
+The code logs `'nina'`. This example illustrates variale scoping rules and variable shadowing in JavaScript. When the `name` variable is declared within the scope of the function `outer`, it is limited to the scope of that function, and is terminated when the function is finished. The `console.log(name)` method only has access to variables in the global scope and cannot access variables within the scope of the function `outer`. Here, when `console.log()` is called on the last line, it only has access to the global variable `name` declared on line 1. Thus it logs `nina`.
 
 If you were to call `console.log(name)` within the function `outer()`, that would be variable shadowing, since it would log the value of `name` within the scope of `outer()`, which would be `Jill`.
 
@@ -376,6 +376,7 @@ The shift() method removes the first element from an array and returns that remo
 ```js
 function change(param) {
   param += " greeting";
+  console.log(param)
   return param;
 }
 
@@ -385,19 +386,15 @@ change(greeting);
 console.log(greeting);
 ```
 
-Line 7 outputs `'hello'` because the `console.log(greeting)` method passes the global variable `greeting` from line 8 as an argument. This code demonstrates variable scope and that primitive values cannot be mutated. The function `change` is declared on line 3 with the single parameter `param`. `param` is then reassigned to " greeting" but this doesn't change the value of the `greeting` variable. Thus, "hello" is logged to the console.
+The code logs `'hello'`. This example illustrates pass by value and that strings are immutable. Here, the function `change` is declared on line 1 with the parameter `param`. The global variable `greeting` is declared and initialized to the string `'hello'` on line 6. The function `change` is called on line 7 with `greeting` passed as an argument. Within `change` the parameter `param` is reassigned via `param += " greeting"` to the new value `'hello greeting'` but since strings are immutable this doesn't change the value of `greeting`. So when the `console.log(greeting)` method executes on the last line, it logs `'hello'`.
 
 LAURENT
-The call to the `console.log` method on line 7 will output `hello` to the console because:
+The call to the `console.log` method on line 7 will output `hello` to the console because 1) the value `greeting` is passed-by-value as argument to the function call to `change` on line 7, and 2) the returned value from the call to `change` is not assigned to the global scope
 
-1/ the value `greeting` is passed-by-value as argument to the function call to `change` on line 7
-
-2/ The returned value from the call to `change` is not assigned to the global scope
-
-On line 6, we declare the global variable `greeting` and assign to it the value `hello`. On the next line, we call the function `change` with the the string `greeting` as argument. This is being passed to the function by value, which means that a copy of the variable is assigned to `param`. Inside the function, we re-assign `greeting` to `hello greeting` and return it. But the returned value is not being assigned in the global scope, and the original `greeting` string has not been modified, only a copy of it.
+On line 6, we declare the global variable `greeting` and assign to it the value `'hello'`. On the next line, we call the function `change` with the the string `greeting` as argument. This is being passed to the function by value, which means that a copy of the variable is assigned to `param`. Inside the function, we re-assign `greeting` to `'hello greeting'` and return it. But the returned value is not being assigned in the global scope, and the original `greeting` string has not been modified, only a copy of it.
 
 Alex
-The code will log 'hello'. The global variable `greeting` declared on line 8 is unchanged by the function `change` because strings are primitive values and are pass-by-value, meaning a copy of the value is passed to the function, not the variable itself. A copy of the string "hello" is passed to the `change()` function on line 3 and assigned to the local variable `param`. `param is then reassigned to concatenate the string`greeting`, which is returned on line 5. When the function is invoked with`greeting` as its argument on line 9, it returns "hello greeting"-- but this does not affect the global variable `greeting`, which is logged as its original, unchanged value`hello`on line 11.
+The code will log `'hello'`. The global variable `greeting` declared on line 8 is unchanged by the function `change` because strings are primitive values and are pass-by-value, meaning a copy of the value is passed to the function, not the variable itself. A copy of the string `"hello"` is passed to the `change()` function on line 3 and assigned to the local variable `param`. `param` is then reassigned to concatenate the string `greeting`, which is returned on line 5. When the function is invoked with `greeting` as its argument on line 9, it returns `"hello greeting"`, but this does not affect the global variable `greeting`, which is logged as its original, unchanged value `'hello'`on line 11.
 
 HyoSung
 Line 7 outputs 'hello' because the `console.log(greeting)` method passes the global variable `greeting` from line 8 as an argument. This code demonstrates variable scope and that primitive values cannot be mutated. The function `change` is declared on line 3 with the single parameter `param`. `param` is then reassigned to " greeting" but this doesn't change the value of the `greeting` variable. Thus, "hello" is logged to the console.
@@ -414,11 +411,10 @@ console.log(bar);
 
 [code templates for each underlying concept]
 
-This code will log `1` and illustrates the concepts of variable scope and variable shadowing. On line 1, the global variable `bar` is declared and initialized to the value of `1`. On line 2, the function `foo` is declared without a parameter. On line 3, another `bar` variable is declared and initialized to the value of `2`. This variable in the function's scope shadows the `bar` variable on line 1. On line 6, the function `foo` is called without passing an argument. The `console.log(bar)` method on line 7 passes in the value of the global `bar` variable from line 1 and logs `1` to the console.
+The code logs `1`. This example illustrates the concepts of variable scope and variable shadowing. On line 1, the global variable `bar` is declared and initialized to the value of `1`. On line 2, the function `foo` is declared without a parameter. On line 3, another `bar` variable is declared and initialized to the value of `2`. This variable in the function's scope shadows the `bar` variable on line 1 and makes it inaccessible within the function. On line 6, the function `foo` is called without passing an argument. The `console.log(bar)` method on line 7 passes in the value of the global `bar` variable from line 1 and logs `1` to the console.
 
-/*
 Alex
-The code will log `1`.  This demonstrates JavaScript scoping rules - specifically, that inner scope variables shadow outer scope variables of the same name. Moreover, it demonstrates that inner scope variables cannot be accessed in an outer scope. On line 1, the variable `bar` is declared and initialized to the value of 1. Then the function `foo()` is invoked on line 6 without an argument and a local variable `bar` is declared within the function. Since this variable is declared with let, it is a new variable that has local scope to the function and the global variable `bar` is shadowed or hidden within the function. The `}` terminates the function on line 4, thereby disposing of the variable that only has local scope and bringing the global variable back into scope. When `console.log(bar)` is called on line 7, it logs the value of the global variable to the console.
+The code will log `1`.  This demonstrates JavaScript scoping rules - specifically, that inner scope variables shadow outer scope variables of the same name. Moreover, it demonstrates that inner scope variables cannot be accessed in an outer scope. On line 1, the global variable `bar` is declared and initialized to the value of `1`. Then the function `foo()` is invoked on line 6 without an argument and a local variable `bar` is declared within the function. Since this variable is declared with let, it is a new variable that has local scope to the function and the global variable `bar` is shadowed or hidden within the function. The `}` terminates the function on line 4, thereby disposing of the variable that only has local scope and bringing the global variable back into scope. When `console.log(bar)` is called on line 7, it logs the value of the global variable to the console.
 
 Laurent
 This code will log the number value `1` . This code snippet demonstrates the concept of variable shadowing and variable scoping.
@@ -963,13 +959,7 @@ if (true) {
 console.log(a);
 ```
 
-The code logs `'Goodbye'`. This example illustrates variable scope and variable reassignment. Here, the global variable `a` is declared on line 1 and initialized to the String `'Hello'`. The `if` block runs because the condition `true` evaluates as true and within the `if` block `a` is reassigned to the String `'Goodbye'` and this is what's logged from `console.log(a)` on the last line.
-
-Logs Goodbye
-declare a global variable a for the string hello
-if block runs because evaluates as true
-and in line 23 a is reassigned to goodbye
-console.log(a) reassigned to goodbye
+The code logs `'Goodbye'`. This example illustrates variable scope and variable reassignment. Here, the global variable `a` is declared on line 1 and initialized to the string `'Hello'`. The `if` block runs because the condition `true` evaluates as true and within the `if` block `a` is reassigned to the string `'Goodbye'` and this is what's logged from `console.log(a)` on the last line.
 
 truthiness values - everything in JavaScript is truthy except for 0funN is ''
 
@@ -979,12 +969,13 @@ truthiness values - everything in JavaScript is truthy except for 0funN is ''
 let a = 'Hello';
 
 if (true) {
-  let a = 'Goodbye';
-
   // cannot access global 'a'
+  let a = 'Goodbye';
 }
 
 console.log(a);
 ```
 
-The code logs `'Hello'`. This example illustrates variable scope and variable shadowing. Here, the global variable `a` is declared and initialized to the String `'Hello'`. On line 3, the `if` block creates a local scope for variables and the condition of `true` always evaluates as `true`, executing the `if` block. On line 4, a local `a` variable is declared and initialized to the String `'Goodbye'`. This local variable `a` shadows the global `a` variable on line 1 making it inaccessible within the `if` block. Thus, when the `console.log(a)` method is called on the last line, the value of `a` from line 1 is logged which is `'Hello'`.
+The code logs `'Hello'`. This example illustrates variable scope and variable shadowing. Here, the global variable `a` is declared and initialized to the string `'Hello'`. On line 3, the `if` block creates a local scope for variables and the condition of `true` always evaluates as `true`, executing the `if` block. On line 4, a local `a` variable is declared and initialized to the string `'Goodbye'`. This local variable `a` shadows the global `a` variable on line 1 making it inaccessible within the `if` block. Thus, when the `console.log(a)` method is called on the last line, the value of `a` from line 1 is logged which is `'Hello'`.
+
+## 
