@@ -1881,7 +1881,7 @@ str2 = "goodbye";
 console.log(str1);
 ```
 
-The output is `hello there` since we are dealing with strings. In JavaScript, strings are primitive values and are immutable; they can't be changed. That also means JavaScript creates a new copy of the string when assigning a string to a variable. Thus, line x assigns `str2` a new string that happens to be a copy of `str1`'s value. Line x, in turn, assigns `str2` to an entirely new string.
+The output is `'hello there'` since we are dealing with strings. In JavaScript, strings are primitive values and are immutable; they can't be changed. That also means JavaScript creates a new copy of the string when assigning a string to a variable. Thus, line x assigns `str2` a new string that happens to be a copy of `str1`'s value. Line x, in turn, assigns `str2` to an entirely new string.
 
 ### String Element Reference
 

@@ -925,7 +925,7 @@ console.log(greeting); // => [ 'Hello' ]
 
 The code logs `[ 'Hello' ]` and returns `[ 'Hello', 'World!' ]` from the call to function `test`. This example illustrates pass by reference and reassignment. Here, the global variable `greeting` is declared and initialized to reference the array `['Hello']`. On line 3, the function `test` is declared with the parameter `arr`. The function `test` is called on line 8 with the argument `greeting` passed to it. Within `test` the value of `greeting` is passed to the variable `arr` and reassigned via `arr = arr.concat('World!')`. The `concat` method returns a new array and doesn't mutate the original. The reassignment of `arr` creates a new two element array `['Hello', 'World']` and that is what's returned from the function `test`. The reassignment of `arr` creates two different arrays in memory. Thus, the variable `greeting` still references the original array `['Hello']` on line 1 and that is what is logged when the `console.log(greeting)` method executes on line 9.
 
-## `Object.values()` and `map()`
+## Pass by Reference and `map`
 
 ```js
 let family = {
@@ -942,4 +942,49 @@ console.log(incrementAge(family)); // => [ 55, 51, 13 ]
 console.log(family); // => { john: 54, mary: 50, zoe: 12 }
 ```
 
-The code logs `[ 55, 51, 13 ]` and `{ john: 54, mary: 50, zoe: 12 }`. This example illustrates pass by reference. On line 1, the global variable `family` is declared and initialized to reference an object. On line 6, the function `incrementAge` is declared with the parameter `people`. On line 11, `incrementAge` is called with the variable `family` passed as an argument.
+The code logs `{ john: 54, mary: 50, zoe: 12 }` and logs the return value `[ 55, 51, 13 ]` from the call to function `incrementAge`. This example illustrates pass by reference and iterating through an array with `map`. Here, on line 1, the variable `family` is declared and initialized to reference an object. On line 7, the function `incrementAge` is declared with the parameter `people` and invoked on line 11 with `family` passed as an argument. Within `incrementAge`, the `Object.values` method is called on the object referenced by `family` which returns an array with the values of the object. The `map` method is called on this array and the callback function increments each age of the family member by `1`. Thus the call to `incrementAge` returns a new array of the ages of the family members increased by `1` as follows: `[ 55, 51, 13 ]`. The call to `map` doesn't mutate the original object. So, on the last line, the `console.log(family)` method logs the original object `family` from line 1: `{ john: 54, mary: 50, zoe: 12 }`.
+
+This code snippet will log `[55, 51, 13 ]` and `{ john: 54, mary: 50, zoe: 12 }`. It illustrate the concepts of pass by reference and iterating over an array with map.
+
+On line 1, we declare the global variable `family` and initialize it with a reference to the object `{ john: 54, mary: 50, zoe: 12,}`. On line 11, we will log the returned value from the call to the function `incrementAge` with the reference to the object passed as argument. During this function call, `Object.values(people)` will return a new array with the values held by the parameter `people` , `[54, 50, 12]`. Then we iterate through this array and increment each element by 1, returning `[55, 51, 13]` from the function. This call to `map` did not impact the original object that the variable `family` points to, therefore, we will log `{ john: 54, mary: 50, zoe: 12 }` on line 12
+
+## What will happen when we run this code?
+
+```js
+let a = 'Hello';
+
+// true evaluates to true Or true is truthy
+if (true) {
+  // inner scope
+  a = 'Goodbye'; // reassignment
+  // let a = 'Goodbye'; // initialized a new local variable
+}
+
+console.log(a);
+```
+
+The code logs `'Goodbye'`. This example illustrates variable scope and variable reassignment. Here, the global variable `a` is declared on line 1 and initialized to the String `'Hello'`. The `if` block runs because the condition `true` evaluates as true and within the `if` block `a` is reassigned to the String `'Goodbye'` and this is what's logged from `console.log(a)` on the last line.
+
+Logs Goodbye
+declare a global variable a for the string hello
+if block runs because evaluates as true
+and in line 23 a is reassigned to goodbye
+console.log(a) reassigned to goodbye
+
+truthiness values - everything in JavaScript is truthy except for 0funN is ''
+
+## What happens when we run this code?
+
+```js
+let a = 'Hello';
+
+if (true) {
+  let a = 'Goodbye';
+
+  // cannot access global 'a'
+}
+
+console.log(a);
+```
+
+The code logs `'Hello'`. This example illustrates variable scope and variable shadowing. Here, the global variable `a` is declared and initialized to the String `'Hello'`. On line 3, the `if` block creates a local scope for variables and the condition of `true` always evaluates as `true`, executing the `if` block. On line 4, a local `a` variable is declared and initialized to the String `'Goodbye'`. This local variable `a` shadows the global `a` variable on line 1 making it inaccessible within the `if` block. Thus, when the `console.log(a)` method is called on the last line, the value of `a` from line 1 is logged which is `'Hello'`.

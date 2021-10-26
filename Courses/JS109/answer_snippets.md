@@ -102,6 +102,20 @@ Invoking a function involves arguments.
 
 ## 16. Pass-by-value / Pass-by-reference
 
+Pass-by-value
+
+* Passing an argument into a function
+* That argument is a *primitive* type
+* The parameter in the function points to a new **copy** of the value
+
+Pass-by-reference
+
+* Passing an argument into a function
+* That argument is an *object* type -->  {} object, Array, and Arrays are also objects
+* The function can *change/modify/mutate* the argument that is passed because we have a *reference* to that original argument
+
+---
+
 When passing a **primitive value** as an argument to a function
 
 * reassigning the parameter that corresponds to the primitive value does not affect the original value.

@@ -3776,3 +3776,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 ## 20211026 화요일
 
 09:12 Getting ready for study session with Laurent.
+
+10:45 Ended study session with Laurent. I need to practice some more before taking the written assessment.
+
+12:37 Got in touch with Ravi and he shared a solutions engineer position post at GitHub with me.
