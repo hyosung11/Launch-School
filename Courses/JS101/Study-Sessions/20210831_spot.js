@@ -65,7 +65,7 @@ function test(arr) {
 
 /* Discussion
 - concat doesn't mutate the array
-- reassigning arr to point to a new array so doesn't; pass by reference */
+- reassigning arr to point to a new array so doesn't change the original array; pass by reference */
 
 // Q3 - Ainaa
 // [1, 2, undefined, {1:2}, <2 empty items>, null, '-1': 2]

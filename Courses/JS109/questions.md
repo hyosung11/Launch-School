@@ -858,7 +858,7 @@ Line 7 returns `[ ['a'], ['b', 'd'], ['c'] ]` and line 8 returns `[ ['a'], ['b',
 
 On line 1, we declare a variable `arr` and assign it a reference to an array `[['a'], ['b'], ['c']]`. On line 2, we declare a variable `copyOfArray` and assign it a shallow copy of the array `[['a'], ['b'], ['c']]` through the use of the method `slice` that returns a new array. Although this method returns a new array, the array still hold references to the original subarrays. So, when on line 4, we use the method `push` to add an element to the second element of the array referenced by `copyOfArr` , we are also modifying the array that `arr` points to, as both arrays holds references to the same subarrays.
 
-## What will line 10 log to the console and why?
+## What will the code log to the console and why?
 
 ```js
 let greeting = ["Hello"];
@@ -892,3 +892,54 @@ Laurent
 The last line of code returns `[ 2, 4, 6, 8, 10 ]`. This illustrates the concept of variable shadowing.
 
 On line 1, we declare a global variable `arr` and initialize it with a reference to the array `[1, 2, 3, 4, 5]` Then on line 2, we declare a constant `index` and initialize it with a template literal. Then on line 3,  we iterate over `arr` with the `map` array method. `map` transforms each element of an array and replace it with the return value of the provided callback function. In that case, the callback function has 2 arguments, `el`and `index` . `index` will be initialized on each iteration with the value of the index of the element on which the callback is called, shadowing the global variable `index`. Each call to `map` will return the result of the expression assignment `index = el * 2`, the value of each element will be multiplied by 2 and then assigned to `index` that will be returned to `map`.
+
+## What does the following code log and return and why?
+
+```js
+let greeting = 'Hello';
+
+const test = (str) => {
+  str = str.concat(' World!');
+  return str;
+};
+
+test(greeting);
+console.log(greeting);
+```
+
+The code logs `'Hello'` and returns `'Hello World'` from the call to function `test`. This example illustrates pass by value of a String primitive into a function. Here, on line 1, the global variable `greeting` is declared and initialized to the String `'Hello'`. On line 3, the function `test` is declared and takes the parameter `str`. On line 8, `test` is called with the argument `greeting` passed to it. Within `test` the value of `greeting` is reassigned via `str = str.concat(' World!')`. The `concat` method returns a new string which now holds the value `'Hello World!'` and this is what is returned from the function `test`. On line 9, the `console.log(greeting)` method passes in the value of `greeting` from line 1 which remains unchanged as a primitive value and logs it to console as `'Hello'`.
+
+## What does the following code log, and return and why?
+
+```js
+let greeting = ['Hello'];
+
+const test = (arr) => {
+  arr = arr.concat('World!');
+  return arr;
+};
+
+console.log(test(greeting)); // => [ 'Hello', 'World!' ]
+console.log(greeting); // => [ 'Hello' ]
+```
+
+The code logs `[ 'Hello' ]` and returns `[ 'Hello', 'World!' ]` from the call to function `test`. This example illustrates pass by reference and reassignment. Here, the global variable `greeting` is declared and initialized to reference the array `['Hello']`. On line 3, the function `test` is declared with the parameter `arr`. The function `test` is called on line 8 with the argument `greeting` passed to it. Within `test` the value of `greeting` is passed to the variable `arr` and reassigned via `arr = arr.concat('World!')`. The `concat` method returns a new array and doesn't mutate the original. The reassignment of `arr` creates a new two element array `['Hello', 'World']` and that is what's returned from the function `test`. The reassignment of `arr` creates two different arrays in memory. Thus, the variable `greeting` still references the original array `['Hello']` on line 1 and that is what is logged when the `console.log(greeting)` method executes on line 9.
+
+## `Object.values()` and `map()`
+
+```js
+let family = {
+  john: 54,
+  mary: 50,
+  zoe: 12,
+};
+
+function incrementAge(people) {
+  return Object.values(people).map((age) => (age += 1));
+}
+
+console.log(incrementAge(family)); // => [ 55, 51, 13 ]
+console.log(family); // => { john: 54, mary: 50, zoe: 12 }
+```
+
+The code logs `[ 55, 51, 13 ]` and `{ john: 54, mary: 50, zoe: 12 }`. This example illustrates pass by reference. On line 1, the global variable `family` is declared and initialized to reference an object. On line 6, the function `incrementAge` is declared with the parameter `people`. On line 11, `incrementAge` is called with the variable `family` passed as an argument.
