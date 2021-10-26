@@ -520,12 +520,174 @@ Considering the following code, what is the return value of the final line? */
 // console.log(greeting); // => Hello
 
 /* ==================================================== */
-let greeting = ['Hello'];
+// let greeting = ['Hello'];
 
-const test = (arr) => {
-  arr = arr.concat('World!');
-  return arr;
-};
+// const test = (arr) => {
+//   arr = arr.concat('World!');
+//   return arr;
+// };
 
-console.log(test(greeting)); // => [ 'Hello', 'World!' ]
-console.log(greeting); // => [ 'Hello' ]
+// console.log(test(greeting)); // => [ 'Hello', 'World!' ]
+// console.log(greeting); // => [ 'Hello' ]
+
+/* ==================================================== */
+
+// Q3 - Ainaa
+// let array = [1, 2, undefined, {1:2}, , , null]
+// console.log(array.length); // What will this line return and why?
+
+/* ==================================================== */
+// Q7 -Jeff
+// What is the output and what concept is demonstrated?
+// let animal = 'dog';
+
+// const speak = (animal) => {
+//   if (animal) {
+//     console.log('Bark');
+//   } else {
+//     console.log('Meow');
+//   }
+// };
+
+// speak();
+
+/* The code logs `'Meow'`. This example illustrates variable shadowing, and that if no argument is passed to a function invocation, the default value is `undefined`. Here, the global variable `animal` is declared and initialized to the value of the string `'dog'` on line 1. On line 3, the function `speak` is declared with the parameter `animal` and the function `speak` is called on line 11 but does not pass an argument. The parameter `animal` shadows the global `animal` variable on line 1 making it inaccessible to the function `speak`. Since `speak` does not pass an argument, the value of the variable `animal` inside the function is `undefined`. When the `if` statement evaluates its condition with the value of `animal` it returns a falsy value of `undefined`. Thus, the `else` block executes and `'Meow'` is logged. */
+
+/* ==================================================== */
+
+/* Q9 - Kris */
+// console.log(['ant', 'bear'].map((elem) => {
+//   if (elem.length > 3) {
+//     return elem;
+//   }
+// }));
+
+/* Discussion
+
+The code returns `[ undefined, 'bear' ]`. This example illustrates
+implicit return value for the callback will be undefined
+map gives you an array that is the same length as the array that called it
+map transforms the calling array
+how map works in general
+- takes a callback
+- passes each element as a callback
+*/
+
+/* ==================================================== */
+
+// let dog = 'Bark';
+
+// function dogCall() {
+// 	dog = dog + dog;
+// }
+
+// console.log(dogCall(dog)); // => undefined
+// console.log(dog); // BarkBark
+
+/* The code logs `'BarkBark'`. This example illustrates variable scope, specifically that inner scope has access to outer scoped variables. Here, on line 1, the global variable `dog` is initialized to the string `'Bark'`. On line 3, the function `dogCall` is declared without a parameter and without a `return` statement. This means the function will return `undefined`. Meanwhile, the function `dogCall` is called on line 7 with the argument `dog` passed to the function. Within function `dogCall` the variable `dog` is reassigned via `dog = dog + dog` and its value is concatenated to the new value `'BarkBark'` and this is what's logged by `console.log(dog)` on the last line. */
+
+/* ==================================================== */
+
+// let dog = 'Bark';
+
+// function dogCall(dog) {
+// 	dog = dog + dog;
+// }
+
+// console.log(dogCall(dog)); // => undefined
+// console.log(dog); // Bark
+
+/* The code logs `'Bark``. This example illustrates variable scope and variable shadowing. Here, the global variable `dog` is declared and initialized to the string `'Bark'` on line 1. The function `dogCall` is declared with the parameter `dog` on line 3. The parameter `dog` shadows the global variable `dog` making it inaccessible within the function. Since the function `dogCall` does not have an explicit `return` statement, it will return `undefined` when called on line 7. On the last line, the `console.log(dog)` method only has access to the global variable `dog` on line 1, and its value `'Bark'` is logged. */
+
+/* ==================================================== */
+
+//Breakdown this function.
+
+// function penultimate(words) {
+//   let wordsArray = words.split(" ");
+//   console.log(wordsArray)
+//   return wordsArray[wordsArray.length - 2];
+// };
+
+// console.log(penultimate("I have three pairs of green soccer shoes."));
+
+/* The function `penultimate` accepts one parameter `words`. Within `penultimate` the local variable `wordsArray` is declared and initialized to the value of `words.split(" ")` which converts `words` into an array of elements separated by the space delimiter. Finally, the line `return wordsArray[wordsArray.length - 2]` returns the second to last element of `wordsArray` because of zero-based indexing. */
+
+/* ==================================================== */
+
+// function func(number) {
+//   console.log(number);
+// }
+
+// let test = 5;
+
+// func(test);
+
+/* The code logs `5`. This example illustrates pass by value of a primitive numeric value into a function. Here, the function `func` is declared on line 1 with the parameter `number`. `func` is called on line 6 with the variable `test` passed as an argument. On line 5 the global variable `test` is declared and initialized to the number `5`. The `console.log(number)` method on line 2 logs the value of `test` which is `5`. */
+
+/* ==================================================== */
+
+// function func(arr) {
+//   console.log(arr)
+// }
+
+// let test = ['hello'];
+
+// func(test);
+
+/* The code logs `['hello']`. This example illustrates pass by reference. Here, the function `func` is declared with the parameter `arr` on line 1. The global variable `test` is declared and initialized to reference the array `['hello']`. The function `func` is called on line 7 and passes in `test` as it argument. At this point `test` and `arr` point to the same array in memory. Thus when the `console.log(arr)` method runs on line 2, it logs `['hello']`.
+
+/* ==================================================== */
+
+// What will happen when we run this code?
+// let a = 'Hello';
+
+// function changeValue(a) {
+//   // `a` local variable to changeValue
+//   a = 'Goodbye';
+// }
+
+// console.log(changeValue(a)); // => undefined
+// console.log(a); // => 'Hello'
+
+/* This code logs `'Hello'`. This example illustrates variable scoping rules and variable shadowing in JavaScript. Here, the global variable `a` is declared and initialized to the string `'Hello'` on line 1. The function `changeValue` is declared with the parameter `a` on line 3. The parameter `a` shadows the global variable `a` because they share the same name and makes the global variable `a` inaccessible within the function. `changeValue` is called on line 6 with the `a` passed as an argument, but because `changeValue` lacks a `return` statement, the function returns `undefined`. The `console.log(a)` method only has access to the global variable `a` and it is this variable's value that is logged which is `'Hello'`.
+
+/* ==================================================== */
+
+// What will happen when we run this code?
+// let a = ['Hello'];
+
+// function changeValue(a) {
+//   a[0] = 'Goodbye';
+// }
+
+// console.log(changeValue(a)); // => undefined
+// console.log(a); // => [ 'Goodbye' ]
+
+let a = ['Hello'];
+
+function changeValue(a) {
+  a[0] = 'Goodbye';
+}
+
+changeValue(a);
+console.log(a);
+
+/* The code logs `[ 'Goodbye' ]`. This example illustrates pass by reference. Here, the global variable `a` is declared and initialized to reference the array `['Hello']` which is an object value on line 1. The function `changeValue` is declared on line 3 with the parameter `a`. The function `changeValue` is called and `a` is passed as an argument on line 6. When `a` is passed to `changeValue` it is passed as a reference to `[‘Hello’]`, so within function `changeValue` when the value of `a` is reassigned via `a[0] = 'Goodbye'` the array referenced by the global variable `a` is mutated. Thus, when the `console.log(a)` method executes on the last line it logs `[ 'Goodbye' ]` instead of `[ 'Hello' ]`.
+
+Because `a` references an array which is an object value it is passed by reference. So within function `changeValue` when the value of `a` is changed via `a[0] = 'Goodbye'' this mutates the array referenced by the global `a`. Thus, when the `console.log(a)` method executes on the last line it logs `['Goodbye']` instead of `['Hello']`.
+
+/* ==================================================== */
+
+// function change(param) {
+//   param += ' greeting';
+//   console.log(param);
+//   return param;
+// }
+
+// let greeting = 'hello';
+// change(greeting);
+
+// console.log(greeting);
+
+/* ==================================================== */

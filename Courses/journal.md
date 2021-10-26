@@ -3780,3 +3780,4 @@ How awesome are the engineers in the company? If you're the best one there, that
 10:45 Ended study session with Laurent. I need to practice some more before taking the written assessment.
 
 12:37 Got in touch with Ravi and he shared a solutions engineer position post at GitHub with me.
+
