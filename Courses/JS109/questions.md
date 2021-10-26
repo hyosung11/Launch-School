@@ -841,7 +841,7 @@ Thus:
 console.log(doSomething("Pursuit of happiness")); // => [ 9, 2, 7 ]
 ```
 
-## What does line 7 return? What does line 8 return? Explain why.
+## What does line 7 return? What does line 8 return? Explain why?
 
 ```js
 let arr = [['a'], ['b'], ['c']];
@@ -873,7 +873,7 @@ test(greeting);
 console.log(greeting);
 ```
 
-The code logs `["Hello"]` on line 10 and returns `["ByeBye", "World!"]` on line 9. This example illustrates pass by reference, variable scope, and reassignment in JavaScript. Here, on line 1, the global variable `greeting` is declared and initialized to reference `["Hello"]`. The function `test` is declared on line 3 and called on line 10 with the argument `greeting` passed into the function `test`. Within `test` the parameter `arr` which references the array `["Hello"]` from line 1 when it's passed as an argument, gets reassigned on line 4 to `["ByeBye"]`. One line 6, the `arr.push("World!")` method mutates `arr` and `["ByeBye", "World!"]` is returned from the invocation of `test`. Meanwhile, the `console.log(greeting)` method on line 10, passes in the value of `greeting` from line 1 to log `["Hello"]` because the variable `greeting` is not changed within the `test`.
+The code logs `["Hello"]` on line 10 and returns `["ByeBye", "World!"]` on line 9. This example illustrates pass by reference, variable scope, and reassignment in JavaScript. Here, on line 1, the global variable `greeting` is declared and initialized to reference `["Hello"]`. The function `test` is declared on line 3 and called on line 10 with the argument `greeting` passed into the function `test`. Within `test` the parameter `arr` which references the array `["Hello"]` from line 1 when it's passed as an argument, gets reassigned on line 4 to `["ByeBye"]`. On line 6, the `arr.push("World!")` method mutates `arr` and `["ByeBye", "World!"]` is returned from the invocation of `test`. Meanwhile, the `console.log(greeting)` method on line 10, passes in the value of `greeting` from line 1 to log `["Hello"]` because the variable `greeting` is not changed within `test`.
 
 ## What does the last line of the code return and what principle does this code snippet demonstrate?
 
@@ -888,6 +888,7 @@ k = index position
 
 The code returns `[ 2, 4, 6, 8, 10 ]`. This example illustrates variable shadowing and the use of a `const` declaration. Here, the global variable `arr` is declared and initialized to reference the array `[1, 2, 3, 4, 5]` on line 1. On line 2, the constant `k` is declared and initialized to the template literal `Don't change me`. On line 3, the expression `arr.map((n, k) => k = n * 2);` iterates through each element of `arr` and returns the value of the callback function on each element of `arr`. Since the parameter `k` in the function `map` shares the same name as the constant `k` on line 2, the parameter `k` shadows the const `k` and makes it inaccessible within the function. Thus, the array `[ 2, 4, 6, 8, 10 ]` is returned on line 3.
 
+Laurent
 The last line of code returns `[ 2, 4, 6, 8, 10 ]`. This illustrates the concept of variable shadowing.
 
-On line 1, we declare a global variable `arr` and initialize it with a reference to the array `[1, 2, 3, 4, 5]` Then on line 2, we declare a constant `index` and initialize it with a template litteral. Then on line 3,  we iterate over `arr` with the `map` array method. `map` transforms each element of an array and replace it with the return value of the provided callback function. In that case, the callback function has 2 arguments, `el`and `index` . `index` will be initialized on each iteration with the value of the index of the element on which the callback is called, shadowing the global variable `index`. Each call to `map` will return the result of the expression assignment `index = el * 2`, the value of each element will be multiplied by 2 and then assigned to `index` that will be returned to `map`.
+On line 1, we declare a global variable `arr` and initialize it with a reference to the array `[1, 2, 3, 4, 5]` Then on line 2, we declare a constant `index` and initialize it with a template literal. Then on line 3,  we iterate over `arr` with the `map` array method. `map` transforms each element of an array and replace it with the return value of the provided callback function. In that case, the callback function has 2 arguments, `el`and `index` . `index` will be initialized on each iteration with the value of the index of the element on which the callback is called, shadowing the global variable `index`. Each call to `map` will return the result of the expression assignment `index = el * 2`, the value of each element will be multiplied by 2 and then assigned to `index` that will be returned to `map`.
