@@ -3781,3 +3781,4 @@ How awesome are the engineers in the company? If you're the best one there, that
 
 12:37 Got in touch with Ravi and he shared a solutions engineer position post at GitHub with me.
 
+19:51 Time for kids to go to bed. Still cranking out code snippet answers and realizing I'm still fuzzy on pass by reference and variables as pointers.
