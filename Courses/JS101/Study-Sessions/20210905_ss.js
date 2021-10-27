@@ -115,11 +115,8 @@ in this problem, the variable `myArr` is declared using `let`. The variable acts
 */
 
 
-/*
-shane
+/* shane
 
 The variable `myArr` is assigned the value undefined because `.forEach' returns undefined.  We iterate through the nested array object literal.
 Each subarray is passed to a `map` method which has a callback function that logs the elements that are greater than 5 to the console.  The callback
-function in the `map` method returns undefined for each sub array, which is not used.  The output to the console is 18 7 12.
-
-*/
+function in the `map` method returns undefined for each sub array, which is not used.  The output to the console is 18 7 12. */

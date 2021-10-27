@@ -132,7 +132,7 @@ let test = 5;
 
 func(test);
 
-///////
+/* ================= */
 function func(arr) {
   console.log(arr)
 }
