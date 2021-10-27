@@ -82,7 +82,9 @@ The `charCodeAt()` method returns the Unicode code point or character code of th
 
 ## 9. Working with Arrays, especially the iteration methods (`forEach`, `map`, `filter`, and `find`)
 
+The `pop()` method removes the **last** element from an array and returns that element. This method mutates the calling array.
 
+The `push()` method **adds** one or more elements to the **end** of an array and returns the length of the new array. This method mutates the calling array.
 
 ## 10. Working with Objects; accessing keys and values of an Object as arrays
 
@@ -109,6 +111,24 @@ Pass-by-reference relates to object values that are passed as arguments into a f
 ## 14. console.log vs. `return`
 
 ## 15. truthiness vs. boolean
+
+A boolean is a data type whose only purpose is to convey whether something is `true` or `false`.
+
+Truthiness differs from Boolean values. In JavaScript, almost all values *evaluate as true* or are *truthy*. The only values that *evaluate as false* or are *falsy* are (0 funN is empty ''):
+
+* `0`
+* `false`
+* `undefined`
+* `null`
+* `NaN`
+* `''`
+
+* Use "evaluates to true" or "is truthy" when discussing expressions that only have to be truthy.
+* Use "evaluates to false" or "is falsy" when discussing expressions that only have to be falsy.
+* Do not use "is `true`" or "is equal to `true`" unless you are specifically discussing the boolean value `true`.
+* Do not use "is `false`" or "is equal to `false`" unless you are specifically discussing the boolean value `false`.
+
+Notice that every `if` statement has an expression that evaluates as true or false. However, the expression doesn't have to be one of the boolean values, `true` or `false`. JavaScript can coerce any value to a boolean value, and that's what it does in conditional contexts like the `if` statement.
 
 ## 16. function definition and invocation
 
