@@ -3788,3 +3788,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 ## 20211027 수요일
 
 09:00 Starting to study.
+
+14:35 Working on the cheat sheet. I think I want to take the written assessment and see how I do.
