@@ -968,3 +968,80 @@ console.log(a);
 ```
 
 The code logs `'Hello'`. This example illustrates variable scope and variable shadowing. Here, the global variable `a` is declared and initialized to the string `'Hello'`. On line 3, the `if` block creates a local scope for variables and the condition of `true` always evaluates as `true`, executing the `if` block. On line 4, a local `a` variable is declared and initialized to the string `'Goodbye'`. This local variable `a` shadows the global `a` variable on line 1 making it inaccessible within the `if` block. Thus, when the `console.log(a)` method is called on the last line, the value of `a` from line 1 is logged which is `'Hello'`.
+
+## What does the last line in the following code output?
+
+```js
+let object = { first: [1] };
+let numArray = object["first"];
+numArray.push(2);
+
+console.log(numArray); //  => "[1, 2]"
+console.log(object);
+```
+
+The code logs `{ first: [1, 2] }`. This example illustrates variables as pointers and mutation of an array. On line 1, the global variable `object` is declared and holds a reference to an object that points to an array `[1]` at the key `first`. On line 2, the global variable `numArray` is declared and initialized to access the key `first` and assign its value to reference the array `[1]`. On line 3, the `push` method mutates `numArray` by adding an element to this array to hold the values `1` and `2`: `[1, 2]`. Since this is the same array referenced by `object`, the `console.log(object)` method logs `{ first: [1, 2] }`.
+
+LS
+Since numArray is a reference to the original array, [1], numArray.push(2) modifies this array. Thus, the original object referenced by object is changed. If, instead of modifying the original object, we want to modify numArray but not object, we have two options:
+
+## What is the return value of the `filter` method call below? Why?
+
+```js
+console.log([1, 2, 3].filter(num => 'hi')); // => [ 1, 2, 3 ]
+```
+
+The code returns `[ 1, 2, 3 ]`. This example illustrates iterating over an array and truthiness in JavaScript. The `filter` method returns a new array that includes all elements from the calling array for which the callback returns a truthy value. Here, in each iteration the return value is the string `'hi'` which always evaluates as true. So, `filter` returns a new array with the same values `[1, 2, 3]` as the calling array.
+
+## What is the return value of `map` in the following code? Why?
+
+```js
+[1, 2, 3].map(num => {
+  num * num;
+});
+```
+
+The code returns `[ undefined, undefined, undefined ]`. This example illustrates iterating over an array without an explicit `return` statement. The `map()` method returns a new array populated with the return values of executing a callback function for each element of the calling array. Here, without an explicit `return` statement, in each iteration `map` returns `undefined` from the callback function. This is why the array `[ undefined, undefined, undefined ]` is returned.
+
+`map` looks at the return value of the callback function to decide the elements in the returned array. Each element in the original array is replaced by what the callback returns for that element. In this case, there's no explicit return statement in the callback function, which means that the callback returns undefined each time.
+
+## The following code differs slightly from the above code. What is the return value of `map` in this case? Why?
+
+```js
+console.log([1, 2, 3].map(num => num * num)); // =>  [1, 4, 9]
+```
+
+The code returns `[1, 4, 9]`. This example illustrates iterating over an array with `map`. The `map()` method returns a new array populated with the return values of executing a callback function for each element of the calling array. Here, the callback function is an arrow function with an implicit return because it contains a single expression. So, `map` iterates over each element of `[1, 2, 3]` and returns the value of executing the callback function of `num => num * num` on each element. Thus, a new array `[1, 4, 9]` is returned.
+
+LS
+Without braces surrounding the body of the arrow function, JavaScript uses the computed value as the return value. In this case, the callback returns` 1`, `4`, and `9` on the 3 iterations.
+
+## What is the return value of map in the following code? Why?
+
+```js
+['ant', 'bear'].map(elem => {
+  if (elem.length > 3) {
+    return elem;
+  }
+});
+```
+
+The code returns `[undefined, 'bear']` This example illustrates using `map` to iterate over an array. The `map` method returns a new array populated with the return values of executing a callback function for each element of the calling array. Here, `map` is called on the array `['ant', 'bear']`. The `if` condition (`elem.length > 3`) evaluates as true when the length of the element is greater than 3. The callback function checks each element and returns each element that is longer than 3 characters. If an element is less than 3 characters, it returns `undefined`. Thus, the new array `[undefined, 'bear']` is returned.
+
+LS
+There are some interesting things to point out here. First, the return value of map is an array, which is the collection type that map always returns. Second, where did we get that undefined value? If we look at the if condition (elem.length > 3), we'll notice that it evaluates as true when the length of the element is greater than 3. In this case, the only value with a length greater than 3 is 'bear'. Thus, for the first element, 'ant', the condition evaluates as false and elem isn't returned.
+
+When a function doesn't explicitly return something, it implicitly returns undefined. That's why we see undefined as the first element of the returned array.
+
+## What is the return value of in the following code? Why?
+
+```js
+console.log([
+  { a: 'ant', b: 'elephant' },
+  { c: 'cat', d: 'dog' },
+].filter((object) => {
+  return Object.keys(object).every((key) => object[key][0] === key);
+}));
+```
+
+The code returns `[ { c: 'cat', d: 'dog' } ]`. The `filter` method is called an array that contains two objects. The `filter` method returns a new array that includes all elements from the calling array for which the callback returns a truthy value. Here, The callback function calls the `every` method on the array of each object's keys. The `every` method returns true if all the elements of the array return a truthy value. In this case, `every` tests whether every value in the object starts with the same first letter as the key: `object[key][0] === key`. Since only `{ c: 'cat', d: 'dog' }` evaluates to true, this is the only element selected for the returned array.

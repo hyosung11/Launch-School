@@ -3784,3 +3784,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 19:51 Time for kids to go to bed. Still cranking out code snippet answers and realizing I'm still fuzzy on pass by reference and variables as pointers.
 
 20:42 I can do this.
+
+## 20211027 수요일
+
+09:00 Starting to study.
