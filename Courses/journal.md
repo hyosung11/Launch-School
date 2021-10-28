@@ -3792,3 +3792,9 @@ How awesome are the engineers in the company? If you're the best one there, that
 14:35 Working on the cheat sheet. I think I want to take the written assessment and see how I do.
 
 14:48 Time to get the kids. I studied well today. Okay.
+
+## 20211028 목요일
+
+11:04 After study session with Laurent and getting onto the Discord server with European folks.
+
+12:49 Reviewing glossary and filling out my cheat sheet. I got a list of questions with answers from Jonathan Bouren to review. Ready to take a break for lunch.

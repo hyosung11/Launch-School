@@ -664,14 +664,14 @@ how map works in general
 // console.log(changeValue(a)); // => undefined
 // console.log(a); // => [ 'Goodbye' ]
 
-let a = ['Hello'];
+// let a = ['Hello'];
 
-function changeValue(a) {
-  a[0] = 'Goodbye';
-}
+// function changeValue(a) {
+//   a[0] = 'Goodbye';
+// }
 
-changeValue(a);
-console.log(a);
+// changeValue(a);
+// console.log(a);
 
 /* The code logs `[ 'Goodbye' ]`. This example illustrates pass by reference. Here, the global variable `a` is declared and initialized to reference the array `['Hello']` which is an object value on line 1. The function `changeValue` is declared on line 3 with the parameter `a`. The function `changeValue` is called and `a` is passed as an argument on line 6. When `a` is passed to `changeValue` it is passed as a reference to `[‘Hello’]`, so within function `changeValue` when the value of `a` is reassigned via `a[0] = 'Goodbye'` the array referenced by the global variable `a` is mutated. Thus, when the `console.log(a)` method executes on the last line it logs `[ 'Goodbye' ]` instead of `[ 'Hello' ]`.
 
@@ -691,3 +691,5 @@ Because `a` references an array which is an object value it is passed by referen
 // console.log(greeting);
 
 /* ==================================================== */
+
+console.log([0, 1, 4].filter((num) => num)); // => [ 1, 4 ]

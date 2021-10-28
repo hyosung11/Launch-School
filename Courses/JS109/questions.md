@@ -1045,3 +1045,64 @@ console.log([
 ```
 
 The code returns `[ { c: 'cat', d: 'dog' } ]`. The `filter` method is called an array that contains two objects. The `filter` method returns a new array that includes all elements from the calling array for which the callback returns a truthy value. Here, The callback function calls the `every` method on the array of each object's keys. The `every` method returns true if all the elements of the array return a truthy value. In this case, `every` tests whether every value in the object starts with the same first letter as the key: `object[key][0] === key`. Since only `{ c: 'cat', d: 'dog' }` evaluates to true, this is the only element selected for the returned array.
+
+## When run, the code below outputs `Ford`. Provide a precise breakdown of the code to explain why this happens, paying particular attention to the call to `find`
+
+```js
+let cars = [ 'Ford', 'Chrysler', 'Toyota' ];
+
+let myCars = cars.find(function (car) {
+  return car.includes('o');
+});
+
+console.log(myCars); // => Ford
+```
+
+The code logs `'Ford'`. This example illustrates how the array method `find` works. The global variable `cars` is declared and initialized to reference the array `[ 'Ford', 'Chrysler', 'Toyota' ]` on line 1. The global variable `myCars` is initialized assigned to the return value of applying the `find` method on the array that `cars` references. The `find` method executes the callback function once for each index of the array until the callback function returns a truthy value. Here, the `find` method looks for the first element in the array that contains an `'o'` through the `includes` method. Since `'Ford'` is the first element in the array that contains an `'o'` that it what is returned. Thus, when `console.log(myCars)` is logged on the last line, it logs `'Ford'`.
+
+If so, `find` immediately returns the value of that element. Otherwise, `find` returns `undefined`.
+
+On line 9, the call to the method `console.log` will print `'Ford'` to the console.
+
+On line 3, we declare the global variable `cars` and initialize it with a reference to the array `[ 'Ford', 'Chrysler', 'Toyota' ]`.
+
+On line 5, we declare the global variable `myCar` and initialize it with the return value of the `find` method called on the the array referenced by the variable `cars`. `find` returns the value of the first element that returns a truthy value when callback is called on this element. 
+
+In that case, we will test whether each string of the array contains the string `'o'` through the use of the `includes` method. As the first string, `'Ford'`, contains an `'o'`, the callback will evaluate to true and the call to `find` will return the value `'Ford'`. This value is then assigned to the global variable `myCar`
+
+## When run, the code below outputs the array `["Ford", "Toyota"]`. Provide a precise breakdown of the code to explain why this happens, paying particular attention to the call to `filter`
+
+```js
+let cars = [ 'Ford', 'Chrysler', 'Toyota' ];
+
+let myCars = cars.filter(function (car) {
+  return car.includes('o');
+});
+
+console.log(myCars);  // [ "Ford", "Toyota" ]
+```
+
+The code logs `[ "Ford", "Toyota" ]`. This example illustrates using the `filter` method to iterate over an array. The global variable `cars` is declared and initialized to reference the array [ 'Ford', 'Chrysler', 'Toyota' ] on line 1. The global variable `myCars` is declared and assigned the return value of using the `filter` method on the array referenced by `cars`. The `filter` method returns a new array that includes all elements from the calling array for which the callback returns a truthy value. Here, `filter` uses the `includes` method to return the elements in the array that include `'o'` as a character in the string. Since the first string `'Ford'` and the third string `'Toyota'` contain `'o'`, the callback evaluates as true for both these elements. Thus, `filter` returns the new array `[ "Ford", "Toyota" ]` and that is what's logged on the last line.
+
+## What will the following code log to the console and why?
+
+```js
+const a = 1;
+
+function myFunction() {
+  a = 2;
+}
+
+myFunction(a);
+```
+
+The code raises an error. This example illustrates variable scoping and that you cannot reassign a `const` declaration. On line 1, the global constant `a` is declared and initialized to the value `1`. On line 3, the function `myFunction` is declared without any parameters. On line 7, `myFunction` is called with `a` passed as an argument but because `myFunction` accepts no parameters it will not be used within the function. Within `myFunction` the attempt to reassign the value of `a` to `2` raises `TypeError: Assignment to constant variable` because you cannot reassign a constant variable.
+
+LS
+This code will raise a reference error. This illustrates the concept of variable scoping and the fact that we can not re-assign a constant.
+
+On line 3, we declare the global variable `a` and initialize it with the value `1` with the `const` keyword.
+
+On line 9, we call the function `myFunction` with the value of `a` passed in, but this value will not be used by the function call as it has been defined without any parameter.
+
+On line 6, during the function call, we try to re-assign the variable `a` to the value `2`. As, we do not have any variable `a` in the local scope, JS will look in the outer scope for a variable `a`. As this global variable has been declared with `const`, it can not be re-assigned and the code will raise an error at that point.

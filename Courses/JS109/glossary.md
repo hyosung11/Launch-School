@@ -306,7 +306,7 @@ Without arguments, `Array.prototype.sort` compares the values as strings, coerci
 
 #### `Array.prototype.reverse()`
 
-The `reverse()` method reverses an array in place. The first array element becomes the last, and the last array element becomes the first.
+The `reverse()` method reverses an array in place. The first array element becomes the last, and the last array element becomes the first. This method mutates the calling array.
 
 ```js
 const array1 = ['one', 'two', 'three'];
@@ -386,7 +386,7 @@ console.log(animals.slice(2, -1));
 
 The `find()` method returns the value of the **first** element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, `undefined` is returned.
 
-The `find` method executes the `callbackFn` function once for each index of the array until the `callbackFn` returns a truthy value. If so, `find` immediately returns the value of that element. Otherwise, `find` returns `undefined`.
+The `find` method executes the callback function once for each index of the array until the callback function returns a truthy value. If so, `find` immediately returns the value of that element. Otherwise, `find` returns `undefined`.
 
 ```js
 let array = [5, 12, 8, 130, 44];
@@ -2619,7 +2619,7 @@ As with primitive values, this is straightforward: each variable has a value, an
 Let's see what happens with a **mutating** operation like the `push` method:
 
 ```sh
-> let e = [1, 2]
+> let e = [1, 2] // line 1
 > let f = e
 > e.push(3, 4)
 > e
