@@ -3798,3 +3798,9 @@ How awesome are the engineers in the company? If you're the best one there, that
 11:04 After study session with Laurent and getting onto the Discord server with European folks.
 
 12:49 Reviewing glossary and filling out my cheat sheet. I got a list of questions with answers from Jonathan Bouren to review. Ready to take a break for lunch.
+
+## 20211029 금요일
+
+09:14 I have a study session with Laurent in a few minutes.
+
+14:01 Practicing getting my wording down for my answers. Now need to walk to Somerville for the Halloween parade.

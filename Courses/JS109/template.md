@@ -1,9 +1,9 @@
-# JS109 Written Assessment Topics, Practice Questions & Sample Answers
+# JS109 Written Assessment Template of Topics, Practice Questions & Sample Answers
 
 ## 1. Declarations, initialization, assignment, and re-assignment
 
 On line 1, the global variable `x` is declared and initialized to the string `'x'`.
-On line 2, he global variable `y` is declared and references the array/object `y`.
+On line 2, the global variable `y` is declared and references the array/object `y`.
 
 On line 3, the variable `z` is reassigned to the `z`.
 
@@ -18,7 +18,7 @@ On line 3, the variable `z` is reassigned to the `z`.
 * Outer blocks cannot access inner scope variables
 * Inner blocks can access variables from outer scopes
 
---- Code Example ---
+---
 
 What does the following code log and why?
 
@@ -32,15 +32,15 @@ let greeting = greet();             // line 5
 console.log(greeting);              // line 7
 ```
 
-The code logs `'Hi John'` and illustrates variable scope, specifically that outer scope variables can be accessed by the inner scope. On line 1, the global variable `name` is declared and initialized to the string `'John'`. On line 3, the global variable `greet` is declared and initialized to an arrow function that implicitly returns the template literal `Hi ${name}` with the value stored in the global variable `name` interpolated in the string. On line 5, the global variable `greeting` is declared and initialized to the return value of the call to the `greet` arrow function whose value is the string `'Hi John'`. Here, the `greet` function has access to the value of the global `name` variable because variables in the outer scope can be accessed from the inner scope of the function `greet`. On line 7, the `console.log` method passes the value of the `greeting` variable as an argument and logs '`Hi John'`. In the end, `console.log` returns `undefined`.
+The code logs `'Hi John'` and illustrates variable scope, specifically that outer scope variables can be accessed by the inner scope. On line 1, the global variable `name` is declared and initialized to the string `'John'`. On line 3, the global variable `greet` is declared and initialized to an arrow function that implicitly returns the template literal `Hi ${name}` with the value stored in the global variable `name` interpolated in the string. On line 5, the global variable `greeting` is declared and initialized to the return value of the call to the `greet` arrow function whose value is the string `'Hi John'`. Here, the `greet` function has access to the value of the global `name` variable because variables in the outer scope can be accessed from the inner scope of the function `greet`. On line 7, the `console.log` method passes the value of the variable `greeting` as an argument and logs '`Hi John'`. In the end, `console.log` returns `undefined`.
 
-## 3. primitive values, objects, and type coercions
+## 3. Primitive values, Objects, and Type Coercions
 
-Primitive values are always *immutable*; they don't have parts that one can change. Such values are said to be **atomic**; they're indivisible. If a variable contains a primitive value, all you can do to that variable is use it in an expression or *reassign* it: give it an entirely new value. All operations on primitive values evaluate as new values.
+Primitive values are always *immutable*; they don't have parts that one can change. Such values are said to be atomic; they're indivisible. If a variable contains a primitive value, all you can do to that variable is use it in an expression or *reassign* it: give it an entirely new value. All operations on primitive values evaluate as new values. There are seven primitive data types in JavaScript: **string**, **number**, **boolean**, **`undefined`**, **`null`**, bigInt and symbol.
 
-Objects are complex values composed of primitive values or other objects. Objects are usually (but not always) mutable: you can add, remove, and change their various component values.
+Objects are complex values composed of primitive values or other objects. Objects are usually (but not always) mutable: you can add, remove, and change their various component values. Everything that is not a primitive is an object. This includes **objects**, **arrays**, and **functions**.
 
-Type coercion is the conversion of one type of value into another.**Explicit type coercion** lets the programmer decide what to do, whereas **implicit type coercion** lets the JavaScript engine choose.
+Type coercion is the conversion of one type of value into another. **Implicit coercion** happens when operators like the loose equality operator `==` or the binary operator `+` are used to change the type of values being compared. **Explicit coercion** happens when constructors (`Number` , `String` ), methods (`parseInt`, `parseFloat`, ...) or unary operators (`+`, `!!`) are used with the clear intent of converting a value from one type to another one.
 
 ---
 
@@ -67,8 +67,30 @@ D) Returns the string `'[object Object]'`. The empty nested array `[[]]` is coer
 ## 4. Object Properties
 
 Objects are data structures that store a collection of key-value pairs. Each item in the collection has a name that is called the key and an associated value. Key-value pairs are also called object properties in JavaScript. We can also use "property" to refer to the key name.
+If a value happens to be a function, it is called a method. The properties contained by the object are delimited by braces `{}`. The keys are strings, even when quotes are omitted. The values can be of any type. Object properties can be accessed through dot notation or bracket notation.
 
-## 5. mutability vs. immutability vs. `const`
+---
+
+What will the code snippet return?
+
+```js
+let person = {              // line 1
+  name: 'Jane',
+  age: 24                   // line 3
+}                           // line 4
+
+function changeName(name) { // line 6
+  person[name] = name;
+  console.log(person);      // line 8
+  return person;
+}                           // line 10
+
+changeName('Jessie');       // line 12
+```
+
+The code returns `{ name: 'Jane', age: 24, Jessie: 'Jessie' }`. This example illustrates changing object properties, specifically the use of bracket notation to add keys/values to an object. On line 1, the global variable `person` is declared and initialized to reference the object `{ name: 'Jane', age: 24 }`. On line 6, the function `changeName` is declared with the parameter `name`. On line 12, `changeName` is called with the string `'Jessie'` passed as an argument to the parameter `name`. Within function `changeName`, On line 12, the function `changeName` is called with the string `'Jessie'` passed as argument to the parameter `name`.
+
+## 5. Mutability vs. immutability vs. `const`
 
 Objects are usually (but not always) mutable, meaning you can add, remove, and change their various component values. Operations on **mutable** values (arrays and objects) may or may not return a new value and may or may not mutate data.
 
@@ -191,6 +213,8 @@ Variables that have **primitive** values store those values at the memory locati
 However, with objects, JavaScript doesn't store the value of the object in the memory location used by the variable. Instead, it allocates additional memory for the object, and places a pointer to the object in the space allocated for the variable. Thus, we need to follow two pointers to get the value of our object from its variable name.
 
 When two variables point to the same object, mutating the shared object will result in the change being reflected in both variables.
+
+---
 
 ## 14. console.log vs. `return`
 

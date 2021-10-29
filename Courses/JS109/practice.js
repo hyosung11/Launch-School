@@ -1,5 +1,14 @@
-function getOldest(ages) { // line 1
-  return ages.sort((a, b) => b - a)[0]; // line 2
-} // line 3
+let person = {
+  // line 1
+  name: 'Jane',
+  age: 24, // line 3
+}; // line 4
 
-console.log(getOldest([9, 6, 11, 48])); // => 53
+function changeName(name) {
+  // line 6
+  person[name] = name;
+  console.log(person); // line 8
+  return person;
+} // line 10
+
+changeName('Jessie');
