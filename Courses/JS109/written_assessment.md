@@ -18,7 +18,7 @@ On line 3, the variable `z` is reassigned to the `z`.
 * Outer blocks cannot access inner scope variables
 * Inner blocks can access variables from outer scopes
 
----
+--- Code Example ---
 
 What does the following code log and why?
 
