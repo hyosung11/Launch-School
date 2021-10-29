@@ -1,2 +1,5 @@
 # Practice Questions from Jonathan, Sergio and Elaine
 
+## 1. xyz
+
+The code logs `'Hi John'` and illustrates variable scope, specifically that outer scope variables can be accessed by the inner scope. On line 1, the global variable `name` is declared and initialized to the string `'John'`. On line 3, the global variable `greet` is declared and initialized to an arrow function that implicitly returns the template literal `Hi ${name}` with the value stored in the global variable `name` interpolated in the string. On line 5, the global variable `greeting` is declared and initialized to the return value of the call to the `greet` arrow function whose value is the string `'Hi John'`. Here, the `greet` function has access to the value of the global `name` variable because variables in the outer scope can be accessed from the inner scope of the function `greet`. On line 7, the `console.log` method passes the value of the `greeting` variable as an argument and logs '`Hi John'`. In the end `console.log` returns `undefined`.

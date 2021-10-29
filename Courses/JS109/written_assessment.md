@@ -1,13 +1,13 @@
-# JS109 Written Assessment Answer Cheat Sheet
+# JS109 Written Assessment Topics, Practice Questions & Sample Answers
 
-## 1. declarations, initialization, assignment, and re-assignment
+## 1. Declarations, initialization, assignment, and re-assignment
 
-The global variable `x` is declared and initialized to the string `'x'`.
-The global variable `y` is declared and references the array/object `y`.
+On line 1, the global variable `x` is declared and initialized to the string `'x'`.
+On line 2, he global variable `y` is declared and references the array/object `y`.
 
-The variable `z` is reassigned to the `z`.
+On line 3, the variable `z` is reassigned to the `z`.
 
-## 2. variable scope, especially how variables interact with function definitions and blocks
+## 2. Variable scope, especially how variables interact with function definitions and blocks
 
 1. Outer scope variables can be accessed by the inner scope.
 2. Inner scope variables cannot be accessed by the outer scope.
@@ -18,6 +18,22 @@ The variable `z` is reassigned to the `z`.
 * Outer blocks cannot access inner scope variables
 * Inner blocks can access variables from outer scopes
 
+---
+
+What does the following code log and why?
+
+```js
+let name = "John";                  // line 1
+
+const greet = () => `Hi ${name}`;   // line 3
+
+let greeting = greet();             // line 5
+
+console.log(greeting);              // line 7
+```
+
+The code logs `'Hi John'` and illustrates variable scope, specifically that outer scope variables can be accessed by the inner scope. On line 1, the global variable `name` is declared and initialized to the string `'John'`. On line 3, the global variable `greet` is declared and initialized to an arrow function that implicitly returns the template literal `Hi ${name}` with the value stored in the global variable `name` interpolated in the string. On line 5, the global variable `greeting` is declared and initialized to the return value of the call to the `greet` arrow function whose value is the string `'Hi John'`. Here, the `greet` function has access to the value of the global `name` variable because variables in the outer scope can be accessed from the inner scope of the function `greet`. On line 7, the `console.log` method passes the value of the `greeting` variable as an argument and logs '`Hi John'`. In the end, `console.log` returns `undefined`.
+
 ## 3. primitive values, objects, and type coercions
 
 Primitive values are always *immutable*; they don't have parts that one can change. Such values are said to be **atomic**; they're indivisible. If a variable contains a primitive value, all you can do to that variable is use it in an expression or *reassign* it: give it an entirely new value. All operations on primitive values evaluate as new values.
@@ -25,6 +41,28 @@ Primitive values are always *immutable*; they don't have parts that one can chan
 Objects are complex values composed of primitive values or other objects. Objects are usually (but not always) mutable: you can add, remove, and change their various component values.
 
 Type coercion is the conversion of one type of value into another.**Explicit type coercion** lets the programmer decide what to do, whereas **implicit type coercion** lets the JavaScript engine choose.
+
+---
+
+What will the following expressions return?
+
+```js
+A) 'b' > 'a'
+
+B) [] + true;
+
+C) '' + undefined
+
+D) [[]] + {}
+```
+
+A) Returns `true`. Both strings are coerced to their UTF-16 code points and then compared. String value `b` has a UTF-16 code point of 98 and string value `a` has a UTF-16 code point of 97.
+
+B) Returns the string `'true'`. The empty array `[]` is coerced to an empty string and the boolean `true` gets concatenated to the string `"true"`.
+
+C) Returns the string `'undefined'`. The `''` is concatenated with `undefined`.
+
+D) Returns the string `'[object Object]'`. The empty nested array `[[]]` is coerced to an empty string `''` and the plain object `{}` is coerced to the string `'[object Object]'`.
 
 ## 4. Object Properties
 
