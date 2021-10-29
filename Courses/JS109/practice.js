@@ -1,14 +1,10 @@
-let person = {
-  // line 1
-  name: 'Jane',
-  age: 24, // line 3
-}; // line 4
-
-function changeName(name) {
-  // line 6
-  person[name] = name;
-  console.log(person); // line 8
-  return person;
-} // line 10
-
-changeName('Jessie');
+let something = []; // line 1
+let somethingElse = '';
+// line 3
+if (something === somethingElse) {
+  console.log('TV'); // line 5
+} else if (something == somethingElse) {
+  console.log('Radio'); // line 7
+} else {
+  console.log('Other'); // line 8
+}

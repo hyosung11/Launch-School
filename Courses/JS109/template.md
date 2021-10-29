@@ -18,9 +18,9 @@ On line 3, the variable `z` is reassigned to the `z`.
 * Outer blocks cannot access inner scope variables
 * Inner blocks can access variables from outer scopes
 
----
+### Example 1: Outer scope variables can be accessed by the inner scope
 
-What does the following code log and why?
+What does the code log and why?
 
 ```js
 let name = "John";                  // line 1
@@ -32,7 +32,41 @@ let greeting = greet();             // line 5
 console.log(greeting);              // line 7
 ```
 
-The code logs `'Hi John'` and illustrates variable scope, specifically that outer scope variables can be accessed by the inner scope. On line 1, the global variable `name` is declared and initialized to the string `'John'`. On line 3, the global variable `greet` is declared and initialized to an arrow function that implicitly returns the template literal `Hi ${name}` with the value stored in the global variable `name` interpolated in the string. On line 5, the global variable `greeting` is declared and initialized to the return value of the call to the `greet` arrow function whose value is the string `'Hi John'`. Here, the `greet` function has access to the value of the global `name` variable because variables in the outer scope can be accessed from the inner scope of the function `greet`. On line 7, the `console.log` method passes the value of the variable `greeting` as an argument and logs '`Hi John'`. In the end, `console.log` returns `undefined`.
+The code logs `'Hi John'` and illustrates variable scope, specifically that outer scope variables can be accessed by the inner scope. On line 1, the global variable `name` is declared and initialized to the string `'John'`. On line 3, the global variable `greet` is declared and initialized to an arrow function that implicitly returns the template literal `Hi ${name}` with the value stored in the global variable `name` interpolated in the string. On line 5, the global variable `greeting` is declared and initialized to the return value of the call to the arrow function `greet` whose value is the string `'Hi John'`. Here, the function `greet` has access to the value of the global variable `name` because outer scope variables can be accessed from the inner scope of the function `greet`. On line 7, the `console.log` method passes the value of the variable `greeting` as an argument and logs '`Hi John'`. In the end, `console.log` returns `undefined`.
+
+### Example 2: Outer scope variables can be accessed by the inner scope
+
+What does this code log and why?
+
+```js
+let dog = 'Bark'; // line 1
+
+function dogCall() { // line 3
+  dog = dog + dog;
+}
+
+dogCall(dog); // line 7 => undefined
+console.log(dog); // line 8 => 'BarkBark'
+```
+
+The code logs `'BarkBark'` and illustrates variable scoping, specifically that outer scope variables can be accessed by the inner scope. On line 1, the global variable `dog` is declared and initialized to the string `'Bark'`. On line 3, the function `dogCall` is declared without a parameter and without a `return` statement. On line 7, the function `dogCall` is called with `dog` passed as an argument. Since `dogCall` doesn't accept any arguments, it ignores the argument `dog` and returns `undefined`. Within function `dogCall` the global variable `dog` is reassigned via `dog = dog + dog` because outer scope variables can be accessed by the inner scope within the function. The value of `dog` is concatenated to the new string value `'BarkBark'`. On line 8, the `console.log` method passes in the value of `dog` as an argument and logs `'BarkBark'` to the console.
+
+### Example 3: Inner scope variables can shadow outer scope variables
+
+What does the code log and why?
+
+```js
+let dog = 'Bark'; // line 1
+
+function dogCall(dog) { // line 3
+  dog = dog + dog;
+}
+
+dogCall(dog); // line 7
+console.log(dog); //  line 8 => Bark
+```
+
+The code logs `'Bark'` and illustrates variable scope, specifically that inner scope variables can shadow outer scope variables. On line 1, the global variable `dog` is declared and initialized to the string `'Bark'`. On line 3, the function `dogCall` is declared with the parameter `dog`. The parameter `dog` shadows the global variable `dog` because they share the same name making the global variable `dog` inaccessible within the function. On line 7, the function `dogCall` is called with `dog` passed as an argument. Since the function `dogCall` doesn't have an explicit `return` statement, it returns `undefined`. On line 8, the `console.log` method only has access to the global variable `dog` and passes in its value and logs `'Bark'`.
 
 ## 3. Primitive values, Objects, and Type Coercions
 
@@ -42,7 +76,7 @@ Objects are complex values composed of primitive values or other objects. Object
 
 Type coercion is the conversion of one type of value into another. **Implicit coercion** happens when operators like the loose equality operator `==` or the binary operator `+` are used to change the type of values being compared. **Explicit coercion** happens when constructors (`Number` , `String` ), methods (`parseInt`, `parseFloat`, ...) or unary operators (`+`, `!!`) are used with the clear intent of converting a value from one type to another one.
 
----
+### Example 1: Type Coercion
 
 What will the following expressions return?
 
@@ -60,7 +94,7 @@ A) Returns `true`. Both strings are coerced to their UTF-16 code points and then
 
 B) Returns the string `'true'`. The empty array `[]` is coerced to an empty string and the boolean `true` gets concatenated to the string `"true"`.
 
-C) Returns the string `'undefined'`. The `''` is concatenated with `undefined`.
+C) Returns the string `'undefined'`. The empty string `''` is concatenated with `undefined`.
 
 D) Returns the string `'[object Object]'`. The empty nested array `[[]]` is coerced to an empty string `''` and the plain object `{}` is coerced to the string `'[object Object]'`.
 
@@ -69,7 +103,7 @@ D) Returns the string `'[object Object]'`. The empty nested array `[[]]` is coer
 Objects are data structures that store a collection of key-value pairs. Each item in the collection has a name that is called the key and an associated value. Key-value pairs are also called object properties in JavaScript. We can also use "property" to refer to the key name.
 If a value happens to be a function, it is called a method. The properties contained by the object are delimited by braces `{}`. The keys are strings, even when quotes are omitted. The values can be of any type. Object properties can be accessed through dot notation or bracket notation.
 
----
+### Example 1: Changing Object Properties
 
 What will the code snippet return?
 
@@ -88,21 +122,67 @@ function changeName(name) { // line 6
 changeName('Jessie');       // line 12
 ```
 
-The code returns `{ name: 'Jane', age: 24, Jessie: 'Jessie' }`. This example illustrates changing object properties, specifically the use of bracket notation to add keys/values to an object. On line 1, the global variable `person` is declared and initialized to reference the object `{ name: 'Jane', age: 24 }`. On line 6, the function `changeName` is declared with the parameter `name`. On line 12, `changeName` is called with the string `'Jessie'` passed as an argument to the parameter `name`. Within function `changeName`, On line 12, the function `changeName` is called with the string `'Jessie'` passed as argument to the parameter `name`.
+The code returns `{ name: 'Jane', age: 24, Jessie: 'Jessie' }`. This example illustrates that dot notation cannot be used to reference a key by a variable reference. On line 1, the global variable `person` is declared and initialized to reference the object `{ name: 'Jane', age: 24 }`. On line 6, the function `changeName` is declared with the parameter `name`. On line 12, function `changeName` is called with the string `'Jessie'` passed as an argument. On line 7, within function `changeName`, the string `'Jessie'` is assigned to the parameter `name`. The expression `person[name] = name` uses bracket notation to access the global object `person`. Since `[name]` lacks quotes, it won't access the `name` key of the object `person`. Instead, `person[name] = name` will add the key `Jessie` with the value `'Jessie'` to the object `person`. On line 8, the `console.log` method passes the global variable `person` as an argument and logs the object `{ name: 'Jane', age: 24, Jessie: 'Jessie' }`. On line 9, the object referenced by the global variable `person` is explicitly returned.
 
-## 5. Mutability vs. immutability vs. `const`
+Jordan Whistler's Version:
+On line 12, the `changeName` function is invoked with the string argument `'Jessie'`. This function is defined on lines 6 through 10 with one parameter, `name`.  On line 7, the globally scoped object `person` is referenced using bracket notation. This accesses and assigns the key with the string value `'Jessie'` which is referenced by the `name` variable to the same value.  On line 8, the object referenced by `person` is logged to the console: `{ name: 'Jane', age: 24, Jessie: 'Jessie' }`, and returned by the function on the following line. This code demonstrates that an object key referenced by bracket notation, when passed a variable, will access the key with the value referenced by that variable.
+
+## 5. Mutability vs. Immutability vs. `const`
 
 Objects are usually (but not always) mutable, meaning you can add, remove, and change their various component values. Operations on **mutable** values (arrays and objects) may or may not return a new value and may or may not mutate data.
 
 Primitive values are **immutable**. That means their values never change: operations on immutable values always return new values.
 
-A `const` declaration prohibits changing what thing the `const` points to, but it does not prohibit changing the content of that thing. Thus, we can change a property in a `const` object, but we can't change which object the `const` points to.
+A `const` declaration prohibits changing what thing the `const` points to, but it does not prohibit changing the content of that thing. Thus, we can change a property in a `const` object, but we can't change which object the `const` points to. The `Object.freeze()` method prevents the properties of an object from being mutated.
 
-## 6. loose and strict equality
+### Example 1: Object Mutability
+
+What does the code log and why?
+
+```js
+const location = Object.freeze({ state: 'CA', country: 'US' }); // line 1
+location.state = 'FL'; // line 2
+console.log(location); // line 3 => { state: 'CA', country: 'US' }
+
+const campus = { state: 'Boston', address: 'North Ave NW' }; // line 5
+campus.state = 'Georgia'; // line 6
+console.log(campus); // line 7 => { state: 'Georgia', address: 'North Ave NW' }
+```
+
+These examples illustrate object immutability and mutability and the `const` declaration. One line 1, the global constant `location` is declared and initialized to the `Object.freeze` method called on the object `{ state: 'CA', country: 'US' }`. The `Object.freeze` method prevents the object from being mutated. On line 2, the `state` property of the `location` object is accessed via dot notation and an attempted reassignment is made to the string `'FL'`. On line 3, the `console.log` method passes the object referenced by the global variable `location` as an argument and the unchanged object `{ state: 'CA', country: 'US' }` is output to the console.
+
+On line 5, the global constant `campus` is declared and initialized to reference the object `{ state: 'Boston', address: 'North Ave NW' }`. On line 6, the `state` key of the `campus` object is accessed via dot notation and it's value is mutated to the string `'Georgia'`. Although a `const` declaration prohibits changing what object the `const` points to, it does not prohibit changing the content of the object. Here, the `campus` object has not been frozen, so it's property can be mutated. On line 7, the `console.log` method passes the object referenced by the global constant `campus` as an argument and the object `{ state: 'Georgia', address: 'North Ave NW' }` is logged to the console.
+
+## 6. Strict and Loose Equality
 
 The strict equality operator returns `true` when the operands have the **same type** and **value**, `false` otherwise. For an object, it will return `true` ONLY if both operands refer to the same object.
 
 The loose equality operator (`==`) checks whether its two operands are equal, returning a Boolean result. Unlike the strict equality operator, if the operands are different data types, it will attempt to **coerce** one or both operands before comparison.
+
+1. The string is coerced to a number.
+2. A boolean is coerced to a number when compared with any other value.
+3. An object is coerced into a primitive value when compared with a primitive value.
+4. A comparison of `undefined` with `null` evaluates as `true`.
+
+### Example 1
+
+What does this code log and why?
+
+```js
+let something = []; // line 1
+let somethingElse = ''; // line 2
+
+if (something === somethingElse) { // line 4
+  console.log("TV");               // line 5
+} else if (something == somethingElse) { // line 6
+  console.log("Radio");                   // line 7
+} else { // line 8
+  console.log("Other"); // line 9
+} // line 10
+```
+
+The code logs `'Radio'` and illustrates loose and strict equality, specifically how the loose equality operator uses implicit coercion. On line 1, the global variable `something` is declared and initialized to reference an empty array `[]`. On line 2, the global variable `somethingElse` is declared and initialized to an empty string `''`. On lines 4-9, an `if..else` statement is defined. In the `if` statement's condition, the values stored in `something` and `somethingElse` are compared using the strict equality operator `===`. 
+
 
 ## 7. passing arguments into and return values out of functions
 

@@ -3804,3 +3804,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 09:14 I have a study session with Laurent in a few minutes.
 
 14:01 Practicing getting my wording down for my answers. Now need to walk to Somerville for the Halloween parade.
+
+18:23 Getting some tips from Jordan Whistler about how to answer written assessment questions.
