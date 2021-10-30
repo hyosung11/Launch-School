@@ -692,4 +692,42 @@ Because `a` references an array which is an object value it is passed by referen
 
 /* ==================================================== */
 
-console.log([0, 1, 4].filter((num) => num)); // => [ 1, 4 ]
+// console.log([0, 1, 4].filter((num) => num)); // => [ 1, 4 ]
+
+// let greeting = 'Hello';
+
+// const test = (str) => {
+//   str = str.concat(' World!');
+//   return str;
+// };
+
+// test(greeting);
+// console.log(greeting);
+
+// let greeting = ['Hello'];
+
+// const test = (arr) => {
+//   arr = arr.push(' World!');
+//   return arr;
+// };
+
+// console.log(test(greeting));
+// console.log(greeting);
+
+// let greeting = ['Hello'];
+
+// const test = (arr) => {
+//   arr = arr.concat(' World!');
+//   return arr;
+// };
+
+// console.log(test(greeting)); // => [ 'Hello', ' World!' ]
+// console.log(greeting); // => [ 'Hello' ]
+
+let b = 2;
+
+function test(b) {
+  return b += 5;
+}
+
+console.log(test()); // => NaN

@@ -68,6 +68,26 @@ console.log(dog); //  line 8 => Bark
 
 The code logs `'Bark'` and illustrates variable scope, specifically that inner scope variables can shadow outer scope variables. On line 1, the global variable `dog` is declared and initialized to the string `'Bark'`. On line 3, the function `dogCall` is declared with the parameter `dog`. The parameter `dog` shadows the global variable `dog` because they share the same name making the global variable `dog` inaccessible within the function. On line 7, the function `dogCall` is called with `dog` passed as an argument. Since the function `dogCall` doesn't have an explicit `return` statement, it returns `undefined`. On line 8, the `console.log` method only has access to the global variable `dog` and passes in its value and logs `'Bark'`.
 
+### Example 4. Inner scope variables can shadow outer scope variables
+
+What does this code log and what's the principle being demonstrated?
+
+```js
+let animal = "dog"; // line 1
+
+const speak = animal => {
+  if (animal) {
+    console.log("Bark");
+  } else {
+    console.log("Meow");
+  }
+};
+
+speak(); // line 11
+```
+
+The code logs `'Meow'` and illustrates that inner scope variables can shadow outer scope variables. On line 1, the global variable `animal` is declared and initialized to the string `'dog'`. On line 3, the arrow function `speak` is declared with the parameter `animal`. The parameter `animal` shadows the global variable `animal` and makes it inaccessible within the function. On line 11, the function `speak` is called but doesn't pass an argument, so the value passed to the parameter `animal` is `undefined`. Within function `speak`, the `if` conditional evaluates the value of `animal` as false because `undefined` is a falsy value, so the `else` branch executes and `'Meow'` is logged.
+
 ## 3. Primitive values, Objects, and Type Coercions
 
 Primitive values are always *immutable*; they don't have parts that one can change. Such values are said to be atomic; they're indivisible. If a variable contains a primitive value, all you can do to that variable is use it in an expression or *reassign* it: give it an entirely new value. All operations on primitive values evaluate as new values. There are seven primitive data types in JavaScript: **string**, **number**, **boolean**, **`undefined`**, **`null`**, bigInt and symbol.
@@ -181,16 +201,28 @@ if (something === somethingElse) { // line 4
 } // line 10
 ```
 
-The code logs `'Radio'` and illustrates loose and strict equality, specifically how the loose equality operator uses implicit coercion. On line 1, the global variable `something` is declared and initialized to reference an empty array `[]`. On line 2, the global variable `somethingElse` is declared and initialized to an empty string `''`. On lines 4-9, an `if..else` statement is defined. In the `if` statement's condition, the values stored in `something` and `somethingElse` are compared using the strict equality operator `===`. 
+The code logs `'Radio'` and illustrates loose and strict equality, specifically how the loose equality operator uses implicit coercion. On line 1, the global variable `something` is declared and initialized to reference an empty array `[]`. On line 2, the global variable `somethingElse` is declared and initialized to an empty string `''`. On lines 4-9, an `if..else` statement is defined. In the `if` statement's condition, the values stored in `something` and `somethingElse` are compared using the strict equality operator `===`. Since an empty array and an empty string are not equal, the condition evaluates to `false`, and the first block is bypassed. On line 6, the values stored in `something` and `somethingElse` are compared again but using the loose equality operator. The loose equality operator coerces the value in `something` to an empty string `''` and compares it to the value stored in `somethingElse` which is also an empty string `''`, and this comparison evaluates to `true`, so the `console.log` method executes on line 7, and `'Radio'` is logged.
 
-
-## 7. passing arguments into and return values out of functions
+## 7. Passing arguments into and return values out of functions
 
 Arguments let you pass data from outside the function's scope into the function so it can access the data.
 
 Functions can perform an operation and **return** a result to the call location for later use. We do that with **return values** and the `return` statement.
 
 JavaScript uses the `return` statement to return a value to the code that called the function: the **caller**. If you don't specify a value, it returns `undefined`. Either way, the `return` statement causes the function to stop running and returns control to the caller.
+
+### Example
+
+```js
+function fetchData(email) {                  // line 1
+  return {
+    email: email,                            // line 3
+    company: "Microsoft"
+  }                                          // line 5
+}
+                                             // line 7
+console.log(fetchData('bill@microsoft.com')) // line 8
+```
 
 ## 8. Working with Strings
 
@@ -286,6 +318,95 @@ Pass-by-reference relates to object values that are passed as arguments into a f
 
 The `abc` parameter is initialized to a reference that points to the same Array/Object in memory as `xyz`. Therefore, any mutations to `abc` will also be shown in `xyz` because these two variables contain a reference that points to the same object in memory.
 
+### Example 1: Pass by Value
+
+What does this program output and why?
+
+```js
+let greeting = 'Hello';
+
+const test = (str) => {
+  str = str.concat(' World!');
+  return str;
+};
+
+test(greeting);
+console.log(greeting);
+```
+
+Discussion
+returns string 'Hello World'
+str is reassigned
+function invocation
+console.log logs 'Hello'
+
+only outputs 'Hello'
+greeting is passed by value so not mutated by what happens in the function
+pass-by-value of the string 'Hello'
+- passing a copy
+- two 'Hello' copies
+
+str.concat returns 'Hello World'
+this value is never captured anywhere, so it is destroyed
+
+### Example 2: Pass by Reference
+
+What will happen when we run this code? Why?
+
+```js
+let a = ['Hello'];
+
+function changeValue(a) {
+  a[0] = 'Goodbye';
+}
+
+changeValue(a); // line 7
+console.log(a);
+```
+
+The code logs `[ 'Goodbye' ]`. This example illustrates pass by reference. On line 1, the global variable `a` is declared and initialized to reference the array `['Hello']` which is an object value. On line 3, the function `changeValue` is declared and invoked on line 7 with the argument `a` passed to it. When `a` is passed to function `changeValue`, it is passed as a reference to `[‘Hello’]`, so within function `changeValue`, the array referenced by outer scope variable `a` is mutated. Thus, when `console.log(a)` is called on line 8, `[ 'Goodbye' ]` is logged.
+
+```js
+let greeting = ["Hello"];
+
+const test = arr => {
+  arr = arr.concat(" World!");
+  return arr;
+}
+
+test(greeting);
+console.log(greeting);
+```
+
+logs `['Hello']`
+arrays get passed into functions by reference
+the concat method returns a new array - non-mutating
+doesn't affect the original array
+two arrays in memory
+- ['Hello']
+- ['Hello', 'World' ]
+
+```js
+let greeting = ["Hello"];
+
+const test = arr => {
+  arr = arr.push(" World!");
+  return arr;
+}
+
+test(greeting);
+console.log(greeting);
+```
+
+arr points to the same method
+push mutates the array by adding a second element
+logs two element array
+push returns the length of the array - an oddity of JavaScript
+
+arr.push mutates the array and returns the length of the array
+greeting is an object that is passed by reference
+arr points to the same array that greeting points to in memory
+
 ## 13. Variables as Pointers
 
 Variables that have **primitive** values store those values at the memory location associated with the variable. In our example, `a` and `b` point to different memory locations. When we assign a value to either variable, the value gets stored in the appropriate memory location. If you later change one of those memory locations, it does not affect the other memory location, even if they started off with the same value. Therefore, the variables are *independent* when they contain primitive values.
@@ -294,6 +415,24 @@ However, with objects, JavaScript doesn't store the value of the object in the m
 
 When two variables point to the same object, mutating the shared object will result in the change being reflected in both variables.
 
+### Example
+
+```js
+let pets = ['dragon', 'turtle'];
+
+let newPets = pets;
+
+pets = [];
+
+console.log(newPets);
+```
+
+Iuliu Pop (JS239)  2 hours ago
+Here's my full revised answer:
+
+Line 7, `log` method call with the value referenced by the `newPets` global variable passed in as an argument will output `[ 'dragon', 'turtle' ]`, because 1) `newPets` is initialized to the value referenced by the global variable `pets`and 2) `newPets` isn't reassigned to another value
+On line 1, the global variable `pets` is initialized to an array value. On line 2, the global variable `newPets` is initialized to the value referenced by the global variable `pets`. Now, each variable references the same array object in memory. On line 5, `pets` is reassigned to an empty array. The reassignment of `pets` doesn't affect what `newPets` references. Each variable points to a value and reassigning either one doesn't affect the other. On line 7, when the value referenced by `newPets` is passed as an argument to the `log` method call, `newPets` still references the array `['dragon', 'turtle']`.
+This illustrates the concept of variables as pointers. A variable cannot point to another variable. Variables always point to values in memory. If a variable is assigned to another variable, it points to the value referenced by the other variable. When a variable is reassigned, it is reassigned without affecting what other variables point to.
 ---
 
 ## 14. console.log vs. `return`
@@ -343,6 +482,28 @@ We can omit the `return` statement in arrow functions ***when and only when*** t
 All JavaScript function calls evaluate to a value. By default, that value is `undefined`; this is the **implicit return value** of most JavaScript functions. However, when you use a `return` statement, you can return a specific value from a function. This is an **explicit return value**. Outside of the function, there is no distinction between implicit and explicit return values, but it's important to remember that all functions return something unless they raise an exception, even if they don't execute a `return` statement.
 
 JavaScript uses the `return` statement to *return a value to the code that **called** the function:* the **caller**. If you don't specify a value, it returns the implicit return value of `undefined`. Either way, the `return` statement causes the function to stop running and returns control to the caller.
+
+```js
+function test(str) {
+  str + '!!!';
+}
+
+let word = test('Hello');
+
+if (word) {
+  console.log('Hi');
+} else {
+  console.log('Goodbye');
+}
+```
+
+no explicit return statement
+test will implicitly return undefined
+str is not assigned to anything
+word is assigned to `undefined`
+word is evaluated to false
+so the else block executes
+and "Goodbye" is logged
 
 ## 19. First-class Functions
 

@@ -88,14 +88,13 @@ What does this code log and what's the principle being demonstrated?
 /* Answer
 
 HyoSung
-This will log 'Meow'. While the global variable `animal` is declared and initialized to the string "dog" on line 2, it is shadowed by the `animal` variable used as the parameter of the arrow function `speak` and is therefore inaccessible to the function. When `speak` is called it doesn't pass an argument, so by default it passes `undefined`. Within the function speak, `undefined` evaluates to false in the `if` condition, so the else block gets executed.
+This will log 'Meow'. While the global variable `animal` is declared and initialized to the string "dog" on line 1, it is shadowed by the `animal` variable used as the parameter of the arrow function `speak` and is therefore inaccessible to the function. When `speak` is called it doesn't pass an argument, so by default it passes `undefined`. Within the function speak, `undefined` evaluates to false in the `if` condition, so the else block gets executed and `'Meow'` is logged.
 
 Laurent
 It will log 'Meow' and the concept demonstrated is variable shadowing, Because the parameter of the function speak has the same name as the animal in the global scope Moreover, it shows that a function with an argument will set the parameter to undefined if not passed-in any parameter when called. On line 12, we call the function speak without any arguments. Since it has been declared on line 4 with an argument 'animal', animal within the speak function will be 'undefined', it will not look in the outer scope for an 'animal' variable. Then, as 'undefined' is evaluated to false by the if statement, the speak call will return 'Meow'.
 
 Alex
 The code logs 'Meow'. Because the parameter animal of the function expression on line 18 shadows the global variable of the same name, the global variable is inaccessible within the function. Moreover, speak() is invoked on line blah without an argument. In JS, the function will still execute, but will be passed undefined as its argument. Since speak() makes use of an if conditional that evaluates the truthiness of the parameter animal, and since undefined was passed in as an argument, the conditional evaluates as false and the else branch of the conditional is executed, logging 'Meow' to the console.
-
 
 variable shadowing of the global variable animal with the variable
 variable scope
@@ -109,10 +108,7 @@ initialized to undefined which is a falsy value, so the else block gets executed
 /* =====
 H Q11
 
-What is the output and why?
-
-
-*/
+What is the output and why? */
 
 let name = 'nina';
 

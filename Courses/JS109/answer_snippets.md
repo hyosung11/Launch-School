@@ -72,8 +72,7 @@ console.log(array1 === array2);
 
 The code outputs `false`. This example illustrates equality and the difference between comparing primitive values and object values. Primitives, like strings or numbers, are compared by their value. Here, `array1` and `array2` are objects and not primitives, so JavaScript compares whether the two objects are strictly equal on line 4 by checking whether they are the same object, i.e., whether they reference the same location in memory. Since two different array objects were constructed on line 1 and line 2, they don't have the same reference. Thus, `false` gets logged.
 
-On line 1 we declare a variable `array1` and initialize it to a 3 element array with the elements `2` `6` and `4`. On line 2 we declare a variable `array2` and initialize it to a 3 element array and within `array2` we also see `2`, `6`, `4`. So `array1` and `array2` are both 3 element arrays with the same values in the same order. In JavaScript arrays are objects. They are not primitive types. If we were to compare the output of two primitive types such as strings,
-we would see the output `true` because primitive types are compared by their value. However, when we compare two objects JavaScript is comparing their location in memory. If the two objects do not occupy the same location in memory then JavaScript will return `false`.
+On line 1 we declare a variable `array1` and initialize it to a 3 element array with the elements `2` `6` and `4`. On line 2 we declare a variable `array2` and initialize it to a 3 element array and within `array2` we also see `2`, `6`, `4`. So `array1` and `array2` are both 3 element arrays with the same values in the same order. In JavaScript arrays are objects. They are not primitive types. If we were to compare the output of two primitive types such as strings, we would see the output `true` because primitive types are compared by their value. However, when we compare two objects JavaScript is comparing their location in memory. If the two objects do not occupy the same location in memory then JavaScript will return `false`.
 
 ---
 
@@ -405,7 +404,7 @@ function myFunc() {
 myFunc(); // => Hello, world!
 ```
 
-The code logs `Hello, world!`. This example illustrates variable scoping rules, specifically that outer scope variables are accessible from an inner scope. Here, the global variable `hello` is declared and initialized to the String "Hello, world!" on line 1. The function `myFunc` is declared on line 3 and invoked on line 7. Within `myFunc` the `console.log(hello)` method logs the value of `hello`. So `myFunc` logs "Hello, world!" and returns `undefined`.
+The code logs `Hello, world!`. This example illustrates variable scoping rules, specifically that outer scope variables are accessible from an inner scope. Here, the global variable `hello` is declared and initialized to the string "Hello, world!" on line 1. The function `myFunc` is declared on line 3 and invoked on line 7. Within `myFunc` the `console.log(hello)` method logs the value of `hello`. So `myFunc` logs "Hello, world!" and returns `undefined`.
 
 ### 2. Inner scope variables cannot be accessed in the outer scope
 
