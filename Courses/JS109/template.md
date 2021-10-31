@@ -372,9 +372,7 @@ console.log logs 'Hello'
 
 only outputs 'Hello'
 greeting is passed by value so not mutated by what happens in the function
-pass-by-value of the string 'Hello'
-- passing a copy
-- two 'Hello' copies
+pass-by-value of the string 'Hello', so passing a copy and there are two 'Hello' copies
 
 str.concat returns 'Hello World'
 this value is never captured anywhere, so it is destroyed
@@ -413,8 +411,9 @@ arrays get passed into functions by reference
 the concat method returns a new array - non-mutating
 doesn't affect the original array
 two arrays in memory
-- ['Hello']
-- ['Hello', 'World' ]
+
+* ['Hello']
+* ['Hello', 'World' ]
 
 ```js
 let greeting = ["Hello"];
@@ -445,7 +444,7 @@ However, with objects, JavaScript doesn't store the value of the object in the m
 
 When two variables point to the same object, mutating the shared object will result in the change being reflected in both variables.
 
-### Example
+### Example: variables as pointers
 
 ```js
 let pets = ['dragon', 'turtle'];
@@ -457,13 +456,7 @@ pets = [];
 console.log(newPets);
 ```
 
-Iuliu Pop (JS239)  2 hours ago
-Here's my full revised answer:
-
-Line 7, `log` method call with the value referenced by the `newPets` global variable passed in as an argument will output `[ 'dragon', 'turtle' ]`, because 1) `newPets` is initialized to the value referenced by the global variable `pets`and 2) `newPets` isn't reassigned to another value
-On line 1, the global variable `pets` is initialized to an array value. On line 2, the global variable `newPets` is initialized to the value referenced by the global variable `pets`. Now, each variable references the same array object in memory. On line 5, `pets` is reassigned to an empty array. The reassignment of `pets` doesn't affect what `newPets` references. Each variable points to a value and reassigning either one doesn't affect the other. On line 7, when the value referenced by `newPets` is passed as an argument to the `log` method call, `newPets` still references the array `['dragon', 'turtle']`.
-This illustrates the concept of variables as pointers. A variable cannot point to another variable. Variables always point to values in memory. If a variable is assigned to another variable, it points to the value referenced by the other variable. When a variable is reassigned, it is reassigned without affecting what other variables point to.
----
+On line 7, `log` method call with the value referenced by the `newPets` global variable passed in as an argument will output `[ 'dragon', 'turtle' ]`, because 1) `newPets` is initialized to the value referenced by the global variable `pets` and 2) `newPets` isn't reassigned to another value. On line 1, the global variable `pets` is initialized to an array value. On line 2, the global variable `newPets` is initialized to the value referenced by the global variable `pets`. Now, each variable references the same array object in memory. On line 5, `pets` is reassigned to an empty array. The reassignment of `pets` doesn't affect what `newPets` references. Each variable points to a value and reassigning either one doesn't affect the other. On line 7, when the value referenced by `newPets` is passed as an argument to the `log` method call, `newPets` still references the array `['dragon', 'turtle']`. This illustrates the concept of variables as pointers. A variable cannot point to another variable. Variables always point to values in memory. If a variable is assigned to another variable, it points to the value referenced by the other variable. When a variable is reassigned, it is reassigned without affecting what other variables point to.
 
 ## 14. console.log vs. `return`
 

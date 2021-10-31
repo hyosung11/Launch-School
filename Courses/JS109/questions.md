@@ -1014,7 +1014,7 @@ console.log([1, 2, 3].map(num => num * num)); // =>  [1, 4, 9]
 The code returns `[1, 4, 9]`. This example illustrates iterating over an array with `map`. The `map()` method returns a new array populated with the return values of executing a callback function for each element of the calling array. Here, the callback function is an arrow function with an implicit return because it contains a single expression. So, `map` iterates over each element of `[1, 2, 3]` and returns the value of executing the callback function of `num => num * num` on each element. Thus, a new array `[1, 4, 9]` is returned.
 
 LS
-Without braces surrounding the body of the arrow function, JavaScript uses the computed value as the return value. In this case, the callback returns` 1`, `4`, and `9` on the 3 iterations.
+Without braces surrounding the body of the arrow function, JavaScript uses the computed value as the return value. In this case, the callback returns `1`, `4`, and `9` on the 3 iterations.
 
 ## What is the return value of map in the following code? Why?
 
@@ -1066,7 +1066,7 @@ On line 9, the call to the method `console.log` will print `'Ford'` to the conso
 
 On line 3, we declare the global variable `cars` and initialize it with a reference to the array `[ 'Ford', 'Chrysler', 'Toyota' ]`.
 
-On line 5, we declare the global variable `myCar` and initialize it with the return value of the `find` method called on the the array referenced by the variable `cars`. `find` returns the value of the first element that returns a truthy value when callback is called on this element. 
+On line 5, we declare the global variable `myCar` and initialize it with the return value of the `find` method called on the the array referenced by the variable `cars`. `find` returns the value of the first element that returns a truthy value when callback is called on this element.
 
 In that case, we will test whether each string of the array contains the string `'o'` through the use of the `includes` method. As the first string, `'Ford'`, contains an `'o'`, the callback will evaluate to true and the call to `find` will return the value `'Ford'`. This value is then assigned to the global variable `myCar`
 
