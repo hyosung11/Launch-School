@@ -724,10 +724,31 @@ Because `a` references an array which is an object value it is passed by referen
 // console.log(test(greeting)); // => [ 'Hello', ' World!' ]
 // console.log(greeting); // => [ 'Hello' ]
 
-let b = 2;
+// let b = 2;
 
-function test(b) {
-  return b += 5;
+// function test(b) {
+//   return b += 5;
+// }
+
+// console.log(test()); // => NaN
+
+// function fetchData(email) {                  // line 1
+// 	return {
+// 		email: email,                            // line 3
+//     company: "Microsoft" 
+// 	}                                          // line 5
+// }
+//                                              // line 7
+// console.log(fetchData('bill@microsoft.com')) // line 8
+// => { email: 'bill@microsoft.com', company: 'Microsoft' }
+
+let sentence = "Lorem ipsum dolor sit amet ionsectetum adipisicing";
+let result = [];                                    // line 2
+for (let word of sentence.split(' ')) {
+	if (word.startsWith("i") && word.endsWith("m")) { // line 4
+		result.push(word + ' ')
+	}                                                 // line 6
 }
-
-console.log(test()); // => NaN
+                                                    // line 8
+console.log(result.join('').trim());                // line 9
+// => ipsum ionsectetum

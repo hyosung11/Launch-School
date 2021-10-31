@@ -213,6 +213,8 @@ JavaScript uses the `return` statement to return a value to the code that called
 
 ### Example
 
+What is logged and why?
+
 ```js
 function fetchData(email) {                  // line 1
   return {
@@ -223,6 +225,8 @@ function fetchData(email) {                  // line 1
                                              // line 7
 console.log(fetchData('bill@microsoft.com')) // line 8
 ```
+
+The code logs `{ email: 'bill@microsoft.com, company: "Microsoft" }`. On line 8, the function `fetchData` is called with the string `'bill@microsoft.com'` passed as an argument. The return value of the `fetchData` call is passed to the `console.log` method. On line 1, the function `fetchData` is declared with the parameter `email`. On line 2, the object `{ email: 'bill@microsoft.com, company: "Microsoft" }` is explicitly returned because the value in the parameter `email` which is the string `'bill@microsoft.com'` is passed to the `email` value of the key `email` in the object. This example illustrates passing arguments into and return values out of functions.
 
 ## 8. Working with Strings
 
@@ -251,6 +255,24 @@ The `trimStart()` method removes whitespace from the beginning of a string while
 The `charAt()` method takes an index as an argument and returns the character at that index in the given string.
 
 The `charCodeAt()` method returns the Unicode code point or character code of the character at the index. If an index is not provided, `charCodeAt()` assumes the index `0`.
+
+### Example: String Methods
+
+What does the code log and why?
+
+```js
+let sentence = "Lorem ipsum dolor sit amet ionsectetum adipisicing";
+let result = [];                                    // line 2
+for (let word of sentence.split(' ')) {
+  if (word.startsWith("i") && word.endsWith("m")) { // line 4
+    result.push(word + ' ')
+  }                                                 // line 6
+}
+                                                    // line 8
+console.log(result.join('').trim());                // line 9
+```
+
+The code logs `'ipsum ionsectetum'`. On line 1, the global variable `sentence` is declared and initialized to the string `"Lorem ipsum dolor sit amet ionsectetum adipisicing"`. On line 2, the global variable `result` is declared and initialized to reference an empty array `[]`. On lines 3-7, a `for..of` loop is defined. The `split` method is called on `sentence` which returns an array of strings separated by a space. The variable `word` is initialized to the value of each string in the array as the loop iterates through it. On line 4, the `if` conditional checks each iteration of `word` and if it evaluates as true for  both string methods `startsWith('i')` and `endsWith('m')`, the string at that iteration is concatenated with `' '` and added to the array `result` via the `push` method. On line 9, the `console.log` method is called with `result` passed as an argument. The string method `join` is called on `result` with the `''` as an argument which returns a string with no spaces and the `trim` method is chained onto the result to remove white space from the start and end of the string. This example illustrates using various string methods in JavaScript.
 
 ## 9. Working with Arrays, especially the iteration methods (`forEach`, `map`, `filter`, and `find`)
 
@@ -293,6 +315,14 @@ The `map` method returns a new array populated with the return values of executi
 The `some()` method executes a callback function once for each element in the calling array, until it finds an occurrence where the callback function returns a **truthy** value. If such an element is found, the method **immediately** returns `true`. Otherwise, if the callback function returns a falsy value for all elements, the method returns `false`.
 
 The `every()`method executes a callback function once for each element in the calling array, until it finds an occurrence where the callback function returns a **falsy** value. If such an element is found, the method **immediately** returns `false`. Otherwise, if callback function returns a truthy value for all elements, the method returns `true`.
+
+### Example: `filter`
+
+```js
+let ages = [21, 22, 33, 40, 25, 20, 61]; // line 1
+let invited = ages.filter(age => age >= 21 && age < 40); // l2
+console.log(invited); // line 3
+```
 
 ## 10. Working with Objects; accessing keys and values of an Object as arrays
 
