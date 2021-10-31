@@ -181,8 +181,7 @@ if (something === somethingElse) { // line 4
 } // line 10
 ```
 
-The code logs `'Radio'` and illustrates loose and strict equality, specifically how the loose equality operator uses implicit coercion. On line 1, the global variable `something` is declared and initialized to reference an empty array `[]`. On line 2, the global variable `somethingElse` is declared and initialized to an empty string `''`. On lines 4-9, an `if..else` statement is defined. In the `if` statement's condition, the values stored in `something` and `somethingElse` are compared using the strict equality operator `===`. 
-
+The code logs `'Radio'` and illustrates loose and strict equality, specifically how the loose equality operator uses implicit coercion. On line 1, the global variable `something` is declared and initialized to reference an empty array `[]`. On line 2, the global variable `somethingElse` is declared and initialized to an empty string `''`. On lines 4-9, an `if..else` statement is defined. In the `if` statement's condition, the values stored in `something` and `somethingElse` are compared using the strict equality operator `===` and since an `[] === ''` are not strictly equal the condition evaluates as false. 
 
 ## 7. passing arguments into and return values out of functions
 
