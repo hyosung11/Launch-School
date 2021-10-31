@@ -3818,3 +3818,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 ## 20211031 일요일
 
 13:59 I've been studying and I think I will take the written assessment tomorrow. I need to figure out my timers.
+
+15:15 Studying and writing out more examples.
