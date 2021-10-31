@@ -12,7 +12,7 @@ The code logs __. This example illustrates ... variables declared in an outer sc
 
 * Describe what is happening in the code example with detail and precision.
 * Identify important JavaScript syntactical conventions that are relevant to the example code.
-  * E.g., the fact that braces next to a while statement form a block in JavaScript
+  * E.g., the fact that braces `{}` next to a `while` statement form a block in JavaScript.
 * Explain why a JavaScript syntactical convention is important and the underlying principle that it demonstrates.
   * E.g., the fact that JavaScript has particular scoping rules which affect whether or not a variable can be referenced or reassigned.
 
@@ -85,14 +85,14 @@ function bar(argument1, argument2) {
 
 bar(foo, qux);
 
-console.log(foo.a); // => 'hi'
+console.log(foo.a); // line 15 => 'hi'
 console.log(qux); // => 'hello'
 ```
 
 Solution
-The program logs `'hi'` and `'hello'` and demonstrates the difference between pass by value and pass by reference. When passed as arguments into functions, objects are mutable; strings and other primitives are not. `foo` as an object is pass by reference, so when it is passed into the function `bar` to the parameter `argument1`, it points to the same place in memory as the object `foo`. Therefore, when we reassign the property `a` of the local variable `argument1`, we are mutating the same object that the global variable `foo` points to. Thus, when the `console.log(foo.a)` method is called on line 80, `hi` is logged.
+The program logs `'hi'` and `'hello'` and demonstrates the difference between pass by value and pass by reference. When passed as arguments into functions, objects are mutable; strings and other primitives are not. `foo` as an object is pass by reference, so when it is passed into the function `bar` to the parameter `argument1`, it points to the same place in memory as the object `foo`. Therefore, when we reassign the property `a` of the local variable `argument1`, we are mutating the same object that the global variable `foo` points to. Thus, when the `console.log(foo.a)` method is called on line 15, `hi` is logged.
 
-On the other hand, `qux` as a string is pass by value. When `qux` is supplied as an argument to `bar`, `argument2` is initialized with a copy of the value of `qux`, and not the actual variable `qux` itself. Therefore, reassigning `argument2` will not reassign `qux`, since they are two different copies of the same value. Thus, line x logs `hello`: the original value of the `qux` variable.
+On the other hand, `qux` as a string is pass by value. When `qux` is supplied as an argument to `bar`, `argument2` is initialized with a copy of the value of `qux`, and not the actual variable `qux` itself. Therefore, reassigning `argument2` will not reassign `qux`, since they are two different copies of the same value. Thus, line 16 logs `hello`: the original value of the `qux` variable.
 
 Launch School
 Also, variable reassignment, such as that on line 10, doesn't mutate the original object even when the object is mutable. Thus, line 9 mutates `foo` by assigning its `a` property to a new value (`'hi'`). Therefore, the code on line 15 logs `hi`. On the other hand, line 10 reassigns the `argument2` variable, but it doesn't mutate the string represented by `qux`. Thus, line 16 logs `hello`: the original value of the `qux` variable.
@@ -200,10 +200,12 @@ function isArrayEmpty(arr) {
   }
 }
 
-isArrayEmpty([]);
+isArrayEmpty([]); // line 9
 ```
 
-The code outputs `'Not Empty'`. This example illustrates truthiness in JavaScript. Here, function `isArrayEmpty` is declared on line 1 and invoked on line 10 with an empty array `[]` passed as an argument into the function. The `arr` variable, whose value is `[]`, is passed into the `if` statement and evaluates to true because an empty array is not a falsy value. Thus, the first branch of the  `if` statement executes and `'Not Empty'` is logged to the console.
+The code outputs `'Not Empty'`. This example illustrates truthiness in JavaScript. On line 1, the function `isArrayEmpty` is declared with the parameter `arr` and called on line 9 with an empty array `[]` passed as an argument. When the value of `arr` which is `[]` gets evaluated within the `if` statement it evaluates as true because `[]` is considered a truthy value in JavaScript. Thus, the first branch of the `if` statement executes and `'Not Empty'` is logged to the console.
+
+Here, function `isArrayEmpty` is declared on line 1 and invoked on line 10 with an empty array `[]` passed as an argument into the function. The `arr` parameter passes the value of `[]` into the `if` statement and evaluates to true because an empty array is not a falsy value. Thus, the first branch of the `if` statement executes and `'Not Empty'` is logged to the console.
 
 ## 10. What does this code log and why?
 
@@ -232,8 +234,6 @@ myFunction();
 ```
 
 This code logs `1`. Variables declared in an outer scope are accessible from an inner scope. Here, `a` is declared and initialized to the value of `1` within `myFunction` which has an outer scope to the `if` statement's inner scope. Since the `if` statement evaluates to `true`, the `console.log(a)` method logs `1` when `myFunction` is invoked on line 9.
-
----
 
 ## 12. What will it log and why?
 
@@ -280,8 +280,6 @@ On line 15, as we have passed `25` to the `changeAgeName` variable, the if condi
 
 So, when we `console.log(person)` on the last line, we log the global object with the `name: "Corinne"` and the `age: 25`.
 
----
-
 ## 13. What does this code log to the console, and what concepts does this demonstrate?
 
 ```js
@@ -318,8 +316,7 @@ const speak = animal => {
 speak();
 ```
 
-My Answer
-This program logs "Bark" to the console. On line 18, the global variable `animal` is declared and initialized to the string "dog". On line 20, the function `speak` is declared with the parameter `animal`. This `animal` variable shadows the global `animal` variable on line 18 making the global variable inaccessible inside the function `speak`. When `speak` is invoked on line 28, it doesn't pass an argument. Instead of throwing an error, JavaScript defaults this argument's value to `undefined`. In the `if` statement `animal`'s value is evaluated as `undefined` and the `console.log("Bark")` method executes and logs "Bark".
+This program logs "Bark" to the console and demonstrates variable shadowing and that the a function invoked without a required argument . On line 18, the global variable `animal` is declared and initialized to the string "dog". On line 20, the function `speak` is declared with the parameter `animal`. This `animal` variable shadows the global `animal` variable on line 18 making the global variable inaccessible inside the function `speak`. When `speak` is invoked on line 28, it doesn't pass an argument. Instead of throwing an error, JavaScript defaults this argument's value to `undefined`. In the `if` statement `animal`'s value is evaluated as `undefined` and the `console.log("Bark")` method executes and logs "Bark".
 
 * variable shadowing
 * function without required argument in js takes the value `undefined`
@@ -543,9 +540,9 @@ for (let i = 0; i < 3; i += 1) {
 
 For both kinds of loops, we declare a counter variable count to keep track of how many iterations we've been through. We start by assigning it to 1, and then increment it on each iteration of the loop. As soon as it is greater than 3, the condition provided to the loop returns false and the loop is terminated.
 
-Using the code below as a starting point, write a while loop that logs the elements of array at each index, and terminates after logging the last element of the array.
-*/
+## 25. Using the code below as a starting point, write a while loop that logs the elements of array at each index, and terminates after logging the last element of the array
 
+```js
 let array = [1, 2, 3, 4];
 let index = 0;
 
@@ -553,14 +550,13 @@ while (index < array.length) {
   console.log(array[index]);
   index += 1;
 }
+```
 
-/*
 On line 5, we access the array element at the current index, and log the returned element to the console with console.log. Subsequently, we increment index by 1.
 
 After each iteration of the loop, our while condition is evaluated. Since JavaScript arrays have a zero-based index, we want to terminate the loop when index is equal to array.length, because the last index of an array is always one less than the array's length.
-*/
 
-## Take a moment to read the MDN documentation on the continue statement
+## 26. Take a moment to read the MDN documentation on the `continue` statement
 
 Then write a for loop that loops over the elements of the array cities and logs the length of each string to the console. If the element is null, skip forward to the next iteration without logging anything to the console.
 
@@ -575,48 +571,52 @@ for (let index = 0; index < cities.length; index += 1) {
 
 `continue` terminates the current iteration and continues with execution of the next iteration. This allows us to skip each element that is equal to `null`.
 
+## 27. `for` loop
+
 ```js
 for (initialization; condition; increment) {
   // loop body
 }
 ```
 
-/*
-The following code keeps looping forever. (You can hit Ctrl-C to stop it.) Why is that? Also modify it so that it stops after the first iteration.
-*/
+## 28. The following code keeps looping forever. (You can hit Ctrl-C to stop it.) Why is that? Also modify it so that it stops after the first iteration
 
-for (let i = 0; i < 1 ; i += 1) {
+```js
+for (let i = 0; i += 1) {
   console.log("and on");
 }
 
-/*
-The above code never terminates, because the condition of the for loop was left empty. In this case, JavaScript treats it as true.
+// modified to stop after first iteration
+for (let i = 0; i < 1; i += 1) {
+  console.log("and on");
+}
+```
+
+The above code never terminates, because the **condition** of the for loop was left empty. In this case, JavaScript treats it as true.
 
 One way to terminate the loop from within the body is to use the break statement:
-*/
 
+```js
 for (let i = 0; ; i += 1) {
   console.log("and on");
   break;
 }
+```
 
-/*
-Write a while loop that logs all odd natural numbers between 1 and 40.
-*/
+## 29. Write a while loop that logs all odd natural numbers between 1 and 40
 
-// let counter = 1;
+```js
+let counter = 1;
 
 while (counter < 41) {
   console.log(counter)
   counter += 2;
 }
-
-/*
-It loops over all numbers from 1 to 40 and uses an if statement to determine whether or not num should be logged. In order to check whether num is even, we would use the condition num % 2 === 0, which checks whether num is divisible by 2 without remainder. In order to determine whether a number is odd, we simply negate it.
+```
 
 The trick in our solution code is that we know that each second number is odd, so if we start at 1, we can simply increment the number by 2 on each iterating, effectively looping only over the odd numbers.
-*/
 
+```js
 let counter = 1;
 
 while (counter < 41) {
@@ -625,13 +625,15 @@ while (counter < 41) {
   }
   counter += 1;
 }
+```
 
-/*
-The code provided below will randomly initialize randomNumber to either 0 or 1 each time it is executed.
+It loops over all numbers from 1 to 40 and uses an `if` statement to determine whether or not num should be logged. In order to check whether num is even, we would use the condition num % 2 === 0, which checks whether num is divisible by 2 without remainder. In order to determine whether a number is odd, we simply negate it.
+
+## 30. The code provided below will randomly initialize randomNumber to either 0 or 1 each time it is executed
 
 Write an if statement that logs 'Yes!' if randomNumber is 1, and 'No.' if randomNumber is 0.
-*/
 
+```js
 let randomNumber = Math.round(Math.random());
 
 if (randomNumber) {
@@ -639,22 +641,20 @@ if (randomNumber) {
 } else {
   console.log('No.');
 }
+```
 
-/*
 Recall that that 0 is falsy in Javascript, while 1 is truthy. Our if statement will execute the code on line 4 if the condition provided on line 3 (randomNumber) is truthy; otherwise it will execute the code on line 6.
 
 Alternatively, you could have used as conditions if (randomNumber === 0) and if (randomNumber === 1). Just remember to make it a habit to use strict equality ===.
-*/
 
-/*
-Take your code from the previous exercise and rewrite the conditional so that it uses the ternary if-then-else operator.
-*/
+## 31. Take your code from the previous exercise and rewrite the conditional so that it uses the ternary if-then-else operator
 
+```js
 let randomNumber = Math.round(Math.random());
 
 console.log(randomNumber ? 'Yes!' : 'No.');
+```
 
-/*
 The syntactical structure of the ternary operator is like so:
 
 condition ? expression1 : expression2
@@ -663,13 +663,13 @@ If the condition provided is truthy, expression1 will be evaluated. If the condi
 
 You may have come up with a solution like the following:
 
+```js
 randomNumber ? console.log('Yes!') : console.log('No.');
+```
 
 This is a perfectly fine solution. Ours is an alternative that uses the ternary operator only to decide on the string that is going to be logged. Take a close look at it: The expression randomNumber ? 'Yes!' : 'No.' evaluates to either the string 'Yes!' or the string 'No.'. Since it is an expression that evaluates to a string value, we can use it as an argument to console.log. It's similar to using other complex expressions with operators, as in console.log('Hello' + 'World').
-*/
 
-/*
-Initialize a variable weather with a string value being "sunny", "rainy", or anything else.
+## 32. Initialize a variable weather with a string value being "sunny", "rainy", or anything else
 
 Write an if statement that logs:
 
@@ -739,7 +739,7 @@ switch (weather) {
 Our switch statement evaluates the provided expression, weather, and when it finds a case clause matching the value of that expression, the code within that case clause is executed. If the value of the provided expression does not match any case clause, the default clause is executed.
 */
 
-## Pass by reference / Pass by value
+## 33. Pass by reference / Pass by value
 
 ```js
 let numArray = [1, [2], 3];
@@ -757,7 +757,7 @@ console.log(numArray);
 
 This code example logs `2`, `[3]` and `4` respectively, and `[1, [3], 3]`. It illustrates the concepts of pass by value and pass by reference. On line 1, `numArray` is declared and initialized to reference a nested array. On line x, the function `passByValue` is called with the variable `numArray` passed as an argument.
 
-## Outer scope variables can be accessed by inner scope
+## 34. Outer scope variables can be accessed by inner scope
 
 ```js
 let a = 1;         // outer scope variable
@@ -771,7 +771,7 @@ logA();
 console.log(a);   // => 2  "a" was re-assigned in the inner scope
 ```
 
-## Peer scopes do not conflict
+## 35. Peer scopes do not conflict
 
 ```js
 function funcA() {
@@ -780,7 +780,7 @@ function funcA() {
 }
 
 function funcB() {
-  console.log(a); // ReferenceError: a is not defined
+  console.log(a); // line 7 => ReferenceError: a is not defined
 }
 
 funcA();
@@ -789,7 +789,7 @@ funcB();
 
 Executing `console.log(a)` on line 7 throws an error since `a` is not in scope in `funcB`. This code demonstrates variable scoping rules, specifically that peer scopes do not conflict. When function `funcA` is invoked, it defines a new scope for local variables. The local variable `a` is declared and initialized to the string `'hello'`. Within the `funcA` function the `console.log(a)` method logs `hello` to the terminal. After `funcA` completes execution, the variable `a` is discarded and control returns to the main flow of the program. Then function `funcB` is called and attempts to log the value stored in the variable `a` to the terminal, but a `ReferenceError` is thrown because the local variable `a` only existed within the scope of `funcA` and was destroyed after `funcA` completed execution. Thus, `a` is not in scope in `funcB`.
 
-## How many primitive values are there in the following expression? Identify them. How many objects are there in the expression? Identify those objects
+## 36. How many primitive values are there in the following expression? Identify them. How many objects are there in the expression? Identify those objects
 
 ```js
 [1, 2, ["a", ["b", false]], null, {}]
@@ -801,7 +801,7 @@ Objects: `[1, 2, ["a", ["b", false]], null, {}]`, `["a", ["b", false]]`, `["b", 
 
 The outermost set of brackets defines an array (an object) that contains 5 elements. The elements with values `1`, `2`, and `null` are all primitive values, while [`"a"`, [`"b"`, `false`]] is a nested array, and `{}` is nested object. The nested array has 2 elements, one of which is a primitive value (`"a"`), while the other is yet another nested array. Finally, this innermost array contains two elements, `"b"` and `false`, both of which are primitive values.
 
-## What does this code log to the console? Why?
+## 37. What does this code log to the console? Why?
 
 ```js
 let array1 = [1, 2, 3];
@@ -812,7 +812,7 @@ console.log(array2);
 
 The code logs `[1, 4, 3]`. This example illustrates variables as pointers. Here, on line 1, the variable `array1` is declared and initialized to reference the array `[1, 2, 3]`. On line 2, `array2` is declared and initialized to point to the same array `[1, 2, 3]` . At this point, `array1` and `array2` reference the same array `[1, 2, 3]`. This means that if we change an element using `array1`, it also changes that element in `array2` and vice versa. So, on line 3, the expression `array1[1] = 4` changes the value of the second element in `array1` from `2` to `4` and this change is reflected in both `array1` and `array2`. This code also demonstrates that assignment of an array to another array doesn't create a new array, but instead copies a reference from the original array (`array1` above) into the target array (`array2`).
 
-## What does the following function do?
+## 38. What does the following function do?
 
 ```js
 function doSomething(string) {
@@ -828,7 +828,7 @@ Thus:
 console.log(doSomething("Pursuit of happiness")); // => [ 9, 2, 7 ]
 ```
 
-## What does line 7 return? What does line 8 return? Explain why?
+## 39. What does line 7 return? What does line 8 return? Explain why?
 
 ```js
 let arr = [['a'], ['b'], ['c']];
@@ -845,7 +845,7 @@ Line 7 returns `[ ['a'], ['b', 'd'], ['c'] ]` and line 8 returns `[ ['a'], ['b',
 
 On line 1, we declare a variable `arr` and assign it a reference to an array `[['a'], ['b'], ['c']]`. On line 2, we declare a variable `copyOfArray` and assign it a shallow copy of the array `[['a'], ['b'], ['c']]` through the use of the method `slice` that returns a new array. Although this method returns a new array, the array still hold references to the original subarrays. So, when on line 4, we use the method `push` to add an element to the second element of the array referenced by `copyOfArr` , we are also modifying the array that `arr` points to, as both arrays holds references to the same subarrays.
 
-## What will the code log to the console and why?
+## 40. What will the code log to the console and why?
 
 ```js
 let greeting = ["Hello"];
@@ -862,7 +862,7 @@ console.log(greeting);
 
 The code logs `["Hello"]` on line 10 and returns `["ByeBye", "World!"]` on line 9. This example illustrates pass by reference, variable scope, and reassignment in JavaScript. Here, on line 1, the global variable `greeting` is declared and initialized to reference `["Hello"]`. The function `test` is declared on line 3 and called on line 10 with the argument `greeting` passed into the function `test`. Within `test` the parameter `arr` which references the array `["Hello"]` from line 1 when it's passed as an argument, gets reassigned on line 4 to `["ByeBye"]`. On line 6, the `arr.push("World!")` method mutates `arr` and `["ByeBye", "World!"]` is returned from the invocation of `test`. Meanwhile, the `console.log(greeting)` method on line 10, passes in the value of `greeting` from line 1 to log `["Hello"]` because the variable `greeting` is not changed within `test`.
 
-## What does the last line of the code return and what principle does this code snippet demonstrate?
+## 41. What does the last line of the code return and what principle does this code snippet demonstrate?
 
 ```js
 var arr = [1, 2, 3, 4, 5];
@@ -880,7 +880,7 @@ The last line of code returns `[ 2, 4, 6, 8, 10 ]`. This illustrates the concept
 
 On line 1, we declare a global variable `arr` and initialize it with a reference to the array `[1, 2, 3, 4, 5]` Then on line 2, we declare a constant `index` and initialize it with a template literal. Then on line 3,  we iterate over `arr` with the `map` array method. `map` transforms each element of an array and replace it with the return value of the provided callback function. In that case, the callback function has 2 arguments, `el`and `index` . `index` will be initialized on each iteration with the value of the index of the element on which the callback is called, shadowing the global variable `index`. Each call to `map` will return the result of the expression assignment `index = el * 2`, the value of each element will be multiplied by 2 and then assigned to `index` that will be returned to `map`.
 
-## What does the following code log and return and why?
+## 42. What does the following code log and return and why?
 
 ```js
 let greeting = 'Hello';
@@ -896,7 +896,7 @@ console.log(greeting);
 
 The code logs `'Hello'` and returns `'Hello World'` from the call to function `test`. This example illustrates pass by value of a String primitive into a function. Here, on line 1, the global variable `greeting` is declared and initialized to the String `'Hello'`. On line 3, the function `test` is declared and takes the parameter `str`. On line 8, `test` is called with the argument `greeting` passed to it. Within `test` the value of `greeting` is reassigned via `str = str.concat(' World!')`. The `concat` method returns a new string which now holds the value `'Hello World!'` and this is what is returned from the function `test`. On line 9, the `console.log(greeting)` method passes in the value of `greeting` from line 1 which remains unchanged as a primitive value and logs it to console as `'Hello'`.
 
-## What does the following code log, and return and why?
+## 43. What does the following code log, and return and why?
 
 ```js
 let greeting = ['Hello'];
@@ -912,7 +912,7 @@ console.log(greeting); // => [ 'Hello' ]
 
 The code logs `[ 'Hello' ]` and returns `[ 'Hello', 'World!' ]` from the call to function `test`. This example illustrates pass by reference and reassignment. Here, the global variable `greeting` is declared and initialized to reference the array `['Hello']`. On line 3, the function `test` is declared with the parameter `arr`. The function `test` is called on line 8 with the argument `greeting` passed to it. Within `test` the value of `greeting` is passed to the variable `arr` and reassigned via `arr = arr.concat('World!')`. The `concat` method returns a new array and doesn't mutate the original. The reassignment of `arr` creates a new two element array `['Hello', 'World']` and that is what's returned from the function `test`. The reassignment of `arr` creates two different arrays in memory. Thus, the variable `greeting` still references the original array `['Hello']` on line 1 and that is what is logged when the `console.log(greeting)` method executes on line 9.
 
-## Pass by Reference and `map`
+## 44. Pass by Reference and `map`
 
 ```js
 let family = {
@@ -935,7 +935,7 @@ This code snippet will log `[55, 51, 13 ]` and `{ john: 54, mary: 50, zoe: 12 }`
 
 On line 1, we declare the global variable `family` and initialize it with a reference to the object `{ john: 54, mary: 50, zoe: 12,}`. On line 11, we will log the returned value from the call to the function `incrementAge` with the reference to the object passed as argument. During this function call, `Object.values(people)` will return a new array with the values held by the parameter `people` , `[54, 50, 12]`. Then we iterate through this array and increment each element by 1, returning `[55, 51, 13]` from the function. This call to `map` did not impact the original object that the variable `family` points to, therefore, we will log `{ john: 54, mary: 50, zoe: 12 }` on line 12
 
-## What will happen when we run this code?
+## 45. What will happen when we run this code?
 
 ```js
 let a = 'Hello';
@@ -954,7 +954,7 @@ The code logs `'Goodbye'`. This example illustrates variable scope and variable 
 
 truthiness values - everything in JavaScript is truthy except for 0funN is ''
 
-## What happens when we run this code?
+## 46. What happens when we run this code?
 
 ```js
 let a = 'Hello';
@@ -969,7 +969,7 @@ console.log(a);
 
 The code logs `'Hello'`. This example illustrates variable scope and variable shadowing. Here, the global variable `a` is declared and initialized to the string `'Hello'`. On line 3, the `if` block creates a local scope for variables and the condition of `true` always evaluates as `true`, executing the `if` block. On line 4, a local `a` variable is declared and initialized to the string `'Goodbye'`. This local variable `a` shadows the global `a` variable on line 1 making it inaccessible within the `if` block. Thus, when the `console.log(a)` method is called on the last line, the value of `a` from line 1 is logged which is `'Hello'`.
 
-## What does the last line in the following code output?
+## 47. What does the last line in the following code output?
 
 ```js
 let object = { first: [1] };
@@ -1003,7 +1003,7 @@ The code returns `[ 1, 2, 3 ]`. This example illustrates iterating over an array
 
 The code returns `[ undefined, undefined, undefined ]`. This example illustrates iterating over an array without an explicit `return` statement. The `map()` method returns a new array populated with the return values of executing a callback function for each element of the calling array. Here, without an explicit `return` statement, in each iteration `map` returns `undefined` from the callback function. This is why the array `[ undefined, undefined, undefined ]` is returned.
 
-`map` looks at the return value of the callback function to decide the elements in the returned array. Each element in the original array is replaced by what the callback returns for that element. In this case, there's no explicit return statement in the callback function, which means that the callback returns undefined each time.
+`map` looks at the return value of the callback function to decide the elements in the returned array. Each element in the original array is replaced by what the callback returns for that element. In this case, there's no explicit return statement in the callback function, which means that the callback returns `undefined` each time.
 
 ## The following code differs slightly from the above code. What is the return value of `map` in this case? Why?
 
@@ -1016,7 +1016,7 @@ The code returns `[1, 4, 9]`. This example illustrates iterating over an array w
 LS
 Without braces surrounding the body of the arrow function, JavaScript uses the computed value as the return value. In this case, the callback returns `1`, `4`, and `9` on the 3 iterations.
 
-## What is the return value of map in the following code? Why?
+## What is the return value of `map` in the following code and why?
 
 ```js
 ['ant', 'bear'].map(elem => {
@@ -1026,12 +1026,10 @@ Without braces surrounding the body of the arrow function, JavaScript uses the c
 });
 ```
 
-The code returns `[undefined, 'bear']` This example illustrates using `map` to iterate over an array. The `map` method returns a new array populated with the return values of executing a callback function for each element of the calling array. Here, `map` is called on the array `['ant', 'bear']`. The `if` condition (`elem.length > 3`) evaluates as true when the length of the element is greater than 3. The callback function checks each element and returns each element that is longer than 3 characters. If an element is less than 3 characters, it returns `undefined`. Thus, the new array `[undefined, 'bear']` is returned.
+The code returns `[undefined, 'bear']` This example illustrates using `map` to iterate over an array. The `map` method returns a new array populated with the return values of executing a callback function for each element of the calling array. Here, `map` is called on the array `['ant', 'bear']`. The `if` condition (`elem.length > 3`) evaluates as true when the length of the element is greater than 3. In this case, the only value with a length greater than 3 is `'bear'`. Thus, for the first element, `'ant'`, the condition evaluates as false and `elem` isn't returned. When a function doesn't explicitly return something, it implicitly returns `undefined`. That's why we see undefined as the first element of the returned array.
 
 LS
-There are some interesting things to point out here. First, the return value of map is an array, which is the collection type that map always returns. Second, where did we get that undefined value? If we look at the if condition (elem.length > 3), we'll notice that it evaluates as true when the length of the element is greater than 3. In this case, the only value with a length greater than 3 is 'bear'. Thus, for the first element, 'ant', the condition evaluates as false and elem isn't returned.
-
-When a function doesn't explicitly return something, it implicitly returns undefined. That's why we see undefined as the first element of the returned array.
+There are some interesting things to point out here. First, the return value of map is an array, which is the collection type that map always returns. Second, where did we get that undefined value? If we look at the if condition (elem.length > 3), we'll notice that it evaluates as true when the length of the element is greater than 3. In this case, the only value with a length greater than 3 is 'bear'. Thus, for the first element, 'ant', the condition evaluates as false and elem isn't returned. When a function doesn't explicitly return something, it implicitly returns undefined. That's why we see undefined as the first element of the returned array.
 
 ## What is the return value of in the following code? Why?
 
@@ -1058,7 +1056,7 @@ let myCars = cars.find(function (car) {
 console.log(myCars); // => Ford
 ```
 
-The code logs `'Ford'`. This example illustrates how the array method `find` works. The global variable `cars` is declared and initialized to reference the array `[ 'Ford', 'Chrysler', 'Toyota' ]` on line 1. The global variable `myCars` is initialized assigned to the return value of applying the `find` method on the array that `cars` references. The `find` method executes the callback function once for each index of the array until the callback function returns a truthy value. Here, the `find` method looks for the first element in the array that contains an `'o'` through the `includes` method. Since `'Ford'` is the first element in the array that contains an `'o'` that it what is returned. Thus, when `console.log(myCars)` is logged on the last line, it logs `'Ford'`.
+The code logs `'Ford'`. This example illustrates how the array method `find` works. The global variable `cars` is declared and initialized to reference the array `[ 'Ford', 'Chrysler', 'Toyota' ]` on line 1. The global variable `myCars` is declared and initialized to the return value of applying the `find` method on the array that `cars` references. The `find` method executes the callback function once for each index of the array until the callback function returns a truthy value. Here, the `find` method looks for the first element in the array that contains an `'o'` through the `includes` method. Since `'Ford'` is the first element in the array that contains an `'o'` that it what is returned. Thus, when `console.log(myCars)` is logged on the last line, it logs `'Ford'`.
 
 If so, `find` immediately returns the value of that element. Otherwise, `find` returns `undefined`.
 
@@ -1106,3 +1104,33 @@ On line 3, we declare the global variable `a` and initialize it with the value `
 On line 9, we call the function `myFunction` with the value of `a` passed in, but this value will not be used by the function call as it has been defined without any parameter.
 
 On line 6, during the function call, we try to re-assign the variable `a` to the value `2`. As, we do not have any variable `a` in the local scope, JS will look in the outer scope for a variable `a`. As this global variable has been declared with `const`, it can not be re-assigned and the code will raise an error at that point.
+
+## What will the following code output?
+
+```js
+console.log([1, 2, 3] + [4, 5]);
+```
+
+The code outputs `1,2,34,5`. In JavaScript the `+` operator first converts the arrays to strings, and then concatenates the strings, so the output is the string `1,2,34,5.`
+
+## What will the following code outputs?
+
+```js
+let str1 = "hello there";
+let str2 = str1;
+str2 = "goodbye!";
+console.log(str1);
+```
+
+The code outputs `'hello there'` since we are working with strings which are primitive values and immutable. That also means that JavaScript creates a new copy of the string when assigning a string to a variable. On line 2, `str2` is assigned to a new string that happens to be a copy of `str1`'s value. On line 3, `str2` is reassigned to an entirely new string. Thus, the `console.log` method passes in the value of `str1` from line 1 and logs `'hello there'`.
+
+## What does the last line in the following code output?
+
+```js
+let object = { first: [1] };
+let numArray = object["first"];
+numArray.push(2);
+
+console.log(numArray); //  => "[1, 2]"
+console.log(object); // => { first: [ 1, 2 ] }
+```

@@ -3820,3 +3820,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 13:59 I've been studying and I think I will take the written assessment tomorrow. I need to figure out my timers.
 
 15:15 Studying and writing out more examples.
+
+19:57 Going through the examples from the lesson and now need to go up and say goodnight to the kids.

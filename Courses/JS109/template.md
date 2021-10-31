@@ -21,6 +21,32 @@ console.log(foo); // ReferenceError: foo is not defined
 
 The program outputs an error since `foo` is out of scope. The `let` statement creates variables with block scope which limits the visibility of the variable to the block. Even though `console.log(foo)` comes after the declaration and initialization of `foo`, we still get an error since we declared `foo` inside the block. Outside the block, `foo` doesn't exist.
 
+### 3. What does the following program log to the console? Why?
+
+```js
+let foo = {
+  a: 'hello',
+  b: 'world',
+};
+
+let qux = 'hello';
+
+function bar(argument1, argument2) {
+  argument1.a = 'hi';
+  argument2 = 'hi';
+}
+
+bar(foo, qux);
+
+console.log(foo.a); // line 15 => 'hi'
+console.log(qux); // line 16 => 'hello'
+```
+
+Solution
+The program logs `'hi'` and `'hello'` and demonstrates the difference between pass by value and pass by reference. When passed as arguments into functions, objects are mutable; strings and other primitives are not. `foo` as an object is pass by reference, so when it is passed into the function `bar` to the parameter `argument1`, it points to the same place in memory as the object `foo`. Therefore, when we reassign the property `a` of the local variable `argument1`, we are mutating the same object that the global variable `foo` points to. Thus, when the `console.log(foo.a)` method is called on line 15, `hi` is logged.
+
+On the other hand, `qux` as a string is pass by value. When `qux` is supplied as an argument to `bar`, `argument2` is initialized with a copy of the value of `qux`, and not the actual variable `qux` itself. Therefore, reassigning `argument2` will not reassign `qux`, since they are two different copies of the same value. Thus, line 16 logs `hello`: the original value of the `qux` variable.
+
 ## 2. Variable scope, especially how variables interact with function definitions and blocks
 
 1. Outer scope variables can be accessed by the inner scope.
@@ -246,6 +272,20 @@ console.log('Good Evening, ' + NAME);
 
 The program first greets Victor 3 times. It then encounters an error on line 6 which prevents it from greeting Joe because you can't reassign a constant after defining it. In order to reassign the variable, you must use `let`.
 
+## 5. What will the following code log to the console and why?
+
+```js
+const a = 1;
+
+function myFunction() {
+  a = 2; // line 4
+}
+
+myFunction(a);
+```
+
+This code will raise an error: `TypeError: Assignment to a constant variable`. Variables declared by `const` are block scoped and their value cannot be changed through reassignment. So when we try to reassign `a` on line 4, we get an error. Passing `a` as an argument to `myFunction` doesn't do anything because `myFunction` does not accept any parameters.
+
 ## 6. Strict and Loose Equality
 
 The strict equality operator returns `true` when the operands have the **same type** and **value**, `false` otherwise. For an object, it will return `true` ONLY if both operands refer to the same object.
@@ -379,23 +419,59 @@ The `indexOf()` method returns the first index at which a given element can be f
 
 ### Collection Methods
 
-The `filter` method returns a new array that includes all elements from the calling array for which the callback returns a truthy value. If no elements return a truthy value, it returns an empty array. `filter` doesn't mutate the caller. `filter`'s callback function can accept 1, 2, or 3 elements: the element value, the element index, and the array it is operating on.
-
 The `forEach` method executes a callback function for each element in the calling array. The return value of the callback function is not used by the `forEach` method. `forEach` always returns `undefined`. `forEach` performs simple iteration and returns `undefined`.
+
+The `filter` method returns a new array that includes all elements from the calling array for which the callback returns a truthy value. If no elements return a truthy value, it returns an empty array. `filter` doesn't mutate the caller. `filter`'s callback function can accept 1, 2, or 3 elements: the element value, the element index, and the array it is operating on.
 
 The `map` method returns a new array populated with the return values of executing a callback function for each element of the calling array.
 
 The `some()` method executes a callback function once for each element in the calling array, until it finds an occurrence where the callback function returns a **truthy** value. If such an element is found, the method **immediately** returns `true`. Otherwise, if the callback function returns a falsy value for all elements, the method returns `false`.
 
-The `every()`method executes a callback function once for each element in the calling array, until it finds an occurrence where the callback function returns a **falsy** value. If such an element is found, the method **immediately** returns `false`. Otherwise, if callback function returns a truthy value for all elements, the method returns `true`.
+The `every()`method executes a callback function once for each element in the calling array, until it finds an occurrence where the callback function returns a **falsy** value. If such an element is found, the method **immediately** returns `false`. Otherwise, if the callback function returns a truthy value for all elements, the method returns `true`.
 
 ### Example: `filter`
 
+What is the return value of the filter method call below? Why?
+
 ```js
-let ages = [21, 22, 33, 40, 25, 20, 61]; // line 1
-let invited = ages.filter(age => age >= 21 && age < 40); // l2
-console.log(invited); // line 3
+[1, 2, 3].filter(num => 'hi');
 ```
+
+The code returns `[1, 2, 3]`. The `filter` method performs selection based on the truthiness of the callback's return value. Here, the return value is always `'hi'`, which is truthy. Thus, `filter` returns a new array containing all the elements in the original array.
+
+### Example: `map`
+
+What is the return value of `map` in the following code? Why?
+
+```js
+[1, 2, 3].map(num => {
+  num * num;
+});
+```
+
+The code returns `[ undefined, undefined, undefined ]`. The `map` method looks at the return value of the callback function to decide the elements in the returned array. Each element in the original array is replaced by what the callback returns for that element. Here, there's no explicit return statement in the callback function, which means the callback returns `undefined` each time.
+
+### Example: `pop`
+
+What is the return value of the following statement? Why?
+
+```js
+['ant', 'bear', 'caterpillar'].pop().length;
+```
+
+The return value is `11`. First, the `pop` method is called on the array. `pop` destructively removes the last element from the calling array and returns it. Second, `length` is accessed on the return value of `pop` which is the string `'caterpillar'` and it has a length of 11.
+
+### Example: `every`
+
+What is the callback's return value in the following code? Also, what is the return value of `every` in this code?
+
+```js
+[1, 2, 3].every(num => {
+  return num = num * 2;
+});
+```
+
+The return values of the callback will be `2`, `4`, and `6` on the respective iterations. The expression `num = num * 2` is an assignment expression and will evaluate as the expression on the right-hand side of the assignment and that is what gets returned in each iteration. Since all of those numbers are truthy values, `every` will return `true`.
 
 ## 10. Working with Objects; accessing keys and values of an Object as arrays
 
@@ -407,7 +483,7 @@ The `Object.values` static method extracts the values from every own property in
 
 The `Object.assign` static method merges two or more objects by combining the key-value pairs into a single object. `Object.assign` mutates the first object.
 
-## 11. Arrays are objects
+## 11. Arrays are Objects
 
 JavaScript arrays are objects. The chief difference between an array and some other object is that it uses non-negative integers as its primary keys. Another significant difference is that adding elements to the array increases the value of its `length` property, and changing the value of the `length` property causes the number of elements to change.
 
@@ -438,6 +514,23 @@ console.log(greeting);
 ```
 
 The code returns the string `'Hello World'` and logs `'Hello'`. This example illustrates pass by value of a string into a function. Since the value of `greeting` is an immutable string, it is passed by value into function `test` and whatever happens inside the function cannot mutate the value of `greeting`. Within function `test` the parameter `str` accepts the value of the argument `greeting` passed in through the call to function `test`. `str` is reassigned within `test` and its value is concatenated via `str.concat(' World')` and `'Hello World'` is returned. Since the value of `str` is not captured anywhere, it is destroyed.
+
+## 4. Example 2: Pass by Value
+
+```js
+let firstName = 'John';
+
+const getName = (name) => {
+  name.concat(' Doe');
+  name = name.toLowerCase();
+  return name;
+};
+
+getName(firstName); // line 9
+console.log(firstName); // line 10
+```
+
+The `console.log(firstName)` method outputs `John` on line 10. The call to the `getName` function returns `john` on line 9. This example illustrates pass by value. The function `getName` cannot access or reassign the variable `firstName` because only a copy of the value of `firstName` is passed into the function, and not the actual variable `firstName` itself since it’s a primitive and hence pass-by-value. The `name.concat(' Doe')` call on line 3 does not change the value of `name`, since strings cannot be mutated. The reassignment `name = name.toLowerCase()` does change the value of `name` because it reassigns `name` to its own value with the `toLowerCase()` method performed on it.
 
 ### Example 2: Pass by Reference
 
@@ -500,6 +593,23 @@ However, with objects, JavaScript doesn't store the value of the object in the m
 
 When two variables point to the same object, mutating the shared object will result in the change being reflected in both variables.
 
+## 1. Example: What will line 10 log to the console and why?
+
+```js
+let greeting = ["Hello"];
+
+const test = arr => {
+  arr = ["ByeBye"]; // line 4
+  arr.push("World");
+  return arr;
+}
+
+test(greeting); // line 9
+console.log(greeting); // line 10
+```
+
+On line 10, the `console.log(greeting)` method will log `["Hello"]` because 1) the global variable `greeting` is not reassigned within the body of the function `test`, and 2) the object that the variable `greeting` points to is not mutated within the function `test`. On line 1, the global variable `greeting` is declared and assigned to reference the array `["Hello"]`. On line 9, the function `test` is called with the passed in argument `greeting`. At this point, both the global variable `greeting` and the parameter `arr` reference the same array. On line 4, `arr` is reassigned to reference the new array `["ByeBye"]`. Therefore, parameter `arr` and the object `greeting` variable no longer reference the same place in computer memory. Thus, the object variable `greeting` is no longer mutable because `arr` now references a different object.
+
 ### Example: variables as pointers
 
 ```js
@@ -560,7 +670,6 @@ a === b; // false
 ```
 
 The conditional statement outputs `'Neither a nor b is true'` and demonstrates the use of truthiness and boolean values in JavaScript. In both the `if` and `else if` statements the values of the global variables `a` and `b` evaluate to false. Thus, the `if` and `else if` blocks are bypassed and the `else` block executes to log the string `'Neither a nor b is true'`. On line 12, using the strict equality operator to compare the values in `a` and `b` returns `false` because while both values evaluate to `false` they are not the same value.
-
 
 ## 16. Function Definition and Invocation
 
