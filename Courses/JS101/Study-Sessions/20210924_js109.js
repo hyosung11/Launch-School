@@ -111,9 +111,9 @@ arr.concat returns a new array ['Hello', 'World']
 // Example 4 - What is output and why?
 let greeting = ['Hello'];
 
-const test = (str) => {
-  str = str.push(' World!');
-  return str;
+const test = (arr) => {
+  arr = arr.push(' World!');
+  return arr;
 };
 
 test(greeting);

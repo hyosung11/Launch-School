@@ -3808,3 +3808,13 @@ How awesome are the engineers in the company? If you're the best one there, that
 18:23 Getting some tips from Jordan Whistler about how to answer written assessment questions.
 
 [Sample Questions with Answers](https://www.notion.so/Jonathans-Sergios-Snippets-Elaines-questions-49c043010dfa45d6abcfc01f7b008032)
+
+## 20211030 토요일
+
+18:55 I have been studying today.
+
+20:41 More examples for the template document. Ending for the day now.
+
+## 20211031 일요일
+
+13:59 I've been studying and I think I will take the written assessment tomorrow. I need to figure out my timers.

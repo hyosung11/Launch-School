@@ -692,4 +692,63 @@ Because `a` references an array which is an object value it is passed by referen
 
 /* ==================================================== */
 
-console.log([0, 1, 4].filter((num) => num)); // => [ 1, 4 ]
+// console.log([0, 1, 4].filter((num) => num)); // => [ 1, 4 ]
+
+// let greeting = 'Hello';
+
+// const test = (str) => {
+//   str = str.concat(' World!');
+//   return str;
+// };
+
+// test(greeting);
+// console.log(greeting);
+
+// let greeting = ['Hello'];
+
+// const test = (arr) => {
+//   arr = arr.push(' World!');
+//   return arr;
+// };
+
+// console.log(test(greeting));
+// console.log(greeting);
+
+// let greeting = ['Hello'];
+
+// const test = (arr) => {
+//   arr = arr.concat(' World!');
+//   return arr;
+// };
+
+// console.log(test(greeting)); // => [ 'Hello', ' World!' ]
+// console.log(greeting); // => [ 'Hello' ]
+
+// let b = 2;
+
+// function test(b) {
+//   return b += 5;
+// }
+
+// console.log(test()); // => NaN
+
+// function fetchData(email) {                  // line 1
+// 	return {
+// 		email: email,                            // line 3
+//     company: "Microsoft" 
+// 	}                                          // line 5
+// }
+//                                              // line 7
+// console.log(fetchData('bill@microsoft.com')) // line 8
+// => { email: 'bill@microsoft.com', company: 'Microsoft' }
+
+let sentence = "Lorem ipsum dolor sit amet ionsectetum adipisicing";
+let result = [];                                    // line 2
+for (let word of sentence.split(' ')) {
+	if (word.startsWith("i") && word.endsWith("m")) { // line 4
+		result.push(word + ' ')
+	}                                                 // line 6
+}
+                                                    // line 8
+console.log(result.join('').trim());                // line 9
+// => ipsum ionsectetum

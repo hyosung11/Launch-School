@@ -1,11 +1,25 @@
 # JS109 Written Assessment Template of Topics, Practice Questions & Sample Answers
 
-## 1. Declarations, initialization, assignment, and re-assignment
+## 1. Declarations, Initialization, Assignment, and Reassignment
 
 On line 1, the global variable `x` is declared and initialized to the string `'x'`.
 On line 2, the global variable `y` is declared and references the array/object `y`.
 
 On line 3, the variable `z` is reassigned to the `z`.
+
+### Example
+
+What happens when you run the following program? Why do we get that result?
+
+```js
+{
+  let foo = "bar";
+}
+
+console.log(foo); // ReferenceError: foo is not defined
+```
+
+The program outputs an error since `foo` is out of scope. The `let` statement creates variables with block scope which limits the visibility of the variable to the block. Even though `console.log(foo)` comes after the declaration and initialization of `foo`, we still get an error since we declared `foo` inside the block. Outside the block, `foo` doesn't exist.
 
 ## 2. Variable scope, especially how variables interact with function definitions and blocks
 
@@ -67,6 +81,41 @@ console.log(dog); //  line 8 => Bark
 ```
 
 The code logs `'Bark'` and illustrates variable scope, specifically that inner scope variables can shadow outer scope variables. On line 1, the global variable `dog` is declared and initialized to the string `'Bark'`. On line 3, the function `dogCall` is declared with the parameter `dog`. The parameter `dog` shadows the global variable `dog` because they share the same name making the global variable `dog` inaccessible within the function. On line 7, the function `dogCall` is called with `dog` passed as an argument. Since the function `dogCall` doesn't have an explicit `return` statement, it returns `undefined`. On line 8, the `console.log` method only has access to the global variable `dog` and passes in its value and logs `'Bark'`.
+
+### Example 4. Inner scope variables can shadow outer scope variables
+
+What does this code log and what's the principle being demonstrated?
+
+```js
+let animal = "dog"; // line 1
+
+const speak = animal => {
+  if (animal) {
+    console.log("Bark");
+  } else {
+    console.log("Meow");
+  }
+};
+
+speak(); // line 11
+```
+
+The code logs `'Meow'` and illustrates that inner scope variables can shadow outer scope variables. On line 1, the global variable `animal` is declared and initialized to the string `'dog'`. On line 3, the arrow function `speak` is declared with the parameter `animal`. The parameter `animal` shadows the global variable `animal` and makes it inaccessible within the function. On line 11, the function `speak` is called but doesn't pass an argument, so the value passed to the parameter `animal` is `undefined`. Within function `speak`, the `if` conditional evaluates the value of `animal` as false because `undefined` is a falsy value, so the `else` branch executes and `'Meow'` is logged.
+
+### Example 5. Variable Scope
+
+Take a look at this code snippet. What does this program log to the console? Why?
+
+```js
+let foo = 'bar';
+{
+  let foo = 'qux';
+}
+
+console.log(foo);
+```
+
+The program logs `'bar'`. This example illustrates variable scope and variable shadowing. On line 1, the global variable `foo` is declared and initialized to the string `'bar'`. Line 2 starts a block, which creates a new scope for `let` variables. The variable on line 1 is still visible at this point, but line 3 declares a new variable named `foo` that shadows the variable from line 1. The second `foo` variable gets initialized to `'quz'`, but it goes out of scope on line 4 when the block ends. That brings `foo` from line 1 back into scope, so line 6 logs its value: `'bar'`.
 
 ## 3. Primitive values, Objects, and Type Coercions
 
@@ -153,6 +202,24 @@ These examples illustrate object immutability and mutability and the `const` dec
 
 On line 5, the global constant `campus` is declared and initialized to reference the object `{ state: 'Boston', address: 'North Ave NW' }`. On line 6, the `state` key of the `campus` object is accessed via dot notation and it's value is mutated to the string `'Georgia'`. Although a `const` declaration prohibits changing what object the `const` points to, it does not prohibit changing the content of the object. Here, the `campus` object has not been frozen, so it's property can be mutated. On line 7, the `console.log` method passes the object referenced by the global constant `campus` as an argument and the object `{ state: 'Georgia', address: 'North Ave NW' }` is logged to the console.
 
+### Example: `const`
+
+What happens when you run the following code? Why?
+
+```js
+const NAME = 'Victor';
+console.log('Good Morning, ' + NAME);
+console.log('Good Afternoon, ' + NAME);
+console.log('Good Evening, ' + NAME);
+
+NAME = 'Joe';
+console.log('Good Morning, ' + NAME);
+console.log('Good Afternoon, ' + NAME);
+console.log('Good Evening, ' + NAME);
+```
+
+The program first greets Victor 3 times. It then encounters an error on line 6 which prevents it from greeting Joe because you can't reassign a constant after defining it. In order to reassign the variable, you must use `let`.
+
 ## 6. Strict and Loose Equality
 
 The strict equality operator returns `true` when the operands have the **same type** and **value**, `false` otherwise. For an object, it will return `true` ONLY if both operands refer to the same object.
@@ -181,15 +248,32 @@ if (something === somethingElse) { // line 4
 } // line 10
 ```
 
-The code logs `'Radio'` and illustrates loose and strict equality, specifically how the loose equality operator uses implicit coercion. On line 1, the global variable `something` is declared and initialized to reference an empty array `[]`. On line 2, the global variable `somethingElse` is declared and initialized to an empty string `''`. On lines 4-9, an `if..else` statement is defined. In the `if` statement's condition, the values stored in `something` and `somethingElse` are compared using the strict equality operator `===` and since an `[] === ''` are not strictly equal the condition evaluates as false. 
+The code logs `'Radio'` and illustrates loose and strict equality, specifically how the loose equality operator uses implicit coercion. On line 1, the global variable `something` is declared and initialized to reference an empty array `[]`. On line 2, the global variable `somethingElse` is declared and initialized to an empty string `''`. On lines 4-9, an `if..else` statement is defined. In the `if` statement's condition, the values stored in `something` and `somethingElse` are compared using the strict equality operator `===`. Since an empty array and an empty string are not equal, the condition evaluates to `false`, and the first block is bypassed. On line 6, the values stored in `something` and `somethingElse` are compared again but using the loose equality operator. The loose equality operator coerces the value in `something` to an empty string `''` and compares it to the value stored in `somethingElse` which is also an empty string `''`, and this comparison evaluates to `true`, so the `console.log` method executes on line 7, and `'Radio'` is logged.
 
-## 7. passing arguments into and return values out of functions
+## 7. Passing arguments into and return values out of functions
 
 Arguments let you pass data from outside the function's scope into the function so it can access the data.
 
 Functions can perform an operation and **return** a result to the call location for later use. We do that with **return values** and the `return` statement.
 
 JavaScript uses the `return` statement to return a value to the code that called the function: the **caller**. If you don't specify a value, it returns `undefined`. Either way, the `return` statement causes the function to stop running and returns control to the caller.
+
+### Example
+
+What is logged and why?
+
+```js
+function fetchData(email) {                  // line 1
+  return {
+    email: email,                            // line 3
+    company: "Microsoft"
+  }                                          // line 5
+}
+                                             // line 7
+console.log(fetchData('bill@microsoft.com')) // line 8
+```
+
+The code logs `{ email: 'bill@microsoft.com, company: "Microsoft" }`. On line 8, the function `fetchData` is called with the string `'bill@microsoft.com'` passed as an argument. The return value of the `fetchData` call is passed to the `console.log` method. On line 1, the function `fetchData` is declared with the parameter `email`. On line 2, the object `{ email: 'bill@microsoft.com, company: "Microsoft" }` is explicitly returned because the value in the parameter `email` which is the string `'bill@microsoft.com'` is passed to the `email` value of the key `email` in the object. This example illustrates passing arguments into and return values out of functions.
 
 ## 8. Working with Strings
 
@@ -218,6 +302,24 @@ The `trimStart()` method removes whitespace from the beginning of a string while
 The `charAt()` method takes an index as an argument and returns the character at that index in the given string.
 
 The `charCodeAt()` method returns the Unicode code point or character code of the character at the index. If an index is not provided, `charCodeAt()` assumes the index `0`.
+
+### Example: String Methods
+
+What does the code log and why?
+
+```js
+let sentence = "Lorem ipsum dolor sit amet ionsectetum adipisicing";
+let result = [];                                    // line 2
+for (let word of sentence.split(' ')) {
+  if (word.startsWith("i") && word.endsWith("m")) { // line 4
+    result.push(word + ' ')
+  }                                                 // line 6
+}
+                                                    // line 8
+console.log(result.join('').trim());                // line 9
+```
+
+The code logs `'ipsum ionsectetum'`. On line 1, the global variable `sentence` is declared and initialized to the string `"Lorem ipsum dolor sit amet ionsectetum adipisicing"`. On line 2, the global variable `result` is declared and initialized to reference an empty array `[]`. On lines 3-7, a `for..of` loop is defined. The `split` method is called on `sentence` which returns an array of strings separated by a space. The variable `word` is initialized to the value of each string in the array as the loop iterates through it. On line 4, the `if` conditional checks each iteration of `word` and if it evaluates as true for  both string methods `startsWith('i')` and `endsWith('m')`, the string at that iteration is concatenated with `' '` and added to the array `result` via the `push` method. On line 9, the `console.log` method is called with `result` passed as an argument. The string method `join` is called on `result` with the `''` as an argument which returns a string with no spaces and the `trim` method is chained onto the result to remove white space from the start and end of the string. This example illustrates using various string methods in JavaScript.
 
 ## 9. Working with Arrays, especially the iteration methods (`forEach`, `map`, `filter`, and `find`)
 
@@ -261,6 +363,14 @@ The `some()` method executes a callback function once for each element in the ca
 
 The `every()`method executes a callback function once for each element in the calling array, until it finds an occurrence where the callback function returns a **falsy** value. If such an element is found, the method **immediately** returns `false`. Otherwise, if callback function returns a truthy value for all elements, the method returns `true`.
 
+### Example: `filter`
+
+```js
+let ages = [21, 22, 33, 40, 25, 20, 61]; // line 1
+let invited = ages.filter(age => age >= 21 && age < 40); // l2
+console.log(invited); // line 3
+```
+
 ## 10. Working with Objects; accessing keys and values of an Object as arrays
 
 The `Object.keys` static method returns an object's keys as an array.
@@ -285,6 +395,77 @@ Pass-by-reference relates to object values that are passed as arguments into a f
 
 The `abc` parameter is initialized to a reference that points to the same Array/Object in memory as `xyz`. Therefore, any mutations to `abc` will also be shown in `xyz` because these two variables contain a reference that points to the same object in memory.
 
+### Examples: Pass by Value
+
+What does this program output and why?
+
+```js
+let greeting = 'Hello';
+
+const test = (str) => {
+  str = str.concat(' World!');
+  return str;
+};
+
+test(greeting);
+console.log(greeting);
+```
+
+The code returns the string `'Hello World'` and logs `'Hello'`. This example illustrates pass by value of a string into a function. Since the value of `greeting` is an immutable string, it is passed by value into function `test` and whatever happens inside the function cannot mutate the value of `greeting`. Within function `test` the parameter `str` accepts the value of the argument `greeting` passed in through the call to function `test`. `str` is reassigned within `test` and its value is concatenated via `str.concat(' World')` and `'Hello World'` is returned. Since the value of `str` is not captured anywhere, it is destroyed.
+
+### Example 2: Pass by Reference
+
+What will happen when we run this code? Why?
+
+```js
+let a = ['Hello'];
+
+function changeValue(a) {
+  a[0] = 'Goodbye';
+}
+
+changeValue(a); // line 7
+console.log(a);
+```
+
+The code logs `[ 'Goodbye' ]`. This example illustrates pass by reference. On line 1, the global variable `a` is declared and initialized to reference the array `['Hello']` which is an object value. On line 3, the function `changeValue` is declared and invoked on line 7 with the argument `a` passed to it. When `a` is passed to function `changeValue`, it is passed as a reference to `[‘Hello’]`, so within function `changeValue`, the array referenced by outer scope variable `a` is mutated. Thus, when `console.log(a)` is called on line 8, `[ 'Goodbye' ]` is logged.
+
+```js
+let greeting = ["Hello"];
+
+const test = arr => {
+  arr = arr.concat(" World!");
+  return arr;
+}
+
+test(greeting);
+console.log(greeting);
+```
+
+The code logs `['Hello']` and illustrates pass by reference of an array as an object value into a function. When the function `test` is called with the argument `greeting`, it is passed by reference to the parameter `arr`. At this point `greeting` and `arr` reference the same array `['Hello']`. Within function `test`, the `concat` method is called on `arr` and returns a new array `['Hello', 'World' ]` that doesn't mutate the array referenced by `greeting` Thus, the call to `console.log(greeting)` logs the value of `greeting` from line 1.
+
+arrays get passed into functions by reference
+the concat method returns a new array - non-mutating
+doesn't affect the original array
+two arrays in memory
+
+* ['Hello']
+* ['Hello', 'World' ]
+
+```js
+let greeting = ["Hello"];
+
+const test = arr => {
+  arr = arr.push(" World!");
+  return arr;
+}
+
+test(greeting); // => 2
+console.log(greeting); // => [ 'Hello', ' World!' ]
+```
+
+The code logs `[ 'Hello', ' World!' ]` and illustrates pass by reference of an array into a function and array mutation via the `push` method. On line 8, the call to function `test` passes in the argument `greeting` which references the array `["Hello"]` on line 1. Within function `test` the `arr` parameter points to the same array that the `greeting` variable points to on line 1. So when the `push` method is called on `arr` it mutates the array referenced by `greeting` and returns `2` the length of the array. Meanwhile, the `console.log(greeting)` method passes the value of `greeting` which references the same `arr` variable in memory and logs `[ 'Hello', ' World!' ]`.
+
 ## 13. Variables as Pointers
 
 Variables that have **primitive** values store those values at the memory location associated with the variable. In our example, `a` and `b` point to different memory locations. When we assign a value to either variable, the value gets stored in the appropriate memory location. If you later change one of those memory locations, it does not affect the other memory location, even if they started off with the same value. Therefore, the variables are *independent* when they contain primitive values.
@@ -293,9 +474,21 @@ However, with objects, JavaScript doesn't store the value of the object in the m
 
 When two variables point to the same object, mutating the shared object will result in the change being reflected in both variables.
 
----
+### Example: variables as pointers
 
-## 14. console.log vs. `return`
+```js
+let pets = ['dragon', 'turtle'];
+
+let newPets = pets;
+
+pets = [];
+
+console.log(newPets);
+```
+
+On line 7, `log` method call with the value referenced by the `newPets` global variable passed in as an argument will output `[ 'dragon', 'turtle' ]`, because 1) `newPets` is initialized to the value referenced by the global variable `pets` and 2) `newPets` isn't reassigned to another value. On line 1, the global variable `pets` is initialized to an array value. On line 2, the global variable `newPets` is initialized to the value referenced by the global variable `pets`. Now, each variable references the same array object in memory. On line 5, `pets` is reassigned to an empty array. The reassignment of `pets` doesn't affect what `newPets` references. Each variable points to a value and reassigning either one doesn't affect the other. On line 7, when the value referenced by `newPets` is passed as an argument to the `log` method call, `newPets` still references the array `['dragon', 'turtle']`. This illustrates the concept of variables as pointers. A variable cannot point to another variable. Variables always point to values in memory. If a variable is assigned to another variable, it points to the value referenced by the other variable. When a variable is reassigned, it is reassigned without affecting what other variables point to.
+
+## 14. `console.log` vs. `return`
 
 The `console.log` method outputs something to the console and returns `undefined`.
 
@@ -343,6 +536,28 @@ All JavaScript function calls evaluate to a value. By default, that value is `un
 
 JavaScript uses the `return` statement to *return a value to the code that **called** the function:* the **caller**. If you don't specify a value, it returns the implicit return value of `undefined`. Either way, the `return` statement causes the function to stop running and returns control to the caller.
 
+```js
+function test(str) {
+  str + '!!!';
+}
+
+let word = test('Hello');
+
+if (word) {
+  console.log('Hi');
+} else {
+  console.log('Goodbye');
+}
+```
+
+no explicit return statement
+test will implicitly return undefined
+str is not assigned to anything
+word is assigned to `undefined`
+word is evaluated to false
+so the else block executes
+and "Goodbye" is logged
+
 ## 19. First-class Functions
 
 All JavaScript functions are **first-class functions**. The key feature of first-class functions is that you can treat them like any other value. In fact, **all JavaScript functions are objects**. Thus, you can assign them to variables, pass them as arguments to other functions, and return them from a function call.
@@ -365,7 +580,7 @@ Invalid names include variables that begin with a number, use hyphens, look like
 
 Avoid magic numbers which are numbers or values that appear in your program without any information that describes what that number represents.
 
-## 22. be able to explain what a function does without talking about its implementation; that is, document a function's use and purpose
+## 22. Be able to explain what a function does without talking about its implementation; that is, document a function's use and purpose
 
 ```js
 let hello = "Hello, world!";
