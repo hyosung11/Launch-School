@@ -1098,7 +1098,7 @@ myFunction(a);
 
 The code raises an error. This example illustrates variable scoping and that you cannot reassign a `const` declaration. On line 1, the global constant `a` is declared and initialized to the value `1`. On line 3, the function `myFunction` is declared without any parameters. On line 7, `myFunction` is called with `a` passed as an argument but because `myFunction` accepts no parameters it will not be used within the function. Within `myFunction` the attempt to reassign the value of `a` to `2` raises `TypeError: Assignment to constant variable` because you cannot reassign a constant variable.
 
-LS
+Laurent
 This code will raise a reference error. This illustrates the concept of variable scoping and the fact that we can not re-assign a constant.
 
 On line 3, we declare the global variable `a` and initialize it with the value `1` with the `const` keyword.
