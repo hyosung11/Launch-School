@@ -117,7 +117,7 @@ console.log(foo);
 
 The program logs `'bar'`. This example illustrates variable scope and variable shadowing. On line 1, the global variable `foo` is declared and initialized to the string `'bar'`. Line 2 starts a block, which creates a new scope for `let` variables. The variable on line 1 is still visible at this point, but line 3 declares a new variable named `foo` that shadows the variable from line 1. The second `foo` variable gets initialized to `'quz'`, but it goes out of scope on line 4 when the block ends. That brings `foo` from line 1 back into scope, so line 6 logs its value: `'bar'`.
 
-## 3. Primitive values, Objects, and Type Coercions
+## 3. Primitive Values, Objects, and Type Coercions
 
 Primitive values are always *immutable*; they don't have parts that one can change. Such values are said to be atomic; they're indivisible. If a variable contains a primitive value, all you can do to that variable is use it in an expression or *reassign* it: give it an entirely new value. All operations on primitive values evaluate as new values. There are seven primitive data types in JavaScript: **string**, **number**, **boolean**, **`undefined`**, **`null`**, bigInt and symbol.
 
@@ -152,7 +152,33 @@ D) Returns the string `'[object Object]'`. The empty nested array `[[]]` is coer
 Objects are data structures that store a collection of key-value pairs. Each item in the collection has a name that is called the key and an associated value. Key-value pairs are also called object properties in JavaScript. We can also use "property" to refer to the key name.
 If a value happens to be a function, it is called a method. The properties contained by the object are delimited by braces `{}`. The keys are strings, even when quotes are omitted. The values can be of any type. Object properties can be accessed through dot notation or bracket notation.
 
-### Example 1: Changing Object Properties
+### Example 1: Dot Notation vs Bracket Notation
+
+What is the output of both code snippets and why? Explain any differences.
+
+```js
+// Snippet 1
+let ocean = {};
+let prefix = 'Indian';
+
+ocean.prefix = 'Pacific';
+
+console.log(ocean); // ?
+
+// Snippet 2
+let ocean = {};
+let prefix = 'Indian';
+
+ocean[prefix] = 'Pacific';
+
+console.log(ocean); // ?
+```
+
+The output of snippet 1 is `{ prefix: 'Pacific' }` and demonstrates using dot notation to add a property to an object. On line 1, the global variable `ocean` is declared and initialized to an empty object `{}`. On line 4, `ocean.prefix = 'Pacific'` access the object referenced by `ocean` and adds the key `prefix` and the value `'Pacific'` to the object and this is what's logged.
+
+The output of snippet 2 is `{ Indian: 'Pacific' }` and demonstrates the use of bracket notation to add a property to an object. On line x, the global variable `ocean` is declared and initialized to reference the object `{}`. On line x, the global variable `prefix` is declared and initialized to the string `'Indian'`. On the next line, the value stored in `prefix` is assigned to the key as `'Indian'` and the value is initialized as `Pacific'` in the object referenced by the variable `ocean` and this is what gets logged.
+
+### Example 2: Changing Object Properties
 
 What will the code snippet return?
 
@@ -258,7 +284,7 @@ Functions can perform an operation and **return** a result to the call location 
 
 JavaScript uses the `return` statement to return a value to the code that called the function: the **caller**. If you don't specify a value, it returns `undefined`. Either way, the `return` statement causes the function to stop running and returns control to the caller.
 
-### Example
+### Example: Passing Arguments
 
 What is logged and why?
 
@@ -514,6 +540,28 @@ Truthiness differs from Boolean values. In JavaScript, almost all values *evalua
 
 Notice that every `if` statement has an expression that evaluates as true or false. However, the expression doesn't have to be one of the boolean values, `true` or `false`. JavaScript can coerce any value to a boolean value, and that's what it does in conditional contexts like the `if` statement.
 
+### Example: Truthiness vs Boolean
+
+In the code below, the conditional statement outputs `'Neither a nor b is true'` and line 12 returns `false`. Explain why the `else` branch is executed when `a` and `b` are evaluated in the conditional statement. Also explain why `false` is returned when `a` is compared to `b` on line 12. Which principle is demonstrated by the combination of these facts?
+
+```js
+let a = false;
+let b = null;
+
+if (a) {
+  console.log("a is true");
+} else if (b) {
+  console.log("b is true");
+} else {
+  console.log("Neither a nor b is true");
+}
+
+a === b; // false
+```
+
+The conditional statement outputs `'Neither a nor b is true'` and demonstrates the use of truthiness and boolean values in JavaScript. In both the `if` and `else if` statements the values of the global variables `a` and `b` evaluate to false. Thus, the `if` and `else if` blocks are bypassed and the `else` block executes to log the string `'Neither a nor b is true'`. On line 12, using the strict equality operator to compare the values in `a` and `b` returns `false` because while both values evaluate to `false` they are not the same value.
+
+
 ## 16. Function Definition and Invocation
 
 In a function definition, the names between parentheses are called parameters, and arguments are the values of those parameters.
@@ -570,6 +618,26 @@ All JavaScript functions are **first-class functions**. The key feature of first
 4. It raises an exception without handling it.
 5. It calls another function that has side-effects.
 
+```js
+// 1. side-effect: logs output to the console
+// returns: undefined
+function displayTotal(num1, num2) {
+  console.log(num1 + num2);
+}
+
+// 2. side-effect: mutates the passed-in array
+// returns: updated array
+function append(targetArr, valueToAppend) {
+  targetArr.push(valueToAppend);
+  return targetArr;
+}
+// 3. side-effect: none
+// returns: a new number
+function computeTotal(num1, num2) {
+  return num1 + num2;
+}
+```
+
 ## 21. Naming Conventions (legal vs idiomatic)
 
 Idiomatic names follow the naming conventions in the JavaScript book.
@@ -593,3 +661,15 @@ myFunc();
 ```
 
 The function `myFunc` outputs `'Hello, world!'` which it obtains from the global variable `hello`, then returns `undefined`. The function can use `hello` since functions have access to variables defined in the outer scope.
+
+```js
+let arrayOfAges = [6, 9, 48, 53];
+
+function getOldest(ages) {                   // line 1
+  return ages.sort((a, b) => b - a)[0];     // line 2
+}                                            // line 3
+
+getOldest(arrayOfAges);
+```
+
+The function `getOldest` sorts an array of numbers from lowest to highest and returns the highest number.
