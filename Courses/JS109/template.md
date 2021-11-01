@@ -12,6 +12,7 @@
 8. function has a `return` statement otherwise `undefined`
 9. Variables as Pointers
 10. Truthiness vs Boolean => evaluates to true/false
+11. Variables are not passed to or returned by functions: values or references are passed.
 
 ## 1. Declarations, Initialization, Assignment, and Reassignment
 
