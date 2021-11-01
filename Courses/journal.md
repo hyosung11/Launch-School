@@ -3838,3 +3838,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 13:32 Warming up fried rice for lunch and want to start working on small problems again.
 
 14:41 Reviewing the Small Problems and need to drill down into writing code again. It's almost time to get the kids.
+
+17:19 Working on Small Problems again.
+
+19:37 I don't find the Small Problems > Easy 2 that easy.

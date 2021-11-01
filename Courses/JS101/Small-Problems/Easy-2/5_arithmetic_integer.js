@@ -1,4 +1,4 @@
-/* JS101 - Small Problems > Easy 2 5. Arithmetic Integer
+/* JS101 - Small Problems > Easy 2 > 5. Arithmetic Integer
 
 Arithmetic Integer
 
