@@ -1,5 +1,7 @@
 # JS109 Written Assessment Answers
 
+Total Points = 73
+
 ## Question 1 3 Points
 
 Examine the two code examples below. Explain, with particular reference to line 3 of each example, why Example 1 logs the same values for `arr1` and `arr2`, but Example 2 logs different values.

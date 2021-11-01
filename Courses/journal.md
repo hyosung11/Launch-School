@@ -3832,3 +3832,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 09:36 Ready to go at 09:40.
 
 12:39 Just submitted the written assessment. It will be tight to pass.
+
+13:21 I feel anxious about whether I passed. I'm going to lose points for the last question which brings me down. How many total points?
