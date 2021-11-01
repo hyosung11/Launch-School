@@ -719,6 +719,17 @@ and "Goodbye" is logged
 
 All JavaScript functions are **first-class functions**. The key feature of first-class functions is that you can treat them like any other value. In fact, **all JavaScript functions are objects**. Thus, you can assign them to variables, pass them as arguments to other functions, and return them from a function call.
 
+### Example `forEach`
+
+```js
+[[1, 2], [3, 4]].forEach(arr => console.log(arr[0]));
+// 1
+// 3
+// => undefined
+```
+
+The code logs `1`, `3` and returns `undefined`. We use the multi-dimensional array [[1, 2], [3, 4]] to call `forEach`. Each inner array is passed to the callback, in turn, and assigned to the parameter `arr`. We then use the element reference operator, `[]`, to get the value at index `0` of the array. On the first invocation of the callback, `arr[0]` returns `1`, and on the second, it returns `3`. In each invocation, `console.log` outputs a string representation of the value returned by `arr[0]`. Since this is a single statement callback, the callback's return value is the return value of `console.log(arr[0])`, which is `undefined`. `forEach` doesn't do anything with that returned value though. Finally, no matter what the callback returns, forEach always returns `undefined`.
+
 ## 20. Side-effects
 
 1. It reassigns any non-local variable. Reassigning a variable in the outer scope would be a side-effect.

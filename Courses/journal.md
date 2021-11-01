@@ -3822,3 +3822,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 15:15 Studying and writing out more examples.
 
 19:57 Going through the examples from the lesson and now need to go up and say goodnight to the kids.
+
+20:26 Done studying now. I will take the written assessment tomorrow.
