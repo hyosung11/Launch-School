@@ -509,6 +509,8 @@ Arrays as objects are object data types with non-primitive or object values, not
 
 Pass-by-value relates to primitive values that are passed as arguments into a function. With all primitive values, the value is passed by value and the function receives a copy of the original value. The parameter in the function points to a new copy of the value.
 
+Since `abc` is a primitive string value it is passed by value into function `xyz` which receives a copy of the original value and parameter `param` points to a new copy of the value.
+
 Pass-by-reference relates to object values that are passed as arguments into a function. When we declare and initialize a variable to an object value, we are initializing that variable to hold a *reference* which points to the actual object in memory. Therefore, when we pass the argument into a function, we pass the reference that points to the actual object. Thus, any destructive changes that the function may implement on the Object affects the original object as well. The function can *change/modify/mutate* the argument that is passed because we have a *reference* to that original argument.
 
 The `abc` parameter is initialized to a reference that points to the same Array/Object in memory as `xyz`. Therefore, any mutations to `abc` will also be shown in `xyz` because these two variables contain a reference that points to the same object in memory.

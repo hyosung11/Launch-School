@@ -33,7 +33,7 @@ test(greeting);
 console.log(greeting);
 ```
 
-On line 10, the `console.log(greeting)` method will log `["Hello"]` because 1) the global variable `greeting` is not reassigned within the body of the function `test`, and 2) the object that the variable `greeting` points to is not mutated within the function `test`. On line 1, the global variable `greeting` is declared and assigned to reference the array `["Hello"]`. On line 9, the function `test` is called with the passed in argument `greeting`. At this point, both the global variable `greeting` and the parameter `arr` reference the same array. On line 4, `arr` is reassigned to the new array `["ByeBye"]`. Therefore, parameter `arr` and the object `greeting` variable no longer reference the same place in computer memory. Thus, the object variable `greeting` is no longer mutable because `arr` now references a different object.
+On line 10, the `console.log(greeting)` method will log `["Hello"]` because 1) the global variable `greeting` is not reassigned within the body of the function `test`, and 2) the object that the variable `greeting` points to is not mutated within the function `test`. On line 1, the global variable `greeting` is declared and assigned to reference the array `["Hello"]`. On line 9, the function `test` is called with the argument `greeting`. At this point, both the global variable `greeting` and the parameter `arr` reference the same array. On line 4, `arr` is reassigned to the new array `["ByeBye"]`. Therefore, parameter `arr` and the object `greeting` variable no longer reference the same place in computer memory. Thus, the object variable `greeting` is no longer mutable because `arr` now references a different object.
 
 ## 2. Example from Study Guide
 

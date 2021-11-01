@@ -3824,3 +3824,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 19:57 Going through the examples from the lesson and now need to go up and say goodnight to the kids.
 
 20:26 Done studying now. I will take the written assessment tomorrow.
+
+## 20211101 월요일
+
+09:22 I'm nervous now as I get ready to take the written assessment. My hands are cold.
