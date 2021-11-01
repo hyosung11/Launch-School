@@ -1,5 +1,18 @@
 # JS109 Written Assessment Template of Topics, Practice Questions & Sample Answers
 
+## Key Concepts Checklist
+
+1. Scope: Variable, Block, Function, Shadowing
+2. Primitives | Objects | Type Coercion
+3. Mutability vs Immutability vs `const`
+4. Strict and Loose Equality
+5. Pass by value or pass by reference
+6. function takes a parameter => otherwise argument is ignored
+7. function passes an argument otherwise `undefined`
+8. function has a `return` statement otherwise `undefined`
+9. Variables as Pointers
+10. Truthiness vs Boolean => evaluates to true/false
+
 ## 1. Declarations, Initialization, Assignment, and Reassignment
 
 On line 1, the global variable `x` is declared and initialized to the string `'x'`.
@@ -254,7 +267,7 @@ These examples illustrate object immutability and mutability and the `const` dec
 
 On line 5, the global constant `campus` is declared and initialized to reference the object `{ state: 'Boston', address: 'North Ave NW' }`. On line 6, the `state` key of the `campus` object is accessed via dot notation and it's value is mutated to the string `'Georgia'`. Although a `const` declaration prohibits changing what object the `const` points to, it does not prohibit changing the content of the object. Here, the `campus` object has not been frozen, so it's property can be mutated. On line 7, the `console.log` method passes the object referenced by the global constant `campus` as an argument and the object `{ state: 'Georgia', address: 'North Ave NW' }` is logged to the console.
 
-### Example: `const`
+### Example 2: `const`
 
 What happens when you run the following code? Why?
 
@@ -272,7 +285,9 @@ console.log('Good Evening, ' + NAME);
 
 The program first greets Victor 3 times. It then encounters an error on line 6 which prevents it from greeting Joe because you can't reassign a constant after defining it. In order to reassign the variable, you must use `let`.
 
-## 5. What will the following code log to the console and why?
+### Example 3: `const`
+
+What will the following code log to the console and why?
 
 ```js
 const a = 1;
@@ -515,7 +530,7 @@ console.log(greeting);
 
 The code returns the string `'Hello World'` and logs `'Hello'`. This example illustrates pass by value of a string into a function. Since the value of `greeting` is an immutable string, it is passed by value into function `test` and whatever happens inside the function cannot mutate the value of `greeting`. Within function `test` the parameter `str` accepts the value of the argument `greeting` passed in through the call to function `test`. `str` is reassigned within `test` and its value is concatenated via `str.concat(' World')` and `'Hello World'` is returned. Since the value of `str` is not captured anywhere, it is destroyed.
 
-## 4. Example 2: Pass by Value
+### Example 2: Pass by Value
 
 ```js
 let firstName = 'John';
@@ -593,7 +608,9 @@ However, with objects, JavaScript doesn't store the value of the object in the m
 
 When two variables point to the same object, mutating the shared object will result in the change being reflected in both variables.
 
-## 1. Example: What will line 10 log to the console and why?
+### Example: Variables as Pointers
+
+What will line 10 log to the console and why?
 
 ```js
 let greeting = ["Hello"];
