@@ -1,9 +1,7 @@
 /* JS101 - Small Problems > Easy 1 > 3. Even Numbers
 
 Even Numbers
-Log all even numbers from 1 to 99, inclusive, to the console, with each number on a separate line.
-
-*/
+Log all even numbers from 1 to 99, inclusive, to the console, with each number on a separate line. */
 
 // for (let number = 2; number < 100; number += 2) {
 //   if (number % 2 === 1) {
@@ -14,16 +12,17 @@ Log all even numbers from 1 to 99, inclusive, to the console, with each number o
 // }
 
 // for loop
-// for (let number = 2; number <= 99; number += 2) {
+// for (let number = 2; number < 100; number += 2) {
 //   console.log(number);
 // }
 
-let number = 2;
+// while loop
+// let number = 2;
 
-while (number < 100) {
-  console.log(number);
-  number += 2;
-}
+// while (number < 100) {
+//   console.log(number);
+//   number += 2;
+// }
 
 //while loop
 // let number = 2

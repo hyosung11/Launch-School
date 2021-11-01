@@ -30,13 +30,11 @@ Algorithm
 - if number is odd return it and log it to the console
 - put each odd number on a separate line
 
-Code
-
-*/
+Code */
 
 // solution with for loop
-// for (let number = 1; number < 100; number += 2) {
-//   console.log(number);
+// for (let num = 1; num < 100; num += 2) {
+//   console.log(num);
 // }
 
 // while loop
@@ -47,8 +45,7 @@ Code
 //   number += 2;
 // }
 
-/*
-Discussion
+/* Discussion
 The program makes use of a for loop to iterate over odd numbers starting from 1. It does this by starting the loop at an odd number (1), and then incrementing it by 2 after every iteration.
 
 If your approach was different from this one, don't worry, since there are a variety of ways to solve this problem.
@@ -58,20 +55,20 @@ Repeat this exercise with a technique different from the one that you used, and 
 */
 
 // simple recursive solution
-function oddNumbers(start, end) {
-  if (start >= end) {
-    return;
-  }
+// function oddNumbers(start, end) {
+//   if (start >= end) {
+//     return;
+//   }
 
-  if (start % 2 === 0) {
-    start += 1;
-  }
+//   if (start % 2 === 0) {
+//     start += 1;
+//   }
 
-  console.log(start);
-  return oddNumbers(start + 2, end);
-}
+//   console.log(start);
+//   return oddNumbers(start + 2, end);
+// }
 
-oddNumbers(1, 15)
+// oddNumbers(1, 15)
 
 // Let's use the logical operator &&
 // for (let counter = 1; counter <= 99; counter += 1) {

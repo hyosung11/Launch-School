@@ -46,7 +46,6 @@ DATA STRUCTURE
 How we represent data that we will work with when converting the input to output
 - not applicable here
 
-
 ALGORITHM
 Steps for converting input to output
 1. require readlineSync
@@ -58,9 +57,7 @@ Steps for converting input to output
 7. log total amount to the console
 
 CODE
-Implementation of Algorithm
-
-*/
+Implementation of Algorithm */
 
 // require readlineSync
 // let readlineSync = require('readline-sync');
@@ -118,8 +115,7 @@ To explain this example, let's instead look at what would happen if we did not u
 /*
 If we entered values 200 and 15 for bill and percentage the tip would be calculated correctly as 30. The reason for this is that /, * and - operators implicitly coerce string operand to a number. Thus, if you added console.log(typeof tip === 'number') below the tip variable initialization, the output would be true. The value assigned to tip would be a number.
 
-However, if we want to apply the same logic to let total = bill + tip; line, we would encounter a problem. Since bill is a string and since + performs concatenation when either operand is a string, the value assigned to total variable would be the string "20030". Finally, since total is a string it doesn't have a toFixed method and the final line of our program would raise an error.
-*/
+However, if we want to apply the same logic to let total = bill + tip; line, we would encounter a problem. Since bill is a string and since + performs concatenation when either operand is a string, the value assigned to total variable would be the string "20030". Finally, since total is a string it doesn't have a toFixed method and the final line of our program would raise an error. */
 
 // function solution
 let rlSync = require('readline-sync');
