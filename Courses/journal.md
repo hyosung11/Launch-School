@@ -3828,3 +3828,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 ## 20211101 월요일
 
 09:22 I'm nervous now as I get ready to take the written assessment. My hands are cold.
+
+09:36 Ready to go at 09:40.
+
+12:39 Just submitted the written assessment. It will be tight to pass.
