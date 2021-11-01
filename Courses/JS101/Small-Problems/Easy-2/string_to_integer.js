@@ -1,4 +1,4 @@
-/* JS101 - Small Problems > Easy 2> 9. Convert a String to a Number!
+/* JS101 - Small Problems > Easy 2 > 9. Convert a String to a Number!
 
 Convert a String to a Number!
 

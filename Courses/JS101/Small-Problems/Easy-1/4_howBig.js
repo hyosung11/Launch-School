@@ -63,7 +63,7 @@ CODE
 
 // let width = readlineSync.question('Enter the width of the room in meters: ');
 
-// // calculat area
+// // calculate area
 // let area = (length * width);
 // let areaSquareFeet = (area * 10.7639);
 
@@ -92,8 +92,7 @@ let areaInFeet = (areaInMeters * SQMETERS_TO_SQFEET);
 
 console.log(`The area of the room is ${areaInMeters.toFixed(2)} square meters (${areaInFeet.toFixed(2)}) square feet.`)
 
-/*
-Discussion
+/* Discussion
 
 The approach is straightforward. It makes use of two readlineSync.prompt calls to get the length and width respectively, performs the computation, and then logs the results to the console. The solution does not check if the user input appropriate values.
 

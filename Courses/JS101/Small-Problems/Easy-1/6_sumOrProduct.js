@@ -158,6 +158,5 @@ For brevity and simplicity, our solution doesn't try too hard to validate the us
 The solution defines two helper functions: computeSum and computeProduct. Which one will be used depends on the input that is provided by the user ('p' or 's'). Note the starting value for total in both of these functions. It is 1 for computeProduct, instead of 0; otherwise the value returned would always be 0.
 
 Further Exploration
-What if the input was an array of integers instead of just a single integer? How would your computeSum and computeProduct functions change? Given that the input is an array, how might you make use of the Array.prototype.reduce() method?
-*/
+What if the input was an array of integers instead of just a single integer? How would your computeSum and computeProduct functions change? Given that the input is an array, how might you make use of the Array.prototype.reduce() method? */
 
