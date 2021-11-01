@@ -43,10 +43,7 @@ string.length - 1 => Units
 string.length - 2 => Tens
 string.length - 3 => Hundreds
 string.length = 4 => thousands
-.... until we hit 0
-
-*/
-
+.... until we hit 0 */
 
 function stringToInteger(string) {
   let number = 0;
@@ -63,8 +60,3 @@ function stringToInteger(string) {
 //  Examples
 console.log(stringToInteger("4321")); // === 4321); // logs true
 console.log(stringToInteger("570")); // === 570); // logs true
-
-/*
-
-
-*/
