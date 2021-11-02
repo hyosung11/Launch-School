@@ -176,7 +176,6 @@ console.log(bottles); // 10
 
 The code logs `10`. On line 1, the global variable `bottles` is declared and initialized to `10`. On line 3, the function `decrementBottles` is declared with the parameter `bottles`. The parameter `bottles` shadows the global variable `bottles` from line 1 and makes it inaccessible within the function `decrementBottles`. On line 7, the function `decrementBottles` is called without an argument, so the implicit value passed to the parameter `bottles` is `undefined`. Furthermore, the function `decrementBottles` does not have a `return` statement, so the function's return value is `undefined`. On line 8, the `console.log` method only has access to the global variable `bottles` and logs its value which is `10`. This example demonstrate variable scope, variable shadowing and that a function called without an argument implicitly returns `undefined`.
 
-
 Responses
 Jessica Chang (TA)
 about 16 hours ago
