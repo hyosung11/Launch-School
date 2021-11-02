@@ -96,10 +96,25 @@
 // console.log(objectHasProperty(obj, 'test')); // returns 1
 
 // ===========================================
+// function objectHasProperty(object, property) {
+//   if (object[property]) {
+//     return 1;
+//   } else if (object[property] === false) {
+//     return 1;
+//   } else {
+//     return 2;
+//   }
+// }
+
+// let obj = {
+//   something: 3,
+//   enabled: false,
+//   result: undefined,
+//   test: 0
+// };
+
 function objectHasProperty(object, property) {
-  if (object[property]) {
-    return 1;
-  } else if (object[property] === false) {
+  if (object.hasOwnProperty(property)) {
     return 1;
   } else {
     return 2;
@@ -110,11 +125,11 @@ let obj = {
   something: 3,
   enabled: false,
   result: undefined,
-  test: 0
 };
 
 console.log(objectHasProperty(obj, 'something')); // returns 1
 console.log(objectHasProperty(obj, 'active'));    // returns 2
 console.log(objectHasProperty(obj, 'enabled')); // returns 1
-console.log(objectHasProperty(obj, 'result')); // returns 2
-console.log(objectHasProperty(obj, 'test')); // returns 2
+console.log(objectHasProperty(obj, 'result')); // returns 1
+// console.log(objectHasProperty(obj, 'test')); // returns 1
+// console.log(objectHasProperty(obj, 'halloween')); // returns 1

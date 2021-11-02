@@ -478,3 +478,13 @@ I can see what you're trying to say here, but there's some imprecision and lack 
 
 I suspect you may have run out of time here to properly fix the code, but can you adjust it accordingly?
 
+Revised Answer
+The code isn't functioning correctly because the object properties `enabled: false` and `result: undefined` exist in the object `obj`, but when either of these properties are passed as arguments to the function `objectHasProperty` the return value will be `2`. On line 2, the ternary operator evaluates the condition `object[property]` for its truthiness. When the function `objectHasProperty` is called with the arguments `obj` and `'enabled'`, the ternary operator executes the expression using the value `false` from the key/value pair `enabled: false` which is considered falsy, so `2` is returned.
+
+---
+
+The ternary operator takes three operands: a condition followed by a question mark (?), then an expression to execute if the condition is truthy followed by a colon (:), and finally the expression to execute if the condition is falsy.
+
+This operator is frequently used as a shortcut for the if statement.
+
+The conditional (ternary) operator is the only JavaScript operator that takes three operands: a condition followed by a question mark (?), then an expression to execute if the condition is truthy followed by a colon (:), and finally the expression to execute if the condition is falsy. This operator is frequently used as a shortcut for the if statement.
