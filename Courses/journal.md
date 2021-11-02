@@ -3842,3 +3842,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 17:19 Working on Small Problems again.
 
 19:37 I don't find the Small Problems > Easy 2 that easy.
+
+20:06 I am learning the patterns and ways of coding different scenarios.
