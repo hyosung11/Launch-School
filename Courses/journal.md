@@ -3844,3 +3844,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 19:37 I don't find the Small Problems > Easy 2 that easy.
 
 20:06 I am learning the patterns and ways of coding different scenarios.
+
+21:11 I'm rusty on these old problems. I need to drill them like Alex does. Good night.
