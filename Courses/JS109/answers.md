@@ -28,9 +28,29 @@ console.log(arr1) // [ 1, 2, 3, 4 ]
 console.log(arr2) // [ 1, 2, 3]
 ```
 
+Your Answer
 Example 1 demonstrates variables as pointers and that when two objects point to the same place in memory any changes to one are reflected in the other. the `push` method mutates the calling array and this is reflected in both variables because they reference the same array.
 
 In example 2 the `concat` method doesn't mutate the calling array. It returns a new array and  is a non-mutating method.
+
+Responses
+
+Jessica Chang (TA)
+about 16 hours ago
+
+  > when two objects point to the same place in memory any changes to one are reflected in the other.
+
+I'm chalking this up to a typo, but there's some imprecision with this statement. Can you re-phrase more precisely?
+
+Revised Answer
+Example 1 demonstrates variables as pointers and what happens with a mutating operation like the `push` method. On line 2, `arr2` is declared and initialized to reference the same array that `arr1` points to, so both variables reference the array `[1, 2, 3]`. On line 3, the `push` method accesses and mutates the array referenced by `arr1` by adding the element `4` to it. Since `arr2` also points to the same array, both `arr1` and `arr2` reflect the updated content of the array which is `[ 1, 2, 3, 4 ]`.
+
+> In example 2 the concat method doesn't mutate the calling array. It returns a new array and is a non-mutating method.
+
+And can you explicitly explain how the fact that the `concat` method is non-destructive plays a role in why lines 5 and 6 of Example 2 log the values we see? Specifically, what is happening on line 3 of this example?
+
+Revised Answer
+Example 2 also demonstrates variables as pointers, and what happens with a non-mutating operation like the `concat` method. On line 2, `arr2` is declared an initialized to reference the same array that `arr1` points to. On line 3, the `concat` method returns a new array that contains a copy of the original array combined with the additional element `4`. Since `concat` creates a copy of the original array and then mutates the copy, it leaves the original array intact. Thus, the calls to `console.log` on lines 5 and 6 return two different arrays.
 
 ## Question 2 3 Points
 
@@ -107,6 +127,17 @@ The variable names in the global scope are `num1`, `num2`, `num3` as these varia
 
 The variable names local to the scope inside function `add` are `num1`, `num2` and `total`. Functions create local scope and the parameters of functions are locally scoped to the function. So the parameters `num1` and `num2` are local scope to the function `add` as is `total` as it is declared with a `let` keyword inside the function `add`. Here, the `let` keyword scopes the variable to the function.
 
+Responses
+Jessica Chang (TA)
+about 16 hours ago
+
+> The variable names in the global scope are num1, num2, num3 as these variables are declared outside of any functions or blocks.
+
+There is one more variable in the global scope that's not mentioned. Can you give a shot at identifying it?
+
+Revised Answer
+`add` as the name of the function is also a variable in the global scope.
+
 ## Question 6 3 Points
 
 The `timesTwo` function is successfully invoked on line 3, but attempting to invoke the `timesThree` function on line 4 raises an error. Explain why the `timesTwo` invocation is successful, but the invocation of `timesThree` is not. Be precise about why these two functions have such different behavior.
@@ -145,6 +176,18 @@ console.log(bottles); // 10
 
 The code logs `10`. On line 1, the global variable `bottles` is declared and initialized to `10`. On line 3, the function `decrementBottles` is declared with the parameter `bottles`. The parameter `bottles` shadows the global variable `bottles` from line 1 and makes it inaccessible within the function `decrementBottles`. On line 7, the function `decrementBottles` is called without an argument, so the implicit value passed to the parameter `bottles` is `undefined`. Furthermore, the function `decrementBottles` does not have a `return` statement, so the function's return value is `undefined`. On line 8, the `console.log` method only has access to the global variable `bottles` and logs its value which is `10`. This example demonstrate variable scope, variable shadowing and that a function called without an argument implicitly returns `undefined`.
 
+
+Responses
+Jessica Chang (TA)
+about 16 hours ago
+
+> a function called without an argument implicitly returns undefined.
+
+I won't deduct here, because I feel you've touched on the core idea of this question, but this statement above isn't quite accurate - can you re-phrase?
+
+Revised Answer
+When a function is called without an argument, the parameter is initialized with the value `undefined`.
+
 ## Question 8 3 Points
 
 Identify all of the variables, primitive values, and objects in the following code:
@@ -156,9 +199,34 @@ let num;
 const double = num => num * 2;
 ```
 
-The variables are `letters`, `numbers`, `num` and `double`.
+The variables are `letters`, `numbers`, `num` and `double` and the parameter `num`
 The primitive values are `'a'`, `'b'`, `'c'`, `3`, `4`, `5`.
 The objects are  `['a', 'b', 'c']` and `[3, 4, 5]`.
+
+Responses
+Jessica Chang (TA)
+about 17 hours ago
+
+> The variables are letters, numbers, num and double
+
+There's another variable that needs to be explicitly called out here.
+
+> The primitive values are 'a', 'b', 'c', 3, 4, 5
+
+There's at least one more primitive value in the code that needs to be identified.
+
+> The objects are ['a', 'b', 'c'] and [3, 4, 5].
+
+There's also another object that needs to be identified.
+
+Can you give this another shot?
+
+Revised Answer
+The variables are `letters`, `numbers`, `num`, `double`, and the parameter `num`.
+
+The primitive values are `'a'`, `'b'`, `'c'`, `3`, `4`, `5`, and `2`.
+
+The objects are  `['a', 'b', 'c']`, `[3, 4, 5]`, and the function `double`.
 
 ## Question 9 3 Points
 
@@ -233,6 +301,18 @@ Describe this function for those other developers. Your description should avoid
 
 Does this function have side effects?
 
+Responses
+Jessica Chang (TA)
+about 17 hours ago
+
+> This function does not have side effects.
+
+This is incorrect. Can you explain why?
+
+The function mutates the value of variable `arr` and mutating an array argument is a side-effect.
+
+(It mutates the value of any object referenced by a non-local variable. Mutating an array or object argument, for instance, would be a side-effect.)
+
 ## Question 13 5 Points
 
 In the following code, the first two lines log `false`, while the third `logs` true. Shouldn't it be the other way around? Why does the code behave the way it does?
@@ -249,14 +329,35 @@ On line 2, the loose equality operator compares two arrays and returns `false` b
 
 On line 3, the loose equality operator coerces the array `[]` to an empty string `''` and the comparison returns `true`.
 
+Responses
+Jessica Chang (TA)
+about 17 hours ago
+
+> On line 3, the loose equality operator coerces the array [] to an empty string '' and the comparison returns true.
+
+Can you elaborate a bit further here? Why would '' == '' return true, but [] == [] return false?
+
+Revised Answer
+The comparison of `'' == ''` returns `true` because the loose equality operator is comparing two primitive values to check whether both operands are equal. On the other hand, the comparison of `[] == []` returns `false` because the loose equality operator compares two arrays to see if they are the same object, but here each array on either side of `==` resides in a different memory location.
+
 ## Question 14 3 Points
 
 In your own words, describe, in detail, what the `Array.prototype.forEach` method does and how it is used. Be sure to describe the argument passed to forEach, how it uses that argument, and what values forEach returns. Do not copy/paste from documentation.
 
 You may assume that the callback function only uses one argument; you don't have to talk about the optional second and third arguments. You also don't have to talk about the optional second argument for forEach.
 
-The `Array.prototype.forEach` method performs simple iteration and returns `undefined`.
-is an array iteration method that executes a callback function for each element in the calling array.
+Your Answer
+The `Array.prototype.forEach` method performs simple iteration and returns undefined. The `forEach` method is called on an array, and the callback function is passed as an argument into `forEach`. `forEach` iterates over each element of the array. `forEach` does not use the return value of the callback. In the end `forEach` returns `undefined`.
+
+Jessica Chang (TA)
+about 17 hours ago
+
+> `forEach` iterates over each element of the array. `forEach` does not use the return value of the callback.
+
+Can you elaborate a bit further here, and explicitly explain how `forEach` and the elements of the array it is called on interact with the callback function?
+
+Revised Answer
+`forEach`, during each iteration, invokes the callback with the element's value as an argument.
 
 ## Question 15 4 Points
 
@@ -278,9 +379,23 @@ let arr = [1, 2, 3].filter(function (n) {
 console.log(arr); // [ 1, 3 ]
 ```
 
+Your Answer
 On line 5, the `console.log(arr)` method logs `[ 1, 3 ]`. Here, the `filter` method is called on the array `[1, 2, 3]` and executes the callback function `n - 2` on each element of the calling array. On the first iteration, the return value of the callback is `-1`. This is considered a truthy value in JavaScript, so it is added to the new array. On the second iteration, the return value is `0` which is considered a falsy value. So this element is discarded. On the third and final iteration, the return value is `1` which is a truthy value. Thus `3` is added to the new array.
 
-The `Array.prototype.filter` method is called on an array. It takes a callback function as an argument and returns a new array. Each element is passed to the callback as an argument. The return value of the callback is evaluated for its truthiness by `filter` and if a truthy values is returned, the element is added to the new array.
+Responses
+Jessica Chang (TA)
+about 18 hours ago
+
+> executes the callback function n - 2 on each element of the calling array
+
+This is a bit imprecisely worded - can you re-phrase?
+
+> This is considered a truthy value in JavaScript, so it is added to the new array.
+
+And to be clear here, the current element on this iteration, not the return value -1 of the callback function, is selected for the new array.
+
+Revised Answer
+On line 5, the `console.log(arr)` method logs `[ 1, 3 ]`. The `filter` method returns a new array that includes all elements from the calling array for which the callback returns a truthy value. Here, `filter` is called on the array `[1, 2, 3]`. During each iteration, it invokes the callback function, using the value of the current element as an argument. On the first iteration, the return value of the callback is `-1`. This is considered a truthy value in JavaScript, so the current element on this iteration which is `1` is added to the new array. On the second iteration, the return value is `0` which is considered a falsy value. So the element `2` in the calling array is discarded. On the third and final iteration, the return value is `1` which is a truthy value. Thus the element `3` is added to the new array.
 
 ## Question 17 5 Points
 
@@ -327,9 +442,9 @@ Without arguments, `Array.prototype.sort` compares the values as strings, coerci
 
 ## Question 19 5 Points
 
-The following function is in an application. The function should return 1 when the named property exists in the specified object, and it should return 2 if the property does not exist. The development team has determined that there is a bug in this code.
+The following function is in an application. The function should return `1` when the named property exists in the specified object, and it should return `2` if the property does not exist. The development team has determined that there is a bug in this code.
 
-Explain precisely why this code isn't functioning correctly. Update the code to show how you would fix it.
+Explain **precisely** why this code isn't functioning correctly. Update the code to show how you would fix it.
 
 ```js
 function objectHasProperty(object, property) {
@@ -347,3 +462,19 @@ objectHasProperty(obj, 'active');    // returns 2
 ```
 
 Note that both of the invocations shown above work correctly. It's up to you to identify at least one situation that doesn't work correctly, explain why it (or they) don't work, and then fix the code.
+
+Your Answer
+The code isn't functioning correctly because it doesn't take into account that passing the falsy values false and undefined from obj into the ternary operator will always return 2 even though those values exist in the object.
+
+Responses
+Jessica Chang (TA)
+about 18 hours ago
+
+> The code isn't functioning correctly because it doesn't take into account that passing the falsy values false and undefined from obj into the ternary operator will always return 2 even though those values exist in the object.
+
+I can see what you're trying to say here, but there's some imprecision and lack of clarity - do you mind elaborating a bit further as to why this code isn't functioning correctly?
+
+> Update the code to show how you would fix it.
+
+I suspect you may have run out of time here to properly fix the code, but can you adjust it accordingly?
+
