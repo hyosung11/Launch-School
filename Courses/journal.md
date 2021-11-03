@@ -3846,3 +3846,11 @@ How awesome are the engineers in the company? If you're the best one there, that
 20:06 I am learning the patterns and ways of coding different scenarios.
 
 21:11 I'm rusty on these old problems. I need to drill them like Alex does. Good night.
+
+## 20211102 화요일
+
+08:36 I passed the written assessment with a score of 64/73 or about 88%. I need to make revisions to some of my answers before I am advanced to the interview assessment. I'm glad I passed the first time around.
+
+11:51 I need to go to PT, but I haven't finished revising the final question's answer.
+
+18:56 I submitted my revisions for the written assessment.

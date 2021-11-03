@@ -64,8 +64,61 @@
 // });
 // console.log(array2); //
 
+// function swapEnds(arr) {
+//   let first = arr[0];
+//   let last = arr[arr.length - 1];
+
+//   arr[0] = last;
+//   arr[arr.length - 1] = first;
+//   console.log(arr);
+//   return arr;
+
+// }
+
+// console.log(swapEnds([1, 2, 3, 4]));
+
+// function objectHasProperty(object, property) {
+//   return object[property] ? 1 : 2;
+// }
+
+// let obj = {
+//   something: 3,
+//   enabled: false,
+//   result: undefined,
+//   test: 5
+// };
+
+// console.log(objectHasProperty(obj, 'something')); // returns 1
+// console.log(objectHasProperty(obj, 'active'));    // returns 2
+
+// console.log(objectHasProperty(obj, 'enabled')); // returns 2
+// console.log(objectHasProperty(obj, 'result')); // returns 2
+// console.log(objectHasProperty(obj, 'test')); // returns 1
+
+// ===========================================
+// function objectHasProperty(object, property) {
+//   if (object[property]) {
+//     return 1;
+//   } else if (object[property] === false) {
+//     return 1;
+//   } else {
+//     return 2;
+//   }
+// }
+
+// let obj = {
+//   something: 3,
+//   enabled: false,
+//   result: undefined,
+//   test: 0
+// };
+
 function objectHasProperty(object, property) {
-  return object[property] ? 1 : 2;
+  if (object.hasOwnProperty(property)) {
+    return 1;
+  } else {
+    return 2;
+  }
 }
 
 let obj = {
@@ -76,4 +129,7 @@ let obj = {
 
 console.log(objectHasProperty(obj, 'something')); // returns 1
 console.log(objectHasProperty(obj, 'active'));    // returns 2
-console.log(objectHasProperty(obj, 'enabled')); 
+console.log(objectHasProperty(obj, 'enabled')); // returns 1
+console.log(objectHasProperty(obj, 'result')); // returns 1
+// console.log(objectHasProperty(obj, 'test')); // returns 1
+// console.log(objectHasProperty(obj, 'halloween')); // returns 1
