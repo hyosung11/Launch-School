@@ -399,5 +399,33 @@ We're also looking for how you recover when you make a mistake, or whether you c
 
 We did a 4-part series called *Watch Others Code* where students solve exercises of the kind that you might see in the interview. Make sure that you watch all four parts:
 
-Video 1
+#### Video 1
 
+Create a function that takes a positive integer and returns the next bigger number formed by the same digits:
+
+12 ==> 21
+513 ==> 531
+2017 ==> 2071
+
+If no bigger number can be composed using those digits, return -1:
+
+9 ==> -1
+111 ==> -1
+531 ==> -1
+
+Examples
+
+```js
+console.log(nextBiggerNum(9) === -1); // true
+console.log(nextBiggerNum(12) === 21); // true
+console.log(nextBiggerNum(513) === 531); // true
+console.log(nextBiggerNum(2017) === 2071); // true
+console.log(nextBiggerNum(111) === -1); // true
+console.log(nextBiggerNum(123456789) === 123456798); // true
+```
+
+1234 ==> 1243
+1432 ==> 2134
+2341 ==> 2413
+876 ==> -1 // 1st > 2nd > 3rd -1
+786 ==> 867

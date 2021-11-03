@@ -3860,3 +3860,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 ## 20211103 수요일
 
 09:59 Reviewed the feedback on my revisions of the written assessment and got a final marks of B+ on technical and A on non-technical. Now I'm taking notes on the Interview Assessment. Yes!
+
+15:25 Drilling the problem that I got from Antonina for the JS109 Study Session.
