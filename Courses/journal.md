@@ -3854,3 +3854,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 11:51 I need to go to PT, but I haven't finished revising the final question's answer.
 
 18:56 I submitted my revisions for the written assessment.
+
+21:18 I am going to brute force my way through massive repetitions into solving coding problems.
