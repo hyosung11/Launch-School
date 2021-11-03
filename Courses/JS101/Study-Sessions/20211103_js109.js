@@ -10,7 +10,7 @@ Introductions
 
 Interview Assessment Problems
 
-1.  Problem Description
+1. Problem Description
 
 Write a function to find the longest common prefix string amongst an array of strings.
 
@@ -103,7 +103,7 @@ Notes
 - iterate over one word
 - loop over the rest of the array and see if there's a match */
 
-/* Algorithm
+/* Antonina's Algorithm (edited by me)
 - Declare a variable `prefix` and initialize it to an empty string
 - Sort the words in the array by their length (shortest -> longest)
 - Declare a variable `substring` and initialize it to an empty string
@@ -111,8 +111,8 @@ Notes
   - initialize a variable `substring` to the first character of the string
     - if all the strings in the array start with `substring`
       - assign `prefix` to that character
-    -concatenate `substring` with the next character
--Return `prefix` */
+    - concatenate `substring` with the next character
+- Return `prefix` */
 
 function commonPrefix(words) {
   let prefix = '';
@@ -146,6 +146,7 @@ function commonPrefix(words) {
 
 //   return prefix;
 // }
+
 // Test Cases
 console.log(commonPrefix(["flower","flow","flight"]) === "fl"); // true
 console.log(commonPrefix(["dog","racecar","car"])  === ""); // true
@@ -153,18 +154,17 @@ console.log(commonPrefix(["interspecies","interstellar","interstate"])  === "int
 console.log(commonPrefix(["throne","dungeon"]) === ""); // true
 console.log(commonPrefix(["throne","throne"]) === "throne"); // true
 
-//2. Problem Description
-// Given an array of strings, return a boolean indicating whether
-// at least three of the elements in the array have digits whose sum is
-// divisible by 3.
+/* 2. Problem Description
 
-// Elements of the argument array will be strings containing only string digits 0-9.
+Given an array of strings, return a boolean indicating whether at least three of the elements in the array have digits whose sum is divisible by 3.
 
-// For example:
-// In the array ['35', '01110', '126', '57', '13'],
-// the sum of the digits of each element will be: [8, 3, 9, 12, 4]
-// from the resulting sums, there are 3 that are evenly divisible by 3: [3, 9, 12]
-// so our function would return true.  See the below test cases for more examples.
+Elements of the argument array will be strings containing only string digits 0-9.
+
+For example:
+In the array ['35', '01110', '126', '57', '13'],
+the sum of the digits of each element will be: [8, 3, 9, 12, 4]
+from the resulting sums, there are 3 that are evenly divisible by 3: [3, 9, 12]
+so our function would return true.  See the below test cases for more examples */
 
 // Test Cases
 // console.log(threeByThree(['01112', '0111', '00030', '2043', '12043']));

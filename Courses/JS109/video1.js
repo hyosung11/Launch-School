@@ -25,7 +25,7 @@ console.log(nextBiggerNum(123456789) === 123456798); // true
 1432 ==> 2134
 2341 ==> 2413
 876 ==> -1 // 1st > 2nd > 3rd -1
-786 ==> 867 
+786 ==> 867
 123456789 ==>
 
 ALGORITHM
@@ -46,9 +46,9 @@ function compareDigits(number1, number2) {
   for (i = 0; i < array1.length; i += 1) {
     if (array1[i] !== array2[i]) {
       return false;
+    }
+
+    return true;
   }
-
-  return true;
 }
-
 console.log(compareDigits(1234, 4321));

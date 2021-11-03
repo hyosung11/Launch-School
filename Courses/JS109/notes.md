@@ -429,3 +429,47 @@ console.log(nextBiggerNum(123456789) === 123456798); // true
 2341 ==> 2413
 876 ==> -1 // 1st > 2nd > 3rd -1
 786 ==> 867
+
+#### Video 2
+
+#### Video 3
+
+#### Video 4
+
+### Problem Solving
+
+One of the core skills we're looking for at this stage is your ability to problem solve and decompose a complicated problem. Doing that requires a systematic approach to tackling an exercise. You should know what the code you write is doing, and you should never enter "let me just run it to see what it will do" mode. **You must be in full control of the code, and your process must be intentional and directed, not "hack and slash" or "trial and error."** Not having an intentional problem-solving approach is the leading cause of problems during the interview.
+
+One of the best ways to become more intentional in the way you approach a problem is by introducing some structure around how you analyze it. See the Introduction to the PEDAC Process and the The PEDAC Problem Solving Process assignments for our recommended problem-solving approach. Be sure you practice it.
+
+### Exercises
+
+We created over a hundred Small Problem exercises to help reinforce the concepts up to this point. The interview questions will also be around this caliber. You need to have completed all of them at this point. Try to apply the problem-solving approach as you work through these exercises.
+
+[JS101 Small Problems](https://launchschool.com/exercises#js101_small_problems)
+
+Note: if you find the Easy ones difficult, do not schedule an interview as it's almost certain you won't pass. Instead, continue practicing until you feel comfortable doing the Easy ones and you can do the Medium exercises in under 20 minutes. Most of our best students do all of these exercises at least twice, and often 3 or 4 times.
+
+### Study Groups
+
+We offer staff-led study groups for this assessment. You can learn about upcoming study groups in the Community Forums. There are also peer-led study groups that you can learn about in #the-spot, one of the Chat Channels.
+
+We strongly recommend attending one of the study group sessions if your schedule permits. Live coding in front of someone is a completely different experience from practicing alone. You need to practice working on exercises, but you also need to practice for the interview itself. Just as you wouldn't want to be surprised on a real job interview, you don't want to feel surprised by a sub-optimal performance during the assessment interview. Many students tell us that attending a study group is one of the best ways to prepare.
+
+### Final Tips
+
+It's probably a good idea to over prepare so you come to the interview ready to impress. It's highly unlikely that you'll perform at your peak during the interview, so make sure to practice and get to a place where you are confident in your ability. **Expect to be nervous and expect to not be at your best.** Still, you should aim to impress.
+
+Speak with precision, confidence, and clarity. To get the most out of this experience, treat this as your first job interview.
+
+**You may not use the JavaScript documentation during the interview.** Don't go into it expecting to look things up.
+
+Don't forget to **test your code** early and often! The sooner you run some tests, the easier it is to find and fix any bugs in that code.
+
+For some additional insight and tips, take a few minutes to read the following blog posts:
+
+* William wrote a [blog post](https://medium.com/launch-school/preparing-for-the-js109-interview-assessment-870a12ede9ea) on how to gear up for the assessment. He offers a number of recommendations on how to prepare, as well as some pointers on how to approach the interview.
+
+Callie shares a wealth of [useful information](https://medium.com/launch-school/passing-launch-schools-first-assessments-rb109-4b2b047060dc) about preparing for both parts of the assessment: the exam and the interview. If you already read it earlier, it's worth reading again. Note that the article speaks specifically of the Ruby-based RB109 assessments, but her advice and recommendations apply equally as well to JS109.
+
+Check out Svetlana's [article](https://medium.com/launch-school/my-complete-study-guide-for-the-javascript-109-written-interview-assessment-9d95e0340da1) for a comprehensive guide on how to prepare for the interview.
