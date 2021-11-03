@@ -3856,3 +3856,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 18:56 I submitted my revisions for the written assessment.
 
 21:18 I am going to brute force my way through massive repetitions into solving coding problems.
+
+## 20211103 수요일
+
+09:59 Reviewed the feedback on my revisions of the written assessment and got a final marks of B+ on technical and A on non-technical. Now I'm taking notes on the Interview Assessment. Yes!

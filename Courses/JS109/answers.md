@@ -487,3 +487,32 @@ The ternary operator takes three operands: a condition followed by a question ma
 This operator is frequently used as a shortcut for the if statement.
 
 The conditional (ternary) operator is the only JavaScript operator that takes three operands: a condition followed by a question mark (?), then an expression to execute if the condition is truthy followed by a colon (:), and finally the expression to execute if the condition is falsy. This operator is frequently used as a shortcut for the if statement.
+
+## JS109 - Assessment: Programming Foundations with JavaScript
+
+Assignment: Part 1: Start the Test
+Student Name: HyoSung Bidol-Lee
+Time Started: 9:40AM EDT
+Submitted at: 2 days ago
+Time taken: 2.98 hour(s)
+Score: 65/73 (89.04%)
+Technical Grade: B+
+Non-Technical Grade: A
+
+Exam: Part 1: Start the Test (Course: JS109) - Passed
+
+Technical Grade  | Non-Technical Grade  | Time taken  | Score  | Revised Answers  | Revision Rounds  |
+-----------------|----------------------|-------------|--------|------------------|------------------|-
+B+  | A  | 2.98 hour(s)  | 65/73 89.04%  | #1, #5, #7, #8, #12, #13, #14, #16, #19  | 1  | View
+
+Congratulations on passing this assessment, HyoSung!
+
+Overall, I think you actually know this material better than your score might indicate. Where marks were reduced on this exam were due to a few different factors. In Q1 and Q13, I got the sense you had a good understanding of what was happening, your answers just required a bit of additional elaboration to touch on points we were expecting to be addressed. There were a few technical oversights on Q5, Q8, and Q12, but your revisions cleared these up pretty easily and indicated to me these errors were not due to any major gaps in knowledge. You lost points on Q19 as well for not adjusting the code accordingly, but you seemed to be clear on what was wrong with the initial code, and I suspect you were likely running out of time near the end, which probably impacted your ability to actually fix the code in time. The time constraint can often be difficult to manage, particularly as this is your first assessment, but in the future, something that might help is to take a quick look over all of the questions before you begin, and perhaps work on the ones you feel will take you a bit longer first, so that you have some more flexibility to cut down on time spent for the simpler questions if you need to. On the whole, however, there's nothing that really gave me any major cause for concern here - I think you've demonstrated a solid understanding of the course concepts and deserve to move forward unconditionally.
+
+In regards to the non-technical score, your answers were mostly concise and well-written - there were just a few minor areas of imprecision or slight lack of clarity here and there, but your revisions amended them well. One small note I would mention is that on Q7 and Q10, for example, you noted the functions return undefined, which is technically correct, but these weren't intensely relevant pieces of information in the context of the question, and could potentially cause some confusion as to why you're mentioning it. I feel you did well with keeping your answers focused for the most part, but I'd encourage you to continue practicing identifying and explaining only the parts of the code that are distinctly relevant in order to sufficiently address the question at hand. Overall though, well done!
+
+You may move onto the interview portion of the assessment whenever you feel ready to do so. Good luck, and have fun! 👍
+
+Verdict was added on Nov 2, 2021 at 11:59 PM EST by Jessica Chang
+
+END

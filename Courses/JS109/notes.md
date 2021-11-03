@@ -358,4 +358,45 @@ These articles are well worth your time; don't pass them up!
 
 Make sure that you thoroughly study the topics in the study guide. After you've done so, you may start the test.
 
-### Time Duration
+## 5. Afterword
+
+## 6. Test Feedback
+
+## 7. Part 2: Study Guide for Interview
+
+Once you receive a passing score on part 1, you can schedule an interview. Here are some tips on how to do well on the interview assessment.
+
+### Areas of Focus
+
+* general programming fluency with basic JavaScript
+* ability to problem solve and decompose the problem descriptions into technical concepts
+* ability to speak clearly and with precision while coding
+
+### Live Coding
+
+We'll ask you to code two small programs from scratch to get a feel for how fluent you are with programming and get a feel for your thought process. Be familiar with:
+
+* working with simple data structures like arrays and objects.
+* how to iterate over an array, string, or an object's properties, and know exactly how to control the iteration flow. Specifically, understand when to use `break` and `continue`.
+* manipulating arrays and objects. For example, an exercise might be
+  * "reverse an array without using the built-in `Array.prototype.reverse` method", or
+  * select the element out of the array if its index is a Fibonacci number", or
+  * "write a function that removes every other element from an array".
+
+We won't have much time, so come prepared to begin right away. There won't be much time to warm up, so you should warm up beforehand if you find that necessary.
+
+The complete interview should take an hour or less. You are expected to solve both problems within that time frame.
+
+### Communication Style
+
+We're also assessing your ability to communicate clearly. You should speak in a clear tone and explain concepts with precision using the correct vocabulary. **If you haven't done this before, you should practice before the interview.** There's a reason why that sentence is in boldfaced type.
+
+Many students find it helpful to record themselves solving exercises and verbalizing their thought process, using QuickTime or another recording tool. Listening to the recording will help you see how you'll come across to the interviewer.
+
+We're also looking for how you recover when you make a mistake, or whether you can recover at all.
+
+### Watch Others Code Videos
+
+We did a 4-part series called *Watch Others Code* where students solve exercises of the kind that you might see in the interview. Make sure that you watch all four parts:
+
+Video 1
