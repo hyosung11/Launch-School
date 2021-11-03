@@ -12,7 +12,7 @@ You may assume that the argument is always an integer greater than or equal to `
 
 JavaScript's normal Number type can represent integers accurate up to the value of `Number.MAX_SAFE_INTEGER`, which is the 16-digit value `9007199254740991`. Any integer larger than that value loses accuracy. For instance, the following code outputs `1`, not `2` as you may expect: */
 
-console.log(Number.MAX_SAFE_INTEGER + 2 - Number.MAX_SAFE_INTEGER); // => 1
+// console.log(Number.MAX_SAFE_INTEGER + 2 - Number.MAX_SAFE_INTEGER); // => 1
 
 /* We'll be working with much larger numbers in this problem. Fortunately, JavaScript now supports a `BigInt` type that lets you work with massive integers, limited only by the amount of memory available to your program, and the time you can devote to waiting for an answer.
 
@@ -33,9 +33,8 @@ findFibonacciIndexByLength(10000n) === 47847n;
 
 PROBLEM
 Identify expected input and output
-
 - input: number (length of fibonacci output)
-- output:number (index that gives that length)
+- output: number (index that gives that length)
 
 Make the requirements explicit (clarifying questions)
 
@@ -80,53 +79,77 @@ CODE
 Implementation of Algorithm
 - test code while programming */
 
-function findFibonacciIndexByLength(digits) {
-  let results = [1n, 1n];
+function findFibonacciIndexByLength(length) {
+  let first = 1n;
+  let second = 1n;
+  let count = 2n;
+  let fibonacci;
 
-  while (true) {
-    let length = BigInt(results.length);
-    let newResult = results[length - 2n] + results[length - 1n];
-    let newResultString = "" + newResult;
-    if (BigInt(newResultString.length) === digits) {
-      return (length + 1n);
-      break;
-    }
-    results.push(newResult);
-  }
+  do {
+    fibonacci = first + second;
+    count += 1n;
+    first = second;
+    second = fibonacci;
+  } while (String(fibonacci).length < length);
+
+  return count;
 }
 
 // Examples:
 console.log(findFibonacciIndexByLength(2n)) === 7n; // 1 1 2 3 5 8 13
 console.log(findFibonacciIndexByLength(3n)) === 12n; // 1 1 2 3 5 8 13 21 34 55 89 144
-// console.log(findFibonacciIndexByLength(10n)) === 45n;
-// console.log(findFibonacciIndexByLength(16n)) === 74n;
-// console.log(findFibonacciIndexByLength(100n)) === 476n;
-// console.log(findFibonacciIndexByLength(1000n)) === 4782n;
+console.log(findFibonacciIndexByLength(10n)) === 45n;
+console.log(findFibonacciIndexByLength(16n)) === 74n;
+console.log(findFibonacciIndexByLength(100n)) === 476n;
+console.log(findFibonacciIndexByLength(1000n)) === 4782n;
 // console.log(findFibonacciIndexByLength(10000n)) === 47847n;
+
+/* Discussion
+
+The function starts by initializing the first two numbers in the Fibonacci sequence, both of which are `1n`. We use the `count` variable to keep track of where we are in the sequence -- the value of `second` is the second Fibonacci number, so our count is initially `2n`.
+
+The solution then uses a `do...while` loop to calculate the value of each subsequent Fibonacci number while the length of the number is is less than the value of the `length` argument. At every iteration the solution does the following:
+
+- Computes the value for `fibonacci` by adding up the `first` and `second` values.
+- Increments `count` by `1n`. It returns the value of `count` if the corresponding Fibonacci number is greater than or equal to the desired length.
+- Sets the value of `first` to the value of `second`, and the value of `second` to the value of `fibonacci`. If the criteria for stopping the loop isn't met at the end of this iteration, it uses the two numbers for the computation of `fibonacci` in the next iteration. */
+
+// fibonacci sequence
+// function fibonacci(number) {
+//   if (number < 2) return number; // 0 if number is 0, 1 if number is 1
+//   return fibonacci(number - 1) + fibonacci(number - 2);
+// }
 
 // console.log(fibonacci(6)); // => 8
 // console.log(fibonacci(20)); // => 6765
 
-// ======
-// fibonacci sequence
-function fibonacci(number) {
-  if (number < 2n) return number; // 0 if number is 0, 1 if number is 1
-  return fibonacci(number - 1n) + fibonacci(number - 2n);
-}
-
 // Alex's Version
-function findFibonacciIndexByLength(size) {
-  let input = 0n;
-  // let array = [];
-  let count = 0n;
+// function findFibonacciIndexByLength(size) {
+//   let input = 0n;
+//   // let array = [];
+//   let count = 0n;
 
-  while (String(fibonacci(input)).length < size) {
-    input += 1n;
-    // array.push(fibonacci(input));
-    count += 1n;
+//   while (String(fibonacci(input)).length < size) {
+//     input += 1n;
+//     // array.push(fibonacci(input));
+//     count += 1n;
+//   }
+//   // return BigInt(array.length);
+//   return count;
+// }
 
-  }
+// Laurent's Version?
+// function findFibonacciIndexByLength(digits) {
+//   let results = [1n, 1n];
 
-  // return BigInt(array.length);
-  return count;
-}
+//   while (true) {
+//     let length = BigInt(results.length);
+//     let newResult = results[length - 2n] + results[length - 1n];
+//     let newResultString = "" + newResult;
+//     if (BigInt(newResultString.length) === digits) {
+//       return (length + 1n);
+//       break;
+//     }
+//     results.push(newResult);
+//   }
+// }
