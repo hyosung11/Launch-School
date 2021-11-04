@@ -20,13 +20,48 @@ twice(7676);        // 7676
 PEDAC
 
 ALGORITHM
-1. declare a function with one parameter that takes a number argument
-2. check whether the length of the string version of the number is even
-3. If first half of string equals the second half
-  - return number
-  otherwise return number * 2 */
+- convert number to string
+- check length of string
+  - if odd double the number
+    - return number
+  - if even
+    - check if both halves equal
+    - return double number */
 
+// function twice(number) {
+//   if (isDoubleNumber(number)) {
+//     return number;
+//   } else {
+//     return number * 2;
+//   }
+// }
 
+// function isDoubleNumber(number) {
+//   let stringNumber = String(number);
+//   let center = Math.floor(stringNumber.length / 2);
+//   let leftNumber = stringNumber.substring(0, center);
+//   let rightNumber = stringNumber.substring(center);
+
+//   return leftNumber === rightNumber;
+// }
+
+// Elaine's Solution
+// function twice(num) {
+//   let midPoint = String(num).length / 2;
+//   let leftSide = String(num).slice(0, midPoint);
+//   let rightSide = String(num).slice(midPoint);
+//   return leftSide === rightSide ? num : num * 2;
+// }
+
+// My edited version of Elaine's solution
+function twice(number) {
+  let stringNumber = String(number);
+  let center = Math.floor(stringNumber.length / 2);
+  let leftNumber = stringNumber.substring(0, center);
+  let rightNumber = stringNumber.substring(center);
+
+  return leftNumber === rightNumber ? number : number * 2;
+}
 
 // Alex's solution
 // function twice(num) {
@@ -53,3 +88,14 @@ console.log(twice(107));         // 214
 console.log(twice(103103));      // 103103
 console.log(twice(3333));        // 3333
 console.log(twice(7676));        // 7676
+
+/* Discussion
+
+The challenging part of this problem is determining how to compare the left-side numbers with the right-side numbers. The trick is to compare them as strings instead of as numbers.
+
+Given this, the solution does the following via the `isDoubleNumber` function:
+
+- Gets the left-side and right-side substrings by calculating the middle index of `stringNumber`.
+- Returns the result of comparing the left and right substrings.
+  - If the length of `stringNumber` is odd, it is not a double number.
+  - If the length of `stringNumber` is even, there is a chance that it is a double number. */
