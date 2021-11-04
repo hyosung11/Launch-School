@@ -169,6 +169,7 @@ console.log(commonPrefix(["interspecies","interstellar","interstate"]) === "inte
 console.log(commonPrefix(["throne","dungeon"]) === ""); // true
 console.log(commonPrefix(["throne","throne"]) === "throne"); // true
 console.log(commonPrefix([""]) === ""); // true
+
 /* 2. Problem Description
 
 Given an array of strings, return a boolean indicating whether at least three of the elements in the array have digits whose sum is divisible by 3.
