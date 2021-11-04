@@ -28,6 +28,23 @@ ALGORITHM
     - check if both halves equal
     - return double number */
 
+function isDoubleNumber(number) {
+  let stringNumber = String(number);
+  let center = Math.floor(stringNumber.length / 2);
+  let leftNumber = stringNumber.substring(0, center);
+  let rightNumber = stringNumber.substring(center);
+
+  return leftNumber === rightNumber;
+}
+
+function twice(number) {
+  if (isDoubleNumber(number)) {
+    return number;
+  } else {
+    return number * 2;
+  }
+}
+
 // function twice(number) {
 //   if (isDoubleNumber(number)) {
 //     return number;
@@ -54,14 +71,14 @@ ALGORITHM
 // }
 
 // My edited version of Elaine's solution
-function twice(number) {
-  let stringNumber = String(number);
-  let center = Math.floor(stringNumber.length / 2);
-  let leftNumber = stringNumber.substring(0, center);
-  let rightNumber = stringNumber.substring(center);
+// function twice(number) {
+//   let stringNumber = String(number);
+//   let center = Math.floor(stringNumber.length / 2);
+//   let leftNumber = stringNumber.substring(0, center);
+//   let rightNumber = stringNumber.substring(center);
 
-  return leftNumber === rightNumber ? number : number * 2;
-}
+//   return leftNumber === rightNumber ? number : number * 2;
+// }
 
 // Alex's solution
 // function twice(num) {

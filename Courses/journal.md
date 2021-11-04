@@ -3870,3 +3870,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 20:30 I need to sharpen my problem-solving skills. Ugh and yes!
 
 22:02 Wow, I've been studying nonstop since after putting the kids to bed. I can stop now although I want to setup the next problem before I retire for the night.
+
+## 20211104 목요일
+
+09:14 Working on problem while waiting after getting the Moderna booster but I have to go to the bathroom now.

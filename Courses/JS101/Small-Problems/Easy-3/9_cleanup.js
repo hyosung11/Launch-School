@@ -8,7 +8,7 @@ Example:
 
 cleanUp("---what's my +*& line?");    // " what s my line "
 
-=============================================================
+============================================================
 
 PEDAC => process the problem (PEDA) and code with intent (C)
 
@@ -77,6 +77,6 @@ function cleanUp(string) {
 
   return newString;
 }
-// Example:
 
+// Example:
 console.log(cleanUp("---what's my +*& line?"));    // " what s my line "
