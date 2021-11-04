@@ -3864,3 +3864,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 15:25 Drilling the problem that I got from Antonina for the JS109 Study Session.
 
 18:45 After dinner, I think I need to work on Easy Problems a lot more and also go to the MBP.
+
+19:31 Just keep drilling these small problems and talk myself through what is happening in the code.
+
+20:30 I need to sharpen my problem-solving skills. Ugh and yes!
