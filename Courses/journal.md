@@ -3878,3 +3878,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 11:26 Reviewing the PEDAC process.
 
 13:35 Good SPOT Study Session with Josh. Getting better at writing algorithms and turning the algorithms into good code.
+
+16:05 Developing my problem-solving and coding skills simultaneously and I'm having fun doing it.
