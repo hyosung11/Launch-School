@@ -3868,3 +3868,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 19:31 Just keep drilling these small problems and talk myself through what is happening in the code.
 
 20:30 I need to sharpen my problem-solving skills. Ugh and yes!
+
+22:02 Wow, I've been studying nonstop since after putting the kids to bed. I can stop now although I want to setup the next problem before I retire for the night.

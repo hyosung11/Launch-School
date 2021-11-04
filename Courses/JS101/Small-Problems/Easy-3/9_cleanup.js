@@ -1,4 +1,4 @@
-/* JS101 = Small Problems > Easy 3 > 9. Clean up the words
+/* JS101 - Small Problems > Easy 3 > 9. Clean up the words
 
 Clean up the words
 
