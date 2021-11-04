@@ -440,7 +440,7 @@ console.log(nextBiggerNum(123456789) === 123456798); // true
 
 One of the core skills we're looking for at this stage is your ability to problem solve and decompose a complicated problem. Doing that requires a systematic approach to tackling an exercise. You should know what the code you write is doing, and you should never enter "let me just run it to see what it will do" mode. **You must be in full control of the code, and your process must be intentional and directed, not "hack and slash" or "trial and error."** Not having an intentional problem-solving approach is the leading cause of problems during the interview.
 
-One of the best ways to become more intentional in the way you approach a problem is by introducing some structure around how you analyze it. See the Introduction to the PEDAC Process and the The PEDAC Problem Solving Process assignments for our recommended problem-solving approach. Be sure you practice it.
+One of the best ways to become more intentional in the way you approach a problem is by introducing some structure around how you analyze it. See the [Introduction to the PEDAC Process](https://launchschool.com/lessons/60e10aa5/assignments/73c01de6) and the [The PEDAC Problem Solving Process](https://launchschool.com/lessons/60e10aa5/assignments/d70a34e0) assignments for our recommended problem-solving approach. Be sure you practice it.
 
 ### Exercises
 
