@@ -3874,3 +3874,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 ## 20211104 목요일
 
 09:14 Working on problem while waiting after getting the Moderna booster but I have to go to the bathroom now.
+
+11:26 Reviewing the PEDAC process.
+
+13:35 Good SPOT Study Session with Josh. Getting better at writing algorithms and turning the algorithms into good code.

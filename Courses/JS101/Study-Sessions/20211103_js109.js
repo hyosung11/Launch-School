@@ -126,9 +126,24 @@ function commonPrefix(words) {
       prefix = substring;
     }
   }
-
   return prefix;
 }
+
+// function commonPrefix(words) {
+//   let prefix = '';
+//   words.sort((a, b) => a.length - b.length);
+
+//   let substring = '';
+
+//   for (let index = 0; index < words[0].length; index += 1) {
+//     substring += words[0][index];
+//     if (words.every((word) => word.startsWith(substring))) {
+//       prefix = substring;
+//     }
+//   }
+
+//   return prefix;
+// }
 
 // Antonina's Solution
 // function commonPrefix(words) {
@@ -150,9 +165,10 @@ function commonPrefix(words) {
 // Test Cases
 console.log(commonPrefix(["flower","flow","flight"]) === "fl"); // true
 console.log(commonPrefix(["dog","racecar","car"])  === ""); // true
-console.log(commonPrefix(["interspecies","interstellar","interstate"])  === "inters"); // true
+console.log(commonPrefix(["interspecies","interstellar","interstate"]) === "inters"); // true
 console.log(commonPrefix(["throne","dungeon"]) === ""); // true
 console.log(commonPrefix(["throne","throne"]) === "throne"); // true
+console.log(commonPrefix([""]) === ""); // true
 
 /* 2. Problem Description
 

@@ -23,6 +23,8 @@ Problem Domain (including implicit requirements)
 Make the requirements explicit (clarifying questions)
 
 Identify rules
+- replace non-alphabetic characters with spaces
+- only one space for one or more non-alphabetic characters in a row
 
 Mental model of the problem (optional)
 
@@ -30,7 +32,6 @@ EXAMPLES / TEST CASES
 Validate understanding of the problem
 
 Example:
-
 cleanUp("---what's my +*& line?");    // " what s my line "
 
 Edge Cases?
@@ -41,7 +42,7 @@ DATA STRUCTURE
 How we represent the data that we will work with when converting the input to output.
 
 - input: string
-- intermediary
+- intermediary:
 - output: string
 
 ALGORITHM
@@ -57,9 +58,26 @@ if ('abcdefghijklmnopqrstuvwxyz'.includes(string.))
 
 CODE
 Implementation of Algorithm
-- test code while programming
+- test code while programming */
 
-*/
+// function cleanUp(string) {
+//   let alphabetString = '';
+
+//   for (let char = 0; char < string.length; char += 1) {
+//     if ('abcdefghijklmnopqrstuvwxyz'.includes(string[char])); {
+//     alphabetString += string[char];
+//   } else {
+//     if (!'abcdefghijklmnopqrstuvwxyz'.includes(string[char + 1])) {
+//       alphabetString += ' ';
+//     }
+//   }
+
+//   return alphabetString;
+// }
+// }
+
+// Example:
+console.log(cleanUp("---what's my +*& line?"));    // " what s my line "
 
 function cleanUp(string) {
   let newString = '';
@@ -67,16 +85,13 @@ function cleanUp(string) {
     if ('abcdefghijklmnopqrstuvwxyz'.includes(string[char].toLowerCase())) {
       newString += string[char];
     } else {
-      if (!('abcdefghijklmnopqrstuvwxyz'
-        .includes(string[char + 1]
-        .toLowerCase()))) {
-          newString += ' ';
+      if (
+        !'abcdefghijklmnopqrstuvwxyz'.includes(string[char + 1].toLowerCase())
+      ) {
+        newString += ' ';
       }
     }
   }
 
   return newString;
 }
-
-// Example:
-console.log(cleanUp("---what's my +*& line?"));    // " what s my line "
