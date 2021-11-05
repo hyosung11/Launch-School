@@ -3894,3 +3894,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 12:13 Gosh, sometimes there are simple solutions if you know the right methods to use. E.g.,
 
 `return string === string.split('').reverse().join('')`
+
+17:39 Working on more small problems. They iterate off of each other.
