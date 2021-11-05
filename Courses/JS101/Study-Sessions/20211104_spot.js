@@ -115,27 +115,29 @@ CODE
 Implementation of Algorithm
 - test code while programming */
 
-function reverseWords(words) {
-  let arrayOfWords = [];
-  words = words.split(' ')
-
-  for (let index = 0; index < words.length; index += 1) {
-    if (words[index].length <= 4) {
-      arrayOfWords.push(words[index]);
-    } else {
-      if (words[index].length > 4) {
-        let reversedWord = words[index].split('').reverse().join('');
-        arrayOfWords.push(reversedWord);
-      }
-    }
-  }
-  return arrayOfWords.join(' ');
+function reversedWord(word) {
+  return word.split('').reverse().join('');
 }
 
+function reverseWords(words) {
+  let arrayOfWords = [];
+  words = words.split(' ');
+
+  words.forEach((word) => {
+    if (word.length <= 4) {
+      arrayOfWords.push(word);
+    } else if (word.length > 4) {
+      arrayOfWords.push(reversedWord(word));
+    }
+  });
+
+  return arrayOfWords.join(' ');
+}
 console.log(reverseWords('Professional')); // "lanoisseforP"
 console.log(reverseWords('Walk around the block')); // "Walk dnuora the kcolb"
 console.log(reverseWords('Launch School')); // "hcnuaL loohcS"
 
+// Josh's Version
 // function reverseSentence(string) {
 //   return string.split(' ').reverse().join(' ');
 // }
@@ -146,7 +148,6 @@ console.log(reverseWords('Launch School')); // "hcnuaL loohcS"
 //   return reversedLetters.join('');
 // }
 
-// Josh's Version
 // function reverseWords(words) {
 //   let arrayOfWords = [];
 //   words = words.split(' ')
@@ -166,17 +167,19 @@ console.log(reverseWords('Launch School')); // "hcnuaL loohcS"
 
 // console.log(reverseWords('Professional'));             // "lanoisseforP"
 // console.log(reverseWords('Walk around the block'));    // "Walk dnuora the kcolb"
-// //console.log(reverseWords('Launch School'));            // "hcnuaL loohcS"
+// console.log(reverseWords('Launch School'));            // "hcnuaL loohcS"
 
+// Version with helper function - I like this version
 // function reverseWord(word) {
-//   let letters = word.split('');
-//   let reversedLetters = letters.reverse();
-//   return reversedLetters.join('');
+//   // let letters = word.split('');
+//   // let reversedLetters = letters.reverse();
+//   // return reversedLetters.join('');
+//   return word.split('').reverse().join('');
 // }
 
 // function reverseWords(words) {
 //   let arrayOfWords = [];
-//   words = words.split(' ')
+//   words = words.split(' ');
 
 //   words.forEach(word => {
 //     if (word.length <= 4) {
@@ -186,19 +189,28 @@ console.log(reverseWords('Launch School')); // "hcnuaL loohcS"
 //     }
 //   });
 
-//   for (let index = 0; index < words.length; index += 1) {
-//     if (words[index].length <= 4) {
-//       arrayOfWords.push(words[index]);
-//     } else {
-//       arrayOfWords.push(reverseWord(words[index]));
-//       }
-//     }
-//   }
 //   return arrayOfWords.join(' ');
 // }
 
+// function reverseWord(word) {
+//   return word.split('').reverse().join('');
+// }
 
+// function reverseWords(words) {
+//   let arrayOfWords = [];
+//   words = words.split(' ');
 
-// console.log(reverseWords('Professional'));             // "lanoisseforP"
-// console.log(reverseWords('Walk around the block'));    // "Walk dnuora the kcolb"
-// console.log(reverseWords('Launch School'));            // "hcnuaL loohcS"
+//   words.forEach((word) => {
+//     if (word.length <= 4) {
+//       arrayOfWords.push(word);
+//     } else {
+//       arrayOfWords.push(reverseWord(word));
+//     }
+//   })
+
+//   return arrayOfWords.join(' ');
+// }
+
+// console.log(reverseWords('Professional')); // "lanoisseforP"
+// console.log(reverseWords('Walk around the block')); // "Walk dnuora the kcolb"
+// console.log(reverseWords('Launch School')); // "hcnuaL loohcS"
