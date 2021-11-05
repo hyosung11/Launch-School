@@ -3880,3 +3880,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 13:35 Good SPOT Study Session with Josh. Getting better at writing algorithms and turning the algorithms into good code.
 
 16:05 Developing my problem-solving and coding skills simultaneously and I'm having fun doing it.
+
+## 20211105 금요일
+
+08:53 I had diarrhea and I think it's from the coffee. Has it gone bad?
