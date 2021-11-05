@@ -3888,3 +3888,9 @@ How awesome are the engineers in the company? If you're the best one there, that
 10:05 Working on Small Problems > Easy 4 > 1. How Old is Teddy?
 
 10:36 Finished "Searching 101". Time to check on the kids.
+
+11:33 Finished "When Will I Retire?".
+
+12:13 Gosh, sometimes there are simple solutions if you know the right methods to use. E.g.,
+
+`return string === string.split('').reverse().join('')`
