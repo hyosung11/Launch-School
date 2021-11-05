@@ -174,7 +174,6 @@ console.log(reverseWords('Launch School')); // "hcnuaL loohcS"
 //   return reversedLetters.join('');
 // }
 
-
 // function reverseWords(words) {
 //   let arrayOfWords = [];
 //   words = words.split(' ')
