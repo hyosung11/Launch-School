@@ -62,28 +62,32 @@ The `Math.ceil()` function always rounds a number up to the next largest integer
 
 Using `Math.ceil` is a bit more straightforward than `Math.floor`. `Math.ceil(year / 100)` gives the desired number without any further messing around. With `Math.floor(year / 100)`, you have to add one to the result unless the year divides evenly by 100. */
 
+// Bob Rodes - my favorite solution
+function century(year) {
+  let centuryNumber = Math.ceil(year / 100);
+  return `${centuryNumber}${ordinalSuffix(centuryNumber)}`
+}
+
+function ordinalSuffix(year) {
+  if ([11, 12, 13].includes(year % 100)) return 'th';
+
+  switch(year % 10) {
+    case 1: return 'st';
+    case 2: return 'nd';
+    case 3: return 'rd';
+    default: return 'th';
+  }
+}
+
+// Edris's Solution Revised
 // function century(year) {
 //   let date = Math.ceil(year / 100);
 //   let lastDigit = date % 10;
+//   let last2digits = date % 100;
 
-//   if (date === 11 || date === 12 || date === 13) {
+//   if (last2digits >= 11 && last2digits <= 13) {
 //     return date + 'th';
-//   }
-
-//   switch (lastDigit) {
-//     case 1: return date + 'st';
-//     case 2: return date + 'nd';
-//     case 3: return date + 'rd';
-//     default: return date + 'th';
-//   }
-// }
-
-// Edris's Solution
-// function century(year) {
-//   let date = Math.ceil(year / 100).toFixed(0);
-//   let lastDigit = date % 10;
-
-//   if (date === 11 || date === 12 || date === 13) {
+//   } else if (date >= 11 && date <= 13) {
 //     return date + 'th';
 //   }
 

@@ -23,7 +23,7 @@ Approach/Algorithm
 
 Hint:
 
-- The `Math` object has a `randome()` method that might be useful. Check out the documentation on MDN.
+- The `Math` object has a `random()` method that might be useful. Check out the documentation on MDN.
 - How many possible numbers can be generated?
 - How can you make sure that the numbers generated won't go below the minimum value?
 

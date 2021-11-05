@@ -3884,3 +3884,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 ## 20211105 금요일
 
 08:53 I had diarrhea and I think it's from the coffee. Has it gone bad?
+
+10:05 Working on Small Problems > Easy 4 > 1. How Old is Teddy?
+
+10:36 Finished "Searching 101". Time to check on the kids.
