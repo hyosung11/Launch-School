@@ -3900,3 +3900,9 @@ How awesome are the engineers in the company? If you're the best one there, that
 22:02 Getting late and I'm still doing problems after movie night with the family. I think I need to go to bed soon for soccer tomorrow when it's going to be cold.
 
 22:21 Time for bed.
+
+## 20211106 토요일
+
+10:04 Let's do some problems and also work on the Coinbase Apprenticeship Application.
+
+11:15 Worked on "Letter Counter 2" for a bit. Now Ning is here and Chelsea is playing right now.
