@@ -3906,3 +3906,11 @@ How awesome are the engineers in the company? If you're the best one there, that
 10:04 Let's do some problems and also work on the Coinbase Apprenticeship Application.
 
 11:15 Worked on "Letter Counter 2" for a bit. Now Ning is here and Chelsea is playing right now.
+
+14:36 Finished JS101 - Small Problems > Easy 4 > 10. Letter Swap
+
+15:17 Wow, I really don't like this problem because it confuses me. I will come back to it: JS101 - Small ProblemsEasy 5 > 1. Cute Angles
+
+16:29 It helps to track the values and how they change as they move through the function.
+
+18:57 Working on Find the Duplicate at Oakland house.
