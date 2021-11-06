@@ -2,7 +2,22 @@
 
 Letter Counter (Part 2)
 
-Modify the wordSizes function from the previous exercise to exclude non-letters when determining word size. For instance, the word size of "it's" is 3, not 4. */
+Modify the wordSizes function from the previous exercise to exclude non-letters when determining word size. For instance, the word size of "it's" is 3, not 4.
+
+ALGORITHM
+- initialize `count` variable to empty object
+- initialize `wordsArray` variable to array of words by splitting the string
+- loop through the `wordsArray`
+  - check for letters only
+    - remove non-letter characters
+  - set wordSize to length of first word
+  - if word size is 0, skip to next word
+  - check that property exists in object
+    - if doesn't exist set to 0
+    - increment property value
+return object
+
+*/
 
 function wordSizes(words) {
   let count = {};
@@ -13,7 +28,6 @@ function wordSizes(words) {
     if (cleanWordSize === 0) {
       continue;
     }
-
     count[cleanWordSize] = count[cleanWordSize] || 0;
     count[cleanWordSize] += 1;
   }
@@ -22,7 +36,7 @@ function wordSizes(words) {
 }
 
 function removeNonLetters(string) {
-  let result = '';
+  let result = ''
 
   for (let idx = 0; idx < string.length; idx += 1) {
     if (isLetter(string[idx])) {

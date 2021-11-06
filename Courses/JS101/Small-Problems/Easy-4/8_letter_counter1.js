@@ -30,12 +30,16 @@ How we represent the data that we will work with when converting the input to ou
 
 ALGORITHM
 Steps for converting input to output
-1. Split the string at every space into an array
-2. Count the number of characters in each element of the array
-3. for each element in the array
-  - add a key to the object that represents the value of the number and initialize counter to 1
-  - we add 1 to the corresponding key
-4. return the object
+- initialize variable to an empty object
+- split the words into an array
+- loop through the array
+  - set size of word to the length of the element
+  - if size of word is 0, skip to next word
+  - ensure the property for the current word exists in the object
+    - if it doesn't exist, set it to 0
+    - set property to current value
+    - increment the count
+- return object
 
 CODE
 Implementation of Algorithm
@@ -45,7 +49,7 @@ function wordSizes(words) {
   let count = {};
   let wordsArray = words.split(' ');
 
-  for (let idx = 0; idx < wordsArray.length; idx += 1) {
+  for (let idx = 0; idx < wordsArray.length; idx +=1) {
     let wordSize = wordsArray[idx].length;
     if (wordSize === 0) {
       continue;
@@ -53,8 +57,7 @@ function wordSizes(words) {
 
     if (!count[wordSize]) {
       count[wordSize] = 0;
-    }
-    count[wordSize] += 1;
+    } count[wordSize] += 1;
   }
 
   return count;
@@ -76,7 +79,6 @@ The solution stores the counts of word sizes as properties of the `count` object
 2. Check whether `wordSize` is equal to `0`. If yes, proceed immediately to the next iteration since there is no need to account for words of zero length.
 3. Ensure that the property for the current `wordSize` in the `count` object exists and has a value. If the property does not exist (i.e., `count[wordSize]` evaluates to `undefined`), set it to `0`. Otherwise, just set it to its current value. Note that we use bang prefix here. This prefix converts the value to a `boolean` and reverses it.
 4. Increment the count for a particular `wordSize` by `1`. */
-
 
 // Laurent's Version
 // function wordSizes(string) {
