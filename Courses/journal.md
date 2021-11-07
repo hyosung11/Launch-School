@@ -3922,3 +3922,11 @@ How awesome are the engineers in the company? If you're the best one there, that
 21:55 Finished `8_list_of_digits.js`.
 
 23:05 Definitely getting tired. Finished 9-11.
+
+## 20211107 일요일
+
+08:14 [JS109 Live Assessment: Practice Problems](https://jealous-oyster-4d2.notion.site/JS109-Live-Assessment-Practice-Problems-3d1cc293360a4a5eb69fff9f425b7299)
+
+08:18 [Sergio's JS109 Live Interview Practice Problems](https://laced-october-d29.notion.site/Sergio-s-JS109-Live-Interview-Practice-Problems-1711ca8524f24918b4d6b6005934bb74)
+
+10:33 the After Midnight (Part 1) was difficult for me. I need to look at it again more closely. Time for Daddy-Daughter Time with Omi now.
