@@ -3932,3 +3932,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 10:33 the After Midnight (Part 1) was difficult for me. I need to look at it again more closely. Time for Daddy-Daughter Time with Omi now.
 
 13:50 I reviewed After Midnight (Part 1) and I think I understand the math better now.
+
+14:49 Starting Small Problems > Easy 6
+
+16:02 Finished Easy 6 > 3. Reverse Number
