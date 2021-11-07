@@ -39,31 +39,33 @@ CODE
 Implementation of Algorithm
 - test code while programming */
 
-// const MINUTES_PER_HOUR = 60;
-// const HOURS_PER_DAY = 24;
-// const MINUTES_PER_DAY = HOURS_PER_DAY * MINUTES_PER_HOUR;
+const MINUTES_PER_HOUR = 60;
+const HOURS_PER_DAY = 24;
+const MINUTES_PER_DAY = HOURS_PER_DAY * MINUTES_PER_HOUR;
 
 
-// function leadingZero(number) {
-//   return number < 10 ? `0${number}` : String(number);
-// }
+function leadingZero(number) {
+  return number < 10 ? `0${number}` : String(number);
+}
 
-// function formatTime(hours, minutes) {
-//   return `${leadingZero(hours)}:${leadingZero(minutes)}`;
-// }
+function formatTime(hours, minutes) {
+  return `${leadingZero(hours)}:${leadingZero(minutes)}`;
+}
 
-// function timeOfDay(deltaMinutes) {
-//   if (deltaMinutes < 0) {
-//     deltaMinutes = (deltaMinutes % MINUTES_PER_DAY) + MINUTES_PER_DAY;
-//   } else {
-//     deltaMinutes = deltaMinutes % MINUTES_PER_DAY;
-//   }
+function timeOfDay(deltaMinutes) {
+  if (deltaMinutes < 0) {
+    deltaMinutes = (deltaMinutes % MINUTES_PER_DAY) + MINUTES_PER_DAY;
+    // console.log(deltaMinutes); // 3
+  } else {
+    deltaMinutes = deltaMinutes % MINUTES_PER_DAY;
+  }
 
-//   let hours = Math.floor(deltaMinutes / MINUTES_PER_HOUR);
-//   let minutes = deltaMinutes % MINUTES_PER_HOUR;
-
-//   return formatTime(hours, minutes);
-// }
+  let hours = Math.floor(deltaMinutes / MINUTES_PER_HOUR);
+  // console.log(hours); // 0
+  let minutes = deltaMinutes % MINUTES_PER_HOUR;
+  // console.log(minutes); // 3
+  return formatTime(hours, minutes);
+}
 
 // Examples:
 console.log(timeOfDay(0) === '00:00');
@@ -190,38 +192,38 @@ console.log(timeOfDay(-4231) === "01:29");
 - use padding both hour and minute
 */
 
-function timeOfDay(integer) {
-  const MINUTE_TO_HOUR = 60;
-  const HOUR_IN_DAY = 24;
+// function timeOfDay(integer) {
+//   const MINUTE_TO_HOUR = 60;
+//   const HOUR_IN_DAY = 24;
 
-  let integerAbs = Math.abs(integer);
-  let totalHrPassed = Math.floor(integerAbs / MINUTE_TO_HOUR);
-  let totMinPassed = integerAbs - (totalHrPassed * MINUTE_TO_HOUR);
-  let totalHrPassedActual = totalHrPassed % 24;
+//   let integerAbs = Math.abs(integer);
+//   let totalHrPassed = Math.floor(integerAbs / MINUTE_TO_HOUR);
+//   let totMinPassed = integerAbs - (totalHrPassed * MINUTE_TO_HOUR);
+//   let totalHrPassedActual = totalHrPassed % 24;
 
-  let midnightHour;
-  let midnightMinute;
-  let twentyFourFormatHr;
-  let twentyFourFormatMin;
-  if (integer >= 0) {
-    midnightHour = 0;
-    midnightMinute = 0;
-    twentyFourFormatHr = midnightHour + totalHrPassedActual;
-    twentyFourFormatMin = midnightMinute + totMinPassed;
-  } else {
-    midnightHour = 23;
-    midnightMinute = 60;
-    twentyFourFormatHr = midnightHour - totalHrPassedActual;
-    twentyFourFormatMin = midnightMinute - totMinPassed;
-  }
-  //let testReturn = `${String(twentyFourFormatHr).padStart(2,'0')}:${String(twentyFourFormatMin).padStart(2,'0')}`;
+//   let midnightHour;
+//   let midnightMinute;
+//   let twentyFourFormatHr;
+//   let twentyFourFormatMin;
+//   if (integer >= 0) {
+//     midnightHour = 0;
+//     midnightMinute = 0;
+//     twentyFourFormatHr = midnightHour + totalHrPassedActual;
+//     twentyFourFormatMin = midnightMinute + totMinPassed;
+//   } else {
+//     midnightHour = 23;
+//     midnightMinute = 60;
+//     twentyFourFormatHr = midnightHour - totalHrPassedActual;
+//     twentyFourFormatMin = midnightMinute - totMinPassed;
+//   }
+//   //let testReturn = `${String(twentyFourFormatHr).padStart(2,'0')}:${String(twentyFourFormatMin).padStart(2,'0')}`;
 
-  return (`${String(twentyFourFormatHr).padStart(2,'0')}:${String(twentyFourFormatMin).padStart(2,'0')}`);
-}
-console.log(timeOfDay(0) === "00:00");
-console.log(timeOfDay(-3) === "23:57");
-console.log(timeOfDay(35) === "00:35");
-console.log(timeOfDay(-1437) === "00:03");
-console.log(timeOfDay(3000) === "02:00");
-console.log(timeOfDay(800) === "13:20");
-console.log(timeOfDay(-4231) === "01:29");
+//   return (`${String(twentyFourFormatHr).padStart(2,'0')}:${String(twentyFourFormatMin).padStart(2,'0')}`);
+// }
+// console.log(timeOfDay(0) === "00:00");
+// console.log(timeOfDay(-3) === "23:57");
+// console.log(timeOfDay(35) === "00:35");
+// console.log(timeOfDay(-1437) === "00:03");
+// console.log(timeOfDay(3000) === "02:00");
+// console.log(timeOfDay(800) === "13:20");
+// console.log(timeOfDay(-4231) === "01:29");
