@@ -55,15 +55,13 @@ function formatTime(hours, minutes) {
 function timeOfDay(deltaMinutes) {
   if (deltaMinutes < 0) {
     deltaMinutes = (deltaMinutes % MINUTES_PER_DAY) + MINUTES_PER_DAY;
-    // console.log(deltaMinutes); // 3
   } else {
     deltaMinutes = deltaMinutes % MINUTES_PER_DAY;
   }
 
   let hours = Math.floor(deltaMinutes / MINUTES_PER_HOUR);
-  // console.log(hours); // 0
   let minutes = deltaMinutes % MINUTES_PER_HOUR;
-  // console.log(minutes); // 3
+
   return formatTime(hours, minutes);
 }
 
