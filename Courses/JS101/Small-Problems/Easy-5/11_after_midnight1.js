@@ -39,10 +39,9 @@ CODE
 Implementation of Algorithm
 - test code while programming */
 
-// const MINUTES_PER_HOUR = 60;
-// const HOURS_PER_DAY = 24;
-// const MINUTES_PER_DAY = HOURS_PER_DAY * MINUTES_PER_HOUR;
-
+const HOURS_PER_DAY = 24;
+const MINUTES_PER_HOUR = 60;
+const MINUTES_PER_DAY = HOURS_PER_DAY * MINUTES_PER_HOUR;
 
 // function leadingZero(number) {
 //   return number < 10 ? `0${number}` : String(number);
