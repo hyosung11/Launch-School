@@ -3914,3 +3914,11 @@ How awesome are the engineers in the company? If you're the best one there, that
 16:29 It helps to track the values and how they change as they move through the function.
 
 18:57 Working on Find the Duplicate at Oakland house.
+
+21:06 Finished 5 and 6 of Easy 5.
+
+21:31 Finished `7_multiply_lists.js`.
+
+21:55 Finished `8_list_of_digits.js`.
+
+23:05 Definitely getting tired. Finished 9-11.

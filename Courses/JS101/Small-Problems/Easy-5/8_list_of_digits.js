@@ -7,17 +7,17 @@ Write a function that takes one argument, a positive integer, and returns a list
 Input: positive integer
 Output: array of numbers of each digit from number */
 
-// function digitList(number) {
-//   let numberStringArray = String(number).split('');
-//   let numberArray = [];
+function digitList(number) {
+  let numberStringArray = String(number).split('');
+  let numberArray = [];
 
-//   for (let idx = 0; idx < numberStringArray.length; idx += 1) {
-//     let digit = parseInt(numberStringArray[idx], 10);
-//     numberArray.push(digit);
-//   }
+  for (let idx = 0; idx < numberStringArray.length; idx += 1) {
+    let digit = parseInt(numberStringArray[idx], 10);
+    numberArray.push(digit);
+  }
 
-//   return numberArray;
-// }
+  return numberArray;
+}
 
 // `map`
 function digitList(number) {
