@@ -3950,3 +3950,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 ## 20211108 월요일
 
 09:07 Going to work on more problems today. I decided to abandon my application to the Coinbase Apprenticeship Program as I made a mistake and started the coding challenge before breakfast. Ugh. Then I had to take the kids to school. I'm alright right now.
+
+10:05 Just finished Easy 6 > 8. Sequence Count.
+
+11:48 Time to go to PT. I can't figure out what's wrong with my code for "Reversed Array".
