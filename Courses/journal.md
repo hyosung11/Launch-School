@@ -3946,3 +3946,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 20:44 I've officially completed over 1/2 of the Small Problems.
 
 21:10 Grinding through problems, but need to review them later.
+
+## 20211108 월요일
+
+09:07 Going to work on more problems today. I decided to abandon my application to the Coinbase Apprenticeship Program as I made a mistake and started the coding challenge before breakfast. Ugh. Then I had to take the kids to school. I'm alright right now.
