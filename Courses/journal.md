@@ -3956,3 +3956,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 11:48 Time to go to PT. I can't figure out what's wrong with my code for "Reversed Array".
 
 14:20 I finished Easy 6 with a few minutes left to spare from yesterday's plan. Wow, I did 12 problems in 24 hours. That's great and means I'm getting better and faster at solving problems.
+
+14:39 I totally got confused with the output.
