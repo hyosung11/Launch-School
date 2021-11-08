@@ -7,8 +7,8 @@ Write a function that takes a positive integer as an argument and returns that n
 
 function reverseNumber(number) {
   let numberStringArray = String(number).split('');
-  let reversedStringedNum = numberStringArray.reverse().join('');
-  return parseInt(reversedStringedNum, 10);
+  let reversedStringedNumber = numberStringArray.reverse().join('');
+  return parseInt(reversedStringedNumber, 10);
 }
 
 // function reverseNumber(number) {

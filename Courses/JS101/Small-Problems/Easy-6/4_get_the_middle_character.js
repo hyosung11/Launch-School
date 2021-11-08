@@ -46,7 +46,7 @@ length 	center index
 7 	    (7 - 1) / 2 => 3
 3 	    (3 - 1) / 2 => 1
 
-We can generalize this pattern: if `n` is an odd number and you have a string of length `n`, then the middle character is at index `(n - 1) / 2`. To get the middle character, we just have to retrieve the character at that index, e.g., s`tring[2]` for a 5 character string.
+We can generalize this pattern: if `n` is an odd number and you have a string of length `n`, then the middle character is at index `(n - 1) / 2`. To get the middle character, we just have to retrieve the character at that index, e.g., `string[2]` for a 5 character string.
 
 Things are just a little more complicated for even-length strings, but we can use the same approach: look at a few test examples. We'll use `Subway` as our example - it has a length of `6`:
 
@@ -76,7 +76,7 @@ Given the left index we've calculated, we can now use the `substring` method to 
 Problems
 - takes a string and returns the middle character(s)
 - if string is even then return the middle two characters
-- if string is odd then only reutnr the middle character
+- if string is odd then only return the middle character
 - input: string
 - output: string
 
