@@ -3936,3 +3936,13 @@ How awesome are the engineers in the company? If you're the best one there, that
 14:49 Starting Small Problems > Easy 6
 
 16:02 Finished Easy 6 > 3. Reverse Number
+
+18:56 Back from dinner at the Kim's. Good to see them. Ready to keep studying.
+
+19:45 Putting the kids to bed.
+
+20:13 Working on another problem.
+
+20:44 I've officially completed over 1/2 of the Small Problems.
+
+21:10 Grinding through problems, but need to review them later.
