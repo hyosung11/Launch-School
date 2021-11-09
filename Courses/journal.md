@@ -3970,3 +3970,11 @@ How awesome are the engineers in the company? If you're the best one there, that
 ## 20211109 화요일
 
 08:19 Time to study more small problems.
+
+09:58 I stopped doing daily scrum and sending my answers to Alex. Ugh. I'm still making progress though.
+
+11:05 Practicing many times with different versions of JS101 - Small Problems > String and Text Processing > 2. Delete Vowels.
+
+11:10 On to the next problem. 3. Lettercase Counter.
+
+11:32 I had to peek at the answer for the above problem.
