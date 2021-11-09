@@ -3960,3 +3960,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 14:39 I totally got confused with the output.
 
 16:16 Into and reviewing List Processing. Here we go.
+
+19:13 Finished 4. Leading Substrings
+
+19:41 Time for kids to go to bed.
