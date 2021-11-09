@@ -3964,3 +3964,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 19:13 Finished 4. Leading Substrings
 
 19:41 Time for kids to go to bed.
+
+21:10 Getting tired. End of daylight savings messing with my head.

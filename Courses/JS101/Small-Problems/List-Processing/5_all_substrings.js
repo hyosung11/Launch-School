@@ -25,7 +25,6 @@ function substrings(string) {
   return substrings;
 }
 
-
 function leadingSubstrings(string) {
   let substrings = [];
   for (let length = 1; length <= string.length; length += 1) {
@@ -66,3 +65,14 @@ All of the arrays returned by `leadingSubstrings` get concatenated together, yie
 Further Exploration
 
 Rewrite `substrings` using list processing functions. That is, convert the string into an array of some sort and use functions like `map`, `filter`, or `reduce` to get the desired substrings. (You will also need to use `join`.) Try not to use `forEach` as that is too similar to the `for` loop approach. */
+
+// Eamon
+// function substrings(string) {
+//   return [...string]
+//     .map((_, index) => leadingSubstrings(string.slice(index)))
+//     .flat();
+// }
+
+// function leadingSubstrings(string) {
+//   return [...string].map((_, index) => string.slice(0, index + 1));
+// }
