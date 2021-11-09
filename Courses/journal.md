@@ -3978,3 +3978,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 11:10 On to the next problem. 3. Lettercase Counter.
 
 11:32 I had to peek at the answer for the above problem.
+
+13:30 I finished counts object problem. At Wayne Valley and need to get ready to referee.
