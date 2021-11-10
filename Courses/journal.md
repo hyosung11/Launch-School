@@ -3991,4 +3991,6 @@ How awesome are the engineers in the company? If you're the best one there, that
 
 ## 20211110 수요일
 
-  09:06 Working on the Small Problems of Medium difficulty. Also, want to respond to Mel's Slack post. I replied to Mel and sent her the Launch School answer. I'm not sure that it helps, but okay.
+09:06 Working on the Small Problems of Medium difficulty. Also, want to respond to Mel's Slack post. I replied to Mel and sent her the Launch School answer. I'm not sure that it helps, but okay.
+
+11:24 I spend a lot of time on Medium 1 > 2. Rotation (Part 2).
