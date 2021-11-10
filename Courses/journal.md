@@ -3988,3 +3988,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 22:30 I need to learn regex better and better.
 
 22:54 I need to stop and go to sleep. I finished the first pass through String and Text Processing.
+
+## 20211110 수요일
+
+  09:06 Working on the Small Problems of Medium difficulty. Also, want to respond to Mel's Slack post. I replied to Mel and sent her the Launch School answer. I'm not sure that it helps, but okay.
