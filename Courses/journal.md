@@ -3984,3 +3984,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 18:45 I haven't written a note since before reffing?
 
 21:15 Working through problems.
+
+22:30 I need to learn regex better and better.
