@@ -3994,3 +3994,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 09:06 Working on the Small Problems of Medium difficulty. Also, want to respond to Mel's Slack post. I replied to Mel and sent her the Launch School answer. I'm not sure that it helps, but okay.
 
 11:24 I spend a lot of time on Medium 1 > 2. Rotation (Part 2).
+
+11:48 Difficult to discern the logic of Medium 1 > 3. Rotation (Part 3). Now it's time to go to PT.
