@@ -4000,3 +4000,9 @@ How awesome are the engineers in the company? If you're the best one there, that
 17:19 Working on Stack Machine Interpretation that has a long explanation.
 
 19:03 Feeling quite tired right now doing Medium 1 > 4. Stack Machine Interpretation
+
+## 20211111 목요일
+
+08:42 Working on Small Problems > Medium 2
+
+13:36 I did back to back study sessions and still can't solve the problems on my own yet. Time to take a short break and then come back to more problems.
