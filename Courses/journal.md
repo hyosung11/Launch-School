@@ -3996,3 +3996,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 11:24 I spend a lot of time on Medium 1 > 2. Rotation (Part 2).
 
 11:48 Difficult to discern the logic of Medium 1 > 3. Rotation (Part 3). Now it's time to go to PT.
+
+17:19 Working on Stack Machine Interpretation that has a long explanation.
+
+19:03 Feeling quite tired right now doing Medium 1 > 4. Stack Machine Interpretation
