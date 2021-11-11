@@ -15,8 +15,7 @@ Interview Prep
 
 Given the string of alphabetic characters limited to a-z, do as in the sample cases.
 
-Each character in the string argument should appear in the returned string.
-The original character should be repeated as many times as its original position in the string argument. (index 0 being position 1, index 1 being position 2...)
+Each character in the string argument should appear in the returned string. The original character should be repeated as many times as its original position in the string argument. (index 0 being position 1, index 1 being position 2...)
 
 The repeated sequences of a character should be separated by a hyphen in the returned string.
 
@@ -30,7 +29,7 @@ PROBLEM
 
 Identify rules
 - add each char in argument string to returned string
-- repeat each char as many times as its index position
+- repeat each char as many times as its index position + 1
 - uppercase first instance of each char
 - lowercase rest of instances of each char
 - separate each char with a hyphen
@@ -44,35 +43,36 @@ DATA STRUCTURE
 - output: new string
 
 ALGORITHM
-- initialize `repeatedString` to empty string
+- initialize `repeatCharsString`
 - split string at each char
   - iterate through each char
     - check index position + 1
     - multiply char by index position + 1
     - uppercase first iteration of char
+    - lowercase rest of chars in iteration
   - add hyphen between each collection of chars
 - join chars together
-- return `repeatedString` string
+- return `repeatCharsString` string
 
 CODE
 - test code while programming */
 
-function accum(string) {
-  let repeatedString = '';
+// function accum(string) {
+//   let repeatCharsString = string
+//     .split('')
+//     .map((char, count) => {
+//       return char.toUpperCase() + char.toLowerCase().repeat(count);
+//     });
+//     return repeatCharsString.join('-');
+// }
 
-  string.split('').map((char, index) => {
-    return char.repeat(index + 1)
-  });
-
-  return repeatedString;
-}
-
-function accum(string) {
-  let result = string.split('').map((char, index) => {
-    return char.toUpperCase() + char.toLowerCase.repeat(index);
-  });
-  return result.join('-');
-}
+// function accum(string) {
+//   return string
+//     .split('')
+//     .map((char, index) => {
+//       return char.toUpperCase() + char.toLowerCase().repeat(index);
+//     }).join('-');
+// }
 
 function accum(string) {
   return string
@@ -80,7 +80,6 @@ function accum(string) {
     .map((char, index) => char.toUpperCase() + char.toLowerCase().repeat(index))
     .join('-');
 }
-
 
 // Test Cases
 console.log(accum("abcd"));   // "A-Bb-Ccc-Dddd"
@@ -115,7 +114,6 @@ function accum(string) {
   .map((char, index) => char.toUpperCase() + char.toLowerCase().repeat(index))
   .join("-");
 }
-
 
 //Theo
 // initialize strArr variable, which will hold the new chars in arr form, which can then be converted to str later

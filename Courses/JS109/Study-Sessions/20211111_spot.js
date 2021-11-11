@@ -49,10 +49,17 @@ function pairedNums(array) {
   let sortedArray = array.sort((a, b) => b - a);
   // [ 9, 8, 7, 6, 5, 3, 2, 1 ]
 
+  sortedArray.filter((num, index) => {
+    if (num[index] - num[index + 1] === 2) {
+      result.push(num[index], num[index + 1]);
+    }
+  })
+
   for (let idx = 0; idx < sortedArray.length; idx += 1) {
-    for (let j = 1; j < sortedArray[idx].length; j += 1) {
-      if (sortedArray[idx] - sortedArray[j] === 2) {
+    for (let j = 0; j < sortedArray[idx].length; j += 1) {
+      if ((sortedArray[idx] - sortedArray[j]) === 2) {
         result.push(sortedArray[idx], sortedArray[j]);
+        console.log(result)
       } else {
         continue;
       }
@@ -86,7 +93,6 @@ A - Algorithm
 - iterate through copy array
   - see if any are difference of two
   - push into a new array
-
 - return resultArray
 
 C - Code with Intent */

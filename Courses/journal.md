@@ -4006,3 +4006,9 @@ How awesome are the engineers in the company? If you're the best one there, that
 08:42 Working on Small Problems > Medium 2
 
 13:36 I did back to back study sessions and still can't solve the problems on my own yet. Time to take a short break and then come back to more problems.
+
+14:41 Starting to slowly recognize patterns and methods to use for patterns.
+
+16:54 I can't figure out the problem that I got from Miles at the SPOT study session. Frustrating.
+
+18:11 Time for dinner
