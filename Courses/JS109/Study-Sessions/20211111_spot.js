@@ -7,6 +7,7 @@ Introductions
 - H,
 
 Interview Assessment Problem
+
 1. The objective is to return all pairs of numbers from a given array of numbers that have a difference of 2. The result array should be sorted in ascending order of values. Assume there are no duplicate numbers in either the input or output arrays. The order of the numbers in the input array should not matter.
 
 # PEDAC => process the problem (PEDA) and code with intent (C)
@@ -61,6 +62,15 @@ Implementation of Algorithm
 
 //   return result;
 // }
+function pairedNums(array) {
+ let resultArray = []
+  array.map((number, index) => {
+    if ((number - index) === 2) {
+      resultArray.push(number, index);
+    }
+  });
+  return resultArray.sort((a, b) => a - b);
+}
 
 console.log(pairedNums([1, 3, 2, 6, 8, 5, 9, 7]));  // ==> [ [ 1, 3 ], [ 5, 7 ], [ 6, 8 ] ]
 console.log(pairedNums([22, 33, 24, 26, 31, 35, 20, 27]));  // ==> [ [ 20, 22 ], [ 24, 26 ], [ 31, 33 ] ]
@@ -86,11 +96,11 @@ A - Algorithm
 - iterate through copy array
   - see if any are difference of two
   - push into a new array
-
 - return resultArray
 
 C - Code with Intent */
 
+// Solution with Laurent
 function pairedNums(array) {
   let result = [];
   let sortedArray = array.sort((a, b) => a - b);
