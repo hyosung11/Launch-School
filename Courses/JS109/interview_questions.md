@@ -24,7 +24,17 @@ console.log(isUppercase('L')); // true
 
 ## String Processing Problems
 
-### 1. Repeat sequences of characters in a string
+### 1. Repeated sequences of characters included in the return string
+
+1. Problem Description
+
+Given the string of alphabetic characters limited to a-z, do as in the sample cases.
+
+Each character in the string argument should appear in the returned string. The original character should be repeated as many times as its original position in the string argument. (index 0 being position 1, index 1 being position 2...)
+
+The repeated sequences of a character should be separated by a hyphen in the returned string.
+
+In the repeated sequences of a character included in the returned string, the first instance of the character should be uppercase. Subsequent instances of the character should be lowercase.
 
 ```js
 function accum(string) {
@@ -129,4 +139,51 @@ function letterPercentages(string) {
     neither: percentage(/[^a-z]/gi)
   }
 }
+```
+
+## Array Processing Problems
+
+### Array to String
+
+1. Problem Description
+
+Write a function to find the longest common prefix string amongst an array of strings.
+
+If there is no common prefix, return an empty string "".
+
+Example 1:
+Input: ["flower","flow","flight"]
+Output: "fl"
+
+Example 2:
+Input: ["dog","racecar","car"]
+Output: ""
+Explanation: There is no common prefix among the input strings.
+
+Note:
+All given inputs are in lowercase letters a-z.
+
+```js
+function commonPrefix(words) {
+  let prefix = '';
+  words.sort((a, b) => a.length - b.length);
+
+  let substring = '';
+
+  for (let index = 0; index < words[0].length; index += 1) {
+    substring += words[0][index];
+    if (words.every((word) => word.startsWith(substring))) {
+      prefix = substring;
+    }
+  }
+  return prefix;
+}
+
+// Test Cases
+console.log(commonPrefix(["flower","flow","flight"]) === "fl"); // true
+console.log(commonPrefix(["dog","racecar","car"])  === ""); // true
+console.log(commonPrefix(["interspecies","interstellar","interstate"]) === "inters"); // true
+console.log(commonPrefix(["throne","dungeon"]) === ""); // true
+console.log(commonPrefix(["throne","throne"]) === "throne"); // true
+console.log(commonPrefix([""]) === ""); // true
 ```

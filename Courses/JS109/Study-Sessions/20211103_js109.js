@@ -126,24 +126,9 @@ function commonPrefix(words) {
       prefix = substring;
     }
   }
+
   return prefix;
 }
-
-// function commonPrefix(words) {
-//   let prefix = '';
-//   words.sort((a, b) => a.length - b.length);
-
-//   let substring = '';
-
-//   for (let index = 0; index < words[0].length; index += 1) {
-//     substring += words[0][index];
-//     if (words.every((word) => word.startsWith(substring))) {
-//       prefix = substring;
-//     }
-//   }
-
-//   return prefix;
-// }
 
 // Antonina's Solution
 // function commonPrefix(words) {
