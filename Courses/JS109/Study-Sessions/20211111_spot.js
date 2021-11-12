@@ -43,27 +43,27 @@ CODE
 Implementation of Algorithm
 - test code while programming */
 
-function pairedNums(array) {
-  let result = [];
+// function pairedNums(array) {
+//   let result = [];
 
-  let sortedArray = array.sort((a, b) => b - a);
-  // [ 9, 8, 7, 6, 5, 3, 2, 1 ]
+//   let sortedArray = array.sort((a, b) => b - a);
+//   // [ 9, 8, 7, 6, 5, 3, 2, 1 ]
 
-  for (let idx = 0; idx < sortedArray.length; idx += 1) {
-    for (let j = 1; j < sortedArray[idx].length; j += 1) {
-      if (sortedArray[idx] - sortedArray[j] === 2) {
-        result.push(sortedArray[idx], sortedArray[j]);
-      } else {
-        continue;
-      }
-    }
-  }
+//   for (let idx = 0; idx < sortedArray.length; idx += 1) {
+//     for (let j = 1; j < sortedArray[idx].length; j += 1) {
+//       if (sortedArray[idx] - sortedArray[j] === 2) {
+//         result.push(sortedArray[idx], sortedArray[j]);
+//       } else {
+//         continue;
+//       }
+//     }
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
 console.log(pairedNums([1, 3, 2, 6, 8, 5, 9, 7]));  // ==> [ [ 1, 3 ], [ 5, 7 ], [ 6, 8 ] ]
-// console.log(pairedNums([22, 33, 24, 26, 31, 35, 20, 27]));  // ==> [ [ 20, 22 ], [ 24, 26 ], [ 31, 33 ] ]
+console.log(pairedNums([22, 33, 24, 26, 31, 35, 20, 27]));  // ==> [ [ 20, 22 ], [ 24, 26 ], [ 31, 33 ] ]
 
 /* Miles's Algorithm
 P - understand problem
@@ -90,3 +90,23 @@ A - Algorithm
 - return resultArray
 
 C - Code with Intent */
+
+function pairedNums(array) {
+  let result = [];
+  let sortedArray = array.sort((a, b) => a - b);
+
+  while (sortedArray.length !== 0) {
+    let plusTwo = sortedArray.filter((number) => number === sortedArray[0] + 2);
+
+    if (plusTwo.length > 0) {
+      result.push([sortedArray[0]].concat(plusTwo));
+      sortedArray.splice(sortedArray.indexOf(plusTwo[0]), 1);
+    }
+    sortedArray.shift();
+  }
+
+  return result;
+}
+
+console.log(pairedNums([1, 3, 2, 6, 8, 5, 9, 7]));  // ==> [ [ 1, 3 ], [ 5, 7 ], [ 6, 8 ] ]
+console.log(pairedNums([22, 33, 24, 26, 31, 35, 20, 27]));  // ==> [ [ 20, 22 ]

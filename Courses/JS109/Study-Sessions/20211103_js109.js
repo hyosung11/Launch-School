@@ -191,3 +191,13 @@ so our function would return true.  See the below test cases for more examples *
 // // false
 // console.log(threeByThree(['93', '9', '1', '25', '1212']));
 // true
+
+function threeByThree(array) {
+  let arrayOfThrees = array
+    .map((string) => string.split(''))
+    .map((subArray) => subArray.reduce((acc, nb) => acc + Number(nb), 0))
+    .filter((nb) => nb % 3 === 0);
+
+  if (arrayOfThrees.length >= 3) return true;
+  return false;
+}
