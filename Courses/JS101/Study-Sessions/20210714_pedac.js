@@ -84,27 +84,27 @@ loop through the collection of strings one by one
 return result array
 */
 
-function countMatchingIndices(array) {
-  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
-  let resultArray = [];
+// function countMatchingIndices(array) {
+//   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+//   let resultArray = [];
 
-  // loop through the array
-  for (let indexOfArray = 0; indexOfArray < array.length; indexOfArray += 1) {
-    let count = 0;
-    let word = array[indexOfArray];
+//   // loop through the array
+//   for (let indexOfArray = 0; indexOfArray < array.length; indexOfArray += 1) {
+//     let count = 0;
+//     let word = array[indexOfArray];
 
-    // loop through string
-    for (let indexOfString = 0; indexOfString < word.length; indexOfString += 1) {
-      if (word[indexOfString].toLowerCase() === alphabet[indexOfString]) {
-        count += 1;
-      }
-    }
+//     // loop through string
+//     for (let indexOfString = 0; indexOfString < word.length; indexOfString += 1) {
+//       if (word[indexOfString].toLowerCase() === alphabet[indexOfString]) {
+//         count += 1;
+//       }
+//     }
 
-    resultArray.push(count);
-  }
+//     resultArray.push(count);
+//   }
 
-  return resultArray;
-}
+//   return resultArray;
+// }
 
 
 // function countMatchingIndices(array) {

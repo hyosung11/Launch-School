@@ -1,4 +1,4 @@
-/* Problem Description
+/* Three by Three Problem Description
 
 Given an array of strings, return a boolean indicating whether at least three of the elements in the array have digits whose sum is divisible by 3.
 
@@ -12,55 +12,30 @@ so our function would return true.  See the below test cases for more examples
 
 ALGORITHM
 - input an array of strings
-- initialize `arrayOfThrees`
+- initialize `arrayOfThrees` and
 - iterate through input array
-  - split the array into stringOfNums string elements
+  - split the array into stringOfNums subarray
     - iterate through stringOfNums
       - sum the digits of elements together
       - filter the sums that are evenly divisible by 3
 - output a boolean
-  - if sums divisible by three are 3 or more
+  - if three elements in the array have digits whose sum is divisible by 3
     - return true
     - return false */
 
-function threeByThree(array) {
-  let arrayOfThrees = array
-    .map((stringOfNums) => stringOfNums.split(''))
-    .map((digits) => digits.reduce((acc, num)=> acc + Number(num), 0))
-    .filter((num) => num % 3 === 0);
 
-  if (arrayOfThrees.length >= 3) return true;
-  return false;
-
-}
 
 // Test Cases
-console.log(threeByThree(['01112', '0111', '00030', '2043', '12043']));
-// true
-console.log(threeByThree(['01112', '2043', '12043']));
-// false
-console.log(threeByThree(['01112', '2043']));
-// false
-console.log(threeByThree(['93', '9', '1', '25', '1212']));
-// true
+console.log(threeByThree(['01112', '0111', '00030', '2043', '12043'])); // true
+console.log(threeByThree(['01112', '2043', '12043'])); // false
+console.log(threeByThree(['01112', '2043'])); // false
+console.log(threeByThree(['93', '9', '1', '25', '1212'])); // true
 
 // function threeByThree(array) {
 //   let arrayOfThrees = array
 //     .map((string) => string.split(''))
 //     .map((subArray) => subArray.reduce((acc, nb) => acc + Number(nb), 0))
 //     .filter((nb) => nb % 3 === 0);
-
-//   if (arrayOfThrees.length >= 3) return true;
-//   return false;
-// }
-
-// function threeByThree(array) {
-//   let arrayOfThrees = array
-//     .map((stringOfNums) => stringOfNums.split(''))
-//     .map((digits) =>
-//       digits.reduce((acc, sumOfDigits) => acc + Number(sumOfDigits), 0)
-//     )
-//     .filter((sumOfDigits) => sumOfDigits % 3 === 0);
 
 //   if (arrayOfThrees.length >= 3) return true;
 //   return false;
