@@ -24,7 +24,7 @@ console.log(isUppercase('L')); // true
 
 ## String Processing Problems
 
-### 1. Repeat sequence of characters in a string
+### 1. Repeat sequences of characters in a string
 
 ```js
 function accum(string) {
@@ -34,7 +34,7 @@ function accum(string) {
     .join('-');
 }
 
-console.log(repeatedString('Today'));
+console.log(accum('Today'));
 // 'T-Oo-Ddd-Aaaa-Yyyyy'
 ```
 
