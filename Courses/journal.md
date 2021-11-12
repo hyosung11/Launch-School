@@ -4026,3 +4026,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 08:55 Laurent can study, so I'm going to ask him for help.
 
 11:21 Did a few problems with Laurent and realize that I really need to drill more basic methods for fluency. Going to PT now. Omi is home alone.
+
+14:50 Repeating the medium problems from study groups. Time to get SungOh.
