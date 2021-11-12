@@ -4018,3 +4018,9 @@ How awesome are the engineers in the company? If you're the best one there, that
 21:11 Another confusing problem.
 
 22:00 Tired and confused right now with these small problems of medium difficulty.
+
+## 20211112 금요일
+
+08:15 Dreaming about the small problems and waking up to see if I can figure out the solution to the problem that Miles gave me yesterday.
+
+08:55 Laurent can study, so I'm going to ask him for help.
