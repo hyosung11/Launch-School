@@ -86,6 +86,6 @@ function countMatchingIndices(str) {
   }).length;
 }
 
-// function solve(arr) {
-//   return arr.map((str) => countMatchingIndices(str));
-// }
+function solve(arr) {
+  return arr.map((str) => countMatchingIndices(str));
+}
