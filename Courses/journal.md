@@ -4030,3 +4030,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 14:50 Repeating the medium problems from study groups. Time to get SungOh.
 
 17:30 At the Aaron Kim's birthday party where SungOh is running around.
+
+## 20211113 토요일
+
+12:25 Grinding through the Small Problems for a second time today.
