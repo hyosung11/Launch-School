@@ -4034,3 +4034,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 ## 20211113 토요일
 
 12:25 Grinding through the Small Problems for a second time today.
+
+19:51 I have worked on Small Problems all day and am working through Easy 2 > Convert a Number to a String. I think I'm going to have to go through some of these at least three times.

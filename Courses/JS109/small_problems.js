@@ -339,3 +339,322 @@
 // console.log(multiply(5, 3) === 15); // logs true
 
 // Easy 2 > 4. Squaring an Argument
+// function multiply(num1, num2) {
+//   return num1 * num2;
+// }
+
+// function square(number) {
+//   return multiply(number, number);
+// }
+
+// const multiply = (num1, num2) => num1 * num2;
+
+// const square = (num) => multiply(num, num);
+
+// const power = (num, exp) => (exp === 1 ? multiply(num, 1) : power(num, exp - 1) * num);
+
+// console.log(square(5) === 25); // logs true
+// console.log(square(-8) === 64); // logs true
+
+// function multiply(num1, num2) {
+//   return num1 * num2;
+// }
+
+// function power(num, exp) {
+//   let total = num;
+
+//   for (let count = 1; count < exp; count += 1) {
+//     total = multiply(num, total);
+//   }
+
+//   return total;
+// }
+
+// while loop version
+// const multiply = (num1, num2) => num1 * num2;
+
+// function power(num, exp) {
+//   let num1 = num;
+//   while (exp > 1) {
+//     num1 = multiply(num1, num)
+//     exp -= 1;
+//   }
+//   return num1;
+// }
+
+// recursive version
+// const multiply = (num1, num2) => num1 * num2;
+
+// function power(num, exp) {
+//   if (exp === 1) {
+//     return multiply(num, 1);
+//   }
+//   // 3 * (3 * 3 * 3) = 81
+//   return num * power(num, exp - 1);
+// }
+
+// console.log(power(3, 4)); // 81
+// console.log(power(5, 2)); // 25
+
+//  Easy 2 > 5. Arithmetic Integer
+// const readlineSync = require('readline-sync');
+
+// let firstNumber = Number(readlineSync.questionInt('Enter the first number: '));
+// let secondNumber = Number(readlineSync.questionInt('Enter the second number: '));
+
+// console.log(`${firstNumber} + ${secondNumber} = ${firstNumber + secondNumber}`);
+// console.log(`${firstNumber} - ${secondNumber} = ${firstNumber - secondNumber}`);
+// console.log(`${firstNumber} * ${secondNumber} = ${firstNumber * secondNumber}`);
+// console.log(
+//   `${firstNumber} / ${secondNumber} = ${Math.floor(firstNumber / secondNumber)}`
+// );
+// console.log(`${firstNumber} % ${secondNumber} = ${firstNumber % secondNumber}`);
+// console.log(
+//   `${firstNumber} ** ${secondNumber} = ${Math.pow(firstNumber, secondNumber)}`
+// );
+
+// Jason Aricheta
+// const readlineSync = require('readline-sync');
+
+// let num1 = Number(readlineSync.questionInt('Enter the first number: '));
+// let num2 = Number(readlineSync.questionInt('Enter the second number: '));
+
+// // Code snippet...
+// let obj = {
+//   '+' : num1 + num2,
+//   '-' : num1 - num2,
+//   '*' : num1 * num2,
+//   '/' : Math.round(num1 / num2),
+//   '%' : num1 % num2,
+//   '**' : num1 ** num2,
+//   '**n' : BigInt(num1) ** BigInt(num2) // Bigint, not required
+// };
+
+// for (let key in obj) {
+//   console.log(`==> ${num1} ${key} ${num2} = ${obj[key]}`);
+// }
+
+// Chris Small
+// const readline = require('readline-sync');
+
+// let firstNumber = readline.question('Enter the first number: ');
+// let secondNumber = readline.question('Enter the second number: ');
+
+// function operations(firstNumber, secondNumber) {
+//   console.log(
+//     `${firstNumber} + ${secondNumber} = ${
+//       Number(firstNumber) + Number(secondNumber)
+//     }`
+//   );
+//   console.log(
+//     `${firstNumber} - ${secondNumber} = ${
+//       Number(firstNumber) - Number(secondNumber)
+//     }`
+//   );
+//   console.log(
+//     `${firstNumber} * ${secondNumber} = ${
+//       Number(firstNumber) * Number(secondNumber)
+//     }`
+//   );
+//   console.log(
+//     `${firstNumber} / ${secondNumber} = ${
+//       Number(firstNumber) / Number(secondNumber)
+//     }`
+//   );
+//   console.log(
+//     `${firstNumber} % ${secondNumber} = ${
+//       Number(firstNumber) % Number(secondNumber)
+//     }`
+//   );
+//   console.log(
+//     `${firstNumber} ** ${secondNumber} = ${
+//       Number(firstNumber) ** Number(secondNumber)
+//     }`
+//   );
+// }
+
+// operations(firstNumber, secondNumber);
+
+// Easy 2 > 6. The End Is Near But Not Here
+// function penultimate(words) {
+//   let wordsArray = words.split(' ');
+//   return wordsArray[wordsArray.length - 2];
+// }
+
+// const penultimate = (string) => string.split(' ').slice(-2, -1)[0];
+
+// console.log(penultimate("last word") === 'last'); // logs true
+// console.log(penultimate("Launch School is great!") === "is"); // logs true
+
+// Antonina
+// function middleWord(string = "") {
+//   if (string === "") return "There's no middle in nothing.";
+//   let array = string.split(" ");
+//   let words = array.filter(word => word);
+//   if (words.length % 2 === 0) {
+//     return `${words[Math.floor(words.length / 2) - 1]} ${words[Math.floor(words.length / 2)]}`;
+//   }
+//   return words[Math.floor(words.length / 2)];
+// }
+
+// console.log(middleWord("last word")); // logs last word
+// console.log(middleWord(" last   word  ")); // logs last word
+// console.log(middleWord("Launch School is great!")); // logs School is
+// console.log(middleWord("last word is")); // logs word
+// console.log(middleWord("last")); // logs last
+// console.log(middleWord("Launch School is great! Isn't it? Yes it is.")); // logs Isn't
+// console.log(middleWord("")); // logs There's no middle in nothing.
+// console.log(middleWord()); // logs There's no middle in nothing.
+
+// Easy 2 > 7. Exclusive Or
+// function xor(value1, value2) {
+//   return (Boolean(value1) || Boolean(value2));
+// }
+
+// function xor(value1, value2) {
+//   if ((value1 && !value2) || (value2 && !value1)) {
+//     return true;
+//   }
+//   return false;
+// }
+
+// function xor(value1, value2) {
+//   return !!((value1 && !value2) || (value2 && !value1))
+// }
+
+// function xor(arg1, arg2) {
+//   if (arg1 && arg2) {
+//     return false;
+//   } else {
+//     return true;
+//   }
+// }
+
+// console.log(xor(5, 0) === true);
+// console.log(xor(false, true) === true);
+// console.log(xor(1, 1) === false);
+// console.log(xor(true, true) === false);
+
+// Easy 2 > 8. Odd Lists
+// function oddities(array) {
+//   let oddElements = [];
+
+//   for (let idx = 0; idx < array.length; idx += 2) {
+//     oddElements.push(array[idx]);
+//   }
+
+//   return oddElements;
+// }
+
+// function oddities(array) {
+//   let oddElements = [];
+
+//   array.forEach((element, index) => {
+//     if (index % 2 === 0) {
+//       oddElements.push(element);
+//     }
+//   })
+//   return oddElements;
+// }
+
+// const oddities = array => array.filter((_, index) => index % 2 === 0);
+
+// function oddities(array) {
+//   return array.filter((element, index) => index % 2 === 0);
+// }
+
+// David Pocsai
+// let oddities = (array) => array.filter((_, idx) => idx % 2 === 0);
+
+/* The first argument for the callback in `filter` is the current value in the array, but since we don't actually need to know the value, we can essentially skip over that argument and represent it with an underscore (`_`). We really only need to know the index (`idx`). If the remainder of dividing the index by 2 is 0 (meaning its an even number), then we will return those values from our input array. We therefore return the elements at index 0, 2, 4, 6 and so on. */
+
+// function oddities(array) {
+//   return array.filter((element => array.indexOf(element) % 2 === 0));
+// }
+
+// console.log(oddities([2, 3, 4, 5, 6])); // logs [2, 4, 6]
+// console.log(oddities([1, 2, 3, 4, 5, 6])); // => [1, 3, 5]
+// console.log(oddities(["abc", "def"])); // logs ['abc']
+// console.log(oddities([123])); // logs [123]
+// console.log(oddities([])); // logs []
+
+// Easy 2 > 9. Convert a String to a Number!
+
+// declarative version
+// function stringToInteger(string) {
+//   const DIGITS = {
+//     0: 0,
+//     1: 1,
+//     2: 2,
+//     3: 3,
+//     4: 4,
+//     5: 5,
+//     6: 6,
+//     7: 7,
+//     8: 8,
+//     9: 9
+//   };
+//   let arrayOfDigits = string.split('').map(char => DIGITS[char]);
+//   let value = 0;
+//   arrayOfDigits.forEach(digit => value = (10 * value) + digit);
+//   return value;
+// }
+
+// function stringToInteger(string) {
+//   return +string;
+// }
+
+// function stringToInteger(string) {
+//   let numberCharacters = string.split('').filter(element => element >= '0' && element <= '9');
+//   return +numberCharacters.join('');
+// }
+
+// console.log(stringToInteger("4321") === 4321); // logs true
+// console.log(stringToInteger("570") === 570); // logs true
+// console.log(stringToInteger("572") === 570); //logs false
+
+// Easy 2 > 10. Convert a String to a Signed Number!
+// function stringToInteger(string) {
+//   const DIGITS = {
+//     0: 0,
+//     1: 1,
+//     2: 2,
+//     3: 3,
+//     4: 4,
+//     5: 5,
+//     6: 6,
+//     7: 7,
+//     8: 8,
+//     9: 9,
+//   };
+//   let arrayOfDigits = string.split('').map((char) => DIGITS[char]);
+//   let value = 0;
+//   arrayOfDigits.forEach((digit) => (value = 10 * value + digit));
+//   return value;
+// }
+
+// function stringToSignedInteger(string) {
+//   switch (string[0]) {
+//     case '-':
+//       return -stringToInteger(string.slice(1, string.length));
+//     case '+':
+//       return stringToInteger(string.slice(1, string.length));
+//     default:
+//       return stringToInteger(string);
+//   }
+// }
+
+// console.log(stringToSignedInteger("4321") === 4321); // logs true
+// console.log(stringToSignedInteger("-570") === -570); // logs true
+// console.log(stringToSignedInteger("+100") === 100); // logs true
+
+// Easy 2 > 11. Convert a Number to a String!
+function integerToString(number) {
+  let array = [];
+  array.push(number);
+  return array.join();
+}
+console.log(integerToString(4321)); // "4321"
+console.log(integerToString(0)); // "0"
+console.log(integerToString(5000)); // "5000"
+console.log(integerToString(1234567890)); // "1234567890"
