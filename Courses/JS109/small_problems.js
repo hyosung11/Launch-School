@@ -1241,24 +1241,63 @@
   - if count exists for that word size, increment the count by 1
 - return `count` object of word lengths and number of words of that length */
 
-function wordSizes(words) {
-  let count = {};
-  let wordsArray = words.split(' ');
+// function wordSizes(words) {
+//   let count = {};
+//   if (words.length === 0) return count;
 
-  for (let idx = 0; idx < wordsArray.length; idx += 1) {
-    let wordSize = wordsArray[idx].length
-    if (wordSize.length === 0) continue;
+//   words.split(' ').forEach(word => {
+//     count[word.length] = count[word.length] + 1 || 1;
+//   });
 
-    if (!count[wordSize]) {
-      count[wordSize] = 0;
-    }
-    count[wordSize] += 1;
-  }
+//   return count;
+// }
 
-  return count;
+// console.log(wordSizes('Four score and seven.')); // { "3": 1, "4": 1, "5": 1, "6": 1 }
+// console.log(wordSizes('Hey diddle diddle, the cat and the fiddle!'));  // { "3": 5, "6": 1, "7": 2 }
+// console.log(wordSizes("What's up doc?")); // { "2": 1, "4": 1, "6": 1 }
+// console.log(wordSizes('')); // {}
+
+// Easy 4 > 9. Letter Counter (Part 2)
+// Julia Martin
+// function wordSizes(words) {
+//   let count = {};
+//   if (words.length === 0) return count;
+
+//   words.split(' ').forEach(word => {
+//     word = word.toLowerCase().replace(/[^a-z]/, '');
+//     count[word.length] = (count[word.length] || 0) + 1;
+//   });
+
+//   return count;
+// }
+
+// console.log(wordSizes('Four score and seven.')); // { "3": 1, "4": 1, "5": 2 }
+// console.log(wordSizes('Hey diddle diddle, the cat and the fiddle!')); // { "3": 5, "6": 3 }
+// console.log(wordSizes("What's up doc?")); // { "2": 1, "3": 1, "5": 1 }
+// console.log(wordSizes('')); // {}
+
+// Easy 4 > 10. Letter Swap
+/* Algorithm
+- input string of words
+- split string of words at spaces into an array
+- iterate through each word
+  - if length of word is 1, return word
+  - change the char at index 0 with char at word.length
+- output new string of words with first and last letters of every word swapped */
+
+function swap(words) {
+  return words
+    .split(' ')
+    .map((word) => {
+      if (word.length === 1) {
+        return word;
+      } else {
+        return word[word.length - 1] + word.slice(1, -1) + word[0];
+      }
+    })
+    .join(' ');
 }
 
-console.log(wordSizes('Four score and seven.')); // { "3": 1, "4": 1, "5": 1, "6": 1 }
-console.log(wordSizes('Hey diddle diddle, the cat and the fiddle!'));  // { "3": 5, "6": 1, "7": 2 }
-console.log(wordSizes("What's up doc?")); // { "2": 1, "4": 1, "6": 1 }
-console.log(wordSizes('')); // {}
+console.log(swap('Oh what a wonderful day it is')); // "hO thaw a londerfuw yad ti si"
+console.log(swap('Abcde')); // "ebcdA"
+console.log(swap('a')); // "a"

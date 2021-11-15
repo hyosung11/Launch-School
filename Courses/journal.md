@@ -4050,3 +4050,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 10:10 Working on Easy 4 problems and getting breaking down the Palindromic Strings (Part 2).
 
 11:51 I will need to pass through these problems again and again. Time to go to PT.
+
+14:44 Still confused out of my mind a little bit. Alas, I'm slowly understanding. Time to go to school and get the kids on Monday afternoon.
