@@ -1056,3 +1056,209 @@
 // console.log(century(1127));        // "12th"
 // console.log(century(11201));       // "113th"
 
+// Easy 4 > 1. How old is Teddy?
+// function randomBetween(...args) {
+//   let [min, max] = args.sort((a, b) => a - b);
+//   return Math.floor(Math.random() * (max - min + 1) + min);
+// }
+
+// let age = randomBetween(20, 120);
+// console.log(`Teddy is ${age} years old!`);
+
+// Easy 4 > 2. Searching 101
+// const readline = require('readline-sync');
+
+// let numbers = [];
+
+// let one = readline.questionInt('Enter the 1st number: ');
+// let two = readline.questionInt('Enter the 2nd number: ');
+// let three = readline.questionInt('Enter the 3rd number: ');
+// let four = readline.questionInt('Enter the 4th number: ');
+// let five = readline.questionInt('Enter the 5th number: ');
+// let last = readline.questionInt('Enter the last number: ');
+
+// numbers.push(one, two, three, four, five);
+
+// if (numbers.includes(last)) {
+//   console.log(`The number ${last} appears in ${numbers}. `);
+// } else {
+//   console.log(`The number ${last} does not appear in ${numbers}.`);
+// }
+
+// Easy 4 > 3. When Will I Retire?
+// const readlineSync = require('readline-sync');
+
+// let currentAge = readlineSync.questionInt("What is your age? ");
+// let retirementAge = readlineSync.questionInt("At what age would you like to retire? ");
+
+// const currentYear = new Date().getFullYear();
+// let yearsToWork = retirementAge - currentAge;
+// let retirementYear = currentYear + yearsToWork;
+
+// console.log(
+// `It's ${currentYear}. You will retire in ${retirementYear}.
+// You have only ${yearsToWork} years of work to go!`);
+
+// Easy 4 > 4. Palindromic Strings (Part 1)
+// function isPalindrome(string) {
+//   return string === string.split('').reverse().join('');
+// }
+
+// console.log(isPalindrome('madam')); // true
+// console.log(isPalindrome('Madam')); // false (case matters)
+// console.log(isPalindrome("madam i'm adam")); // false (all characters matter)
+// console.log(isPalindrome('356653')); // true
+
+// Easy 4 > 5. Palindromic Strings (Part 2)
+/* ALGORITHM
+- input string
+- make string case-insensitive
+- check each char of string
+  - ignore all non-alphanumeric chars
+- check if palindrome
+- return boolean
+  - true if palindrome
+  - false otherwise */
+
+// function isRealPalindrome(string) {
+//   string = removeNonLettersNumbers(string.toLowerCase());
+//   return isPalindrome(string);
+// }
+
+// function isPalindrome(string) {
+//   return string === string.split('').reverse().join('');
+// }
+
+// function removeNonLettersNumbers(string) {
+//   let result = '';
+
+//   for (let idx = 0; idx < string.length; idx += 1) {
+//     if (isLetter(string[idx]) || isNumber(string[idx])) {
+//       result += string[idx];
+//     }
+//   }
+
+//   return result;
+// }
+
+// function isLetter(char) {
+//   return char >= 'a' && char <= 'z';
+// }
+
+// function isNumber(char) {
+//   return char >= '0' && char <= '9';
+// }
+
+// function isRealPalindrome(string) {
+//   string = string.toLowerCase().replace(/[^a-z0-9]/g, '');
+//   return isPalindrome(string);
+// }
+
+// function isPalindrome(string) {
+//   return string === string.split('').reverse().join('');
+// }
+
+// const ALPHA_NUMS = 'abcdefghijklmnopqrstuvwxyz0123456789';
+
+// function isRealPalindrome(string) {
+//   let stringArray = string
+//     .toLowerCase()
+//     .split('')
+//     .filter(char => ALPHA_NUMS.includes(char));
+//   return stringArray.join('') === stringArray.reverse().join('');
+// }
+
+// console.log(isRealPalindrome('madam'));               // true
+// console.log(isRealPalindrome('Madam'));               // true (case does not matter)
+// console.log(isRealPalindrome("Madam, I'm Adam"));     // true (only alphanumerics matter)
+// console.log(isRealPalindrome('356653'));              // true
+// console.log(isRealPalindrome('356a653'));             // true
+// console.log(isRealPalindrome('123ab321'));            // false
+
+// Easy 4 > 6. Palindromic Numbers
+/* AlGORITHM
+- input number
+- coerce number to string
+- check if palindrome
+- return boolean
+  - true if palindromic
+  - false otherwise */
+
+// function isPalindromicNumber(number) {
+//   return isPalindrome(String(number));
+// }
+
+// function isPalindrome(string) {
+//   return string === string.split('').reverse().join('');
+// }
+
+// console.log(isPalindromicNumber(34543));        // true
+// console.log(isPalindromicNumber(123210));       // false
+// console.log(isPalindromicNumber(22));           // true
+// console.log(isPalindromicNumber(5));            // true
+
+// Easy 4 > 7. Running Totals
+/* ALGORITHM
+- input array of numbers
+- declare `resultArray` to store the values of the running total
+- declare `sum` to keep track of the current value
+- iterate through the array
+  - increment the value of `sum` by the value of the current index of the input array
+  - push sum into `resultArray`
+- return `resultArray` of numbers */
+
+// function runningTotal(array) {
+//   let resultArray = [];
+//   let sum = 0;
+
+//   for (let idx = 0; idx < array.length; idx += 1) {
+//     resultArray.push(sum += array[idx]);
+//   }
+
+//   return resultArray;
+// }
+
+// function runningTotal(array) {
+//   let total = 0;
+//   return array.map(element => total += element);
+// }
+
+// console.log(runningTotal([2, 5, 13]));             // [2, 7, 20]
+// console.log(runningTotal([14, 11, 7, 15, 20]));    // [14, 25, 32, 47, 67]
+// console.log(runningTotal([3]));                    // [3]
+// console.log(runningTotal([]));                     // []
+
+// Easy 4 > 8. Letter Counter (Part 1)
+/* Algorithm
+- input string of words
+- initialize `count` object
+- split the string into `wordsArray` at each space
+- iterate over each word
+  - initialize `wordSize` to length of first word
+  - if `wordSize` is 0, go to next word
+  - if `wordSize` doesn't exist in `count` object
+    - count for that word size is 0
+  - if count exists for that word size, increment the count by 1
+- return `count` object of word lengths and number of words of that length */
+
+function wordSizes(words) {
+  let count = {};
+  let wordsArray = words.split(' ');
+
+  for (let idx = 0; idx < wordsArray.length; idx += 1) {
+    let wordSize = wordsArray[idx].length
+    if (wordSize.length === 0) continue;
+
+    if (!count[wordSize]) {
+      count[wordSize] = 0;
+    }
+    count[wordSize] += 1;
+  }
+
+  return count;
+}
+
+console.log(wordSizes('Four score and seven.')); // { "3": 1, "4": 1, "5": 1, "6": 1 }
+console.log(wordSizes('Hey diddle diddle, the cat and the fiddle!'));  // { "3": 5, "6": 1, "7": 2 }
+console.log(wordSizes("What's up doc?")); // { "2": 1, "4": 1, "6": 1 }
+console.log(wordSizes('')); // {}

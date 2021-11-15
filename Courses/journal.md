@@ -4044,3 +4044,9 @@ How awesome are the engineers in the company? If you're the best one there, that
 10:57 Starting to study after soccer game which we won 4-1.
 
 20:12 Worked through Small Problems > Easy 3 two times. I still need to study some of the problems again.
+
+## 20211115 월요일
+
+10:10 Working on Easy 4 problems and getting breaking down the Palindromic Strings (Part 2).
+
+11:51 I will need to pass through these problems again and again. Time to go to PT.
