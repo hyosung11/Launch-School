@@ -703,3 +703,356 @@
 // console.log(signedIntegerToString(4321) === '+4321');
 // console.log(signedIntegerToString(-123) === '-123');
 // console.log(signedIntegerToString(0) === '0');
+
+// Easy 2 > 9. Convert a String to a Number!
+// function stringToInteger(string) {
+//   const DIGITS = {
+//     0: 0,
+//     1: 1,
+//     2: 2,
+//     3: 3,
+//     4: 4,
+//     5: 5,
+//     6: 6,
+//     7: 7,
+//     8: 8,
+//     9: 9
+//   };
+//   let arrayOfDigits = string
+//     .split('')
+//     .map(char => DIGITS[char]);
+//   let value = 0;
+//   arrayOfDigits.forEach(digit => (value = (10 * value) + digit));
+//   return value;
+// }
+
+// console.log(stringToInteger("4321") === 4321); // logs true
+// console.log(stringToInteger("570") === 570); // logs true
+// console.log(stringToInteger("4321")); // logs 4321
+// console.log(stringToInteger("570")); // logs 570
+
+//  Easy 2 > 10. Convert a String to a Signed Number!
+// function stringToInteger(string) {
+//   const DIGITS = {
+//     0: 0,
+//     1: 1,
+//     2: 2,
+//     3: 3,
+//     4: 4,
+//     5: 5,
+//     6: 6,
+//     7: 7,
+//     8: 8,
+//     9: 9
+//   };
+//   let arrayOfDigits = string.split('').map(char => DIGITS[char]);
+//   let value = 0;
+//   arrayOfDigits.forEach(digit => (value = (10 * value) + digit));
+//   return value;
+// }
+
+// function stringToSignedInteger(string) {
+//   switch (string[0]) {
+//     case '-':
+//       return -stringToInteger(string.slice(1, string.length));
+//     case '+':
+//       return stringToInteger(string.slice(1, string.length));
+//     default:
+//       return stringToInteger(string);
+//   }
+// }
+
+// console.log(stringToSignedInteger("4321") === 4321); // logs true
+// console.log(stringToSignedInteger("-570") === -570); // logs true
+// console.log(stringToSignedInteger("+100") === 100); // logs true
+
+// Easy 2 > 11. Convert a Number to a String!
+// function integerToString(number) {
+//   const DIGITS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+//   let result = '';
+
+//   do {
+//     let remainder = number % 10;
+//     number = Math.floor(number / 10);
+//     result = DIGITS[remainder] + result;
+
+//   } while (number > 0)
+
+//   return result;
+// }
+
+// console.log(integerToString(4321));        // "4321"
+// console.log(integerToString(0));           // "0"
+// console.log(integerToString(5000));        // "5000"
+// console.log(integerToString(1234567890));  // "1234567890"
+
+// Easy 2 > 12. Convert a Signed Number to a String!
+// const signedIntegerToString = (number) => {
+//   switch (Math.sign(number)) {
+//     case +1:
+//       return `+${integerToString(number)}`;
+//     case -1:
+//       return `-${integerToString(-number)}`;
+//     default:
+//       return integerToString(number);
+//   }
+// }
+
+// console.log(signedIntegerToString(4321) === '+4321');
+// console.log(signedIntegerToString(-123) === '-123');
+// console.log(signedIntegerToString(0) === '0');
+// console.log(signedIntegerToString(4321)); // '+4321'
+// console.log(signedIntegerToString(-123)); // '-123'
+// console.log(signedIntegerToString(0)); // '0'
+
+// Easy 3 1. ddaaiillyy ddoouubbllee
+// function crunch(text) {
+//   let crunchText = '';
+//   let index = 0;
+
+//   while (index < text.length) {
+//     if (text[index] !== text[index + 1]) {
+//       crunchText += text[index];
+//     }
+//     index += 1;
+//   }
+//   return crunchText;
+// }
+
+// function crunch(string) {
+//   return string
+//     .split('')
+//     .filter((char, index) => {
+//       return char !== string[index - 1];
+//     })
+//     .join('');
+// }
+
+// regex
+// function crunch(string) {
+//   return string.replace(/(.)(?=\1)/g, '');
+// }
+
+// console.log(crunch('ddaaiillyy ddoouubbllee')); // "daily double"
+// console.log(crunch('4444abcabccba')); // "4abcabcba"
+// console.log(crunch('ggggggggggggggg')); // "g"
+// console.log(crunch('a')); // "a"
+// console.log(crunch('')); // ""
+
+// Easy 3 > 2. Bannerizer
+// function logInBox(message) {
+//   let horizontalRule = `+${('-'.repeat(message.length + 2))}+`;
+//   let emptyLine = `|${' '.repeat(message.length + 2)}|`;
+
+//   console.log(horizontalRule);
+//   console.log(emptyLine);
+//   console.log(`| ${message} |`);
+//   console.log(emptyLine);
+//   console.log(horizontalRule);
+// }
+
+// function logInBox(string) {
+//   console.log(
+//     `+-${'-'.repeat(string.length)}-+
+// | ${' '.repeat(string.length)} |
+// | ${string} |
+// | ${' '.repeat(string.length)} |
+// +-${'-'.repeat(string.length)}-+`
+//   );
+// }
+
+// logInBox('To boldly go where no one has gone before.');
+// logInBox('');
+
+// Easy 3 > 3. Stringy Strings
+// function stringy(size) {
+//   let result = '';
+//   for (let idx = 0; idx < size; idx += 1) {
+//     let number = ((idx % 2) === 0) ? 1 : 0;
+//     result += number;
+//   }
+//   return result;
+// }
+
+// function stringy(size) {
+//   return [...Array(size)]
+//     .map((_, index) => (index % 2 === 0 ? 1 : 0))
+//     .join('');
+// }
+
+// console.log(stringy(6));    // "101010"
+// console.log(stringy(9));    // "101010101"
+// console.log(stringy(4));    // "1010"
+// console.log(stringy(7));    // "1010101"
+
+//  Easy 3 > 4. Fibonacci Number Location By Length
+// function findFibonacciIndexByLength(length) {
+//   let first = 1n;
+//   let second = 1n;
+//   let count = 2n;
+//   let fibonacci;
+
+//   do {
+//     fibonacci = first + second;
+//     count += 1n
+//     first = second;
+//     second = fibonacci;
+//   } while (String(fibonacci).length < length);
+
+//   return count;
+// }
+
+// console.log(findFibonacciIndexByLength(2n) === 7n); // 1 1 2 3 5 8 13
+// console.log(findFibonacciIndexByLength(3n) === 12n); // 1 1 2 3 5 8 13 21 34 55 89 144
+// console.log(findFibonacciIndexByLength(10n) === 45n);
+// console.log(findFibonacciIndexByLength(16n) === 74n);
+// console.log(findFibonacciIndexByLength(100n) === 476n);
+// console.log(findFibonacciIndexByLength(1000n) === 4782n);
+// console.log(findFibonacciIndexByLength(10000n) === 47847n);
+
+// The last example may take a minute or so to run.
+
+// Easy 3 > 5. Right Triangles
+// function triangle(height) {
+//   let spaces = height - 1;
+//   let stars = 1;
+//   while (height > 0) {
+//     console.log(`${' '.repeat(spaces)}${'*'.repeat(stars)}`)
+//     spaces -= 1;
+//     stars += 1;
+//     height -= 1;
+//   }
+// }
+
+// triangle(5);
+
+//     *
+//    **
+//   ***
+//  ****
+// *****
+
+// triangle(9);
+
+//         *
+//        **
+//       ***
+//      ****
+//     *****
+//    ******
+//   *******
+//  ********
+// *********
+
+// Easy 3 > 6. Madlibs
+// const readline = require('readline-sync');
+
+// let noun = readline.question('Enter a noun: ');
+// let verb = readline.question('Enter a verb: ');
+// let adjective = readline.question('Enter an adjective: ');
+// let adverb = readline.question('Enter an adverb: ');
+
+// console.log(
+// `Do you ${verb} your ${adjective} ${noun}? That's hilarious!
+// The ${adjective} ${noun} ${verb}s ${adverb} over the lazy ${noun}.
+// The ${noun} ${adverb} ${verb}s up ${adjective} Joe's turtle.`
+// );
+
+// Easy 3 > 7. Double Doubles
+// function twice(number) {
+//   if (isDoubleNumber(number)) return number;
+//   return number * 2;
+// }
+
+// function isDoubleNumber(number) {
+//   let numberString = String(number);
+//   let center = Math.floor(numberString.length / 2);
+//   let leftNumber = numberString.slice(0, center);
+//   let rightNumber = numberString.slice(center);
+
+//   return leftNumber === rightNumber;
+// }
+// // console.log(isDoubleNumber(37));          // 74
+// // console.log(isDoubleNumber(44));          // 44
+// // console.log(isDoubleNumber(334433));      // 668866
+
+// console.log(twice(37));          // 74
+// console.log(twice(44));          // 44
+// console.log(twice(334433));      // 668866
+// console.log(twice(444));         // 888
+// console.log(twice(107));         // 214
+// console.log(twice(103103));      // 103103
+// console.log(twice(3333));        // 3333
+// console.log(twice(7676));        // 7676
+
+// Easy 3 > 8. Grade Book
+// remember the third argument for reduce is the starting value
+// function getGrade(...scores) {
+//   let average = scores.reduce((total, grade) => (total + grade), 0) / scores.length;
+
+//   if (average >= 90) return 'A';
+//   if (average >= 80) return 'B';
+//   if (average >= 70) return 'C';
+//   if (average >= 60) return 'D';
+//   return 'F';
+// }
+
+// console.log(getGrade(95, 90, 93));    // "A"
+// console.log(getGrade(95, 75, 85));    // "B"
+// console.log(getGrade(50, 50, 95));    // "D"
+// console.log(getGrade(50, 90));    // "C"
+
+// Easy 3 > 9. Clean up the words
+// function cleanUp(text) {
+//   let cleanText = '';
+
+//   for (let idx = 0; idx < text.length; idx += 1) {
+//     if (isLetter(text[idx])) {
+//       cleanText += text[idx];
+//     } else if(cleanText[cleanText.length - 1] !== ' ') {
+//       cleanText += ' ';
+//     }
+//   }
+
+//   return cleanText;
+// }
+
+// function isLetter(char) {
+//   return ((char >= 'a' && char <= 'z') || (char >= 'A' && char <= 'Z'));
+// }
+
+// function cleanUp(text) {
+//   return text.replace(/[^a-z]+/gi, " ")
+// }
+
+// console.log(cleanUp("---what's my +*& line?")); // " what s my line "
+// console.log(cleanUp("---whAt's my +*& lInE?")); // " whAt s my lInE "
+
+// Easy 3 > 10. What Century is That?
+// function century(year) {
+//   let centuryNumber = Math.ceil(year / 100);
+//   return `${centuryNumber}${centurySuffix(centuryNumber)}`
+// }
+
+// function centurySuffix(year) {
+//   if ([11, 12, 13].includes(year % 100)) return 'th';
+
+//   switch (year % 10) {
+//     case 1: return 'st';
+//     case 2: return 'nd';
+//     case 3: return 'rd'
+//     default: return 'th';
+//   }
+// }
+
+// console.log(century(2000));        // "20th"
+// console.log(century(2001));        // "21st"
+// console.log(century(1965));        // "20th"
+// console.log(century(256));         // "3rd"
+// console.log(century(5));           // "1st"
+// console.log(century(10103));       // "102nd"
+// console.log(century(1052));        // "11th"
+// console.log(century(1127));        // "12th"
+// console.log(century(11201));       // "113th"
+

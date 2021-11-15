@@ -4038,3 +4038,9 @@ How awesome are the engineers in the company? If you're the best one there, that
 19:51 I have worked on Small Problems all day and am working through Easy 2 > Convert a Number to a String. I think I'm going to have to go through some of these at least three times.
 
 21:05 I see why I want to do these small problems multiple times.
+
+## 20211114 일요일
+
+10:57 Starting to study after soccer game which we won 4-1.
+
+20:12 Worked through Small Problems > Easy 3 two times. I still need to study some of the problems again.
