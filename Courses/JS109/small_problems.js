@@ -1282,22 +1282,168 @@
 - split string of words at spaces into an array
 - iterate through each word
   - if length of word is 1, return word
-  - change the char at index 0 with char at word.length
+  - change the char at index 0 with char at word.length - 1
 - output new string of words with first and last letters of every word swapped */
 
-function swap(words) {
-  return words
-    .split(' ')
-    .map((word) => {
-      if (word.length === 1) {
-        return word;
-      } else {
-        return word[word.length - 1] + word.slice(1, -1) + word[0];
-      }
-    })
-    .join(' ');
-}
+// function swap(words) {
+//   return words
+//     .split(' ')
+//     .map((word) => {
+//       if (word.length === 1) {
+//         return word;
+//       } else {
+//         return word[word.length - 1] + word.slice(1, -1) + word[0];
+//       }
+//     })
+//     .join(' ');
+// }
 
-console.log(swap('Oh what a wonderful day it is')); // "hO thaw a londerfuw yad ti si"
-console.log(swap('Abcde')); // "ebcdA"
-console.log(swap('a')); // "a"
+// console.log(swap('Oh what a wonderful day it is')); // "hO thaw a londerfuw yad ti si"
+// console.log(swap('Abcde')); // "ebcdA"
+// console.log(swap('a')); // "a"
+
+// Easy 5 > 1. Cute Angles
+// const DEGREE = '\xB0';
+// const MINUTES_PER_DEGREE = 60;
+// const SECONDS_PER_MINUTE = 60;
+// const SECONDS_PER_DEGREE = MINUTES_PER_DEGREE * SECONDS_PER_MINUTE;
+
+// function dms(degreesFloat) {
+//   let degreesInt = Math.floor(degreesFloat);
+//   let minutes = Math.floor((degreesFloat - degreesInt) * MINUTES_PER_DEGREE);
+//   let seconds = Math.floor(
+//     (degreesFloat - degreesInt - (minutes / MINUTES_PER_DEGREE)) * SECONDS_PER_DEGREE
+//   );
+
+//   return String(degreesInt) + DEGREE + padZeroes(minutes) + "'" + padZeroes(seconds) + '"';
+// }
+
+// function padZeroes(number) {
+//   let numString = String(number);
+//   return numString.length < 2 ? `0${numString}` : numString;
+// }
+
+// console.log(dms(30));           // 30°00'00"
+// console.log(dms(76.73));        // 76°43'48"
+// console.log(dms(254.6));        // 254°35'59"
+// console.log(dms(93.034773));    // 93°02'05"
+// console.log(dms(0));            // 0°00'00"
+// console.log(dms(360));          // 360°00'00" or 0°00'00"
+
+// Easy 5 > 2. Combining Arrays
+/* Algo
+- input two arrays of numbers
+- initialize `combined` to concatenate the two arrays
+- initialize `result` to empty array
+- iterate over `combined`
+  - if number not in `result`
+    - push number to `result`
+- return `result` array of unique numbers */
+
+// function union(...args) {
+//   let newArray = [];
+
+//   args.forEach(value => copyNonDupsTo(newArray, value));
+
+//   return newArray;
+// }
+
+// function copyNonDupsTo(resultArray, array) {
+//   array.forEach(value => {
+//     if (!resultArray.includes(value)) {
+//       resultArray.push(value);
+//     }
+//   });
+// }
+
+// function union(array1, array2) {
+//   let combined = array1.concat(array2);
+//   let result = [];
+
+//   combined.forEach(value => {
+//     if (!result.includes(value)) {
+//       result.push(value);
+//     }
+//   });
+//   return result;
+// }
+
+// function union(array1, array2) {
+//   let combo = array1.concat(array2);
+//   let result = [...new Set(combo)];
+//   return result;
+// }
+
+/* Bob Rodes
+
+ES6's Set object makes this problem fairly simple, since its constructor automatically strips duplicate values. You just need to concatenate the two arrays, pass the result into the Set constructor, and deconstruct the result into an array. */
+
+// function union(array1, array2) {
+//   return [...new Set([...array1, ...array2])];
+// }
+
+// console.log(union([1, 3, 5], [3, 6, 9])); // [1, 3, 5, 6, 9]
+// console.log(union([2, 4, 8, 6], [8, 6, 20, 14]));
+
+// Easy 5 > 3. Halvsies
+/* Algo
+- input an array
+- put first half of original array elements in the first element
+- put the second half in the second element
+- put middle element in the first half array
+- output an array of two elements which are nested arrays */
+
+// function halvsies(array) {
+//   let middle = Math.ceil(array.length / 2);
+//   let firstHalf = array.slice(0, middle);
+//   let secondHalf = array.slice(middle);
+//   return [firstHalf, secondHalf];
+// }
+
+// console.log(halvsies([1, 2, 3, 4]));       // [[1, 2], [3, 4]]
+// console.log(halvsies([1, 5, 2, 4, 3]));    // [[1, 5, 2], [4, 3]]
+// console.log(halvsies([5]));                // [[5], []]
+// console.log(halvsies([]));                 // [[], []]
+
+// Easy 5 > 4. Find the Duplicate
+/* Algo
+- input array
+  - iterate through the array
+    - find the duplicate value
+- output value as number */
+
+// function findDup(arr) {
+//   return arr.filter((val, idx, arr) => idx !== arr.lastIndexOf(val)).pop();
+// }
+
+// function findDup(array) {
+//   array.sort();
+//   for (let idx = 0; idx < array.length; idx += 1) {
+//     if (array[idx] === array[idx + 1]) {
+//       return array[idx];
+//     }
+//   }
+//   return undefined;
+// }
+
+// function findDup(array) {
+//   return array.find((value, index) => array.lastIndexOf(value) !== index);
+// }
+
+// function findDup(arr) {
+//   return arr.find((val) => arr.indexOf(val) !== arr.lastIndexOf(val));
+// }
+
+// console.log(findDup([1, 5, 3, 1])); // 1
+// console.log(findDup([18,  9, 36, 96, 31, 19, 54, 75, 42, 15,
+//          38, 25, 97, 92, 46, 69, 91, 59, 53, 27,
+//          14, 61, 90, 81,  8, 63, 95, 99, 30, 65,
+//          78, 76, 48, 16, 93, 77, 52, 49, 37, 29,
+//          89, 10, 84,  1, 47, 68, 12, 33, 86, 60,
+//          41, 44, 83, 35, 94, 73, 98,  3, 64, 82,
+//          55, 79, 80, 21, 39, 72, 13, 50,  6, 70,
+//          85, 87, 51, 17, 66, 20, 28, 26,  2, 22,
+//          40, 23, 71, 62, 73, 32, 43, 24,  4, 56,
+//           7, 34, 57, 74, 45, 11, 88, 67,  5, 58])); // 73
+
+// Easy 5 > 5. Combine Two Lists
