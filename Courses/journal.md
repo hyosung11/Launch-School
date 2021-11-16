@@ -4062,3 +4062,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 09:10 Reviewed Joe's severance agreement. Deposited checks. Certified for UI benefits. Time to study now and get ready for the study group.
 
 11:56 I spent hours on that single problem from the study group to now.
+
+13:38 Doing the repetitions on the small problems. Time to take a short break and move to the dining room table.

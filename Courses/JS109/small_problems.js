@@ -1471,17 +1471,76 @@ ES6's Set object makes this problem fairly simple, since its constructor automat
 - iterate over elements in array
   - multiply product by the value at the current index
 - divide `product` by number of entries in the array
-- output string value rounded to three decimal places */
+- output `product` as a string rounded to three decimal places */
 
-function multiplicativeAverage(numbers) {
-  let product = 1;
+// function multiplicativeAverage(numbers) {
+//   let product = 1;
 
-  for (let idx = 0; idx < numbers.length; idx += 1) {
-    product *= numbers[idx];
-  }
+//   for (let idx = 0; idx < numbers.length; idx += 1) {
+//     product *= numbers[idx];
+//   }
 
-  return (product / numbers.length).toFixed(3);
-}
+//   return (product / numbers.length).toFixed(3);
+// }
 
-console.log(multiplicativeAverage([3, 5])); // "7.500"
-console.log(multiplicativeAverage([2, 5, 7, 11, 13, 17])); // "28361.667"
+// reduce - returns a number not a string - toFixed is ignored
+// function multiplicativeAverage(numbers) {
+//   return numbers.reduce((total, number) => total *= number, 1) / (numbers.length).toFixed(3);
+// }
+
+// Emma's version returns a string
+// function multiplicativeAverage(arr) {
+//   return (arr.reduce((accum, num) => (accum *= num), 1) / arr.length).toFixed(
+//     3
+//   );
+// }
+
+// function multiplicativeAverage(arr) {
+//   let num = arr.reduce((accum, num) => (accum *= num), 1) / arr.length;
+//   return num.toFixed(3);
+// }
+
+// console.log(multiplicativeAverage([3, 5])); // "7.500"
+// console.log(multiplicativeAverage([2, 5, 7, 11, 13, 17])); // "28361.667"
+
+// Easy 5 > 7. Multiply Lists
+/* Algo
+- input two arrays of numbers
+- initialize `result` array
+- iterate over first array
+  - compute the product of multiplying the values at the current index of each array
+  - push that product to a `result` array
+- return a `result` array */
+
+// for loop version
+// function multiplyList(numbers1, numbers2) {
+//   let products = [];
+
+//   for (let idx = 0; idx < numbers1.length; idx += 1) {
+//     products.push(numbers1[idx] * numbers2[idx]);
+//   }
+
+//   return products;
+// }
+
+// map
+// function multiplyList(numbers1, numbers2) {
+//   return numbers1.map((_, idx) => numbers1[idx] * numbers2[idx]);
+// }
+
+// reduce
+/* Algo
+- initialize an empty array to the previous value
+- pass the previous value, current value, and current index to the callback function
+- the callback function pushes the current value multiplied by the current index for the second array to the previous value
+- return the array */
+
+// function multiplyList(numbers1, numbers2) {
+//   return numbers1.reduce((result, _, idx) => {
+//     result.push(numbers1[idx] * numbers2[idx]);
+//     return result;
+//   }, []);
+// }
+
+// console.log(multiplyList([3, 5, 7], [9, 10, 11])); // [27, 50, 77]
+// console.log(multiplyList([0, 2, 4, 6], [2, 4, 6, 8])); // [ 0, 8, 24, 48 ]
