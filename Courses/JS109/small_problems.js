@@ -1536,11 +1536,150 @@ ES6's Set object makes this problem fairly simple, since its constructor automat
 - return the array */
 
 // function multiplyList(numbers1, numbers2) {
-//   return numbers1.reduce((result, _, idx) => {
-//     result.push(numbers1[idx] * numbers2[idx]);
-//     return result;
+//   return numbers1.reduce((products, _, idx) => {
+//     products.push(numbers1[idx] * numbers2[idx]);
+//     return products;
 //   }, []);
 // }
 
 // console.log(multiplyList([3, 5, 7], [9, 10, 11])); // [27, 50, 77]
 // console.log(multiplyList([0, 2, 4, 6], [2, 4, 6, 8])); // [ 0, 8, 24, 48 ]
+
+// Easy 5 > 8. List of Digits
+/* Algo
+- input a positive integer
+- convert integer to string
+- split string into array of single-digit strings
+- initialize `numberArray` array to store digits
+  - iterate over array
+    - convert each digit string to a number
+    - push each digit to the `numberArray`
+- return `numberArray` */
+
+// function digitList(number) {
+//   let digits = String(number).split('');
+//   let numberArray = [];
+
+//   for (let idx = 0; idx < digits.length; idx += 1) {
+//     let digit = parseInt(digits[idx], 10);
+//     numberArray.push(digit);
+//   }
+
+//   return numberArray;
+// }
+
+// `map` version
+// function digitList(number) {
+//   return String(number)
+//     .split('')
+//     .map(digit => parseInt(digit, 10));
+// }
+
+// another `map` version
+// function digitList(number) {
+//   return [...String(number)].map(digit => Number(digit));
+// }
+
+// console.log(digitList(12345));       // [1, 2, 3, 4, 5]
+// console.log(digitList(7));           // [7]
+// console.log(digitList(375290));      // [3, 7, 5, 2, 9, 0]
+// console.log(digitList(444));         // [4, 4, 4]
+
+// Easy 5 > 9. How Many?
+/* Algo
+- input array of string elements
+- initialize an `occurrences` object
+- iterate over each element of the `elements` array argument
+  - check if a property with a key equal to the name of the current vehicle exists in `occurrences`
+    - `occurrences[elements[idx]]`
+    - if it does not exist, initialize the property to 0
+    - increment the current value of the property by 1
+- call `logOccurrences` to output the desired result
+  - iterate through items in `occurrences`
+  - log items and number of occurrences
+- return items and count */
+
+// let vehicles = [
+//   'car',
+//   'car',
+//   'truck',
+//   'car',
+//   'SUV',
+//   'truck',
+//   'motorcycle',
+//   'motorcycle',
+//   'car',
+//   'truck',
+// ];
+
+// function countOccurrences(elements) {
+//   let occurrences = {};
+
+//   for (let idx = 0; idx < elements.length; idx += 1) {
+//     if (!occurrences[elements[idx]]) occurrences[elements[idx]] = 0;
+//     occurrences[elements[idx]] += 1;
+//   }
+
+//   return logOccurrences(occurrences);
+// }
+
+// function logOccurrences(occurrences) {
+//   for (let item in occurrences) {
+//     console.log(`${item} => ${String(occurrences[item])}`);
+//   }
+// }
+
+// countOccurrences(vehicles);
+
+// console output -- your output sequence may be different
+// car => 4;
+// truck => 3;
+// SUV => 1;
+// motorcycle => 2;
+
+// function countOccurrences(vehicles) {
+//   let vehicleCount = vehicles.reduce((list, unit) => {
+//     unit = unit.toLowerCase();
+//     list[unit] = (list[unit] || 0) + 1;
+//     return list;
+//   }, {});
+
+//   logResult(vehicleCount);
+// }
+
+// function logResult(list) {
+//   Object.entries(list).forEach(([key, value]) => {
+//     console.log(`${key} => ${value}`);
+//   });
+// }
+
+// Easy 5 > 10. Array Average
+/* Algo
+- input array of integers as `numbers` argument
+- initialize `sum` to 0
+- iterate over the `numbers` array argument
+  -  during each iteration, increment the `sum` by the value at the current index
+- floor the result of `sum` divided by length of the `numbers` array
+- output number representing average of all the integers in the array */
+
+// function average(numbers) {
+//   let sum = 0;
+
+//   for (let idx = 0; idx < numbers.length; idx += 1) {
+//     sum += numbers[idx];
+//   }
+
+//   return Math.floor(sum / numbers.length);
+// }
+
+function average(numbers) {
+  return Math.floor(numbers.reduce((total, value) => total += value, 0) / numbers.length);
+}
+
+console.log(average([1, 5, 87, 45, 8, 8])); // 25
+console.log(average([9, 47, 23, 95, 16, 52])); // 40
+
+// reduced `reduce` version :)
+// function average(numbers) {
+//   return Math.floor(numbers.reduce((runningTotal, value) => runningTotal += value) / numbers.length);
+// }
