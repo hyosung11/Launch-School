@@ -1672,14 +1672,48 @@ ES6's Set object makes this problem fairly simple, since its constructor automat
 //   return Math.floor(sum / numbers.length);
 // }
 
-function average(numbers) {
-  return Math.floor(numbers.reduce((total, value) => total += value, 0) / numbers.length);
-}
+// function average(numbers) {
+//   return Math.floor(numbers.reduce((total, value) => total += value, 0) / numbers.length);
+// }
 
-console.log(average([1, 5, 87, 45, 8, 8])); // 25
-console.log(average([9, 47, 23, 95, 16, 52])); // 40
+// console.log(average([1, 5, 87, 45, 8, 8])); // 25
+// console.log(average([9, 47, 23, 95, 16, 52])); // 40
 
 // reduced `reduce` version :)
 // function average(numbers) {
 //   return Math.floor(numbers.reduce((runningTotal, value) => runningTotal += value) / numbers.length);
 // }
+
+// Easy 5 > 11. After Midnight (Part 1)
+const MINUTES_PER_HOUR = 60;
+const HOURS_PER_DAY = 24;
+const MINUTES_PER_DAY = MINUTES_PER_HOUR * HOURS_PER_DAY;
+
+function timeOfDay(deltaMinutes) {
+  if (deltaMinutes < 0) {
+    deltaMinutes = (deltaMinutes % MINUTES_PER_DAY) + MINUTES_PER_DAY;
+  } else {
+    deltaMinutes = deltaMinutes % MINUTES_PER_DAY;
+  }
+
+  let hours = Math.floor(deltaMinutes / MINUTES_PER_HOUR);
+  let minutes = deltaMinutes % MINUTES_PER_HOUR
+
+  return formatTime(hours, minutes);
+}
+
+function formatTime(hours, minutes) {
+  return `${leadingZero(hours)}:${leadingZero(minutes)}`;
+}
+
+function leadingZero(number) {
+  return number < 10 ? `0${number}` : String(number);
+}
+
+console.log(timeOfDay(0) === '00:00');
+console.log(timeOfDay(-3) === '23:57');
+console.log(timeOfDay(35) === '00:35');
+console.log(timeOfDay(-1437) === '00:03');
+console.log(timeOfDay(3000) === '02:00');
+console.log(timeOfDay(800) === '13:20');
+console.log(timeOfDay(-4231) === '01:29');
