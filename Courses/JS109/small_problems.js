@@ -1447,3 +1447,19 @@ ES6's Set object makes this problem fairly simple, since its constructor automat
 //           7, 34, 57, 74, 45, 11, 88, 67,  5, 58])); // 73
 
 // Easy 5 > 5. Combine Two Lists
+function interleave(...args) {
+  let newArray = [];
+  const longest = Math.max(...args.map(array => array.length));
+
+  for (let idx = 0; idx < longest; idx += 1) {
+    args.forEach(array => {
+      if (array.length > idx) {
+        newArray.push(array[idx]);
+      }
+    });
+  }
+
+  return newArray;
+}
+
+console.log(interleave([1, 2, 3], ['a', 'b', 'c']));    // [1, "a", 2, "b", 3, "c"]

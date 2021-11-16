@@ -4054,3 +4054,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 14:44 Still confused out of my mind a little bit. Alas, I'm slowly understanding. Time to go to school and get the kids on Monday afternoon.
 
 22:10 I feel like I'm working too slowly through the problems again.
+
+## 20211116 화요일
+
+08:14 Time to study after I check on my checks for BCSOA.
