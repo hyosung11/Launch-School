@@ -68,14 +68,23 @@ function longestConsecutive(array, int) {
   return currentLongest;
 }
 
-console.log(longestConsecutive(["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"], 2));
+console.log(
+  longestConsecutive(
+    ['zone', 'abigail', 'theta', 'form', 'libe', 'zas', 'theta', 'abigail'],
+    2
+  )
+);
 
-console.log(longestConsecutive(['hi', 'tim', 'california', 'howdy', 'not','california'], 3));
+console.log(
+  longestConsecutive(
+    ['hi', 'tim', 'california', 'howdy', 'not', 'california'],
+    3
+  )
+);
 
 // console.log(longestConsecutive([], -1));
 // console.log(longestConsecutive(["zone"], 2));
 // console.log(longestConsecutive(["Laurent", "Staub"], 0));
-
 
 // function longestConsecutive(arr, int) {
 //   if (int <= 0 || arr.length < int || arr.length === 0) return 'works';

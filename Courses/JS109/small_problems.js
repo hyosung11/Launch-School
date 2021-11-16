@@ -1447,19 +1447,41 @@ ES6's Set object makes this problem fairly simple, since its constructor automat
 //           7, 34, 57, 74, 45, 11, 88, 67,  5, 58])); // 73
 
 // Easy 5 > 5. Combine Two Lists
-function interleave(...args) {
-  let newArray = [];
-  const longest = Math.max(...args.map(array => array.length));
+// function interleave(...args) {
+//   let newArray = [];
+//   const longest = Math.max(...args.map(array => array.length));
 
-  for (let idx = 0; idx < longest; idx += 1) {
-    args.forEach(array => {
-      if (array.length > idx) {
-        newArray.push(array[idx]);
-      }
-    });
+//   for (let idx = 0; idx < longest; idx += 1) {
+//     args.forEach(array => {
+//       if (array.length > idx) {
+//         newArray.push(array[idx]);
+//       }
+//     });
+//   }
+
+//   return newArray;
+// }
+
+// console.log(interleave([1, 2, 3], ['a', 'b', 'c'])); // [1, "a", 2, "b", 3, "c"]
+
+// Easy 5 > 6. Multiplicative Average
+/* Algorithm
+- input array of integers
+- initialize `product` to 1
+- iterate over elements in array
+  - multiply product by the value at the current index
+- divide `product` by number of entries in the array
+- output string value rounded to three decimal places */
+
+function multiplicativeAverage(numbers) {
+  let product = 1;
+
+  for (let idx = 0; idx < numbers.length; idx += 1) {
+    product *= numbers[idx];
   }
 
-  return newArray;
+  return (product / numbers.length).toFixed(3);
 }
 
-console.log(interleave([1, 2, 3], ['a', 'b', 'c']));    // [1, "a", 2, "b", 3, "c"]
+console.log(multiplicativeAverage([3, 5])); // "7.500"
+console.log(multiplicativeAverage([2, 5, 7, 11, 13, 17])); // "28361.667"
