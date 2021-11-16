@@ -4058,3 +4058,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 ## 20211116 화요일
 
 08:14 Time to study after I check on my checks for BCSOA.
+
+09:10 Reviewed Joe's severance agreement. Deposited checks. Certified for UI benefits. Time to study now and get ready for the study group.

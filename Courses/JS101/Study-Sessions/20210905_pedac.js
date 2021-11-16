@@ -26,10 +26,7 @@ Goal: begin to think logically and solution-based about the problem. Consider wh
 Algorithm
 Goal: write out high-level steps to solve the given problem.
 
-Keep your algorithm high-level.  Not code-specific.  Your algorithm should be applicable to any program language.
-Don't skip over steps in your algorithm.
-Your algorithm should walk through how to solve the problem in a way that even someone who is not a programmer would understand.
-The algorithm step requires the most practice to get comfortable with writing it at a high-level that is language-agnostic, yet not skipping over any steps on the path to solving the problem. Practice this even with easier problems so that you will feel comfortable when you are challenged with more complex problems.
+Keep your algorithm high-level. Not code-specific. Your algorithm should be applicable to any program language. Don't skip over steps in your algorithm. Your algorithm should walk through how to solve the problem in a way that even someone who is not a programmer would understand. The algorithm step requires the most practice to get comfortable with writing it at a high-level that is language-agnostic, yet not skipping over any steps on the path to solving the problem. Practice this even with easier problems so that you will feel comfortable when you are challenged with more complex problems.
 
 Algorithm can help helper functions
 
@@ -37,11 +34,9 @@ Coding with intent
 
 Goal: translate the algorithm into your programming language of choice.
 You may be more comfortable using pseudo-code first.  Know that pseudo-code is not a substitute for the Algorithm step.
-Run your code frequently.
-Revisit algorithm if there was a flaw in your logic. Refer to your algo as you go.
+Run your code frequently. Revisit algorithm if there was a flaw in your logic. Refer to your algo as you go.
 
-Test your code
-*/
+Test your code */
 
 /* ==========================================================================
 Instructions
