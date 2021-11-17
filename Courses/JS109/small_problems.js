@@ -1839,18 +1839,18 @@ ES6's Set object makes this problem fairly simple, since its constructor automat
 // }
 
 // `map`
-function doubleConsonants(string) {
-  const CONSONANTS = 'bcdfghjklmnpqrstvwxyz';
-  return string
-    .split('')
-    .map(char => CONSONANTS.includes(char.toLowerCase()) ? char.repeat(2) : char)
-    .join('');
-}
+// function doubleConsonants(string) {
+//   const CONSONANTS = 'bcdfghjklmnpqrstvwxyz';
+//   return string
+//     .split('')
+//     .map(char => CONSONANTS.includes(char.toLowerCase()) ? char.repeat(2) : char)
+//     .join('');
+// }
 
-console.log(doubleConsonants('String')); // "SSttrrinngg"
-console.log(doubleConsonants('Hello-World!')); // "HHellllo-WWorrlldd!"
-console.log(doubleConsonants('July 4th')); // "JJullyy 4tthh"
-console.log(doubleConsonants('')); // ""
+// console.log(doubleConsonants('String')); // "SSttrrinngg"
+// console.log(doubleConsonants('Hello-World!')); // "HHellllo-WWorrlldd!"
+// console.log(doubleConsonants('July 4th')); // "JJullyy 4tthh"
+// console.log(doubleConsonants('')); // ""
 
 // function doubleConsonants(string) {
 //   let consonants = 'bcdfghjklmnpqrstvwxyz';
@@ -1866,3 +1866,148 @@ console.log(doubleConsonants('')); // ""
 //   }
 //   return result;
 // }
+
+// Easy 6 > 3. Reverse Number
+/* algo 
+- input number
+- convert number to string
+- split the string at each char
+- reverse the chars
+- join the chars
+- convert back to number
+- return number with digits reversed */
+
+// function reverseNumber(number) {
+//   let reversed = String(number)
+//     .split('')
+//     .reverse()
+//     .join('')
+//   return parseInt(reversed, 10);
+// }
+
+// function reverseNumber(number) {
+//   return Number(String(number).split('').reverse().join(''));
+// }
+
+// console.log(reverseNumber(12345)); // 54321
+// console.log(reverseNumber(12213)); // 31221
+// console.log(reverseNumber(456)); // 654
+// console.log(reverseNumber(12000)); // 21 -- Note that leading zeros in the result get dropped!
+// console.log(reverseNumber(1)); // 1
+
+// Easy 6 > 4. Get The Middle Character
+/* algo
+- input string
+- initialize `middle` to string length / 2
+- check length of string
+  - if odd return middle char
+  - if even return two middle characters
+- return middle character(s) of string */
+
+// function centerOf(string) {
+//   if (string.length % 2 === 1) {
+//     let centerIndex = (string.length - 1) / 2;
+//     return string[centerIndex];
+//   } else {
+//     let leftIndex = string.length / 2 - 1;
+//     return string.slice(leftIndex, leftIndex + 2);
+//   }
+// }
+
+// Emma's version
+// function centerOf(string) {
+//   const middle = Math.floor(string.length / 2);
+//   return string.length % 2 === 0
+//   ? string.slice(middle - 1, middle + 1)
+//   : string.charAt(middle);
+// }
+
+// function centerOf(str) {
+//   return str.slice(Math.ceil(str.length / 2) - 1, Math.floor(str.length / 2) + 1);
+// }
+
+// let centerOf = (str) => {
+//   let half = Math.ceil(str.length / 2) - 1;
+//   return str.length % 2 === 0
+//     ? str.slice(half, half + 2)
+//     : str.slice(half, half + 1);
+// };
+
+// function centerOf(string) {
+//   let middle = Math.floor(string.length / 2);
+//   if (string.length % 2 === 1) {
+//     return string[middle];
+//   } else {
+//     return string[middle - 1] + string[middle];
+//   }
+// }
+
+// console.log(centerOf('I Love JavaScript')); // "a"
+// console.log(centerOf('Launch School'));     // " "
+// console.log(centerOf('Launch'));            // "un"
+// console.log(centerOf('Launchschool'));      // "hs"
+// console.log(centerOf('x'));                 // "x"
+
+// Easy 6 > 5. Always Return Negative
+/* Algo
+- input a number
+- if number positive, return negative of that number
+- if negative, return as is
+- return number
+
+- leverage Math.abs method to convert any type of number argument to a positive number. Then multiply the number by -1.
+
+- I found another way by just negating the entire expression and returning it. */
+
+// function negative(number) {
+//   return -Math.abs(number);
+// }
+
+// function negative(number) {
+//   return Math.sign(number) < 0 ? number : -number;
+// }
+
+// function negative(number) {
+//   return Math.abs(number) * -1;
+// }
+
+// const negative = (number) => Math.abs(number) === number ? -number : number;
+
+// function negative(number) {
+//   return number >= 0 ? -number : number;
+// }
+
+// console.log(negative(5));     // -5
+// console.log(negative(-3));    // -3
+// console.log(negative(0));     // -0
+
+// Easy 6 > 6. Counting Up
+
+// function sequence(number) {
+//   let result = [];
+//   let count = 1;
+
+//   while (count <= number) {
+//     result.push(count)
+//     count += 1;
+//   }
+//   return result;
+// }
+
+// function sequence(limit) {
+//   let result = [];
+
+//   for (let num = 1; num <= limit; num += 1) {
+//     result.push(num);
+//   }
+
+//   return result;
+// }
+
+// function sequence(limit) {
+//   return [...Array(limit)].map((_, number) => ++number)
+// }
+
+// console.log(sequence(5)); // [1, 2, 3, 4, 5]
+// console.log(sequence(3)); // [1, 2, 3]
+// console.log(sequence(1)); // [1]

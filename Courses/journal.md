@@ -4076,3 +4076,17 @@ How awesome are the engineers in the company? If you're the best one there, that
 19:38 Working on Double Char Part 2 for a long time. Now, it's time to put the kids to bed.
 
 19:40 I do think I am building fluency and figuring out more quickly how to fix my mistakes. Eyes are tired right now though.
+
+19:53 Worked on Reverse Number and that went more quickly. Now go up for kids' bedtime.
+
+20:10 Starting Easy 6 > 4. Get The Middle Character.
+
+21:10 Wow, I spent one hour on that problem. I worked my own solution and then looked at other submitted solutions and then went back and worked my solution again.
+
+21:17 Got my Easy 6 > 5. Always Return Negative working in a matter of minutes by tinkering. Keep on tinkering.
+
+21:28 Now on to Easy 6 > 6. Counting Up, but I'm tired.
+
+21:33 Got a working solution in just a few minutes.
+
+21:49 Stopping for tonight.
