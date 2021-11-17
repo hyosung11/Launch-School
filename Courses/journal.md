@@ -4064,3 +4064,15 @@ How awesome are the engineers in the company? If you're the best one there, that
 11:56 I spent hours on that single problem from the study group to now.
 
 13:38 Doing the repetitions on the small problems. Time to take a short break and move to the dining room table.
+
+16:41 How long have I been working on how many problems? Yikes, I didn't keep track of the last commit. Commit after each solution to keep track of how long it takes, but is that mastery-based? It's not not mastery-based in that mastery-based learning doesn't state that you can't keep track of time.
+
+17:20 About 40 minutes on After Midnight Part 1.
+
+17:30 Read through and copied the code for After Midnight 2 and that took ten minutes.
+
+17:58 Finished Double Char Part 1 before dinner.
+
+19:38 Working on Double Char Part 2 for a long time. Now, it's time to put the kids to bed.
+
+19:40 I do think I am building fluency and figuring out more quickly how to fix my mistakes. Eyes are tired right now though.
