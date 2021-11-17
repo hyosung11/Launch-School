@@ -4090,3 +4090,9 @@ How awesome are the engineers in the company? If you're the best one there, that
 21:33 Got a working solution in just a few minutes.
 
 21:49 Stopping for tonight.
+
+## 20211117 수요일
+
+08:49 Back from dropping off the kids and before starting a study session with Laurent.
+
+08:58 Getting ready for study session.

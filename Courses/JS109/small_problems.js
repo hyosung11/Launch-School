@@ -2011,3 +2011,17 @@ ES6's Set object makes this problem fairly simple, since its constructor automat
 // console.log(sequence(5)); // [1, 2, 3, 4, 5]
 // console.log(sequence(3)); // [1, 2, 3]
 // console.log(sequence(1)); // [1]
+
+// Easy 6 7. Name Swapping
+// function swapName(name) {
+//   return name.split(' ').reverse().join(', ');
+// }
+
+// console.log(swapName('Joe Roberts'));    // "Roberts, Joe"
+
+function swapName(name) {
+  let splitName = name.split(' ');
+  return `${splitName.pop()}, ${splitName.join(' ')}`;
+}
+
+console.log(swapName('Joe Louis Roberts'));    // "Roberts, Joe Louis"
