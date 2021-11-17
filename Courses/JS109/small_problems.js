@@ -1685,35 +1685,184 @@ ES6's Set object makes this problem fairly simple, since its constructor automat
 // }
 
 // Easy 5 > 11. After Midnight (Part 1)
-const MINUTES_PER_HOUR = 60;
-const HOURS_PER_DAY = 24;
-const MINUTES_PER_DAY = MINUTES_PER_HOUR * HOURS_PER_DAY;
+// const MINUTES_PER_HOUR = 60;
+// const HOURS_PER_DAY = 24;
+// const MINUTES_PER_DAY = MINUTES_PER_HOUR * HOURS_PER_DAY;
 
-function timeOfDay(deltaMinutes) {
-  if (deltaMinutes < 0) {
-    deltaMinutes = (deltaMinutes % MINUTES_PER_DAY) + MINUTES_PER_DAY;
-  } else {
-    deltaMinutes = deltaMinutes % MINUTES_PER_DAY;
-  }
+// function timeOfDay(deltaMinutes) {
+//   if (deltaMinutes < 0) {
+//     deltaMinutes = (deltaMinutes % MINUTES_PER_DAY) + MINUTES_PER_DAY;
+//   } else {
+//     deltaMinutes = deltaMinutes % MINUTES_PER_DAY;
+//   }
 
-  let hours = Math.floor(deltaMinutes / MINUTES_PER_HOUR);
-  let minutes = deltaMinutes % MINUTES_PER_HOUR
+//   let hours = Math.floor(deltaMinutes / MINUTES_PER_HOUR);
+//   let minutes = deltaMinutes % MINUTES_PER_HOUR
 
-  return formatTime(hours, minutes);
+//   return formatTime(hours, minutes);
+// }
+
+// function formatTime(hours, minutes) {
+//   return `${leadingZero(hours)}:${leadingZero(minutes)}`;
+// }
+
+// function leadingZero(number) {
+//   return number < 10 ? `0${number}` : String(number);
+// }
+
+// console.log(timeOfDay(0) === '00:00');
+// console.log(timeOfDay(-3) === '23:57');
+// console.log(timeOfDay(35) === '00:35');
+// console.log(timeOfDay(-1437) === '00:03');
+// console.log(timeOfDay(3000) === '02:00');
+// console.log(timeOfDay(800) === '13:20');
+// console.log(timeOfDay(-4231) === '01:29');
+
+// Easy 5 > 12. After Midnight (Part 2)
+// const HOURS_PER_DAY = 24;
+// const MINUTES_PER_HOUR = 60;
+// const MINUTES_PER_DAY = HOURS_PER_DAY * MINUTES_PER_HOUR;
+
+// function afterMidnight(time) {
+//   let [hours, minutes] = time.split(":").map(num => Number(num));
+//   return ((hours * MINUTES_PER_HOUR) + minutes) % MINUTES_PER_DAY;
+// }
+
+// function beforeMidnight(time) {
+//   let deltaMinutes = MINUTES_PER_DAY - afterMidnight(time);
+//   if (deltaMinutes === MINUTES_PER_DAY) {
+//     deltaMinutes = 0;
+//   }
+//   return deltaMinutes;
+// }
+
+// console.log(afterMidnight('00:00') === 0);
+// console.log(beforeMidnight('00:00') === 0);
+// console.log(afterMidnight('12:34') === 754);
+// console.log(beforeMidnight('12:34') === 686);
+// console.log(afterMidnight('24:00') === 0);
+// console.log(beforeMidnight('24:00') === 0);
+
+// Easy 6 > 1. Double Char (Part 1)
+/* Algo
+- input a string
+- initialize `stringArray` to empty array
+- iterate through `string` argument
+  - append two of current char at index into `stringArray`
+- join the array
+- return string with repeated chars */
+
+// function repeater(string) {
+//   let stringArray = [];
+
+//   for (let idx = 0; idx < string.length; idx += 1) {
+//     stringArray.push(string[idx], string[idx]);
+//   }
+//   return stringArray.join('');
+// }
+
+// keeping it a string
+// function repeater(string) {
+//   let doubleChars = '';
+
+//   for (let idx = 0; idx < string.length; idx += 1) {
+//     doubleChars += string[idx] + string[idx];
+//   }
+
+//   return doubleChars;
+// }
+
+// spread operator and `repeat` method
+// const repeater = (str) => [...str].map(char => char.repeat(2)).join('');
+
+// console.log(repeater('Hello')); // "HHeelllloo"
+// console.log(repeater('Good job!')); // "GGoooodd  jjoobb!!"
+// console.log(repeater('')); // ""
+
+// map version
+/* Algo
+- split the string into an array of characters
+- iterate through the array
+  - using `map` concatenate each character with itself
+- join the array back into a string */
+
+// function repeater(string) {
+//   return string
+//     .split('')
+//     .map(char => char + char)
+//     .join('');
+// }
+
+// Easy 6 > 2. Double Char (Part 2)
+/* Algo
+- input string
+- split the string into chars
+- iterate through chars
+  - if char is a consonant double it
+  - skip all chars not consonants
+- return a new string with consonant characters doubled */
+
+// function doubleConsonants(string) {
+//   const CONSONANTS = [
+//     'b',
+//     'c',
+//     'd',
+//     'f',
+//     'g',
+//     'h',
+//     'j',
+//     'k',
+//     'l',
+//     'm',
+//     'n',
+//     'p',
+//     'q',
+//     'r',
+//     's',
+//     't',
+//     'v',
+//     'w',
+//     'x',
+//     'y',
+//     'z',
+//   ];
+//   let stringArray = [];
+
+//   for (let idx = 0; idx < string.length; idx += 1) {
+//     stringArray.push(string[idx]);
+//     if (CONSONANTS.indexOf(string[idx].toLowerCase()) >= 0) {
+//       stringArray.push(string[idx]);
+//     }
+//   }
+
+//   return stringArray.join('');
+// }
+
+// `map`
+function doubleConsonants(string) {
+  const CONSONANTS = 'bcdfghjklmnpqrstvwxyz';
+  return string
+    .split('')
+    .map(char => CONSONANTS.includes(char.toLowerCase()) ? char.repeat(2) : char)
+    .join('');
 }
 
-function formatTime(hours, minutes) {
-  return `${leadingZero(hours)}:${leadingZero(minutes)}`;
-}
+console.log(doubleConsonants('String')); // "SSttrrinngg"
+console.log(doubleConsonants('Hello-World!')); // "HHellllo-WWorrlldd!"
+console.log(doubleConsonants('July 4th')); // "JJullyy 4tthh"
+console.log(doubleConsonants('')); // ""
 
-function leadingZero(number) {
-  return number < 10 ? `0${number}` : String(number);
-}
+// function doubleConsonants(string) {
+//   let consonants = 'bcdfghjklmnpqrstvwxyz';
+//   if (string === '') return '';
+//   let result = '';
 
-console.log(timeOfDay(0) === '00:00');
-console.log(timeOfDay(-3) === '23:57');
-console.log(timeOfDay(35) === '00:35');
-console.log(timeOfDay(-1437) === '00:03');
-console.log(timeOfDay(3000) === '02:00');
-console.log(timeOfDay(800) === '13:20');
-console.log(timeOfDay(-4231) === '01:29');
+//   for (let idx = 0; idx < string.length; idx += 1) {
+//     if (consonants.includes(string[idx].toLowerCase())) {
+//       result += string[idx] + string[idx];
+//     } else {
+//       result += string[idx];
+//     }
+//   }
+//   return result;
+// }
