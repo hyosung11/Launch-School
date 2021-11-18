@@ -2371,22 +2371,263 @@ ES6's Set object makes this problem fairly simple, since its constructor automat
 // List Processing > 7. Sum of Sums
 /* Algo
 - input array of numbers
-- initialize `sum` to 0
+- initialize `sumTotal` to 0
   iterate through array
-  - add value of element one to `sum`
-  - add value of element one plus element two to sum
-  - continue adding values to end of the array
+  - slice the original array
+  - sum all the values from the created subarray using `reduce`
+  - add sum to the `sumTotal`
 - return number */
 
-function sumOfSums(numbers) {
-  let sumTotal = 0;
-  for (let idx = 1; idx <= numbers.length; idx += 1) {
-    sumTotal += numbers.slice(0, idx).reduce((accum, num) => accum + num)
-  }
-  return sumTotal;
+// function sumOfSums(numbers) {
+//   let sumTotal = 0;
+
+//   for (let idx = 1; idx <= numbers.length; idx += 1) {
+//     sumTotal += numbers.slice(0, idx).reduce((accum, num) => accum + num);
+//   }
+//   return sumTotal;
+// }
+
+// console.log(sumOfSums([3, 5, 2])); // (3) + (3 + 5) + (3 + 5 + 2) --> 21
+// console.log(sumOfSums([1, 5, 7, 3])); // (1) + (1 + 5) + (1 + 5 + 7) + (1 + 5 + 7 + 3) --> 36
+// console.log(sumOfSums([4])); // 4
+// console.log(sumOfSums([1, 2, 3, 4, 5])); // 35
+
+// List Processing > 8. Grocery List
+/* Algo
+- input two-dimensional array
+- initialize `result` array
+  - iterate through array
+    - for each subarray
+      - return fruit for x number of times
+- return one-dimensional array */
+
+// function buyFruit(fruits) {
+//   let list = [];
+
+//   fruits.forEach(fruit => {
+//     for (let idx = 0; idx < fruit[1]; idx += 1) {
+//       list.push(fruit[0]);
+//     }
+//   })
+//   return list;
+// }
+
+// console.log(buyFruit([['apple', 3], ['orange', 1], ['banana', 2]]));
+// returns ["apple", "apple", "apple", "orange", "banana", "banana"]
+
+// List Processing > 9. Inventory Item Transactions
+// let transactions = [ { id: 101, movement: 'in', quantity:  5 },
+//                      { id: 105, movement: 'in',  quantity: 10 },
+//                      { id: 102, movement: 'out', quantity: 17 },
+//                      { id: 101, movement: 'in',  quantity: 12 },
+//                      { id: 103, movement: 'out', quantity: 20 },
+//                      { id: 102, movement: 'out', quantity: 15 },
+//                      { id: 105, movement: 'in',  quantity: 25 },
+//                      { id: 101, movement: 'out', quantity: 18 },
+//                      { id: 102, movement: 'in',  quantity: 22 },
+//                      { id: 103, movement: 'out', quantity: 15 }, ];
+
+// function transactionsFor(inventoryItem, inventory) {
+//   return inventory.filter(items => items.id === inventoryItem);
+// }
+
+// console.log(transactionsFor(101, transactions));
+// returns
+// [ { id: 101, movement: "in",  quantity:  5 },
+//   { id: 101, movement: "in",  quantity: 12 },
+//   { id: 101, movement: "out", quantity: 18 }, ]
+
+// List Processing > 10. Inventory Item Availability
+// function isItemAvailable(item, transactions) {
+//   let quantity = transactionsFor(item, transactions).reduce(
+//     (sum, transaction) => {
+//       if (transaction.movement === 'in') {
+//         return sum + transaction.quantity;
+//       } else {
+//         return sum - transaction.quantity;
+//       }
+//     }, 0);
+//   return quantity > 0;
+// }
+
+// function transactionsFor(inventoryItem, transactions) {
+//   return transactions.filter(inventory => inventory.id === inventoryItem);
+// }
+
+// let transactions = [ { id: 101, movement: 'in',  quantity:  5 },
+//                      { id: 105, movement: 'in',  quantity: 10 },
+//                      { id: 102, movement: 'out', quantity: 17 },
+//                      { id: 101, movement: 'in',  quantity: 12 },
+//                      { id: 103, movement: 'out', quantity: 20 },
+//                      { id: 102, movement: 'out', quantity: 15 },
+//                      { id: 105, movement: 'in',  quantity: 25 },
+//                      { id: 101, movement: 'out', quantity: 18 },
+//                      { id: 102, movement: 'in',  quantity: 22 },
+//                      { id: 103, movement: 'out', quantity: 15 }, ];
+
+// console.log(isItemAvailable(101, transactions));     // false
+// console.log(isItemAvailable(103, transactions));     // false
+// console.log(isItemAvailable(105, transactions));     // true
+
+// String and Text Processing > 1. Uppercase Check
+// function isUppercase(string) {
+//   return string === string.toUpperCase();
+// }
+
+// console.log(isUppercase('t'));               // false
+// console.log(isUppercase('T'));               // true
+// console.log(isUppercase('Four Score'));      // false
+// console.log(isUppercase('FOUR SCORE'));      // true
+// console.log(isUppercase('4SCORE!'));         // true
+// console.log(isUppercase(''));                // true
+
+// String and Text Processing > 2. Delete Vowels
+// function removeVowels(stringArray) {
+//   let vowels = 'aeiouAEIOU';
+
+//   return stringArray.map(word => {
+//     return word.split('').filter(char => !(vowels.includes(char))).join('');
+//   });
+// }
+
+// function removeVowels(strings) {
+//   return strings.map(string => string.replace(/[aeiou]/gi, ''));
+// }
+
+// function removeVowels(strings) {
+//   const VOWELS = 'aeiouAEIOU';
+//   return strings.map(word => {
+//     return word.split('').filter(char => !VOWELS.includes(char)).join('');
+//   });
+// }
+
+// console.log(removeVowels(['abcdefghijklmnopqrstuvwxyz'])); // ["bcdfghjklmnpqrstvwxyz"]
+// console.log(removeVowels(['green', 'YELLOW', 'black', 'white'])); // ["grn", "YLLW", "blck", "wht"]
+// console.log(removeVowels(['ABC', 'AEIOU', 'XYZ'])); // ["BC", "", "XYZ"]
+
+// String and Text Processing > 3. Lettercase Counter
+// function letterCaseCount(string) {
+//   let counts = { lowercase: 0, uppercase: 0, neither: 0 };
+
+//   for (let idx = 0; idx < string.length; idx += 1) {
+//     let char = string[idx];
+//     if (char >= 'a' && char <= 'z') {
+//       counts.lowercase += 1;
+//     } else if (char >= 'A' && char <= 'Z') {
+//       counts.uppercase += 1;
+//     } else {
+//       counts.neither += 1;
+//     }
+//   }
+
+//   return counts;
+// }
+
+// function letterCaseCount(string) {
+//   let lowercaseChars = string.match(/[a-z]/g) || [];
+//   let uppercaseChars = string.match(/[A-Z]/g) || [];
+//   let neitherChars = string.match(/[^a-z]/gi) || [];
+
+//   return {
+//     lowercase: lowercaseChars.length,
+//     uppercase: uppercaseChars.length,
+//     neither: neitherChars.length
+//   }
+// }
+
+// console.log(letterCaseCount('abCdef 123'));  // { lowercase: 5, uppercase: 1, neither: 4 }
+// console.log(letterCaseCount('AbCd +Ef'));    // { lowercase: 3, uppercase: 3, neither: 2 }
+// console.log(letterCaseCount('123'));         // { lowercase: 0, uppercase: 0, neither: 3 }
+// console.log(letterCaseCount(''));            // { lowercase: 0, uppercase: 0, neither: 0 }
+
+// String and Text Processing > 4. Capitalize Words
+// function wordCap(words) {
+//   return words
+//     .split(' ')
+//     .map(word => word.slice(0, 1).toUpperCase() + word.slice(1).toLowerCase())
+//     .join(' ');
+// }
+
+// console.log(wordCap('four score and seven'));       // "Four Score And Seven"
+// console.log(wordCap('the javaScript language'));    // "The Javascript Language"
+// console.log(wordCap('this is a "quoted" word'));    // 'This Is A "quoted" Word'
+
+// String and Text Processing > 5. Swap Case
+// function swapCase(string) {
+//   return string
+//     .split('')
+//     .map(char => {
+//       if (char >= 'a' && char <= 'z') {
+//         return char.toUpperCase();
+//       } else if (char >= 'A' && char <= 'Z') {
+//         return char.toLowerCase();
+//       } else {
+//         return char;
+//       }
+//     })
+//     .join('');
+// }
+
+// console.log(swapCase('CamelCase')); // "cAMELcASE"
+// console.log(swapCase('Tonight on XYZ-TV')); // "tONIGHT ON xyz-tv"
+
+// String and Text Processing > 6. Staggered Caps (Part 1)
+// function staggeredCase(string) {
+//   let result = ''
+
+//   for (let idx = 0; idx < string.length; idx += 1) {
+//     let char = string[idx];
+//     if (idx % 2 === 0) {
+//       result += char.toUpperCase();
+//     } else {
+//       result += char.toLowerCase()
+//     }
+//   }
+//   return result;
+// }
+
+// function staggeredCase(string) {
+//   return string
+//     .split('')
+//     .map((char, index) => {
+//       if (index % 2 === 0) {
+//         return char.toUpperCase()
+//       } else {
+//         return char.toLowerCase();
+//       }
+//     })
+//     .join('');
+// }
+
+// console.log(staggeredCase('I Love Launch School!')); // "I LoVe lAuNcH ScHoOl!"
+// console.log(staggeredCase('ALL_CAPS')); // "AlL_CaPs"
+// console.log(staggeredCase('ignore 77 the 4444 numbers')); // "IgNoRe 77 ThE 4444 nUmBeRs"
+
+// String and Text Processing 7. Staggered Caps (Part 2)
+function staggeredCase(string) {
+  let needUpper = true;
+
+  return string
+    .split('')
+    .map((char) => {
+      char = char.toLowerCase();
+      if (char >= 'a' && char <= 'z') {
+        if (needUpper) {
+          needUpper = false;
+          return char.toUpperCase();
+        } else {
+          needUpper = true;
+          return char.toLowerCase();
+        }
+      } else {
+        return char;
+      }
+    })
+    .join('');
 }
 
-console.log(sumOfSums([3, 5, 2])); // (3) + (3 + 5) + (3 + 5 + 2) --> 21
-console.log(sumOfSums([1, 5, 7, 3])); // (1) + (1 + 5) + (1 + 5 + 7) + (1 + 5 + 7 + 3) --> 36
-console.log(sumOfSums([4])); // 4
-console.log(sumOfSums([1, 2, 3, 4, 5])); // 35
+console.log(staggeredCase('I Love Launch School!') === 'I lOvE lAuNcH sChOoL!');
+console.log(staggeredCase('ALL CAPS') === 'AlL cApS');
+console.log(
+  staggeredCase('ignore 77 the 444 numbers') === 'IgNoRe 77 ThE 444 nUmBeRs'
+);

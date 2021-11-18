@@ -4104,3 +4104,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 10:30 Working through the three List Processing problems > 4. Leading Substrings, 5. All Substrings, and 6. Palindromic Substrings. That took about 90 minutes with lots of help from the discussion section.
 
 12:59 I need to practice and practice and practice problems more and more.
+
+18:25 Grinding through more problems. Still not fluent.
