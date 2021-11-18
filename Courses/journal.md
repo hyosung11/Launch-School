@@ -4096,3 +4096,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 08:49 Back from dropping off the kids and before starting a study session with Laurent.
 
 08:58 Getting ready for study session.
+
+## 20211118 목요일
+
+09:04 Working on one problem for about 40 minutes. Then just found out that Omar's dad died in Cairo, Egypt. Going to my standing desk after I make this commit.

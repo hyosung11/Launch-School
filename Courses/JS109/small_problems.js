@@ -2012,16 +2012,280 @@ ES6's Set object makes this problem fairly simple, since its constructor automat
 // console.log(sequence(3)); // [1, 2, 3]
 // console.log(sequence(1)); // [1]
 
-// Easy 6 7. Name Swapping
+// Easy 6 > 7. Name Swapping
 // function swapName(name) {
 //   return name.split(' ').reverse().join(', ');
 // }
 
-// console.log(swapName('Joe Roberts'));    // "Roberts, Joe"
+// console.log(swapName('Joe Roberts')); // "Roberts, Joe"
 
-function swapName(name) {
-  let splitName = name.split(' ');
-  return `${splitName.pop()}, ${splitName.join(' ')}`;
+// function swapName(name) {
+//   let names = name.split(' ');
+//   return `${names.pop()}, ${names.join(' ')}`;
+// }
+
+// console.log(swapName('Joe Louis Roberts')); // "Roberts, Joe Louis"
+
+// Easy 6 > 8. Sequence Count
+/* Algo
+- input `count` and `start` integer arguments
+- if `count` is 0 return empty array
+- initialize `result` array
+- iterate for `count` times
+  - in each iteration increase value of element by a multiple of the starting number
+- return an array of numbers */
+
+// function sequence(count, startNum) {
+//   let result = [];
+//   for (let num = 1; num <= count; num += 1) {
+//     result.push(num * startNum);
+//   }
+
+//   return result;
+// }
+
+// const sequence = (count, start) => [...Array(count)].map((_, num) => start * (num + 1));
+
+// function sequence(count, start) {
+//   let numbers = [...Array(count)];
+//   return numbers.map((_, num) => start * (num + 1));
+// }
+
+// console.log(sequence(5, 1)); // [1, 2, 3, 4, 5]
+// console.log(sequence(4, -7)); // [-7, -14, -21, -28]
+// console.log(sequence(3, 0)); // [0, 0, 0]
+// console.log(sequence(0, 1000000)); // []
+
+// Easy 6 > 9. Reverse It (Part 1)
+// function reverseSentence(words) {
+//   return words.split(' ').reverse().join(' ');
+// }
+
+// reverseSentence = (string) => string.split(' ').reverse().join(' ');
+
+// console.log(reverseSentence('')); // ""
+// console.log(reverseSentence('Hello World')); // "World Hello"
+// console.log(reverseSentence('Reverse these words')); // "words these Reverse"
+
+// Easy 6 > Reverse It (Part 2)
+// function reverseWords(words) {
+//   return words
+//     .split(' ')
+//     .map(word => {
+//       if (word.length >  4) {
+//         return word.split('').reverse().join('');
+//       }
+//       return word;
+//     }).join(' ');
+// }
+
+// console.log(reverseWords('Professional')); // "lanoisseforP"
+// console.log(reverseWords('Walk around the block')); // "Walk dnuora the kcolb"
+// console.log(reverseWords('Launch School')); // "hcnuaL loohcS"
+
+// Easy 6 > 11. Reversed Arrays
+/* Algo
+- input array
+- set leftIndex to beginning of the array
+- set rightIndex to end of the array
+- iterate through the array
+  - exchange elements
+  - increment leftIndex
+  - decrement rightIndex
+- return array with elements reversed in place */
+
+// function reverse(array) {
+//   let leftIndex = 0;
+//   let rightIndex = array.length - 1;
+
+//   while (leftIndex < array.length / 2) {
+//     [array[leftIndex], array[rightIndex]] =
+//       [array[rightIndex], array[leftIndex]];
+//     leftIndex += 1;
+//     rightIndex -= 1;
+//   }
+//   return array;
+// }
+
+// function reverse(array) {
+//   let clone = array.splice(0, array.length);
+//   while (clone.length > 0) {
+//     array.push(clone.pop());
+//   }
+//   return array;
+// }
+
+// function reverse(list) {
+//   let listCopy = [...list];
+
+//   for (let i = 0; i < list.length; i++) {
+//     list[i] = listCopy[list.length - 1 - i]; // list[3]
+//   }
+
+//   return list;
+// }
+
+// let list = [1, 2, 3, 4];
+// let result = reverse(list);
+// console.log(result); // logs [4,3,2,1]
+// console.log(list === result); // logs true
+
+// let list1 = ["a", "b", "c", "d", "e"];
+// let result1 = reverse(list1);
+// console.log(result1); // logs  ["e", "d", "c", "b", "a"]
+// console.log(list1 === result1); // logs true
+
+// let list2 = ["abc"];
+// let result2 = reverse(list2);
+// console.log(result2); // logs  ["abc"]
+// console.log(list2 === result2); // logs true
+
+// let list3 = [];
+// let result3 = reverse(list3);
+// console.log(result3); // logs []
+// console.log(list3 === result3); // logs true
+
+// Easy 6 > 12. Matching Parentheses?
+/* Algo
+- input string
+- initialize `parens` to 0 to track
+- iterate through string
+  - if char === '('
+    - increment parens
+  - if char === ')'
+    - decrement parens
+  - if parens less than zero return false
+  - check if parens === 0
+- return boolean
+  - true if all parentheses balanced
+  - false otherwise */
+
+// function isBalanced(string) {
+//   let parens = 0;
+
+//   for (let idx = 0; idx < string.length; idx += 1) {
+//     if (string[idx] === '(') {
+//       parens += 1;
+//     } else if (string[idx] === ')') {
+//       parens -= 1;
+//     }
+//     if (parens < 0) return false;
+//   }
+
+//   return parens === 0;
+// }
+
+//   console.log(isBalanced('What (is) this?') === true);
+//   console.log(isBalanced('What is) this?') === false);
+//   console.log(isBalanced('What (is this?') === false);
+//   console.log(isBalanced('((What) (is this))?') === true);
+//   console.log(isBalanced('((What)) (is this))?') === false);
+//   console.log(isBalanced('Hey!') === true);
+//   console.log(isBalanced(')Hey!(') === false);
+//   console.log(isBalanced('What ((is))) up(') === false);
+
+// List Processing > 1. Sum Of Digits
+/* algo
+- input `number` argument
+- convert `number` to a string
+- split `number` into chars
+- sum chars using reduce
+  - convert parameter `digit` to a number using `Number()
+- return number that sums digits */
+
+// function sum(number) {
+//   return String(number)
+//     .split('')
+//     .reduce((accum, digit) => accum + Number(digit), 0);
+// }
+
+// console.log(sum(23));           // 5
+// console.log(sum(496));          // 19
+// console.log(sum(123456789));    // 45
+
+// List Processing > 2. Alphabetical Numbers
+// const NUMBER_WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten',
+//   'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen',
+//   'sixteen', 'seventeen', 'eighteen', 'nineteen']
+
+// function wordSort(num1, num2) {
+//   if (NUMBER_WORDS[num1] > NUMBER_WORDS[num2]) {
+//     return 1;
+//   } else if (NUMBER_WORDS[num1] < NUMBER_WORDS[num2]) {
+//     return -1;
+//   } else {
+//     return 0;
+//   }
+// }
+
+// function alphabeticNumberSort(array) {
+//   return [...array].sort(wordSort);
+// }
+
+// console.log(alphabeticNumberSort(
+//    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]));
+// [8, 18, 11, 15, 5, 4, 14, 9, 19, 1, 7, 17, 6, 16, 10, 13, 3, 12, 2, 0]
+
+// List Processing > 3. Multiply All Pairs
+// function multiplyAllPairs(array1, array2) {
+//   let result = [];
+
+//   array1.forEach(number1 => {
+//     array2.forEach(number2 => {
+//       result.push(number1 * number2);
+//     });
+//   });
+//   return result.sort((a, b) => a - b);
+// }
+
+// console.log(multiplyAllPairs([2, 4], [4, 3, 1, 2]));
+// [2, 4, 4, 6, 8, 8, 12, 16]
+
+// List Processing > 6. Leading Substrings
+// function leadingSubstrings(string) {
+//   return string
+//     .split('')
+//     .map((_, idx) => string.slice(0, idx + 1));
+// }
+
+// function leadingSubstrings(string) {
+//   let result = [];
+//   let counter = 1;
+
+//   while (counter <= string.length) {
+//     result.push(string.slice(0, counter));
+//     counter += 1;
+//   }
+
+//   return result;
+// }
+
+// function leadingSubstrings(string) {
+//   let substrings = [];
+
+//   for (let length = 1; length <= string.length; length += 1) {
+//     substrings.push(string.slice(0, length));
+//   }
+
+//   return substrings;
+// }
+
+// function leadingSubstrings(string) {
+//   let substrings = [];
+
+//   for (let length = 1; length <= string.length; length += 1) {
+//     substrings.push(string.slice(0, length));
+//   }
+
+//   return substrings;
+// }
+
+function leadingSubstrings(string) {
+  return string
+    .split('')
+    .map((_, letter) => string.slice(0, letter + 1))
 }
 
-console.log(swapName('Joe Louis Roberts'));    // "Roberts, Joe Louis"
+console.log(leadingSubstrings('abc')); // ["a", "ab", "abc"]
+console.log(leadingSubstrings('a')); // ["a"]
+console.log(leadingSubstrings('xyzzy')); // ["x", "xy", "xyz", "xyzz", "xyzzy"]
