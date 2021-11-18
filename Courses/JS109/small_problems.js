@@ -2280,12 +2280,90 @@ ES6's Set object makes this problem fairly simple, since its constructor automat
 //   return substrings;
 // }
 
+// function leadingSubstrings(string) {
+//   return string
+//     .split('')
+//     .map((_, letter) => string.slice(0, letter + 1));
+// }
+
+// function leadingSubstrings(string) {
+//   let substrings = [];
+
+//   for (let length = 1; length <= string.length; length += 1) {
+//     substrings.push(string.slice(0, length));
+//   }
+
+//   return substrings;
+// }
+
+// console.log(leadingSubstrings('abc')); // ["a", "ab", "abc"]
+// console.log(leadingSubstrings('a')); // ["a"]
+// console.log(leadingSubstrings('xyzzy')); // ["x", "xy", "xyz", "xyzz", "xyzzy"]
+
+// List Processing > 5. All Substrings
+// function substrings(string) {
+//   let substrings = [];
+
+//   for (let startIndex = 0; startIndex < string.length; startIndex += 1) {
+//     let substring = string.slice(startIndex);
+//     substrings = substrings.concat(leadingSubstrings(substring));
+//   }
+
+//   return substrings;
+// }
+
+// function leadingSubstrings(string) {
+//   let substrings = [];
+
+//   for (let length = 1; length <= string.length; length += 1) {
+//     substrings.push(string.slice(0, length));
+//   }
+
+//   return substrings;
+// }
+
+// console.log(substrings('abcde'));
+// // returns
+// [ "a", "ab", "abc", "abcd", "abcde",
+//   "b", "bc", "bcd", "bcde",
+//   "c", "cd", "cde",
+//   "d", "de",
+//   "e" ]
+
+// List Processing > 6. Palindromic Substrings
+function palindromes(string) {
+  return substrings(string).filter(isPalindrome);
+}
+
+function isPalindrome(word) {
+  return word.length > 1 && word === word.split('').reverse().join('');
+}
+
+function substrings(string) {
+  let substrings = [];
+
+  for (let startIndex = 0; startIndex <= string.length; startIndex += 1) {
+    let substring = string.slice(startIndex);
+    substrings = substrings.concat(leadingSubstrings(substring));
+  }
+  return substrings;
+}
+
 function leadingSubstrings(string) {
   return string
     .split('')
-    .map((_, letter) => string.slice(0, letter + 1))
+    .map((_, letter) => string.slice(0, letter + 1));
 }
 
-console.log(leadingSubstrings('abc')); // ["a", "ab", "abc"]
-console.log(leadingSubstrings('a')); // ["a"]
-console.log(leadingSubstrings('xyzzy')); // ["x", "xy", "xyz", "xyzz", "xyzzy"]
+console.log(palindromes('abcd'));       // []
+console.log(palindromes('madam'));      // [ "madam", "ada" ]
+
+console.log(palindromes('hello-madam-did-madam-goodbye'));
+// returns
+// [ "ll", "-madam-", "-madam-did-madam-", "madam", "madam-did-madam", "ada",
+//   "adam-did-mada", "dam-did-mad", "am-did-ma", "m-did-m", "-did-", "did",
+//   "-madam-", "madam", "ada", "oo" ]
+
+console.log(palindromes('knitting cassettes'));
+// returns
+// [ "nittin", "itti", "tt", "ss", "settes", "ette", "tt" ]

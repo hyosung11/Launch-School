@@ -4100,3 +4100,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 ## 20211118 목요일
 
 09:04 Working on one problem for about 40 minutes. Then just found out that Omar's dad died in Cairo, Egypt. Going to my standing desk after I make this commit.
+
+10:30 Working through the three List Processing problems > 4. Leading Substrings, 5. All Substrings, and 6. Palindromic Substrings. That took about 90 minutes with lots of help from the discussion section.
