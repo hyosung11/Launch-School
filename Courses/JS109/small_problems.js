@@ -2331,39 +2331,62 @@ ES6's Set object makes this problem fairly simple, since its constructor automat
 //   "e" ]
 
 // List Processing > 6. Palindromic Substrings
-function palindromes(string) {
-  return substrings(string).filter(isPalindrome);
-}
+// function palindromes(string) {
+//   return substrings(string).filter(isPalindrome);
+// }
 
-function isPalindrome(word) {
-  return word.length > 1 && word === word.split('').reverse().join('');
-}
+// function isPalindrome(word) {
+//   return word.length > 1 && word === word.split('').reverse().join('');
+// }
 
-function substrings(string) {
-  let substrings = [];
+// function substrings(string) {
+//   let substrings = [];
 
-  for (let startIndex = 0; startIndex <= string.length; startIndex += 1) {
-    let substring = string.slice(startIndex);
-    substrings = substrings.concat(leadingSubstrings(substring));
+//   for (let startIndex = 0; startIndex <= string.length; startIndex += 1) {
+//     let substring = string.slice(startIndex);
+//     substrings = substrings.concat(leadingSubstrings(substring));
+//   }
+//   return substrings;
+// }
+
+// function leadingSubstrings(string) {
+//   return string
+//     .split('')
+//     .map((_, letter) => string.slice(0, letter + 1));
+// }
+
+// console.log(palindromes('abcd'));       // []
+// console.log(palindromes('madam'));      // [ "madam", "ada" ]
+
+// console.log(palindromes('hello-madam-did-madam-goodbye'));
+// // returns
+// // [ "ll", "-madam-", "-madam-did-madam-", "madam", "madam-did-madam", "ada",
+// //   "adam-did-mada", "dam-did-mad", "am-did-ma", "m-did-m", "-did-", "did",
+// //   "-madam-", "madam", "ada", "oo" ]
+
+// console.log(palindromes('knitting cassettes'));
+// // returns
+// // [ "nittin", "itti", "tt", "ss", "settes", "ette", "tt" ]
+
+// List Processing > 7. Sum of Sums
+/* Algo
+- input array of numbers
+- initialize `sum` to 0
+  iterate through array
+  - add value of element one to `sum`
+  - add value of element one plus element two to sum
+  - continue adding values to end of the array
+- return number */
+
+function sumOfSums(numbers) {
+  let sumTotal = 0;
+  for (let idx = 1; idx <= numbers.length; idx += 1) {
+    sumTotal += numbers.slice(0, idx).reduce((accum, num) => accum + num)
   }
-  return substrings;
+  return sumTotal;
 }
 
-function leadingSubstrings(string) {
-  return string
-    .split('')
-    .map((_, letter) => string.slice(0, letter + 1));
-}
-
-console.log(palindromes('abcd'));       // []
-console.log(palindromes('madam'));      // [ "madam", "ada" ]
-
-console.log(palindromes('hello-madam-did-madam-goodbye'));
-// returns
-// [ "ll", "-madam-", "-madam-did-madam-", "madam", "madam-did-madam", "ada",
-//   "adam-did-mada", "dam-did-mad", "am-did-ma", "m-did-m", "-did-", "did",
-//   "-madam-", "madam", "ada", "oo" ]
-
-console.log(palindromes('knitting cassettes'));
-// returns
-// [ "nittin", "itti", "tt", "ss", "settes", "ette", "tt" ]
+console.log(sumOfSums([3, 5, 2])); // (3) + (3 + 5) + (3 + 5 + 2) --> 21
+console.log(sumOfSums([1, 5, 7, 3])); // (1) + (1 + 5) + (1 + 5 + 7) + (1 + 5 + 7 + 3) --> 36
+console.log(sumOfSums([4])); // 4
+console.log(sumOfSums([1, 2, 3, 4, 5])); // 35
