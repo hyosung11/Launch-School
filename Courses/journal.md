@@ -4112,3 +4112,12 @@ How awesome are the engineers in the company? If you're the best one there, that
 ## 20211119 금요일
 
 08:53 Digesting the problem from Antonina from yesterday.
+
+09:24 Reviewed and practiced the JS109 Study Group problem from yesterday and understand it better now.
+
+11:53 I'm back from PT and getting ready for the PEDAC study session with Antonina.
+
+13:44 After PEDAC session. I got lost put was able to put the finishing touch on the code at the end.
+
+14:28 I understand problems after I see them, not before.
+

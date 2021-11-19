@@ -47,7 +47,9 @@ CODE
 function accum(string) {
   return string
     .split('')
-    .map((char, index) => char.toUpperCase() + char.toLowerCase().repeat(index))
+    .map((char, idx) => {
+      return char.toUpperCase() + char.toLowerCase().repeat(idx);
+    })
     .join('-');
 }
 
@@ -55,3 +57,10 @@ function accum(string) {
 console.log(accum("abcd"));   // "A-Bb-Ccc-Dddd"
 console.log(accum("RqaEzty")); // "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
 console.log(accum("cwAt"));   // "C-Ww-Aaa-Tttt"
+
+// function accum(string) {
+//   return string
+//     .split('')
+//     .map((char, index) => char.toUpperCase() + char.toLowerCase().repeat(index))
+//     .join('-');
+// }

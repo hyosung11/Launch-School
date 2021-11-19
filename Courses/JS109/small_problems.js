@@ -2715,4 +2715,62 @@ String and Text Processing > 10. Search Word (Part 2) */
 // "**SED** ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, **SED** quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, **SED** quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? **SED** quis autem vel est, iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? blasedbla"
 
 /* =======================================================
-Medium 1 > 1. Rotation (Part 1) */
+Medium 1 > 1. Rotation (Part 1) *
+
+Algo
+- input an array
+- do not modify the original array
+- if the input is not an array, return `undefined`
+- if input is an empty array, return an empty array
+- slice the first element and append it to the end of the array
+- return new array */
+
+// function rotateArray(array) {
+//   if (!Array.isArray(array)) return undefined;
+//   if (array.length === 0) return [];
+
+//   return array.slice(1).concat(array[0]);
+// }
+
+// console.log(rotateArray([7, 3, 5, 2, 9, 1]));       // [3, 5, 2, 9, 1, 7]
+// console.log(rotateArray(['a', 'b', 'c']));          // ["b", "c", "a"]
+// console.log(rotateArray(['a']));                    // ["a"]
+// console.log(rotateArray([1, 'a', 3, 'c']));         // ["a", 3, "c", 1]
+// console.log(rotateArray([{ a: 2 }, [1, 2], 3]));    // [[1, 2], 3, { a: 2 }]
+// console.log(rotateArray([]));                       // []
+
+// // return `undefined` if the argument is not an array
+// console.log(rotateArray());                         // undefined
+// console.log(rotateArray(1));                        // undefined
+
+// // the input array is not mutated
+// let array = [1, 2, 3, 4];
+// rotateArray(array);                    // [2, 3, 4, 1]
+// array;                                 // [1, 2, 3, 4]
+
+/* =======================================================
+Medium 1 > 2. Rotation (Part 2)
+
+Algo
+- input number and count
+- convert number to string
+- initialiaze `firstPart` of numberString
+- initialize `secondPart` of numberString
+- initialize `resultString`
+- initialize `rotate String` helper function
+  - return sliced string
+- return number */
+
+function rotateRightmostDigits(number, count) {
+  let numberString = String(number);
+  let leftPart = numberString.slice(0, numberString.length - count);
+  let rightPart = numberString.slice(numberString.length - count);
+  console.log(rightPart);
+}
+
+console.log(rotateRightmostDigits(735291, 1));      // 735291
+console.log(rotateRightmostDigits(735291, 2));      // 735219
+console.log(rotateRightmostDigits(735291, 3));      // 735912
+console.log(rotateRightmostDigits(735291, 4));      // 732915
+console.log(rotateRightmostDigits(735291, 5));      // 752913
+console.log(rotateRightmostDigits(735291, 6));      // 352917

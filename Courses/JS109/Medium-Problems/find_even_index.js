@@ -22,6 +22,7 @@ PROBLEM
 Identify rules
 - if no index where sum of the integers on either side of N are equal, return -1
 - empty arrays are equal to 0
+- the integers at the index N will not count towards the left and right sums
 - numbers can be negative
 
 EXAMPLES / TEST CASES
@@ -35,18 +36,17 @@ DATA STRUCTURE
 ALGORITHM
 - input an array of numbers
 - iterate through array
-  - set leftIndex to 0
-  - set rightIndex to 0
-  - iterate through right half of the array
-    - add values on right side of array
-  - iterate through left side of the array
-- return number of index position if true or -1 if not found
+  - for each integer in input array
+    - get the left and right slices of the array, starting from that int's index
+    - sum the left and right side slices
+    - if sums of slices are equal, return the index position
+- return -1 if not found
 
 CODE
 Implementation of Algorithm
-- test code while programming */
+- test code while programming
 
-/* Antonina's Algorithm
+Antonina's Algorithm
 Input: array of integers
 Output: boolean value
 Rules:
@@ -58,22 +58,43 @@ Algorithm:
     - if the sums of those slices are equal, return the index `N`
   - Return -1 */
 
-function findEvenIndex(ints) {
-  for (let idx = 0; idx < ints.length; idx += 1) {
-    let leftSide = ints.slice(0, idx);
-    console.log(leftSide);
-    let rightSide = ints.slice(idx + 1);
-    console.log(rightSide)
-    let leftSideSum = leftSide.reduce((sum, value) => sum + value, 0);
-    let rightSideSum = rightSide.reduce((sum, value) => sum + value, 0);
+  function findEvenIndex(integers) {
+    for (let idx = 0; idx < integers.length; idx += 1) {
+      let leftSide = integers.slice(0, idx);
+      let rightSide = integers.slice(idx + 1);
+      let leftSideSum = leftSide.reduce((total, value) => total + value, 0);
+      let rightSideSum = rightSide.reduce((total, value) => total + value, 0);
 
-    if (leftSideSum === rightSideSum) {
-      return idx;
+      if (leftSideSum === rightSideSum) return idx;
     }
+    return -1;
   }
 
-  return -1;
-}
+//Test Cases
+console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1]) === 3); // true
+console.log(findEvenIndex([1,100,50,-51,1,1]) === 1); // true
+console.log(findEvenIndex([1,2,3,4,5,6]) === -1); // true
+console.log(findEvenIndex([20,10,30,10,10,15,35]) === 3); // true
+console.log(findEvenIndex([20,10,-80,10,10,15,35]) === 0); // true
+console.log(findEvenIndex([10,-80,10,10,15,35,20]) === 6); // true
+console.log(findEvenIndex([-1,-2,-3,-4,-3,-2,-1]) === 3); // true
+
+// function findEvenIndex(ints) {
+//   for (let idx = 0; idx < ints.length; idx += 1) {
+//     let leftSide = ints.slice(0, idx);
+//     console.log(leftSide);
+//     let rightSide = ints.slice(idx + 1);
+//     console.log(rightSide)
+//     let leftSideSum = leftSide.reduce((sum, value) => sum + value, 0);
+//     let rightSideSum = rightSide.reduce((sum, value) => sum + value, 0);
+
+//     if (leftSideSum === rightSideSum) {
+//       return idx;
+//     }
+//   }
+
+//   return -1;
+// }
 // function findEvenIndex(ints) {
 //   for (let n = 0; n < ints.length; n += 1) {
 //     let leftSide = ints.slice(0, n);
@@ -87,14 +108,7 @@ function findEvenIndex(ints) {
 //   return -1;
 // }
 
-//Test Cases
-console.log(findEvenIndex([1,2,3,4,3,2,1]) === 3); // true
-// console.log(findEvenIndex([1,100,50,-51,1,1]) === 1); // true
-// console.log(findEvenIndex([1,2,3,4,5,6]) === -1); // true
-// console.log(findEvenIndex([20,10,30,10,10,15,35]) === 3); // true
-// console.log(findEvenIndex([20,10,-80,10,10,15,35]) === 0); // true
-// console.log(findEvenIndex([10,-80,10,10,15,35,20]) === 6); // true
-// console.log(findEvenIndex([-1,-2,-3,-4,-3,-2,-1]) === 3); // true
+
 
     // for (var k = 0; k <= i; k++) {
     //   left = left + arr[k];
