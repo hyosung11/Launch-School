@@ -22,25 +22,42 @@ ALGORITHM
   - sum the numbers in the `numbersArray`
 - return sum as a number */
 
+// const NUMBERS = ['0', '1', '2', '3' ...]
+
+// function sumOfNumbers(string) {
+//   const NUMBERS = '0123456789';
+//   let stringNumbers = '';
+//   let numbersArray = [];
+
+//   for (let idx = 0; idx < string.length; idx += 1) {
+//     if (NUMBERS.includes(string[idx])) {
+//       stringNumbers += string[idx];
+//     } else {
+//       numbersArray.push(stringNumbers);
+//       stringNumbers = '';
+//     }
+//   }
+//   if (stringNumbers.length > 0) numbersArray.push(stringNumbers)
+
+//   return numbersArray.reduce((total, num) => total + Number(num), 0);
+// }
+
 function sumOfNumbers(string) {
-  const NUMBERS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  const NUMBERS = '0123456789';
   let numbersArray = [];
-  let stringNumbers = '';
+  let stringNumber = ''
 
-  for (let idx = 0; idx < string.length; idx += 1) {
-    if (NUMBERS.includes(string[idx])) {
-      stringNumbers += string[idx];
-    } else {
-      numbersArray.push(stringNumbers);
-      stringNumbers = '';
-    }
-  }
-
-  if (stringNumbers.length > 0) numbersArray.push(stringNumbers);
-
-  return numbersArray.reduce((total, num) => total + Number(num), 0);
+  return string
+    .split('')
+    .filter(char => {
+      if (NUMBERS.includes(char)) {
+        stringNumber += char;
+        numbersArray.push(stringNumber);
+        console.log(numbersArray);
+      }
+    })
 }
 // Examples:
 console.log(sumOfNumbers("HE2LL3O W1OR5LD") === 11);
-console.log(sumOfNumbers("The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog") === 3635);
+// console.log(sumOfNumbers("The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog") === 3635);
 

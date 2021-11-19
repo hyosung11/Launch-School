@@ -67,6 +67,7 @@ Algorithm:
 
       if (leftSideSum === rightSideSum) return idx;
     }
+
     return -1;
   }
 
