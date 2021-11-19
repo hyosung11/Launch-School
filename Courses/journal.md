@@ -4108,3 +4108,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 18:25 Grinding through more problems. Still not fluent.
 
 21:05 So much to learn.
+
+## 20211119 금요일
+
+08:53 Digesting the problem from Antonina from yesterday.
