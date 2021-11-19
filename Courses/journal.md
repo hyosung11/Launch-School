@@ -4106,3 +4106,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 12:59 I need to practice and practice and practice problems more and more.
 
 18:25 Grinding through more problems. Still not fluent.
+
+21:05 So much to learn.
