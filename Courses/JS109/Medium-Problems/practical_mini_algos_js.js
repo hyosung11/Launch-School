@@ -10,10 +10,10 @@ function hashmap(collection) {
     } else {
       obj[elm] = 1
     }
-  }); 
+  });
   // returns KVP with keys being characters, values being # occurrences
   // but you can customize the value in the KVP to fit your algo
-  return obj; 
+  return obj;
 }
 
 // unique loop
@@ -31,10 +31,10 @@ function allUniquePairs(collection = '') {
 }
 
 // special string split
-// do you need to split your string according to repeated characters? 
+// do you need to split your string according to repeated characters?
 // IE: 'aaabbbcccczzaz' -> [aaa, bbb, cccc, zz, a, z]
-// IE: 'aAaBbB' 
-//        -> ['a', 'A', 'a', 'B', 'b','B'] (case sensitive) 
+// IE: 'aAaBbB'
+//        -> ['a', 'A', 'a', 'B', 'b','B'] (case sensitive)
 //        -> ['aAa', 'BbB'] (case insensitive)
 function stringSplitRepeated(str) {
   let ary = [str[0]];
@@ -63,11 +63,11 @@ const CHAR_CLASS = '0123456789';
 //    UPPER_CASE = 'abcdefghijlklmnopqrstuvwxyz'.toUpperCase(); 
                     // SAA but uppercase class
 //    CUSTOM_CHAR = '?>*&';
-// I expilcitly didn't use regex
+// I explicitly didn't use regex
 
 function stringSplitClass(str, CHAR_CLASS) {
-
   let ary = [str[0]];
+
   for (let i = 1; i < str.length; i += 1) {
     let prev = str[i - 1];
     let curr = str[i];
@@ -81,8 +81,8 @@ function stringSplitClass(str, CHAR_CLASS) {
       ary.push(curr);
     }
   }
-  return ary;
 
+  return ary;
 }
 
 console.log('Hello')

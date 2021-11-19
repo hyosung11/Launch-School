@@ -45,19 +45,24 @@ ALGORITHM
 function sumOfNumbers(string) {
   const NUMBERS = '0123456789';
   let numbersArray = [];
-  let stringNumber = ''
+  let stringNumber = '';
 
-  return string
-    .split('')
-    .filter(char => {
-      if (NUMBERS.includes(char)) {
-        stringNumber += char;
-        numbersArray.push(stringNumber);
-        console.log(numbersArray);
-      }
-    })
+  for (let idx = 0; idx < string.length; idx += 1) {
+    let char = string[idx];
+    if (NUMBERS.includes(char)) {
+      stringNumber += char;
+    } else {
+      numbersArray.push(stringNumber);
+      stringNumber = '';
+    }
+  }
+
+  if (stringNumber.length > 0) numbersArray.push(stringNumber);
+
+  return numbersArray.reduce((total, num) => total + Number(num), 0);
 }
+
 // Examples:
 console.log(sumOfNumbers("HE2LL3O W1OR5LD") === 11);
-// console.log(sumOfNumbers("The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog") === 3635);
+console.log(sumOfNumbers("The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog") === 3635);
 
