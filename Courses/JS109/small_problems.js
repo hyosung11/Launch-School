@@ -2782,3 +2782,142 @@ Algo
 // console.log(rotateRightmostDigits(735291, 4));      // 732915
 // console.log(rotateRightmostDigits(735291, 5));      // 752913
 // console.log(rotateRightmostDigits(735291, 6));      // 352917
+
+/* =======================================================
+Medium 1 > 3. Rotation (Part 3) */
+
+// function maxRotation(number) {
+//   let numberDigits = String(number).length;
+//   for (let count = numberDigits; count >= 2; count -= 1) {
+//     number = rotateRightmostDigits(number, count)
+//   }
+//   return number;
+// }
+
+// function rotateRightmostDigits(number, count) {
+//   let numberString = String(number)
+//   let firstPart = numberString.slice(0, numberString.length - count);
+//   let secondPart = numberString.slice(numberString.length - count);
+//   let resultString = firstPart + rotateString(secondPart);
+
+//   return Number(resultString);
+// }
+
+// function rotateString(string) {
+//   return string.slice(1) + string[0];
+// }
+
+// console.log(maxRotation(735291)); // 321579
+// console.log(maxRotation(3)); // 3
+// console.log(maxRotation(35)); // 53
+// console.log(maxRotation(105)); // 15 -- the leading zero gets dropped
+// console.log(maxRotation(8703529146)); // 7321609845
+
+/* =======================================================
+Medium 1 > 4. Stack Machine Interpretation */
+
+// function minilang(program) {
+//   let stack = [];
+//   let register = 0;
+//   program.split(" ").forEach(token => {
+//     switch (token) {
+//       case "ADD":
+//         register += stack.pop();
+//         break;
+//       case "DIV":
+//         register = Math.floor(register / stack.pop());
+//         break;
+//       case "MULT":
+//         register *= stack.pop();
+//         break;
+//       case "REMAINDER":
+//         register = Math.floor(register % stack.pop());
+//         break;
+//       case "SUB":
+//         register -= stack.pop();
+//         break;
+//       case "PUSH":
+//         stack.push(register);
+//         break;
+//       case "POP":
+//         register = stack.pop();
+//       case "PRINT":
+//         console.log(register);
+//         break;
+//       default:
+//         register = Number(token);
+//     }
+//   })
+//   return register;
+// }
+
+// minilang('PRINT');
+// // 0
+
+// minilang('5 PUSH 3 MULT PRINT');
+// // 15
+
+// minilang('5 PRINT PUSH 3 PRINT ADD PRINT');
+// // 5
+// // 3
+// // 8
+
+// minilang('5 PUSH POP PRINT');
+// // 5
+
+// minilang('3 PUSH 4 PUSH 5 PUSH PRINT ADD PRINT POP PRINT ADD PRINT');
+// // 5
+// // 10
+// // 4
+// // 7
+
+// minilang('3 PUSH PUSH 7 DIV MULT PRINT');
+// // 6
+
+// minilang('4 PUSH PUSH 7 REMAINDER MULT PRINT');
+// // 12
+
+// minilang('-3 PUSH 5 SUB PRINT');
+// // 8
+
+// minilang('6 PUSH');
+// // (nothing is printed because the `program` argument has no `PRINT` commands)
+
+/* =======================================================
+Medium 1 > 5. Word to Digit
+
+Algo
+- input sentence string
+- initialize `NUM_WORDS` object as a lookup table for converting each numberic word to its digital counterpart
+- iterate over the keys of the `NUM_WORDS` object and iteratively replace all instances of each numeric word in the `sentence` argument
+  - during each iteration, the solution creates a `RegExp` object and assigns it to the `regex` variable
+  - the solution passes this regex as an argument to the `replace` method
+    - reassigning the value of the sentence
+- return sentence string with number words replaced by their digits */
+
+// const NUMBER_WORDS = {
+//   zero: 0,
+//   one: 1,
+//   two: 2,
+//   three: 3,
+//   four: 4,
+//   five: 5,
+//   six: 6,
+//   seven: 7,
+//   eight: 8,
+//   nine: 9
+// };
+
+// function wordToDigit(sentence) {
+//   Object.keys(NUMBER_WORDS).forEach(word => {
+//     let regex = new RegExp('\\b' + word + '\\b', 'g');
+//     sentence = sentence.replace(regex, NUMBER_WORDS[word]);
+//   })
+//   return sentence;
+// }
+
+// console.log(wordToDigit('Please call me at five five five one two three four. Thanks.'));
+// "Please call me at 5 5 5 1 2 3 4. Thanks."
+
+/* =======================================================
+Medium 1 > 6. Word to Digit */
