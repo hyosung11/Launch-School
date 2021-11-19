@@ -2761,16 +2761,51 @@ Algo
   - return sliced string
 - return number */
 
-function rotateRightmostDigits(number, count) {
-  let numberString = String(number);
-  let leftPart = numberString.slice(0, numberString.length - count);
-  let rightPart = numberString.slice(numberString.length - count);
-  console.log(rightPart);
-}
+// function rotateRightmostDigits(number, count) {
+//   let numberString = String(number);
+//   let leftPart = numberString.slice(0, numberString.length - count);
+//   let rightPart = numberString.slice(numberString.length - count);
+//   let resultString = leftPart + rotateDigits(rightPart);
+//   return Number(resultString);
+// }
 
-console.log(rotateRightmostDigits(735291, 1));      // 735291
-console.log(rotateRightmostDigits(735291, 2));      // 735219
-console.log(rotateRightmostDigits(735291, 3));      // 735912
-console.log(rotateRightmostDigits(735291, 4));      // 732915
-console.log(rotateRightmostDigits(735291, 5));      // 752913
-console.log(rotateRightmostDigits(735291, 6));      // 352917
+// function rotateDigits(string) {
+//   return string.slice(1) + string[0];
+// }
+
+// console.log(rotateRightmostDigits(735291, 1));      // 735291
+// console.log(rotateRightmostDigits(735291, 2));      // 735219
+// console.log(rotateRightmostDigits(735291, 3));      // 735912
+// console.log(rotateRightmostDigits(735291, 4));      // 732915
+// console.log(rotateRightmostDigits(735291, 5));      // 752913
+// console.log(rotateRightmostDigits(735291, 6));      // 352917
+
+/* =======================================================
+Medium 1 > 3. Rotation (Part 3) */
+
+// function maxRotation(number) {
+//   let numberDigits = String(number).length;
+//   for (let count = numberDigits; count >= 2; count -= 1) {
+//     number = rotateRightmostDigits(number, count)
+//   }
+//   return number;
+// }
+
+// function rotateRightmostDigits(number, count) {
+//   let numberString = String(number)
+//   let firstPart = numberString.slice(0, numberString.length - count);
+//   let secondPart = numberString.slice(numberString.length - count);
+//   let resultString = firstPart + rotateString(secondPart);
+
+//   return Number(resultString);
+// }
+
+// function rotateString(string) {
+//   return string.slice(1) + string[0];
+// }
+
+// console.log(maxRotation(735291)); // 321579
+// console.log(maxRotation(3)); // 3
+// console.log(maxRotation(35)); // 53
+// console.log(maxRotation(105)); // 15 -- the leading zero gets dropped
+// console.log(maxRotation(8703529146)); // 7321609845

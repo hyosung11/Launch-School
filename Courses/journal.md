@@ -4124,3 +4124,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 14:49 I do enjoy working on these problems. It's almost time to go to school and get the kids.
 
 16:55 Hanging out with SungOh before TV time. I want to do more studying.
+
+17:14 Get comfortable with the confusion.
