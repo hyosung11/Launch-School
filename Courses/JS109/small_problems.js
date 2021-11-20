@@ -2920,4 +2920,57 @@ Algo
 // "Please call me at 5 5 5 1 2 3 4. Thanks."
 
 /* =======================================================
-Medium 1 > 6. Word to Digit */
+Medium 1 > 6. Fibonacci Numbers (Recursion) */
+
+// function fibonacci(nth) {
+//   if (nth <= 2) return 1;
+//   return fibonacci(nth - 1) + fibonacci(nth - 2);
+// }
+
+// console.log(fibonacci(1));       // 1
+// console.log(fibonacci(2));       // 1
+// console.log(fibonacci(3));       // 2
+// console.log(fibonacci(4));       // 3
+// console.log(fibonacci(5));       // 5
+// console.log(fibonacci(6)); // 8
+// console.log(fibonacci(12));      // 144
+// console.log(fibonacci(20));      // 6765
+
+/* =======================================================
+Medium 1 > 7. Fibonacci Numbers (Procedural) */
+
+// function fibonacci(nth) {
+//   let previousTwo = [1, 1];
+
+//   for (let counter = 3; counter <= nth; counter += 1) {
+//     // [1, 2]
+//     // [2, 3] 
+//     previousTwo = [previousTwo[1], previousTwo[0] + previousTwo[1]];
+//   }
+//   return previousTwo[1];
+// }
+
+// console.log(fibonacci(4)); // 3
+// console.log(fibonacci(20)); // 6765
+// console.log(fibonacci(50)); // 12586269025
+// console.log(fibonacci(75)); // 2111485077978050
+
+/* =======================================================
+Medium 1 > 8. Fibonacci Numbers (Memoization) */
+
+// let memo = {};
+// function fibonacci(nth) {
+//   if (nth <= 2) {
+//     return 1;
+//   } else if (memo[nth]) {
+//     return memo[nth];
+//   } else {
+//     memo[nth] = fibonacci(nth - 1) + fibonacci(nth - 2)
+//     return memo[nth];
+//   }
+// }
+
+// console.log(fibonacci(4)); // 3
+// console.log(fibonacci(20)); // 6765
+// console.log(fibonacci(50)); // 12586269025
+// console.log(fibonacci(75)); // 2111485077978050

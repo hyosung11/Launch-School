@@ -4128,3 +4128,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 17:14 Get comfortable with the confusion.
 
 18:45 Time to stop studying and watch The Prisoner of Azkaban.
+
+22:23 Reading through and copying the code for the fibonacci problems. Time to go to bed.
