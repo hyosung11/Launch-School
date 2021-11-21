@@ -50,24 +50,24 @@ Algorithm
 - return resultArray as an array of numbers */
 
 // Version 1
-// function countMatchingIndices(array) {
-//   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
-//   let resultArray = [];
+function countMatchingIndices(array) {
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  let resultArray = [];
 
-//   for (let index = 0; index < array.length; index++) {
-//     let count = 0;
-//     let word = array[index];
+  for (let index = 0; index < array.length; index++) {
+    let count = 0;
+    let word = array[index];
 
-//     for (let stringIndex = 0; stringIndex < word.length; stringIndex++) {
-//       if (word[stringIndex].toLowerCase() === alphabet[stringIndex]) {
-//         count += 1;
-//       }
-//     }
-//     resultArray.push(count);
-//   }
+    for (let stringIndex = 0; stringIndex < word.length; stringIndex++) {
+      if (word[stringIndex].toLowerCase() === alphabet[stringIndex]) {
+        count += 1;
+      }
+    }
+    resultArray.push(count);
+  }
 
-//   return resultArray;
-// }
+  return resultArray;
+}
 
 console.log(countMatchingIndices(['abode', 'ABc', 'xyzD'])); // [4, 3, 1]
 console.log(countMatchingIndices(['abide', 'ABc', 'xyz'])); // [4, 3, 0]

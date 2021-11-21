@@ -2944,7 +2944,7 @@ Medium 1 > 7. Fibonacci Numbers (Procedural) */
 
 //   for (let counter = 3; counter <= nth; counter += 1) {
 //     // [1, 2]
-//     // [2, 3] 
+//     // [2, 3]
 //     previousTwo = [previousTwo[1], previousTwo[0] + previousTwo[1]];
 //   }
 //   return previousTwo[1];
@@ -2974,3 +2974,80 @@ Medium 1 > 8. Fibonacci Numbers (Memoization) */
 // console.log(fibonacci(20)); // 6765
 // console.log(fibonacci(50)); // 12586269025
 // console.log(fibonacci(75)); // 2111485077978050
+
+/* =======================================================
+Medium 2 > 1. Lettercase Percentage Ratio */
+
+
+
+// function factorial(number) {
+//   let total = 1;
+
+//   if (number < 0) {
+//     return -1;
+//   } else if (number === 0) {
+//     return total;
+//   } else {
+//     for (let index = 1; index <= number; index++) {
+//       total = index * total;
+//     }
+//   }
+
+//   return total;
+// }
+
+// //  Test cases:
+// console.log(factorial(0) == 1);
+// console.log(factorial(1) == 1);
+// console.log(factorial(3) == 6);
+// console.log(factorial(5) == 120);
+// console.log(factorial(13) == 6227020800);
+
+// Test Cases
+console.log(duplicateCount("")) == 0
+console.log(duplicateCount("abcde")) == 0
+console.log(duplicateCount("abcdeaa")) == 1
+console.log(duplicateCount("abcdeaB")) == 2
+console.log(duplicateCount("Indivisibilities")) == 2
+
+/* Javi
+input: string
+output: number
+
+Must return the number of character that repeat more than once
+
+algorithm
+
+- split the string to an array
+- create an empty object
+- iterate over the array
+  -If there isn't a key with the character name on the object create it an assign the value 1
+  -If there is a key with the character name, add one to the value
+- Look how many keys has values grater than 1
+- Return that value
+*/
+
+function duplicateCount(str) {
+  let splitString = str.split('');
+  let obj = {};
+  splitString.forEach(char => {
+    char = char.toLowerCase();
+    if (Object.keys(obj).includes(char)) {
+      obj[char] += 1;
+    } else {
+      obj[char] = 1;
+    }
+  });
+  let result = Object.entries(obj);
+  let count = 0;
+  result.forEach(arr => {
+    if (arr[1] > 1) count += 1;
+  });
+  return count;
+}
+
+/*
+function does too much
+create a helper function
+use toLowerCase just once
+*/

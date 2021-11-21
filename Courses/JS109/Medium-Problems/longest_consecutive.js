@@ -11,14 +11,11 @@ Notes for Interview
 - e.g., now that I've declared the for loop, let me initialize my variable
 - talk about it and then implement in silence
 
-Problem Description
+Problem Description - Longest Consecutive String
 
 You are given an array of strings and an integer k. Your task is to return the first longest string consisting of k consecutive strings taken in the array.
 
 Example: longestConsec(["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"], 2) --> "abigailtheta"// n being the length of the string array, if n = 0 or k > n or k <= 0 return "".
-
-PROBLEM
-You are given an array of strings and an integer k. Your task is to return the first longest string consisting of k consecutive strings taken in the array.
 
 Input: array of strings, integer(k)
 Output: string (longest k consecutive strings)

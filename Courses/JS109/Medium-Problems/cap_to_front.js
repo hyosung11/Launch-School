@@ -54,17 +54,17 @@ ALGORITHM
 //   );
 // };
 
-// function capToFront(string) {
-//   let array = string.split('');
-//   let upperString = array
-//     .filter((char) => char === char.toUpperCase())
-//     .join('');
-//   let lowerString = array
-//     .filter((char) => char === char.toLowerCase())
-//     .join('');
+function capToFront(string) {
+  let array = string.split('');
+  let upperString = array
+    .filter((char) => char === char.toUpperCase())
+    .join('');
+  let lowerString = array
+    .filter((char) => char === char.toLowerCase())
+    .join('');
 
-//   return upperString + lowerString;
-// }
+  return upperString + lowerString;
+}
 
 console.log(capToFront("hApPy")); // "APhpy"
 console.log(capToFront("moveMENT")); // "MENTmove"

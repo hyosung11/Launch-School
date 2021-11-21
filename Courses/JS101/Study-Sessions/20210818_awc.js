@@ -68,7 +68,6 @@ factorial(13) == 6227020800
 PROBLEM:
 Create a function that takes an integer and returns the factorial of that integer. That is, the integer multiplied by all positive lower integers.
 
-
 input: integer
 output: factorial of input (integer)
 rules:
@@ -97,7 +96,7 @@ intermediary variable needed to store running total
 
 ALGORITHM
 
-define factorial method   accepts one argument (integer)
+define factorial method accepts one argument (integer)
   initialize variable for total as 1
 
   if input argument is less then 0
@@ -124,7 +123,7 @@ end
 //   let total = 1;
 
 //   if (number < 0) {
-//     return - 1;
+//     return -1;
 //   } else if (number === 0) {
 //     return total;
 //   } else {
@@ -154,8 +153,7 @@ function factorial(number) {
   let total = 1;
 
   if (number < 0) {
-    return -
-    1;
+    return -1;
   } else if (number === 0) {
     return total;
   } else {

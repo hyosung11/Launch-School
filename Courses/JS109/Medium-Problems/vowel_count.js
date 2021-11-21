@@ -48,8 +48,8 @@ function vowels (string) {
 }
 
 // Examples
-console.log(vowelCount('WhaTs yOur enneagram?'));                  // [1, 2, 4]
-console.log(vowelCount('Colonel Sanders feeds me well !!'));       // [3, 2, 2, 1, 1, 0]
-console.log(vowelCount(''));                                       // []
+console.log(vowelCount('WhaTs yOur enneagram?')); // [1, 2, 4]
+console.log(vowelCount('Colonel Sanders feeds me well !!')); // [3, 2, 2, 1, 1, 0]
+console.log(vowelCount('')); // []
 console.log(vowelCount('ZoInkies!! There are monsters in here.')); // [4, 2, 2, 2, 1, 2]
-console.log(vowelCount('grrr!'));                                  // [0]
+console.log(vowelCount('grrr!')); // [0]

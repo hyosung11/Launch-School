@@ -1,4 +1,4 @@
-/* 1.  Problem Description
+/* 1.  Problem Description - Find Even Index
 
 You are going to be given an array of integers. Your job is to take that array and find an index N where the sum of the integers to the left of N is equal to the sum of the integers to the right of N. If there is no index that would make this happen, return -1.
 
@@ -58,18 +58,18 @@ Algorithm:
     - if the sums of those slices are equal, return the index `N`
   - Return -1 */
 
-  function findEvenIndex(integers) {
-    for (let idx = 0; idx < integers.length; idx += 1) {
-      let leftSide = integers.slice(0, idx);
-      let rightSide = integers.slice(idx + 1);
-      let leftSideSum = leftSide.reduce((total, value) => total + value, 0);
-      let rightSideSum = rightSide.reduce((total, value) => total + value, 0);
+function findEvenIndex(integers) {
+  for (let idx = 0; idx < integers.length; idx += 1) {
+    let leftSide = integers.slice(0, idx);
+    let rightSide = integers.slice(idx + 1);
+    let leftSideSum = leftSide.reduce((total, value) => total + value, 0);
+    let rightSideSum = rightSide.reduce((total, value) => total + value, 0);
 
-      if (leftSideSum === rightSideSum) return idx;
-    }
-
-    return -1;
+    if (leftSideSum === rightSideSum) return idx;
   }
+
+  return -1;
+}
 
 //Test Cases
 console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1]) === 3); // true

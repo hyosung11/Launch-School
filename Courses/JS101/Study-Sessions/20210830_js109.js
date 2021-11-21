@@ -195,7 +195,9 @@ Array.prototype.filter
 
 /* =============================
 
-1. Progressions Medium Problem
+1. Progressions
+
+Medium Problem
 You're given an array of integers.  You must return the number of 'arithmetic progressions' of size 3 that are possible from that list.
 
 In each progression, the differences between the elements must be the same.
@@ -240,8 +242,7 @@ function progressions(array)
 ======================
 2. Problem Description
 Write a function that will return the count of distinct case-insensitive
-alphabetic characters and numeric digits that occur more than once in the
-input string.
+alphabetic characters and numeric digits that occur more than once in the input string.
 
 The input string can be assumed to contain only alphabets
 (both uppercase and lowercase) and numeric digits.

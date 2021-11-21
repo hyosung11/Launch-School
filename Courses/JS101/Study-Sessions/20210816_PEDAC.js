@@ -20,7 +20,6 @@ Two words are anagrams of each other if they both contain the same letters.
 Write a method that will find all the anagrams of a word from a list. You will be given two inputs a word and an array with words. You should return an array of all the anagrams or an empty array if there are none.
 
 Understanding the Problem
-
 - input: string
 - output: array of strings
 
@@ -82,53 +81,43 @@ Given 2 inputs: Word (string) and Words (array of strings)
 return str sorted in alphabetical order
 
 Coding with Intent
-- test code often
+- test code often */
 
- */
+function anagrams(word, array) {
+  let result = [];
 
-// function anagrams(word, array) {
-//   let result = [];
+  for (let index = 0; index < array.length; index++) {
+    if (isAnagram(word, array[index])) {
+      result.push(array[index]);
+    }
+  }
 
-//   for (let index = 0; index < array.length; index++) {
-//     if (isAnagram(word, array[index])) {
-//       result.push(array[index]);
-//     }
-//   }
+  return result;
+}
 
-//   return result;
-// }
+function isAnagram (str1, str2) {
+  return str1.toLowerCase().split('').sort().join('') === str2.toLowerCase().split('').sort().join('');
+}
 
-// function isAnagram (str1, str2) {
-//   return str1.toLowerCase().split('').sort().join('') === str2.toLowerCase().split('').sort().join('');
-// }
+console.log(isAnagram('aAbb', 'abba')); // true
+console.log(isAnagram('aabb', 'babe')); // false
+console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']));
+// ['aabb', 'bbaa']
+console.log(anagrams('abba', ['aabb', 'abcd', 'bbAa', 'dada']));
+// ['aabb', 'bbAa']
+console.log(anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']));
+// ['carer', 'racer']
+console.log(anagrams('laser', ['lazing', 'lazy',  'lacer']));
+// []
 
-
-
-// console.log(isAnagram('aAbb', 'abba')); // true
-// console.log(isAnagram('aabb', 'babe')); // false
-
-// console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']));
-// // ['aabb', 'bbaa']
-
-// console.log(anagrams('abba', ['aabb', 'abcd', 'bbAa', 'dada']));
-// // ['aabb', 'bbAa']
-
-// console.log(anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']));
-// // ['carer', 'racer']
-
-// console.log(anagrams('laser', ['lazing', 'lazy',  'lacer']));
-// // []
-
-/*
-Given a word, create a hash which stores the indexes of each letter in an array.
+/* Given a word, create a hash which stores the indexes of each letter in an array.
 
 Make sure the letters are the keys.
 Make sure the letters are symbols.
 Make sure the indexes are stored in an array and those arrays are values.
 
 Notes
-All strings given will be lowercase.
-*/
+All strings given will be lowercase. */
 
 
 // Test cases:
