@@ -4136,3 +4136,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 16:00 Back from the Career Ministry Resources meeting and want to code. I made Anki cards of many of the medium problems yesterday and want to make more, so I have a place where I can keep seeing the types of problems even if I can't actually code out solutions.
 
 17:00 Took medium problems I found in my study sessions and put them in my Medium-Problems folder and I think I have most of them in Anki.
+
+17:12 My legs are tired. I still have problems with finding solutions.
