@@ -4144,3 +4144,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 08:58 Back from walking the kids to school and now will have to get a bar for the kids.
 
 09:14 Organizing my files in the JS109 folder. Now I have to go get this bar.
+
+12:25 Grinding through Small Problems > Easy 1 and Easy 2 this morning. I have to poo again. Yikes. They do seem easier this time around, but there are still little things like how `slice` works with a negative index as an offset from the last element. So `slice(0, -1)` returns the element from the beginning to the second-to-last element. It doesn't include the last element. Also, don't forget to `toUpperCase()` or `toLowerCase()` when necessary.
