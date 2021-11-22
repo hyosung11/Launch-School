@@ -4138,3 +4138,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 17:00 Took medium problems I found in my study sessions and put them in my Medium-Problems folder and I think I have most of them in Anki.
 
 17:12 My legs are tired. I still have problems with finding solutions.
+
+## 20211122 월요일
+
+08:58 Back from walking the kids to school and now will have to get a bar for the kids.

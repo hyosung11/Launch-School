@@ -2976,4 +2976,370 @@ Medium 1 > 8. Fibonacci Numbers (Memoization) */
 // console.log(fibonacci(75)); // 2111485077978050
 
 /* =======================================================
-Medium 2 > 1. Lettercase Percentage Ratio */
+Medium 2 > 1. Lettercase Percentage Ratio
+
+Algo
+- input string
+- split string into an array of chars
+- iterate through the array of chars
+  - count chars that are lowercase
+  - count chars that are uppercase
+  - count chars that are neither
+- convert chars to percentage
+- return an object */
+
+// function letterPercentages(string) {
+//   let chars = string.split('');
+//   let count = string.length;
+//   let percents = {
+//     lowercase: 0,
+//     uppercase: 0,
+//     neither: 0
+//   }
+
+//   chars.forEach(char => {
+//     if (char >= 'a' && char <= 'z') {
+//       percents.lowercase += 1;
+//     } else if (char >= 'A' && char <= 'Z') {
+//       percents.uppercase += 1;
+//     } else {
+//       percents.neither += 1;
+//     }
+//   });
+
+//   return calculatePercents(percents, count);
+// }
+
+// function calculatePercents(object, count) {
+//   for (let key in object) {
+//     object[key] = (object[key] / count * 100).toFixed(2);
+//   }
+//   return object;
+// }
+
+/* Algo for regex solution
+- input string
+- `initialize` count to string's length
+- initialize function `percentage` with parameter `regex`
+  - initialize `matchingChars` to find matches
+  - calculate percentage of matching chars
+- return object of percentages of letter types passed through the percentage function */
+
+// function letterPercentages(string) {
+//   let count = string.length;
+
+//   function percentage(regex) {
+//     let matchingChars = string.match(regex) || [];
+//     return ((matchingChars.length / count) * 100).toFixed(2);
+//   }
+
+//   return {
+//     lowercase: percentage(/[a-z]/g),
+//     uppercase: percentage(/[A-Z]/g),
+//     neither: percentage(/[^a-z]/gi)
+//   }
+// }
+
+// console.log(letterPercentages('abCdef 123'));
+// // { lowercase: "50.00", uppercase: "10.00", neither: "40.00" }
+
+// console.log(letterPercentages('AbCd +Ef'));
+// // { lowercase: "37.50", uppercase: "37.50", neither: "25.00" }
+
+// console.log(letterPercentages('123'));
+// // { lowercase: "0.00", uppercase: "0.00", neither: "100.00" }
+
+/* =======================================================
+Medium 2 > 2. Triangle Sides
+
+Algo
+- input three numbers as the lengths of three sides of a triangle as arguments
+- check if triangle is `invalid`
+  - sum of lengths of two shortest sides must be greater than the length of the longest side
+  - every side must have a length greater than 0
+- check if valid triangle
+  - `equilalteral` has three sides of equal length
+  - `isosceles` has two sides of equal length, third is different
+  - `scalene` has three sides of different lengths
+- return string representing the triangle's classification */
+
+// function triangle(side1, side2, side3) {
+//   let perimeter = side1 + side2 + side3;
+//   let longest = Math.max(side1, side2, side3);
+//   let shortest = Math.min(side1, side2, side3);
+//   let middle = perimeter - longest - shortest;
+
+//   if (isValid(shortest, middle, longest)) {
+//     return getTriangleType(side1, side2, side3)
+//   } else {
+//     return 'invalid';
+//   }
+// }
+
+// function isValid(shortest, middle, longest) {
+//   return shortest > 0 && shortest + middle > longest;
+// }
+
+// function getTriangleType(side1, side2, side3) {
+//   if (side1 === side2 && side2 === side3) {
+//     return 'equilateral';
+//   } else if (side1 === side2 || side1 === side3 || side2 === side3) {
+//     return 'isosceles';
+//   } else {
+//     return 'scalene';
+//   }
+// }
+
+/* Laurent's Version with Array destructuring */
+// function triangle(side1, side2, side3) {
+//   let [shortest, middle, longest] = [side1, side2, side3].sort((a, b) => a - b);
+
+//   if (shortest <= 0) return 'invalid';
+//   if (shortest + middle <= longest) return 'invalid';
+//   if (shortest === middle && middle === longest) return 'equilateral';
+//   if (shortest === middle || shortest === longest || middle === longest) return 'isosceles';
+
+//   return 'scalene';
+// }
+
+// console.log(triangle(3, 3, 3)); // "equilateral"
+// console.log(triangle(3, 3, 1.5)); // "isosceles"
+// console.log(triangle(3, 4, 5)); // "scalene"
+// console.log(triangle(0, 3, 3)); // "invalid"
+// console.log(triangle(3, 1, 1)); // "invalid"
+
+/* =======================================================
+Medium 2 > 3. Tri-Angles
+
+Algo
+- input three numbers
+- check if `valid` triangle
+  - sum of all angles is 180 degrees
+  - every angle is greater than 0
+- if valid triangle
+  - `right`: one angle is exactly 90 degrees
+  - `acute`: all three angles less than 90 degrees
+  - `obtuse`: one angle is greater than 90 degrees
+- return string */
+
+// function triangle(angle1, angle2, angle3) {
+//   let [small, medium, large] = [angle1, angle2, angle3].sort((a, b) => a - b);
+
+//   if (small <= 0 || (small + medium + large ) !== 180) return 'invalid';
+//   if (large < 90) return 'acute';
+//   if (large > 90) return 'obtuse';
+//   if (large === 90) return 'right';
+
+// }
+
+// console.log(triangle(60, 70, 50));       // "acute"
+// console.log(triangle(30, 90, 60));       // "right"
+// console.log(triangle(120, 50, 10));      // "obtuse"
+// console.log(triangle(0, 90, 90));        // "invalid"
+// console.log(triangle(50, 50, 50));       // "invalid"
+
+/* =======================================================
+Medium 2 > 4. Unlucky Days
+
+Algo
+- input number as year
+- iterate over all the months of the given year
+  - for each month, get the day that falls on the 13th
+  - count the 13ths that fall on a Friday
+- return count */
+
+// function fridayThe13ths(year) {
+//   let thirteenths = [];
+
+//   for (let month = 0; month < 12; month += 1) {
+//     thirteenths.push(new Date(year, month, 13));
+//   }
+
+//   return thirteenths.reduce((count, day) => {
+//     return day.getDay() === 5 ? (count + 1) : count
+//   }, 0);
+// }
+
+// console.log(fridayThe13ths(1986));      // 1
+// console.log(fridayThe13ths(2015));      // 3
+// console.log(fridayThe13ths(2017));      // 2
+
+/* =======================================================
+Medium 2 > 5. Next Featured Number Higher than a Given Value
+
+Algo
+- input number
+
+- return number */
+
+// function featured(number) {
+//   const MAX_FEATURED = 9876543201;
+//   let featuredNum = toOddMultipleOf7(number);
+
+//   do {
+//     if (allUnique(featuredNum)) {
+//       return featuredNum;
+//     }
+
+//     featuredNum += 14;
+//   } while (featuredNum <= MAX_FEATURED);
+
+//   return 'There is no possible number that fulfills those requirements.';
+// }
+
+// function toOddMultipleOf7(number) {
+//   do {
+//     number += 1;
+//   } while (number % 2 === 0 || number % 7 !== 0);
+
+//   return number;
+// }
+
+// function allUnique(number) {
+//   let digits = String(number).split('');
+//   let seen = {};
+
+//   for (let idx = 0; idx < digits.length; idx += 1) {
+//     if (seen[digits[idx]]) {
+//       return false;
+//     }
+
+//     seen[digits[idx]] = true;
+//   }
+
+//   return true;
+// }
+
+// console.log(featured(12));           // 21
+// console.log(featured(20));           // 21
+// console.log(featured(21));           // 35
+// console.log(featured(997));          // 1029
+// console.log(featured(1029));         // 1043
+// console.log(featured(999999));       // 1023547
+// console.log(featured(999999987));    // 1023456987
+// console.log(featured(9876543186));   // 9876543201
+// console.log(featured(9876543200));   // 9876543201
+// console.log(featured(9876543201));   // "There is no possible number that fulfills those requirements."
+
+/* =======================================================
+Medium 2 > 6. Sum Square - Square Sum
+
+Algo
+- input number
+- compute square the sum of the first count positive integers
+- compute the sum of the squares of the first count
+- subtract square of the sum from the sum of the squares
+- return number */
+
+// function sumSquareDifference(count) {
+//   let squareOfSums = 0;
+//   let sumOfSquares = 0;
+
+//   for (let number = 1; number <= count; number += 1) {
+//     squareOfSums += number
+//     sumOfSquares += Math.pow(number, 2);
+//   }
+
+//   return Math.pow(squareOfSums, 2) - sumOfSquares;
+// }
+
+// console.log(sumSquareDifference(3));      // 22 --> (1 + 2 + 3)**2 - (1**2 + 2**2 + 3**2)
+// // console.log(sumSquareDifference(10));     // 2640
+// // console.log(sumSquareDifference(1));      // 0
+// // console.log(sumSquareDifference(100));    // 25164150
+
+/* =======================================================
+Medium 2 > 7. Bubble Sort */
+
+// function bubbleSort(array) {
+//   while (true) {
+//     let swapped = false;
+//     for (let idx = 1; idx < array.length; idx += 1) {
+//       if (array[idx - 1] <= array[idx]) continue;
+//       [array[idx -1], array[idx]] = [array[idx], array[idx - 1]];
+//       swapped = true;
+//     }
+//     if (!swapped) break;
+//   }
+// }
+
+// let array1 = [5, 3];
+// bubbleSort(array1);
+// console.log(array1); // [3, 5]
+
+// let array2 = [6, 2, 7, 1, 4];
+// bubbleSort(array2);
+// console.log(array2); // [1, 2, 4, 6, 7]
+
+// let array3 = ['Sue', 'Pete', 'Alice', 'Tyler', 'Rachel', 'Kim', 'Bonnie'];
+// bubbleSort(array3);
+// console.log(array3); // ["Alice", "Bonnie", "Kim", "Pete", "Rachel", "Sue", "Tyler"]
+
+/* =======================================================
+Medium 2 > 8. Longest Sentence */
+
+let longText =
+  'Four score and seven years ago our fathers brought forth on this ' +
+  'continent a new nation, conceived in liberty, and dedicated to the ' +
+  'proposition that all men are created equal. Now we are engaged in a ' +
+  'great civil war, testing whether that nation, or any nation so ' +
+  'conceived and so dedicated, can long endure. We are met on a great ' +
+  'battlefield of that war. We have come to dedicate a portion of that ' +
+  'field, as a final resting place for those who here gave their lives ' +
+  'that that nation might live. It is altogether fitting and proper that ' +
+  'we should do this.';
+
+let longerText = longText +
+  'But, in a larger sense, we can not dedicate, we can not consecrate, ' +
+  'we can not hallow this ground. The brave men, living and dead, who ' +
+  'struggled here, have consecrated it, far above our poor power to add ' +
+  'or detract. The world will little note, nor long remember what we say ' +
+  'here but it can never forget what they did here. It is for us the ' +
+  'living, rather, to be dedicated here to the unfinished work which ' +
+  'they who fought here have thus far so nobly advanced. It is rather ' +
+  'for us to be here dedicated to the great task remaining before us -- ' +
+  'that from these honored dead we take increased devotion to that ' +
+  'cause for which they gave the last full measure of devotion -- that ' +
+  'we here highly resolve that these dead shall not have died in vain ' +
+  '-- that this nation, under God, shall have a new birth of freedom -- ' +
+  'and that government of the people, by the people, for the people, ' +
+  'shall not perish from the earth.';
+
+function longestSentence(text) {
+  let sentences = text.match(/\w.*?[.!?]/g);
+
+  let longest = sentences.reduce(
+    function (longest, sentence) {
+      let length = sentence.split(/\s/).length;
+      if (length > longest.length) {
+        return { text: sentence, length: length };
+      } else {
+        return longest;
+      }
+    },
+    { text: '', length: 0 }
+  );
+
+  console.log(longest.text + '\n');
+  console.log('The longest sentence has ' + longest.length + ' words.\n');
+}
+
+longestSentence(longText);
+// Four score and seven years ago our fathers brought forth on this continent a new nation, conceived in liberty, and dedicated to the proposition that all men are created equal.
+//
+// The longest sentence has 30 words.
+
+longestSentence(longerText);
+// It is rather for us to be here dedicated to the great task remaining before us -- that from these honored dead we take increased devotion to that cause for which they gave the last full measure of devotion -- that we here highly resolve that these dead shall not have died in vain -- that this nation, under God, shall have a new birth of freedom -- and that government of the people, by the people, for the people, shall not perish from the earth.
+//
+// The longest sentence has 86 words.
+
+longestSentence("Where do you think you're going? What's up, Doc?");
+// Where do you think you're going?
+//
+// The longest sentence has 6 words.
+
+longestSentence("To be or not to be! Is that the question?");
+// To be or not to be!
+//
+// The longest sentence has 6 words.
