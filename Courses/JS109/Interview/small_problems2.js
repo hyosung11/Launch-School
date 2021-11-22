@@ -202,7 +202,82 @@ Easy 2 > 2. Greeting a user */
 //   console.log(`Hello ${name}.`);
 // }
 
+/* ========================
+Easy 2 > 3. Multiplying Two Numbers */
 
+// function multiply(num1, num2) {
+//   return num1 * num2;
+// }
 
+// const multiply = ((num1, num2) => num1 * num2);
 
+// console.log(multiply(5, 3) === 15); // logs true
 
+/* ========================
+Easy 2 > 4. Squaring an Argument */
+
+// const multiply = ((num1, num2) => num1 * num2);
+
+// const square = (number => multiply(number, number));
+
+// console.log(square(5) === 25); // logs true
+// console.log(square(-8) === 64); // logs true
+
+// Further Exploration
+// const multiply = (num1, num2) => num1 * num2;
+// const square = (number) => multiply(number, number);
+// const power = (number, exponent) => exponent === 1 ? multiply(number, 1) : power(number, exponent - 1) * number;
+
+// console.log(power(5, 3));
+
+/* ========================
+Easy 2 > 6. The End Is Near But Not Here */
+
+// function penultimate(string) {
+//   let word = string.split(' ');
+//   return word[word.length - 2];
+// }
+
+// console.log(penultimate("last word") === "last"); // logs true
+// console.log(penultimate("Launch School is great!") === "is"); // logs true
+
+// Further Exploration
+// function extractMiddle(str) {
+//   const words = str
+//     .trim()
+//     .split(' ')
+//     .filter(word => word !== ''); // remove array elements that are just extra spaces between words
+
+//   // if 2 words or fewer, or empty string
+//   if (words.length <= 2) {
+//     return 'Please input string of 3 words or more';
+//   }
+
+//   const middleIdx = Math.ceil(words.length / 2) - 1;
+
+//   // if even # of words, return array of two "middle" words
+//   if (words.length % 2 === 0) {
+//     return [words[middleIdx], words[middleIdx + 1]].join(' ');
+//   } else {
+//     return words[middleIdx].join(' ');
+//   }
+// }
+
+// console.log(extractMiddle("last word")); // logs true
+// console.log(extractMiddle("Launch School is great!")); // logs true
+
+/* ========================
+Easy 2 > 7. Exclusive Or */
+
+function xor(value1, value2) {
+  if ((value1 && !value2) || (!value1 && value2)) {
+    return true;
+  }
+  return false;
+}
+
+// all should return `true`
+console.log(xor(5, 0) === true);
+console.log(xor(false, true) === true);
+console.log(xor(1, 1) === false);
+console.log(xor(true, true) === false);
