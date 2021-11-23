@@ -4152,3 +4152,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 19:02 I've been working on Easy 2 problems this afternoon and now before bedtime. I get frustrated and then take a break to let the diffuse mode take over and then it does seem easier to recall. My eyes feel strained though.
 
 21:02 Slow and steady through the Small Problems a third time.
+
+21:25 Stopping studying to watch Insecure with Sohee.

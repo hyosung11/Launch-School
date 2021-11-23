@@ -446,20 +446,38 @@ Easy 2 > 12. Convert a Signed Number to a String! */
 /* =========================================
 Easy 3 > 1. ddaaiillyy ddoouubbllee */
 
-function crunch(text) {
-  let crunchText = '';
+// function crunch(text) {
+//   let crunchText = '';
 
-  for (let idx = 0; idx < text.length; idx += 1) {
-    if (text[idx] !== text[idx + 1]) {
-      crunchText += text[idx];
-    }
-  }
+//   for (let idx = 0; idx < text.length; idx += 1) {
+//     if (text[idx] !== text[idx + 1]) {
+//       crunchText += text[idx];
+//     }
+//   }
 
-  return crunchText;
-}
+//   return crunchText;
+// }
 
-console.log(crunch('ddaaiillyy ddoouubbllee'));    // "daily double"
-console.log(crunch('4444abcabccba'));              // "4abcabcba"
-console.log(crunch('ggggggggggggggg'));            // "g"
-// console.log(crunch('a'));                          // "a"
-console.log(crunch(''));                           // ""
+// console.log(crunch('ddaaiillyy ddoouubbllee'));    // "daily double"
+// console.log(crunch('4444abcabccba'));              // "4abcabcba"
+// console.log(crunch('ggggggggggggggg'));            // "g"
+// // console.log(crunch('a'));                          // "a"
+// console.log(crunch(''));                           // ""
+
+/* =========================================
+Easy 3 > 3. Stringy Strings */
+
+// function stringy(size) {
+//   let result = '';
+
+//   for (let idx = 0; idx < size; idx += 1) {
+//     let number = ((idx % 2) === 0) ? 1 : 0;
+//     result += number;
+//   }
+//   return result;
+// }
+
+// console.log(stringy(6));    // "101010"
+// console.log(stringy(9));    // "101010101"
+// console.log(stringy(4));    // "1010"
+// console.log(stringy(7));    // "1010101"
