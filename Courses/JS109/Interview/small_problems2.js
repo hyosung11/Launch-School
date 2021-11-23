@@ -343,39 +343,123 @@ Easy 2 > 9. Convert a String to a Number! */
 /* =========================================
 Easy 2 > 10. Convert a String to a Signed Number! */
 
-function stringToSignedInteger(string) {
-  switch (string[0]) {
-    case '-':
-      return -stringToInteger(string.slice(1, string.length));
-    case '+':
-      return stringToInteger(string.slice(1, string.length));
-    default:
-      return stringToInteger(string);
-  }
-}
+// function stringToSignedInteger(string) {
+//   switch (string[0]) {
+//     case '-':
+//       return -stringToInteger(string.slice(1, string.length));
+//     case '+':
+//       return stringToInteger(string.slice(1, string.length));
+//     default:
+//       return stringToInteger(string);
+//   }
+// }
 
-function stringToInteger(string) {
-  const DIGITS = {
-    0: 0,
-    1: 1,
-    2: 2,
-    3: 3,
-    4: 4,
-    5: 5,
-    6: 6,
-    7: 7,
-    8: 8,
-    9: 9
-  }
-  let arrayOfDigits = string.split('').map(char => DIGITS[char]);
-  let value = 0;
-  arrayOfDigits.forEach(digit => (value = (10 * value) + digit));
-  return value;
-}
+// function stringToInteger(string) {
+//   const DIGITS = {
+//     0: 0,
+//     1: 1,
+//     2: 2,
+//     3: 3,
+//     4: 4,
+//     5: 5,
+//     6: 6,
+//     7: 7,
+//     8: 8,
+//     9: 9
+//   }
+//   let arrayOfDigits = string.split('').map(char => DIGITS[char]);
+//   let value = 0;
+//   arrayOfDigits.forEach(digit => (value = (10 * value) + digit));
+//   return value;
+// }
 
-console.log(stringToSignedInteger("4321") === 4321); // logs true
-console.log(stringToSignedInteger("-570") === -570); // logs true
-console.log(stringToSignedInteger("+100") === 100); // logs true
+// console.log(stringToSignedInteger("4321") === 4321); // logs true
+// console.log(stringToSignedInteger("-570") === -570); // logs true
+// console.log(stringToSignedInteger("+100") === 100); // logs true
 
 /* =========================================
 Easy 2 > 11. Convert a Number to a String! */
+
+// const DIGITS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+// function integerToString(number) {
+//   let result = '';
+
+//   do {
+//     let remainder = number % 10;
+//     number = Math.floor(number / 10);
+
+//     result = DIGITS[remainder] + result;
+//   } while (number > 0);
+
+//   return result;
+// }
+
+// console.log(integerToString(4321));        // "4321"
+// console.log(integerToString(0));           // "0"
+// console.log(integerToString(5000));        // "5000"
+// console.log(integerToString(1234567890));  // "1234567890"
+
+// function integerToString(number) {
+//   let digits = '0123456789';
+//   let result = [];
+
+//   while (number > 0) {
+//     result.unshift(digits[number % 10]);
+//     number = Math.floor(number / 10);
+//   }
+//   return result.join('');
+// }
+
+/* =========================================
+Easy 2 > 12. Convert a Signed Number to a String! */
+
+// function signedIntegerToString(number) {
+//   switch (Math.sign(number)) {
+//     case +1:
+//       return `+${integerToString(number)}`;
+//     case -1:
+//       return `-${integerToString(-number)}`;
+//     default:
+//       return integerToString(number);
+//   }
+// }
+
+// function integerToString(number) {
+//   const DIGITS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+//   let result = '';
+
+//   do {
+//     let remainder = number % 10;
+//     number = Math.floor(number / 10);
+
+//     result = DIGITS[remainder] + result;
+//   } while (number > 0);
+
+//   return result;
+// }
+
+// console.log(signedIntegerToString(4321) === '+4321');
+// console.log(signedIntegerToString(-123) === '-123');
+// console.log(signedIntegerToString(0) === '0');
+
+/* =========================================
+Easy 3 > 1. ddaaiillyy ddoouubbllee */
+
+function crunch(text) {
+  let crunchText = '';
+
+  for (let idx = 0; idx < text.length; idx += 1) {
+    if (text[idx] !== text[idx + 1]) {
+      crunchText += text[idx];
+    }
+  }
+
+  return crunchText;
+}
+
+console.log(crunch('ddaaiillyy ddoouubbllee'));    // "daily double"
+console.log(crunch('4444abcabccba'));              // "4abcabcba"
+console.log(crunch('ggggggggggggggg'));            // "g"
+// console.log(crunch('a'));                          // "a"
+console.log(crunch(''));                           // ""
