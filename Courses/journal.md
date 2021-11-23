@@ -4154,3 +4154,9 @@ How awesome are the engineers in the company? If you're the best one there, that
 21:02 Slow and steady through the Small Problems a third time.
 
 21:25 Stopping studying to watch Insecure with Sohee.
+
+## 20211123 화요일
+
+08:25 Looked at Anki cards after meditation. Laurent wants to study today. That's good.
+
+09:21 Still need to keep practicing maybe even more reps than I think. Memorization is necessary. Almost time for study session with Laurent.
