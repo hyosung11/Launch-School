@@ -543,19 +543,19 @@ Easy 3 > 4. Fibonacci Number Location By Length */
 /* =========================================
 Easy 3 > 5. Right Triangles */
 
-function triangle(height) {
-  let spaces = height - 1;
-  let stars = 1;
+// function triangle(height) {
+//   let spaces = height - 1;
+//   let stars = 1;
 
-  while (height > 0) {
-    console.log(`${' '.repeat(spaces)}${'*'.repeat(stars)}`);
-    spaces -= 1;
-    stars += 1;
-    height -= 1;
-  }
-}
+//   while (height > 0) {
+//     console.log(`${' '.repeat(spaces)}${'*'.repeat(stars)}`);
+//     spaces -= 1;
+//     stars += 1;
+//     height -= 1;
+//   }
+// }
 
-triangle(5);
+// triangle(5);
 
 //     *
 //    **
@@ -563,7 +563,7 @@ triangle(5);
 //  ****
 // *****
 
-triangle(9);
+// triangle(9);
 
 //         *
 //        **
@@ -574,3 +574,6 @@ triangle(9);
 //   *******
 //  ********
 // *********
+
+/* =========================================
+Easy 3 > 7. Double Doubles */

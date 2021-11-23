@@ -4164,3 +4164,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 11:42 Did two problems with Laurent. He's good.
 
 11:50 Time to leave for PT. I think my studying is paying dividends.
+
+14:21 Refactoring some code. Practicing `maxMultiple` several times with different variations.
+
+14:34 Moving to the couch to get ready to watch Chelsea vs Juventus in Champions League group play.
