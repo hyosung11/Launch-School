@@ -269,15 +269,113 @@ Easy 2 > 6. The End Is Near But Not Here */
 /* ========================
 Easy 2 > 7. Exclusive Or */
 
-function xor(value1, value2) {
-  if ((value1 && !value2) || (!value1 && value2)) {
-    return true;
+// function xor(value1, value2) {
+//   if ((value1 && !value2) || (!value1 && value2)) return true;
+//   return false;
+// }
+
+// function xor(arg1, arg2) {
+//   if (arg1 && arg2) {
+//     return false;
+//   } else {
+//     return true;
+//   }
+// }
+
+// const xor = (oper1, oper2) => (!!oper1 === !!oper2 ? false : true);
+
+// const xor = ((value1, value2) => !!value1 !== !!value2);
+
+// // all should return `true`
+// console.log(xor(5, 0) === true);
+// console.log(xor(false, true) === true);
+// console.log(xor(1, 1) === false);
+// console.log(xor(true, true) === false);
+
+/* ========================
+Easy 2 > 8. Odd Lists */
+
+// function oddities(array) {
+//   let oddElements = [];
+
+//   for (let idx = 0; idx < array.length; idx += 2) {
+//     oddElements.push(array[idx]);
+//   }
+
+//   return oddElements;
+// }
+
+// function oddities(array) {
+//   return array.filter((_, idx) => idx % 2 === 0);
+// }
+
+// console.log(oddities([2, 3, 4, 5, 6])); // logs [2, 4, 6]
+// console.log(oddities([1, 2, 3, 4, 5, 6])); // logs [1, 3, 5]
+// console.log(oddities(["abc", "def"])); // logs ['abc']
+// console.log(oddities([123])); // logs [123]
+// console.log(oddities([])); // logs []
+
+/* =========================================
+Easy 2 > 9. Convert a String to a Number! */
+
+// function stringToInteger(string) {
+//   const DIGITS = {
+//     0: 0,
+//     1: 1,
+//     2: 2,
+//     3: 3,
+//     4: 4,
+//     5: 5,
+//     6: 6,
+//     7: 7,
+//     8: 8,
+//     9: 9
+//   }
+//   let arrayOfDigits = string.split('').map(char => DIGITS[char]);
+//   let value = 0;
+//   arrayOfDigits.forEach(digit => (value = (10 * value) + digit));
+//   return value;
+// }
+
+// console.log(stringToInteger("4321") === 4321); // logs true
+// console.log(stringToInteger("570") === 570); // logs true
+
+/* =========================================
+Easy 2 > 10. Convert a String to a Signed Number! */
+
+function stringToSignedInteger(string) {
+  switch (string[0]) {
+    case '-':
+      return -stringToInteger(string.slice(1, string.length));
+    case '+':
+      return stringToInteger(string.slice(1, string.length));
+    default:
+      return stringToInteger(string);
   }
-  return false;
 }
 
-// all should return `true`
-console.log(xor(5, 0) === true);
-console.log(xor(false, true) === true);
-console.log(xor(1, 1) === false);
-console.log(xor(true, true) === false);
+function stringToInteger(string) {
+  const DIGITS = {
+    0: 0,
+    1: 1,
+    2: 2,
+    3: 3,
+    4: 4,
+    5: 5,
+    6: 6,
+    7: 7,
+    8: 8,
+    9: 9
+  }
+  let arrayOfDigits = string.split('').map(char => DIGITS[char]);
+  let value = 0;
+  arrayOfDigits.forEach(digit => (value = (10 * value) + digit));
+  return value;
+}
+
+console.log(stringToSignedInteger("4321") === 4321); // logs true
+console.log(stringToSignedInteger("-570") === -570); // logs true
+console.log(stringToSignedInteger("+100") === 100); // logs true
+
+/* =========================================
+Easy 2 > 11. Convert a Number to a String! */

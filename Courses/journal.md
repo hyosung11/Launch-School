@@ -4148,3 +4148,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 12:25 Grinding through Small Problems > Easy 1 and Easy 2 this morning. I have to poo again. Yikes. They do seem easier this time around, but there are still little things like how `slice` works with a negative index as an offset from the last element. So `slice(0, -1)` returns the element from the beginning to the second-to-last element. It doesn't include the last element. Also, don't forget to `toUpperCase()` or `toLowerCase()` when necessary.
 
 13:51 Stopping to go and play ping pong with Louis.
+
+19:02 I've been working on Easy 2 problems this afternoon and now before bedtime. I get frustrated and then take a break to let the diffuse mode take over and then it does seem easier to recall. My eyes feel strained though.
