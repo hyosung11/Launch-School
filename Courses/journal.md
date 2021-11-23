@@ -4160,3 +4160,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 08:25 Looked at Anki cards after meditation. Laurent wants to study today. That's good.
 
 09:21 Still need to keep practicing maybe even more reps than I think. Memorization is necessary. Almost time for study session with Laurent.
+
+11:42 Did two problems with Laurent. He's good.
+
+11:50 Time to leave for PT. I think my studying is paying dividends.
