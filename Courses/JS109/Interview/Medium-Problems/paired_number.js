@@ -38,7 +38,7 @@ Implementation of Algorithm
 
 function pairedNums(array) {
   let result = [];
-  sortedArray = array.sort((a, b) => a - b);
+  let sortedArray = array.sort((a, b) => a - b);
 
   while (sortedArray.length !== 0) {
     let plusTwo = sortedArray.filter((number) => number === sortedArray[0] + 2);
@@ -75,3 +75,42 @@ console.log(pairedNums([22, 33, 24, 26, 31, 35, 20, 27])); // ==> [ [ 20, 22 ], 
 // }
 
 
+// Miles's Version
+function pairedNums(arr) {
+  let arrSorted = arr.sort();
+  let allPairs = [];
+
+  for (let outerIdx = 0; outerIdx < arrSorted.length; outerIdx += 1) {
+    for (
+      let innerIdx = outerIdx + 1;
+      innerIdx < arrSorted.length;
+      innerIdx += 1
+    ) {
+      let pair = [arrSorted[outerIdx], arrSorted[innerIdx]];
+
+      if (pair[1] - pair[0] === 2) {
+        if (allPairs.length === 0) {
+          allPairs.push(pair);
+        } else if (!includesNested(allPairs, pair)) {
+          allPairs.push(pair);
+        }
+      }
+    }
+  }
+
+  return allPairs;
+}
+
+function includesNested(arr, nested) {
+  let result = false;
+
+  arr.forEach((subArr) =>
+    subArr.forEach((val) => {
+      if (nested.includes(val)) {
+        result = true;
+      }
+    })
+  );
+
+  return result;
+}

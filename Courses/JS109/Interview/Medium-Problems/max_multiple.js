@@ -33,17 +33,17 @@ Algorithm
     - assign currentNumber to lastNumber
 - return lastNumber */
 
-function maxMultiple(increment, bound) {
-  let lastNumber = 0;
-  let currentNumber = 0;
+// function maxMultiple(increment, bound) {
+//   let lastNumber = 0;
+//   let currentNumber = 0;
 
-  do {
-    currentNumber = lastNumber + increment;
-    if (currentNumber <= bound) lastNumber = currentNumber;
-  } while (currentNumber <= bound);
+//   do {
+//     currentNumber = lastNumber + increment;
+//     if (currentNumber <= bound) lastNumber = currentNumber;
+//   } while (currentNumber <= bound);
 
-  return lastNumber;
-}
+//   return lastNumber;
+// }
 
 // Test Cases
 // console.log(maxMultiple(2, 7));
@@ -52,6 +52,16 @@ function maxMultiple(increment, bound) {
 // // console.log(maxMultiple(10, 50));
 // // console.log(maxMultiple(37, 200));
 // // console.log(maxMultiple(7, 100));
+
+function maxMultiple(increment, bound) {
+  let lastNumber = 0;
+
+  for (let current = 0; current <= bound; current += increment) {
+    lastNumber = current;
+  }
+
+  return lastNumber;
+}
 
 console.log(maxMultiple(2, 7) === 6);
 console.log(maxMultiple(3, 10) === 9);

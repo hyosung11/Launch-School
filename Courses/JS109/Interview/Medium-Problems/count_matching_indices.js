@@ -9,7 +9,7 @@ The letters `d` and `e` in "abode" occupy the positions they would occupy in the
 Given an array of words, return an array of the number of letters that occupy their positions in the alphabet for each word.
 
 For example,
-solve(["abode","ABc","xyzD"]) // [4, 3, 1]
+countMatchingIndices(["abode","ABc","xyzD"]) // [4, 3, 1]
 
 Input will consist of alphabetic characters, both uppercase and lowercase. No spaces.
 
@@ -50,24 +50,24 @@ Algorithm
 - return resultArray as an array of numbers */
 
 // Version 1
-function countMatchingIndices(array) {
-  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
-  let resultArray = [];
+// function countMatchingIndices(array) {
+//   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+//   let resultArray = [];
 
-  for (let index = 0; index < array.length; index++) {
-    let count = 0;
-    let word = array[index];
+//   for (let index = 0; index < array.length; index++) {
+//     let count = 0;
+//     let word = array[index];
 
-    for (let stringIndex = 0; stringIndex < word.length; stringIndex++) {
-      if (word[stringIndex].toLowerCase() === alphabet[stringIndex]) {
-        count += 1;
-      }
-    }
-    resultArray.push(count);
-  }
+//     for (let stringIndex = 0; stringIndex < word.length; stringIndex++) {
+//       if (word[stringIndex].toLowerCase() === alphabet[stringIndex]) {
+//         count += 1;
+//       }
+//     }
+//     resultArray.push(count);
+//   }
 
-  return resultArray;
-}
+//   return resultArray;
+// }
 
 console.log(countMatchingIndices(['abode', 'ABc', 'xyzD'])); // [4, 3, 1]
 console.log(countMatchingIndices(['abide', 'ABc', 'xyz'])); // [4, 3, 0]
@@ -78,14 +78,57 @@ console.log(countMatchingIndices(['encode', 'abc', 'xyzD', 'ABmD'])); // [1, 3, 
 console.log(countMatchingIndices([])); // []
 
 // Version 2 with filter and map
-function countMatchingIndices(str) {
-  let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+// function countMatchingIndices(arr) {
+//   return arr.map((str) => solve(str));
+// }
 
-  return str.split('').filter((char, idx) => {
-    return alphabet.indexOf(char.toLowerCase()) === idx;
-  }).length;
-}
+// function solve(str) {
+//   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
-function solve(arr) {
-  return arr.map((str) => countMatchingIndices(str));
+//   return str.split('').filter((char, idx) => {
+//     return alphabet.indexOf(char.toLowerCase()) === idx;
+//   }).length;
+// }
+
+// refactored
+// function countMatchingIndices(arr) {
+//   return arr.map((str) => solve(str));
+// }
+
+// function solve(str) {
+//   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+//   return str
+//     .toLowerCase()
+//     .split('')
+//     .filter((char, idx) => alphabet.indexOf(char) === idx).length;
+// }
+
+// Laurent's Version
+// function countMatchingIndices(array) {
+//   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+//   return array.map((string) => {
+//     let count = 0;
+
+//     string
+//       .toLowerCase()
+//       .split('')
+//       .forEach((char, index) => {
+//         if (alphabet.indexOf(char) === index) count += 1;
+//       });
+
+//     return count;
+//   });
+// }
+
+function countMatchingIndices(array) {
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+  return array.map((word) => {
+    return word
+      .toLowerCase()
+      .split('')
+      .filter((char, idx) => alphabet.indexOf(char) === idx).length;
+  });
 }

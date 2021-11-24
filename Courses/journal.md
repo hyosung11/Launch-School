@@ -4172,3 +4172,11 @@ How awesome are the engineers in the company? If you're the best one there, that
 19:31 Still working on Small Problems > Easy 3 > 10. What Century Is That? A problem that stymies me a little bit still.
 
 20:54 I'm tired and going to stop studying for tonight although I might look at some Anki cards.
+
+## 20211124 수요일
+
+08:52 I walked the kids to school and SungOh complained because he wants to drive to school. I have a study session with Laurent at 09:00. My brain can't keep the Anki small problems in my mind at the moment. More practice, I need. My toes are cold.
+
+14:01 After the holiday concert for SungOh and getting the kids and making lunch. I have a little time to study some more. Laurent is quite good with problem-solving. I need to review what we did today.
+
+14:53 I am getting this stuff slowly and surely.
