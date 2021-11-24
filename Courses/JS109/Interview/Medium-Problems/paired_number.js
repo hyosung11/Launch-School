@@ -49,6 +49,7 @@ function pairedNums(array) {
     }
     sortedArray.shift();
   }
+
   return result;
 }
 
@@ -73,7 +74,6 @@ console.log(pairedNums([22, 33, 24, 26, 31, 35, 20, 27])); // ==> [ [ 20, 22 ], 
 
 //   return result;
 // }
-
 
 // Miles's Version
 function pairedNums(arr) {

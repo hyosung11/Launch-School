@@ -807,33 +807,47 @@ Easy 4 > 7. Running Totals */
 
 // function runningTotal(numbers) {
 //   let total = 0;
+//   return numbers.map(element => total += element)
+// }
 
-//   return numbers.map(element => {
-//     return total += element;
-//   });
+// function runningTotal(numbers) {
+//   let resultArray = [];
+//   let sum = 0;
+
+//   for (let idx = 0; idx < numbers.length; idx += 1) {
+//     resultArray.push(sum += numbers[idx]);
+//   }
+
+//   return resultArray;
+// }
+
+// function runningTotal(array) {
+//   let sum = 0;
+//   return array.map(number => sum += number);
 // }
 
 // console.log(runningTotal([2, 5, 13]));  // [2, 7, 20]
-// console.log(runningTotal([14, 11, 7, 15, 20]));    // [14, 25, 32, 47, 67]
-// console.log(runningTotal([3]));                    // [3]
-// console.log(runningTotal([]));                     // []
+// console.log(runningTotal([14, 11, 7, 15, 20])); // [14, 25, 32, 47, 67]
+// console.log(runningTotal([3])); // [3]
+// console.log(runningTotal([])); // []
+// console.log(runningTotal([1, 1, 2, 3, 5])); // [1, 2, 4, 7, 12]
 
-function commonElements(array1, array2) {
-  let lastPushed = null;
+/* ========================================
+Easy 4 > 8. Letter Counter (Part 1) */
 
-  return array1.filter((number) => {
-    if (number === lastPushed) return false;
-    lastPushed = number;
-    // console.log(lastPushed); // -1, 3, 4, 6, 7, 9
-    return array2.includes(number);
-  });
-}
+// function wordSizes(words) {
+//   let result = {};
 
-console.log(commonElements([-1, 3, 4, 6, 7, 9], [1, 3])); // ➞ [3]
+//   if (words === '') return result;
 
-// console.log(commonElements([1, 3, 4, 6, 7, 9], [1, 2, 3, 4, 7, 10])); // ➞ [1, 3, 4, 7]
+//   words.split(' ').forEach(word => {
+//     result[word.length] = result[word.length] + 1 || 1;
+//   });
 
-// console.log(commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 4, 5])); // ➞ [1, 2, 4, 5]
+//   return result;
+// }
 
-// console.log(commonElements([1, 2, 3, 4, 5], [10, 12, 13, 15])); // ➞ []
-
+// console.log(wordSizes('Four score and seven.')); // { "3": 1, "4": 1, "5": 1, "6": 1 }
+// console.log(wordSizes('Hey diddle diddle, the cat and the fiddle!'));  // { "3": 5, "6": 1, "7": 2 }
+// console.log(wordSizes("What's up doc?")); // { "2": 1, "4": 1, "6": 1 }
+// console.log(wordSizes('')); // {}
