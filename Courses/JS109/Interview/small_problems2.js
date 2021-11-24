@@ -681,7 +681,7 @@ Algo
 // console.log(cleanUp("---what's my +*& line?"));    // " what s my line "
 // console.log(cleanUp("WTF-ck*  Really!")); // "wtf ck Really
 
-/* =========================================
+/* ===============================
 Easy 3 > 10. What Century is That?
 
 Algo
@@ -695,28 +695,125 @@ Algo
   - otherwise value of centuryNumber % 10
 - output string of century number and suffix */
 
-function century(year) {
-  let centuryNumber = Math.ceil(year / 100);
-  return `${centuryNumber}${centurySuffix(centuryNumber)}`;
+// function century(year) {
+//   let centuryNumber = Math.ceil(year / 100);
+//   return `${centuryNumber}${centurySuffix(centuryNumber)}`;
+// }
+
+// function centurySuffix(year) {
+//   if ([11, 12, 13].includes(year % 100)) return 'th';
+
+//   switch (year % 10) {
+//     case 1: return 'st';
+//     case 2: return 'nd';
+//     case 3: return 'rd';
+//     default: return 'th';
+//   }
+// }
+
+// console.log(century(2000));        // "20th"
+// console.log(century(2001));        // "21st"
+// console.log(century(1965));        // "20th"
+// console.log(century(256));         // "3rd"
+// console.log(century(5));           // "1st"
+// console.log(century(10103));       // "102nd"
+// console.log(century(1052));        // "11th"
+// console.log(century(1127));        // "12th"
+// console.log(century(11201));       // "113th"
+
+/* ===============================
+Easy 4 > 1. How Old Is Teddy? */
+
+// function randomAge(min, max) {
+//   let age = Math.floor(Math.random() * (max - min + 1) + min);
+//   console.log(`Teddy is ${age} years old`);
+// }
+
+// randomAge(20, 120);
+
+// Easy 4 > 4. Palindromic Strings (Part 1)
+// function isPalindrome(string) {
+//   return string.split('').reverse().join('') === string;
+// }
+
+// console.log(isPalindrome('madam'));               // true
+// console.log(isPalindrome('Madam'));               // false (case matters)
+// console.log(isPalindrome("madam i'm adam"));      // false (all characters matter)
+// console.log(isPalindrome('356653'));              // true
+
+/* ========================================
+Easy 4 > 5. Palindromic Strings (Part 2) */
+
+// function isRealPalindrome(string) {
+//   string = removeNonLettersNumbers(string.toLowerCase());
+//   return isPalindrome(string)
+// }
+
+// function removeNonLettersNumbers(string) {
+//   let result = '';
+
+//   for (let idx = 0; idx < string.length; idx += 1) {
+//     let char = string[idx];
+//     if ((isLetter(char)) || isNumber(char)) {
+//       result += char;
+//     }
+//   }
+
+//   return result;
+// }
+
+// function isLetter(char) {
+//   return char >= 'a' && char <= 'z';
+// }
+
+// function isNumber(char) {
+//   return char >= '0' && char <= '9';
+// }
+
+// function isPalindrome(string) {
+//   return string === string.split('').reverse().join('');
+// }
+
+// console.log(isRealPalindrome('madam')); // true
+// console.log(isRealPalindrome('Madam')); // true (case does not matter)
+// console.log(isRealPalindrome("Madam, I'm Adam")); // true (only alphanumerics matter)
+// console.log(isRealPalindrome('356653')); // true
+// console.log(isRealPalindrome('356a653')); // true
+// console.log(isRealPalindrome('123ab321')); // false
+
+/* ========================================
+Easy 4 > 6. Palindromic Numbers */
+
+// function isPalindromicNumber(number) {
+//   let stringNumber = String(number);
+//   return stringNumber === stringNumber.split('').reverse().join('');
+// }
+
+// function isPalindromicNumber(number) {
+//   return isPalindrome(String(number));
+// }
+
+// function isPalindrome(string) {
+//   return string === string.split('').reverse().join('');
+// }
+
+// console.log(isPalindromicNumber(34543));        // true
+// console.log(isPalindromicNumber(123210));       // false
+// console.log(isPalindromicNumber(22));           // true
+// console.log(isPalindromicNumber(5));            // true
+
+/* ========================================
+Easy 4 > 7. Running Totals */
+
+function runningTotal(numbers) {
+  let total = 0;
+
+  return numbers.map(element => {
+    return total += element;
+  });
 }
 
-function centurySuffix(year) {
-  if ([11, 12, 13].includes(year % 100)) return 'th';
-
-  switch (year % 10) {
-    case 1: return 'st';
-    case 2: return 'nd';
-    case 3: return 'rd';
-    default: return 'th';
-  }
-}
-
-console.log(century(2000));        // "20th"
-console.log(century(2001));        // "21st"
-console.log(century(1965));        // "20th"
-console.log(century(256));         // "3rd"
-console.log(century(5));           // "1st"
-console.log(century(10103));       // "102nd"
-console.log(century(1052));        // "11th"
-console.log(century(1127));        // "12th"
-console.log(century(11201));       // "113th"
+console.log(runningTotal([2, 5, 13]));  // [2, 7, 20]
+console.log(runningTotal([14, 11, 7, 15, 20]));    // [14, 25, 32, 47, 67]
+console.log(runningTotal([3]));                    // [3]
+console.log(runningTotal([]));                     // []

@@ -4170,3 +4170,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 14:34 Moving to the couch to get ready to watch Chelsea vs Juventus in Champions League group play.
 
 19:31 Still working on Small Problems > Easy 3 > 10. What Century Is That? A problem that stymies me a little bit still.
+
+20:54 I'm tired and going to stop studying for tonight although I might look at some Anki cards.
