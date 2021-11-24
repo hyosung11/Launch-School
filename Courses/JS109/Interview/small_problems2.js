@@ -805,15 +805,34 @@ Easy 4 > 6. Palindromic Numbers */
 /* ========================================
 Easy 4 > 7. Running Totals */
 
-function runningTotal(numbers) {
-  let total = 0;
+// function runningTotal(numbers) {
+//   let total = 0;
 
-  return numbers.map(element => {
-    return total += element;
+//   return numbers.map(element => {
+//     return total += element;
+//   });
+// }
+
+// console.log(runningTotal([2, 5, 13]));  // [2, 7, 20]
+// console.log(runningTotal([14, 11, 7, 15, 20]));    // [14, 25, 32, 47, 67]
+// console.log(runningTotal([3]));                    // [3]
+// console.log(runningTotal([]));                     // []
+
+function commonElements(array1, array2) {
+  let lastPushed = null;
+
+  return array1.filter((number) => {
+    if (number === lastPushed) return false;
+    lastPushed = number;
+    // console.log(lastPushed); // -1, 3, 4, 6, 7, 9
+    return array2.includes(number);
   });
 }
 
-console.log(runningTotal([2, 5, 13]));  // [2, 7, 20]
-console.log(runningTotal([14, 11, 7, 15, 20]));    // [14, 25, 32, 47, 67]
-console.log(runningTotal([3]));                    // [3]
-console.log(runningTotal([]));                     // []
+console.log(commonElements([-1, 3, 4, 6, 7, 9], [1, 3])); // ➞ [3]
+
+// console.log(commonElements([1, 3, 4, 6, 7, 9], [1, 2, 3, 4, 7, 10])); // ➞ [1, 3, 4, 7]
+
+// console.log(commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 4, 5])); // ➞ [1, 2, 4, 5]
+
+// console.log(commonElements([1, 2, 3, 4, 5], [10, 12, 13, 15])); // ➞ []
