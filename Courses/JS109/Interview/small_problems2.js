@@ -576,4 +576,147 @@ Easy 3 > 5. Right Triangles */
 // *********
 
 /* =========================================
-Easy 3 > 7. Double Doubles */
+Easy 3 > 7. Double Doubles
+
+Algo
+- input number
+- check length of number
+  - if odd-length, multiply number by two
+  - if even-length
+    - check left side against right side
+      - if left-side digits are exactly the same as right-side digits
+        - return number as-is
+      - if not the same
+        - multiply number by two
+- return number */
+
+// function twice(number) {
+//   let stringNumber = String(number);
+//   let center = Math.floor(stringNumber.length / 2);
+//   let leftNumber = stringNumber.slice(0, center);
+//   let rightNumber = stringNumber.slice(center);
+//   return leftNumber === rightNumber ? number :number * 2;
+// }
+
+// console.log(twice(37));          // 74
+// console.log(twice(44));          // 44
+// console.log(twice(334433));      // 668866
+// console.log(twice(444));         // 888
+// console.log(twice(107));         // 214
+// console.log(twice(103103));      // 103103
+// console.log(twice(3333));        // 3333
+// console.log(twice(7676));        // 7676
+
+/* =========================================
+Easy 3 > 8. Grade Book
+
+Algo
+- input three numbers
+- calculate the mean of three numbers
+  - assign letter grade to mean
+- output letter as grade */
+
+// function getGrade(...scores) {
+//   let mean = scores.reduce((total, score) => total + score, 0) / scores.length;
+
+//   if (mean >= 90) return 'A';
+//   if (mean >= 80) return 'B';
+//   if (mean >= 70) return 'C';
+//   if (mean >= 60) return 'D';
+//   return 'F'
+// }
+
+// console.log(getGrade(95, 90, 93));    // "A"
+// console.log(getGrade(50, 50, 95));    // "D"
+
+/* =========================================
+Easy 3 > 9. Clean up the words
+
+Algo
+- input string
+- iterate through string
+  - if char non-alphabetic replace with space
+      - if consecutive non-alphabetic char, replace with only one space
+  - if alphabetic char, add to string
+- output new string */
+
+// function cleanUp(string) {
+//   let result = '';
+//   let letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+//   for (let idx = 0; idx < string.length; idx += 1) {
+//     let char = string[idx]
+//     if (letters.includes(char)) {
+//       result += char;
+//     } else if (result[result.length - 1] !== ' ') {
+//       result += ' ';
+//     }
+//   }
+
+//   return result;
+// }
+
+// function cleanUp(text) {
+//   return text.replace(/[^a-z]/gi, " ").replace(/\s+/gi, " ");
+// }
+
+// function cleanUp(text) {
+//   const ALPHABET = 'abcdefghijklmnopqrstuvwxyz';
+//   let result = [];
+
+//   // `for..of` returns a list of values of the numeric properties of the object being iterated
+//   for (let char of text) {
+//     if (ALPHABET.includes(char.toLowerCase())) {
+//       result.push(char);
+//     } else if (result[result.length - 1] === ' ') {
+//       continue;
+//     } else {
+//       result.push(' ');
+//     }
+//   }
+
+//   return result.join('');
+// }
+
+// console.log(cleanUp("---what's my +*& line?"));    // " what s my line "
+// console.log(cleanUp("WTF-ck*  Really!")); // "wtf ck Really
+
+/* =========================================
+Easy 3 > 10. What Century is That?
+
+Algo
+- input number representing a year
+- calculate century
+  - current year divided by 100 plus 1
+  - if multiple of 100, the century is the current year divided by 100
+- append the suffix
+  - check the last digit of the century
+  - if remainder of dividing the century by 100 ends in either 11, 12, or 13 add `th`
+  - otherwise value of centuryNumber % 10
+- output string of century number and suffix */
+
+function century(year) {
+  let centuryNumber = Math.ceil(year / 100);
+  return `${centuryNumber}${centurySuffix(centuryNumber)}`;
+}
+
+function centurySuffix(year) {
+  if ([11, 12, 13].includes(year % 100)) return 'th';
+
+  switch (year % 10) {
+    case 1: return 'st';
+    case 2: return 'nd';
+    case 3: return 'rd';
+    default: return 'th';
+  }
+}
+
+console.log(century(2000));        // "20th"
+console.log(century(2001));        // "21st"
+console.log(century(1965));        // "20th"
+console.log(century(256));         // "3rd"
+console.log(century(5));           // "1st"
+console.log(century(10103));       // "102nd"
+console.log(century(1052));        // "11th"
+console.log(century(1127));        // "12th"
+console.log(century(11201));       // "113th"
