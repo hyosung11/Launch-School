@@ -935,6 +935,19 @@ Algo
 - convert number into an angle between 0 and 360 degrees
   - return whole number as degrees 30.00 => 30 degrees
   - return fractional component as minutes and seconds
-    - 76.73\
-- output string
-*/
+    - 76.73 degrees => (.73 * 60) 43.8 minutes => (.8 * 60) 48 seconds
+- output string */
+
+const DEGREE = '\xB0';
+const MINUTES_PER_DEGREE = 60;
+const SECONDS_PER_MINUTE = 60;
+const SECONDS_PER_DEGREE = 
+function dms(number) {
+
+}
+console.log(dms(30));           // 30°00'00"
+console.log(dms(76.73));        // 76°43'48"
+console.log(dms(254.6));        // 254°35'59"
+console.log(dms(93.034773));    // 93°02'05"
+console.log(dms(0));            // 0°00'00"
+console.log(dms(360));          // 360°00'00" or 0°00'00"
