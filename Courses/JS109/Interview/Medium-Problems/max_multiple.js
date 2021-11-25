@@ -91,3 +91,10 @@ console.log(maxMultiple(7, 100) === 98);
 
 //   return lastNumber;
 // }
+
+function maxMultiple(divisor, bound) {
+  while (true) {
+    if (bound % divisor === 0) return bound;
+    bound -= 1;
+  }
+}

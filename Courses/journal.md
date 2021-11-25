@@ -4184,3 +4184,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 20:38 Everyone has left and I have a few minutes before the study group starts.
 
 22:36 Worked on validParentheses problem from the study group. I needed help to solve it. I need help to solve most problems.
+
+## 20211125 목요일
+
+10:50 Thanksgiving morning and I want to keep coding.
