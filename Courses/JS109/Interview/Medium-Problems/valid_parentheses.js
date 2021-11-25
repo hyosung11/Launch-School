@@ -42,14 +42,10 @@ function validParentheses(parens) {
     }
   }
 
-  if (openParens === 0) {
-    return true;
-  } else {
-    return false;
-  }
+  return openParens === 0;
 }
 
 console.log(validParentheses( "()" )) // true
 console.log(validParentheses("(())((()())())")) // true
 console.log(validParentheses("((())))(")) // false
-console.log(validParentheses("((())))(()")) // false */
+console.log(validParentheses("((())))(()")) // false

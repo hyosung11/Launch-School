@@ -4182,3 +4182,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 14:53 I am getting this stuff slowly and surely.
 
 20:38 Everyone has left and I have a few minutes before the study group starts.
+
+22:36 Worked on validParentheses problem from the study group. I needed help to solve it. I need help to solve most problems.
