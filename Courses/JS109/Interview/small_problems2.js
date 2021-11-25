@@ -851,3 +851,90 @@ Easy 4 > 8. Letter Counter (Part 1) */
 // console.log(wordSizes('Hey diddle diddle, the cat and the fiddle!'));  // { "3": 5, "6": 1, "7": 2 }
 // console.log(wordSizes("What's up doc?")); // { "2": 1, "4": 1, "6": 1 }
 // console.log(wordSizes('')); // {}
+
+/* ========================================
+Easy 4 > 8. Letter Counter (Part 2) */
+
+// function wordSizes(words) {
+//   let count = {};
+//   if (words === '') return count;
+//   words = words.replace(/[^a-z\s]/gi, '');
+
+//   words.split(' ').forEach((word) => {
+//     count[word.length] = count[word.length] + 1 || 1;
+//   });
+
+//   return count;
+// }
+
+// console.log(wordSizes('Four score and seven.')); // { "3": 1, "4": 1, "5": 2 }
+// console.log(wordSizes('Hey diddle diddle, the cat and the fiddle!'));  // { "3": 5, "6": 3 }
+// console.log(wordSizes("What's up doc?")); // { "2": 1, "3": 1, "5": 1 }
+// console.log(wordSizes('')); // {}
+
+/* ========================================
+Easy 4 > 10. Letter Swap
+
+Algo
+- input string of words
+- iterate through the words
+  - split the string into space-delimited words
+  - for each word
+    - slice last char of word
+    - slice middle of word
+    - slice first char of word
+- join the words back together
+- return new string */
+
+// function swap(words) {
+//   return words
+//     .split(' ')
+//     .map(word => {
+//       if (word.length === 1) return word;
+//       word.slice(word.length - 1) +
+//     })
+// }
+
+// function swap(words) {
+//   return words
+//     .split(' ')
+//     .map(word => {
+//       if (word.length === 1) return word;
+//       return word.slice(word.length - 1) + word.slice(1, word.length - 1) + word.slice(0, 1);
+//     })
+//     .join(' ');
+// }
+
+// function swap(words) {
+//   return words
+//     .split(' ')
+//     .map((word) => {
+//       if (word.length === 1) {
+//         return word;
+//       } else {
+//         // last letter + middle letters + first letter
+//         return (
+//           word.slice(word.length - 1) +
+//           word.slice(1, word.length - 1) +
+//           word.slice(0, 1)
+//         );
+//       }
+//     })
+//     .join(' ');
+// }
+
+// console.log(swap('Oh what a wonderful day it is')); // "hO thaw a londerfuw yad ti si"
+// console.log(swap('Abcde')); // "ebcdA"
+// console.log(swap('a')); // "a"
+
+/* ========================================
+Easy 5 > 1. Cute Angles
+
+Algo
+- input number
+- convert number into an angle between 0 and 360 degrees
+  - return whole number as degrees 30.00 => 30 degrees
+  - return fractional component as minutes and seconds
+    - 76.73\
+- output string
+*/

@@ -4180,3 +4180,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 14:01 After the holiday concert for SungOh and getting the kids and making lunch. I have a little time to study some more. Laurent is quite good with problem-solving. I need to review what we did today.
 
 14:53 I am getting this stuff slowly and surely.
+
+20:38 Everyone has left and I have a few minutes before the study group starts.
