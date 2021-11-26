@@ -4200,3 +4200,5 @@ How awesome are the engineers in the company? If you're the best one there, that
 08:59 Awake and looking at code.
 
 12:02 Studying on and off for the last three hours. Some problems seem so much easier the third time around and others still seem hard. Use PEDAC. It's my friend.
+
+12:24 Time to get our Christmas tree and lunch.

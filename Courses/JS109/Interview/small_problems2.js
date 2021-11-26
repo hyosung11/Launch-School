@@ -1524,9 +1524,25 @@ Algo
 //   return -Math.abs(number);
 // }
 
-function negative(number) {
-  
-}
-console.log(negative(5));     // -5
-console.log(negative(-3));    // -3
-console.log(negative(0));     // -0
+// const negative = (number) => Math.abs(number) === number ? -number : number;
+
+// console.log(negative(5));     // -5
+// console.log(negative(-3));    // -3
+// console.log(negative(0));     // -0
+
+// Easy 6 > 6. Counting Up
+// function sequence(number) {
+//   let numbersArray = [];
+
+//   for (let idx = 1; idx <= number; idx += 1) {
+//     numbersArray.push(idx);
+//   }
+
+//   return numbersArray;
+// }
+
+// const sequence = (number) => [...Array(number)].map((_, idx) => idx + 1);
+
+// console.log(sequence(5));    // [1, 2, 3, 4, 5]
+// console.log(sequence(3));    // [1, 2, 3]
+// console.log(sequence(1));    // [1]
