@@ -4194,3 +4194,9 @@ How awesome are the engineers in the company? If you're the best one there, that
 18:25 Been programming throughout Thanksgiving. Gaining more fluency and confidence.
 
 19:20 Almost time to leave. Working on Easy 5.
+
+## 20211126 금요일
+
+08:59 Awake and looking at code.
+
+12:02 Studying on and off for the last three hours. Some problems seem so much easier the third time around and others still seem hard. Use PEDAC. It's my friend.

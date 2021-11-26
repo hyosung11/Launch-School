@@ -105,22 +105,22 @@ console.log(countMatchingIndices([])); // []
 // }
 
 // Laurent's Version
-// function countMatchingIndices(array) {
-//   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+function countMatchingIndices(array) {
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
-//   return array.map((string) => {
-//     let count = 0;
+  return array.map((string) => {
+    let count = 0;
 
-//     string
-//       .toLowerCase()
-//       .split('')
-//       .forEach((char, index) => {
-//         if (alphabet.indexOf(char) === index) count += 1;
-//       });
+    string
+      .toLowerCase()
+      .split('')
+      .forEach((char, index) => {
+        if (alphabet.indexOf(char) === index) count += 1;
+      });
 
-//     return count;
-//   });
-// }
+    return count;
+  });
+}
 
 function countMatchingIndices(array) {
   let alphabet = 'abcdefghijklmnopqrstuvwxyz';

@@ -1346,9 +1346,187 @@ Algo
 //   return Math.floor(sum);
 // };
 
-function average(numbers) {
-  return Math.floor(numbers.reduce((sum, num) => sum + num) / numbers.length)
-}
+// function average(numbers) {
+//   return Math.floor(numbers.reduce((sum, number) => sum + number, 0) / numbers.length);
+// }
 
-console.log(average([1, 5, 87, 45, 8, 8]));       // 25
-console.log(average([9, 47, 23, 95, 16, 52]));    // 40
+// console.log(average([1, 5, 87, 45, 8, 8]));       // 25
+// console.log(average([9, 47, 23, 95, 16, 52]));    // 40
+
+/* Easy 5 > 11. After Midnight
+- input: integer
+- output: time in 24 hour format */
+
+// const MINUTES_PER_HOUR = 60;
+// const HOURS_PER_DAY = 24;
+// const MINUTES_PER_DAY = MINUTES_PER_HOUR * HOURS_PER_DAY;
+
+// function leadingZero(number) {
+//   return number < 10 ? `0${number}` : String(number);
+// }
+
+// function formatTime(hours, minutes) {
+//   return `${leadingZero(hours)}:${leadingZero(minutes)}`;
+// }
+
+// function timeOfDay(deltaMinutes) {
+//   if (deltaMinutes < 0) {
+//     deltaMinutes = (deltaMinutes % MINUTES_PER_DAY) + MINUTES_PER_DAY;
+//   } else {
+//     deltaMinutes = deltaMinutes % MINUTES_PER_DAY;
+//   }
+
+//   let hours = Math.floor(deltaMinutes / MINUTES_PER_HOUR);
+//   let minutes = deltaMinutes % MINUTES_PER_HOUR;
+
+//   return formatTime(hours, minutes);
+// }
+
+// console.log(timeOfDay(0) === '00:00');
+// console.log(timeOfDay(-3) === '23:57');
+// console.log(timeOfDay(35) === '00:35');
+// console.log(timeOfDay(-1437) === '00:03');
+// console.log(timeOfDay(3000) === '02:00');
+// console.log(timeOfDay(800) === '13:20');
+// console.log(timeOfDay(-4231) === '01:29');
+
+// function countMatchingIndices(array) {
+//   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+//   return array.map(string => {
+//     let count = 0;
+
+//     string
+//       .toLowerCase()
+//       .split('')
+//       .forEach((char, idx) => {
+//         if (alphabet.indexOf(char) === idx) count += 1;
+//       });
+
+//       return count;
+//   });
+// }
+
+// console.log(countMatchingIndices(['abode', 'ABc', 'xyzD'])); // [4, 3, 1]
+// console.log(countMatchingIndices(['abide', 'ABc', 'xyz'])); // [4, 3, 0]
+// console.log(
+//   countMatchingIndices(['IAMDEFANDJKL', 'thedefgh', 'xyzDEFghijabc'])
+// ); // [6, 5, 7]
+// console.log(countMatchingIndices(['encode', 'abc', 'xyzD', 'ABmD'])); // [1, 3, 1, 3]
+// console.log(countMatchingIndices([])); // []
+
+// Easy 5 > 12. After Midnight (Part 2)
+
+// const HOURS_PER_DAY = 24;
+// const MINUTES_PER_HOUR = 60;
+// const MINUTES_PER_DAY = HOURS_PER_DAY * MINUTES_PER_HOUR;
+
+// function afterMidnight(timeString) {
+//  let [hours, minutes] = timeString.split(':').map(num => Number(num));
+//  return ((hours * MINUTES_PER_HOUR) + minutes) % MINUTES_PER_DAY;
+// }
+
+// function beforeMidnight(timeString) {
+//   let deltaMinutes = MINUTES_PER_DAY - afterMidnight(timeString);
+//   if (deltaMinutes === MINUTES_PER_DAY) {
+//     deltaMinutes = 0;
+//   }
+
+//   return deltaMinutes;
+// }
+
+// console.log(afterMidnight('00:00') === 0);
+// console.log(beforeMidnight('00:00') === 0);
+// console.log(afterMidnight('12:34') === 754);
+// console.log(beforeMidnight('12:34') === 686);
+// console.log(afterMidnight('24:00') === 0);
+// console.log(beforeMidnight('24:00') === 0);
+
+// Easy 6 > 1. Double Char (Part 1)
+// function repeater(string) {
+//   return string
+//     .split('')
+//     .map(char => char + char)
+//     .join('');
+// }
+
+// function repeater(string) {
+//   let doubleChars = ''
+
+//   for (let idx = 0; idx < string.length; idx += 1) {
+//     doubleChars += string[idx] + string[idx];
+//   }
+
+//   return doubleChars;
+// }
+
+// console.log(repeater('Hello'));        // "HHeelllloo"
+// console.log(repeater('Good job!'));    // "GGoooodd  jjoobb!!"
+// console.log(repeater(''));             // ""
+
+// Easy 6 > 2. Double Char (Part 2)
+// function doubleConsonants(string) {
+//   const CONSONANTS = 'bcdfghjklmnpqrstvwxyz';
+//   return string
+//     .split('')
+//     .map(char => {
+//       return CONSONANTS.indexOf(char.toLowerCase() >= 0) ? char.repeat(2) : char;
+//     })
+//     .join('');
+// }
+
+// // console.log(onlyConsonants('m'));
+
+// console.log(doubleConsonants('String')); // "SSttrrinngg"
+// console.log(doubleConsonants('Hello-World!')); // "HHellllo-WWorrlldd!"
+// console.log(doubleConsonants('July 4th')); // "JJullyy 4tthh"
+// console.log(doubleConsonants('')); // ""
+
+// Easy 6 > 3. Reverse Number
+// function reverseNumber(number) {
+//   // `[...String(number)]` here, the spread operator turns the number into a string of digits. It does the same thing as `split('')`.
+//   return Number([...String(number)].reverse().join(''));
+// }
+
+// The `+` unary operator converts the whole expression to a number, which works similarly to `parseInt()` and drops leading zeroes.
+// const reverseNumber = (number) => +[...String(number)].reverse().join('');
+
+// console.log(reverseNumber(12345));    // 54321
+// console.log(reverseNumber(12213));    // 31221
+// console.log(reverseNumber(456));      // 654
+// console.log(reverseNumber(12000));    // 21 -- Note that leading zeros in the result get dropped!
+// console.log(reverseNumber(1));        // 1
+
+// Easy 6 > 4. Get The Middle Character
+// function centerOf(string) {
+//   let middle = Math.ceil(string.length / 2);
+//   if (string.length % 2 === 1) return string.slice(middle - 1, middle);
+//   if (string.length % 2 === 0) return string.slice(middle - 1, middle + 1);
+// }
+
+// function centerOf(string) {
+//   let middle = Math.ceil(string.length / 2);
+//   return string.length % 2 === 1 ? string.slice(middle - 1, middle) : string.slice(middle - 1, middle + 1);
+// }
+
+// console.log(centerOf('I Love JavaScript')); // "a"
+// console.log(centerOf('Launch School'));     // " "
+// console.log(centerOf('Launch'));            // "un"
+// console.log(centerOf('Launchschool'));      // "hs"
+// console.log(centerOf('x'));                 // "x"
+
+// Easy 6 > 5. Always Return Negative
+// function negative(number) {
+//   return Math.abs(number) * -1;
+// }
+
+// function negative(number) {
+//   return -Math.abs(number);
+// }
+
+function negative(number) {
+  
+}
+console.log(negative(5));     // -5
+console.log(negative(-3));    // -3
+console.log(negative(0));     // -0
