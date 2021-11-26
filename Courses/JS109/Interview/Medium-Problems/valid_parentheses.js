@@ -26,7 +26,7 @@ Rules
 // console.log(validParentheses( "()" )) // true
 // console.log(validParentheses("(())((()())())")) // true
 // console.log(validParentheses("((())))(")) // false
-// console.log(validParentheses("((())))(()")) // false*/
+// console.log(validParentheses("((())))(()")) // false */
 
 function validParentheses(parens) {
   let openParens = 0;
@@ -37,9 +37,25 @@ function validParentheses(parens) {
     } else {
       openParens -= 1;
     }
+
     if (openParens < 0) {
       return false;
     }
+  }
+
+  if (openParens === 0) {
+    return true;
+  } else {
+    return false; //openParens === 0;
+  }
+}
+
+function validParentheses(parens) {
+  let openParens = 0;
+
+  for (let idx = 0; idx < parens.length; idx += 1) {
+    parens[idx] === '(' ? openParens += 1 : openParens -= 1;
+    if (openParens < 0) return false;
   }
 
   return openParens === 0;

@@ -4202,3 +4202,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 12:02 Studying on and off for the last three hours. Some problems seem so much easier the third time around and others still seem hard. Use PEDAC. It's my friend.
 
 12:24 Time to get our Christmas tree and lunch.
+
+13:52 We got a nice tree from Home Depot and lunch from McDonald's. Back to coding before my PT appointment.
+
+14:21 Doing variations on Valid Parentheses problem. I see how knowing more can make your code more concise.
