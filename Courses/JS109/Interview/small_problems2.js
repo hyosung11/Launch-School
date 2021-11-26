@@ -941,10 +941,21 @@ Algo
 // const DEGREE = '\xB0';
 // const MINUTES_PER_DEGREE = 60;
 // const SECONDS_PER_MINUTE = 60;
-// const SECONDS_PER_DEGREE = 
-// function dms(number) {
+// const SECONDS_PER_DEGREE = MINUTES_PER_DEGREE * SECONDS_PER_MINUTE; // 3600
 
+// function dms(degreesFloat) {
+//   let degreesInt = Math.floor(degreesFloat);
+//   let minutes = Math.floor((degreesFloat - degreesInt) * MINUTES_PER_DEGREE);
+//   let seconds = Math.floor((degreesFloat - degreesInt - (minutes / MINUTES_PER_DEGREE)) * SECONDS_PER_DEGREE);
+
+//   return `${String(degreesInt)}${DEGREE}${padZeroes(minutes)}'${padZeroes(seconds)}"`;
 // }
+
+// function padZeroes(number) {
+//   let numString = String(number);
+//   return numString.length < 2 ? ('0' + numString) : numString;
+// }
+
 // console.log(dms(30));           // 30°00'00"
 // console.log(dms(76.73));        // 76°43'48"
 // console.log(dms(254.6));        // 254°35'59"
@@ -954,19 +965,18 @@ Algo
 
 /* ==============
 Alex's Problem
-Problem Description
+
 Given a divisor and a bound, find the largest number N such that:
 N is divisible by the divisor
 N is less than or equal to the bound
 N is greater than 0. */
 
-function maxMultiple (divisor, bound) {
-  while (true) {
-    if (bound % divisor === 0) return bound;
-    bound -= 1;
-  }
-}
-
+// function maxMultiple (divisor, bound) {
+//   while (true) {
+//     if (bound % divisor === 0) return bound;
+//     bound -= 1;
+//   }
+// }
 
 // Test Cases
 
@@ -977,9 +987,368 @@ function maxMultiple (divisor, bound) {
 // console.log(maxMultiple(37, 200));
 // console.log(maxMultiple(7, 100));
 
-console.log(maxMultiple(2, 7) === 6);
-console.log(maxMultiple(3, 10) === 9);
-console.log(maxMultiple(7, 17) === 14);
-console.log(maxMultiple(10, 50) === 50);
-console.log(maxMultiple(37, 200) === 185);
-console.log(maxMultiple(7, 100) === 98);
+// console.log(maxMultiple(2, 7) === 6);
+// console.log(maxMultiple(3, 10) === 9);
+// console.log(maxMultiple(7, 17) === 14);
+// console.log(maxMultiple(10, 50) === 50);
+// console.log(maxMultiple(37, 200) === 185);
+// console.log(maxMultiple(7, 100) === 98);
+
+// Easy 5 > 2. Combining Arrays
+// function union(array1, array2) {
+//   let result = [];
+//   let values = [...array1, ...array2];
+
+//   values.forEach(value => {
+//     if (!result.includes(value)) result.push(value);
+//   })
+
+//   return result;
+// }
+
+// function union(...args) {
+//   let result = [];
+
+//   args.forEach(array => {
+//     array.forEach(value => {
+//       if (!result.includes(value)) {
+//         result.push(value);
+//       }
+//     })
+//   })
+
+//   return result;
+// }
+
+// function union(array1, array2) {
+//   let combinedArrays = array1.concat(array2);
+//   let resultArray = [];
+
+//   for (let idx = 0; idx < combinedArrays.length; idx += 1) {
+//     if (!resultArray.includes(combinedArrays[idx])) {
+//       resultArray.push(combinedArrays[idx]);
+//     }
+//   }
+//   return resultArray;
+// }
+
+// function union(array1, array2) {
+//   let combinedArray2 = [...array1, ...array2];
+//   let resultArray = [];
+
+//   combinedArray2.forEach(value => {
+//     if (!resultArray.includes(value)) resultArray.push(value);
+//   });
+
+//   return resultArray;
+// }
+
+// console.log(union([1, 3, 5], [3, 6, 9]));    // [1, 3, 5, 6, 9]
+
+/* Easy 5 > 3. Halvsies
+- input: array
+- find middle of the array
+- put first half of the original elements in the first element of the return value
+- put the second half in the second element
+- if original array contains an odd number of elements, put the middle element in the first element of the returned array
+- output: nested array */
+
+// function halvsies(array) {
+//   let middle = Math.ceil(array.length / 2);
+//   let leftHalf = array.slice(0, middle);
+//   let rightHalf = array.slice(middle);
+//   return [leftHalf, rightHalf];
+// }
+
+// console.log(halvsies([1, 2, 3, 4])); // [[1, 2], [3, 4]]
+// console.log(halvsies([1, 5, 2, 4, 3])); // [[1, 5, 2], [4, 3]]
+// console.log(halvsies([5])); // [[5], []]
+// console.log(halvsies([])); // [[], []]
+
+/* Easy 5 > 4. Find the Duplicate
+- input: array
+- initialize `values` to collect values
+- iterate through array
+  - add value to object
+  - if value repeats exit the loop
+- return: repeat value as number */
+
+// function findDuplicate(array) {
+//   let values = {};
+
+//   for (let idx = 0; idx < array.length; idx += 1) {
+//     if (values[array[idx]]) {
+//       return array[idx];
+//     } else {
+//       values[array[idx]] = true;
+//     }
+//   }
+
+//   return undefined;
+// }
+
+// function findDuplicate(array) {
+//   let values = [];
+
+//   for (let idx = 0; idx < array.length; idx += 1) {
+//     if (values.includes(array[idx])) {
+//       return array[idx];
+//     } else {
+//       values.push(array[idx]);
+//     }
+//   }
+
+//   return 'no duplicates';
+// }
+
+/* Checks to see if the index of the current element is the same as the index of the first appearance of that element in the array, if the element is the same but the index is different that means that it's a duplicate. */
+// function findDuplicate(array) {
+//   array = array.filter((ele, index) => array.indexOf(ele) !== index);
+//   return array[0];
+// }
+
+// function findDuplicate(array) {
+//   return array.find((ele, idx) => array.lastIndexOf(ele) !== idx);
+// }
+
+// function findDuplicate(array) {
+//   let values = [];
+
+//   for (let idx = 0; idx < array.length; idx += 1) {
+//     if (values.includes(array[idx])) {
+//       return array[idx];
+//     } else {
+//       values.push(array[idx]);
+//     }
+//   }
+
+//   return 'no duplicates';
+// }
+
+// console.log(findDuplicate([1, 5, 3, 1])); // 1
+// console.log(findDuplicate([18,  9, 36, 96, 31, 19, 54, 75, 42, 15,
+//          38, 25, 97, 92, 46, 69, 91, 59, 53, 27,
+//          14, 61, 90, 81,  8, 63, 95, 99, 30, 65,
+//          78, 76, 48, 16, 93, 77, 52, 49, 37, 29,
+//          89, 10, 84,  1, 47, 68, 12, 33, 86, 60,
+//          41, 44, 83, 35, 94, 73, 98,  3, 64, 82,
+//          55, 79, 80, 21, 39, 72, 13, 50,  6, 70,
+//          85, 87, 51, 17, 66, 20, 28, 26,  2, 22,
+//          40, 23, 71, 62, 73, 32, 43, 24,  4, 56,
+//           7, 34, 57, 74, 45, 11, 88, 67,  5, 58])); // 73
+
+// Easy 5 > 5. Combine Two Lists
+
+// function interleave(array1, array2) {
+//   let combinedArrays = [];
+
+//   for (let idx = 0; idx < array1.length; idx += 1) {
+//     combinedArrays.push(array1[idx], array2[idx]);
+//   }
+
+//   return combinedArrays;
+// }
+
+// console.log(interleave([1, 2, 3], ['a', 'b', 'c'])); // [1, "a", 2, "b", 3, "c"]
+
+// function interleave(array1, array2) {
+//   let resultArray = [];
+
+//   for (let idx = 0; idx < array1.length; idx += 1) {
+//     resultArray.push(array1[idx], array2[idx]);
+//   }
+
+//   return resultArray;
+// }
+
+// function interleave(array1, array2) {
+//   let combinedArrays = [];
+
+//   array1.forEach((_, idx) => {
+//     combinedArrays.push(array1[idx], array2[idx]);
+//   });
+
+//   return combinedArrays;
+// }
+
+// function interleave(arr1, arr2) {
+//   return arr1.reduce((acc, _, idx) => {
+//     acc.push(arr1[idx], arr2[idx]);
+//     return acc;
+//   }, []);
+// }
+
+// function interleave(...args) {
+//   let result = [];
+//   let longest = Math.max(...args.map(array => array.length));
+
+//   for (let idx = 0; idx < longest; idx += 1) {
+//     args.forEach(array => {
+//       if (array.length > idx) {
+//         result.push(array[idx]);
+//       }
+//     });
+//   }
+
+//   return result;
+// }
+
+// console.log(interleave([1, 2, 3], ['a', 'b', 'c'], ['!', '@', '#', '$']));
+// [
+//   1,   'a', '!', 2,   'b',
+//   '@', 3,   'c', '#', '$'
+// ]
+
+/* Easy 5 > 6. Multiplicative Average
+- input: array
+- iterate through the array
+  - multiply all the integers together
+  - divide total by number of entries in the array
+- convert number to string to three decimal places
+- output: string */
+
+// function multiplicativeAverage(array) {
+//   return (array.reduce((total, number) => total *= number, 1) / array.length).toFixed(3);
+// }
+
+// function multiplicativeAverage(numbers) {
+//   let product = 1;
+
+//   for (let idx = 0; idx < numbers.length; idx += 1) {
+//     product *= numbers[idx];
+//   }
+
+//   return (product / numbers.length).toFixed(3);
+// }
+
+// function multiplicativeAverage(numbers) {
+//   return (
+//     numbers.reduce((total, number) => (total *= number), 1) / numbers.length
+//   ).toFixed(3);
+// }
+
+// console.log(multiplicativeAverage([3, 5])); // "7.500"
+// console.log(multiplicativeAverage([2, 5, 7, 11, 13, 17])); // "28361.667"
+
+// Easy 5 > 7. Multiply Lists
+
+// function multiplyList(array1, array2) {
+//   let product = [];
+
+//   for (let idx = 0; idx < array1.length; idx += 1) {
+//     product.push(array1[idx] * array2[idx]);
+//   }
+//   return product;
+// }
+
+// function multiplyList(array1, array2) {
+//   return array1.map((_, idx) => array1[idx] * array2[idx]);
+// }
+
+// function multiplyList(arr1, arr2) {
+//   return arr1.map((number, idx) => number * arr2[idx]);
+// }
+
+// const multiplyList = ((arr1, arr2) => {
+//   return arr1.map((element, idx) => element * arr2[idx]);
+// });
+
+// console.log(multiplyList([3, 5, 7], [9, 10, 11])); // [27, 50, 77]
+
+// Easy 5 > 8. List of Digits
+
+// function digitList(number) {
+//   // let numberString = String(number);
+
+//   return String(number).split('').map(digit => Number(digit));
+// }
+
+// function digitList(number) {
+//   return [...String(number)].map(Number);
+// }
+
+// function digitList(number) {
+//   return String(number).split('').map(digit => Number(digit));
+// }
+
+// console.log(digitList(12345)); // [1, 2, 3, 4, 5]
+// console.log(digitList(7)); // [7]
+// console.log(digitList(375290)); // [3, 7, 5, 2, 9, 0]
+// console.log(digitList(444)); // [4, 4, 4]
+
+/* Easy 5 > 9. How Many?
+
+Algo
+- input: array
+- initialize `occurrences` object
+- iterate through array
+  - add type to  `count`
+    - increase total for each additional type
+- output: type and amount */
+
+// let vehicles = [
+//   'car',
+//   'car',
+//   'truck',
+//   'car',
+//   'SUV',
+//   'truck',
+//   'motorcycle',
+//   'motorcycle',
+//   'car',
+//   'truck',
+//   'suv'
+// ];
+
+// function countOccurrences(items) {
+//   let occurrences = {};
+
+//   items.forEach(item => {
+//     item = item.toLowerCase();
+//     occurrences[item] ? occurrences[item] += 1 : occurrences[item] = 1;
+//   });
+
+//   logOccurrences(occurrences);
+// }
+
+// function logOccurrences(list) {
+//   Object.entries(list).forEach(([key, value]) => {
+//     console.log(`${key} => ${value}`);
+//   });
+// }
+// countOccurrences(vehicles);
+
+// console output -- your output sequence may be different
+// (car) => 4;
+// (truck) => 3;
+// (SUV) => 1;
+// (motorcycle) => 2;
+
+/* Easy 5 > 10. Array Average
+
+Algo
+- input array of integers
+- iterate through array
+  - sum all the numbers in the array
+  - divide the sum by the number of elements in the array
+  - round down to the integer component of the average
+- output number */
+
+// function average(numbers) {
+//   return Math.floor(numbers.reduce((sum, num) => sum + num) / numbers.length);
+// }
+
+// function average(numbers) {
+//   let sum = 0;
+
+//   numbers.forEach(number => sum += (number / numbers.length));
+
+//   return Math.floor(sum);
+// };
+
+function average(numbers) {
+  return Math.floor(numbers.reduce((sum, num) => sum + num) / numbers.length)
+}
+
+console.log(average([1, 5, 87, 45, 8, 8]));       // 25
+console.log(average([9, 47, 23, 95, 16, 52]));    // 40

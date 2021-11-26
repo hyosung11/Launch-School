@@ -4188,3 +4188,9 @@ How awesome are the engineers in the company? If you're the best one there, that
 ## 20211125 목요일
 
 10:50 Thanksgiving morning and I want to keep coding.
+
+12:08 It took me forever with a lot of help to finish 'Cute Angles'.
+
+18:25 Been programming throughout Thanksgiving. Gaining more fluency and confidence.
+
+19:20 Almost time to leave. Working on Easy 5.
