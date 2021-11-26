@@ -1546,3 +1546,32 @@ Algo
 // console.log(sequence(5));    // [1, 2, 3, 4, 5]
 // console.log(sequence(3));    // [1, 2, 3]
 // console.log(sequence(1));    // [1]
+
+// Easy 6 > 7. Name Swapping
+// function swapName(name) {
+//   return name.split(' ').reverse().join(', ');
+// }
+
+// function swapName(fullName) {
+//   let splitNames = fullName.split(' ');
+//   // console.log(splitNames);
+//   // console.log(splitNames.pop() + ', ' + splitNames.join(' '));
+//   return `${splitNames.pop()}, ${splitNames.join(' ')}`;
+
+// }
+
+// function swapName(fullName) {
+//   let splitNames = fullName.split(' ');
+//   return `${splitNames.pop()}, ${splitNames.join()}`
+// }
+// console.log(swapName('Joe Roberts'));    // "Roberts, Joe"
+
+// console.log(swapName('Karl Oskar Henriksson Ragvals'));    // "Ragvals, Karl Oskar Henriksson"
+
+// Easy 6 > 8. Sequence Count
+
+
+console.log(sequence(5, 1));          // [1, 2, 3, 4, 5]
+console.log(sequence(4, -7));         // [-7, -14, -21, -28]
+console.log(sequence(3, 0));          // [0, 0, 0]
+console.log(sequence(0, 1000000));    // []

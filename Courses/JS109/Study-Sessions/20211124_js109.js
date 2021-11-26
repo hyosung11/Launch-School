@@ -116,9 +116,9 @@ console.log(maxMultiple(37, 200) === 185);
 console.log(maxMultiple(7, 100) === 98);
 
 =================
-/HyoSung's Problem
+HyoSung's Problem
 
-/* Write a function called validParentheses that takes a string of parentheses and determines if the order of the parentheses is valid. The function should return true if the string is valid and false if it is invalid.
+Write a function called validParentheses that takes a string of parentheses and determines if the order of the parentheses is valid. The function should return true if the string is valid and false if it is invalid.
 
 Examples:
 "()"                =>  true
