@@ -4222,3 +4222,5 @@ console.log(swapName('Karl Oskar Henriksson Ragvals')); // "Ragvals, Karl Oskar 
 16:29 Back from PT.
 
 21:34 We watched the rest of The Goblet of Fire for movie night and I'm cranking away at Small Problems > Easy 6. Reversing an array in place still gives me a little trouble.
+
+22:05 Through Easy 6 for a third time. I'll do List Processing tomorrow. Definitely need to do Medium Problems again. Not sure about the Easy ones.

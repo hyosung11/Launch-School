@@ -1652,37 +1652,66 @@ Algo
 // console.log(reverseWords('Launch School')); // "hcnuaL loohcS"
 
 // Easy 6 > 11. Reversed Arrays
-function reverse(array) {
-  let leftIndex = 0;
-  let rightIndex = array.length - 1;
+// function reverse(array) {
+//   let leftIndex = 0;
+//   let rightIndex = array.length - 1;
 
-  while (leftIndex < rightIndex) {
-    [array[leftIndex], array[rightIndex]] =
-      [array[rightIndex], array[leftIndex]];
-    leftIndex += 1;
-    rightIndex -= 1;
+//   while (leftIndex < rightIndex) {
+//     [array[leftIndex], array[rightIndex]] =
+//       [array[rightIndex], array[leftIndex]];
+//     leftIndex += 1;
+//     rightIndex -= 1;
+//   }
+
+//   return array;
+// }
+
+// function reverse(array) {
+//   for (let count = 0; count < array.length; count += 1) {
+//     array.splice(count, 0, array.pop());
+//   }
+//   return array;
+// }
+
+// let list = [1, 2, 3, 4];
+// let result = reverse(list);
+// console.log(result); // logs [4,3,2,1]
+// console.log(list === result); // logs true
+
+// let list1 = ["a", "b", "c", "d", "e"];
+// let result1 = reverse(list1);
+// console.log(result1); // logs  ["e", "d", "c", "b", "a"]
+// console.log(list1 === result1); // logs true
+
+// let list2 = ["abc"];
+// let result2 = reverse(list2);
+// console.log(result2); // logs  ["abc"]
+// console.log(list2 === result2); // logs true
+
+// let list3 = [];
+// let result3 = reverse(list3);
+// console.log(result3); // logs []
+// console.log(list3 === result3); // logs true
+
+// Easy 6 > 12. Matching Parentheses?
+function isBalanced(string) {
+  let parens = 0;
+
+  for (let idx = 0; idx < string.length; idx += 1) {
+    let char = string[idx];
+    if (char === '(') parens += 1;
+    if (char === ')') parens -= 1;
+    if (parens < 0) return false;
   }
 
-  return array;
+  return parens === 0;
 }
 
-
-let list = [1, 2, 3, 4];
-let result = reverse(list);
-console.log(result); // logs [4,3,2,1]
-console.log(list === result); // logs true
-
-let list1 = ["a", "b", "c", "d", "e"];
-let result1 = reverse(list1);
-console.log(result1); // logs  ["e", "d", "c", "b", "a"]
-console.log(list1 === result1); // logs true
-
-let list2 = ["abc"];
-let result2 = reverse(list2);
-console.log(result2); // logs  ["abc"]
-console.log(list2 === result2); // logs true
-
-let list3 = [];
-let result3 = reverse(list3);
-console.log(result3); // logs []
-console.log(list3 === result3); // logs true
+console.log(isBalanced('What (is) this?') === true);
+console.log(isBalanced('What is) this?') === false);
+console.log(isBalanced('What (is this?') === false);
+console.log(isBalanced('((What) (is this))?') === true);
+console.log(isBalanced('((What)) (is this))?') === false);
+console.log(isBalanced('Hey!') === true);
+console.log(isBalanced(')Hey!(') === false);
+console.log(isBalanced('What ((is))) up(') === false);
