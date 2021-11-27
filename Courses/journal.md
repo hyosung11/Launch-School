@@ -4218,3 +4218,7 @@ function swapName(fullName) {
 console.log(swapName('Joe Roberts')); // "Roberts, Joe"
 console.log(swapName('Karl Oskar Henriksson Ragvals')); // "Ragvals, Karl Oskar Henriksson"
 ```
+
+16:29 Back from PT.
+
+21:34 We watched the rest of The Goblet of Fire for movie night and I'm cranking away at Small Problems > Easy 6. Reversing an array in place still gives me a little trouble.

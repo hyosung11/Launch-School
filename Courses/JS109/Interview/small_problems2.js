@@ -1570,8 +1570,119 @@ Algo
 
 // Easy 6 > 8. Sequence Count
 
+// function sequence(count, start) {
+//   // if (count === 0) return [];
 
-console.log(sequence(5, 1));          // [1, 2, 3, 4, 5]
-console.log(sequence(4, -7));         // [-7, -14, -21, -28]
-console.log(sequence(3, 0));          // [0, 0, 0]
-console.log(sequence(0, 1000000));    // []
+//   let numbersArray = [];
+
+//   for (let idx = 1; idx <= count; idx += 1) {
+//     numbersArray.push(idx * start)
+//   }
+
+//   return numbersArray;
+// }
+
+// function sequence(count, startNum) {
+//   let resultArray = [];
+
+//   for (let idx = 1; idx <= count; idx += 1) {
+//     resultArray.push(idx * startNum);
+//   }
+
+//   return resultArray;
+// }
+
+// function sequence(count,startNum) {
+//   return [...Array(count)].map((_, idx) => startNum * (idx + 1));
+// }
+
+// const sequence = (count, start) => [...Array(count)].map((_, idx) => start * (idx + 1));
+
+// console.log(sequence(5, 1)); // [1, 2, 3, 4, 5]
+// console.log(sequence(4, -7)); // [-7, -14, -21, -28]
+// console.log(sequence(3, 0)); // [0, 0, 0]
+// console.log(sequence(0, 1000000)); // []
+
+// Easy 6 > 9. Reverse It (Part 1)
+// function reverseSentence(string) {
+//   return string.split(' ').reverse().join(' ');
+// }
+
+// console.log(reverseSentence('')); // ""
+// console.log(reverseSentence('Hello World')); // "World Hello"
+// console.log(reverseSentence('Reverse these words')); // "words these Reverse"
+
+// Easy 6 > 10. Reverse It (Part 2)
+// function reverseWords(words) {
+//   return words
+//     .split(' ')
+//     .map(word => word.length > 4 ? word.split('').reverse().join('') : word)
+//     .join(' ');
+// }
+
+// function reverseWords(string) {
+//   let reverseWords = [];
+//   let words = string.split(' ');
+
+//   for (let idx = 0; idx < words.length; idx += 1) {
+//     let word = words[idx];
+//     if (word.length < 5) {
+//       reverseWords.push(word);
+//     } else {
+//       reverseWords.push(word.split('').reverse().join(''));
+//     }
+//   }
+
+//   return reverseWords.join(' ');
+// }
+
+// const reverseWords = (string) => {
+//   return string
+//     .split(' ')
+//     .map(word => word.length > 4 ?
+//       word.split('').reverse().join('') :
+//       word)
+//     .join(' ')
+// }
+
+// // const reverseWords = (words) => words.split(' ').map(word => word.length > 4 ? word.split('').reverse().join('') : word).join(' ');
+
+// console.log(reverseWords('Professional')); // "lanoisseforP"
+// console.log(reverseWords('Walk around the block')); // "Walk dnuora the kcolb"
+// console.log(reverseWords('Launch School')); // "hcnuaL loohcS"
+
+// Easy 6 > 11. Reversed Arrays
+function reverse(array) {
+  let leftIndex = 0;
+  let rightIndex = array.length - 1;
+
+  while (leftIndex < rightIndex) {
+    [array[leftIndex], array[rightIndex]] =
+      [array[rightIndex], array[leftIndex]];
+    leftIndex += 1;
+    rightIndex -= 1;
+  }
+
+  return array;
+}
+
+
+let list = [1, 2, 3, 4];
+let result = reverse(list);
+console.log(result); // logs [4,3,2,1]
+console.log(list === result); // logs true
+
+let list1 = ["a", "b", "c", "d", "e"];
+let result1 = reverse(list1);
+console.log(result1); // logs  ["e", "d", "c", "b", "a"]
+console.log(list1 === result1); // logs true
+
+let list2 = ["abc"];
+let result2 = reverse(list2);
+console.log(result2); // logs  ["abc"]
+console.log(list2 === result2); // logs true
+
+let list3 = [];
+let result3 = reverse(list3);
+console.log(result3); // logs []
+console.log(list3 === result3); // logs true

@@ -44,6 +44,7 @@ function reverseWord(word) {
   return word.split('').reverse().join('');
 }
 
+
 // Examples:
 console.log(reverseWords('Professional')); // "lanoisseforP"
 console.log(reverseWords('Walk around the block')); // "Walk dnuora the kcolb"
