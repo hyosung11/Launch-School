@@ -4207,7 +4207,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 
 14:21 Doing variations on Valid Parentheses problem. I see how knowing more can make your code more concise.
 
-14:49 Learning more about using `pop()` which removes the last element of an array and returns that element. 
+14:49 Learning more about using `pop()` which removes the last element of an array and returns that element.
 
 ```js
 function swapName(fullName) {
@@ -4248,3 +4248,4 @@ function compare(a, b) {
 
 14:19 More studying. Learn and learn and learn and get better.
 
+15:06 Finished List Processing for the third time. I still have some issues with how to do some things. On the road to mastery though.
