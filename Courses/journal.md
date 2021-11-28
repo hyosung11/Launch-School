@@ -4224,3 +4224,27 @@ console.log(swapName('Karl Oskar Henriksson Ragvals')); // "Ragvals, Karl Oskar 
 21:34 We watched the rest of The Goblet of Fire for movie night and I'm cranking away at Small Problems > Easy 6. Reversing an array in place still gives me a little trouble.
 
 22:05 Through Easy 6 for a third time. I'll do List Processing tomorrow. Definitely need to do Medium Problems again. Not sure about the Easy ones.
+
+## 20211127 토요일
+
+08:52 Just before breakfast. Look at some code.
+
+```js
+function compare(a, b) {
+  if (a is less than b by some ordering criterion) {
+    return -1; // place `a` before `b`
+  }
+  if (a is greater than b by the ordering criterion) {
+    return 1; // place `b` before `a`
+  }
+  // a must be equal to b
+  return 0; // keep `a` and `b` in the same order
+}
+```
+
+12:34 Dang, Michigan intercepted at the goal line.
+
+## 20211128 일요일
+
+14:19 More studying. Learn and learn and learn and get better.
+

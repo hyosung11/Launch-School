@@ -200,9 +200,7 @@ ALGORITHM
   - if not a digit:
     - isNumber = false
     - push currentNum to numbers array
-    - currentNum = 0
-
-*/
+    - currentNum = 0 */
 
 function sumOfNumbers(str) {
   let chars = str.split('');
