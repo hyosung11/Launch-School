@@ -4249,3 +4249,5 @@ function compare(a, b) {
 14:19 More studying. Learn and learn and learn and get better.
 
 15:06 Finished List Processing for the third time. I still have some issues with how to do some things. On the road to mastery though.
+
+16:44 Taking a long time to iterate through each problem, but I think I am understanding them better and better.

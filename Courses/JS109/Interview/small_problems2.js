@@ -2015,3 +2015,104 @@ Algo
 // console.log(isItemAvailable(101, transactions)); // false
 // console.log(isItemAvailable(103, transactions)); // false
 // console.log(isItemAvailable(105, transactions)); // true
+
+// String and Text Processing > 1. Uppercase Check
+
+// function isUppercase(string) {
+//   // all of the alphabetic characters are uppercase is true only if the string is not altered by converting it to all uppercase
+//   return string === string.toUpperCase()
+// }
+// function isUppercase(phrase) {
+//   return !/[a-z]/.test(phrase);
+// }
+
+// function isUppercase(string) {
+//   return string.toUpperCase() === string;
+// }
+
+// console.log(isUppercase('t'));               // false
+// console.log(isUppercase('T'));               // true
+// console.log(isUppercase('Four Score'));      // false
+// console.log(isUppercase('FOUR SCORE'));      // true
+// console.log(isUppercase('4SCORE!'));         // true
+// console.log(isUppercase(''));                // true
+
+// String and Text Processing > 2. Delete Vowels
+
+// Version 1
+// function removeVowels(array) {
+//   const VOWELS = 'aeiouAEIOU';
+
+//   return array.map(word => {
+//     return word
+//       .split('')
+//       .filter(char => !VOWELS.includes(char))
+//       .join('');
+//   });
+// }
+
+// Version 2
+// function removeVowels(array) {
+//   return array.map(words => words.replace(/[aeiou]/gi, ""));
+// }
+
+// Version 3
+// function removeVowels(array) {
+//   const VOWELS = 'aeiouAEIOU';
+//   return array.map((words) => {
+//     return words
+//       .split('')
+//       .filter((char) => !VOWELS.includes(char))
+//       .join('');
+//   });
+// }
+
+// Version 4
+// function removeVowels(array) {
+//   const vowels = 'aeiouAEIOU'.split('');
+//   let result = array.map((str) => {
+//     return str
+//       .split('')
+//       .filter((char) => !vowels.includes(char))
+//       .join('');
+//   });
+//   return result;
+// }
+
+// function removeVowels(stringArray) {
+//   return stringArray
+//     .map(string => {
+//       let chars = string.split('');
+//       let removedVowels = deleteVowels(chars);
+//       return removedVowels.join('');
+//   });
+// }
+
+// function deleteVowels(word) {
+//   const VOWELS = 'aeiouAEIOU';
+//   return word.map(char => {
+//     if (VOWELS.indexOf(char) >= 0) {
+//       return '';
+//     } else {
+//       return char;
+//     }
+//   });
+// }
+
+// function removeVowels(stringArray) {
+//   return stringArray.map(words => words.replace(/[aeiou]/gi, ""));
+// }
+
+function removeVowels(stringArray) {
+  const VOWELS = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+  return stringArray.map(words => {
+    return words
+      .split('')
+      .filter(char => !VOWELS.includes(char))
+      .join('');
+  });
+}
+
+console.log(removeVowels(['abcdefghijklmnopqrstuvwxyz'])); // ["bcdfghjklmnpqrstvwxyz"]
+console.log(removeVowels(['green', 'YELLOW', 'black', 'white'])); // ["grn", "YLLW", "blck", "wht"]
+console.log(removeVowels(['ABC', 'AEIOU', 'XYZ'])); // ["BC", "", "XYZ"]
