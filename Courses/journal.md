@@ -4253,3 +4253,5 @@ function compare(a, b) {
 16:44 Taking a long time to iterate through each problem, but I think I am understanding them better and better.
 
 19:38 Time to put the kids to bed. The `String.prototype.toUpperCase` and `String.prototype.toLowerCase` methods handle both alphabetic and non-alphabetic characters.
+
+22:30 Practiced up to Medium Problems a third time. I might have to do some of the problems a fourth time.
