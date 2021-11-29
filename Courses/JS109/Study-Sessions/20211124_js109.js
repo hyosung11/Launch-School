@@ -183,27 +183,42 @@ Rules
 - open must have a close */
 
 function validParentheses(parens) {
-  let openParens = 0;
+  let open = 0;
 
   for (let idx = 0; idx < parens.length; idx += 1) {
     if (parens[idx] === '(') {
-      openParens += 1;
+      open += 1;
     } else {
-      openParens -= 1;
+      open -= 1;
     }
-    if (openParens < 0) {
-      return false;
-    }
+    if (open < 0) return false;
   }
 
-  if (openParens === 0) {
-    return true;
-  } else {
-    return false;
-  }
+  return open === 0;
 }
 
 console.log(validParentheses( "()" )) // true
 console.log(validParentheses("(())((()())())")) // true
 console.log(validParentheses("((())))(")) // false
 console.log(validParentheses("((())))(()")) // false */
+
+// function validParentheses(parens) {
+//   let openParens = 0;
+
+//   for (let idx = 0; idx < parens.length; idx += 1) {
+//     if (parens[idx] === '(') {
+//       openParens += 1;
+//     } else {
+//       openParens -= 1;
+//     }
+//     if (openParens < 0) {
+//       return false;
+//     }
+//   }
+
+//   if (openParens === 0) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }

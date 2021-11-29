@@ -4255,3 +4255,7 @@ function compare(a, b) {
 19:38 Time to put the kids to bed. The `String.prototype.toUpperCase` and `String.prototype.toLowerCase` methods handle both alphabetic and non-alphabetic characters.
 
 22:30 Practiced up to Medium Problems a third time. I might have to do some of the problems a fourth time.
+
+## 20211129 월요일
+
+09:11 Home with SungOh because he didn't feel well and is not going to school today.
