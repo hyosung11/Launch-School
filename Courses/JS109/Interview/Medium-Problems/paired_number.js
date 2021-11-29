@@ -39,9 +39,11 @@ Implementation of Algorithm
 function pairedNums(array) {
   let result = [];
   let sortedArray = array.sort((a, b) => a - b);
+  // console.log(sortedArray); // [1, 2, 3, 5, 6, 7, 8, 9];
 
   while (sortedArray.length !== 0) {
     let plusTwo = sortedArray.filter((number) => number === sortedArray[0] + 2);
+    // console.log(plusTwo); // [ 3 ], [], [ 7 ], [ 8 ], []
 
     if (plusTwo.length > 0) {
       result.push([sortedArray[0]].concat(plusTwo));
@@ -53,8 +55,8 @@ function pairedNums(array) {
   return result;
 }
 
-console.log(pairedNums([1, 3, 2, 6, 8, 5, 9, 7])); // ==> [ [ 1, 3 ], [ 5, 7 ], [ 6, 8 ] ]
-console.log(pairedNums([22, 33, 24, 26, 31, 35, 20, 27])); // ==> [ [ 20, 22 ], [ 24, 26 ], [ 31, 33 ] ]
+pairedNums([1, 3, 2, 6, 8, 5, 9, 7]); // ==> [ [ 1, 3 ], [ 5, 7 ], [ 6, 8 ] ]
+// console.log(pairedNums([22, 33, 24, 26, 31, 35, 20, 27])); // ==> [ [ 20, 22 ], [ 24, 26 ], [ 31, 33 ] ]
 
 
 // Solution with Laurent
@@ -76,41 +78,41 @@ console.log(pairedNums([22, 33, 24, 26, 31, 35, 20, 27])); // ==> [ [ 20, 22 ], 
 // }
 
 // Miles's Version
-function pairedNums(arr) {
-  let arrSorted = arr.sort();
-  let allPairs = [];
+// function pairedNums(arr) {
+//   let arrSorted = arr.sort();
+//   let allPairs = [];
 
-  for (let outerIdx = 0; outerIdx < arrSorted.length; outerIdx += 1) {
-    for (
-      let innerIdx = outerIdx + 1;
-      innerIdx < arrSorted.length;
-      innerIdx += 1
-    ) {
-      let pair = [arrSorted[outerIdx], arrSorted[innerIdx]];
+//   for (let outerIdx = 0; outerIdx < arrSorted.length; outerIdx += 1) {
+//     for (
+//       let innerIdx = outerIdx + 1;
+//       innerIdx < arrSorted.length;
+//       innerIdx += 1
+//     ) {
+//       let pair = [arrSorted[outerIdx], arrSorted[innerIdx]];
 
-      if (pair[1] - pair[0] === 2) {
-        if (allPairs.length === 0) {
-          allPairs.push(pair);
-        } else if (!includesNested(allPairs, pair)) {
-          allPairs.push(pair);
-        }
-      }
-    }
-  }
+//       if (pair[1] - pair[0] === 2) {
+//         if (allPairs.length === 0) {
+//           allPairs.push(pair);
+//         } else if (!includesNested(allPairs, pair)) {
+//           allPairs.push(pair);
+//         }
+//       }
+//     }
+//   }
 
-  return allPairs;
-}
+//   return allPairs;
+// }
 
-function includesNested(arr, nested) {
-  let result = false;
+// function includesNested(arr, nested) {
+//   let result = false;
 
-  arr.forEach((subArr) =>
-    subArr.forEach((val) => {
-      if (nested.includes(val)) {
-        result = true;
-      }
-    })
-  );
+//   arr.forEach((subArr) =>
+//     subArr.forEach((val) => {
+//       if (nested.includes(val)) {
+//         result = true;
+//       }
+//     })
+//   );
 
-  return result;
-}
+//   return result;
+// }

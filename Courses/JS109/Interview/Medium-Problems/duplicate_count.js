@@ -1,8 +1,7 @@
 /* Duplicate Count
 
 Problem Description
-Write a function that will return the count of distinct case-insensitive
-alphabetic characters and numeric digits that occur more than once in the input string.
+Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string.
 
 The input string can be assumed to contain only alphabets
 (both uppercase and lowercase) and numeric digits. */
@@ -45,7 +44,6 @@ function duplicateCount(string) {
   for (let idx = 0; idx < string.length; idx += 1) {
     let char = string[idx].toLowerCase();
     count[char] ? count[char] += 1 : count[char] = 1;
-    console.log(count);
   }
 
   return Object.values(count).filter(letterCount => letterCount > 1).length;
