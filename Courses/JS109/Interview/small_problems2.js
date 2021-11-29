@@ -2103,16 +2103,131 @@ Algo
 //   return stringArray.map(words => words.replace(/[aeiou]/gi, ""));
 // }
 
-function removeVowels(stringArray) {
-  const VOWELS = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
-  return stringArray.map(words => {
-    return words
-      .split('')
-      .filter(char => !VOWELS.includes(char))
-      .join('');
-  });
-}
+// function removeVowels(stringArray) {
+//   const VOWELS = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+//   return stringArray.map(words => {
+//     return words
+//       .split('')
+//       .filter(char => !VOWELS.includes(char))
+//       .join('');
+//   });
+// }
 
-console.log(removeVowels(['abcdefghijklmnopqrstuvwxyz'])); // ["bcdfghjklmnpqrstvwxyz"]
-console.log(removeVowels(['green', 'YELLOW', 'black', 'white'])); // ["grn", "YLLW", "blck", "wht"]
-console.log(removeVowels(['ABC', 'AEIOU', 'XYZ'])); // ["BC", "", "XYZ"]
+// console.log(removeVowels(['abcdefghijklmnopqrstuvwxyz'])); // ["bcdfghjklmnpqrstvwxyz"]
+// console.log(removeVowels(['green', 'YELLOW', 'black', 'white'])); // ["grn", "YLLW", "blck", "wht"]
+// console.log(removeVowels(['ABC', 'AEIOU', 'XYZ'])); // ["BC", "", "XYZ"]
+
+// String and Text Processing > 3. Lettercase Counter
+// function letterCaseCount(string) {
+//   let result = {lowercase: 0, uppercase: 0, neither: 0};
+
+//   string
+//     .split('')
+//     .filter(char => {
+//       if (char >= 'a' && char <= 'z') {
+//         return result.lowercase += 1;
+//       } else if (char >= 'A' && char <= 'Z') {
+//         return result.uppercase += 1;
+//       } else {
+//         return result.neither += 1;
+//       }
+//     });
+
+//   return result;
+// }
+
+// function letterCaseCount(string) {
+//   let result = { lowercase: 0, uppercase: 0, neither: 0 };
+
+//   string.split('').filter((char) => {
+//     if (char >= 'a' && char <= 'z') return result.lowercase += 1;
+//     if (char >= 'A' && char <= 'Z') return result.uppercase += 1;
+//     return result.neither += 1;
+//   });
+
+//   return result;
+// }
+
+// function letterCaseCount(string) {
+//   let lowercaseChars = string.match(/[a-z]/g) || [];
+//   let uppercaseChars = string.match(/[A-Z]/g) || [];
+//   let neitherChars = string.match(/[^a-z]/gi) || [];
+
+//   return {
+//     lowercase: lowercaseChars.length,
+//     uppercase: uppercaseChars.length,
+//     neither: neitherChars.length
+//   }
+// }
+
+// console.log(letterCaseCount('abCdef 123')); // { lowercase: 5, uppercase: 1, neither: 4 }
+// console.log(letterCaseCount('AbCd +Ef')); // { lowercase: 3, uppercase: 3, neither: 2 }
+// console.log(letterCaseCount('123')); // { lowercase: 0, uppercase: 0, neither: 3 }
+// console.log(letterCaseCount('')); // { lowercase: 0, uppercase: 0, neither: 0 }
+
+// String and Text Processing > 4. Capitalize Words
+// function wordCap(words) {
+//   return words
+//     .split(' ')
+//     .map(word => word.slice(0, 1).toUpperCase() + word.slice(1).toLowerCase())
+//     .join(' ');
+// }
+
+// console.log(wordCap('four score and seven')); // "Four Score And Seven"
+// console.log(wordCap('the javaScript language')); // "The Javascript Language"
+// console.log(wordCap('this is a "quoted" word')); // 'This Is A "quoted" Word'
+
+// String and Text Processing > 5. Swap Case
+// function swapCase(string) {
+//   return string
+//     .split('')
+//     .map(char => {
+//       if (char >= 'A' && char <= 'Z') return char.toLowerCase();
+//       if (char >= 'a' && char <= 'z') return char.toUpperCase();
+//       return char;
+//     })
+//     .join('');
+// }
+
+// function swapCase(string) {
+//   let newString = '';
+
+//   for (let idx = 0; idx < string.length; idx += 1) {
+//     let char = string[idx];
+//     newString += char === char.toLowerCase() ? char.toUpperCase() : char.toLowerCase();
+//   }
+
+//   return newString;
+// }
+
+// console.log(swapCase('CamelCase')); // "cAMELcASE"
+// console.log(swapCase('Tonight on XYZ-TV')); // "tONIGHT ON xyz-tv"
+
+// String and Text Processing > 6. Staggered Caps (Part 1)
+
+/* The `String.prototype.toUpperCase `and `String.prototype.toLowerCase` methods handle both alphabetic and non-alphabetic characters. */
+
+// function staggeredCase(string) {
+//   return string
+//     .split('')
+//     .map((char, idx) => {
+//       if (idx % 2 === 0) {
+//         return char.toUpperCase()
+//       } else {
+//         return char.toLowerCase()
+//       }
+//     })
+//     .join('')
+// }
+
+// const staggeredCase = (string) =>
+//   string
+//     .split('')
+//     .map((char, idx) => {
+//       return idx % 2 === 0 ? char.toUpperCase() : char.toLowerCase()
+//     })
+//     .join('');
+
+// console.log(staggeredCase('I Love Launch School!')); // "I LoVe lAuNcH ScHoOl!"
+// console.log(staggeredCase('ALL_CAPS')); // "AlL_CaPs"
+// console.log(staggeredCase('ignore 77 the 4444 numbers')); // "IgNoRe 77 ThE 4444 nUmBeRs"
