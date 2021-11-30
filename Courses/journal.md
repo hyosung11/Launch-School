@@ -4280,3 +4280,31 @@ splice(start, deleteCount, item1, item2, itemN)
 
 21:03 Doing more testing / console.log of my code. This is good, so I know what is being returned at each step. Time to watch some TV with Sohee.
 
+## 20211130 화요일
+
+08:56 I haven't done daily scrum in a while. What about today? I need to get back to keeping track of my work.
+
+09:00 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Worked on Small Problems > Medium 1 > Rotation (Part 1)
+   * [x] 2. Watched Felicia Bacon's video about using PEDAC (I could ask her to do a study session with me)
+   * [x] 3. I got an interview at GitHub for an Inside Solutions Engineer position, so I did some research on the PreSales Collective website and GitHub Features.
+
+2. What will you do today?
+   * [ ] 1. Practice Small Problems > Medium 1
+     * [x] 1. Rotation (Part 2) - good to practice this one again and code out Laurent's solution as well
+     * [ ] 2. Rotation (Part 3)
+     * [ ] 3. Stack Machine Interpretation
+     * [ ] 4. Word to Digit
+   * [ ] 2. JS109 Study Group
+   * [ ] 3. Prepare for interview with GitHub
+     * [ ] 1. Read PreSales Collective blogs on the hiring process
+     * [ ] 2. Research GitHub features
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * None
+
+09:15 Should I send this to Alex or not? It's a good reference point nonetheless. I have a plan for today.
+
+09:34 I scheduled my Pomodoro and Eye Divergence timers again.
