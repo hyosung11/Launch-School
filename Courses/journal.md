@@ -4352,3 +4352,5 @@ function rotateRightmostDigits(number, count) {
   return Number(numberArray.concat(element).join(''));
 }
 ```
+
+18:34 I need to prepare for the Solutions Engineer job interview with GitHub. I'm looking at my notes from the Catalogic experience. It's on GitHub.
