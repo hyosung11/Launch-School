@@ -4261,3 +4261,5 @@ function compare(a, b) {
 09:11 Home with SungOh because he didn't feel well and is not going to school today.
 
 16:43 I probably unnecessarily revised my PEDAC template and made it more verbose. Ugh.
+
+19:06 A piece of code to memorize: `if (!Array.isArray(array)) return undefined;`
