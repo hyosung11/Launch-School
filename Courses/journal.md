@@ -4279,4 +4279,3 @@ splice(start, deleteCount, item1, item2, itemN)
 ```
 
 21:03 Doing more testing / console.log of my code. This is good, so I know what is being returned at each step. Time to watch some TV with Sohee.
-
