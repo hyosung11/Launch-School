@@ -1,4 +1,4 @@
-/* JS101 - Small ProblemsMedium 1 > 1. Rotation (Part 1)
+/* JS101 - Small Problems > Medium 1 > 1. Rotation (Part 1)
 
 Rotation (Part 1)
 
@@ -77,13 +77,12 @@ Implementation of Algorithm
 // console.log(rotateArray([])); // []
 // console.log(rotateArray('')); // undefined
 
-/* Medium 1 > 2. Rotation (Part 2)
+/* ============================
+Medium 1 > 2. Rotation (Part 2)
 
 Rotation (Part 2)
 
 Write a function that rotates the last count digits of a number. To perform the rotation, move the first of the digits that you want to rotate to the end and shift the remaining digits to the left.
-
-# PEDAC => process the problem (PEDA) and code with intent (C)
 
 # PEDAC => process the problem (PEDA) and code with intent (C)
 
@@ -121,14 +120,20 @@ Implementation of Algorithm
 
 // function rotateRightmostDigits(number, count) {
 //   let numberString = String(number);
-//   let firstPart = numberString.slice(0, numberString.length - count);
-//   let secondPart = numberString.slice(numberString.length - count);
-//   let resultString = firstPart + rotateString(secondPart);
+//   let leftPart = numberString.slice(0, numberString.length - count);
+//   let rightPart = numberString.slice(numberString.length - count);
+//   let resultString = leftPart + rotateString(rightPart);
 //   return Number(resultString);
 // }
 
 // function rotateString(string) {
 //   return string.slice(1).concat(string[0]);
+// }
+
+// function rotateRightmostDigits(number, count) {
+//   let numberArray = String(number).split('');
+//   let element = numberArray.splice(numberArray.length - count, 1);
+//   return Number(numberArray.concat(element).join(''));
 // }
 
 // Examples:
@@ -144,3 +149,75 @@ Implementation of Algorithm
 //   let element = numberArray.splice(numberArray.length - count, 1);
 //   return Number(numberArray.concat(element).join(''));
 // }
+
+/* ============================
+Medium 1 > 3. Rotation (Part 3)
+
+Rotation (Part 3)
+
+Take the number 735291 and rotate it by one digit to the left, getting 352917. Next, keep the first digit fixed in place and rotate the remaining digits to get 329175. Keep the first two digits fixed in place and rotate again to get 321759. Keep the first three digits fixed in place and rotate again to get 321597. Finally, keep the first four digits fixed in place and rotate the final two digits to get 321579. The resulting number is called the maximum rotation of the original number.
+
+735291 -> 352917 -> 329175 -> 321759 -> 321597 -> 321579
+
+Write a function that takes an integer as an argument and returns the maximum rotation of that integer. You can (and probably should) use the rotateRightmostDigits function from the previous exercise.
+
+# PEDAC => process the problem (PEDA) and code with intent (C)
+
+PROBLEM
+- input: number
+- output: new number
+
+Identify rules
+- if one digit, return the number
+- if two digits, switch the digits or make one rotation
+- if three or more digits, make one less rotation than digits
+
+EXAMPLES / TEST CASES
+maxRotation(735291);          // 321579
+maxRotation(3);               // 3
+maxRotation(35);              // 53
+maxRotation(105);             // 15 -- the leading zero gets dropped
+maxRotation(8703529146);      // 7321609845
+
+DATA STRUCTURE
+- input: number
+- intermediary: string or array
+- output: new number
+
+ALGORITHM
+- input a number
+- convert number to a string
+- if number has one digit, return the number
+- if number has two digits, slice the first digit and append it to the end
+- if number has three or more digits, slice and append one less time than the number of digits
+- return new rotated number
+
+735291 -> 352917 -> 329175 -> 321759 -> 321597 -> 321579
+
+CODE
+Implementation of Algorithm
+- test code while programming */
+
+// function maxRotation(number) {
+//   let numberDigits = String(number).length;
+//   for (let count = numberDigits; count >= 2; count -= 1) {
+//     number = rotateRightmostDigits(number, count);
+//   }
+//   return number;
+// }
+
+
+// function rotateRightmostDigits(number, count) {
+//   let numberArray = String(number).split('');
+//   let element = numberArray.splice(numberArray.length - count, 1);
+//   return Number(numberArray.concat(element).join(''));
+// }
+
+// // console.log(rotateRightmostDigits(123));
+
+// console.log(maxRotation(3));               // 3
+// console.log(maxRotation(35));              // 53
+// console.log(maxRotation(735291));          // 321579
+// console.log(maxRotation(105));             // 15 -- the leading zero gets dropped
+// console.log(maxRotation(8703529146));      // 7321609845
+

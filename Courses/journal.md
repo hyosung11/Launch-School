@@ -4279,3 +4279,76 @@ splice(start, deleteCount, item1, item2, itemN)
 ```
 
 21:03 Doing more testing / console.log of my code. This is good, so I know what is being returned at each step. Time to watch some TV with Sohee.
+
+## 20211130 화요일
+
+08:56 I haven't done daily scrum in a while. What about today? I need to get back to keeping track of my work.
+
+09:00 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Worked on Small Problems > Medium 1 > Rotation (Part 1)
+   * [x] 2. Watched Felicia Bacon's video about using PEDAC (I could ask her to do a study session with me)
+   * [x] 3. I got an interview at GitHub for an Inside Solutions Engineer position, so I did some research on the PreSales Collective website and GitHub Features.
+
+2. What will you do today?
+   * [ ] 1. Practice Small Problems > Medium 1
+     * [x] 1. Rotation (Part 2) - good to practice this one again and code out Laurent's solution as well
+     * [x] 2. Rotation (Part 3) - needed to peek to get the answer
+     * [ ] 3. Stack Machine Interpretation
+     * [ ] 4. Word to Digit
+   * [x] 2. JS109 Study Group
+   * [ ] 3. Prepare for interview with GitHub
+     * [ ] 1. Read PreSales Collective blogs on the hiring process
+     * [ ] 2. Research GitHub features
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * None
+
+09:15 Should I send this to Alex or not? It's a good reference point nonetheless. I have a plan for today.
+
+09:34 I scheduled my Pomodoro and Eye Divergence timers again.
+
+10:31 Starting JS109 Study Group.
+
+11:34 I still suck at solving problems. Ugh. Help.
+
+13:20 I need to memorize using nested loops:
+
+```js
+function getSubArrays(array) {
+  let subArrays = [];
+
+  for (let idx = 0; idx <= array.length; idx += 1) {
+    for (let j = idx + 1; j <= array.length; j += 1) {
+      subArrays.push(array.slice(idx, j));
+      // console.log(subArrays);  [[-2], [-2, 1], [-2, 1, -3], [1], [1, -3], [-3]];
+    }
+  }
+
+  return subArrays;
+}
+```
+
+14:50 Still working on the JS109 Study Group problem. I want to do it again after a short break.
+
+15:26 It took me hours to fully understand the `maxSequence` problem.
+
+15:41 I need to burn this into my brain:
+
+```js
+function maxRotation(number) {
+  let numberDigits = String(number).length;
+  for (let count = numberDigits; count >= 2; count -= 1) {
+    number = rotateRightmostDigits(number, count);
+  }
+
+  return number;
+}
+
+function rotateRightmostDigits(number, count) {
+  let numberArray = String(number).split('');
+  let element = numberArray.splice(numberArray.length - count, 1);
+  return Number(numberArray.concat(element).join(''));
+}
+```
