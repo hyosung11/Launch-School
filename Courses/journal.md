@@ -4263,3 +4263,20 @@ function compare(a, b) {
 16:43 I probably unnecessarily revised my PEDAC template and made it more verbose. Ugh.
 
 19:06 A piece of code to memorize: `if (!Array.isArray(array)) return undefined;`
+
+20:34
+
+`Array.prototype.splice()`
+
+The `splice()` method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place. To access part of an array without modifying it, see `slice()`.
+
+```js
+
+splice(start)
+splice(start, deleteCount)
+splice(start, deleteCount, item1)
+splice(start, deleteCount, item1, item2, itemN)
+```
+
+21:03 Doing more testing / console.log of my code. This is good, so I know what is being returned at each step. Time to watch some TV with Sohee.
+

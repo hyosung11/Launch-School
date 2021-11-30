@@ -77,3 +77,70 @@ Implementation of Algorithm
 // console.log(rotateArray([])); // []
 // console.log(rotateArray('')); // undefined
 
+/* Medium 1 > 2. Rotation (Part 2)
+
+Rotation (Part 2)
+
+Write a function that rotates the last count digits of a number. To perform the rotation, move the first of the digits that you want to rotate to the end and shift the remaining digits to the left.
+
+# PEDAC => process the problem (PEDA) and code with intent (C)
+
+# PEDAC => process the problem (PEDA) and code with intent (C)
+
+PROBLEM
+- input: number and count
+- output: new number
+
+Identify rules
+- Rotate the last `count` digits of the original `number`.
+- Leave the first digits (not part of the last `count` digits) in the same order.
+- Slice off the first of the digits to rotate and append it to the end of the `number`.
+- Join the first digits with the last `count` rotated digits, and return it as a number.
+
+EXAMPLES / TEST CASES
+Validate understanding of the problem
+
+DATA STRUCTURE
+- input: two numbers
+  - the original `number`
+  - last `count` digits to rotate
+- intermediary: string
+- output: new rotated number
+
+ALGORITHM
+- input original `number` to be changed and `count` number of digits to rotate
+- convert the original `number` to a string
+- split the string into two parts: the part to remain unchanged and the part to be rotated
+- rotate the second part
+- join the first part back together with the rotated second part
+- convert the string to a number and return it
+
+CODE
+Implementation of Algorithm
+- test code while programming */
+
+// function rotateRightmostDigits(number, count) {
+//   let numberString = String(number);
+//   let firstPart = numberString.slice(0, numberString.length - count);
+//   let secondPart = numberString.slice(numberString.length - count);
+//   let resultString = firstPart + rotateString(secondPart);
+//   return Number(resultString);
+// }
+
+// function rotateString(string) {
+//   return string.slice(1).concat(string[0]);
+// }
+
+// Examples:
+// console.log(rotateRightmostDigits(735291, 1)); // 735291
+// console.log(rotateRightmostDigits(735291, 2)); // 735219
+// console.log(rotateRightmostDigits(735291, 3)); // 735912
+// console.log(rotateRightmostDigits(735291, 4)); // 732915
+// console.log(rotateRightmostDigits(735291, 5)); // 752913
+// console.log(rotateRightmostDigits(735291, 6)); // 352917
+
+// function rotateRightmostDigits(number, count) {
+//   let numberArray = String(number).split('');
+//   let element = numberArray.splice(numberArray.length - count, 1);
+//   return Number(numberArray.concat(element).join(''));
+// }
