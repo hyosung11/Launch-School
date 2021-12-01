@@ -122,7 +122,7 @@ Juliette's Algorithm
 2. Loop and increment num (first argument) by one each Iteration
  Invoke helper method `isPalindrome`
 If true, push the number to a final array
-Break out of the loop when array.length == second argument
+Break out of the loop when array.length === second argument
 
 3. Define a helper method valid?
 Are both arguments Number ?

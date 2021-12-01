@@ -4292,15 +4292,15 @@ splice(start, deleteCount, item1, item2, itemN)
    * [x] 3. I got an interview at GitHub for an Inside Solutions Engineer position, so I did some research on the PreSales Collective website and GitHub Features.
 
 2. What will you do today?
-   * [ ] 1. Practice Small Problems > Medium 1
+   * [x] 1. Practice Small Problems > Medium 1
      * [x] 1. Rotation (Part 2) - good to practice this one again and code out Laurent's solution as well
      * [x] 2. Rotation (Part 3) - needed to peek to get the answer
      * [ ] 3. Stack Machine Interpretation
      * [ ] 4. Word to Digit
    * [x] 2. JS109 Study Group
-   * [ ] 3. Prepare for interview with GitHub
-     * [ ] 1. Read PreSales Collective blogs on the hiring process
-     * [ ] 2. Research GitHub features
+   * [x] 3. Prepare for interview with GitHub
+     * [x] 1. Read PreSales Collective blogs on the hiring process
+     * [x] 2. Research GitHub features
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * None
@@ -4354,3 +4354,29 @@ function rotateRightmostDigits(number, count) {
 ```
 
 18:34 I need to prepare for the Solutions Engineer job interview with GitHub. I'm looking at my notes from the Catalogic experience. It's on GitHub.
+
+## 20211130 수요일
+
+07:53 Before breakfast with the kids and I have programming on my mind and preparing for the GitHub interview. I need to dissect the job description and assess my knowledge and skills of those bullet points.
+
+09:00 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Worked on Small Problems > Medium 1 > Rotation (Part 1)
+   * [x] 2. Watched Felicia Bacon's video about using PEDAC (I could ask her to do a study session with me)
+   * [x] 3. I got an interview at GitHub for an Inside Solutions Engineer position, so I did some research on the PreSales Collective website and GitHub Features.
+
+2. What will you do today?
+   * [x] 1. Practice Small Problems > Medium 1
+     * [x] 1. Rotation (Part 2) - good to practice this one again and code out Laurent's solution as well
+     * [x] 2. Rotation (Part 3) - needed to peek to get the answer
+     * [ ] 3. Stack Machine Interpretation
+     * [ ] 4. Word to Digit
+   * [x] 2. JS109 Study Group
+   * [x] 3. Prepare for interview with GitHub
+     * [x] 1. Read PreSales Collective blogs on the hiring process
+     * [x] 2. Research GitHub features
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * None
+
