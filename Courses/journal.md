@@ -4320,8 +4320,8 @@ function getSubArrays(array) {
   let subArrays = [];
 
   for (let idx = 0; idx <= array.length; idx += 1) {
-    for (let j = idx + 1; j <= array.length; j += 1) {
-      subArrays.push(array.slice(idx, j));
+    for (let jdx = idx + 1; jdx <= array.length; jdx += 1) {
+      subArrays.push(array.slice(idx, jdx));
       // console.log(subArrays);  [[-2], [-2, 1], [-2, 1, -3], [1], [1, -3], [-3]];
     }
   }
@@ -4359,24 +4359,21 @@ function rotateRightmostDigits(number, count) {
 
 07:53 Before breakfast with the kids and I have programming on my mind and preparing for the GitHub interview. I need to dissect the job description and assess my knowledge and skills of those bullet points.
 
-09:00 Daily Scrum Questions
+08:52 Daily Scrum Questions
 
 1. What did you do yesterday?
-   * [x] 1. Worked on Small Problems > Medium 1 > Rotation (Part 1)
-   * [x] 2. Watched Felicia Bacon's video about using PEDAC (I could ask her to do a study session with me)
-   * [x] 3. I got an interview at GitHub for an Inside Solutions Engineer position, so I did some research on the PreSales Collective website and GitHub Features.
-
-2. What will you do today?
    * [x] 1. Practice Small Problems > Medium 1
      * [x] 1. Rotation (Part 2) - good to practice this one again and code out Laurent's solution as well
      * [x] 2. Rotation (Part 3) - needed to peek to get the answer
-     * [ ] 3. Stack Machine Interpretation
-     * [ ] 4. Word to Digit
-   * [x] 2. JS109 Study Group
+   * [x] 2. JS109 Study Group - I found the `maxSequence` problem difficult
    * [x] 3. Prepare for interview with GitHub
      * [x] 1. Read PreSales Collective blogs on the hiring process
      * [x] 2. Research GitHub features
 
+2. What will you do today?
+   * [ ] 1. Dissect and annotate the Inside Solutions Engineer Job Description
+   * [ ] 2. Read PreSales Collective blogs on the hiring process
+   * [ ] 3. Research GitHub features
+
 3. Are there any blockers or impediments preventing you from doing your work?
    * None
-
