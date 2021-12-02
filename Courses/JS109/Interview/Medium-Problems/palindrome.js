@@ -228,3 +228,90 @@ function palindrome(num, s) {
 
   return palindromeArray;
 }
+
+ /* Palindrome
+
+Instructions
+A palindrome is a word, phrase, number, or other sequence of characters which reads the same backward as forward. Examples of numerical palindromes are:
+
+2332
+110011
+54322345
+
+You'll be given 2 numbers as arguments: (num, s). Write a function which returns an array of s number of numerical palindromes that come after num. If num is a palindrome itself, it should be included in the count.
+
+Return "Not valid" instead if any one of the inputs is not a number or is less than 0.
+
+Single digit numbers will NOT be considered numerical palindromes. 
+
+PEDAC
+- input: two numbers: starting number, and the number of elements to return in the array
+-output: an array of numbers
+
+Rules
+- if either input is not a number return 'not valid'
+- if either input is less than 0 return 'not valid'
+- single digit numbers are not palindromes
+- if s is zero return an empty array
+- if num is a palindrome include it in the count
+
+Examples below
+
+Data Structure
+- input: two numbers: starting number, count number
+- intermediate: array
+- output: array
+
+Algorithm
+- if either input is not a number return 'not valid'
+- if either input is less than 0 return 'not valid'
+- create an empty array that will hold the result
+
+Problem 1: iterate
+- keep track of the number through num 75
+- iterate until the array length is count
+  - check if number is a palindrome
+    - if it is, we push it to the array
+  - increment num
+
+Problem 2: is the number a palindrome
+- turn number to an array and check if it is equal to it's reverse value
+
+- return the result array
+
+*/
+
+function palindrome(num, count) {
+  if (typeof num !== 'number' || typeof count !== 'number') return 'not valid';
+  if (num < 0 || count < 0) return 'not valid';
+  if (num < 10) num = 11;
+
+  let result = [];
+
+  while (result.length < count) {
+    if (isPalindrome(num)) {
+      result.push(num);
+    }
+    num += 1;
+  }
+
+  return result;
+}
+
+function isPalindrome(num) {
+  let numString = String(num);
+  // if (numString.length < 2) return false;
+  return numString === numString.split('').reverse().join('');
+}
+
+console.log(palindrome('ACCDDCCA', 3)); // "Not valid"
+console.log(palindrome(3, 'A')); // "Not valid"
+console.log(palindrome(773, '1551')); // "Not valid"
+console.log(palindrome(-4505, 15)); // "Not valid"
+console.log(palindrome(4505, -15)); // "Not valid"
+
+console.log(palindrome(20, 0)); // []
+console.log(palindrome(75, 1)); // [77]
+console.log(palindrome(6, 4)); // [11,22,33,44] 4 numbers which are the next palindrome numbers
+console.log(palindrome(101, 2)); // [101,111]
+console.log(palindrome(0, 4)); // [11,22,33,44]
