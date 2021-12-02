@@ -221,3 +221,66 @@ Implementation of Algorithm
 // console.log(maxRotation(105));             // 15 -- the leading zero gets dropped
 // console.log(maxRotation(8703529146));      // 7321609845
 
+// Medium 1 > 5. Word to Digit
+/* # PEDAC => process the problem (PEDA) and code with intent (C)
+
+PROBLEM
+- input: sentence string
+- output: sentence string with words changed to their digit character equivalents
+
+Identify rules
+- input a string of words as sentence
+- change each number word to its digit character
+- return new string of words with digits replacing number words
+
+EXAMPLES / TEST CASES
+wordToDigit('Please call me at five five five one two three four. Thanks.');
+// "Please call me at 5 5 5 1 2 3 4. Thanks."
+
+Edge Cases?
+- only single digit numbers?
+
+DATA STRUCTURE
+- input: string
+- intermediary: object and array
+- output: new string
+
+ALGORITHM
+- input a string of words as a sentence
+- create `NUMBER_WORDS` object lookup table
+- split the string at each space
+  - iterate through the string as separate words
+    - if word is a number convert it to a digit
+    - if word is not a number return the word
+  - join the words back together
+- return new string
+
+CODE
+Implementation of Algorithm
+- test code while programming */
+
+function wordToDigit(sentence) {
+  const NUMBER_WORDS = {
+    zero: 0,
+    one: 1,
+    two: 2,
+    three: 3,
+    four: 4,
+    five: 5,
+    six: 6,
+    seven: 7,
+    eight: 8,
+    nine: 9
+  }
+
+  Object.keys(NUMBER_WORDS).forEach(word => {
+    let regex = new RegExp(word, 'g');
+    sentence = sentence.replace(regex, NUMBER_WORDS[word]);
+  })
+
+  return sentence;
+}
+
+console.log(wordToDigit('Please call me at five five five one two three four. Thanks.'));
+// "Please call me at 5 5 5 1 2 3 4. Thanks."
+

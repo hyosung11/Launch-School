@@ -4379,3 +4379,9 @@ function rotateRightmostDigits(number, count) {
    * None
 
 12:43 Sort of on a lunch break. The morning went fast as I focused on research for the GitHub Solutions Engineer job interview that is tomorrow.
+
+## 20211130 목요일
+
+13:11 Get so good at something that I don't have to interview? The screening interview this morning went well, I think. I had already been advanced to the next round because of my relationship with Ravi.
+
+14:26 Discouraged for a moment that I can't seem to figure out a problem that I've seen before. I need to sharpen my technical acumen and keep struggling.
