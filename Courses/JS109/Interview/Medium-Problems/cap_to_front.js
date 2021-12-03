@@ -70,3 +70,21 @@ console.log(capToFront("hApPy")); // "APhpy"
 console.log(capToFront("moveMENT")); // "MENTmove"
 console.log(capToFront("shOrtCAKE")); // "OCAKEshrt"
 
+
+function capToFront(string) {
+  let upperString = '';
+  let lowerString = '';
+
+  for (let idx = 0; idx < string.length; idx += 1) {
+    let char = string[idx];
+    if (char === char.toUpperCase()) {
+      upperString += char;
+    } else if (char === char.toLowerCase()) {
+      lowerString += char;
+    }
+  }
+
+  return upperString + lowerString;
+}
+
+
