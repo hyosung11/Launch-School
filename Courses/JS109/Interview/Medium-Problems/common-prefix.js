@@ -109,3 +109,30 @@ console.log(commonPrefix(['throne', 'dungeon']) === ''); // true
 console.log(commonPrefix(['throne', 'throne']) === 'throne'); // true
 console.log(commonPrefix(['']) === ''); // true
 
+/* ALGORITHM
+declare a result string and initialize with first string
+declare an intermediate result string
+
+iterate over all the strings
+  compare result to all the letters of the second string, if letters are the same, push it to intermediate result
+    once done, copy intermediate to result
+    reset intermediateResult to empty string
+
+return result */
+
+function commonPrefix(array) {
+  let result = array[0];
+  let intermediateResult = '';
+
+  for (let index = 1; index < array.length; index += 1) {
+    for (let charIdx = 0; charIdx < array[index].length; charIdx += 1) {
+      let char = result[charIdx];
+      if (char === array[index][charIdx]) intermediateResult += char;
+    }
+
+    result = intermediateResult;
+    intermediateResult = '';
+  }
+
+  return result;
+}

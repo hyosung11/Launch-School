@@ -4355,7 +4355,7 @@ function rotateRightmostDigits(number, count) {
 
 18:34 I need to prepare for the Solutions Engineer job interview with GitHub. I'm looking at my notes from the Catalogic experience. It's on GitHub.
 
-## 20211130 수요일
+## 20211201 수요일
 
 07:53 Before breakfast with the kids and I have programming on my mind and preparing for the GitHub interview. I need to dissect the job description and assess my knowledge and skills of those bullet points.
 
@@ -4380,8 +4380,14 @@ function rotateRightmostDigits(number, count) {
 
 12:43 Sort of on a lunch break. The morning went fast as I focused on research for the GitHub Solutions Engineer job interview that is tomorrow.
 
-## 20211130 목요일
+## 2021202 목요일
 
 13:11 Get so good at something that I don't have to interview? The screening interview this morning went well, I think. I had already been advanced to the next round because of my relationship with Ravi.
 
 14:26 Discouraged for a moment that I can't seem to figure out a problem that I've seen before. I need to sharpen my technical acumen and keep struggling.
+
+15:45 Studied with Laurent who helped walk me through the `palindrome` problem.
+
+## 2021203 금요일
+
+11:08 I did a study session with Laurent. I have so much to learn. I'm fixing my filepath error in GitHub Learning Lab using Actions. Time to leave for PT in ten minutes.

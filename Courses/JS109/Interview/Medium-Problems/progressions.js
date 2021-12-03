@@ -112,3 +112,18 @@ function progressions(array) {
 
 //   return counter;
 // }
+
+function progressions(array) {
+  let subarrays = [];
+  for (let idx = 0; idx < array.length; idx += 1) {
+    for (let idx2 = idx + 1; idx2 < array.length; idx2 += 1) {
+      for (let idx3 = idx2 + 1; idx3 < array.length; idx3 += 1) {
+        subarrays.push([array[idx], array[idx2], array[idx3]]);
+      }
+    }
+  }
+
+  return subarrays.filter((subarray) => {
+    return subarray[1] - subarray[0] === subarray[2] - subarray[1];
+  }).length;
+}
