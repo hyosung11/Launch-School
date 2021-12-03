@@ -248,39 +248,160 @@ DATA STRUCTURE
 ALGORITHM
 - input a string of words as a sentence
 - create `NUMBER_WORDS` object lookup table
-- split the string at each space
-  - iterate through the string as separate words
-    - if word is a number convert it to a digit
-    - if word is not a number return the word
-  - join the words back together
-- return new string
+- iterate over the keys of `NUMBER_WORDS` object
+  - create a RegExp object and assign it to the `regex` variable
+  - wrap the regex pattern with the word boundary anchor
+  - replace all instances of each numeric word in the `sentence` argument
+- return the new `sentence`
 
 CODE
 Implementation of Algorithm
 - test code while programming */
 
-function wordToDigit(sentence) {
-  const NUMBER_WORDS = {
-    zero: 0,
-    one: 1,
-    two: 2,
-    three: 3,
-    four: 4,
-    five: 5,
-    six: 6,
-    seven: 7,
-    eight: 8,
-    nine: 9
-  }
+// const NUMBER_WORDS = {
+//   zero: 0,
+//   one: 1,
+//   two: 2,
+//   three: 3,
+//   four: 4,
+//   five: 5,
+//   six: 6,
+//   seven: 7,
+//   eight: 8,
+//   nine: 9
+// }
 
-  Object.keys(NUMBER_WORDS).forEach(word => {
-    let regex = new RegExp(word, 'g');
-    sentence = sentence.replace(regex, NUMBER_WORDS[word]);
-  })
+// function wordToDigit(sentence) {
+//   Object.keys(NUMBER_WORDS).forEach(word => {
+//     let regex = new RegExp('\\b' + word + '\\b', 'g');
+//     sentence = sentence.replace(regex, NUMBER_WORDS[word]);
+//   });
 
-  return sentence;
-}
+//   return sentence;
+// }
 
-console.log(wordToDigit('Please call me at five five five one two three four. Thanks.'));
+// console.log(wordToDigit('Please call me at five five five one two three four. Thanks. Done.'));
 // "Please call me at 5 5 5 1 2 3 4. Thanks."
 
+// Medium 1 > 6. Fibonacci Numbers (Recursion)
+// function fibonacci(nth) {
+//   if (nth <= 2) return 1;
+//   return fibonacci(nth - 1) + fibonacci(nth - 2);
+// }
+
+// console.log(fibonacci(1));       // 1
+// console.log(fibonacci(2));       // 1
+// console.log(fibonacci(3));       // 2
+// console.log(fibonacci(4));       // 3
+// console.log(fibonacci(5));       // 5
+// console.log(fibonacci(12));      // 144
+// console.log(fibonacci(20));      // 6765
+
+// Medium 1 > 7. Fibonacci Numbers (Procedural)
+/* Algo
+- input number
+- initialize `previousTwo` array to store values of the current two numbers in the fibonacci series
+- loop and reassign the values of `previousTwo` `nth - 2` times
+- when the `nth` value to look for is one of the first two numbers stop iterating
+- return the second element so that when `nth` is greater than `2` the return value is still valid
+- return number */
+
+// function fibonacci(nth) {
+//   let previousTwo = [1, 1];
+
+//   for (let count = 3; count <= nth; count += 1) {
+//     previousTwo = [previousTwo[1], previousTwo[0] + previousTwo[1]]
+//   }
+
+//   return previousTwo[1];
+// }
+
+// console.log(fibonacci(20));       // 6765
+// console.log(fibonacci(50));       // 12586269025
+// console.log(fibonacci(75));       // 2111485077978050
+
+// Medium 1 > 8. Fibonacci Numbers (Memoization)
+/* Algo
+- input `nth` number
+- initialize `memo` to empty object
+- if `nth` less than or equal to 2, return 1
+- else if look up whether a previous computation has already been done for the nth value
+  - if it has return the value
+- compute the nth value and store in the `memo` object
+- return `memo[nth]` */
+
+// function fibonacci(nth) {
+//   let memo = {};
+//   if (nth <= 2) return 1;
+//   else if (memo[nth]) return memo[nth];
+//   else {
+//     memo[nth] = fibonacci(nth - 1) + fibonacci(nth -2);
+//     return memo[nth];
+//   }
+// }
+
+// console.log(fibonacci(1));       // 1
+// console.log(fibonacci(2));       // 1
+// console.log(fibonacci(3));       // 2
+// console.log(fibonacci(4));       // 3
+// console.log(fibonacci(5));       // 5
+// console.log(fibonacci(12));      // 144
+// console.log(fibonacci(20));      // 6765
+
+// Medium 2 > 1. Lettercase Percentage Ratio
+/* Algo
+- input string
+- initialize `percents` object
+- iterate through the string
+  - check each char of the string
+    - if char is lowercase increase lowercase count
+    - if char is uppercase increase uppercase count
+    - if char is neither increase neither count
+- check percent properties against length of the string
+- convert count for each property to percentage
+- output key-value pairs of type of character with percentage */
+
+// function letterPercentages(string) {
+//   let percents = {lowercase: 0, uppercase: 0, neither: 0};
+
+//   string.split('').forEach(char => {
+//     if (char >= 'a' && char <= 'z') {
+//       percents.lowercase += 1;
+//     } else if (char >= 'A' && char <= 'Z') {
+//       percents.uppercase += 1
+//     } else {
+//       percents.neither += 1;
+//     }
+//   });
+
+//   return calculatePercents(string, percents);
+// }
+
+// function calculatePercents(string, object) {
+//   for (let key in object) {
+//     object[key] = (object[key] / string.length * 100).toFixed(2);
+//   }
+
+//   return object;
+// }
+
+function letterPercentages(string) {
+  let count = string.length;
+
+  function percentage(regex) {
+    let matchingChars = string.match(regex) || [];
+    return ((matchingChars.length / count) * 100).toFixed(2);
+  }
+
+  return {
+    lowercase: percentage(/[a-z]/g),
+    uppercase: percentage(/[A-Z]/g),
+    neither: percentage(/[^a-z]/gi)
+  }
+}
+console.log(letterPercentages('abCdef 123'));
+// { lowercase: "50.00", uppercase: "10.00", neither: "40.00" }
+console.log(letterPercentages('AbCd +Ef'));
+// { lowercase: "37.50", uppercase: "37.50", neither: "25.00" }
+console.log(letterPercentages('123'));
+// { lowercase: "0.00", uppercase: "0.00", neither: "100.00" }
