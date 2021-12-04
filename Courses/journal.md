@@ -4391,3 +4391,11 @@ function rotateRightmostDigits(number, count) {
 ## 2021203 금요일
 
 11:08 I did a study session with Laurent. I have so much to learn. I'm fixing my filepath error in GitHub Learning Lab using Actions. Time to leave for PT in ten minutes.
+
+## 20211204 토요일
+
+08:37 Watching West Ham vs Chelsea and it's 1-2 at the start of the second half.
+
+09:10 Just need to keep practicing problems.
+
+09:38 More small problems practice and now ready to go to the American Girl store and the Lego Store in Manhattan with the family.
