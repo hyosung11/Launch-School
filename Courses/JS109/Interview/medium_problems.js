@@ -357,51 +357,35 @@ Implementation of Algorithm
     - if char is lowercase increase lowercase count
     - if char is uppercase increase uppercase count
     - if char is neither increase neither count
-- check percent properties against length of the string
-- convert count for each property to percentage
+- initialize `calculatePercents` helper function
+  - iterate through `percents` object
+    - check percent properties against length of the string
+    - convert count for each property to percentage
 - output key-value pairs of type of character with percentage */
 
 // function letterPercentages(string) {
+//   let count = string.length;
 //   let percents = {lowercase: 0, uppercase: 0, neither: 0};
 
 //   string.split('').forEach(char => {
-//     if (char >= 'a' && char <= 'z') {
-//       percents.lowercase += 1;
-//     } else if (char >= 'A' && char <= 'Z') {
-//       percents.uppercase += 1
-//     } else {
-//       percents.neither += 1;
-//     }
+//     if (char >= 'a' && char <= 'z') percents.lowercase += 1;
+//     else if (char >= 'A' && char <= 'Z') percents.uppercase += 1;
+//     else percents.neither += 1;
 //   });
 
-//   return calculatePercents(string, percents);
+//   return calculatePercents(count, percents);
 // }
 
-// function calculatePercents(string, object) {
+// function calculatePercents(count, object) {
 //   for (let key in object) {
-//     object[key] = (object[key] / string.length * 100).toFixed(2);
+//     object[key] = (object[key] / count * 100).toFixed(2);
 //   }
-
 //   return object;
 // }
 
-function letterPercentages(string) {
-  let count = string.length;
-
-  function percentage(regex) {
-    let matchingChars = string.match(regex) || [];
-    return ((matchingChars.length / count) * 100).toFixed(2);
-  }
-
-  return {
-    lowercase: percentage(/[a-z]/g),
-    uppercase: percentage(/[A-Z]/g),
-    neither: percentage(/[^a-z]/gi)
-  }
-}
-console.log(letterPercentages('abCdef 123'));
-// { lowercase: "50.00", uppercase: "10.00", neither: "40.00" }
-console.log(letterPercentages('AbCd +Ef'));
-// { lowercase: "37.50", uppercase: "37.50", neither: "25.00" }
-console.log(letterPercentages('123'));
-// { lowercase: "0.00", uppercase: "0.00", neither: "100.00" }
+// console.log(letterPercentages('abCdef 123'));
+// // { lowercase: "50.00", uppercase: "10.00", neither: "40.00" }
+// console.log(letterPercentages('AbCd +Ef'));
+// // { lowercase: "37.50", uppercase: "37.50", neither: "25.00" }
+// console.log(letterPercentages('123'));
+// // { lowercase: "0.00", uppercase: "0.00", neither: "100.00" }
