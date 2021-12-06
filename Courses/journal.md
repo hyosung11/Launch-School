@@ -4399,3 +4399,10 @@ function rotateRightmostDigits(number, count) {
 09:10 Just need to keep practicing problems.
 
 09:38 More small problems practice and now ready to go to the American Girl store and the Lego Store in Manhattan with the family.
+
+## 20211205 일요일
+
+19:25 I reffed most of the day and am working on some small problems before the bedtime of the kids.
+
+20:08 Watching Money Heist with Sohee.
+
