@@ -410,7 +410,11 @@ Implementation of Algorithm
 
 function triangle(...args) {
   let [shortest, middle, longest] = [...args].sort((a, b) => a - b);
-  
+
+  if (shortest + middle + longest !== 180 || shortest <= 0) return 'invalid';
+  if (longest === 90) return 'right';
+  if (longest < 90) return 'acute';
+  if (longest > 90) return 'obtuse';
 }
 
 console.log(triangle(60, 70, 50));       // "acute"
