@@ -408,17 +408,43 @@ Implementation of Algorithm
 
 // Medium 2 > 3. Tri-Angles
 
-function triangle(...args) {
-  let [shortest, middle, longest] = [...args].sort((a, b) => a - b);
+// function triangle(...args) {
+//   let [shortest, middle, longest] = [...args].sort((a, b) => a - b);
 
-  if (shortest + middle + longest !== 180 || shortest <= 0) return 'invalid';
-  if (longest === 90) return 'right';
-  if (longest < 90) return 'acute';
-  if (longest > 90) return 'obtuse';
+//   if (shortest + middle + longest !== 180 || shortest <= 0) return 'invalid';
+//   if (longest === 90) return 'right';
+//   if (longest < 90) return 'acute';
+//   if (longest > 90) return 'obtuse';
+// }
+
+// console.log(triangle(60, 70, 50));       // "acute"
+// console.log(triangle(30, 90, 60));       // "right"
+// console.log(triangle(120, 50, 10));      // "obtuse"
+// console.log(triangle(0, 90, 90));        // "invalid"
+// console.log(triangle(50, 50, 50));       // "invalid"
+
+/* Medium 2 > 4. Unlucky Days
+Algo
+- input number representing a year
+- initialize `thirteenths` to an empty array
+- iterate through the months of the year
+  - iterate through the Fridays of the each month
+    - find Fridays that fall on the 13th of th month
+    - increase count
+- output number representing the number of Friday the 13ths in that year*/
+
+function fridayThe13ths(year) {
+  let thirteenths = [];
+
+  for (let month = 0; month < 12; month += 1) {
+    thirteenths.push(new Date(year, month, 13));
+  }
+
+  return thirteenths.reduce((count, day) => {
+     return day.getDay() === 5 ? count + 1 : count;
+  }, 0);
 }
 
-console.log(triangle(60, 70, 50));       // "acute"
-console.log(triangle(30, 90, 60));       // "right"
-console.log(triangle(120, 50, 10));      // "obtuse"
-console.log(triangle(0, 90, 90));        // "invalid"
-console.log(triangle(50, 50, 50));       // "invalid"
+console.log(fridayThe13ths(1986));      // 1
+console.log(fridayThe13ths(2015));      // 3
+console.log(fridayThe13ths(2017));      // 2
