@@ -391,17 +391,30 @@ Implementation of Algorithm
 // // { lowercase: "0.00", uppercase: "0.00", neither: "100.00" }
 
 // Medium 2 > 2. Triangle Sides
+// function triangle(...args) {
+//   let [shortest, middle, longest] = [...args].sort((a, b) => a - b);
+
+//   if (shortest + middle < longest || shortest <= 0) return 'invalid';
+//   if (shortest === middle && middle === longest) return 'equilateral';
+//   if (shortest === middle || shortest === longest || middle === longest) return 'isosceles';
+//   return 'scalene';
+// }
+
+// console.log(triangle(3, 3, 3));        // "equilateral"
+// console.log(triangle(3, 3, 1.5));      // "isosceles"
+// console.log(triangle(3, 4, 5));        // "scalene"
+// console.log(triangle(0, 3, 3));        // "invalid"
+// console.log(triangle(3, 1, 1));        // "invalid"
+
+// Medium 2 > 3. Tri-Angles
+
 function triangle(...args) {
   let [shortest, middle, longest] = [...args].sort((a, b) => a - b);
-
-  if (shortest + middle < longest || shortest <= 0) return 'invalid';
-  if (shortest === middle && middle === longest) return 'equilateral';
-  if (shortest === middle || middle === longest) return 'isosceles';
-  else return 'scalene';
+  
 }
 
-console.log(triangle(3, 3, 3));        // "equilateral"
-console.log(triangle(3, 3, 1.5));      // "isosceles"
-console.log(triangle(3, 4, 5));        // "scalene"
-console.log(triangle(0, 3, 3));        // "invalid"
-console.log(triangle(3, 1, 1));        // "invalid"
+console.log(triangle(60, 70, 50));       // "acute"
+console.log(triangle(30, 90, 60));       // "right"
+console.log(triangle(120, 50, 10));      // "obtuse"
+console.log(triangle(0, 90, 90));        // "invalid"
+console.log(triangle(50, 50, 50));       // "invalid"
