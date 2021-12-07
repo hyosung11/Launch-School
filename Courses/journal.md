@@ -4417,3 +4417,9 @@ function rotateRightmostDigits(number, count) {
 11:47 Take a break. For some reason, Mac OS didn't update.
 
 12:42 The software update didn't execute. Do I dare try it now during a lunch break? I will try it now.
+
+## 20211207 화요일
+
+05:53 Worked more on CI with the GitHub Learning Lab, but I still can't get the last test to pass. That's 17/18. I have an interview prep meeting with Sebass van Boxel today at 12:00 and a study session with Alex in a few minutes.
+
+07:30 I still don't fully understand the problem I did with Alex today. I need to repeat it a few more times.
