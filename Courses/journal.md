@@ -4423,3 +4423,6 @@ function rotateRightmostDigits(number, count) {
 05:53 Worked more on CI with the GitHub Learning Lab, but I still can't get the last test to pass. That's 17/18. I have an interview prep meeting with Sebass van Boxel today at 12:00 and a study session with Alex in a few minutes.
 
 07:30 I still don't fully understand the problem I did with Alex today. I need to repeat it a few more times.
+
+08:33 TIL Stephanie Cunnane (Capstone)  22:12
+TIL about the `$ npx npkill` command to remove all those `node_modules` folders floating around eating up your hard drive space. Cool 39-second video about it: https://www.youtube.com/watch?v=qOSH2pYg6m8&list=PL0vfts4VzfNigohKr5sPrkcPFpuZmTe2C&index=7
