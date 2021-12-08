@@ -428,10 +428,10 @@ Algo
 - input number representing a year
 - initialize `thirteenths` to an empty array
 - iterate through the months of the year
-  - iterate through the Fridays of the each month
+  - iterate through the Fridays of each month
     - find Fridays that fall on the 13th of th month
     - increase count
-- output number representing the number of Friday the 13ths in that year*/
+- output number representing the number of Friday the 13ths in that year */
 
 function fridayThe13ths(year) {
   let thirteenths = [];
