@@ -4425,4 +4425,10 @@ function rotateRightmostDigits(number, count) {
 07:30 I still don't fully understand the problem I did with Alex today. I need to repeat it a few more times.
 
 08:33 TIL Stephanie Cunnane (Capstone)  22:12
-TIL about the `$ npx npkill` command to remove all those `node_modules` folders floating around eating up your hard drive space. [Cool 39-second video about it: ](https://www.youtube.com/watch?v=qOSH2pYg6m8&list=PL0vfts4VzfNigohKr5sPrkcPFpuZmTe2C&index=7)
+TIL about the `$ npx npkill` command to remove all those `node_modules` folders floating around eating up your hard drive space. [Cool 39-second video about it:](https://www.youtube.com/watch?v=qOSH2pYg6m8&list=PL0vfts4VzfNigohKr5sPrkcPFpuZmTe2C&index=7)
+
+## 20211208 수요일
+
+05:51 Before study session with Alex, I feel okay. I want this interview with GitHub to get scheduled.
+
+07:37 I want the GitHub interview to be scheduled.
