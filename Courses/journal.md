@@ -4432,3 +4432,9 @@ TIL about the `$ npx npkill` command to remove all those `node_modules` folders 
 05:51 Before study session with Alex, I feel okay. I want this interview with GitHub to get scheduled.
 
 07:37 I want the GitHub interview to be scheduled.
+
+12:28 Minutes before the JS109 study session.
+
+## 20211209 목요일
+
+05:53 Got up a little late this morning.
