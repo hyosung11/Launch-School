@@ -9,7 +9,7 @@ Time: Dec 9, 2021 01:15 PM Eastern Time (US and Canada)
 ## Chris
 
 - 3point shooting contest winner; grew up playing basketball
-- Hawai'i and AZ
+- lives in Hawai'i and AZ
 
 Pet projects?
 
@@ -33,7 +33,7 @@ Typical workday
 
 - work with capstone a lot; especially system design
 - current capstone cohort have capstone mentors
-- listen to 30% and 90% presentations
+- listen to presentations at 30% and 90% completion
 
 Fundamentals
 
@@ -99,7 +99,7 @@ Stellar Students
 - don't need specific instructions
 - understand the goal behind the specifications
 - lot of personal effort to persevere and take ambiguity
-- carry yourself in a professional
+- carry yourself in a professional setting
 - good communicator
 - organize work -> fast track to promotion
 
@@ -121,4 +121,3 @@ blockchain technology is interesting
 core curriculum is battle-tested
 
 14:36 End
-
