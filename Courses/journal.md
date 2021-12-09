@@ -4438,3 +4438,5 @@ TIL about the `$ npx npkill` command to remove all those `node_modules` folders 
 ## 20211209 목요일
 
 05:53 Got up a little late this morning.
+
+07:36 I can't seem to understand the letterChanges problem well.
