@@ -4442,3 +4442,9 @@ TIL about the `$ npx npkill` command to remove all those `node_modules` folders 
 07:36 I can't seem to understand the letterChanges problem well.
 
 16:13 Back from playing ping pong with Louis and ready to keep learning more about GitHub for my interview tomorrow.
+
+## 20211210 금요일
+
+07:25 After my study session with Alex. Getting slowly and steadily better at small problems.
+
+07:48 Programming is learning the patterns and practicing them over and over.

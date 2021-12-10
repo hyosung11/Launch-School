@@ -31,7 +31,7 @@ ALGORITHM
 - iterate through each char in the array
   -if its x, y, or z, increase index position in xyz string by 3
   else if its in alphabet string, increase its index position in alphabet string by 3
-  -else keep character
+  - else keep character
 - return a new string */
 
 function letterChanges(string) {
@@ -59,4 +59,16 @@ console.log(letterChanges("this long cake@&") === "wklv orqj fdnh@&")
 console.log(letterChanges("Road trip9") === "Urdg wuls9")
 console.log(letterChanges("EMAILZ@gmail.com") === "HPDLOC@jpdlo.frp")
 
+// Laurent's Version
+function letterChanges(string) {
+  let alphabet = 'abcdefghijklmnopqrstuvwxyzabcABCDEFGHIJKLMNOPQRSTUVWXYZABC';
 
+  return string
+    .split('')
+    .map((char) => {
+      let index = alphabet.indexOf(char);
+      if (char.toLowerCase() === char.toUpperCase()) return char;
+      return alphabet[index + 3];
+    })
+    .join('');
+}
