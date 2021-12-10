@@ -4425,4 +4425,26 @@ function rotateRightmostDigits(number, count) {
 07:30 I still don't fully understand the problem I did with Alex today. I need to repeat it a few more times.
 
 08:33 TIL Stephanie Cunnane (Capstone)  22:12
-TIL about the `$ npx npkill` command to remove all those `node_modules` folders floating around eating up your hard drive space.
+TIL about the `$ npx npkill` command to remove all those `node_modules` folders floating around eating up your hard drive space. [Cool 39-second video about it:](https://www.youtube.com/watch?v=qOSH2pYg6m8&list=PL0vfts4VzfNigohKr5sPrkcPFpuZmTe2C&index=7)
+
+## 20211208 수요일
+
+05:51 Before study session with Alex, I feel okay. I want this interview with GitHub to get scheduled.
+
+07:37 I want the GitHub interview to be scheduled.
+
+12:28 Minutes before the JS109 study session.
+
+## 20211209 목요일
+
+05:53 Got up a little late this morning.
+
+07:36 I can't seem to understand the letterChanges problem well.
+
+16:13 Back from playing ping pong with Louis and ready to keep learning more about GitHub for my interview tomorrow.
+
+## 20211210 금요일
+
+07:25 After my study session with Alex. Getting slowly and steadily better at small problems.
+
+07:48 Programming is learning the patterns and practicing them over and over.
