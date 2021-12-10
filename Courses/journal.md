@@ -4448,3 +4448,5 @@ TIL about the `$ npx npkill` command to remove all those `node_modules` folders 
 07:25 After my study session with Alex. Getting slowly and steadily better at small problems.
 
 07:48 Programming is learning the patterns and practicing them over and over.
+
+17:08 The interview with Shikha went well and I want to do the technical screener soon.
