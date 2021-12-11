@@ -450,3 +450,80 @@ Algo
 // console.log(fridayThe13ths(2017));      // 2
 
 // Medium 2 > 5. Next Featured Number Higher than a Given Value
+
+// function featured(number) {
+//   const MAX_FEATURED = 9876543201;
+//   let featuredNum = toOddMultipleOf7(number);
+
+//   do {
+//     if (allUnique(featuredNum)) {
+//       return featuredNum;
+//     }
+
+//     featuredNum += 14;
+//   } while (featuredNum <= MAX_FEATURED);
+
+//   return 'There is no possible number that fulfills those requirements.';
+// }
+
+// function toOddMultipleOf7(number) {
+//   do {
+//     number += 1;
+//   } while (number % 2 === 0 || number % 7 !== 0);
+
+//   return number;
+// }
+
+// function allUnique(number) {
+//   let digits = String(number).split('');
+//   let seen = {};
+
+//   for (let idx = 0; idx < digits.length; idx += 1) {
+//     if (seen[digits[idx]]) {
+//       return false;
+//     }
+
+//     seen[digits[idx]] = true;
+//   }
+
+//   return true;
+// }
+
+// console.log(featured(12));           // 21
+// console.log(featured(20));           // 21
+// console.log(featured(21));           // 35
+// console.log(featured(997));          // 1029
+// console.log(featured(1029));         // 1043
+// console.log(featured(999999));       // 1023547
+// console.log(featured(999999987));    // 1023456987
+// console.log(featured(9876543186));   // 9876543201
+// console.log(featured(9876543200));   // 9876543201
+// console.log(featured(9876543201));   // "There is no possible number that fulfills those requirements."
+
+/* Medium 2 > 6. Sum Square - Square Sum
+Algo
+- input: number
+- initialize `squareOfSum`
+- initialize `sumOfSquare`
+- iterate from 1 to input number
+  - increment squareOfSum
+  - calculate sumOfSquares
+- calculate square of sums
+- subtract square of sums from sum of squares
+- return number */
+
+function sumSquareDifference(count) {
+  let squareOfSum = 0;
+  let sumOfSquares = 0;
+
+  for (let number = 1; number <= count; number += 1) {
+    squareOfSum += number;
+    sumOfSquares += Math.pow(number, 2);
+  }
+  return Math.pow(squareOfSum, 2) - sumOfSquares;
+}
+
+console.log(sumSquareDifference(3)); // 22 --> (1 + 2 + 3)**2 - (1**2 + 2**2 + 3**2)
+console.log(sumSquareDifference(10)); // 2640
+console.log(sumSquareDifference(1)); // 0
+console.log(sumSquareDifference(100)); // 25164150
