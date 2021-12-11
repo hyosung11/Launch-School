@@ -512,18 +512,44 @@ Algo
 - subtract square of sums from sum of squares
 - return number */
 
-function sumSquareDifference(count) {
-  let squareOfSum = 0;
-  let sumOfSquares = 0;
+// function sumSquareDifference(count) {
+//   let squareOfSum = 0;
+//   let sumOfSquares = 0;
 
-  for (let number = 1; number <= count; number += 1) {
-    squareOfSum += number;
-    sumOfSquares += Math.pow(number, 2);
+//   for (let number = 1; number <= count; number += 1) {
+//     squareOfSum += number;
+//     sumOfSquares += Math.pow(number, 2);
+//   }
+//   return Math.pow(squareOfSum, 2) - sumOfSquares;
+// }
+
+// console.log(sumSquareDifference(3)); // 22 --> (1 + 2 + 3)**2 - (1**2 + 2**2 + 3**2)
+// console.log(sumSquareDifference(10)); // 2640
+// console.log(sumSquareDifference(1)); // 0
+// console.log(sumSquareDifference(100)); // 25164150
+
+// Medium 2 > 7. Bubble Sort
+
+let array1 = [5, 3];
+bubbleSort(array1);
+console.log(array1);    // [3, 5]
+
+let array2 = [6, 2, 7, 1, 4];
+bubbleSort(array2);
+console.log(array2);    // [1, 2, 4, 6, 7]
+
+let array3 = ['Sue', 'Pete', 'Alice', 'Tyler', 'Rachel', 'Kim', 'Bonnie'];
+bubbleSort(array3);
+console.log(array3);    // ["Alice", "Bonnie", "Kim", "Pete", "Rachel", "Sue", "Tyler"]
+
+function bubbleSort(array) {
+  while (true) {
+    let swapped = false;
+    for (let idx = 1; idx < array.length; idx++) {
+      if (array[idx - 1] <= array[idx]) continue;
+      [array[idx - 1], array[idx]] = [array[idx], array[idx - 1]];
+      swapped = true;
+    }
+    if (!swapped) break;
   }
-  return Math.pow(squareOfSum, 2) - sumOfSquares;
 }
-
-console.log(sumSquareDifference(3)); // 22 --> (1 + 2 + 3)**2 - (1**2 + 2**2 + 3**2)
-console.log(sumSquareDifference(10)); // 2640
-console.log(sumSquareDifference(1)); // 0
-console.log(sumSquareDifference(100)); // 25164150
