@@ -530,26 +530,93 @@ Algo
 
 // Medium 2 > 7. Bubble Sort
 
-let array1 = [5, 3];
-bubbleSort(array1);
-console.log(array1);    // [3, 5]
+// let array1 = [5, 3];
+// bubbleSort(array1);
+// console.log(array1);    // [3, 5]
 
-let array2 = [6, 2, 7, 1, 4];
-bubbleSort(array2);
-console.log(array2);    // [1, 2, 4, 6, 7]
+// let array2 = [6, 2, 7, 1, 4];
+// bubbleSort(array2);
+// console.log(array2);    // [1, 2, 4, 6, 7]
 
-let array3 = ['Sue', 'Pete', 'Alice', 'Tyler', 'Rachel', 'Kim', 'Bonnie'];
-bubbleSort(array3);
-console.log(array3);    // ["Alice", "Bonnie", "Kim", "Pete", "Rachel", "Sue", "Tyler"]
+// let array3 = ['Sue', 'Pete', 'Alice', 'Tyler', 'Rachel', 'Kim', 'Bonnie'];
+// bubbleSort(array3);
+// console.log(array3);    // ["Alice", "Bonnie", "Kim", "Pete", "Rachel", "Sue", "Tyler"]
 
-function bubbleSort(array) {
-  while (true) {
-    let swapped = false;
-    for (let idx = 1; idx < array.length; idx++) {
-      if (array[idx - 1] <= array[idx]) continue;
-      [array[idx - 1], array[idx]] = [array[idx], array[idx - 1]];
-      swapped = true;
-    }
-    if (!swapped) break;
-  }
-}
+// function bubbleSort(array) {
+//   while (true) {
+//     let swapped = false;
+
+//     for (let idx = 1; idx < array.length; idx += 1) {
+//       if (array[idx - 1] <= array[idx]) continue;
+//       [array[idx - 1], array[idx]] = [array[idx], array[idx - 1]];
+//       swapped = true;
+//     }
+//     if (!swapped) break;
+//   }
+// }
+
+let longText =
+  'Four score and seven years ago our fathers brought forth on this ' +
+  'continent a new nation, conceived in liberty, and dedicated to the ' +
+  'proposition that all men are created equal. Now we are engaged in a ' +
+  'great civil war, testing whether that nation, or any nation so ' +
+  'conceived and so dedicated, can long endure. We are met on a great ' +
+  'battlefield of that war. We have come to dedicate a portion of that ' +
+  'field, as a final resting place for those who here gave their lives ' +
+  'that that nation might live. It is altogether fitting and proper that ' +
+  'we should do this.';
+
+let longerText = longText +
+  'But, in a larger sense, we can not dedicate, we can not consecrate, ' +
+  'we can not hallow this ground. The brave men, living and dead, who ' +
+  'struggled here, have consecrated it, far above our poor power to add ' +
+  'or detract. The world will little note, nor long remember what we say ' +
+  'here but it can never forget what they did here. It is for us the ' +
+  'living, rather, to be dedicated here to the unfinished work which ' +
+  'they who fought here have thus far so nobly advanced. It is rather ' +
+  'for us to be here dedicated to the great task remaining before us -- ' +
+  'that from these honored dead we take increased devotion to that ' +
+  'cause for which they gave the last full measure of devotion -- that ' +
+  'we here highly resolve that these dead shall not have died in vain ' +
+  '-- that this nation, under God, shall have a new birth of freedom -- ' +
+  'and that government of the people, by the people, for the people, ' +
+  'shall not perish from the earth.';
+
+longestSentence(longText);
+// Four score and seven years ago our fathers brought forth on this continent a new nation, conceived in liberty, and dedicated to the proposition that all men are created equal.
+//
+// The longest sentence has 30 words.
+
+longestSentence(longerText);
+// It is rather for us to be here dedicated to the great task remaining before us -- that from these honored dead we take increased devotion to that cause for which they gave the last full measure of devotion -- that we here highly resolve that these dead shall not have died in vain -- that this nation, under God, shall have a new birth of freedom -- and that government of the people, by the people, for the people, shall not perish from the earth.
+//
+// The longest sentence has 86 words.
+
+longestSentence("Where do you think you're going? What's up, Doc?");
+// Where do you think you're going?
+//
+// The longest sentence has 6 words.
+
+longestSentence("To be or not to be! Is that the question?");
+// To be or not to be!
+//
+// The longest sentence has 6 words.
+
+// function longestSentence(text) {
+//   let sentence = text.match(/\w.*?[.!?]/g);
+
+//   let longest = sentence.reduce(
+//     function(longest, sentence) {
+//       let length = sentence.split(/\s/).length;
+//       if (length > longest.length) {
+//         return { text: sentence, length: length }
+//       } else {
+//         return longest;
+//       }
+//     },
+//     { text: "", length: 0 }
+//   );
+
+//   console.log(longest.text + "\n");
+//   console.log("The longest sentence has " + longest.length + " words.\n");
+// }

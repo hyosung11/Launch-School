@@ -4450,3 +4450,7 @@ TIL about the `$ npx npkill` command to remove all those `node_modules` folders 
 07:48 Programming is learning the patterns and practicing them over and over.
 
 17:08 The interview with Shikha went well and I want to do the technical screener soon.
+
+## 20211212 일요일
+
+10:30 Finished the medium problems a third time now. But I definitely have a bias against doing the difficult ones. Ugh.
