@@ -4454,3 +4454,9 @@ TIL about the `$ npx npkill` command to remove all those `node_modules` folders 
 ## 20211212 일요일
 
 10:30 Finished the medium problems a third time now. But I definitely have a bias against doing the difficult ones. Ugh.
+
+## 20211213 월요일
+
+09:42 Studying with Laurent after studying with Alex before breakfast.
+
+10:54 Heading to the gym and not for PT for the first time in months, it seems like. I want to get explosive again.
