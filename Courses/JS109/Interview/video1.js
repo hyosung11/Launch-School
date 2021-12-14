@@ -51,4 +51,5 @@ function compareDigits(number1, number2) {
     return true;
   }
 }
+
 console.log(compareDigits(1234, 4321));
