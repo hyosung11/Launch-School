@@ -4460,3 +4460,8 @@ TIL about the `$ npx npkill` command to remove all those `node_modules` folders 
 09:42 Studying with Laurent after studying with Alex before breakfast.
 
 10:54 Heading to the gym and not for PT for the first time in months, it seems like. I want to get explosive again.
+
+## 20211214 화요일
+
+19:25 I took some notes earlier today, right? Working through the problems in the order that Aaron Smith curated them. Still struggling with some things.
+
