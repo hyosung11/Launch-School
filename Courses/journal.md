@@ -4464,3 +4464,6 @@ TIL about the `$ npx npkill` command to remove all those `node_modules` folders 
 ## 20211214 화요일
 
 06:03 Waiting on Alex to start the study session. I put the same problem that Laurent and I worked on yesterday in the replit.com.
+
+19:25 I took some notes earlier today, right? Working through the problems in the order that Aaron Smith curated them. Still struggling with some things.
+
