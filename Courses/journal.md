@@ -4467,3 +4467,10 @@ TIL about the `$ npx npkill` command to remove all those `node_modules` folders 
 
 19:25 I took some notes earlier today, right? Working through the problems in the order that Aaron Smith curated them. Still struggling with some things.
 
+## 20211215 수요일
+
+05:58 I got the technical screener from GitHub last night. I will work on it today and get a draft done. What problem to work on with Alex today?
+
+06:28 Alex did not show up this morning. I'm looking at the "Take Home Test from GitHub" anyway.
+
+06:56 Alex woke up late and that's okay. I printed out the GitHub take home test.
