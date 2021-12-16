@@ -4474,3 +4474,7 @@ TIL about the `$ npx npkill` command to remove all those `node_modules` folders 
 06:28 Alex did not show up this morning. I'm looking at the "Take Home Test from GitHub" anyway.
 
 06:56 Alex woke up late and that's okay. I printed out the GitHub take home test.
+
+## 20211216 목요일
+
+07:19 After study session with Alex.
