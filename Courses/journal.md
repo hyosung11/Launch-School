@@ -4478,3 +4478,8 @@ TIL about the `$ npx npkill` command to remove all those `node_modules` folders 
 ## 20211216 목요일
 
 07:19 After study session with Alex.
+
+## 20211217 금요일
+
+Ginni Pinckert (TA)  23 minutes ago
+If you go into the Settings under "Suggestions" there should be an option called "Accept Suggestion on Enter" which you can turn off.
