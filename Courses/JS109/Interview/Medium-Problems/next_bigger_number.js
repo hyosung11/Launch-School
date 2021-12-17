@@ -8,14 +8,14 @@ If no bigger number can be composed using those digits, return -1:
 
 9 ==> -1
 111 ==> -1
-531 ==> -1 
+531 ==> -1
 
 
 Problem
 input: number
-output: number 
+output: number
 
-rules: 
+rules:
 for a given number, return the next highest number that is comprised of all of the digits of the original number but in a different order
 -if the input number is that largest possible combination of those digits, return -1
 -single digit numbers always return -1

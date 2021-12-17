@@ -57,13 +57,13 @@ console.log(
 // You will be given two inputs, a word and an array with words.
 // You should return an array of all the anagrams or an empty array if there are none.
 
-ALGO
+/* ALGO
 input: string, array of strings
 -return an array that selects those elements from input array for which:
   -the input string alphabetized equals the element alphabetized
 */
 
-CODE
+// CODE
 function anagrams(string, arr) {
   return arr.filter ((element) => {
     return string.split('').sort().join('') ===  element.split('').sort().join('')
