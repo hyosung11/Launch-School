@@ -27,22 +27,22 @@ ALGORITHM
 - square the squareOfSums, and subtract sumOfSquares
 - output result */
 
-function sumSquareDifference(count) {
-  let sumOfSquares = 0;
-  let squareOfSums = 0;
+// function sumSquareDifference(count) {
+//   let sumOfSquares = 0;
+//   let squareOfSums = 0;
 
-  for (let number = 1; number <= count; number += 1) {
-    sumOfSquares += number;
-    squareOfSums += Math.pow(number, 2);
-  }
-  return Math.pow(sumOfSquares, 2) - squareOfSums;
-}
+//   for (let number = 1; number <= count; number += 1) {
+//     sumOfSquares += number;
+//     squareOfSums += Math.pow(number, 2);
+//   }
+//   return Math.pow(sumOfSquares, 2) - squareOfSums;
+// }
 
-console.log(sumSquareDifference(3)); // 22 --> (1 + 2 + 3)**2 - (1**2 + 2**2 + 3**2)
-console.log(sumSquareDifference(4)); // 70
-console.log(sumSquareDifference(10)); // 2640
-console.log(sumSquareDifference(1)); // 0
-console.log(sumSquareDifference(100)); // 25164150
+// console.log(sumSquareDifference(3)); // 22 --> (1 + 2 + 3)**2 - (1**2 + 2**2 + 3**2)
+// console.log(sumSquareDifference(4)); // 70
+// console.log(sumSquareDifference(10)); // 2640
+// console.log(sumSquareDifference(1)); // 0
+// console.log(sumSquareDifference(100)); // 25164150
 
 /* Discussion
 
@@ -52,7 +52,7 @@ The solution shows all the details of this process. It loops through all the int
 
 /* Sum Square - Square Sum
 
-Write a function that computes the difference between the square of the sum of the first `count` positive integers and the sum of the squares of the first `count` positive integers. 
+Write a function that computes the difference between the square of the sum of the first `count` positive integers and the sum of the squares of the first `count` positive integers.
 
 PROBLEM
 input: number
@@ -69,13 +69,27 @@ Data structures: numbers
 
 ALGO:
 input: number
--create squareOfSums and sumOfSquares variables and intiialize to 0
+-create squareOfSums and sumOfSquares variables and initialize to 0
 -while number is greater zero:
  -add number to squareOfSums
  -add number squared to sumOfSquares
 -decrement by 1 after each iteration:
 reassign squareOfSums to its value squared
 return squareOfSums - sumOfSquares */
+
+// function sumSquareDifference(number) {
+//   let squareOfSums = 0;
+//   let sumOfSquares = 0;
+
+//   while (number > 0) {
+//     squareOfSums += number;
+//     sumOfSquares += number * number;
+//     number -= 1;
+//   }
+
+//   squareOfSums = squareOfSums * squareOfSums;
+//   return squareOfSums - sumOfSquares;
+// }
 
 function sumSquareDifference(number) {
   let squareOfSums = 0;
@@ -86,13 +100,12 @@ function sumSquareDifference(number) {
     sumOfSquares += number * number;
     number -= 1;
   }
-
   squareOfSums = squareOfSums * squareOfSums;
   return squareOfSums - sumOfSquares;
 }
 
 console.log(sumSquareDifference(1)); // 0
 console.log(sumSquareDifference(3)); // 22 --> (1 + 2 + 3)**2 - (1**2 + 2**2 + 3**2)
-console.log(sumSquareDifference(4)); // 70 
+console.log(sumSquareDifference(4)); // 70
 console.log(sumSquareDifference(10)); // 2640 */
 console.log(sumSquareDifference(100)); // 25164150
