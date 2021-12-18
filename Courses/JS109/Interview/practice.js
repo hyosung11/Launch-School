@@ -670,11 +670,88 @@ Algo
 // returns
 // "**SED** ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, **SED** quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, **SED** quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? **SED** quis autem vel est, iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? blasedbla"
 
-/* Word to Digit
+/* Medium 1 > Word to Digit
 algo
 - input string
-- initialize `numbers` to object
-- split string
-- iterate through input string
+- initialize `NUM_WORDS` to object
+- split string at space into words
+- iterate through words
+  - if word is a number word change it to its digit equivalent
+  - if not a number word return the word
+- output new string */
 
-- output new string*/
+// function wordToDigit(words) {
+//   const NUM_WORDS = {
+//     zero: 0,
+//     one: 1,
+//     two: 2,
+//     three: 3,
+//     four: 4,
+//     five: 5,
+//     six: 6,
+//     seven: 7,
+//     eight: 8,
+//     nine: 9
+//   }
+
+//   return words
+//     .split(' ')
+//     .map(word => {
+//       if (Object.keys(NUM_WORDS).includes(word)) {
+//         return NUM_WORDS[word];
+//       } else if (Object.keys(NUM_WORDS).includes(filter(word))) {
+//         return NUM_WORDS[filter(word)] + '.';
+//       }
+//       else return word;
+//     })
+//     .join(' ');
+// }
+
+// function filter(words) {
+//   return words = words.toLowerCase().split('').filter(char => {
+//     if (char >= 'a' && char <= 'z') return char;
+//   })
+//   .join('')
+// }
+
+// const NUM_WORDS = {
+//   zero: 0,
+//   one: 1,
+//   two: 2,
+//   three: 3,
+//   four: 4,
+//   five: 5,
+//   six: 6,
+//   seven: 7,
+//   eight: 8,
+//   nine: 9,
+// };
+
+// function wordToDigit(words) {
+//   Object.keys(NUM_WORDS).forEach(word => {
+//     let regex = new RegExp('\\b' + word + '\\b', 'g');
+//     words = words.replace(regex, NUM_WORDS[word])
+//   });
+//   return words;
+// }
+
+
+// console.log(wordToDigit('Please call me at five five five one two three four. The eight is weight.'));
+// "Please call me at 5 5 5 1 2 3 4. Thanks."
+
+/* Palindromic Strings 1
+- input string
+- compare string to
+  - split string into chars
+  - reverse chars
+  - join chars
+- return boolean */
+
+function isPalindrome(string) {
+  return string === string.split('').reverse().join('');
+}
+
+console.log(isPalindrome('madam')); // true
+console.log(isPalindrome('Madam')); // false (case matters)
+console.log(isPalindrome("madam i'm adam")); // false (all characters matter)
+console.log(isPalindrome('356653')); // true

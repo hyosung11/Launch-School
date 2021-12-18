@@ -4463,5 +4463,31 @@ TIL about the `$ npx npkill` command to remove all those `node_modules` folders 
 
 ## 20211214 화요일
 
+06:03 Waiting on Alex to start the study session. I put the same problem that Laurent and I worked on yesterday in the replit.com.
+
 19:25 I took some notes earlier today, right? Working through the problems in the order that Aaron Smith curated them. Still struggling with some things.
 
+## 20211215 수요일
+
+05:58 I got the technical screener from GitHub last night. I will work on it today and get a draft done. What problem to work on with Alex today?
+
+06:28 Alex did not show up this morning. I'm looking at the "Take Home Test from GitHub" anyway.
+
+06:56 Alex woke up late and that's okay. I printed out the GitHub take home test.
+
+## 20211216 목요일
+
+07:19 After study session with Alex.
+
+## 20211217 금요일
+
+Ginni Pinckert (TA)  23 minutes ago
+If you go into the Settings under "Suggestions" there should be an option called "Accept Suggestion on Enter" which you can turn off.
+
+18:10 Practice and more practice needed. I still want to work as a software engineer.
+
+## 20211218 토요일 
+
+10:17 Going back to my practice problems. Do I want to study the Introduction to Regular Expressions book or wait until later in the core curriculum?
+
+11:39 Practiced a couple of problems. Now going to the mall with the kids.
