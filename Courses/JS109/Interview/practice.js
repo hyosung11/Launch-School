@@ -747,11 +747,332 @@ algo
   - join chars
 - return boolean */
 
+// function isPalindrome(string) {
+//   return string === string.split('').reverse().join('');
+// }
+
+// console.log(isPalindrome('madam')); // true
+// console.log(isPalindrome('Madam')); // false (case matters)
+// console.log(isPalindrome("madam i'm adam")); // false (all characters matter)
+// console.log(isPalindrome('356653')); // true
+
+/* Palindromic Strings 2
+Algo
+- input string
+- reassign string to value of converting chars to lowercase and removing any chars that aren't letters or numbers
+- return if it's a palindrome
+- initialize `removeNonLettersNumbers` helper function
+  - initialize `result` to empty string
+  - iterate through input string
+  - initialize `isLetter` and `isNumber` helper functions to check for letters and numbers
+  - if char is a letter increment the result
+  - if char is a number increment the result
+  - return result
+- return boolean */
+
+// function isRealPalindrome(string) {
+//   string = removeNonLettersNumbers(string.toLowerCase());
+//   return isPalindrome(string);
+// }
+
+// function isPalindrome(string) {
+//   return string === string.split('').reverse().join('');
+// }
+
+// function removeNonLettersNumbers(string) {
+//   let result = '';
+
+//   for (let idx = 0; idx < string.length; idx += 1) {
+//     let char = string[idx];
+//     if (isLetter(char) || isNumber(char)) {
+//       result += char;
+//     }
+//   }
+
+//   return result;
+// }
+
+// function isLetter(char) {
+//   return char >= 'a' && char <= 'z';
+// }
+
+// function isNumber(char) {
+//   return char >= '0' && char <= '9';
+// }
+
+/* Regex
+- input string
+- reassign string to lowercase and replace all chars that arent letters or numbers with an empty string char
+- return true if palindrome
+- return false otherwise */
+
+// function isRealPalindrome(string) {
+//   string = string.toLowerCase().replace(/[^a-z0-9]/g, '');
+//   return isPalindrome(string);
+// }
+
+// function isPalindrome(string) {
+//   return string === string.split('').reverse().join('');
+// }
+
+function isRealPalindrome(string) {
+  string = cleanString(string);
+  return isPalindrome(string);
+}
+
 function isPalindrome(string) {
   return string === string.split('').reverse().join('');
 }
 
-console.log(isPalindrome('madam')); // true
-console.log(isPalindrome('Madam')); // false (case matters)
-console.log(isPalindrome("madam i'm adam")); // false (all characters matter)
-console.log(isPalindrome('356653')); // true
+/* Algo
+- input string
+- initialize `lettersNumbers` to letters and numbers
+- reassign string to lowercase and split at each char
+- initialize `result` to filter the chars for letters and numbers and join together
+- return result string */
+
+// function cleanString(string) {
+//   let lettersNumbers = 'abcdefghijklmnopqrstuvwxyz0123456789';
+//   string = string.toLowerCase().split('');
+//   let result = string.filter(char => lettersNumbers.includes(char)).join('');
+//   return result;
+// }
+
+// console.log(isRealPalindrome('madam')); // true
+// console.log(isRealPalindrome('Madam')); // true (case does not matter)
+// console.log(isRealPalindrome("Madam, I'm Adam")); // true (only alphanumerics matter)
+// console.log(isRealPalindrome('356653')); // true
+// console.log(isRealPalindrome('356a653')); // true
+// console.log(isRealPalindrome('123ab321')); // false
+
+/* Bubble Sort
+- input array
+- loop through array
+- while true
+  - let swapped be false
+  - if array element at lower index is less than array element at next index continue
+  - if array element at lower index is greater than array element at the next index swap elements
+  - reassign `swapped` to true
+  - if not swapped break
+- output sorted array */
+
+// function bubbleSort(array) {
+//   while (true) {
+//     let swapped = false;
+//     for (let idx = 1; idx < array.length; idx++) {
+//       if (array[idx - 1] <= array[idx]) continue;
+//       // destructuring assignment
+//       [array[idx - 1], array[idx]] = [array[idx], array[idx - 1]];
+//       swapped = true;
+//     }
+//     if (!swapped) break;
+//   }
+// }
+
+// let array1 = [5, 3];
+// bubbleSort(array1);
+// console.log(array1);    // [3, 5]
+
+// let array2 = [6, 2, 7, 1, 4];
+// bubbleSort(array2);
+// console.log(array2);    // [1, 2, 4, 6, 7]
+
+// let array3 = ['Sue', 'Pete', 'Alice', 'Tyler', 'Rachel', 'Kim', 'Bonnie'];
+// bubbleSort(array3);
+// console.log(array3);    // ["Alice", "Bonnie", "Kim", "Pete", "Rachel", "Sue", "Tyler"]
+
+/* Alphabetic Numbers
+Algo
+- initialize `NUMBER_WORDS` lookup table to the number words
+- input array
+- return array sorted via `wordSort` helper function
+  - input num1, num2
+  - compare `NUMBER_WORDS` of num1 with NUMBER_WORDS of num2
+    - if num1 > num2 return 1
+    - if num1 < num2 return -1
+    - if neither return 0
+- return array */
+
+// array of words mapped to their index
+// const NUMBER_WORDS = [
+//   'zero',
+//   'one',
+//   'two',
+//   'three',
+//   'four',
+//   'five',
+//   'six',
+//   'seven',
+//   'eight',
+//   'nine',
+//   'ten',
+//   'eleven',
+//   'twelve',
+//   'thirteen',
+//   'fourteen',
+//   'fifteen',
+//   'sixteen',
+//   'seventeen',
+//   'eighteen',
+//   'nineteen',
+// ];
+
+// function alphabeticNumberSort(array) {
+//   // the callback function passed to `sort` is the `wordSort` function
+//   // apply `sort` to the return value of `[...array]`
+//   return [...array].sort(wordSort);
+// }
+
+// function wordSort(num1, num2) {
+//   // uses the `NUMBER_WORDS` array to perform word lookups
+//   if (NUMBER_WORDS[num1] > NUMBER_WORDS[num2]) return 1;
+//   if (NUMBER_WORDS[num1] < NUMBER_WORDS[num2]) return -1;
+//   return 0;
+// }
+
+// console.log(alphabeticNumberSort(
+//    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]));
+// [8, 18, 11, 15, 5, 4, 14, 9, 19, 1, 7, 17, 6, 16, 10, 13, 3, 12, 2, 0]
+
+/* Letter Counter 1
+Algo
+- input string
+- initialize `count` to an empty object
+- split string at spaces into words
+- iterate through words
+  - initialize `wordSize` to length of word at idx
+  - if wordSize is 0 continue
+  - Ensure that the property for the current wordSize in the count object exists and has a value. If the property does not exist (i.e., count[wordSize] evaluates to undefined), set it to 0.
+  - Otherwise, just set it to its current value. Note that we use bang prefix here. This prefix converts the value to a boolean and reverses it.
+  - increment the count for a particular wordSize by 1.
+- return result */
+
+// function wordSizes(string) {
+//   let count = {};
+//   let wordsArray = string.split(' ');
+//   for (let idx = 0; idx < wordsArray.length; idx++) {
+//     let wordSize = wordsArray[idx].length;
+//     if (wordSize === 0) continue;
+//     if (!count[wordSize]) count[wordSize] = 0;
+//     count[wordSize] += 1;
+//   }
+
+//   return count;
+// }
+
+// function wordSizes(string) {
+//   let wordCount = {};
+//   if (string === '') return wordCount;
+//   string.split(' ').forEach(word => {
+//     wordCount[word.length] = wordCount[word.length] + 1 || 1;
+//   });
+//   return wordCount;
+// }
+
+// console.log(wordSizes('Four score and seven.')); // { "3": 1, "4": 1, "5": 1, "6": 1 }
+// console.log(wordSizes('Hey diddle diddle, the cat and the fiddle!'));  // { "3": 5, "6": 1, "7": 2 }
+// console.log(wordSizes("What's up doc?")); // { "2": 1, "4": 1, "6": 1 }
+// console.log(wordSizes('')); // {}
+
+/* Letter Counter 2
+- input string
+- initialize `count` to empty object
+- if string is empty return count
+- reassign words to value of replacing all nonletters with empty string
+- split string at spaces into words
+- iterate through words
+  - add word length to count or increase count
+- return `count` object */
+
+// function wordSizes(words) {
+//   let count = {};
+//   if (words === '') return count;
+//   words = words.replace(/[^a-z\s]/gi, '');
+
+//   words.split(' ').forEach(word => {
+//     count[word.length] = count[word.length] + 1 || 1;
+//   });
+
+//   return count;
+// }
+
+// console.log(wordSizes('Four score and seven.')); // { "3": 1, "4": 1, "5": 2 }
+// console.log(wordSizes('Hey diddle diddle, the cat and the fiddle!'));  // { "3": 5, "6": 3 }
+// console.log(wordSizes("What's up doc?")); // { "2": 1, "3": 1, "5": 1 }
+// console.log(wordSizes('')); // {}
+
+/* Lettercase Counter
+- input string
+- initialize `count` object with lowercase, uppercase, and neither properties set to 0 for all three
+- split the string at each char
+- iterate through each char
+  - if char lowercase increment lowercase property of count
+  - if char uppercase increment uppercase property of count
+  - if neither increment neither property of count
+- return count object */
+
+// function letterCaseCount(string) {
+//   let count = { lowercase: 0, uppercase: 0, neither: 0 };
+
+//   string.split('').map(char => {
+//     if (char >= 'a' && char <= 'z') {
+//       count.lowercase += 1;
+//     } else if (char >= 'A' && char <= 'Z') {
+//       count.uppercase += 1;
+//     } else {
+//       count.neither += 1;
+//     }
+//   });
+
+//   return count;
+// }
+
+// function letterCaseCount(string) {
+//   let counts = { lowercase: 0, uppercase: 0, neither: 0 };
+
+//   string.split('').filter(char => {
+//     if (char >= 'a' && char <= 'z') return counts.lowercase += 1;
+//     if (char >= 'A' && char <= 'Z') return counts.uppercase += 1;
+//     return counts.neither += 1;
+//   });
+
+//   return counts;
+// }
+// console.log(letterCaseCount('abCdef 123'));  // { lowercase: 5, uppercase: 1, neither: 4 }
+// console.log(letterCaseCount('AbCd +Ef'));    // { lowercase: 3, uppercase: 3, neither: 2 }
+// console.log(letterCaseCount('123'));         // { lowercase: 0, uppercase: 0, neither: 3 }
+// console.log(letterCaseCount(''));            // { lowercase: 0, uppercase: 0, neither: 0 }
+
+/* Matching Parentheses
+- input string
+- initialize `parens` to 0;
+- split string into chars
+- iterate through chars
+  - if char is '(' increment parens
+  - if char is ')' decrement parens
+  - if parens less than zero return false
+- return true if parens balanced or return false if not */
+
+// function isBalanced(string) {
+//   let parens = 0;
+
+//   for (let idx = 0; idx < string.length; idx++) {
+//     let char = string[idx];
+//     if (char === '(') {
+//       parens += 1;
+//     } else if (char === ')') {
+//       parens -= 1;
+//     }
+//     if (parens < 0) return false;
+//   }
+//   return parens === 0;
+// }
+
+// console.log(isBalanced('What (is) this?') === true);
+// console.log(isBalanced('What is) this?') === false);
+// console.log(isBalanced('What (is this?') === false);
+// console.log(isBalanced('((What) (is this))?') === true);
+// console.log(isBalanced('((What)) (is this))?') === false);
+// console.log(isBalanced('Hey!') === true);
+// console.log(isBalanced(')Hey!(') === false);
+// console.log(isBalanced('What ((is))) up(') === false);

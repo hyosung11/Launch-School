@@ -4486,8 +4486,12 @@ If you go into the Settings under "Suggestions" there should be an option called
 
 18:10 Practice and more practice needed. I still want to work as a software engineer.
 
-## 20211218 토요일 
+## 20211218 토요일
 
 10:17 Going back to my practice problems. Do I want to study the Introduction to Regular Expressions book or wait until later in the core curriculum?
 
 11:39 Practiced a couple of problems. Now going to the mall with the kids.
+
+## 20211219 일요일
+
+17:50 Practicing problems on and off this afternoon. Ugh. I need to push myself harder to solve problems before looking at the solution.

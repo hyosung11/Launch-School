@@ -132,3 +132,25 @@ If you aren't acquainted with `match`, you can learn enough with a few minutes o
 
 ### Special Characters
 
+Regex can also match non-alphanumeric characters. However, some of those have special meaning in a pattern and require specialized treatment. Others have no additional interpretation and need no special treatment.
+
+The following special characters have special meaning in a Ruby or JavaScript regex:
+
+`$ ^ * + ? . ( ) [ ] { } | \ /`
+
+We call such characters *meta-characters*. If you want to match a literal meta-character, you must *escape* it with a leading backslash (`\`). To match a question mark, for instance, use the regex `/\?/`. Go ahead and try` /\?/` now with these strings (and some of your own if you aren't sure what will happen):
+
+Inside square brackets, the rules for meta-characters change. We'll talk about meta-characters in "character classes" a little later.
+
+Some variants of regex have different meta-characters, and some reverse the sense of escaped characters. In `vim`, for example, `\(` and `\)` are meta-characters, while `(` and `)` match literal parentheses. This reversal can be confusing, but you must be aware of it.
+
+In recent years, programs that use regex have begun to support multiple regex styles. `vim`, for instance now has what it calls *extended syntax* which provides enhanced regex, and also lets you swap the way escaped characters work. You can choose to use `(` and `)` for grouping like most other programs, and use `\(` and `\)` for literal parentheses. Check your documentation to see whether your software supports different syntaxes.
+
+```sh
+?
+What's up, doc?
+Silence!
+"What's that?"
+```
+
+You should find that `/\?/` matches all of the question marks in these strings. Try the same strings using `/?/` - you should see an error message instead.
