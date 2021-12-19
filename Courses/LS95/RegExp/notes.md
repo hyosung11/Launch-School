@@ -68,3 +68,67 @@ When we talk of Rubular and Scriptular, we'll often say that a regex **highlight
 Summary
 
 With this basic information out of the way, you are now ready to make your first dive into the world of regex. Enjoy!
+
+## Basic Matching
+
+In this section, we'll get our feet wet in the calmer waters of the regex ocean with a quick introduction to regex patterns, namely those that match substrings. We'll also touch on some more intricate patterns, namely those that can match one of two or more subpatterns.
+
+We will run most of our examples through Rubular, so please go ahead and open it now. You can enter each pattern, and see what happens when you attempt to match them against a variety of different strings. Watch for how Rubular highlights matched characters; it shows you what your regex matches. Note that you can enter multiple lines in the test strings area.
+
+JavaScript programmers can use Scriptular instead of Rubular to test regex. However, there are some differences in behavior from Rubular. Our narrative uses Rubular's behavior; avoid confusion and use it for this book even if you're learning regex for JavaScript.
+
+Note that Rubular provides the `/` characters that delimit regex. You shouldn't enter the `/` characters yourself when entering them in Rubular. However, remember that you need them in your programs.
+
+### Alphanumerics
+
+The most basic regex of all is one that matches a specific alphanumeric character. You can construct such a regex by placing the letter or number of interest between two slashes (`/`).
+
+For example, `/s/` matches the letter `s` anywhere it appears inside a string. It matches `s`, `sand`, `cats`, `cast`, and even `Mississippi`. In this last example, `/s/` matches four times, at each of the occurrences of `s` in the string.
+
+When we say that `/s/` matches four times, we refer specifically to how regex work in Rubular. By default, in most languages, a regex matches each string once or not at all; that is, regex matching is a boolean operation. We won't mention this again until near the end of the book.
+
+Note, however, that `/s/` does not match `S` or `KANSAS`. Regex are case sensitive by default, so if you want to match a capital S, you need to specify `/S/`.
+
+Go ahead and give this a try in Rubular: enter the regex `/s/`, then enter the following strings:
+
+```sh
+s
+sand
+cats
+cast
+Mississippi
+S
+KANSAS
+```
+
+Rubular should highlight all the `s` characters in the "Match result" box, thus showing where the regex matches. However, the regex doesn't highlight the uppercase `S` characters; it doesn't match the last two strings. If you change the regex to `/S/`, Rubular should light up all the `S` characters, but not the `s`-es.
+
+Great. This discussion is interesting, but how do you put it to use in a real program? Regex usage in a program is language dependent, and also dependent upon what you need to do. As a starter, though, we can use the `match` method from the Ruby and JavaScript String classes.
+
+Ruby
+
+```ruby
+str = 'cast'
+print "matched 's'" if str.match(/s/)
+print "matched 'x'" if str.match(/x/)
+```
+
+JavaScript
+
+```js
+let str = 'cast';
+if (str.match(/s/)) {
+  console.log("matched 's'");
+}
+
+if (str.match(/x/)) {
+  console.log("matched 'x'");
+}
+```
+
+Both of these print `matched 's"` since `str` contains the letter 's', and neither prints `matched 'x'` since `str` does not contain the letter `'x'`.
+
+If you aren't acquainted with `match`, you can learn enough with a few minutes of skimming the documentation. We won't use anything more complex than the basic form of `match` that takes a single regex argument and a String caller. You can ignore the rest of the documentation for now.
+
+### Special Characters
+
