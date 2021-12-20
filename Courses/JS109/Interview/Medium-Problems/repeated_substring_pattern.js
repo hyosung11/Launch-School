@@ -36,7 +36,22 @@ ALGORITHM
   - if substring equals string return true
 - return false */
 
+function repeatedSubstringPattern(string) {
+  let substring = '';
+  let middle = Math.floor(string.length / 2);
 
+  for (let idx = 0; idx < middle; idx += 1) {
+    substring = string.slice(0, idx + 1);
+
+    while (substring.length < string.length) {
+      substring += substring;
+    }
+
+    if (substring === string) return true;
+  }
+
+  return false;
+}
 
 // function repeatedSubstringPattern(string) {
 //   let substring = '';
