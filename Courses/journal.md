@@ -4495,3 +4495,9 @@ If you go into the Settings under "Suggestions" there should be an option called
 ## 20211219 일요일
 
 17:50 Practicing problems on and off this afternoon. Ugh. I need to push myself harder to solve problems before looking at the solution.
+
+## 20211220 월요일
+
+05:51 Good morning. Ready for another week of studying.
+
+07:46 I can learn coding. Yes, I can pass the JS109 Interview Assessment. Get prepared and do it.

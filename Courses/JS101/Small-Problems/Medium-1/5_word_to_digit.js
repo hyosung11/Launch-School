@@ -34,29 +34,29 @@ ALGORITHM
 CODE
 - test code while programming */
 
-const NUM_WORDS = {
-  zero: 0,
-  one: 1,
-  two: 2,
-  three: 3,
-  four: 4,
-  five: 5,
-  six: 6,
-  seven: 7,
-  eight: 8,
-  nine: 9
-};
+// const NUM_WORDS = {
+//   zero: 0,
+//   one: 1,
+//   two: 2,
+//   three: 3,
+//   four: 4,
+//   five: 5,
+//   six: 6,
+//   seven: 7,
+//   eight: 8,
+//   nine: 9
+// };
 
-function wordToDigit(sentence) {
-  Object.keys(NUM_WORDS).forEach(word => {
-    let regex = new RegExp('\\b' + word + '\\b', 'g');
-    sentence = sentence.replace(regex, NUM_WORDS[word]);
-  });
-  return sentence;
-}
+// function wordToDigit(sentence) {
+//   Object.keys(NUM_WORDS).forEach(word => {
+//     let regex = new RegExp('\\b' + word + '\\b', 'g');
+//     sentence = sentence.replace(regex, NUM_WORDS[word]);
+//   });
+//   return sentence;
+// }
 
-// Example:
-console.log(wordToDigit('Please call me at five five five one two three four. In the zone. Thanks.'));
+// // Example:
+// console.log(wordToDigit('Please call me at five five five one two three four. In the zone. Thanks.'));
 // "Please call me at 5 5 5 1 2 3 4. Thanks."
 
 /* This exercise is a string processing problem. You can either convert the string into an array and use a list processing strategy—transformation perhaps?—or use regex to find and replace sequences of characters that match a particular pattern.
@@ -111,4 +111,89 @@ Can you refactor the function so that it does not use a loop? */
 //   }
 
 //   return string.join(' ');
+// }
+
+// function wordToDigit(string) {
+//   let numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+
+//   for (let idx = 0; idx < numbers.length; idx += 1) {
+//     if (string.includes(numbers[idx])) {
+//       string = string.replaceAll(numbers[idx], idx);
+//     }
+//   }
+//   return string;
+// }
+
+// console.log(wordToDigit('Please call me at five five five one two three four. Thanks.'));
+// "Please call me at 5 5 5 1 2 3 4. Thanks."
+
+/* Word to Digit
+
+Write a function that takes a sentence string as an argument and returns that string with every occurrence of a "number word" — 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine' — converted to its corresponding digit character.
+
+PROBLEM:
+input: string
+output: string(digits replace words)
+
+rules:
+-for every spelled-out number zero through nine, replace it with the number's digit.
+-leave rest of string unchanged
+
+examples:
+-checks out
+
+data structures:
+input: string
+intermediary: array that links spelled-out numbers with the index position of that same digit;
+output: string
+
+algo:
+- input: string
+- initialize `NUMBER_WORDS` to an array of numbers where each spelled-out number is located at its index
+- split the string into words at each space
+- iterate through the words array by word
+  - iterate through `NUMBER_WORDS` array
+  - if word at the index is a number word
+    - replace number word with its digit equivalent at that index
+- join words together at spaces
+- return new string */
+
+function wordToDigit(string) {
+  const NUM_WORDS = [
+    'zero',
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine',
+  ];
+
+  let words = string.split(' ');
+
+  for (let idx = 0; idx < words.length; idx += 1) {
+    for (let jdx = 0; jdx < NUM_WORDS.length; jdx += 1) {
+      if (words[idx].includes(NUM_WORDS[jdx])) {
+        words[idx] = words[idx].replace(NUM_WORDS[jdx], jdx);
+      }
+    }
+  }
+  return words.join(' ');
+}
+
+console.log(wordToDigit('Please call me at five five five one two three four. Thanks.'));
+// "Please call me at 5 5 5 1 2 3 4. Thanks."
+
+// function wordToDigit(string) {
+//   let numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+
+//   for (let idx = 0; idx < numbers.length; idx += 1) {
+//     if (string.includes(numbers[idx])) {
+//       string = string.replaceAll(numbers[idx], idx);
+//     }
+//   }
+//   return string;
 // }
