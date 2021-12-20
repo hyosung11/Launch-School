@@ -4507,3 +4507,5 @@ If you go into the Settings under "Suggestions" there should be an option called
 12:28 Feeling some tension in my right wrist.
 
 11:39 Slow and steady making progress.
+
+13:08 The `commonChars` problem seemed very difficult to me. There must be a way to simplify it.

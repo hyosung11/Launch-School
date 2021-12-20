@@ -435,7 +435,8 @@ scramble.js in my Medium Problems folder
 #### Video 2
 
 ```js
-repeatedSubstringPattern
+function repeatedSubstringPattern(string)
+function commonChars(array)
 ```
 
 #### Video 3
