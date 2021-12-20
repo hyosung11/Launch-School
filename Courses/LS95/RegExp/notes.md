@@ -138,7 +138,7 @@ The following special characters have special meaning in a Ruby or JavaScript re
 
 `$ ^ * + ? . ( ) [ ] { } | \ /`
 
-We call such characters *meta-characters*. If you want to match a literal meta-character, you must *escape* it with a leading backslash (`\`). To match a question mark, for instance, use the regex `/\?/`. Go ahead and try` /\?/` now with these strings (and some of your own if you aren't sure what will happen):
+We call such characters *meta-characters*. If you want to match a literal meta-character, you must *escape* it with a leading backslash (`\`). To match a question mark, for instance, use the regex `/\?/`. Go ahead and try`/\?/` now with these strings (and some of your own if you aren't sure what will happen):
 
 Inside square brackets, the rules for meta-characters change. We'll talk about meta-characters in "character classes" a little later.
 

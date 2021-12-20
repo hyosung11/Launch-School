@@ -16,7 +16,7 @@ output: number
 
 Rules:
 - for a given number, return the next highest number that is comprised of all of the digits of the original number but in a different order
-- if the input number is that largest possible combination of those digits, return -1
+- if the input number is the largest possible combination of those digits, return -1
 - single digit numbers always return -1
 - if all digits are the same number, return -1
 
@@ -26,7 +26,7 @@ Examples
 Data Structures
 -number
 -string/array
--num
+-number
 
 ALGO
 -input: num
@@ -43,10 +43,9 @@ helper function:
 513 531 135 153
 
 ALGO
--find the largest combo w a helper function
--while the incremented number is less than or equal to the largest combo of the original number:
-  -starting at number + 1, increment by 1 until the largest combo equals the largest combo of original number
-*/
+- find the largest combo w a helper function
+- while the incremented number is less than or equal to the largest combo of the original number:
+  - starting at number + 1, increment by 1 until the largest combo equals the largest combo of original number */
 
 // function nextBiggerNum(number) {
 //   let testNumber = number + 1;

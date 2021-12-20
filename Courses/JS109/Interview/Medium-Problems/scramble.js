@@ -25,12 +25,12 @@ DATA STRUCTURE
 
 ALGORITHM
 - input str1 and str2
-- initialize array1 to return value of splitting str1 into chars
-- initialize array2 to return value of splitting str2 into chars
-- if array1 is shorter than array2 return false
+- initialize array1 to value of splitting str1 into chars
+- initialize array2 to value of splitting str2 into chars
+- if length of array1 is shorter than length of array2 return false
 - iterate through array2
   - if array1 does not have char in array2 return false
-  - remove char from array1 in array2
+  - remove char from array1 that is in array2
 - return true if all removed chars in array1 are in array2, false otherwise */
 
 function scramble(str1, str2) {
@@ -40,15 +40,13 @@ function scramble(str1, str2) {
   if (array1.length < array2.length) return false;
 
   for (let idx = 0; idx < array2.length; idx += 1) {
-    if (array1.indexOf(array2[idx]) === -1) {
-      return false;
-    }
+    if (array1.indexOf(array2[idx]) === -1) return false;
     array1.splice(array1.indexOf(array2[idx]), 1);
   }
   return true;
 }
-// console.log(scramble('ab', 'abc'));
 
+console.log(scramble('ab', 'abc') === false); // true
 console.log(scramble('jjvaass', 'jjaasq') === false); // true
 console.log(scramble('rkqodlw', 'world') === true); // true
 console.log(scramble('cedewaraaossoqqyt', 'codewars') === true); // true
