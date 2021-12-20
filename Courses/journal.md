@@ -4503,3 +4503,5 @@ If you go into the Settings under "Suggestions" there should be an option called
 07:46 I can learn coding. Yes, I can pass the JS109 Interview Assessment. Get prepared and do it.
 
 09:51 Looking at the videos on my laptop, but it's too small. I need to get to my iMac now.
+
+11:39 Slow and steady making progress.
