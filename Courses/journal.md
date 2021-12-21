@@ -4516,3 +4516,4 @@ If you go into the Settings under "Suggestions" there should be an option called
 
 08:38 Missed studying with Alex this morning because he lost his router. I'm looking at the problems in Video 3 right now.
 
+09:51 Followed along with substringTest problem from video 3.
