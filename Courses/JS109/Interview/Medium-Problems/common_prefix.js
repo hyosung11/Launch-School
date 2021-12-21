@@ -57,32 +57,47 @@ ALGORITHM
 - Declare a variable `prefix` and initialize it to an empty string
 - Sort the words in the array by their length (shortest -> longest)
 - Declare a variable `substring` and initialize it to an empty string
-- Loop over the characters of the first string
+- Loop over the characters of the shortest word in the array
   - reassign `substring` to the characters of the first word in the array
-    - if all the strings in the array start with `substring`
-      - assign `prefix` to that character
-    - concatenate `substring` with the next character
-- Return `prefix`
+  - if all words in the array start with `substring`
+    - assign `prefix` to the substring
+- return `prefix`
 
 CODE
 - test code while programming */
 
 function commonPrefix(words) {
   let prefix = '';
-
   words.sort((a, b) => a.length - b.length);
-
+  let shortest = words[0];
   let substring = '';
 
-  for (let idx = 0; idx < words[0].length; idx += 1){
-    substring += words[0][idx];
-    if (words.every((word) => word.startsWith(substring))) {
+  for (let idx = 0; idx < shortest.length; idx += 1) {
+    substring += shortest[idx];
+    if (words.every(word => word.startsWith(substring))) {
       prefix = substring;
     }
   }
 
   return prefix;
 }
+
+// Test Cases
+console.log(commonPrefix(['flower', 'flow', 'flight']) === 'fl'); // true
+console.log(commonPrefix(['dog', 'racecar', 'car']) === ''); // true
+console.log(commonPrefix(['interspecies', 'interstellar', 'interstate']) === 'inters'); // true
+console.log(commonPrefix(['throne', 'dungeon']) === ''); // true
+console.log(commonPrefix(['throne', 'throne']) === 'throne'); // true
+console.log(commonPrefix(['']) === ''); // true
+
+/* ALGORITHM
+declare a result string and initialize with first string
+declare an intermediate result string
+iterate over all the strings
+  compare result to all the letters of the second string, if letters are the same, push it to intermediate result
+    once done, copy intermediate to result
+    reset intermediateResult to empty string
+return result */
 
 // Antonina's Solution
 // function commonPrefix(words) {
@@ -101,38 +116,19 @@ function commonPrefix(words) {
 //   return prefix;
 // }
 
-// Test Cases
-console.log(commonPrefix(['flower', 'flow', 'flight']) === 'fl'); // true
-console.log(commonPrefix(['dog', 'racecar', 'car']) === ''); // true
-console.log(commonPrefix(['interspecies', 'interstellar', 'interstate']) === 'inters'); // true
-console.log(commonPrefix(['throne', 'dungeon']) === ''); // true
-console.log(commonPrefix(['throne', 'throne']) === 'throne'); // true
-console.log(commonPrefix(['']) === ''); // true
+// function commonPrefix(array) {
+//   let result = array[0];
+//   let intermediateResult = '';
 
-/* ALGORITHM
-declare a result string and initialize with first string
-declare an intermediate result string
+//   for (let index = 1; index < array.length; index += 1) {
+//     for (let charIdx = 0; charIdx < array[index].length; charIdx += 1) {
+//       let char = result[charIdx];
+//       if (char === array[index][charIdx]) intermediateResult += char;
+//     }
 
-iterate over all the strings
-  compare result to all the letters of the second string, if letters are the same, push it to intermediate result
-    once done, copy intermediate to result
-    reset intermediateResult to empty string
+//     result = intermediateResult;
+//     intermediateResult = '';
+//   }
 
-return result */
-
-function commonPrefix(array) {
-  let result = array[0];
-  let intermediateResult = '';
-
-  for (let index = 1; index < array.length; index += 1) {
-    for (let charIdx = 0; charIdx < array[index].length; charIdx += 1) {
-      let char = result[charIdx];
-      if (char === array[index][charIdx]) intermediateResult += char;
-    }
-
-    result = intermediateResult;
-    intermediateResult = '';
-  }
-
-  return result;
-}
+//   return result;
+// }

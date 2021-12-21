@@ -18,7 +18,7 @@ Rules
 - if not return false
 
 EXAMPLES
-abcabcabcabc = abc + abc + abc + abc => true *
+abcabcabcabc = abc + abc + abc + abc => true
 
 DATA STRUCTURE
 - input: string
@@ -29,18 +29,18 @@ ALGORITHM
 - input string
 - initialize `substring` to empty string
 - initialize `middle` to find the middle of the string
-- iterate through input string
+- iterate to middle of input string
   - find substrings of string
-  - iterate through substrings
+  - iterate through substrings to length of string
     - increment the substring
   - if substring equals string return true
 - return false */
 
 function repeatedSubstringPattern(string) {
   let substring = '';
-  let middle = Math.floor(string.length / 2);
+  let midString = Math.floor(string.length / 2);
 
-  for (let idx = 0; idx < middle; idx += 1) {
+  for (let idx = 0; idx < midString; idx += 1) {
     substring = string.slice(0, idx + 1);
 
     while (substring.length < string.length) {
@@ -52,23 +52,6 @@ function repeatedSubstringPattern(string) {
 
   return false;
 }
-
-// function repeatedSubstringPattern(string) {
-//   let substring = '';
-//   let middle = Math.floor(string.length / 2);
-
-//   for (let idx = 0; idx < middle; idx += 1) {
-//     substring = string.slice(0, idx + 1);
-
-//     while (substring.length < string.length) {
-//       substring += substring;
-//     }
-
-//     if (substring === string) return true;
-//  }
-//  return false;
-
-// }
 
 // Refactored
 // function repeatedSubstringPattern(string) {
