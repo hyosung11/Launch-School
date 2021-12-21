@@ -42,18 +42,18 @@ function substringTest(str1, str2) {
 
 function leadingSubstrings(string) {
   string = string.toLowerCase();
-  let results = [];
+  let substrings = [];
   string.split('').forEach((char, idx) => {
-    results.push(string.slice(0, idx + 1));
+    substrings.push(string.slice(0, idx + 1));
   })
-  return results;
+  return substrings;
 }
 
 function allSubstrings(string) {
   let substrings = [];
   string.split('').forEach((char, idx) => {
-    let slice = string.slice(idx);
-    substrings = substrings.concat(leadingSubstrings(slice));
+    let substring = string.slice(idx);
+    substrings = substrings.concat(leadingSubstrings(substring));
   });
   return substrings.filter(substring => substring.length > 1);
 }
