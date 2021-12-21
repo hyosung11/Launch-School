@@ -449,6 +449,11 @@ function substringTest(str1, str2)
 
 #### Video 4
 
+```js
+function commonPrefix(string)
+function findEvenIndex(array)
+```
+
 ### Problem Solving
 
 One of the core skills we're looking for at this stage is your ability to problem solve and decompose a complicated problem. Doing that requires a systematic approach to tackling an exercise. You should know what the code you write is doing, and you should never enter "let me just run it to see what it will do" mode. **You must be in full control of the code, and your process must be intentional and directed, not "hack and slash" or "trial and error."** Not having an intentional problem-solving approach is the leading cause of problems during the interview.
