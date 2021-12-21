@@ -4515,4 +4515,3 @@ If you go into the Settings under "Suggestions" there should be an option called
 ## 20211221 화요일
 
 08:38 Missed studying with Alex this morning because he lost his router. I'm looking at the problems in Video 3 right now.
-
