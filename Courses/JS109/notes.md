@@ -430,7 +430,9 @@ console.log(nextBiggerNum(123456789) === 123456798); // true
 876 ==> -1 // 1st > 2nd > 3rd returns -1
 786 ==> 867
 
-scramble.js in my Medium Problems folder
+```js
+function scramble(str1, str2) // in my Medium Problems folder
+```
 
 #### Video 2
 
@@ -440,6 +442,11 @@ function commonChars(array)
 ```
 
 #### Video 3
+
+```js
+function substringTest(str1, str2)
+
+```
 
 #### Video 4
 

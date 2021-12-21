@@ -4509,3 +4509,5 @@ If you go into the Settings under "Suggestions" there should be an option called
 11:39 Slow and steady making progress.
 
 13:08 The `commonChars` problem seemed very difficult to me. There must be a way to simplify it.
+
+20:36 Tired. Still confused. That's okay. Keep going.

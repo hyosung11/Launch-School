@@ -43,36 +43,45 @@ helper function:
 513 531 135 153
 
 ALGO
-- find the largest combo w a helper function
-- while the incremented number is less than or equal to the largest combo of the original number:
-  - starting at number + 1, increment by 1 until the largest combo equals the largest combo of original number */
+- input number
+- initialize `testNumber` to number plus one
+- find the largest combo of digits of number and `testNumber` with helper function
+  - return Number of
+    - turn digits into string
+    - split digits into chars
+    - sort digits from highest to lowest
+    - join digits into string
+- while `testNumber` is less than or equal to the largest combo of the original number
+  - increment by 1 until combo of `testNumber` equals the largest combo of original number
+- if no bigger number found, return -1 */
 
-// function nextBiggerNum(number) {
-//   let testNumber = number + 1;
+function nextBiggerNum(number) {
+  let testNumber = number + 1;
 
-//   while (testNumber <= largest(number)) {
-//     if (largest(testNumber) === largest(number)) return testNumber;
-//     testNumber += 1;
-//   }
+  while (testNumber <= largest(number)) {
+    if (largest(testNumber) === largest(number)) return testNumber;
+    testNumber += 1;
+  }
 
-//   return -1;
-// }
+  return -1;
+}
 
-// function largest(digits) {
-//   return Number(
-//     String(digits)
-//       .split('')
-//       .sort((a, b) => b - a)
-//       .join('')
-//   );
-// }
+function largest(digits) {
+  return Number(
+    String(digits)
+      .split('')
+      .sort((a, b) => b - a)
+      .join('')
+  );
+}
 
-// console.log(nextBiggerNum(9) === -1); // true
-// console.log(nextBiggerNum(12) === 21); // true
-// console.log(nextBiggerNum(513) === 531); // true
-// console.log(nextBiggerNum(2017) === 2071); // true
-// console.log(nextBiggerNum(111) === -1); // true
-// console.log(nextBiggerNum(123456789) === 123456798); // true
+console.log(nextBiggerNum(9) === -1); // true
+console.log(nextBiggerNum(12) === 21); // true
+console.log(nextBiggerNum(13) === 31); // true
+console.log(nextBiggerNum(513) === 531); // true
+console.log(nextBiggerNum(2017) === 2071); // true
+console.log(nextBiggerNum(111) === -1); // true
+console.log(nextBiggerNum(123456789) === 123456798); // true
 
 // function nextBiggerNum(123) {
 //   let testInt = number + 1; // 124
@@ -94,44 +103,44 @@ helper function algo
 - compare digits, if true, return the new number
 - iterate until num2 has more digits than num1 */
 
-function toArray(number) {
-  return String(number).split('');
-}
+// function toArray(number) {
+//   return String(number).split('');
+// }
 
-function compareDigits(num1, num2) {
-  let array1 = toArray(num1).sort();
-  let array2 = toArray(num2).sort();
+// function compareDigits(num1, num2) {
+//   let array1 = toArray(num1).sort();
+//   let array2 = toArray(num2).sort();
 
-  if (array1.length !== array2.length) {
-    return false;
-  }
+//   if (array1.length !== array2.length) {
+//     return false;
+//   }
 
-  for (let idx = 0; idx < array1.length; idx += 1) {
-    if (array1[idx] !== array2[idx]) {
-      return false;
-    }
-  }
-  return true;
-}
+//   for (let idx = 0; idx < array1.length; idx += 1) {
+//     if (array1[idx] !== array2[idx]) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
 
-function nextBiggerNum(number) {
-  let digits = toArray(number).length;
-  let number2 = number;
+// function nextBiggerNum(number) {
+//   let digits = toArray(number).length;
+//   let number2 = number;
 
-  while (toArray(number2).length <= digits) {
-    number2 += 1;
-    if (compareDigits(number, number2)) {
-      return number2;
-    }
-  }
-  return -1;
-}
+//   while (toArray(number2).length <= digits) {
+//     number2 += 1;
+//     if (compareDigits(number, number2)) {
+//       return number2;
+//     }
+//   }
+//   return -1;
+// }
 
-// console.log(nextBiggerNum(321));
-console.log(compareDigits(1234, 4321));
-console.log(nextBiggerNum(9) === -1); // true
-console.log(nextBiggerNum(12) === 21); // true
-console.log(nextBiggerNum(513) === 531); // true
-console.log(nextBiggerNum(2017) === 2071); // true
-console.log(nextBiggerNum(111) === -1); // true
-console.log(nextBiggerNum(123456789) === 123456798); // true
+// // console.log(nextBiggerNum(321));
+// console.log(compareDigits(1234, 4321));
+// console.log(nextBiggerNum(9) === -1); // true
+// console.log(nextBiggerNum(12) === 21); // true
+// console.log(nextBiggerNum(513) === 531); // true
+// console.log(nextBiggerNum(2017) === 2071); // true
+// console.log(nextBiggerNum(111) === -1); // true
+// console.log(nextBiggerNum(123456789) === 123456798); // true
