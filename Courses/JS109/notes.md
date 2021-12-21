@@ -441,6 +441,10 @@ function commonChars(array)
 
 #### Video 3
 
+```js
+function substringTest()
+```
+
 #### Video 4
 
 ### Problem Solving
