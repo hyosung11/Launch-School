@@ -230,23 +230,82 @@ ALGORITHM
   - join the chars
 - return boolean */
 
-function changeMe(words) {
-  return words
-    .split(' ')
-    .map(word => {
-      if (isPalindrome(word)) {
-        word = word.toUpperCase();
-      } return word;
-    })
-    .join(' ');
+// function changeMe(words) {
+//   return words
+//     .split(' ')
+//     .map(word => {
+//       if (isPalindrome(word)) {
+//         word = word.toUpperCase();
+//       } return word;
+//     })
+//     .join(' ');
+// }
+
+// function isPalindrome(word) {
+//   return word === word.split('').reverse().join('');
+// }
+
+// // Test Cases
+// console.log(changeMe("We will meet at noon") === "We will meet at NOON");
+// console.log(changeMe("No palindromes here") === "No palindromes here");
+// console.log(changeMe("") === "");
+// console.log(changeMe("I LOVE my mom and dad equally") === "I LOVE my MOM and DAD equally");
+
+/* =========================================================
+5. Common Characters
+
+Given an array of strings made only from lowercase letters, return an array of all characters that show up in all strings within the given array (including duplicates). For example, if a character occurs 3 times in all strings but not 4 times, you need to include that character three times in the final answer.
+
+PROBLEM
+- input array strings
+- output array of string characters
+
+Rules
+- find characters in common amongst the input strings
+- if characters occur more than once in each input string return as many times as found in strings
+- strings are only lowercase letters
+- if no common characters return an empty array
+
+EXAMPLES
+- see test cases below
+
+DATA STRUCTURE
+- input: array
+- intermediary: array
+- output: array
+
+ALGORITHM
+- input array of strings
+- initialize `result` array to empty array
+- initialize `words` to copy of the array
+- iterate through first word of the `words` array
+  - check letter by letter if it letter exists in the subsequent words
+  - if letter exists in all words, push to `result` array
+  - iterate through `words` array
+    - replace letters found in first word with empty string in the subsequent words
+- return `result` array */
+
+function commonChars(array) {
+  let result = [];
+  let words = array.slice();
+
+  for (let idx = 0; idx < words[0].length; idx += 1) {
+    let letter = words[0][idx];
+    if (words.every(element => element.includes(letter))) {
+      result.push(letter);
+    }
+
+    for (let jdx = 1; jdx < words.length; jdx += 1) {
+      words[jdx] = words[jdx].replace(letter, '');
+    }
+  }
+
+  return result;
 }
 
-function isPalindrome(word) {
-  return word === word.split('').reverse().join('');
-}
-
-// Test Cases
-console.log(changeMe("We will meet at noon") === "We will meet at NOON");
-console.log(changeMe("No palindromes here") === "No palindromes here");
-console.log(changeMe("") === "");
-console.log(changeMe("I LOVE my mom and dad equally") === "I LOVE my MOM and DAD equally");
+console.log(commonChars(['a', 'b'])); // []
+console.log(commonChars(['ab', 'bc'])); // ['b']
+console.log(commonChars(['bella', 'label', 'roller'])); // ['e', 'l', 'l']
+console.log(commonChars(['cool', 'lock', 'cook'])); // ['c', 'o']
+console.log(commonChars(['hello', 'goodbye', 'booya', 'random'])); // ['o']
+console.log(commonChars(['aabbaaaa', 'ccddddd', 'eeffee', 'ggrrrrr', 'yyyzzz'])); // []
