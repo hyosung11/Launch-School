@@ -163,19 +163,90 @@ ALGORITHM
 //   return upperCaseChars + lowerCaseChars;
 // }
 
-const capToFront = (string) => {
-  return (
-    string
-      .split('')
-      .filter((char) => char === char.toUpperCase())
-      .join('') +
-    string
-      .split('')
-      .filter((char) => char === char.toLowerCase())
-      .join('')
-  );
+// const capToFront = (string) => {
+//   return (
+//     string
+//       .split('')
+//       .filter((char) => char === char.toUpperCase())
+//       .join('') +
+//     string
+//       .split('')
+//       .filter((char) => char === char.toLowerCase())
+//       .join('')
+//   );
+// }
+
+// function capToFront(string) {
+//   let letters = string.split('');
+//   let uppercase = letters.filter(char => char === char.toUpperCase()).join('');
+//   let lowercase = letters.filter(char => char === char.toLowerCase()).join('');
+//   return uppercase + lowercase;
+// }
+
+// console.log(capToFront("hApPy")); // "APhpy"
+// console.log(capToFront("moveMENT")); // "MENTmove"
+// console.log(capToFront("shOrtCAKE")); // "OCAKEshrt"
+
+/* =========================================================
+4. Change Me
+
+Given a string, write a function `changeMe` which returns the same string but with all the words in it that are palindromes uppercased.
+
+PROBLEM
+- input string
+- output new string
+
+Rules
+- change words in string that are palindromes to all caps
+- words are split by space
+- assume case-sensitive, so `Abba` is not a palindrome
+- empty string input returns an empty string
+- words in uppercase are returned in uppercase in new string
+
+EXAMPLES
+- see below
+
+DATA STRUCTURE
+- input: string
+- intermediary: array
+- output: new string
+
+ALGORITHM
+- input string
+- split string into words at spaces
+- iterate through words
+  - check if word is a palindrome with isPalindrome helper function
+  - if palindrome
+    - change letters to all caps
+  - otherwise, return the word
+- join the words at the space
+- return new string
+
+`isPalindrome` helper function
+- input word
+- compare word with word when
+  - split the word into chars
+  - reverse the chars
+  - join the chars
+- return boolean */
+
+function changeMe(words) {
+  return words
+    .split(' ')
+    .map(word => {
+      if (isPalindrome(word)) {
+        word = word.toUpperCase();
+      } return word;
+    })
+    .join(' ');
 }
 
-console.log(capToFront("hApPy")); // "APhpy"
-console.log(capToFront("moveMENT")); // "MENTmove"
-console.log(capToFront("shOrtCAKE")); // "OCAKEshrt"
+function isPalindrome(word) {
+  return word === word.split('').reverse().join('');
+}
+
+// Test Cases
+console.log(changeMe("We will meet at noon") === "We will meet at NOON");
+console.log(changeMe("No palindromes here") === "No palindromes here");
+console.log(changeMe("") === "");
+console.log(changeMe("I LOVE my mom and dad equally") === "I LOVE my MOM and DAD equally");
