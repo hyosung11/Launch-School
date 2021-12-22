@@ -29,7 +29,7 @@ Before enabling squashing commits, consider these disadvantages:
 
 You lose information about when specific changes were originally made and who authored the squashed commits.
 If you continue working on the head branch of a pull request after squashing and merging, and then create a new pull request between the same branches, commits that you previously squashed and merged will be listed in the new pull request. You may also have conflicts that you have to repeatedly resolve in each successive pull request. For more information, see "About pull request merges."
-Some Git commands that use the "SHA" or "hash" ID may be harder to use since the SHA ID for the original commits is lost. For example, using git rerere may not be as effective.
+Some Git commands that use the "SHA" or "hash" ID may be harder to use since the SHA ID for the original commits is lost. For example, using git revert may not be as effective.
 For more information, see "Configuring commit squashing for pull requests."
 
 Rebasing and merging your commits

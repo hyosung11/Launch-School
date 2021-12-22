@@ -4519,3 +4519,9 @@ If you go into the Settings under "Suggestions" there should be an option called
 09:51 Followed along with substringTest problem from video 3.
 
 11:32 Actually helpful to review the PEDAC materials from Lesson 4.
+
+15:50 The PEDAC problem is hard for me. Go back to basics?
+
+16:40 Not sure what to do right now? I'm thinking of doing the Small Problems again from the begining. I think this would be my fourth time.
+
+20:39 Just keep practicing. It will come.

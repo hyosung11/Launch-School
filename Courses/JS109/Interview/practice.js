@@ -1110,3 +1110,14 @@ Leap Years 1
 // console.log(isLeapYear(1) === false);         // false
 // console.log(isLeapYear(100) === true);       // false
 // console.log(isLeapYear(400) === true);       // true
+
+/* Palindromic Numbers */
+
+function isPalindromicNumber(number) {
+  return String(number) === String(number).split('').reverse().join('')
+}
+
+console.log(isPalindromicNumber(34543)); // true
+console.log(isPalindromicNumber(123210)); // false
+console.log(isPalindromicNumber(22)); // true
+console.log(isPalindromicNumber(5)); // true

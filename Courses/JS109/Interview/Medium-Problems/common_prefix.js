@@ -66,38 +66,21 @@ ALGORITHM
 CODE
 - test code while programming */
 
-function commonPrefix(words) {
-  let prefix = '';
-  words.sort((a, b) => a.length - b.length);
-  let shortest = words[0];
-  let substring = '';
+// function commonPrefix(words) {
+//   let prefix = '';
+//   words.sort((a, b) => a.length - b.length);
+//   let shortest = words[0];
+//   let substring = '';
 
-  for (let idx = 0; idx < shortest.length; idx += 1) {
-    substring += shortest[idx];
-    if (words.every(word => word.startsWith(substring))) {
-      prefix = substring;
-    }
-  }
+//   for (let idx = 0; idx < shortest.length; idx += 1) {
+//     substring += shortest[idx];
+//     if (words.every(word => word.startsWith(substring))) {
+//       prefix = substring;
+//     }
+//   }
 
-  return prefix;
-}
-
-// Test Cases
-console.log(commonPrefix(['flower', 'flow', 'flight']) === 'fl'); // true
-console.log(commonPrefix(['dog', 'racecar', 'car']) === ''); // true
-console.log(commonPrefix(['interspecies', 'interstellar', 'interstate']) === 'inters'); // true
-console.log(commonPrefix(['throne', 'dungeon']) === ''); // true
-console.log(commonPrefix(['throne', 'throne']) === 'throne'); // true
-console.log(commonPrefix(['']) === ''); // true
-
-/* ALGORITHM
-declare a result string and initialize with first string
-declare an intermediate result string
-iterate over all the strings
-  compare result to all the letters of the second string, if letters are the same, push it to intermediate result
-    once done, copy intermediate to result
-    reset intermediateResult to empty string
-return result */
+//   return prefix;
+// }
 
 // Antonina's Solution
 // function commonPrefix(words) {
@@ -116,19 +99,36 @@ return result */
 //   return prefix;
 // }
 
-// function commonPrefix(array) {
-//   let result = array[0];
-//   let intermediateResult = '';
+// Test Cases
+console.log(commonPrefix(['flower', 'flow', 'flight']) === 'fl'); // true
+console.log(commonPrefix(['dog', 'racecar', 'car']) === ''); // true
+console.log(commonPrefix(['interspecies', 'interstellar', 'interstate']) === 'inters'); // true
+console.log(commonPrefix(['throne', 'dungeon']) === ''); // true
+console.log(commonPrefix(['throne', 'throne']) === 'throne'); // true
+console.log(commonPrefix(['']) === ''); // true
 
-//   for (let index = 1; index < array.length; index += 1) {
-//     for (let charIdx = 0; charIdx < array[index].length; charIdx += 1) {
-//       let char = result[charIdx];
-//       if (char === array[index][charIdx]) intermediateResult += char;
-//     }
+/* ALGORITHM
+declare a result string and initialize with first string
+declare an intermediate result string
+iterate over all the strings
+  compare result to all the letters of the second string, if letters are the same, push it to intermediate result
+    once done, copy intermediate to result
+    reset intermediateResult to empty string
+return result */
 
-//     result = intermediateResult;
-//     intermediateResult = '';
-//   }
+function commonPrefix(array) {
+  let result = array[0];
+  let intermediateResult = '';
 
-//   return result;
-// }
+  for (let index = 1; index < array.length; index += 1) {
+    for (let charIdx = 0; charIdx < array[index].length; charIdx += 1) {
+      let char = result[charIdx];
+      if (char === array[index][charIdx]) intermediateResult += char;
+    }
+
+    result = intermediateResult;
+    intermediateResult = '';
+  }
+
+  return result;
+}
