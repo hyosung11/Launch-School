@@ -50,12 +50,13 @@ ALGORITHM
 - input string
 - initialize `result` to an empty object
 - iterate through string char by char
-  - convert chars to lowercase
+  - convert char to lowercase
   - check if char in `result` object
     - add char to `result` object
     - if char exists in `result` object increment value of char by 1
 - iterate through object's values
   - filter out values greater than 1
+  - get number by returning length
 - return number representing chars in `result` greater than 1 */
 
 function duplicateCount(string) {
