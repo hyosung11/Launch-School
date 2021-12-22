@@ -4525,3 +4525,9 @@ If you go into the Settings under "Suggestions" there should be an option called
 16:40 Not sure what to do right now? I'm thinking of doing the Small Problems again from the begining. I think this would be my fourth time.
 
 20:39 Just keep practicing. It will come.
+
+## 20211222 수요일
+
+07:05 I finished study session with Alex and I was mostly able to code a solution to a problem that I hadn't done before. That's progress.
+
+08:25 Practice practice practice and time to go to school with the kids.
