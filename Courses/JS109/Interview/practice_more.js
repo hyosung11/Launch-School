@@ -285,27 +285,267 @@ ALGORITHM
     - replace letters found in first word with empty string in the subsequent words
 - return `result` array */
 
-function commonChars(array) {
-  let result = [];
-  let words = array.slice();
+// function commonChars(array) {
+//   let result = [];
+//   let words = array.slice();
 
-  for (let idx = 0; idx < words[0].length; idx += 1) {
-    let letter = words[0][idx];
-    if (words.every(element => element.includes(letter))) {
-      result.push(letter);
-    }
+//   for (let idx = 0; idx < words[0].length; idx += 1) {
+//     let char = words[0][idx];
+//     if (words.every(element => element.includes(char))) {
+//       result.push(char);
+//     }
 
-    for (let jdx = 1; jdx < words.length; jdx += 1) {
-      words[jdx] = words[jdx].replace(letter, '');
-    }
-  }
+//     for (let jdx = 1; jdx < words.length; jdx += 1) {
+//       words[jdx] = words[jdx].replace(char, '');
+//     }
+//   }
 
-  return result;
+//   return result;
+// }
+
+// console.log(commonChars(['a', 'b'])); // []
+// console.log(commonChars(['ab', 'bc'])); // ['b']
+// console.log(commonChars(['bella', 'label', 'roller'])); // ['e', 'l', 'l']
+// console.log(commonChars(['cool', 'lock', 'cook'])); // ['c', 'o']
+// console.log(commonChars(['hello', 'goodbye', 'booya', 'random'])); // ['o']
+// console.log(commonChars(['aabbaaaa', 'ccddddd', 'eeffee', 'ggrrrrr', 'yyyzzz'])); // []
+
+/* =========================================================
+6. Common Elements
+
+Create a function that takes two lists of numbers sorted in ascending order and returns an array of numbers which are common to both the input arrays.
+
+Returned array shall only have one of each number
+If no common numbers, return empty array.
+
+PROBLEM
+- input: two arrays
+- return new array
+
+Rules
+- numbers in each input array are sorted in ascending order
+- find numbers that are in both arrays
+  - if number occurs more than once in each array, just return it once
+- if no common number, return an empty array
+
+EXAMPLES
+- see below
+
+DATA STRUCTURE
+- input two arrays
+- intermediary: arrays
+- output: array
+
+ALGORITHM
+- input array1 and array2
+- initialize `result` array to empty array
+- iterate through array1's numbers
+  - if number exists in array2 and
+  - number doesn't exists in `result` array
+  - add it to the `result` array
+- return `result` array */
+
+// function commonElements(array1, array2) {
+//   let result = [];
+
+//   for (let idx = 0; idx < array1.length; idx += 1) {
+//     let number = array1[idx];
+//     if (array2.includes(number) && (!result.includes(number))) result.push(number);
+//   }
+
+//   return result;
+// }
+
+// function commonElements(array1, array2) {
+//   let duplicate = null;
+
+//   return array1.filter((number) => {
+//     if (number === duplicate) return false;
+//     duplicate = number;
+//     return array2.includes(number);
+//   });
+// }
+
+// function commonElements(array1, array2) {
+//   let result = [];
+
+//   for (let idx = 0; idx < array1.length; idx += 1) {
+//     let number = array1[idx];
+//     if (array2.includes(number) && (!result.includes(number))) {
+//       result.push(number);
+//     }
+//   }
+
+//   return result;
+// }
+
+// console.log(commonElements([-1, 3, 4, 6, 7, 9], [1, 3])); //  ➞ [3]
+// console.log(commonElements([1, 3, 4, 6, 7, 9], [1, 2, 3, 4, 7, 10])); // ➞ [1, 3, 4, 7]
+// console.log(commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 4, 5])); // ➞ [1, 2, 4, 5]
+// console.log(commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 2])); // ➞ [1, 2]
+// console.log(commonElements([1, 2, 3, 4, 5], [10, 12, 13, 15])); // ➞ []
+
+/* =========================================================
+7. Common Prefix
+
+Write a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string "".
+
+Example 1:
+Input: ["flower","flow","flight"]
+Output: "fl"
+
+Example 2:
+Input: ["dog", "racecar", "car"]
+Output: ""
+Explanation: There is no common prefix among the input strings.
+
+Note: all given inputs are in lowercase letters a-z.
+
+PROBLEM
+- input: array of words
+- output: string
+
+Rules
+- find the longest common prefix amongst an array of strings
+- if there is no common prefix return an empty string
+- if prefix is entire string and that repeats, return that string
+- if input is [''] return empty string
+
+EXAMPLES
+- see below
+
+DATA STRUCTURE
+- input: array of strings
+- intermediary: string
+- output: string
+
+ALGORITHM
+- input array of strings
+- initialize `prefix` to empty string to collect longest prefix
+- sort the words in the array from shortest to longest
+- initialize `substring` to empty string as test string
+- iterate through the shortest word char by char
+  - increment the substring with chars common to all the words
+  - reassign prefix to substring
+- return prefix of longest common substring */
+
+// function commonPrefix(words) {
+//   let prefix = '';
+//   words.sort((a, b) => a.length - b.length);
+//   let shortest = words[0];
+//   let substring = '';
+
+//   for (let idx = 0; idx < shortest.length; idx += 1) {
+//     let char = shortest[idx];
+//     substring += char;
+
+//     if (words.every(word => word.startsWith(substring))) {
+//       prefix = substring;
+//     }
+//   }
+
+//   return prefix;
+// }
+
+// Test Cases
+// console.log(commonPrefix(['flower', 'flow', 'flight']) === 'fl'); // true
+// console.log(commonPrefix(['dog', 'racecar', 'car']) === ''); // true
+// console.log(commonPrefix(['interspecies', 'interstellar', 'interstate']) === 'inters'); // true
+// console.log(commonPrefix(['throne', 'dungeon']) === ''); // true
+// console.log(commonPrefix(['throne', 'throne']) === 'throne'); // true
+// console.log(commonPrefix(['']) === ''); // true
+
+/* =========================================================
+8. Count Matching Indices
+
+Consider the word "abode".
+The letter `a` is in position 1 and `b` is in position 2.
+In the alphabet, `a` and `b` are also in positions 1 and 2.
+The letters `d` and `e` in "abode" occupy the positions they would occupy in the alphabet, which are positions 4 and 5.
+
+Given an array of words, return an array of the number of letters that occupy their positions in the alphabet for each word.
+
+For example:
+countMatchingIndices(["abode","ABc","xyzD"]) // [4, 3, 1]
+
+Input will consist of alphabetic characters, both uppercase and lowercase. No spaces.
+
+PROBLEM
+- input: array of words
+- output: array of numbers
+
+Rules
+- return an array of the number of letters that occupy their position in the alphabet for each word
+- input is only alphabetic characters both upper and lower case
+- no spaces
+- an empty input array returns an empty array
+
+EXAMPLES
+- 'ABc' => 3 because each letter is in its corresponding alphabet position so 3/3
+
+DATA STRUCTURE
+- input: array of words
+- intermediary: array
+- output: array of numbers
+
+ALGORITHM
+- input array of words
+- initialize `alphabet` to lowercase letters of the alphabet
+- initialize `result` to an empty array
+- iterate through the array of words
+  - set a count to 0
+  - iterate through chars in each word
+    - check the char toLowerCase in the word with the char in the alphabet string at the current index
+    - if chars match increment counter
+  - push count value to `result`
+- return result */
+
+// function countMatchingIndices(words) {
+//   let result = [];
+//   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+//   for (let idx = 0; idx < words.length; idx += 1) {
+//     let count = 0;
+//     let word = words[idx];
+
+//     for (let jdx = 0; jdx < word.length; jdx += 1) {
+//       let char = word[jdx];
+//       if (char.toLowerCase() === alphabet[jdx]) {
+//         count += 1;
+//       }
+//     }
+//     result.push(count);
+//   }
+
+//   return result;
+// }
+
+// function countMatchingIndices(words) {
+//   return words.map(word => correctPosition(word));
+// }
+
+// function correctPosition(word) {
+//   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+//   return word
+//     .toLowerCase()
+//     .split('')
+//     .filter((char, idx) => alphabet.indexOf(char) === idx).length;
+// }
+
+function countMatchingIndices(words) {
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  return words.map(word => {
+    return word
+      .toLowerCase()
+      .split('')
+      .filter((char, idx) => alphabet.indexOf(char) === idx).length;
+  });
 }
 
-console.log(commonChars(['a', 'b'])); // []
-console.log(commonChars(['ab', 'bc'])); // ['b']
-console.log(commonChars(['bella', 'label', 'roller'])); // ['e', 'l', 'l']
-console.log(commonChars(['cool', 'lock', 'cook'])); // ['c', 'o']
-console.log(commonChars(['hello', 'goodbye', 'booya', 'random'])); // ['o']
-console.log(commonChars(['aabbaaaa', 'ccddddd', 'eeffee', 'ggrrrrr', 'yyyzzz'])); // []
+console.log(countMatchingIndices(['abode', 'ABc', 'xyzD'])); // [4, 3, 1]
+console.log(countMatchingIndices(['abide', 'ABc', 'xyz'])); // [4, 3, 0]
+console.log(
+  countMatchingIndices(['IAMDEFANDJKL', 'thedefgh', 'xyzDEFghijabc'])
+); // [6, 5, 7]
+console.log(countMatchingIndices(['encode', 'abc', 'xyzD', 'ABmD'])); // [1, 3, 1, 3]
+console.log(countMatchingIndices([])); // []

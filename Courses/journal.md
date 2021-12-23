@@ -4535,3 +4535,5 @@ If you go into the Settings under "Suggestions" there should be an option called
 10:22 Shifting to standing work station to get ready for study session at 10:30.
 
 10:29 Stating the obvious, but variable naming is critical for me to understand problems.
+
+20:29 Studying medium problems.
