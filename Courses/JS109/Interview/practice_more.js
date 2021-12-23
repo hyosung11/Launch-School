@@ -532,20 +532,267 @@ ALGORITHM
 //     .filter((char, idx) => alphabet.indexOf(char) === idx).length;
 // }
 
-function countMatchingIndices(words) {
-  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
-  return words.map(word => {
-    return word
-      .toLowerCase()
-      .split('')
-      .filter((char, idx) => alphabet.indexOf(char) === idx).length;
-  });
+// function countMatchingIndices(words) {
+//   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+//   return words.map(word => {
+//     return word
+//       .toLowerCase()
+//       .split('')
+//       .filter((char, idx) => alphabet.indexOf(char) === idx).length;
+//   });
+// }
+
+// console.log(countMatchingIndices(['abode', 'ABc', 'xyzD'])); // [4, 3, 1]
+// console.log(countMatchingIndices(['abide', 'ABc', 'xyz'])); // [4, 3, 0]
+// console.log(
+//   countMatchingIndices(['IAMDEFANDJKL', 'thedefgh', 'xyzDEFghijabc'])
+// ); // [6, 5, 7]
+// console.log(countMatchingIndices(['encode', 'abc', 'xyzD', 'ABmD'])); // [1, 3, 1, 3]
+// console.log(countMatchingIndices([])); // []
+
+/* =========================================================
+9. Duplicate Count
+
+Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string.
+The input string can be assumed to contain only letters
+(both uppercase and lowercase) and numeric digits.
+
+Algo
+- input string
+- initialize `result` to an empty object
+- iterate through input string by char
+  - change char to lowercase
+  - check if char in `result`
+    - if char in `result` increment char
+    - if not in `result` add to `result`
+- iterate through the `result` values
+  - filter values of chars that occur more than once
+- return number */
+
+// function duplicateCount(string) {
+//   let result = {};
+
+//   for (let idx = 0; idx < string.length; idx += 1) {
+//     let char = string[idx].toLowerCase();
+//     result[char] ? result[char] += 1 : result[char] = 1;
+//   }
+
+//   return Object.values(result).filter(count => count > 1).length;
+// }
+
+// // Test Cases
+// console.log(duplicateCount("") === 0);
+// console.log(duplicateCount("abcde") === 0);
+// console.log(duplicateCount("abcdeaa") === 1);
+// console.log(duplicateCount("abcdeaB") === 2);
+// console.log(duplicateCount("Indivisibilities") === 2);
+
+/* =========================================================
+10. Find Even Index
+
+You are going to be given an array of integers. Your job is to take that array and find an index N where the sum of the integers to the left of N is equal to the sum of the integers to the right of N. If there is no index that would make this happen, return -1.
+
+For example:
+Let's say you are given the array [1, 2, 3, 4, 3, 2, 1]:
+Your function will return the index 3, because at the 3rd position of the array, the sum of left side of the index [1, 2, 3] and the sum of the right side of the index [3, 2, 1] both equal 6.
+
+Another one:
+You are given the array [20, 10, -80, 10, 10, 15, 35]
+At index 0 the left side is []
+The right side is [10, -80, 10, 10, 15, 35]
+They both are equal to 0 when added. (Empty arrays are equal to 0 in this problem)
+Index 0 is the place where the left side and right side are equal. */
+
+// function findEvenIndex(array) {
+//   for (let idx = 0; idx < array.length; idx += 1) {
+//     if (array.slice(0, idx).reduce((sum, num) => sum + num, 0) === array.slice(idx + 1).reduce((sum, num) => sum + num, 0)) return idx;
+//   }
+//   return -1;
+// }
+
+// //Test Cases
+// console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1]) === 3); // true
+// console.log(findEvenIndex([1,100,50,-51,1,1]) === 1); // true
+// console.log(findEvenIndex([1,2,3,4,5,6]) === -1); // true
+// console.log(findEvenIndex([20,10,30,10,10,15,35]) === 3); // true
+// console.log(findEvenIndex([20,10,-80,10,10,15,35]) === 0); // true
+// console.log(findEvenIndex([10,-80,10,10,15,35,20]) === 6); // true
+// console.log(findEvenIndex([-1,-2,-3,-4,-3,-2,-1]) === 3); // true
+
+/* =========================================================
+11. Longest Consecutive String
+
+You are given an array of strings and an integer k. Your task is to return the first longest string consisting of k consecutive strings taken in the array.
+
+Example: longestConsecutive(["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"], 2) --> "abigailtheta"// n being the length of the string array, if n = 0 or k > n or k <= 0 return "".
+
+Input: array of strings, integer(k)
+Output: string (longest k consecutive strings)
+Rules:
+- length of the array (n) is 0 => ""
+- array is shorter than the given number (k > n) => ""
+- given number is negative (k <= 0) => ""
+
+Algo
+- input array of strings and number
+- initialize `longestString` to empty string
+- iterate through the array
+  - initialize `testString` to slices of the array as long as number
+  - join the string
+  - if testString is longer than `longestString
+    - reassign `longestString to `testString
+- return longestString */
+
+// function longestConsecutive(array, number) {
+//   if (array.length === 0 || array.length < number || number <= 0) return '';
+
+//   let longestString = '';
+
+//   for (let idx = 0; idx < array.length; idx += 1) {
+//     let testString = array.slice(idx, idx + number).join('')
+//     if (testString.length > longestString.length) longestString = testString;
+//   }
+
+//   return longestString;
+// }
+
+// console.log(longestConsecutive(['zone', 'abigail', 'theta', 'form', 'libe', 'zas', 'theta', 'abigail'], 2)); // 'abigailtheta'
+
+// console.log(longestConsecutive(['hi', 'tim', 'california', 'howdy', 'not', 'california'], 3)); // 'timcaliforniahowdy'
+
+/* =========================================================
+12. Max Multiple
+
+Given a divisor and a bound, find the largest number N such that:
+N is divisible by the divisor
+N is less than or equal to the bound
+N is greater than 0.
+
+input: two numbers
+  - divisor
+  - bound
+iterate through the value of bound
+  - if bound divided by divisor is equal to remainder 0
+    - return the bound
+  - decrement the bound
+return number
+
+Another Algo
+- input divisor and bound
+- initialize `targetNumber` to 0
+- iterate through the bound
+  - initialize `currentNumber` to start at 0
+  - repeat up to and including the bound
+  - increment by value of divisor
+  - if the currentNumber <= bound
+    - reassign targetNumber to the currentNumber
+- return targetNumber */
+
+// function maxMultiple(divisor, bound) {
+//   let targetNumber = 0;
+
+//   for (let currentNumber = 0; currentNumber <= bound; currentNumber += divisor) {
+//     if (currentNumber <= bound) {
+//       targetNumber = currentNumber;
+//     }
+//   }
+//   return targetNumber;
+// }
+
+// function maxMultiple(divisor, bound) {
+//   while (divisor <= bound) {
+//     if (bound % divisor === 0) return bound;
+//     bound -= 1;
+//   }
+// }
+
+// // Test Cases
+// console.log(maxMultiple(2, 7) === 6);
+// console.log(maxMultiple(3, 10) === 9);
+// console.log(maxMultiple(7, 17) === 14);
+// console.log(maxMultiple(10, 50) === 50);
+// console.log(maxMultiple(37, 200) === 185);
+// console.log(maxMultiple(7, 100) === 98);
+
+/* =========================================================
+13. Max Sequence
+
+The maximum sum subarray problem consists in finding the maximum sum of a contiguous subsequence in an array of integers:
+
+maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4])
+--> should be 6: [4, -1, 2, 1]
+
+The easy case is when the array is made up of only positive numbers and the maximum sum is the sum of the whole array.
+If the array is made up of only negative numbers, return 0 instead. Empty array is considered to have zero greatest sum. Note that the empty array is also a valid argument array.
+
+PROBLEM
+- input array of integers
+- output number
+
+Rules
+- find the maximum sum of integers in a contiguous subsequence of an array of integers
+- if all numbers are positive sum the whole array
+- if all numbers negative return 0
+- if array is empty return 0
+- an empty array is a valid argument
+
+EXAMPLES
+- [-2, 1, -3, 4, -1, 2, 1, -5, 4] --> 6 [4, -1, 2, 1]
+
+DATA STRUCTURE
+- input array
+- intermediary: subarrays, array
+- number
+
+ALGORITHM
+- input array
+- if array is empty return 0
+- if all numbers are positive, sum the array
+- if all numbers are negative return 0
+
+- create getSubarrays helper function
+  - initialize `subarrays` to empty array
+  - iterate through the array
+    - iterate through elements in the array
+    - slice array into subarrays
+  - return subarrays
+
+- initialize maxSum to 0;
+- initialize `subarrays` to return value of getSubarrays(array) helper function
+- iterate through the subarrays
+  - initialize `currentSum` to value of each subarray
+  - if `currentSum` is greater than `maxSum` reassign `maxSum` to `currentSum`
+- return maxSum */
+
+function maxSequence(array) {
+  if (array.length === 0) return 0;
+  if (array.every(number => number > 0)) return array.reduce((sum, num) => sum + num, 0);
+  if (array.every(number => number < 0)) return 0;
+
+  let maxSum = 0;
+  let subarrays = getSubarrays(array);
+
+  for (let idx = 0; idx < subarrays.length; idx += 1) {
+    let currentSum = subarrays[idx].reduce((sum, num) => sum + num, 0);
+    if (currentSum > maxSum) maxSum = currentSum;
+  }
+  return maxSum;
 }
 
-console.log(countMatchingIndices(['abode', 'ABc', 'xyzD'])); // [4, 3, 1]
-console.log(countMatchingIndices(['abide', 'ABc', 'xyz'])); // [4, 3, 0]
-console.log(
-  countMatchingIndices(['IAMDEFANDJKL', 'thedefgh', 'xyzDEFghijabc'])
-); // [6, 5, 7]
-console.log(countMatchingIndices(['encode', 'abc', 'xyzD', 'ABmD'])); // [1, 3, 1, 3]
-console.log(countMatchingIndices([])); // []
+function getSubarrays(array) {
+  let subarrays = [];
+  for (let idx = 0; idx <= array.length; idx += 1) {
+    for (let jdx = idx + 1; jdx <= array.length; jdx += 1) {
+      subarrays.push(array.slice(idx, jdx));
+    }
+  }
+  return subarrays;
+}
+
+// console.log(getSubarrays([1, 2, 3, 4]));
+
+console.log(maxSequence([]) === 0); // true
+console.log(maxSequence([11, 12]) === 23); // true
+console.log(maxSequence([-32, -30]) === 0); // true
+console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]) === 6); // true
+console.log(maxSequence([-2, 1, -7, 4, -10, 2, 1, 5, 4]) === 12); // true

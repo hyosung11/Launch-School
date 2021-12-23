@@ -4545,3 +4545,5 @@ If you go into the Settings under "Suggestions" there should be an option called
 07:55 Time for breakfast.
 
 09:01 The little things are the things to keep track of when solving problems. My right elbow feels sore right now. Not good.
+
+12:29 I figured out maxSequence without looking at the solution. Some things are sticking. Yes!
