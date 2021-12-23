@@ -4536,6 +4536,8 @@ If you go into the Settings under "Suggestions" there should be an option called
 
 10:29 Stating the obvious, but variable naming is critical for me to understand problems.
 
+20:29 Studying medium problems.
+
 ## 20211223 목요일
 
 07:51 After study session with Alex I feel more comfortable with a problem that confused me when I first saw it a few weeks ago.
