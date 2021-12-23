@@ -49,6 +49,26 @@ Algorithm
   - after iterating through each string, push counter result to resultArray
 - return resultArray as an array of numbers */
 
+function countMatchingIndices(words) {
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+  return words.map(word => {
+    return word
+      .toLowerCase()
+      .split('')
+      .filter((char, idx) => alphabet.indexOf(char) === idx).length;
+  });
+}
+
+console.log(countMatchingIndices(['abode', 'ABc', 'xyzD'])); // [4, 3, 1]
+console.log(countMatchingIndices(['abide', 'ABc', 'xyz'])); // [4, 3, 0]
+console.log(
+  countMatchingIndices(['IAMDEFANDJKL', 'thedefgh', 'xyzDEFghijabc'])
+); // [6, 5, 7]
+console.log(countMatchingIndices(['encode', 'abc', 'xyzD', 'ABmD'])); // [1, 3, 1, 3]
+console.log(countMatchingIndices([])); // []
+
+
 // Version 1
 // function countMatchingIndices(array) {
 //   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
@@ -68,14 +88,6 @@ Algorithm
 
 //   return resultArray;
 // }
-
-console.log(countMatchingIndices(['abode', 'ABc', 'xyzD'])); // [4, 3, 1]
-console.log(countMatchingIndices(['abide', 'ABc', 'xyz'])); // [4, 3, 0]
-console.log(
-  countMatchingIndices(['IAMDEFANDJKL', 'thedefgh', 'xyzDEFghijabc'])
-); // [6, 5, 7]
-console.log(countMatchingIndices(['encode', 'abc', 'xyzD', 'ABmD'])); // [1, 3, 1, 3]
-console.log(countMatchingIndices([])); // []
 
 // Version 2 with filter and map
 // function countMatchingIndices(arr) {
@@ -105,30 +117,30 @@ console.log(countMatchingIndices([])); // []
 // }
 
 // Laurent's Version
-function countMatchingIndices(array) {
-  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+// function countMatchingIndices(array) {
+//   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
-  return array.map((string) => {
-    let count = 0;
+//   return array.map((string) => {
+//     let count = 0;
 
-    string
-      .toLowerCase()
-      .split('')
-      .forEach((char, index) => {
-        if (alphabet.indexOf(char) === index) count += 1;
-      });
+//     string
+//       .toLowerCase()
+//       .split('')
+//       .forEach((char, index) => {
+//         if (alphabet.indexOf(char) === index) count += 1;
+//       });
 
-    return count;
-  });
-}
+//     return count;
+//   });
+// }
 
-function countMatchingIndices(array) {
-  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+// function countMatchingIndices(array) {
+//   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
-  return array.map((word) => {
-    return word
-      .toLowerCase()
-      .split('')
-      .filter((char, idx) => alphabet.indexOf(char) === idx).length;
-  });
-}
+//   return array.map((word) => {
+//     return word
+//       .toLowerCase()
+//       .split('')
+//       .filter((char, idx) => alphabet.indexOf(char) === idx).length;
+//   });
+// }

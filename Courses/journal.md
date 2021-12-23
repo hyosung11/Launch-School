@@ -4543,3 +4543,5 @@ If you go into the Settings under "Suggestions" there should be an option called
 07:51 After study session with Alex I feel more comfortable with a problem that confused me when I first saw it a few weeks ago.
 
 07:55 Time for breakfast.
+
+09:01 The little things are the things to keep track of when solving problems. My right elbow feels sore right now. Not good.

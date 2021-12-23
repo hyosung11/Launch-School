@@ -15,7 +15,7 @@ The input string can be assumed to contain only letters
 
 /* PEDAC
 - input: string
-- output a number
+- output: a number
 
 Rules
 - characters are case-insensitive
@@ -31,35 +31,30 @@ Data Structure
 
 Algorithm
 - input string
-- initialize an empty object to collect chars
-- iterate over the string
-  - add char to object
+- initialize `result` to an empty object to collect chars
+- iterate over each letter in the string
+  - change chars to lowercase
+  - check if char exists in object
     - if char already in object increase count of char by 1
-- count chars in object
-- return count of chars greater than 1 */
+    - if char doesn't exist add it to object
+- iterate over the values in `result` object
+- return count of chars greater than 1 by length */
 
-function duplicateCount(string) {
-  let count = {};
+function duplicateCount(letters) {
+  let result = {};
 
-  for (let idx = 0; idx < string.length; idx += 1) {
-    let char = string[idx].toLowerCase();
-    count[char] ? count[char] += 1 : count[char] = 1;
+  for (let idx = 0; idx < letters.length; idx += 1) {
+    let char = letters[idx].toLowerCase();
+    result[char] ? result[char] += 1 : result[char] = 1;
   }
-
-  return Object.values(count).filter(letterCount => letterCount > 1).length;
+  return Object.values(result).filter(count => count > 1).length;
 }
 
-// console.log(duplicateCount(''));
-// console.log(duplicateCount('abcde'));
-console.log(duplicateCount('abcdeaa'));
-// console.log(duplicateCount('abcdeaB'));
-// console.log(duplicateCount('Indivisibilities'));
-
-// console.log(duplicateCount("") === 0);
-// console.log(duplicateCount("abcde") === 0);
-// console.log(duplicateCount("abcdeaa") === 1);
-// console.log(duplicateCount("abcdeaB") === 2);
-// console.log(duplicateCount("Indivisibilities") === 2);
+console.log(duplicateCount("") === 0);
+console.log(duplicateCount("abcde") === 0);
+console.log(duplicateCount("abcdeaa") === 1);
+console.log(duplicateCount("abcdeaB") === 2);
+console.log(duplicateCount("Indivisibilities") === 2);
 
 // function duplicateCount(string) {
 //   let count = {}

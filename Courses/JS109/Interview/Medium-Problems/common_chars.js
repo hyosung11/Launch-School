@@ -90,7 +90,7 @@ PROBLEM
 
 Rules
 - find all characters that appear in all strings of the input array
-- return found strings as many times as they apear in each input string (includes duplicates)
+- return found strings as many times as they appear in each input string (includes duplicates)
 - input is only lowercase letters
 
 EXAMPLES
@@ -116,12 +116,13 @@ function commonChars(array) {
   let words = array.slice();
 
   for (let idx = 0; idx < words[0].length; idx += 1) {
-    if (words.every(element => element.includes(words[0][idx]))) {
-      result.push(words[0][idx]);
+    let char = words[0][idx];
+    if (words.every(element => element.includes(char))) {
+      result.push(char);
     }
 
     for (let jdx = 1; jdx < words.length; jdx += 1) {
-      words[jdx] = words[jdx].replace(words[0][idx], '');
+      words[jdx] = words[jdx].replace(char, '');
     }
   }
 
