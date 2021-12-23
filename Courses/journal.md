@@ -4522,7 +4522,7 @@ If you go into the Settings under "Suggestions" there should be an option called
 
 15:50 The PEDAC problem is hard for me. Go back to basics?
 
-16:40 Not sure what to do right now? I'm thinking of doing the Small Problems again from the begining. I think this would be my fourth time.
+16:40 Not sure what to do right now? I'm thinking of doing the Small Problems again from the beginning. I think this would be my fourth time.
 
 20:39 Just keep practicing. It will come.
 
@@ -4535,3 +4535,9 @@ If you go into the Settings under "Suggestions" there should be an option called
 10:22 Shifting to standing work station to get ready for study session at 10:30.
 
 10:29 Stating the obvious, but variable naming is critical for me to understand problems.
+
+## 20211223 목요일
+
+07:51 After study session with Alex I feel more comfortable with a problem that confused me when I first saw it a few weeks ago.
+
+07:55 Time for breakfast.

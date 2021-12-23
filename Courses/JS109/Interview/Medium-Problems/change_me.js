@@ -27,7 +27,7 @@ PROBLEM
 rules:
 -return a new string in which:
   -all palindromes (words that are the same forwards and backwards) are uppercased
-  -letters that are already capiatlaized but not part of palindromes remain capitalized in output string
+  -letters that are already capitalized but not part of palindromes remain capitalized in output string
 
 -question: does case matter in determining whether a word is a palindrome?
 -can we assume there is no punctuation?
