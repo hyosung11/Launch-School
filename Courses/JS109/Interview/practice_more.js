@@ -1119,3 +1119,140 @@ ALGORITHM
 
 //   return this.split(' ').map(capitalizeFirstLetter).join(' ');
 // };
+
+/* ========================================================
+17. Palindrome Substrings
+
+Given a string, write a function `palindromeSubstrings` which returns all the substrings from a given string which are palindromes. Consider palindrome words case sensitive.
+
+QUESTIONS
+1. What is a palindrome?
+2. What is a substring?
+3. Will inputs always be strings?
+4. What does it mean to treat palindrome words case-sensitively?
+
+PROBLEM
+- input: string
+- output: array of palindrome substrings
+
+Rules
+- return only substrings that are palindromes
+- palindromes are case-sensitive, e.g., 'AbBA' is not a palindrome
+- if input is an empty string return an empty array
+- if no palindromes found return an empty array
+
+EXAMPLES
+- see test cases
+
+DATA STRUCTURE
+- input: string
+- intermediary: array of substrings
+- output: array of substrings
+
+ALGORITHM
+`substring` function
+- initialize `result` to empty array that will contain all required substrings
+- initialize `startIdx` to 0 for the starting index of a substring
+- start outer loop that uses `startIdx` to iterate over input string from `0` to length of string -2
+  - initialize `numChars` to 2 for the length of the substring
+  - start an inner loop that uses `numChars` to iterate over input string from `2` to string.length - startIdx
+    - extract a substring of length `numChars` from string starting at `startIdx`
+    - append the extracted substring to the `result` array
+    - increment the `numChars` variable by 1
+- end outer loop
+- return the `result` array */
+
+/* Algo for substrings helper function using nested for loops
+- input string
+- initialize `result` to empty array
+- iterate through string to length - 1
+  - iterate through chars in string
+    - start  inner loop at outer loop start + 1
+    - initialize `substring` to value of slice of string at idx, jdx + 1
+    - push substring into result
+- return `result` */
+
+// function palindromeSubstrings(string) {
+//   let result = [];
+//   let substringsArray = substrings(string);
+
+//   for (let idx = 0; idx < substringsArray.length; idx += 1) {
+//     let substring = substringsArray[idx];
+//     if (isPalindrome(substring)) {
+//       result.push(substring);
+//     }
+//   }
+//   return result;
+// }
+
+function substrings(string) {
+  let result = [];
+
+  for (let idx = 0; idx < string.length - 1; idx += 1) {
+    for (let jdx = idx + 1; jdx < string.length; jdx += 1) {
+      let substring = string.slice(idx, jdx + 1);
+      result.push(substring);
+    }
+  }
+  return result;
+}
+
+// substrings('racecar');
+// console.log(substrings('racecar'));
+
+// function isPalindrome(string) {
+//   return string === string.split('').reverse().join('');
+// }
+
+// function substrings(string) {
+//   let result = [];
+//   let startingIndex = 0;
+
+//   while (startingIndex < string.length - 2) {
+//     let numChars = 2;
+//     while (numChars <= string.length - startingIndex) {
+//       let substring = string.slice(startingIndex, startingIndex + numChars);
+//       result.push(substring);
+//       numChars += 1;
+//     }
+//     startingIndex += 1;
+//   }
+
+//   return result;
+// }
+
+function palindromeSubstrings(string) {
+  let result = [];
+  let substringsArray = substrings(string);
+
+  substringsArray.forEach(substring => {
+    if (isPalindrome(substring)) result.push(substring)
+  });
+
+  return result;
+}
+
+function substrings(string) {
+  let result = [];
+
+  for (let idx = 0; idx < string.length - 1; idx += 1) {
+    for (let jdx = idx + 1; jdx < string.length; jdx += 1) {
+      let substring = string.slice(idx, jdx + 1);
+      result.push(substring);
+    }
+  }
+
+  return result;
+}
+
+function isPalindrome(string) {
+  return string === string.split('').reverse().join('');
+}
+
+// Test cases:
+console.log(palindromeSubstrings("")) // => []
+console.log(palindromeSubstrings("palindrome")) // => []
+console.log(palindromeSubstrings("racecar")) // => ['racecar', 'aceca', 'cec']
+console.log(palindromeSubstrings("supercalifragilisticexpialidocious"))
+// => should return: ["ili"]
+console.log(palindromeSubstrings("abcddcbA")) // => ["bcddcb", "cddc", "dd"]

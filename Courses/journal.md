@@ -4551,3 +4551,5 @@ If you go into the Settings under "Suggestions" there should be an option called
 ## 20211224 금요일
 
 10:00 Christmas Eve and I played soccer this morning. I want to problem-solve today. I slept on `palindrome` and understand it better today.
+
+14:17 Working on palindromeSubstrings today.
