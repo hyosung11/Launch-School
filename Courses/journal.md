@@ -4547,3 +4547,7 @@ If you go into the Settings under "Suggestions" there should be an option called
 09:01 The little things are the things to keep track of when solving problems. My right elbow feels sore right now. Not good.
 
 12:29 I figured out maxSequence without looking at the solution. Some things are sticking. Yes!
+
+## 20211224 금요일
+
+10:00 Christmas Eve and I played soccer this morning. I want to problem-solve today. I slept on `palindrome` and understand it better today.

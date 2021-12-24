@@ -750,6 +750,9 @@ ALGORITHM
 - if all numbers are positive, sum the array
 - if all numbers are negative return 0
 
+- initialize maxSum to 0;
+- initialize `subarrays` to return value of getSubarrays(array) helper function
+
 - create getSubarrays helper function
   - initialize `subarrays` to empty array
   - iterate through the array
@@ -757,42 +760,362 @@ ALGORITHM
     - slice array into subarrays
   - return subarrays
 
-- initialize maxSum to 0;
-- initialize `subarrays` to return value of getSubarrays(array) helper function
 - iterate through the subarrays
   - initialize `currentSum` to value of each subarray
   - if `currentSum` is greater than `maxSum` reassign `maxSum` to `currentSum`
 - return maxSum */
 
-function maxSequence(array) {
-  if (array.length === 0) return 0;
-  if (array.every(number => number > 0)) return array.reduce((sum, num) => sum + num, 0);
-  if (array.every(number => number < 0)) return 0;
+// function maxSequence(array) {
+//   if (array.length === 0) return 0;
+//   if (array.every(number => number > 0)) return array.reduce((sum, num) => sum + num, 0);
+//   if (array.every(number => number < 0)) return 0;
 
-  let maxSum = 0;
-  let subarrays = getSubarrays(array);
+//   let maxSum = 0;
+//   let subarrays = getSubarrays(array);
 
-  for (let idx = 0; idx < subarrays.length; idx += 1) {
-    let currentSum = subarrays[idx].reduce((sum, num) => sum + num, 0);
-    if (currentSum > maxSum) maxSum = currentSum;
-  }
-  return maxSum;
-}
+//   for (let idx = 0; idx < subarrays.length; idx += 1) {
+//     let currentSum = subarrays[idx].reduce((sum, num) => sum + num, 0);
+//     if (maxSum < currentSum) maxSum = currentSum;
+//   }
+//   return maxSum;
+// }
 
-function getSubarrays(array) {
-  let subarrays = [];
-  for (let idx = 0; idx <= array.length; idx += 1) {
-    for (let jdx = idx + 1; jdx <= array.length; jdx += 1) {
-      subarrays.push(array.slice(idx, jdx));
-    }
-  }
-  return subarrays;
-}
+// function getSubarrays(array) {
+//   let subarrays = [];
+//   for (let idx = 0; idx < array.length; idx += 1) {
+//     for (let jdx = idx + 1; jdx <= array.length; jdx += 1) {
+//       subarrays.push(array.slice(idx, jdx));
+//     }
+//   }
+//   return subarrays;
+// }
 
 // console.log(getSubarrays([1, 2, 3, 4]));
 
-console.log(maxSequence([]) === 0); // true
-console.log(maxSequence([11, 12]) === 23); // true
-console.log(maxSequence([-32, -30]) === 0); // true
-console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]) === 6); // true
-console.log(maxSequence([-2, 1, -7, 4, -10, 2, 1, 5, 4]) === 12); // true
+// console.log(maxSequence([-1, 0, 1, 2]))
+
+// console.log(maxSequence([]) === 0); // true
+// console.log(maxSequence([11, 12]) === 23); // true
+// console.log(maxSequence([-32, -30]) === 0); // true
+// console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]) === 6); // true
+// console.log(maxSequence([-2, 1, -7, 4, -10, 2, 1, 5, 4]) === 12); // true
+
+/* =========================================================
+14. Next Bigger Number
+
+Create a function that takes a positive integer and returns the next bigger number formed by the same digits:
+
+12 ==> 21
+513 ==> 531
+2017 ==> 2071
+
+If no bigger number can be composed using those digits, return -1:
+
+9 ==> -1
+111 ==> -1
+531 ==> -1
+
+PROBLEM
+- input: positive integer
+- output: number larger than input number
+
+Rules
+- find next biggest number after the input number using the same digits
+- if no bigger number can be found, return -1
+- if single digit, there is no next bigger number
+- if digits are all the same, no next bigger number
+- if digits from left to right are in descending order, not next bigger number
+
+EXAMPLES
+- 12 => 21
+- 513 => 531
+
+DATA STRUCTURE
+- input: number
+- intermediary: string, array
+- output: number
+
+ALGORITHM
+- input number
+- initialize `targetNumber` to number + 1
+- iterate from `targetNumber` to max value of number'
+s digits
+  - if targetNumber's max value equals number's max value return testNumber
+  - increment targetNumber
+- if no bigger number found return -1
+- return number
+
+- initialize `maxValue` helper function to find the largest number from the digits of the number and `testNumber`
+  - convert number to string of digits
+  - split number into digits
+  - sort the digits from highest to lowest
+  - join the digits
+  - convert string to number */
+
+// function nextBiggerNum(number) {
+//   let targetNumber = number + 1;
+
+//   while (targetNumber <= digitsMaxValue(number)) {
+//     if (digitsMaxValue(targetNumber) === digitsMaxValue(number)) return targetNumber;
+//     targetNumber += 1;
+//   }
+
+//   return -1;
+// }
+
+// function digitsMaxValue(digits) {
+//   return Number(String(digits)
+//     .split('')
+//     .sort((a, b) => b - a)
+//     .join(''))
+// }
+// console.log(largest(789));
+
+// console.log(nextBiggerNum(9) === -1); // true
+// console.log(nextBiggerNum(12) === 21); // true
+// console.log(nextBiggerNum(13) === 31); // true
+// console.log(nextBiggerNum(513) === 531); // true
+// console.log(nextBiggerNum(2017) === 2071); // true
+// console.log(nextBiggerNum(111) === -1); // true
+// console.log(nextBiggerNum(123456789) === 123456798); // true
+
+/* =========================================================
+15. Paired Numbers
+
+The objective is to return all pairs of numbers from a given array of numbers that have a difference of 2. The result array should be sorted in ascending order of values. Assume there are no duplicate numbers in either the input or output arrays. The order of the numbers in the input array should not matter.
+
+PROBLEM
+- input array
+- output: array of subarrays
+
+Rules
+- return all pairs of numbers from an array that have a difference of 2
+- sort the result array in ascending order of values
+- no duplicate numbers in either the input or output arrays
+
+EXAMPLES
+- see below
+
+DATA STRUCTURE
+- input array
+- intermediary array of subarrays
+- output array of subarrays
+
+ALGORITHM
+- input array
+- initialize `result` to empty array
+- sort the input array
+- iterate through sorted array
+  - iterate through elements of sorted array
+    - compare outer loop array element with inner loop array element
+    - if difference is 2
+    - push both elements to `result` array
+- return array of subarrays
+
+Alex's Algorithm
+- input array
+- initialize `result` array to empty array
+- sort array in ascending order
+- loop through array
+  - if array includes element at array[idx] + 2 and
+  - is not already there helper function
+    - add element at array[idx] and array[idx] + 2 to `result` array
+- return `result` array
+
+- isAlreadyThere helper function
+  - input number and array
+  - if array's length is 0 return false
+  - loop through array
+    - if second element of the subarray equals the number return true
+  - return false */
+
+  // function pairedNums(array) {
+  //   let result = [];
+  //   array.sort();
+
+  //   for (let idx = 0; idx < array.length; idx += 1) {
+  //     if (array.includes(array[idx] + 2) && !isAlreadyThere(array[idx], result)) {
+  //       result.push([array[idx], array[idx] + 2]);
+  //     }
+  //   }
+  //   return result;
+  // }
+
+  // function isAlreadyThere(number, array) {
+  //   if (array.length === 0) return false;
+  //   for (let idx = 0; idx < array.length; idx += 1) {
+  //     if (array[idx][1] === number) return true;
+  //   }
+  //   return false;
+  // }
+
+// console.log(pairedNums([1, 3, 2, 6, 8, 5, 9, 7])); // ==> [ [ 1, 3 ], [ 5, 7 ], [ 6, 8 ] ]
+// console.log(pairedNums([22, 33, 24, 26, 31, 35, 20, 27])); // ==> [ [ 20, 22 ], [ 24, 26 ], [ 31, 33 ] ]
+
+/* =========================================================
+16. Numerical Palindrome
+
+A palindrome is a word, phrase, number, or other sequence of characters which reads the same backward as forward.
+
+Examples of numerical palindromes are:
+2332
+110011
+54322345
+
+You'll be given 2 numbers as arguments: (num, s). Write a function which returns an array of s number of numerical palindromes that come after num. If num is a palindrome itself, it should be included in the count.
+
+Return "Not valid" instead if any one of the inputs is not a number or is less than 0.
+
+Single digit numbers will NOT be considered numerical palindromes.
+
+PROBLEM
+- input:
+  - num: the starting number
+  - s: the number of numerical palindromes we want
+- output: an array of numbers (numbers are numerical palindromes)
+
+Rules
+- What is a palindrome?
+  - a number that reads the same backwards as forwards
+- single digit numbers are not palindromes
+- if input num is a palindrome, include it in the return array
+- the returned palindromes are equal to or greater than num
+- if num or s is not a number, or if either is less than 0, return "Not valid"
+- if s is 0, return an empty array
+- first valid palindrome is 11
+
+EXAMPLES
+- see below
+
+DATA STRUCTURE
+- inputs
+  - num which is starting number, must be 0 or greater
+  - s, the number of numerical palindromes we want, also must be 0 or greater
+
+- intermediary
+  - array of numbers
+  - convert numbers to strings for palindrome checks
+
+- output
+  - array of numbers (numerical palindromes)
+
+ALGORITHM
+- define `isPalindrome` helper function
+  - input number
+    - convert number to string
+    - split the string into chars
+    - reverse the chars
+    - join the chars
+  - compare number to reversed number
+  - check if string length is greater than 1
+
+- initialize `result` to empty array
+*/
+
+// function isPalindrome(num) {
+//   let str = String(num);
+//   if (str.length < 2) return false;
+//   return str === str.split('').reverse().join('');
+// }
+
+// function isValid(num) {
+//   return typeof num === 'number' && num >= 0;
+// }
+
+// function palindrome(num, size) {
+//   let palindromeArray = [];
+
+//   if (!isValid(num) || !isValid(size)) {
+//     return 'Not valid';
+//   }
+
+//   while (palindromeArray.length < size) {
+//     if (isPalindrome(num)) {
+//       palindromeArray.push(num)
+//     }
+//     num += 1;
+//   }
+
+//   return palindromeArray;
+// }
+
+/* Algo
+- input `num` and `count`
+- if `num` or `count` are not numbers return 'Not valid'
+- if `num` or `count` are less than 0, return `Not valid`
+- initialize `result` array to empty array
+- iterate through `result` as long as its length is less than count
+  - pass `num` through `isPalindrome` helper function
+    - if `num` is a palindrome
+      - push it to `result`
+    - increment `num`
+- return `result` array
+
+- initialize `isPalindrome` helper function
+  - convert num to String
+  - if `num` length less than 2 return false
+  - check num against num
+    - split
+    - reverse
+    - join
+  - if palindrome return true */
+
+// function palindrome(num, count) {
+//   if (typeof num !== 'number' || typeof count !== 'number') return 'Not valid';
+//   if (num < 0 || count < 0) return 'Not valid';
+
+//   let result = [];
+
+//   while (result.length < count) {
+//     if (isPalindrome(num)) {
+//       result.push(num);
+//     }
+//     num += 1;
+//   }
+
+//   return result;
+// }
+
+// function isPalindrome(num) {
+//   let numString = String(num);
+//   if (numString.length < 2) return false;
+//   return numString === numString.split('').reverse().join('');
+// }
+
+// console.log(palindrome('ACCDDCCA', 3)); // "Not valid"
+// console.log(palindrome(773, '1551')); // "Not valid"
+// console.log(palindrome(-4505, 15)); // "Not valid"
+// console.log(palindrome(4505, -15)); // "Not valid"
+
+// console.log(palindrome(20, 0)); // []
+// console.log(palindrome(0, 4)); // [11, 22, 33, 44]
+// console.log(palindrome(6, 4)); // [11, 22, 33, 44]
+// console.log(palindrome(75, 1)); // [77]
+// console.log(palindrome(101, 2)); // [101, 111]
+
+// CodeWars - Jaden Casing Strings
+// function capFirstLetter(words) {
+//   return words.split(' ').map(word => {
+//     return word[0].toUpperCase() + word.slice(1);
+//   }).join(' ');
+// }
+
+// console.log(capFirstLetter("How can mirrors be real if our eyes aren't real"));
+
+// // Input version 1
+// String.prototype.toJadenCase = function () {
+//   return this.split(' ')
+//     .map(function (word) {
+//       return word.charAt(0).toUpperCase() + word.slice(1);
+//     })
+//     .join(' ');
+// };
+
+// Input Version 2
+// String.prototype.toJadenCase = function () {
+//   function capitalizeFirstLetter(string) {
+//     return string.charAt(0).toUpperCase() + string.slice(1);
+//   }
+
+//   return this.split(' ').map(capitalizeFirstLetter).join(' ');
+// };
