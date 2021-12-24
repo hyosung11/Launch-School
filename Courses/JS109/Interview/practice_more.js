@@ -1185,17 +1185,17 @@ ALGORITHM
 //   return result;
 // }
 
-function substrings(string) {
-  let result = [];
+// function substrings(string) {
+//   let result = [];
 
-  for (let idx = 0; idx < string.length - 1; idx += 1) {
-    for (let jdx = idx + 1; jdx < string.length; jdx += 1) {
-      let substring = string.slice(idx, jdx + 1);
-      result.push(substring);
-    }
-  }
-  return result;
-}
+//   for (let idx = 0; idx < string.length - 1; idx += 1) {
+//     for (let jdx = idx + 1; jdx < string.length; jdx += 1) {
+//       let substring = string.slice(idx, jdx + 1);
+//       result.push(substring);
+//     }
+//   }
+//   return result;
+// }
 
 // substrings('racecar');
 // console.log(substrings('racecar'));
@@ -1221,38 +1221,64 @@ function substrings(string) {
 //   return result;
 // }
 
-function palindromeSubstrings(string) {
-  let result = [];
-  let substringsArray = substrings(string);
+// function palindromeSubstrings(string) {
+//   let result = [];
+//   let substringArray = substrings(string);
 
-  substringsArray.forEach(substring => {
-    if (isPalindrome(substring)) result.push(substring)
-  });
+//   substringArray.forEach(substring => {
+//     if (isPalindrome(substring)) result.push(substring);
+//   });
 
-  return result;
+//   return result;
+// }
+
+// function substrings(string) {
+//   let result = [];
+
+//   for (let idx = 0; idx < string.length - 1; idx += 1) {
+//     for (let jdx = idx + 1; jdx < string.length; jdx++) {
+//       let substring = string.slice(idx, jdx + 1);
+//       result.push(substring);
+//     }
+//   }
+
+//   return result;
+// }
+
+// function isPalindrome(string) {
+//   return string === string.split('').reverse().join('');
+// }
+
+// // Test cases:
+// console.log(palindromeSubstrings("")) // => []
+// console.log(palindromeSubstrings("palindrome")) // => []
+// console.log(palindromeSubstrings("racecar")) // => ['racecar', 'aceca', 'cec']
+// console.log(palindromeSubstrings("supercalifragilisticexpialidocious"))
+// // => should return: ["ili"]
+// console.log(palindromeSubstrings("abcddcbA")) // => ["bcddcb", "cddc", "dd"]
+
+// Find the unique number
+// function findUniq(arr) {
+//   console.log(arr.sort((a, b) => a - b)); // [3, 3, 3, 3, 10]
+//   return arr[0] === arr[1] ? arr.pop() : arr[0];
+//   // if element at index position 0 === element at index position 1, pop and return the last element
+//   // if element at index position 0 is not equal to element at index position 1 return the element at index position 0 because it's the unique element
+// }
+
+// function findUnique(array) {
+//   return array.find(number => array.indexOf(number) === array.lastIndexOf(number));
+// }
+
+function findUnique(array) {
+  // initialize `sortedArray` to value of the sorted array
+  let sortedArray = array.sort((a, b) => a - b);
+
+  // if the last instance is the first in the array then the number is unique
+  // otherwise return the last item in the array
+  if (sortedArray.lastIndexOf(sortedArray[0] === 0))
+  // means it's the first element at index position 0
+  return sortedArray[0];
+  return sortedArray[sortedArray.length - 1];
 }
-
-function substrings(string) {
-  let result = [];
-
-  for (let idx = 0; idx < string.length - 1; idx += 1) {
-    for (let jdx = idx + 1; jdx < string.length; jdx += 1) {
-      let substring = string.slice(idx, jdx + 1);
-      result.push(substring);
-    }
-  }
-
-  return result;
-}
-
-function isPalindrome(string) {
-  return string === string.split('').reverse().join('');
-}
-
-// Test cases:
-console.log(palindromeSubstrings("")) // => []
-console.log(palindromeSubstrings("palindrome")) // => []
-console.log(palindromeSubstrings("racecar")) // => ['racecar', 'aceca', 'cec']
-console.log(palindromeSubstrings("supercalifragilisticexpialidocious"))
-// => should return: ["ili"]
-console.log(palindromeSubstrings("abcddcbA")) // => ["bcddcb", "cddc", "dd"]
+// console.log(findUniq([1, 0, 0]) === 1); // true
+console.log(findUnique([3, 1, 3, 3, 3,]));
