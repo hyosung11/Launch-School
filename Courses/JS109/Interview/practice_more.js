@@ -1269,16 +1269,131 @@ ALGORITHM
 //   return array.find(number => array.indexOf(number) === array.lastIndexOf(number));
 // }
 
-function findUnique(array) {
-  // initialize `sortedArray` to value of the sorted array
-  let sortedArray = array.sort((a, b) => a - b);
+// function findUnique(array) {
+//   // initialize `sortedArray` to value of the sorted array
+//   let sortedArray = array.sort((a, b) => a - b);
 
-  // if the last instance is the first in the array then the number is unique
-  // otherwise return the last item in the array
-  if (sortedArray.lastIndexOf(sortedArray[0] === 0))
-  // means it's the first element at index position 0
-  return sortedArray[0];
-  return sortedArray[sortedArray.length - 1];
-}
-// console.log(findUniq([1, 0, 0]) === 1); // true
-console.log(findUnique([3, 1, 3, 3, 3,]));
+//   // if the last instance is the first in the array then the number is unique
+//   // otherwise return the last item in the array
+//   if (sortedArray.lastIndexOf(sortedArray[0] === 0))
+//   // means it's the first element at index position 0
+//   return sortedArray[0];
+//   return sortedArray[sortedArray.length - 1];
+// }
+// // console.log(findUniq([1, 0, 0]) === 1); // true
+// console.log(findUnique([3, 1, 3, 3, 3,]));
+
+/* ========================================================
+18. Progressions
+
+You're given an array of integers. You must return the number of 'arithmetic progressions' of size 3 that are possible from that list. In each progression, the differences between the elements must be the same.
+
+Example:
+[1, 2, 3, 5, 7, 9] ==> 5
+The above has 5 progressions, seen below:
+[1, 2, 3], [1, 3, 5], [1, 5, 9], [3, 5, 7], and [5, 7, 9]
+
+All array elements will be unique and the array will be sorted.
+
+PROBLEM
+- input: array of integers
+- output: number of arithmetic progressions
+
+Rules
+- return arithmetic progressions of size 3
+- difference between elements in the progression must be the same: e.g., difference of 1, difference of 2, etc.
+- all input array elements unique
+- array is already sorted
+- empty array returns 0
+- array length less than three returns 0
+
+EXAMPLES
+- see test cases
+
+DATA STRUCTURE
+- input: array
+- intermediate: subarrays
+- output: number
+
+ALGORITHM
+- input array
+- initialize `count` to 0 to track progressions
+- initialize `subarrays` to collect subarrays
+- start outer loop to get first element
+  - start inner loop to get second element
+    - start third loop to get third element
+    - push elements at array[idx], array[jdx], array[kdx] as an array into subarrays
+- iterate through subarrays
+  - if element at index position 1 minus element at index position 0 is equal to element at index position 2 minus element at index position 1
+  - increment counter
+- return counter */
+
+// function progressions(array) {
+//   // let count = 0;
+//   let subarrays = [];
+
+//   for (let idx = 0; idx < array.length - 2; idx++) {
+//     for (let jdx = idx + 1; jdx < array.length - 1; jdx++) {
+//       for (let kdx = jdx + 1; kdx < array.length; kdx++) {
+//         subarrays.push([array[idx], array[jdx], array[kdx]]);
+//       }
+//     }
+//   }
+
+//   // filter through the subarrays and increase the count
+//   return subarrays.filter(subarray => {
+//     return subarray[1] - subarray[0] === subarray[2] - subarray[1]
+//   }).length;
+// }
+
+// function progressions(array) {
+//   let result = [];
+
+//   for (let idx = 0; idx <= array.length - 2; idx += 1) {
+//     for (let jdx = idx + 1; jdx < array.length - 1; jdx += 1) {
+//       let difference1 = array[jdx] - array[idx];
+
+//       for (let kdx = jdx + 1; kdx < array.length; kdx += 1) {
+//         let difference2 = array[kdx] - array[jdx];
+//         if (difference1 === difference2) {
+//           result.push([array[idx], array[jdx], array[kdx]]);
+//         }
+//       }
+//     }
+//   }
+
+//   return result.length;
+// }
+
+
+
+// Test Cases
+console.log(progressions([]));  // 0
+console.log(progressions([1, 2]));  // 0
+console.log(progressions([1, 2, 3]));  // 1
+console.log(progressions([1, 2, 4]));  // 0
+console.log(progressions([1, 20, 21, 22]));  // 1
+console.log(progressions([1, 10000001, 20000001]));  // 1
+console.log(progressions([1, 2, 3, 4, 5])); // 4
+console.log(progressions([1, 2, 3, 5, 7, 9])); // 5
+console.log(progressions([1, 2, 3, 4, 5]));  // 4
+console.log(progressions([0, 5, 8, 9, 11, 13, 14, 16, 17, 19])); // 10
+
+// function progressions(array) {
+//   let count = 0;
+//   let subarrays = [];
+
+//   for (let idx = 0; idx < array.length - 2; idx += 1) {
+//     for (let jdx = idx + 1; jdx < array.length - 1; jdx += 1) {
+//       for (let kdx = jdx + 1; kdx < array.length; kdx += 1) {
+//         subarrays.push([array[idx], array[jdx], array[kdx]]);
+//       }
+//     }
+//   }
+
+//   for (let idx = 0; idx < subarrays.length; idx += 1) {
+//     if (subarrays[idx][1] - subarrays[idx][0] === subarrays[idx][2] - subarrays[idx][1]) count += 1;
+//   }
+
+//   return count;
+// }

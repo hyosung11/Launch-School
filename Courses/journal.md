@@ -4555,3 +4555,45 @@ If you go into the Settings under "Suggestions" there should be an option called
 14:17 Working on palindromeSubstrings today.
 
 16:23 Today I feel like the bug and not the windshield while programming.
+
+## 20211225 토요일
+
+09:39 After opening Christmas presents. Back to studying.
+
+`Array.prototype.lastIndexOf()`
+
+The `lastIndexOf()` method returns the last index at which a given element can be found in the array, or -1 if it is not present. The array is searched backwards, starting at `fromIndex`.
+
+10:03 Visualize nested loops:
+
+```js
+for (let idx = 0; idx < 3; idx += 1) {
+  for (let jdx = 0; jdx < 6;  jdx += 1) {
+    console.log(`${idx} ${jdx}`)
+  }
+}
+
+// Output
+0     0
+0     1
+0     2
+0     3
+0     4
+0     5
+1     0
+1     1
+1     2
+1     3
+1     4
+1     5
+2     0
+2     1
+2     2
+2     3
+2     4
+2     5
+```
+
+The inner loop executes from start to finish for every iteration of the outer loop. A loop executes the entirety of the code within its body and repeats it until the running condition is made false.
+
+From the output you can see that the value of `idx` only increases after the inner loop is finished running. The value of `jdx` goes from 0 to 5 for every + 1 increase in `idx`.
