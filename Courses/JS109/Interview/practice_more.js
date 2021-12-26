@@ -1283,7 +1283,7 @@ ALGORITHM
 // // console.log(findUniq([1, 0, 0]) === 1); // true
 // console.log(findUnique([3, 1, 3, 3, 3,]));
 
-/* ========================================================
+/*=======================================================
 18. Progressions
 
 You're given an array of integers. You must return the number of 'arithmetic progressions' of size 3 that are possible from that list. In each progression, the differences between the elements must be the same.
@@ -1365,19 +1365,36 @@ ALGORITHM
 //   return result.length;
 // }
 
+// function progressions(array) {
+//   let count = 0;
+//   let subarrays = [];
 
+//   for (let idx = 0; idx < array.length - 2; idx += 1) {
+//     for (let jdx = idx + 1; jdx < array.length - 1; jdx += 1) {
+//       for (let kdx = jdx + 1; kdx < array.length; kdx += 1) {
+//         subarrays.push([array[idx], array[jdx], array[kdx]]);
+//       }
+//     }
+//   }
+
+//   subarrays.forEach(subarray => {
+//     if (subarray[1] - subarray[0] === subarray[2] - subarray[1]) count += 1;
+//   });
+
+//   return count;
+// }
 
 // Test Cases
-console.log(progressions([]));  // 0
-console.log(progressions([1, 2]));  // 0
-console.log(progressions([1, 2, 3]));  // 1
-console.log(progressions([1, 2, 4]));  // 0
-console.log(progressions([1, 20, 21, 22]));  // 1
-console.log(progressions([1, 10000001, 20000001]));  // 1
-console.log(progressions([1, 2, 3, 4, 5])); // 4
-console.log(progressions([1, 2, 3, 5, 7, 9])); // 5
-console.log(progressions([1, 2, 3, 4, 5]));  // 4
-console.log(progressions([0, 5, 8, 9, 11, 13, 14, 16, 17, 19])); // 10
+// console.log(progressions([]));  // 0
+// console.log(progressions([1, 2]));  // 0
+// console.log(progressions([1, 2, 3]));  // 1
+// console.log(progressions([1, 2, 4]));  // 0
+// console.log(progressions([1, 20, 21, 22]));  // 1
+// console.log(progressions([1, 10000001, 20000001]));  // 1
+// console.log(progressions([1, 2, 3, 4, 5])); // 4
+// console.log(progressions([1, 2, 3, 5, 7, 9])); // 5
+// console.log(progressions([1, 2, 3, 4, 5]));  // 4
+// console.log(progressions([0, 5, 8, 9, 11, 13, 14, 16, 17, 19])); // 10
 
 // function progressions(array) {
 //   let count = 0;
@@ -1397,3 +1414,162 @@ console.log(progressions([0, 5, 8, 9, 11, 13, 14, 16, 17, 19])); // 10
 
 //   return count;
 // }
+
+/*=======================================================
+19. repeatedSubstringPattern
+
+Given a non-empty string, check if it can be constructed by taking a substring of it and appending multiple copies of the substring together. You may assume the given string consists of lowercase English letters only.
+
+Example 1:
+- input: 'abab'
+- output: true
+- explanation: It's the substring 'ab' twice.
+
+Example 2:
+- input: 'aba'
+- output: false
+
+PROBLEM
+- input string
+- output: boolean
+
+Rules
+- find repeated substring of input string
+- only lowercase English letters
+- substring is two or more characters
+- substrings concatenated must equal input string
+
+EXAMPLES
+- 'abcabcabcabc' returns 'abc' + 'abc' + abc; + 'abc' which is true
+
+DATA STRUCTURE
+- input: string
+- intermediary: substrings
+- output: boolean
+
+ALGORITHM
+- input string
+- initialize `substring` to empty string
+- initialize `midString` to find the middle of the string
+- iterate to `middle` of input string
+  - slice string into substrings
+  - iterate through length of string
+    - increment the substring
+  - if substring equals string return true
+- return false */
+
+// function repeatedSubstringPattern(string) {
+//   let substring = '';
+//   let midString = Math.floor(string.length / 2);
+
+//   for (let idx = 0; idx < midString; idx += 1) {
+//     substring = string.slice(0, idx + 1);
+
+//     while (substring.length < string.length) {
+//       substring += substring;
+//       if (substring === string) return true;
+//     }
+//   }
+//   return false;;
+// }
+
+// console.log(repeatedSubstringPattern('abab') === true); // true
+// console.log(repeatedSubstringPattern('aba') === false); // true
+// console.log(repeatedSubstringPattern('aabaaba') === false); // true
+// console.log(repeatedSubstringPattern('abaababaab') === true); // true
+// console.log(repeatedSubstringPattern('abcabcabcabc') === true); // true
+
+/*=======================================================
+20. Scramble
+
+Write function scramble(str1, str2) that returns true if a portion of str1 characters can be rearranged to match str2; otherwise, return false.
+
+For example:
+str1 is 'rkqodlw' and str2 is 'world' the output should return true.
+
+str1 is 'cedewaraaossoqqyt' and str2 is 'codewars' should return true.
+
+str1 is 'katas' and str2 is 'steak' should return false.
+
+Only lower case letters will be used (a-z). No punctuation or digits will be included.
+
+PROBLEM
+- input: str1, str2
+- output: boolean
+
+Rules
+- find letters in str1 that can be rearranged to make the letters of str2
+- str1 length has to be equal to or greater than str2 length
+- all lowercase letters
+- no punctuation or digits
+
+EXAMPLES
+- str1 is 'katas', str2 is 'steak' so false because the letters of 'katas' cannot make the letters of 'steak'
+
+DATA STRUCTURE
+- input: str1, str2
+- intermediary: substrings
+- output: boolean
+
+ALGORITHM
+- input str1, str2
+- initialize `array1` to value of splitting str1 into array of chars
+- initialize `array2` to value of splitting str2 into array of chars
+- if array1 length < array2 length return false
+- iterate through array2
+  - if array1 does not include element in array2 (- 1) return false
+  - if array1 includes all of chars of array2 return true
+- return false */
+
+// function scramble(str1, str2) {
+//   let array1 = str1.split('');
+//   let array2 = str2.split('');
+
+//   if (array1.length < array2.length) return false;
+
+//   for (let idx = 0; idx < array2.length; idx += 1) {
+//     if (array1.indexOf(array2[idx]) === -1) return false;
+//     array1.slice(array1.indexOf(array2[idx]));
+//   }
+
+//   return true;
+// }
+
+// function scramble(str1, str2) {
+//   let count = {};
+
+//   str1.split('').forEach((char) => {
+//     count[char] ? count[char] += 1 : count[char] = 1;
+//   });
+
+//   return str2.split('').every((char) => {
+//     return count[char]--;
+//   });
+// }
+
+// const scramble = (str1, str2) =>
+//   [...str2].every((val) => str2.split(val).length <= str1.split(val).length);
+
+function scramble(str1, str2) {
+  let array1 = str1.split('');
+  let array2 = str2.split('');
+
+  if (array1.length < array2.length) return false;
+
+  for (let idx = 0; idx < array2.length; idx += 1) {
+    // if (!array1.includes(array2[idx])) return false;
+    if (array1.indexOf(array2[idx]) === -1) return false;
+    array1.splice(array1.indexOf(array2[idx]), 1);
+  }
+
+  return true;
+}
+
+console.log(scramble('ab', 'abc') === false); // true
+console.log(scramble('abd', 'abc') === false); // true
+console.log(scramble('jjvaass', 'jjaasq') === false); // true
+console.log(scramble('katas', 'steak') === false); // true
+console.log(scramble('rkqodlw', 'world') === true); // true
+console.log(scramble('cedewaraaossoqqyt', 'codewars') === true); // true
+console.log(scramble('scriptjava', 'javascript') === true); // true
+console.log(scramble('scriptingjava', 'javascript') === true); // true
