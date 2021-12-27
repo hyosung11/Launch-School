@@ -1842,6 +1842,7 @@ Algo
 
 function vowelCount(words) {
   if (words === '') return [];
+
   return words
     .split(' ')
     .map(word => vowels(word));

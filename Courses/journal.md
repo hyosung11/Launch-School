@@ -4615,3 +4615,7 @@ slice(start, end)
 ## 20211226 일요일
 
 19:29 Working on and off on the medium problems and finished going through them. I peeked at solutions quite a few times while practicing.
+
+## 20211227 월요일
+
+13:08 Feeling crappy today. I did practice `vowelCount` again though.
