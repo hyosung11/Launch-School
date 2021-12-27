@@ -1550,26 +1550,316 @@ ALGORITHM
 // const scramble = (str1, str2) =>
 //   [...str2].every((val) => str2.split(val).length <= str1.split(val).length);
 
-function scramble(str1, str2) {
-  let array1 = str1.split('');
-  let array2 = str2.split('');
+// function scramble(str1, str2) {
+//   let array1 = str1.split('');
+//   let array2 = str2.split('');
 
-  if (array1.length < array2.length) return false;
+//   if (array1.length < array2.length) return false;
 
-  for (let idx = 0; idx < array2.length; idx += 1) {
-    // if (!array1.includes(array2[idx])) return false;
-    if (array1.indexOf(array2[idx]) === -1) return false;
-    array1.splice(array1.indexOf(array2[idx]), 1);
-  }
+//   for (let idx = 0; idx < array2.length; idx += 1) {
+//     // if (!array1.includes(array2[idx])) return false;
+//     if (array1.indexOf(array2[idx]) === -1) return false;
+//     array1.splice(array1.indexOf(array2[idx]), 1);
+//   }
 
-  return true;
+//   return true;
+// }
+
+// console.log(scramble('ab', 'abc') === false); // true
+// console.log(scramble('abd', 'abc') === false); // true
+// console.log(scramble('jjvaass', 'jjaasq') === false); // true
+// console.log(scramble('katas', 'steak') === false); // true
+// console.log(scramble('rkqodlw', 'world') === true); // true
+// console.log(scramble('cedewaraaossoqqyt', 'codewars') === true); // true
+// console.log(scramble('scriptjava', 'javascript') === true); // true
+// console.log(scramble('scriptingjava', 'javascript') === true); // true
+
+/*=======================================================
+21. Substring Test
+
+Given 2 strings, your job is to find out if there is a substring that appears in both strings. You will return true if you find a substring that appears in both strings, or false if you do not. We only care about substrings that are longer than one letter long.
+
+PROBLEM
+- input: string1 and string2
+- output: boolean
+
+Rules
+- find a substring that appears in both input strings
+- substring must be 2 or more letters long
+- case does not matter
+- input can be numbers as well as letters
+
+EXAMPLES
+- see below
+
+DATA STRUCTURE
+- input string1 and string2
+- intermediary: arrays
+- output: boolean
+
+ALGORITHM
+- get all substrings of string1
+- get all substrings of string2
+
+`getAllSubstrings` helper function
+- change input string to lowercase
+- initialize` substrings` to an empty array
+- start outer loop
+  - start inner loop
+  - slice string at inner and outer indexes
+  - push slices into `substrings` array
+- filter out substrings that are more than one char and return those substrings
+
+- find shorter substrings array
+- iterate through shorter array
+  - initialize `char1` to `substrings1[idx]
+  - initialize `char2` to `substrings2[idx]
+  - if char1 exists in substrings1 or char2 exists in substrings2 return true
+- return false */
+
+// function substringTest(string1, string2) {
+//   let substrings1 = getAllSubstrings(string1);
+//   let substrings2 = getAllSubstrings(string2);
+
+//   let maxIndex = Math.min(substrings1.length, substrings2.length);
+
+//   for (let idx = 0; idx < maxIndex; idx++) {
+//     let char1 = substrings1[idx];
+//     let char2 = substrings2[idx];
+
+//     if (substrings1.includes(char2) || substrings2.includes(char1)) return true;
+//   }
+
+//   return false;
+// }
+
+// function getAllSubstrings(string) {
+//   string = string.toLowerCase();
+//   let substrings = [];
+
+//   for (let idx = 0; idx < string.length; idx += 1) {
+//     for (let jdx = idx + 1; jdx <= string.length; jdx++) {
+//       substrings.push(string.slice(idx, jdx));
+//     }
+//   }
+
+//   return substrings.filter(substring => substring.length > 1);
+// }
+
+// console.log(getAllSubstrings('Omi'));
+
+// console.log(substringTest('', '') === false); // true
+// console.log(substringTest('test', '111t') === false); // true
+// console.log(substringTest('', 'Something') === false); // true
+// console.log(substringTest('Something', '') === false); // true
+// console.log(substringTest('Something', 'Fun') === false); // true
+// console.log(substringTest('Something', 'Home') === true); // true
+// console.log(substringTest('Something', 'Fun') === false); // true
+// console.log(substringTest('BANANA', 'banana') === true); // true
+// console.log(substringTest('1234567', '541265') === true); // true
+// console.log(substringTest('supercalifragilisticexpialidocious', 'Sou dOfItIsAtrocious') === true); // true
+
+/*=======================================================
+22. Sum of Numbers
+
+Implement a function that calculates the sum of numbers inside of a string.
+
+Example: "L12aun3ch Sch3oo45l" === 63
+
+You can expect that the string will include only positive numbers.
+
+PROBLEM
+- input string
+- output number
+
+Rules
+- calculate the sum of numbers inside a string
+- consecutive digits count as one number
+  - 'L 12 aun 3 ch' => 12 + 3 = 15
+- string only includes positive numbers
+
+EXAMPLES
+- see below
+
+DATA STRUCTURE
+- input string
+- intermediary: array
+- output number
+
+ALGORITHM
+- input string
+- initialize `chars` split of string into characters
+- initialize `NUMBERS` to '0-9'
+- initialize `delim` to '-'
+- initialize `digits` to `chars` and
+  - iterate through chars
+    - if char is a number return char
+    - if char is not a number return delim
+- initialize `numbers` to result of digits
+  - join
+  - split at delim
+  - map string to Number
+- compute the value of the numbers
+- return result */
+
+// function sumOfNumbers(string) {
+//   // let chars = string.split('');
+//   const NUMBERS = '0123456789';
+//   let delim = '-';
+
+//   let digits = string.split('').map(char => {
+//     if (NUMBERS.includes(char)) {
+//       return char;
+//     } else {
+//       return delim;
+//     }
+//   });
+
+//   let numbers = digits
+//     .join('')
+//     .split(delim)
+//     .map(string => Number(string));
+//     console.log(numbers);
+
+//   return numbers.reduce((sum, num) => sum + num);
+//   // return result;
+// }
+
+/* Algo
+- input string
+- split the string at each char
+- iterate through the chars
+  - if char is not a number replace with delim
+  - if char is a number return the char
+  - join the chars
+  - split chars again at the delim
+  - compute the sum of the numbers and return the number */
+
+// function sumOfNumbers(string) {
+//   return string
+//     .split('')
+//     .map(char => {
+//       if (isNaN(char)) return '-';
+//       return char;
+//     })
+//     .join('')
+//     .split('-')
+//     .reduce((sum, num) => sum + Number(num), 0);
+// }
+
+// Examples:
+// console.log(sumOfNumbers('HE2LL3O W1OR5LD')); // 11
+// console.log(sumOfNumbers('Omi11 $% SungOh6')); // 17
+// console.log(
+//   sumOfNumbers('The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog')); // 3635
+
+// console.log(sumOfNumbers("HE2LL3O W1OR5LD") === 11);
+// console.log(sumOfNumbers('Omi11 $% SungOh6') === 17);
+// console.log(sumOfNumbers("The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog") === 3635);
+
+/* ======================================================
+23. Three by Three
+
+Given an array of strings, return a boolean indicating whether at least three of the elements in the array have digits whose sum is divisible by 3.
+
+Elements of the argument array will be strings containing only string digits 0-9.
+
+For example:
+In the array ['35', '01110', '126', '57', '13'],
+the sum of the digits of each element will be: [8, 3, 9, 12, 4] from the resulting sums, there are 3 that are evenly divisible by 3: [3, 9, 12] so our function would return true. See the below test cases for more examples
+
+Algo
+- input array of string digits
+- initialize `result` to return value of array:
+  - iterate through strings
+    - split the string into digits
+  - iterate through the digits of strings
+    - compute value of digits
+    - filter out values that are divisible by 3
+- if result of elements in array are 3 or greater return true
+- return false */
+
+function threeByThree(array) {
+  let result = array
+    .map(string => string.split(''))
+    .map(digits => digits.reduce((sum, num) => sum + Number(num), 0))
+    .filter(num => num % 3 === 0);
+
+  if (result.length >= 3) return true;
+  return false;
 }
 
-console.log(scramble('ab', 'abc') === false); // true
-console.log(scramble('abd', 'abc') === false); // true
-console.log(scramble('jjvaass', 'jjaasq') === false); // true
-console.log(scramble('katas', 'steak') === false); // true
-console.log(scramble('rkqodlw', 'world') === true); // true
-console.log(scramble('cedewaraaossoqqyt', 'codewars') === true); // true
-console.log(scramble('scriptjava', 'javascript') === true); // true
-console.log(scramble('scriptingjava', 'javascript') === true); // true
+// console.log(threeByThree(['01112', '0111', '00030', '2043', '12043']) === true); // true
+// console.log(threeByThree(['01112', '2043', '12043']) === false); // true
+// console.log(threeByThree(['01112', '2043']) === false); // true
+// console.log(threeByThree(['93', '9', '1', '25', '1212']) === true); // true
+
+/* ======================================================
+24. Valid Parentheses
+
+ Write a function called validParentheses that takes a string of parentheses and determines if the order of the parentheses is valid. The function should return true if the string is valid and false if it is invalid.
+
+Examples:
+"()"                =>  true
+ ")(()))"           =>  false
+"("                 =>  false
+"(())((()())())"    =>  true */
+
+// function validParentheses(parens) {
+//   let openParens = 0;
+
+//   for (let idx = 0; idx < parens.length; idx += 1) {
+//     parens[idx] === '(' ? openParens += 1 : openParens -=1;
+//     if (openParens < 0) return false
+//   }
+//   return openParens === 0;
+// }
+// // Test Cases
+// console.log(validParentheses( "()" )) // true
+// console.log(validParentheses("(())((()())())")) // true
+// console.log(validParentheses("((())))(")) // false
+// console.log(validParentheses("((())))(()")) // false
+
+/* ======================================================
+25. Vowel Count
+
+Given a string of one or more words, return an array that contains the number of vowels in each word of the argument string. The returned array should have the same number of elements as words in the argument string.
+
+Algo
+- input string of words
+- if words is an empty string return an empty array
+- split the string into an array of words
+- iterate through each word and return the array of numbers found in each word after placing it through the `vowels` helper function
+
+`vowels` helper function
+- input word from the string
+- initialize `vowels` to string of lower and upper case vowels
+- initialize `count` to track occurrences of vowels in each word
+- split the word into chars
+- iterate through the chars
+  - if char is a vowel increase count
+- return count */
+
+function vowelCount(words) {
+  if (words === '') return [];
+  return words
+    .split(' ')
+    .map(word => vowels(word));
+}
+
+function vowels(word) {
+  let count = 0;
+  let vowels = 'aeiouAEIOU';
+
+  word.split('').forEach(char => {
+    if (vowels.includes(char)) count += 1;
+  });
+
+  return count;
+}
+
+console.log(vowelCount('')); // []
+console.log(vowelCount('grrr!')); // [0]
+console.log(vowelCount('WhaTs yOur enneagram?')); // [1, 2, 4])
+console.log(vowelCount('Colonel Sanders feeds me well !!')) // [3, 2, 2, 1, 1, 0]
+console.log(vowelCount('ZoInkies!! There are monsters in here.')) // [4, 2, 2, 2, 1, 2]

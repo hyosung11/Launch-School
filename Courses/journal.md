@@ -4597,3 +4597,21 @@ for (let idx = 0; idx < 3; idx += 1) {
 The inner loop executes from start to finish for every iteration of the outer loop. A loop executes the entirety of the code within its body and repeats it until the running condition is made false.
 
 From the output you can see that the value of `idx` only increases after the inner loop is finished running. The value of `jdx` goes from 0 to 5 for every + 1 increase in `idx`.
+
+16:50 More studying of medium problems.
+
+`Array.prototype.slice`
+
+The `slice()` method returns a shallow copy of a portion of an array into a new array object selected from `start` to `end` (`end` not included) where `start` and `end` represent the index of items in the that array. The original array will not be modified.
+
+```js
+slice()
+slice(start)
+slice(start, end)
+```
+
+20:05 Tired and my eyes are sore.
+
+## 20211226 일요일
+
+19:29 Working on and off on the medium problems and finished going through them. I peeked at solutions quite a few times while practicing.

@@ -26,7 +26,7 @@ ALGORITHM
   - else return number
 -join array into string
 split new string into array by zeros
--coerce elements in arrray to number and add up their sum
+-coerce elements in array to number and add up their sum
 - return sum*/
 
 function sumOfNumbers(string) {
