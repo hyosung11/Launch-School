@@ -4627,3 +4627,7 @@ slice(start, end)
 07:36 Back in the saddle working on medium problems. That's good. Left side of my neck and shoulders hurts. Ugh.
 
 08:12 I need more and more practice to get the patterns down.
+
+09:31 Getting ready for study session with Laurent. I put my stool on wood block, so it's the right height for my standing desk.
+
+14:15 Doing 'String and Text Processing' small problems again and seeming to understand them better today.
