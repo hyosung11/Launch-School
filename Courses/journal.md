@@ -4619,3 +4619,11 @@ slice(start, end)
 ## 20211227 월요일
 
 13:08 Feeling crappy today. I did practice `vowelCount` again though.
+
+## 20211228 화요일
+
+06:05 Study session with Alex.
+
+07:36 Back in the saddle working on medium problems. That's good. Left side of my neck and shoulders hurts. Ugh.
+
+08:12 I need more and more practice to get the patterns down.

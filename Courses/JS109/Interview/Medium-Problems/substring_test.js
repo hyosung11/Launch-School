@@ -45,7 +45,7 @@ function leadingSubstrings(string) {
   let substrings = [];
   string.split('').forEach((char, idx) => {
     substrings.push(string.slice(0, idx + 1));
-  })
+  });
   return substrings;
 }
 
@@ -55,7 +55,7 @@ function allSubstrings(string) {
     let substring = string.slice(idx);
     substrings = substrings.concat(leadingSubstrings(substring));
   });
-  return substrings.filter(substring => substring.length > 1);
+  return substrings.filter((substring) => substring.length > 1);
 }
 
 // console.log(allSubstrings('SungOh'));
