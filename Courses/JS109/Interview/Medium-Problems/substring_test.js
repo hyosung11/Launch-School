@@ -60,8 +60,7 @@ function allSubstrings(string) {
 
 // console.log(allSubstrings('SungOh'));
 
-console.log(substringTest('', ''));
-console.log(substringTest('test', '111t')); // true
+
 console.log(substringTest('', '') === false); // true
 console.log(substringTest('test', '111t') === false); // true
 console.log(substringTest('', 'Something') === false); // true

@@ -38,12 +38,12 @@ ALGORITHM
 
 // console.log('test');
 
-// This does not work!
+// Fixed
 function repeatedSubstringPattern(string) {
-  for (let idx = 0; idx < string.length; idx += 1) {
+  for (let idx = 0; idx < string.length / 2; idx += 1) {
     let substring = string.slice(0, idx + 1);
     let testString = '';
-    let reps = 0;
+    let reps = 2;
 
     while (testString.length <= string.length) {
       testString = substring.repeat(reps);
@@ -57,7 +57,7 @@ function repeatedSubstringPattern(string) {
 
 // console.log(repeatedSubstringPattern('abab')); // true
 // console.log(repeatedSubstringPattern('aba')); // false
-console.log(repeatedSubstringPattern('aabaaba')); // false
+// console.log(repeatedSubstringPattern('aabaaba')); // false
 // console.log(repeatedSubstringPattern('abaababaab')); // true
 // console.log(repeatedSubstringPattern('abcabcabcabc')); // true
 

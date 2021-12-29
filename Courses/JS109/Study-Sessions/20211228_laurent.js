@@ -73,10 +73,10 @@ function substringTest(str1, str2) {
   let longestString = '';
 
   for (let idx = 0; idx < substrings.length; idx += 1) {
-    let test = substrings[idx];
+    let testString = substrings[idx];
 
-    if (str2.includes(test) && test.length > longestString.length) {
-      longestString = test;
+    if (str2.includes(testString) && testString.length > longestString.length) {
+      longestString = testString;
     };
   }
 
@@ -84,26 +84,26 @@ function substringTest(str1, str2) {
 }
 
 // Alternative Approach
-function substringTest(str1, str2) {
-  str1 = str1.toLowerCase();
-  str2 = str2.toLowerCase();
+// function substringTest(str1, str2) {
+//   str1 = str1.toLowerCase();
+//   str2 = str2.toLowerCase();
 
-  let longestString = '';
+//   let longestString = '';
 
-  for (let idx = 0; idx < str1.length - 1; idx += 1) {
-    let testString = null;
-    let idx2 = idx + 2;
+//   for (let idx = 0; idx < str1.length - 1; idx += 1) {
+//     let testString = null;
+//     let idx2 = idx + 2;
 
-    do {
-      testString = str1.slice(idx, idx2);
-      if (str2.includes(testString) && testString.length > longestString.length)
-        longestString = testString;
-      idx2 += 1;
-    } while (str2.includes(testString) && idx2 <= str1.length);
-  }
+//     do {
+//       testString = str1.slice(idx, idx2);
+//       if (str2.includes(testString) && testString.length > longestString.length)
+//         longestString = testString;
+//       idx2 += 1;
+//     } while (str2.includes(testString) && idx2 <= str1.length);
+//   }
 
-  return longestString;
-}
+//   return longestString;
+// }
 
 console.log(substringTest('', '') === ''); // true
 console.log(substringTest('test', '111t') === ''); // true

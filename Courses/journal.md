@@ -4633,3 +4633,9 @@ slice(start, end)
 14:15 Doing 'String and Text Processing' small problems again and seeming to understand them better today.
 
 19:41 Got kudos for my template study guide for the written from Jeff Lovell. Worked on more problems with Alex and Laurent and on my own.
+
+## 20211229 수요일
+
+06:01 Waiting for Alex to start study session.
+
+08:52 More and more practice needed.
