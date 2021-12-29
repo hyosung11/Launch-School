@@ -153,23 +153,174 @@ Algo
   - if index position of char is even, capitalize char
   - if index position of char is odd, lowercase char
   - if non-alphabetic char, return char
+- join chars into a string
 - return new string */
 
-function staggeredCase(string) {
-  return string
-    .split('')
-    .map((char, idx) => {
-      if (idx % 2 === 0) {
-        return char.toUpperCase();
-      } else if (idx % 2 === 1) {
-        return char.toLowerCase();
-      } else {
-        return char;
-      }
-    })
-    .join('');
-}
+// function staggeredCase(string) {
+//   return string
+//     .split('')
+//     // To determine the appropriate case, the solution uses the index value provided by the Array.prototype.map method.
+//     .map((char, idx) => {
+//       if (idx % 2 === 0) {
+//          // The String.prototype.toUpperCase and String.prototype.toLowerCase methods handle both alphabetic and non-alphabetic characters.
+//         return char.toUpperCase();
+//       } else {
+//         return char.toLowerCase();
+//       }
+//     })
+//     //  After the transformation, the solution joins the characters back together using the Array.prototype.join method, and returns the resulting string.
+//     .join('');
+// }
 
-console.log(staggeredCase('I Love Launch School!')); // "I LoVe lAuNcH ScHoOl!"
-console.log(staggeredCase('ALL_CAPS')); // "AlL_CaPs"
-console.log(staggeredCase('ignore 77 the 4444 numbers')); // "IgNoRe 77 ThE 4444 nUmBeRs"
+// console.log(staggeredCase('I Love Launch School!')); // "I LoVe lAuNcH ScHoOl!"
+// console.log(staggeredCase('ALL_CAPS')); // "AlL_CaPs"
+// console.log(staggeredCase('ignore 77 the 4444 numbers')); // "IgNoRe 77 ThE 4444 nUmBeRs"
+
+/* Staggered Caps 2
+Algo
+- input string
+- initialize `needUpper` to true
+- split string into chars
+  - iterate by char
+    - convert char to lowercase
+    - if char is lowercase
+      - if needUpper is true
+        - toggle needUpper to false
+        - return char to uppercase
+      - else
+        - toggle needUpper to true
+        - return char (to lowercase) already lowercase
+    - else
+      - return char
+- join chars to string
+- return new string */
+
+// function staggeredCase(string) {
+//   let needUpper = true;
+
+//   return string
+//     .split('')
+//     .map(char => {
+//       char = char.toLowerCase();
+//       if (char >= 'a' && char <= 'z') {
+//         if (needUpper) {
+//           needUpper = false;
+//           return char.toUpperCase();
+//         } else {
+//           needUpper = true;
+//           return char;
+//         }
+//       } else {
+//         return char;
+//       }
+//     })
+//     .join('');
+// }
+
+// console.log(staggeredCase('AB_CD')) // 'Ab_Cd'
+// console.log(staggeredCase('I Love Launch School!'));
+// console.log(staggeredCase('AB_CD') === 'Ab_Cd') // 'Ab_Cd'
+// console.log(staggeredCase('I Love Launch School!') === 'I lOvE lAuNcH sChOoL!');
+// console.log(staggeredCase('ALL CAPS') === 'AlL cApS');
+// console.log(
+//   staggeredCase('ignore 77 the 444 numbers') === 'IgNoRe 77 ThE 444 nUmBeRs'
+// );
+
+// function staggeredCase(string) {
+//   let needUpper = true;
+
+//   return string
+//     .split('')
+//     .map((char) => {
+//       char = char.toLowerCase();
+//       if (char >= 'a' && char <= 'z') {
+//         if (needUpper) {
+//           needUpper = false;
+//           return char.toUpperCase();
+//         } else {
+//           needUpper = true;
+//           return char;
+//         }
+//       } else {
+//         return char;
+//       }
+//     })
+//     .join('');
+// }
+
+/* How long are you?
+Algo
+- input string
+- if argument is an empty string or if no argument is passed return an empty array
+- words are separated by a single space
+- split string at space into words
+- iterate through words
+  - return word and
+  - return word.length
+- return array of words and their lengths */
+
+// function wordLengths(words) {
+//   if (words === '' || words === undefined) return [];
+
+//   return words
+//     .split(' ')
+//     .map(word => `${word}  ${word.length}`);
+// }
+
+// console.log(wordLengths(''));      // []
+// console.log(wordLengths());        // []
+// console.log(wordLengths('cow sheep chicken'));
+// // ["cow 3", "sheep 5", "chicken 7"]
+
+// console.log(wordLengths('baseball hot dogs and apple pie'));
+// // ["baseball 8", "hot 3", "dogs 4", "and 3", "apple 5", "pie 3"]
+
+// console.log(wordLengths("It ain't easy, is it?"));
+// // ["It 2", "ain't 5", "easy, 5", "is 2", "it? 3"]
+
+// console.log(wordLengths('Supercalifragilisticexpialidocious'));
+// // ["Supercalifragilisticexpialidocious 34"]
+
+/* Search Word 1
+Algo
+- input `target` and `text`
+- split the text into words at spaces
+- iterate through words of `text`
+  - filter words that match target via lowercase comparison (eliminates punctuation)
+  - return length
+- return count as length of filter method return value */
+
+// const text = 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?';
+
+// function searchWord(target, text) {
+//   return text
+//     .split(' ')
+//     .filter(word => word.toLowerCase() === target.toLowerCase())
+//     .length;
+// }
+
+// console.log(searchWord('sed', text));      // 3
+
+/* Algo
+- input target and text
+- split text into words at spaces
+- iterate through words of text
+  - compare word to lowercase with target word to lowercase
+    - if strictly equal, highlight word and convert to uppercase
+    - else return word
+- join words back into string
+- return string with highlighted words */
+
+// const text = 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Sed quis autem vel est, iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur blasedbla?';
+
+// function searchWord(target, text) {
+//   return text
+//     .split(' ')
+//     .map(word => word.toLowerCase() === target.toLowerCase() ? `**${word.toUpperCase()}**` : word)
+//     .join(' ');
+// }
+
+// console.log(searchWord('sed', text));
+// returns
+// "**SED** ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, **SED** quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, **SED** quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? **SED** quis autem vel est, iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? blasedbla"
+

@@ -4631,3 +4631,5 @@ slice(start, end)
 09:31 Getting ready for study session with Laurent. I put my stool on wood block, so it's the right height for my standing desk.
 
 14:15 Doing 'String and Text Processing' small problems again and seeming to understand them better today.
+
+19:41 Got kudos for my template study guide for the written from Jeff Lovell. Worked on more problems with Alex and Laurent and on my own.
