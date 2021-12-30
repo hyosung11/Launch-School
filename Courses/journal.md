@@ -4691,3 +4691,5 @@ for ([initialExpression]; [condition]; [incrementExpression]) {
 07:08 Finished study session with Alex. Looking at Multiples of 3 or 5 Codewars problem.
 
 07:45 I solved the problem on my own. It's leveled as 6 kyu.
+
+07:51 Reading "Solving Coding Problems with PEDAC" again and annotating it.

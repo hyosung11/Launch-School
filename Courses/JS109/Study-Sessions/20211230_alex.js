@@ -66,14 +66,6 @@ console.log(triangle(0, 3, 3)); // "invalid"
 console.log(triangle(3, 1, 1)); // "invalid"
 
 
-acute
-right
-obtuse
-invalid
-invalid
-Hint: hit control+c anytime to enter REPL.
- 
-
 
 
 
