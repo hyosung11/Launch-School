@@ -4703,3 +4703,5 @@ for ([initialExpression]; [condition]; [incrementExpression]) {
 11:43 Alex called me and told me I need to get rid of my written assessment answers in GitHub.
 
 12:23 I got sidetracked by adding to my `.gitignore` file.
+
+12:45 I need to own the code. I need to know exactly what each variable is doing and what is happening. Own the code.
