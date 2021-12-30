@@ -1840,27 +1840,48 @@ Algo
   - if char is a vowel increase count
 - return count */
 
-function vowelCount(words) {
-  if (words === '') return [];
+// function vowelCount(words) {
+//   if (words === '') return [];
 
-  return words
-    .split(' ')
-    .map(word => vowels(word));
+//   return words
+//     .split(' ')
+//     .map(word => vowels(word));
+// }
+
+// function vowels(word) {
+//   let count = 0;
+//   let vowels = 'aeiouAEIOU';
+
+//   word.split('').forEach(char => {
+//     if (vowels.includes(char)) count += 1;
+//   });
+
+//   return count;
+// }
+
+// console.log(vowelCount('')); // []
+// console.log(vowelCount('grrr!')); // [0]
+// console.log(vowelCount('WhaTs yOur enneagram?')); // [1, 2, 4])
+// console.log(vowelCount('Colonel Sanders feeds me well !!')) // [3, 2, 2, 1, 1, 0]
+// console.log(vowelCount('ZoInkies!! There are monsters in here.')) // [4, 2, 2, 2, 1, 2]
+
+function substrings(string) {
+  let substrings = [];
+
+  for (let idx = 0; idx < string.length; idx += 1) {
+    for (let jdx = idx + 1; jdx <= string.length; jdx += 1) {
+      substrings.push(string.slice(idx, jdx));
+    }
+  }
+
+  return substrings;
 }
 
-function vowels(word) {
-  let count = 0;
-  let vowels = 'aeiouAEIOU';
+console.log(substrings('abcde'));
 
-  word.split('').forEach(char => {
-    if (vowels.includes(char)) count += 1;
-  });
-
-  return count;
-}
-
-console.log(vowelCount('')); // []
-console.log(vowelCount('grrr!')); // [0]
-console.log(vowelCount('WhaTs yOur enneagram?')); // [1, 2, 4])
-console.log(vowelCount('Colonel Sanders feeds me well !!')) // [3, 2, 2, 1, 1, 0]
-console.log(vowelCount('ZoInkies!! There are monsters in here.')) // [4, 2, 2, 2, 1, 2]
+// returns
+[ "a", "ab", "abc", "abcd", "abcde",
+  "b", "bc", "bcd", "bcde",
+  "c", "cd", "cde",
+  "d", "de",
+  "e" ]

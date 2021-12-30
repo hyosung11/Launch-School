@@ -4619,3 +4619,37 @@ slice(start, end)
 ## 20211227 월요일
 
 13:08 Feeling crappy today. I did practice `vowelCount` again though.
+
+18:16 The index of the last element in an array will always be the length of that array minus 1.
+
+`Array.isArray(words);  // true`
+
+19:12 The `Date.now()` method returns the number of milliseconds elapsed since January 1, 1970 00:00:00 UTC.
+
+```js
+let today = new Date();
+
+today.getYear(); // deprecated
+today.getFullYear();
+```
+
+The array method `join()` concatenates all elements of an array into a string. It expects a single, optional argument: a string that will be used as separator. If the argument is omitted, the separator defaults to ','. Any excess arguments passed to the method upon invocation are ignored.
+
+```js
+let array = ['Bob', 'Kevin', 'Stuart'];
+
+// separator argument omitted
+array.join();                  // 'Bob,Kevin,Stuart'
+
+// single separator argument
+array.join(', ');              // 'Bob, Kevin, Stuart'
+
+// excess argument passed in
+array.join(' and ', 'also');   // 'Bob and Kevin and Stuart'
+```
+
+```js
+for ([initialExpression]; [condition]; [incrementExpression]) {
+  statement
+}
+```
