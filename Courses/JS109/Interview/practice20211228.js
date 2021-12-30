@@ -324,3 +324,42 @@ Algo
 // returns
 // "**SED** ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, **SED** quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, **SED** quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? **SED** quis autem vel est, iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? blasedbla"
 
+/* Three-way comparison
+Algo
+- input string1 and string2
+- compare the lengths of the two strings
+  - if string1 is shorter return -1
+  - if string2 is shorter return 1
+  - if string1 and string2 are equal in length return 0 */
+
+// function compareByLength(str1, str2) {
+//   if (str1.length < str2.length) return -1;
+//   if (str1.length > str2.length) return 1;
+//   if (str1.length === str2.length) return 0;
+// }
+
+// console.log(compareByLength('patience', 'perseverance')); // -1
+// console.log(compareByLength('strength', 'dignity'));      //  1
+// console.log(compareByLength('humor', 'grace'));           //  0
+
+/* Transformation */
+
+// console.log('Captain Ruby'.replace('Ruby', 'JavaScript'));
+// console.log('Captain Ruby'.substring(0, 8) + 'JavaScript');
+// console.log('Captain Ruby'.slice(0, 8) + 'JavaScript');
+// console.log('Captain Ruby'.split(' ')[0] + ` JavaScript`);
+// console.log('Captain Ruby'.split(' ')[0] + ' JavaScript');
+
+function greet(code) {
+ switch (code) {
+   case 'en': return 'Hi'
+   case 'fr': return 'Salut'
+ }
+}
+
+console.log(greet('en')); // 'Hi!'
+console.log(greet('fr')); // 'Salut!'
+console.log(greet('pt')); // 'Olá!'
+console.log(greet('de')); // 'Hallo!'
+console.log(greet('sv')); // 'Hej!'
+console.log(greet('af')); // 'Haai!'

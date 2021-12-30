@@ -41,31 +41,31 @@ function sumOfNumbers(string) {
     .reduce((sum, value) => sum + Number(value), 0);
 }
 
-console.log(Number(''));
-console.log('----12----3------4'.split('-'));
-console.log(sumOfNumbers('L12aun3ch Sch3oo45l'));
-// console.log(sumOfNumbers("HE2LL3O W1OR5LD"));
-console.log(sumOfNumbers('HE2LL3O W1OR5LD') === 11);
-console.log(
-  sumOfNumbers('The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog') ===
-    3635
-);
+// console.log(Number(''));
+// console.log('----12----3------4'.split('-'));
+// console.log(sumOfNumbers('L12aun3ch Sch3oo45l'));
+// // console.log(sumOfNumbers("HE2LL3O W1OR5LD"));
+// console.log(sumOfNumbers('HE2LL3O W1OR5LD') === 11);
+// console.log(
+//   sumOfNumbers('The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog') ===
+//     3635
+// );
 
-// Two words are anagrams of each other if they both contain the same letters.
+/* Two words are anagrams of each other if they both contain the same letters.
 
-// Write a method that will find all the anagrams of a word from a list.
-// You will be given two inputs, a word and an array with words.
-// You should return an array of all the anagrams or an empty array if there are none.
+Write a method that will find all the anagrams of a word from a list. You will be given two inputs, a word and an array with words. You should return an array of all the anagrams or an empty array if there are none.
 
-/* ALGO
+ALGO
 input: string, array of strings
 -return an array that selects those elements from input array for which:
   -the input string alphabetized equals the element alphabetized
 */
 
 // CODE
-function anagrams(string, arr) {
-  return arr.filter ((element) => {
-    return string.split('').sort().join('') ===  element.split('').sort().join('')
-  });
+function anagrams(string, array) {
+  return array.filter(word => {
+    return word.split('').sort().join('') === string.split('').sort().join('');
+  })
 }
+
+console.log(anagrams('Omi', ['SungOh', 'miO', 'iOm']))
