@@ -4681,3 +4681,13 @@ for ([initialExpression]; [condition]; [incrementExpression]) {
 19:44 Got to go up for the kids' bedtime.
 
 20:38 Watch some tv with Sohee and go to bed.
+
+## 20211230 목요일
+
+05:52 Awake and ready to solve problems.
+
+06:12 Alex talked to people in tech.
+
+07:08 Finished study session with Alex. Looking at Multiples of 3 or 5 Codewars problem.
+
+07:45 I solved the problem on my own. It's leveled as 6 kyu.
