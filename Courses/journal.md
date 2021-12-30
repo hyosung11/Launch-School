@@ -4699,3 +4699,5 @@ for ([initialExpression]; [condition]; [incrementExpression]) {
 08:52 Find a problem for Laurent to do as practice for the interview assessment.
 
 10:29 Got confused on coderpad solving a problem.
+
+11:43 Alex called me and told me I need to get rid of my written assessment answers in GitHub.

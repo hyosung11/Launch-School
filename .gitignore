@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Launch School Written Assessment
+Courses/JS109/Written/answers.md
