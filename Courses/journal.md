@@ -4639,3 +4639,9 @@ slice(start, end)
 06:01 Waiting for Alex to start study session.
 
 08:52 More and more practice needed.
+
+13:24 GitHub rejection email received earlier today.
+
+19:20 Best thing to do when feeling rejected is to get back to studying which is what I am doing now.
+
+19:44 Got to go up for the kids' bedtime.
