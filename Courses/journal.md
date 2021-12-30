@@ -4653,3 +4653,31 @@ for ([initialExpression]; [condition]; [incrementExpression]) {
   statement
 }
 ```
+
+## 20211228 화요일
+
+06:05 Study session with Alex.
+
+07:36 Back in the saddle working on medium problems. That's good. Left side of my neck and shoulders hurts. Ugh.
+
+08:12 I need more and more practice to get the patterns down.
+
+09:31 Getting ready for study session with Laurent. I put my stool on wood block, so it's the right height for my standing desk.
+
+14:15 Doing 'String and Text Processing' small problems again and seeming to understand them better today.
+
+19:41 Got kudos for my template study guide for the written from Jeff Lovell. Worked on more problems with Alex and Laurent and on my own.
+
+## 20211229 수요일
+
+06:01 Waiting for Alex to start study session.
+
+08:52 More and more practice needed.
+
+13:24 GitHub rejection email received earlier today.
+
+19:20 Best thing to do when feeling rejected is to get back to studying which is what I am doing now.
+
+19:44 Got to go up for the kids' bedtime.
+
+20:38 Watch some tv with Sohee and go to bed.

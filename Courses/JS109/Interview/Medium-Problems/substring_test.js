@@ -45,7 +45,7 @@ function leadingSubstrings(string) {
   let substrings = [];
   string.split('').forEach((char, idx) => {
     substrings.push(string.slice(0, idx + 1));
-  })
+  });
   return substrings;
 }
 
@@ -55,13 +55,12 @@ function allSubstrings(string) {
     let substring = string.slice(idx);
     substrings = substrings.concat(leadingSubstrings(substring));
   });
-  return substrings.filter(substring => substring.length > 1);
+  return substrings.filter((substring) => substring.length > 1);
 }
 
 // console.log(allSubstrings('SungOh'));
 
-console.log(substringTest('', ''));
-console.log(substringTest('test', '111t')); // true
+
 console.log(substringTest('', '') === false); // true
 console.log(substringTest('test', '111t') === false); // true
 console.log(substringTest('', 'Something') === false); // true

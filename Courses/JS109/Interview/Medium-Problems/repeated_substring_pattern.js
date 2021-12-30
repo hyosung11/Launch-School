@@ -33,21 +33,21 @@ ALGORITHM
   - find substrings of string
   - iterate through substrings to length of string
     - increment the substring
-  - if substring equals string return true
+    - if substring equals string return true
 - return false */
+
 
 function repeatedSubstringPattern(string) {
   let substring = '';
   let midString = Math.floor(string.length / 2);
 
-  for (let idx = 0; idx < midString; idx += 1) {
-    substring = string.slice(0, idx + 1);
+  for (let index = 0; index < midString; index++) {
+    substring = string.slice(0, index + 1);
 
     while (substring.length < string.length) {
       substring += substring;
+      if (substring === string) return true;
     }
-
-    if (substring === string) return true;
   }
 
   return false;
