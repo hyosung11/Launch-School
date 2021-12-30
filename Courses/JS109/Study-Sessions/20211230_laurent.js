@@ -99,28 +99,28 @@ Return the word at the highScoreIndex place */
 
 function alphabetScore(string) {
   if (string === '') return '';
-  
+
   let alphabet = '_abcdefghijklmnopqrstuvwxyz';
   let highScore = 0;
   let highScoreIndex = null;
-  
+
   let wordArray = string.split(' ');
-  
+
   for (let idx = 0; idx < wordArray.length; idx += 1) {
     let wordScore = 0;
     let word = wordArray[idx];
-    
+
     for (let jdx = 0; jdx < word.length; jdx += 1) {
       let char = word[jdx];
-      wordScore += alphabet.indexOf(char);   
+      wordScore += alphabet.indexOf(char);
     }
-     
+
     if (wordScore > highScore) {
       highScore = wordScore;
       highScoreIndex = idx;
     }
   }
-  
+
   return wordArray[highScoreIndex];
 }
 

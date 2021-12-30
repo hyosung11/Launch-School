@@ -124,3 +124,4 @@ function alphabetScore(string) {
 
   return wordArray[maxIndex];
 }
+

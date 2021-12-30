@@ -4705,3 +4705,6 @@ for ([initialExpression]; [condition]; [incrementExpression]) {
 12:23 I got sidetracked by adding to my `.gitignore` file.
 
 12:45 I need to own the code. I need to know exactly what each variable is doing and what is happening. Own the code.
+
+17:10 All over the place today. I need to get Omi in a few minutes.
+
