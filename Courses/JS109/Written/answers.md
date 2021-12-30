@@ -2,7 +2,7 @@
 
 Total Points = 73
 
-## Question 1 3 Points
+## Question 1 (3 Points)
 
 Examine the two code examples below. Explain, with particular reference to line 3 of each example, why Example 1 logs the same values for `arr1` and `arr2`, but Example 2 logs different values.
 
@@ -52,7 +52,7 @@ And can you explicitly explain how the fact that the `concat` method is non-dest
 Revised Answer
 Example 2 also demonstrates variables as pointers, and what happens with a non-mutating operation like the `concat` method. On line 2, `arr2` is declared an initialized to reference the same array that `arr1` points to. On line 3, the `concat` method returns a new array that contains a copy of the original array combined with the additional element `4`. Since `concat` creates a copy of the original array and then mutates the copy, it leaves the original array intact. Thus, the calls to `console.log` on lines 5 and 6 return two different arrays.
 
-## Question 2 3 Points
+## Question 2 (3 Points)
 
 What does the following code log? Explain how you arrived at your answer.
 
@@ -69,7 +69,7 @@ console.log(num); // 1
 
 The code logs `1`. On line 1, the global variable `num` is declared and initialized to the value of `1`. One line 3, the function `addOne` is declared without a parameter but the function is never called because on line 7, `addOne` does not get invoked because it lacks `()`. The reassignment of `num` within the function `addOne` never happens, so the call to `console.log` on line 8 logs the value of the global `num` which is `1`.
 
-## Question 3 3 Points
+## Question 3 (3 Points)
 
 Examine the code example below. Explain why line 7 logs 5, but line 8 raises a ReferenceError.
 
@@ -88,7 +88,7 @@ Line 7 logs `5` because the `console.log` method can only access the `num1` vari
 
 Line 8 raises a `ReferenceError` because the `console.log` method attempts to access the local variable `num2` which is only accessible within the `if` block. Once the block ends, the variable `num2` is destroyed. Thus, on line 8, `num2` does not exist, so a `ReferenceError` is raised.
 
-## Question 4 3 Points
+## Question 4 (3 Points)
 
 What does the following code log? Explain how you came up with your answer.
 
@@ -108,7 +108,7 @@ The code logs `23`. On line 1, the global variable `score` is declared and initi
 
 no `return` statement in function `updateScore
 
-## Question 5 5 Points
+## Question 5 (5 Points)
 
 Examine the following code carefully. Which variable names are in the global scope, and which are local to the scope inside function `add`? Explain how you came up with your answer, making sure to name the variables in each of the two scopes.
 
@@ -138,7 +138,7 @@ There is one more variable in the global scope that's not mentioned. Can you giv
 Revised Answer
 `add` as the name of the function is also a variable in the global scope.
 
-## Question 6 3 Points
+## Question (6 3 Points)
 
 The `timesTwo` function is successfully invoked on line 3, but attempting to invoke the `timesThree` function on line 4 raises an error. Explain why the `timesTwo` invocation is successful, but the invocation of `timesThree` is not. Be precise about why these two functions have such different behavior.
 
@@ -187,7 +187,7 @@ I won't deduct here, because I feel you've touched on the core idea of this ques
 Revised Answer
 When a function is called without an argument, the parameter is initialized with the value `undefined`.
 
-## Question 8 3 Points
+## Question 8 (3 Points)
 
 Identify all of the variables, primitive values, and objects in the following code:
 
@@ -227,7 +227,7 @@ The primitive values are `'a'`, `'b'`, `'c'`, `3`, `4`, `5`, and `2`.
 
 The objects are  `['a', 'b', 'c']`, `[3, 4, 5]`, and the function `double`.
 
-## Question 9 3 Points
+## Question 9 (3 Points)
 
 Examine the code below:
 

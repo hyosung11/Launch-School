@@ -54,6 +54,7 @@ function multiples(number) {
       result.push(idx);
     }
   }
+
   return result.reduce((sum, num) => sum + num, 0);
 }
 

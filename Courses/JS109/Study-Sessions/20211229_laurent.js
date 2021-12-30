@@ -6,7 +6,7 @@ At long last, we need a way to unscramble what these pirates are saying.
 
 Write a function that will accept a jumble of letters as well as an array, and output a list of words that the pirate might have meant.
 
-Return matches in the same order as in the array. Return an empty array if there are no matches. 
+Return matches in the same order as in the array. Return an empty array if there are no matches.
 
 PROBLEM
 - input string and an array of strings
@@ -22,7 +22,7 @@ EXAMPLES
 - see below
 
 DATA STRUCTURE
-- input: 
+- input:
 
 ALGORITHM
 Approach 1: Counters
@@ -35,11 +35,11 @@ Counter {o: 1, r: 1, t: 1, s: 1, p: 1}
 Iterate over the array
   Shortcut: if length is different from string length, it's not a match, next one
   Otherwise, we declare a variable `wordCounter` count the letters
-  If both letters count match each other, add the string to `result`: go throught each key and check if count for each value is the same
-  
+  If both letters count match each other, add the string to `result`: go through each key and check if count for each value is the same
+
   Compare 2 object
 
-Return `result` 
+Return `result`
 
 Approach 2: eliminate letters and check if both strings are empty at the end
 Take the first letter of the string

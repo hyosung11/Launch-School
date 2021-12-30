@@ -4693,3 +4693,9 @@ for ([initialExpression]; [condition]; [incrementExpression]) {
 07:45 I solved the problem on my own. It's leveled as 6 kyu.
 
 07:51 Reading "Solving Coding Problems with PEDAC" again and annotating it.
+
+08:06 I just applied for the onramp Programs and Community Assistant position.
+
+08:52 Find a problem for Laurent to do as practice for the interview assessment.
+
+10:29 Got confused on coderpad solving a problem.

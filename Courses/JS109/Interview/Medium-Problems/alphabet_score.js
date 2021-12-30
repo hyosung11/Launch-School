@@ -76,3 +76,51 @@ console.log(alphabetScore('aa b') === 'aa');
 console.log(alphabetScore('man i need a taxi up to ubud') === 'taxi');
 console.log(alphabetScore('what time are we climbing up the volcano') === 'volcano');
 console.log(alphabetScore('take me to semynak') === 'semynak');
+
+
+// 
+// function alphabetScore(string) {
+//   if (string === '') return '';
+  
+//   let alphabet = '_abcdefghijklmnopqrstuvwxyz';
+//   let highScore = 0;
+//   let highScoreIndex = null;
+//   let wordArray = string.split(' ');
+  
+//   for (let index = 0; index < wordArray.length; index += 1) {
+//     let wordScore = 0;
+//     let charArray = wordArray[index].split('');
+    
+//     for (let jndex = 0; jndex < charArray.length; jndex += 1) {
+//       let char = charArray[jndex];
+//       wordScore += alphabet.indexOf(char);
+//     }
+    
+//     if (wordScore > highScore) {
+//       highScore = wordScore;
+//       highScoreIndex = index;
+//     }
+//   }
+  
+//   return wordArray[highScoreIndex];
+// }
+
+// APPROACH 2: create an array of scores find the max value
+
+function alphabetScore(string) {
+  if (string === '') return '';
+
+  let alphabet = '_abcdefghijklmnopqrstuvwxyz';
+  let wordArray = string.split(' ');
+
+  let scoresArray = wordArray
+    .map(word => {
+      return word.split('').reduce((acc, char) => {
+        return acc + alphabet.indexOf(char);
+      }, 0)
+    })
+
+  let maxIndex = scoresArray.indexOf(Math.max(...scoresArray));
+
+  return wordArray[maxIndex];
+}

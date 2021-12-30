@@ -103,17 +103,16 @@ Revised Algorithm
     - create an array of the two numbers and push it to `result`
 - return `result` array */
 
+
 function differenceOfTwo(nums) {
   let result = [];
   let sortedNums = nums.slice(0).sort((a, b) => a - b);
 
   sortedNums.forEach((num, idx) => {
-    // [1, 2, 3, 4]
-    sortedNums.slice(idx).forEach((nextNum) => {
-      // [2, 3, 4]
+    sortedNums.slice(idx).forEach(nextNum => {
       if (nextNum - num === 2) result.push([num, nextNum]);
-    });
-  });
+    })
+  })
 
   return result;
 }
