@@ -5,7 +5,6 @@ alphabetic characters and numeric digits that occur more than once in the input
 string. The input string can be assumed to contain only alphabets (both
 uppercase and lowercase) and numeric digits.
 
-
 PROBLEM
 - input: string
 - output: number representing occurrences of a char that repeats twice or more
@@ -99,18 +98,33 @@ If the character is unique, one could just return its index. The complexity of t
 function firstUniqChar(string) {
   let result = {};
 
+  string.split('').forEach((char) => {
+    result[char] ? result[char] += 1 : result[char] = 1;
+  });
+
   for (let idx = 0; idx < string.length; idx += 1) {
     let char = string[idx];
-    result[char] ? result[char] += 1 : result[char] = 1;
-  }
-
-  for (let jdx = 0; jdx < string.length; jdx += 1) {
-    let char = string[jdx];
-    if (result[char] === 1) return jdx;
+    if (result[char] === 1) return idx;
   }
 
   return -1;
 }
+
+// function firstUniqChar(string) {
+//   let result = {};
+
+//   for (let idx = 0; idx < string.length; idx += 1) {
+//     let char = string[idx];
+//     result[char] ? result[char] += 1 : result[char] = 1;
+//   }
+
+//   for (let jdx = 0; jdx < string.length; jdx += 1) {
+//     let char = string[jdx];
+//     if (result[char] === 1) return jdx;
+//   }
+
+//   return -1;
+// }
 
 /* ALGORITHM
 
@@ -121,18 +135,18 @@ Iterate over the string
 
 */
 
-function firstUniqChar(string) {
-  for (let idx = 0; idx < string.length; idx += 1) {
-    let char = string[idx];
-    let remaining = string.split('');
-    remaining.splice(idx, 1);
+// function firstUniqChar(string) {
+//   for (let idx = 0; idx < string.length; idx += 1) {
+//     let char = string[idx];
+//     let remaining = string.split('');
+//     remaining.splice(idx, 1);
 
-    if (remaining.includes(char)) continue;
-    else return idx;
-  }
+//     if (remaining.includes(char)) continue;
+//     else return idx;
+//   }
 
-  return -1;
-}
+//   return -1;
+// }
 console.log(firstUniqChar("leetcode")) // 0
 console.log(firstUniqChar("loveleetcode")) // 2
 console.log(firstUniqChar("aabb")) // -1
