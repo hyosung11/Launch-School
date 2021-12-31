@@ -4708,3 +4708,5 @@ for ([initialExpression]; [condition]; [incrementExpression]) {
 
 17:10 All over the place today. I need to get Omi in a few minutes.
 
+19:55 Creating patterns file wear I comment on each line of code to confirm my understanding of what is happening. I also use `console.log` statements if I need to know the output at that stage. Time to put the kids to bed.
+

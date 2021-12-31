@@ -95,13 +95,13 @@ console.log(alphabetScore('take me to semynak') === 'semynak');
 //       let char = charArray[jndex];
 //       wordScore += alphabet.indexOf(char);
 //     }
-    
+
 //     if (wordScore > highScore) {
 //       highScore = wordScore;
 //       highScoreIndex = index;
 //     }
 //   }
-  
+
 //   return wordArray[highScoreIndex];
 // }
 

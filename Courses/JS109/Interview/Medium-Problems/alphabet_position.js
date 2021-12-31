@@ -42,20 +42,7 @@ function alphabetPosition(string) {
   return result.join(' ');
 }
 
-// function alphabetPosition(string) {
-//   string = string.toLowerCase();
-//   let alphabet = '_abcdefghijklmnopqrstuvwxyz';
-//   let result = [];
-
-//   for (let idx = 0; idx < string.length; idx += 1) {
-//     if (alphabet.includes(string[idx])) {
-//       result.push(alphabet.indexOf(string[idx]));
-//     }
-//   }
-//   return result.join(' ');
-// }
-
-// console.log(alphabetPosition('abc'));
+console.log(alphabetPosition('abc') === '1 2 3'); // true
 console.log(
   alphabetPosition("The sunset sets at twelve o' clock.") ===
     '20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11'
