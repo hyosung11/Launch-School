@@ -4723,3 +4723,6 @@ for ([initialExpression]; [condition]; [incrementExpression]) {
 11:57 Laurent figured out the second one. I'm tired from playing soccer and being a little under the weather.
 
 12:58 After lunch and I feel pretty tired.
+
+17:24 Breaking down problems and dissecting the solutions in code slowly.
+

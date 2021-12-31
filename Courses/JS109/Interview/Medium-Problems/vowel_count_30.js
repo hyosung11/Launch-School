@@ -1,5 +1,4 @@
-/*
-Given a string of one or more words, return an array that contains
+/* Given a string of one or more words, return an array that contains
 the number of vowels in each word of the argument string.
 
 The returned array should have the same number of

@@ -19,13 +19,13 @@ function accum(string) {
 }
 
 // Test Cases
-console.log(accum("abcd"));   // "A-Bb-Ccc-Dddd"
-console.log(accum("RqaEzty")); // "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
-console.log(accum("cwAt"));   // "C-Ww-Aaa-Tttt"
+// console.log(accum("abcd"));   // "A-Bb-Ccc-Dddd"
+// console.log(accum("RqaEzty")); // "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+// console.log(accum("cwAt"));   // "C-Ww-Aaa-Tttt"
 
 /* Alphabet Position */
 function alphabetPosition(string) {
-  // need to lowercase to simplify dealing with input
+  // reassign to lowercase to simplify dealing with input
   string = string.toLowerCase();
 
   // same pattern of creating a lookup string
@@ -52,13 +52,13 @@ function alphabetPosition(string) {
   return result.join(' ');
 }
 
-console.log(alphabetPosition('abc') === '1 2 3'); // true
-console.log(
-  alphabetPosition("The sunset sets at twelve o' clock.") ===
-    '20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11'
-);
+// console.log(alphabetPosition('abc') === '1 2 3'); // true
+// console.log(
+//   alphabetPosition("The sunset sets at twelve o' clock.") ===
+//     '20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11'
+// );
 
-/* =============================================================================
+/* =======================================================
 Alphabet Score */
 
 function alphabetScore(string) {
@@ -105,7 +105,18 @@ function alphabetScore(string) {
 // console.log(
 //   alphabetScore('what time are we climbing up the volcano') === 'volcano'
 // );
-console.log(alphabetScore('take me to semynak') === 'semynak');
+// console.log(alphabetScore('take me to semynak') === 'semynak');
 
-/* =============================================================================
-Alphabet Score */
+/* =======================================================
+Running Totals */
+
+// function runningTotal(array) {
+//   let sum = 0;
+//   return array.map(number => sum += number);
+//   // 0 + 2 = 2, 2 + 5 = 7, 7 + 13 = 20
+// }
+
+// console.log(runningTotal([2, 5, 13]));  // [2, 7, 20]
+// console.log(runningTotal([14, 11, 7, 15, 20]));    // [14, 25, 32, 47, 67]
+// console.log(runningTotal([3]));                    // [3]
+// console.log(runningTotal([]));                     // []

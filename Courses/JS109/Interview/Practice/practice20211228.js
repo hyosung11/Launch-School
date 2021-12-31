@@ -350,16 +350,199 @@ Algo
 // console.log('Captain Ruby'.split(' ')[0] + ` JavaScript`);
 // console.log('Captain Ruby'.split(' ')[0] + ' JavaScript');
 
-function greet(code) {
- switch (code) {
-   case 'en': return 'Hi'
-   case 'fr': return 'Salut'
- }
-}
+// function greet(code) {
+//  switch (code) {
+//    case 'en': return 'Hi'
+//    case 'fr': return 'Salut'
+//  }
+// }
 
-console.log(greet('en')); // 'Hi!'
-console.log(greet('fr')); // 'Salut!'
-console.log(greet('pt')); // 'Olá!'
-console.log(greet('de')); // 'Hallo!'
-console.log(greet('sv')); // 'Hej!'
-console.log(greet('af')); // 'Haai!'
+// console.log(greet('en')); // 'Hi!'
+// console.log(greet('fr')); // 'Salut!'
+// console.log(greet('pt')); // 'Olá!'
+// console.log(greet('de')); // 'Hallo!'
+// console.log(greet('sv')); // 'Hej!'
+// console.log(greet('af')); // 'Haai!'
+
+/* Vowel Count
+
+Given a string of one or more words, return an array that contains the number of vowels in each word of the argument string.
+
+The returned array should have the same number of
+elements as words in the argument string.
+
+PROBLEM
+- input: string
+- output: array of numbers
+
+Rules
+- return an array of numbers representing the number of vowels in each word of the argument string
+- implicit that a word is space delimited
+- case doesn't matter
+- if word doesn't have vowels, return 0
+
+EXAMPLES
+- see below
+
+DATA STRUCTURE
+- input: string
+- intermediary: array
+  - map?
+- output: array
+
+ALGORITHM
+ - input string
+ - if string is an empty string return an empty array
+ - split the string into words at each space
+ - iterate through each word
+  - count the number of vowels in each word with `vowels` helper function
+ - return array of numbers representing the number of vowels in each word
+
+`vowels` helper function
+- input word
+- iniitalize `count` to 0
+- initialize `vowels` to lower and upper case vowels
+- split the word by char
+- iterate through the word by char
+  - if char is a vowel
+    - increment count
+- return count */
+
+// function vowelCount(string) {
+//   if (string === '') return [];
+//   let words = string.split(' ');
+//   return words.map(word => vowels(word)); // for each word in the input string, check its vowel count and then return an array of the counts of each of the words
+// }
+
+// function vowels(word) {
+//   let count = 0;
+//   let vowels = 'aeiouAEIOU';
+
+//   word.split('').forEach(char => {
+//     if (vowels.includes(char)) count += 1;
+//   });
+
+//   return count;
+// }
+
+// // Examples
+// console.log(vowelCount('')); // []
+// console.log(vowelCount('grrr!')); // [0]
+// console.log(vowelCount('WhaTs yOur enneagram?')); // [1, 2, 4]
+// console.log(vowelCount('Colonel Sanders feeds me well !!')); // [3, 2, 2, 1, 1, 0]
+
+// console.log(vowelCount('ZoInkies!! There are monsters in here.')); // [4, 2, 2, 2, 1, 2]
+
+/* Three by Three Problem Description
+
+Given an array of strings, return a boolean indicating whether at least three of the elements in the array have digits whose sum is divisible by 3.
+
+Elements of the argument array will be strings containing only string digits 0-9.
+
+For example:
+In the array ['35', '01110', '126', '57', '13'],
+the sum of the digits of each element will be: [8, 3, 9, 12, 4] from the resulting sums, there are 3 that are evenly divisible by 3: [3, 9, 12] so our function would return true. See the below test cases for more examples
+
+PROBLEM
+- input: array of string numbers
+- output: boolean
+
+Rules
+- if at least three elements in an an array have digits whose sum is divisible by 3 return true
+- false otherwise
+- elements are only string of digits 0-9
+
+EXAMPLES
+- ['35', '01110', '126', '57', '13'] => [8, 3, 9, 12, 13] => divisible by 3 [-, 1, 2, 3, -] = 3 elements
+
+DATA STRUCTURE
+- input: array of string digits
+- intermediary: split sets of digits into strings and sum
+- output: boolean
+
+ALGORITHM
+- input array of digit strings
+- iterate through the array
+  - split the elements into digits
+  - iterate through digits of each element
+    - compute the sum of digits of each element
+    - check if sum is divisible by 3 without a remainder
+      - if true add to length of array elements
+      - continue otherwise
+- return true if three or more elements' digits are divisible by 3 without a remainder
+- return false if less than three */
+
+// function threeByThree(array) {
+//   let result = array
+//     .map(string => {
+//       return string.split('').reduce((sum, digit) => sum + Number(digit), 0);
+//     })
+//     .filter(num => num % 3 === 0)
+//     .length;
+
+//   if (result > 2) return true;
+//   return false;
+// }
+
+// console.log(threeByThree(['0']) === false) // true
+// console.log(threeByThree(['01112', '0111', '00030', '2043', '12043']) === true); // true
+// console.log(threeByThree(['01112', '2043', '12043']) === false); // true
+// console.log(threeByThree(['01112', '2043']) === false); // true
+// console.log(threeByThree(['93', '9', '1', '25', '1212']) === true); // true
+
+/*
+Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.
+
+Algo
+- input string
+- initialize `result` to empty object
+- iterate over string
+  - check for char
+    - if exists in `result` increment
+    - else add to `result` and set value to 1
+- iterate through string again
+  - check for first char in object whose value is 1
+  - return index position
+- return -1 if not found */
+
+// function firstUniqChar(string) {
+//   let result = {};
+
+//   string.split('').forEach(char => {
+//     result[char] ? result[char] += 1 : result[char] = 1;
+//   });
+
+//   for (let idx = 0; idx < string.length; idx++) {
+//     let char = string[idx];
+//     if (result[char] === 1) return idx;
+//   }
+
+//   return -1;
+// }
+
+// console.log(firstUniqChar("leetcode")) // 0
+// console.log(firstUniqChar("loveleetcode")) // 2
+// console.log(firstUniqChar("aabb")) // -1
+
+// function duplicateCount(string) {
+//   let result = {};
+
+  // for (let idx = 0; idx < string.length; idx += 1) {
+  //   let char = string[idx].toLowerCase();
+  //   result[char] ? (result[char] += 1) : (result[char] = 1);
+  // }
+
+//     string.split('').forEach(char => {
+//       char = char.toLowerCase();
+//       result[char] ? result[char] += 1 : result[char] = 1;
+//     });
+
+//   return Object.values(result).filter((num) => num > 1).length;
+// }
+
+// console.log(duplicateCount('')); // 0)
+// console.log(duplicateCount('abcde')); // 0
+// console.log(duplicateCount('aabbcde')); // 2
+// console.log(duplicateCount('aabBcde')); // 2
+// console.log(duplicateCount('Indivisibility')); // 1
+// console.log(duplicateCount('Indivisibilities')); // 2

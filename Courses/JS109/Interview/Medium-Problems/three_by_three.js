@@ -23,8 +23,6 @@ ALGORITHM
     - return true
     - return false */
 
-
-
 // Test Cases
 console.log(threeByThree(['01112', '0111', '00030', '2043', '12043'])); // true
 console.log(threeByThree(['01112', '2043', '12043'])); // false
@@ -32,10 +30,22 @@ console.log(threeByThree(['01112', '2043'])); // false
 console.log(threeByThree(['93', '9', '1', '25', '1212'])); // true
 
 function threeByThree(array) {
+  let result = array.map((string) => {
+    return string.split('').reduce((sum, num) => sum + Number(num), 0);
+  });
+
+  if (result.filter((num) => num % 3 === 0).length > 2) {
+    return true;
+  }
+  return false;
+}
+
+// Alternative Version
+function threeByThree(array) {
   let arrayOfThrees = array
     .map((string) => string.split(''))
-    .map((subArray) => subArray.reduce((acc, nb) => acc + Number(nb), 0))
-    .filter((nb) => nb % 3 === 0);
+    .map((subArray) => subArray.reduce((acc, num) => acc + Number(num), 0))
+    .filter((num) => num % 3 === 0);
 
   if (arrayOfThrees.length >= 3) return true;
   return false;
