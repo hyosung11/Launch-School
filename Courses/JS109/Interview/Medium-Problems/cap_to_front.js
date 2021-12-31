@@ -34,12 +34,29 @@ ALGORITHM
   - if the character is a capital letter move it to the beginning of the string
   - if the next character is also a capital letter move it to the beginning of the string to the right of the previous capital letter in the same order
   - join the string
-- return string
+- return string */
 
-*/
-// function capToFront(string) {
-//   string.split('')
-// }
+function capToFront(string) {
+  let chars = string.split('');
+  let upperString = '';
+  let lowerString = '';
+
+  chars.map(char => {
+    if (char === char.toUpperCase()) {
+      upperString += char;
+    }
+    else if (char === char.toLowerCase()) {
+      lowerString += char;
+    }
+  })
+  .join('');
+
+  return upperString + lowerString;
+}
+
+console.log(capToFront("hApPy")); // "APhpy"
+console.log(capToFront("moveMENT")); // "MENTmove"
+console.log(capToFront("shOrtCAKE")); // "OCAKEshrt"
 
 // const capToFront = (str) => {
 //   return (
@@ -54,37 +71,30 @@ ALGORITHM
 //   );
 // };
 
-function capToFront(string) {
-  let array = string.split('');
-  let upperString = array
-    .filter((char) => char === char.toUpperCase())
-    .join('');
-  let lowerString = array
-    .filter((char) => char === char.toLowerCase())
-    .join('');
+// function capToFront(string) {
+//   let upperString = '';
+//   let lowerString = '';
 
-  return upperString + lowerString;
-}
+//   for (let idx = 0; idx < string.length; idx += 1) {
+//     let char = string[idx];
+//     if (char === char.toUpperCase()) {
+//       upperString += char;
+//     } else if (char === char.toLowerCase()) {
+//       lowerString += char;
+//     }
+//   }
 
-console.log(capToFront("hApPy")); // "APhpy"
-console.log(capToFront("moveMENT")); // "MENTmove"
-console.log(capToFront("shOrtCAKE")); // "OCAKEshrt"
+//   return upperString + lowerString;
+// }
 
+// function capToFront(string) {
+//   let array = string.split('');
+//   let upperString = array
+//     .filter((char) => char === char.toUpperCase())
+//     .join('');
+//   let lowerString = array
+//     .filter((char) => char === char.toLowerCase())
+//     .join('');
 
-function capToFront(string) {
-  let upperString = '';
-  let lowerString = '';
-
-  for (let idx = 0; idx < string.length; idx += 1) {
-    let char = string[idx];
-    if (char === char.toUpperCase()) {
-      upperString += char;
-    } else if (char === char.toLowerCase()) {
-      lowerString += char;
-    }
-  }
-
-  return upperString + lowerString;
-}
-
-
+//   return upperString + lowerString;
+// }
