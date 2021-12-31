@@ -4715,3 +4715,9 @@ for ([initialExpression]; [condition]; [incrementExpression]) {
 ## 20211231 금요일
 
 09:35 Back from playing soccer and before my study session with Laurent. All is well.
+
+10:01 Start study session with Laurent.
+
+11:37 I gave Laurent a difficult problem that he's working on now.
+
+11:57 Laurent figured out the second one. I'm tired from playing soccer and being a little under the weather.
