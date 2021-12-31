@@ -4711,3 +4711,7 @@ for ([initialExpression]; [condition]; [incrementExpression]) {
 19:55 Creating patterns file wear I comment on each line of code to confirm my understanding of what is happening. I also use `console.log` statements if I need to know the output at that stage. Time to put the kids to bed.
 
 20:50 Shut it down for today.
+
+## 20211231 금요일
+
+09:35 Back from playing soccer and before my study session with Laurent. All is well.
