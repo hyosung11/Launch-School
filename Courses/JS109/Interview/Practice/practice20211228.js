@@ -546,3 +546,116 @@ Algo
 // console.log(duplicateCount('aabBcde')); // 2
 // console.log(duplicateCount('Indivisibility')); // 1
 // console.log(duplicateCount('Indivisibilities')); // 2
+
+/* Max Multiple Problem Description
+
+Given a divisor and a bound, find the largest number N such that:
+
+N is divisible by the divisor
+N is less than or equal to the bound
+N is greater than 0.
+
+Algo
+- input two numbers
+  - divisor
+  - bound
+- iterate from bound to divisor descending
+- find highest multiple of divisor that divides into bound without a remainder
+- return number */
+
+// function maxMultiple(divisor, bound) {
+//   while (true) {
+//     if (bound % divisor === 0) return bound;
+//     bound -= 1;
+//   }
+// }
+
+// function maxMultiple(divisor, bound) { // 3 and 10
+//   let result = 0;
+//           // 3 = 3; 3 <= 10; 3 += 3, 6, 9, 12
+//   for (let current = divisor; current <= bound; current += divisor) {
+//     result = current
+//   }
+
+//   return result;
+// }
+
+// Test Cases
+// console.log(maxMultiple(2, 7) === 6); // true
+// console.log(maxMultiple(3, 10) === 9); // true
+// console.log(maxMultiple(7, 17) === 14); // true
+// console.log(maxMultiple(10, 50) === 50); // true
+// console.log(maxMultiple(37, 200) === 185); // true
+// console.log(maxMultiple(7, 100) === 98); // true
+
+/* Common Elements
+
+Create a function that takes two lists of numbers sorted in ascending order and returns an array of numbers which are common to both the input arrays.
+
+Algo
+- input array1 and array2
+- initialize `result` array
+- iterate through array1
+  - iterate through array2
+    - check if number exists in both arrays and is not already in `results` array
+    - if not in `results` array push number into results array
+- return new array */
+
+// function commonElements(nums1, nums2) {
+//   let result = [];
+
+//   nums1.filter(num1 => {
+//     nums2.filter(num2 => {
+//       if (num1 === num2 && !result.includes(num2)) result.push(num2);
+//     })
+//   })
+
+//   return result;
+// }
+
+// function commonElements(array1, array2) {
+//   let result = [];
+
+//   array1.filter((num1) => {
+//     array2.filter((num2) => {
+//       if (num1 === num2 && !result.includes(num1)) result.push(num1);
+//     });
+//   });
+
+//   return result;
+// }
+
+// Examples/test cases:
+// console.log(commonElements([-1, 3, 4, 6, 7, 9], [1, 3])); // => [3]
+// console.log(commonElements([1, 3, 4, 6, 7, 9], [1, 2, 3, 4, 7, 10])); // ➞ [1, 3, 4, 7]
+// console.log(commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 4, 5])); // ➞ [1, 2, 4, 5]
+// console.log(commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 2])); // ➞ [1, 2]
+// console.log(commonElements([1, 2, 3, 4, 5], [10, 12, 13, 15])); // ➞ []
+
+// function commonElements(array1, array2) {
+//   let result = [];
+
+//   for (let idx = 0; idx < array1.length; idx++) {
+//     let num1 = array1[idx];
+
+//     for (let jdx = 0; jdx < array2.length; jdx++) {
+//       let num2 = array2[jdx];
+//       if (num1 === num2 && !result.includes(num1)) result.push(num1);
+//     }
+//   }
+
+//   return result;
+// }
+
+// function commonElements(array1, array2) {
+//   let result = [];
+
+//   array1.filter((num1) => {
+//     array2.filter((num2) => {
+//       if (num1 === num2 && !result.includes(num1)) result.push(num1);
+//     });
+//   });
+
+//   return result;
+// }
+

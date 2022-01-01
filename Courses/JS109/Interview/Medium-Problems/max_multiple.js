@@ -53,14 +53,14 @@ Algorithm
 // // console.log(maxMultiple(37, 200));
 // // console.log(maxMultiple(7, 100));
 
-function maxMultiple(increment, bound) {
-  let lastNumber = 0;
+function maxMultiple(divisor, bound) {
+  let result = 0;
 
-  for (let current = 0; current <= bound; current += increment) {
-    lastNumber = current;
+  for (let current = divisor; current <= bound; current += divisor) {
+    result = current;
   }
 
-  return lastNumber;
+  return result;
 }
 
 console.log(maxMultiple(2, 7) === 6);
@@ -92,9 +92,9 @@ console.log(maxMultiple(7, 100) === 98);
 //   return lastNumber;
 // }
 
-function maxMultiple(divisor, bound) {
-  while (true) {
-    if (bound % divisor === 0) return bound;
-    bound -= 1;
-  }
-}
+// function maxMultiple(divisor, bound) {
+//   while (true) {
+//     if (bound % divisor === 0) return bound;
+//     bound -= 1;
+//   }
+// }

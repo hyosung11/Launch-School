@@ -4726,3 +4726,4 @@ for ([initialExpression]; [condition]; [incrementExpression]) {
 
 17:24 Breaking down problems and dissecting the solutions in code slowly.
 
+21:59 Might be done for the night. Happy New Year 2022.
