@@ -804,3 +804,254 @@ let destinations = ['Prague', 'London', 'Sydney', 'Belfast', 'Rome', 'Aruba', 'P
 
 // console.log(groceryList); // []
 
+// function greet(greeting = 'Hello') {
+//   console.log(greeting + ', world!');
+// }
+
+// greet('Salutations'); // logs: Salutations, world!
+
+// greet();              // logs: undefined, world!
+//                       // should log: Hello, world!
+
+// function greet(greeting = 'Hello', recipient = 'world') {
+//   console.log(`${greeting}, ${recipient}!`);
+// }
+
+// greet();                                // logs: Hello, world!
+// greet('Salutations');                   // logs: Salutations, world!
+// greet('Good morning', 'Launch School'); // logs: Good morning, Launch School!
+
+// function greeting() {
+//   return 'Good morning';
+// }
+
+// function recipient() {
+//   return 'Launch School';
+// }
+
+// function greet() {
+//   console.log(`${greeting()}, ${recipient()}!`);
+// }
+
+// // console.log(greet());
+// greet();
+
+// function calculateBMI(heightInCentimeters, weightInKilograms) {
+//   let heightInMeters = heightInCentimeters / 100;
+//   let bmi = weightInKilograms / heightInMeters**2;
+
+//   return bmi.toFixed(2);
+// }
+
+// console.log(calculateBMI(180, 80));
+
+/* Calculate Cat Age
+Algo
+- input number (as human years)
+- 1 human year equals 15 cat years
+- 2nd human year equals 9 cat years
+  - 2 human years equals 24 cat years
+- every year after two human years adds 4 cat years
+- return number (as cat years)  */
+
+// function catAge(humanYears) {
+//   switch (humanYears) {
+//     case 0: return 0;
+//     case 1: return 15;
+//     case 2: return 24;
+//     default: return 24 + (humanYears - 2) * 4;
+//   }
+// }
+
+// console.log(catAge(0)); // 0
+// console.log(catAge(1)); // 15
+// console.log(catAge(2)); // 24
+// console.log(catAge(3)); // 28
+// console.log(catAge(4)); // 32
+
+// Remove Last Char
+// function removeLastChar(string) {
+//   // return string.slice(0, string.length - 1);
+//   return string.substring(0, string.length - 1);
+// }
+
+// console.log(removeLastChar('ciao!')); // 'ciao'
+// console.log(removeLastChar('hello')); // 'hell'
+
+/* Arrow Functions 1 */
+const template = 'I VERB NOUN.';
+
+// function sentence(verb, noun) {
+//   return template
+//     .replace('VERB', verb)
+//     .replace('NOUN', noun);
+// }
+
+// const sentence = ((verb, noun) => {
+//   return template
+//     .replace('VERB', verb)
+//     .replace('NOUN', noun);
+// })
+
+// let sentence = ((verb, noun) => template
+//   .replace('VERB', verb)
+//   .replace('NOUN', noun));
+
+// console.log(sentence('like', 'birds'));
+// // logs: I like birds.
+
+// let initGame = () => ({
+//   level: 1,
+//   score: 0
+// });
+
+// let game = initGame();
+
+// console.log('Level: ' + game.level);
+// console.log('Score: ' + game.score);
+
+// let student = {
+//   name: 'Carmen',
+//   age: 14,
+//   grade: 10,
+//   courses: ['biology', 'algebra', 'composition', 'ceramics'],
+//   gpa: 3.75,
+// };
+
+// // console.log(student['courses'])
+// console.log(student.courses);
+// console.log(student.locker); // undefined
+
+// let jane = {
+//   firstName: 'Jane',
+//   lastName: 'Harrelson',
+//   age: 32,
+//   location: {
+//     country: 'Denmark',
+//     city: 'Aarhus',
+//   },
+//   occupation: 'engineer',
+// };
+
+// // console.log(jane.location.country);
+// console.log(jane['location']['country']);
+
+// let fido = {
+//   name: 'Fido',
+//   species: 'Labrador Retriever',
+//   color: 'brown',
+//   weight: 16,
+// };
+
+// // Add property 'age'.
+// fido.age = 2;
+// // Add property 'favorite food'.
+// // simple assignment syntax
+// fido['favorite food'] = 'steak';
+
+// console.log(fido);
+
+// let jane = {
+//   firstName: 'Jane',
+//   lastName: 'Harrelson',
+//   age: 32,
+//   location: {
+//     country: 'Denmark',
+//     city: 'Aarhus'
+//   },
+//   occupation: 'engineer',
+//   // a property value can be a function expression
+//   greet: function(name) {
+//     console.log(`Hej, ${name}`);
+//   },
+// };
+
+// // method invocation
+// jane.greet('Bobby'); // Hej, Bobby!
+
+// let ocean = {};
+// let prefix = 'Indian';
+
+// ocean.prefix = 'Pacific';
+
+// console.log(ocean); // => { prefix: 'Pacific'}
+
+// let ocean = {};
+// let prefix = 'Indian';
+// let suffix = 'test';
+
+// // bracket notation accepts expressions, including variables
+// ocean[prefix] = 'Pacific';
+// ocean[suffix] = 'Atlantic';
+
+// console.log(ocean); // { 'Indian': 'Pacific'}
+
+let obj = {
+  num: 42,
+  'property name': 'string value',
+  true: false,
+  fun: function () {
+    console.log('Harr Harr!');
+  },
+};
+
+// for (let prop in obj) {
+//   if (prop === true) {
+//     console.log("It's true!");
+//   }
+// }
+
+// for (let prop in obj) {
+//   console.log(`${prop} (${typeof prop})`)
+// }
+
+// let vehicle = {
+//   manufacturer: 'Tesla',
+//   model: 'Model X',
+//   year: 2015,
+//   range: 295,
+//   seats: 7,
+// };
+
+// // let keys = [];
+
+// // for (let prop in vehicle) {
+// //   keys.push(prop);
+// // }
+
+// let keys = Object.keys(vehicle);
+
+// console.log(keys);
+
+// let person = {
+//   title: 'Duke',
+//   name: 'Nukem',
+//   age: 33
+// };
+
+// // let nestedPerson = Object.entries(person)
+// let nestedPerson = [];
+
+// for (let property in person) {
+//   nestedPerson.push([property, person[property]]);
+// }
+
+
+// console.log(nestedPerson);
+// Expected output:
+// [['title', 'Duke'], ['name', 'Nukem'], ['age', 33]]
+
+let nestedArray = [['title', 'Duke'], ['name', 'Nukem'], ['age', 33]];
+
+// let person = {}
+
+// for (let idx = 0; idx < nestedArray.length; idx++) {
+//   let keyValue = nestedArray[idx];
+//   person[keyValue[0]] = keyValue[1];
+// }
+
+let person = Object.fromEntries(nestedArray);
+
+console.log(person);
+// Expected output:
+// { title: 'Duke', name: 'Nukem', age: 33 }

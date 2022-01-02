@@ -4733,3 +4733,9 @@ for ([initialExpression]; [condition]; [incrementExpression]) {
 05:49 Happy New Year 2022! All is well. My meditation timer is running.
 
 07:51 Alex was late but we did study together for about an hour.
+
+## 20220102 일요일
+
+15:07 Back after reffing this morning.
+
+18:47 Working on JavaScript Basic problems.
