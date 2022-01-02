@@ -659,3 +659,148 @@ Algo
 //   return result;
 // }
 
+// function repeat(num, string) {
+//   let result = '';
+//   for (let idx = 0; idx < num; idx++) {
+//     result += string;
+//   }
+
+//   return result;
+// }
+
+// function repeat(num, string) {
+//   return string.repeat(num);
+// }
+// console.log(repeat(3, 'ha')); // 'hahaha'
+
+// let single = 'A pirate I was meant to be!\nTrim the sails and roam the sea!'
+
+// console.log(single);
+
+// let energy = ['fossil', 'solar', 'wind', 'tidal', 'fusion'];
+// console.log(energy.shift());
+// energy.splice(0, 1);
+// console.log(energy.push('geothermal'));
+// energy = energy.slice(1);
+// energy.push('geothermal')
+// console.log(energy);
+
+// let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+// let letters = Array.from(alphabet);
+// console.log(letters);
+
+// console.log(Array.from([1, 2, 3], num => num * 2));
+
+// let scores = [96, 47, 113, 89, 100, 102];
+
+// let count = 0;
+
+// // scores.forEach(num => {
+// //   if (num >= 100) count += 1;
+// // });
+
+// for (let index = 0; index < scores.length; index++) {
+//   let num = scores[index];
+//   if (num >= 100) count += 1;
+// }
+
+// console.log(count);
+// console.log(scores.filter(num => num >= 100).length);
+
+// let vocabulary = [
+//   ['happy', 'cheerful', 'merry', 'glad'],
+//   ['tired', 'sleepy', 'fatigued', 'drained'],
+//   ['excited', 'eager', 'enthused', 'animated']
+// ];
+
+// for (let vocabularyIdx = 0; vocabularyIdx < vocabulary.length; vocabularyIdx++) {
+//   let synonyms = vocabulary[vocabularyIdx];
+
+//   for (let synonymIdx = 0; synonymIdx < synonyms.length; synonymIdx++) {
+//     console.log(synonyms[synonymIdx]);
+//   }
+// }
+// Expected output:
+// happy
+// cheerful
+// merry
+// etc...
+
+// let array1 = [2, 6, 4];
+// let array2 = [2, 6, 4];
+
+// console.log(array1 === array2);
+
+// function filter(input) {
+//   // Is input an array?
+//   return Array.isArray(input);
+// }
+
+// console.log(filter('yes'));
+
+// let someValue1 = [0, 1, 0, 0, 1];
+// let someValue2 = 'I leave you my Kingdom, take good care of it.';
+
+// console.log(Array.isArray(someValue1)); // true
+// console.log(Array.isArray(someValue2)); // false
+
+let destinations = ['Prague', 'London', 'Sydney', 'Belfast', 'Rome', 'Aruba', 'Paris', 'Bora Bora', 'Barcelona', 'Rio de Janeiro', 'Marrakesh', 'New York City'];
+
+// function contains(city, destinations) {
+//   if (destinations.includes(city)) return true
+//   return false;
+// }
+
+// function contains(city, destinations) {
+//   for (let idx = 0; idx < destinations.length; idx++) {
+//     if (destinations[idx] === city) return true;
+//   }
+//   return false;
+// }
+
+// function contains(element, list) {
+//   // returns -1 if not found which means false
+//   // if found it will return the index position of the element which will be at 0 or more in the array
+//   return list.indexOf(element) >= 0;
+// }
+
+// console.log(contains('Barcelona', destinations)); // true
+// console.log(contains('Nashville', destinations)); // false
+
+// let passcode = ['11', 'jZ5', 'hQ3f*', '8!7g3', 'p3Fs'];
+// console.log(passcode.join('-'));
+// Write some code here.
+// Expected return value: '11-jZ5-hQ3f*-8!7g3-p3Fs'
+
+// let passcode = ['11', 'jZ5', 'hQ3f*', '8!7g3', 'p3Fs'];
+// let joinedPasscode = '';
+
+// for (let i = 0; i < passcode.length; i += 1) {
+//   if (i > 0) {
+//     joinedPasscode += '-';
+//   }
+
+//   joinedPasscode += passcode[i];
+// }
+
+// console.log(joinedPasscode); // '11-jZ5-hQ3f*-8!7g3-p3Fs'
+
+// let groceryList = ['paprika', 'tofu', 'garlic', 'quinoa', 'carrots', 'broccoli', 'hummus'];
+
+// while (groceryList.length > 0) {
+//   let checkedItem = groceryList.shift();
+
+//   console.log(checkedItem);
+// }
+
+// logs:
+// paprika
+// tofu
+// garlic
+// quinoa
+// carrots
+// broccoli
+// hummus
+
+// console.log(groceryList); // []
+
