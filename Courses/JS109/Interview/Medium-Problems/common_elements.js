@@ -118,3 +118,22 @@ console.log(commonElements([1, 3, 4, 6, 7, 9], [1, 2, 3, 4, 7, 10])); // ➞ [1,
 console.log(commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 4, 5])); // ➞ [1, 2, 4, 5]
 console.log(commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 2])); // ➞ [1, 2]
 console.log(commonElements([1, 2, 3, 4, 5], [10, 12, 13, 15])); // ➞ []
+
+/* algo
+- input array1, array2
+- iterate through first array
+- iterate through second array
+- if element common to both return element
+- return array with elements common to both input arrays */
+
+function commonElements(nums1, nums2) {
+  let result = [];
+
+  nums1.filter(num1 => {
+    nums2.filter(num2 => {
+      if (num1 === num2 && !result.includes(num1)) result.push(num1);
+    })
+  })
+
+  return result;
+}

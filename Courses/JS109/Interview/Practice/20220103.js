@@ -95,21 +95,322 @@ ALGORITHM
 - join the chars at the space
 - return new string */
 
-function alphabetPosition(string) {
-  let result = [];
-  let alphabet = '_abcdefghijklmnopqrstuvwxyz';
-  string = string.toLowerCase();
+// function alphabetPosition(string) {
+//   let result = [];
+//   let alphabet = '_abcdefghijklmnopqrstuvwxyz';
+//   string = string.toLowerCase();
 
-  string.split('').forEach(char => {
-    if (alphabet.includes(char)) result.push(alphabet.indexOf(char));
+//   string.split('').forEach(char => {
+//     if (alphabet.includes(char)) result.push(alphabet.indexOf(char));
+//   })
+
+//   return result.join(' ');
+// }
+
+// console.log(alphabetPosition('SungOh')) // '19 21 14 7 15 8'
+// console.log(alphabetPosition('abc') === '1 2 3'); // true
+// console.log(
+//   alphabetPosition("The sunset sets at twelve o' clock.") ===
+//     '20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11'
+// );
+
+/* =================
+3. Alphabet Score
+
+Given a string of words, you need to find the highest scoring word. Each letter of a word scores points according to it's position in the alphabet:
+a = 1, b = 2, c = 3 etc.
+
+You need to return the highest scoring word as a string. If two words score the same, return the word that appears earliest in the original string.
+
+All letters will be lowercase and all inputs will be valid.
+
+PROBLEM
+- input: string
+- output: word from the input string representing the highest score
+
+Rules
+- return the highest scoring word based on the values of the letters in the word according to their position in the alphabet
+  - a = 1, b = 2, etc.
+- if two words score the same, return the word that occurs first in the input string
+- all letters will be lowercase
+- all inputs will be valid
+- implicit that words are split by space
+
+EXAMPLES
+- see below
+
+DATA STRUCTURE
+- input: string
+- intermediary: array => split, map, reduce
+- output: string
+
+ALGORITHM
+- input string
+- initialize `alphabet` to 'a-z'
+- split the string into words by space
+- initialize `wordScores` to return value of
+  - iterate through the words
+    - iterate through the chars of the words
+    - compute the sum of the letters of each word by it's index position in `alphabet`
+- iterate through the `wordScores` array to find the word with the highest score
+- return word with highest score based on index position */
+
+// function alphabetScore(string) {
+//   let alphabet = '_abcdefghijklmnopqrstuvwxyz';
+//   let words = string.split(' ');
+
+//   let wordScores = words.map(word => {
+//     return word.split('').reduce((sum, char) => sum + alphabet.indexOf(char), 0);
+//   })
+
+//   let maxIndex = 0;
+
+//   for (let idx = 0; idx < wordScores.length; idx += 1) {
+//     if (wordScores[idx] > wordScores[maxIndex]) maxIndex = idx;
+//   }
+
+//   return words[maxIndex];
+// }
+
+// // Examples / Test Cases
+// // console.log(alphabetScore('man i need a taxi up to ubud'));
+// // console.log(alphabetScore('aa b')); // [2, 2]
+// console.log(alphabetScore('man i need a taxi up to ubud') === 'taxi');
+// console.log(alphabetScore('what time are we climbing up the volcano') === 'volcano');
+// console.log(alphabetScore('take me to semynak') === 'semynak');
+
+// console.log(alphabetScore('aa') === 'aa');
+// console.log(alphabetScore('a z') === 'z');
+// console.log(alphabetScore('y z') === 'z');
+// console.log(alphabetScore('') === '');
+
+/* =================
+4. Move Capital Letters to the Front
+
+Create a function that moves all capital letters to the front of a word.
+
+Examples
+
+capToFront("hApPy") ➞ "APhpy"
+capToFront("moveMENT") ➞ "MENTmove"
+capToFront("shOrtCAKE") ➞ "OCAKEshrt"
+
+Notes:
+
+Keep the original relative order of the upper and lower case letters the same.
+
+PROBLEM
+- input: string
+- output: new string
+
+Rules
+- move all capital letters from input string to front of word in the return string
+- string contains only letters?
+- just one word in each string?
+- keep original relative order of the upper and lower case letters the same
+  - 'shOrtCAKE' => O is the first capital letter in the input string, so it comes first in the return string
+
+EXAMPLES
+- see below
+
+DATA STRUCTURE
+- input string
+- intermediary: array (iteration method like `map`)
+- output new string
+
+ALGORITHM
+- input string
+- initialize `upperString` to empty string
+- initialize `lowerString` to empty string
+- split the input string at each char
+- iterate through each char of the input string
+  - if char is equal to the char to uppercase add to `upperString`
+  - if char is equal to char to lowercase add to `lowerString`
+- concatenate `upperString` with `lowerString`
+- return new string with capital letters first */
+
+// function capToFront(string) {
+//   let upperString = '';
+//   let lowerString = '';
+
+//   string.split('').map(char => {
+//     if (char === char.toUpperCase()) upperString += char;
+//     if (char === char.toLowerCase()) lowerString += char;
+//   });
+
+//   return upperString + lowerString;
+// }
+
+// console.log(capToFront("hApPy")); // "APhpy"
+// console.log(capToFront("moveMENT")); // "MENTmove"
+// console.log(capToFront("shOrtCAKE")); // "OCAKEshrt"
+
+/* =================
+5. Change Me
+
+Given a string, write a function changeMe which returns the same
+string but with all the words in it that are palindromes uppercased.
+
+PROBLEM
+- input: string
+- output: new string
+
+Rules
+- return a new string where words in the input string that are palindromes are converted to uppercase
+- an empty string return an empty string
+- if no palindromes return original string
+- what about case?
+- words are split at spaces
+
+EXAMPLES
+- see below
+
+DATA STRUCTURE
+- input: string
+- intermediary: transform words into an array of char to check for palindromes
+- output: new string
+
+ALGORITHM
+- input string of words
+- split the input string into words at each space
+- iterate through the words
+  - iterate through chars of each word
+    - check if word is a palindrome with helper function
+- join words at space
+- return new string with palindromes all uppercase
+
+isPalindrome helper function
+- input word
+- split word into chars
+- reverse chars
+- join chars back into string
+- return whether word is equal to reverse of itself */
+
+// function changeMe(string) {
+//   // let words = string.split(' ');
+//   return string.split(' ').map(word => {
+//     if (isPalindrome(word)) {
+//       return word.toUpperCase();
+//     } else {
+//       return word;
+//     }
+//   })
+//   .join(' ');
+// }
+
+// function isPalindrome(word) {
+//   return word === word.split('').reverse().join('');
+// }
+
+// // Test Cases
+// console.log(changeMe('We will meet at noon'));
+// console.log(changeMe("We will meet at noon") === "We will meet at NOON");
+// console.log(changeMe("No palindromes here") === "No palindromes here");
+// console.log(changeMe("") === "");
+// console.log(changeMe("I LOVE my mom and dad equally") === "I LOVE my MOM and DAD equally");
+
+/* =================
+6. Common Chars
+
+Given an array of strings made only from lowercase letters, return an array of all characters that show up in all strings within the given array (including duplicates). For example, if a character occurs 3 times in all strings but not 4 times, you need to include that character three times in the final answer.
+
+PROBLEM
+- input array of strings
+- output: array of chars common to all strings of the input array
+
+Rules
+- return an array of all chars that occur in all strings of the input array
+- input is only strings of lowercase letters
+- only include a char as many times as it occurs in each string
+  - ['bella', 'label', 'roller'] since 'l' occurs twice in each string return it twice in the output array
+
+EXAMPLES
+- see below
+
+DATA STRUCTURE
+- input: array
+- intermediary: array
+  - two loops
+- output: array
+
+ALGORITHM
+- input array of words
+- initialize `result` to empty array
+- make copy of words array
+- iterate through first word of array by char
+  - if char exists in every word push char to `result` array
+  - iterate through subsequent words in words array
+    - replace char with empty string
+- return `result` array of letters common to all input words */
+
+// function commonChars(words) {
+//   let result = [];
+//   words = words.slice(0);
+
+//   for (let idx = 0; idx < words[0].length; idx++) {
+//     let letter = words[0][idx];
+//     if (words.every(word => word.includes(letter))) result.push(letter);
+
+//     for (let jdx = 1; jdx < words.length; jdx++) {
+//       words[jdx] = words[jdx].replace(letter, '');
+//     }
+//   }
+
+//   return result;
+// }
+
+// console.log(commonChars(['a', 'b'])); // []
+// console.log(commonChars(['ab', 'bc'])); // ['b']
+// console.log(commonChars(['bella', 'label', 'roller'])); // ['e', 'l', 'l']
+// console.log(commonChars(['cool', 'lock', 'cook'])); // ['c', 'o']
+// console.log(commonChars(['hello', 'goodbye', 'booya', 'random'])); // ['o']
+// console.log(commonChars(['aabbaaaa', 'ccddddd', 'eeffee', 'ggrrrrr', 'yyyzzz']) // []
+// );
+
+/* =======================
+7. Common Elements Problem
+
+Create a function that takes two lists of numbers sorted in ascending order and returns an array of numbers which are common to both the input arrays.
+
+algo
+- input array1, array2
+- iterate through first array
+- iterate through second array
+- if element common to both return element
+- return array with elements common to both input arrays */
+
+function commonElements(nums1, nums2) {
+  let result = [];
+
+  nums1.filter(num1 => {
+    nums2.filter(num2 => {
+      if (num1 === num2 && !result.includes(num1)) result.push(num1);
+    })
   })
 
-  return result.join(' ');
+  return result;
 }
 
-console.log(alphabetPosition('SungOh')) // '19 21 14 7 15 8'
-console.log(alphabetPosition('abc') === '1 2 3'); // true
-console.log(
-  alphabetPosition("The sunset sets at twelve o' clock.") ===
-    '20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11'
-);
+console.log(commonElements([-1, 3, 4, 6, 7, 9], [1, 3])); // ➞ [3]
+console.log(commonElements([1, 3, 4, 6, 7, 9], [1, 2, 3, 4, 7, 10])); // ➞ [1, 3, 4, 7]
+console.log(commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 4, 5])); // ➞ [1, 2, 4, 5]
+console.log(commonElements([1, 2, 3, 4, 5], [10, 12, 13, 15])); // ➞ []
+
+/* =======================
+8. Common Prefix
+
+Write a function to find the longest common prefix string amongst an array of strings.
+
+If there is no common prefix, return an empty string "".
+
+Example 1:
+Input: ["flower","flow","flight"]
+Output: "fl"
+
+Example 2:
+Input: ["dog","racecar","car"]
+Output: ""
+Explanation: There is no common prefix among the input strings.
+
+Note:
+All given inputs are in lowercase letters a-z. */

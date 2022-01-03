@@ -1,4 +1,4 @@
-/* PROBLEM:
+/* Change Me
 
 Given a string, write a function changeMe which returns the same
 string but with all the words in it that are palindromes uppercased.

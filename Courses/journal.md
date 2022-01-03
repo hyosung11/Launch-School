@@ -4749,3 +4749,11 @@ for ([initialExpression]; [condition]; [incrementExpression]) {
 08:51 Before study session with Laurent. I started reading The Daily Laws by Robert Greene. What was my childhood obsession? Sports. Yes. How do I make that into a job now?
 
 10:12 Laurent is ready for the interview assessment. I am not yet. I need to have resilience and figure out how to keep going when I am stuck. Practice, practice, practice.
+
+10:50 I can do easy medium problems in a little over ten minutes. Getting closer to being ready for the interview assessment.
+
+12:05 I did `Alphabet Score` again and it went better at around 15 minutes.
+
+13:07 Note to self to practice "Alphabet Score" and "Common Chars" problems a few more times.
+
+14:48 Keep practicing. I think some of the medium problems in my medium directory are not that difficult. Maybe it's because I understand them now. It's almost time to get the kids.
