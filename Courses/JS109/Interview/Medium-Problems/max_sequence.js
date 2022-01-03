@@ -89,7 +89,6 @@ function getSubArrays(array) {
   return subArrays;
 }
 
-
 // console.log(getSubArrays([1, 2, 3])); // [[1], [1, 2], [1, 2, 3], [2, 3], [3]]
 // console.log(maxSequence([11])); // true
 

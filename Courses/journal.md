@@ -4743,3 +4743,9 @@ for ([initialExpression]; [condition]; [incrementExpression]) {
 20:33 `filter` and `forEach` seem to work similarly in some situations.
 
 20:37 Keep practicing to be flawless with medium problems.
+
+## 20220103 월요일
+
+08:51 Before study session with Laurent. I started reading The Daily Laws by Robert Greene. What was my childhood obsession? Sports. Yes. How do I make that into a job now?
+
+10:12 Laurent is ready for the interview assessment. I am not yet. I need to have resilience and figure out how to keep going when I am stuck. Practice, practice, practice.

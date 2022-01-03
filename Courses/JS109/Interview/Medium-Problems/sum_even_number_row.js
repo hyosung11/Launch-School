@@ -152,3 +152,54 @@ console.log(sumEvenNumberRow(4)); // 68
 // console.log(createRow(2, 1)); // [2]
 // console.log(createRow(4, 2)); // [4, 6]
 // console.log(createRow(8, 3)); // [8, 10, 12]
+
+/* Sum Even Number Rows
+
+Imagine a sequence of consecutive even integers beginning with 2. The integers are grouped in rows, with the first row containing one integer, the second row two integers, the third row three integers, and so on. Given an integer representing the number of a particular row, return an integer representing the sum of all the integers in that row. 
+
+2 4 6 8 10 12 14
+
+(1) 2
+(2) 4 6
+(3) 8 10 12
+(4) 14 16 18 20
+
+First need to get then numbers of total 'iterations'
+1 + 2 + 3 + 4 = 10
+declare a function that will add all the iterations
+
+Populate an array with the first 10 even numbers
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+
+Sum the nb last even numbers
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+starting index array length - nb
+
+*/
+
+function sumIterations (nb) {
+  let total = 0;
+
+  for (let index = 1; index <= nb; index += 1) {
+    total += index;
+  }
+  return total;
+}
+
+function sumEvenNumberRow(number) {
+  let totalIterations = sumIterations(number);
+  let evenNumbers = [];
+
+  for (let index = 1; index <= totalIterations; index += 1) {
+    evenNumbers.push(index * 2);
+  }
+
+  let startingIndex = evenNumbers.length - number;
+
+  return evenNumbers.slice(startingIndex).reduce((acc, val) => acc + val, 0);
+}
+
+console.log(sumEvenNumberRow(1)); // 2
+console.log(sumEvenNumberRow(2)); // 10
+console.log(sumEvenNumberRow(3)); // 30
+console.log(sumEvenNumberRow(4)); // 68
