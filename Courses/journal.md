@@ -4739,3 +4739,7 @@ for ([initialExpression]; [condition]; [incrementExpression]) {
 15:07 Back after reffing this morning.
 
 18:47 Working on JavaScript Basic problems.
+
+20:33 `filter` and `forEach` seem to work similarly in some situations.
+
+20:37 Keep practicing to be flawless with medium problems.

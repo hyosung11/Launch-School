@@ -1,33 +1,4 @@
-/* JS100/101 Study Session: PEDAC
-
-Introductions
-- Antonina, still a student and TA, Greece
-- Jeff, NY, written assessment study, then the interview
-- Adhitiani, Indonesia living in Budapest
-- H, NJ, interview
-- Brian, Seattle, WA, starting JS109
-- Gianni, Germany, JS109 written exam
-
-PEDAC Process
-
-Understand the Problem
-- understand the problem you're being asked to solve
-- understand the rules, the boundaries, etc.
-
-Examples/Test Cases
-- understand more about the problem
-- test our assumptions
-- consider edge cases
-- identify implicit requirements
-
-Data Structure
-- what we choose closely linked to the algorithm
-
-Algorithm
-- write out high-level steps to solve the given problem
-- language agnostic
-
-Coding with Intent
+/* Difference of Two
 
 PROBLEM DESCRIPTION
 
@@ -38,14 +9,12 @@ Problem
   Output: A nested array of number pairs
 
   Questions:
-
   - Can we assume that the input will ONLY contain numbers?
   - Are there negative numbers?
   - Can we assume 'integers only'? (no floats or other number weirdness)
-  - If we're sorting pairs, is it the pairs that should be sorted?  or the array of pairs? and on which values? - Maybe not important if numbers are 'unique'
+  - If we're sorting pairs, is it the pairs that should be sorted?  or the array of pairs? and on which values? - Maybe not be important if numbers are 'unique'
 
   Rules/Assumptions:
-
   - Input is order-independent
   - Numbers will be unique (input & output)
   - Output Sort order is numerically ascending (order dependent)

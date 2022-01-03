@@ -1041,17 +1041,138 @@ let obj = {
 // Expected output:
 // [['title', 'Duke'], ['name', 'Nukem'], ['age', 33]]
 
-let nestedArray = [['title', 'Duke'], ['name', 'Nukem'], ['age', 33]];
+// let nestedArray = [['title', 'Duke'], ['name', 'Nukem'], ['age', 33]];
 
-// let person = {}
+// // let person = {}
 
-// for (let idx = 0; idx < nestedArray.length; idx++) {
-//   let keyValue = nestedArray[idx];
-//   person[keyValue[0]] = keyValue[1];
-// }
+// // for (let idx = 0; idx < nestedArray.length; idx++) {
+// //   let keyValue = nestedArray[idx];
+// //   person[keyValue[0]] = keyValue[1];
+// // }
 
-let person = Object.fromEntries(nestedArray);
+// let person = Object.fromEntries(nestedArray);
 
-console.log(person);
+// console.log(person);
 // Expected output:
 // { title: 'Duke', name: 'Nukem', age: 33 }
+
+/* Difference of Two
+
+The objective is to return all pairs of numbers from a given array of numbers that have a difference of 2. The result array should be sorted in ascending order of values. Assume there are no duplicate numbers in the array. The order of the numbers in the input array should not matter.
+
+Algo
+- input array
+- sort the input array
+- initialize `result` to empty array
+  - iterate through the array
+    - iterate through the numbers of the array
+      - if number at higher index has a difference of two with number adjacent in lower index position
+        - push both as an array into `result`
+- return nested array of number pairs of difference of two */
+
+// function differenceOfTwo(array) {
+//   let sortedArray = array.slice(0).sort((a, b) => a - b);
+//   let result = [];
+
+//   for (let idx = 0; idx < sortedArray.length; idx++) {
+//     let num = sortedArray[idx];
+
+//     for (let jdx = idx + 1; jdx <= sortedArray.length; jdx++) {
+//       let nextNum = sortedArray[jdx];
+//       if (nextNum - num === 2) result.push([num, nextNum]);
+//     }
+//   }
+
+//   return result;
+// }
+
+// function differenceOfTwo(nums) {
+//   let sortedNums = nums.slice(0).sort((a, b) => a - b);
+//   let result = [];
+
+//   sortedNums.forEach((num, idx) => {
+//     sortedNums.slice(idx).forEach(nextNum => {
+//       if (nextNum - num === 2) result.push([num, nextNum]);
+//     })
+//   })
+
+//   return result;
+// }
+
+// console.log(differenceOfTwo([1, 2, 3, 4])); // [[1, 3], [2, 4]]
+// console.log(differenceOfTwo([4, 1, 2, 3])); // [[1, 3], [2, 4]]
+// console.log(differenceOfTwo([1, 23, 3, 4, 7])); //  [[1, 3]]
+// console.log(differenceOfTwo([4, 3, 1, 5, 6])); // [[1, 3], [3, 5], [4, 6]]
+// console.log(differenceOfTwo([2, 4])); // [[2, 4]]
+// console.log(differenceOfTwo([1, 4, 7, 10, 13])); // []
+
+/* Problem Description - Longest Consecutive String
+
+You are given an array of strings and an integer k. Your task is to return the first longest string consisting of k consecutive strings taken in the array.
+
+Example: longestConsec(["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"], 2) --> "abigailtheta"// n being the length of the string array, if n = 0 or k > n or k <= 0 return "".
+
+Algo
+- input array of strings and integer `count` representing lenght of string elements to concatenate and return
+- if array length equals 0, or `count` is greater than array length, or count is less than or equal to 0, return ''
+- initialize `longestString` to empty string
+- iterate through the input array
+  - initialize `testString` to slice of input array from the index to the index plus the count
+  - if `testString` is longer than `longestString` reassign longestString to testString
+- return longestString */
+
+// function longestConsecutive(array, count) {
+//   if (array.length === 0 || count > array.length || count <= 0) return '';
+
+//   let longestString = '';
+
+//   for (let idx = 0; idx < array.length; idx++) {
+//     let testString = array.slice(idx, idx + count).join('');
+//     if (testString.length > longestString.length) longestString = testString;
+//   }
+
+//   return longestString;
+// }
+
+// console.log(longestConsecutive([], -1));
+// console.log(longestConsecutive(["zone"], 2));
+// console.log(longestConsecutive(["Laurent", "Staub"], 0));
+
+// console.log(longestConsecutive(['zone', 'abigail', 'theta', 'form', 'libe', 'zas', 'theta', 'abigail'], 2)); // 'abigailtheta'
+
+// console.log(longestConsecutive(['hi', 'tim', 'california', 'howdy', 'not', 'california'], 3)); // 'timcaliforniahowdy'
+
+/* Alphabet Position
+
+Given a string, replace every letter with its position in the alphabet. If anything in the text isn't a letter, ignore it and don't return it.
+"a" = 1, "b" = 2, etc.
+
+ALGORITHM
+- input string
+- reassign string to all lowercase letters
+- initialize `alphabet` to letters of the alphabet
+- initialize `result` array
+- iterate through the input string
+    - if char at current index position is in alphabet string
+      - add that characters index position in the alphabet string to the result array
+- join result array by spaces
+- return numbers */
+
+function alphabetPosition(string) {
+  let result = [];
+  let alphabet = '_abcdefghijklmnopqrstuvwxyz';
+  string = string.toLowerCase();
+
+  for (let idx = 0; idx < string.length; idx++) {
+    let char = string[idx];
+    if (alphabet.includes(char)) result.push(alphabet.indexOf(char))
+  }
+  return result.join(' ');
+}
+
+console.log(alphabetPosition('abc')) //  === '1 2 3');
+console.log(alphabetPosition('abc') === '1 2 3'); // true
+console.log(
+  alphabetPosition("The sunset sets at twelve o' clock.") ===
+    '20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11'
+);
