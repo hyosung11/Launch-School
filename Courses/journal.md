@@ -4771,3 +4771,5 @@ for ([initialExpression]; [condition]; [incrementExpression]) {
 ## 20220104 화요일
 
 09:00 I learned another way to do the `alphabetScore` problem with Alex this morning. Now certify or UI benefits and then do a study session with Laurent.
+
+12:31 Another PEDAC study session with an easy problem that I got confused about how to code initially. I have an interview with EarthCam at 13:00 today and then more studying of medium problems.

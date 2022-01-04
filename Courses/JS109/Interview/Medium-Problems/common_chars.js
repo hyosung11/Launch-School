@@ -154,3 +154,37 @@ console.log(commonChars(['aabbaaaa', 'ccddddd', 'eeffee', 'ggrrrrr', 'yyyzzz']))
 
 //   return result;
 // }
+
+// Laurent's Solution
+/* ALGORITHM
+
+optional: sort the strings so that the shortest is first
+
+Declare a result array, initialized to an empty array
+Declare a variable `iterateString`
+Declare a varaibale `otherStrings`
+
+Iterate over the first string character by character
+  Declare a variable `char`
+  If the character is in every string
+    we add the character to results
+    we remove the character from each string
+
+Return result */
+
+function commonChars(array) {
+  let result = [];
+  let iterateString = array[0];
+  let otherStrings = array.slice(1);
+
+  for (let index = 0; index < iterateString.length; index += 1) {
+    let char = iterateString[index];
+
+    if (otherStrings.every((string) => string.includes(char))) {
+      result.push(char);
+      otherStrings = otherStrings.map((string) => string.replace(char, ''));
+    }
+  }
+
+  return result;
+}
