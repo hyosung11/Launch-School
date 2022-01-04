@@ -379,22 +379,22 @@ algo
 - if element common to both return element
 - return array with elements common to both input arrays */
 
-function commonElements(nums1, nums2) {
-  let result = [];
+// function commonElements(nums1, nums2) {
+//   let result = [];
 
-  nums1.filter(num1 => {
-    nums2.filter(num2 => {
-      if (num1 === num2 && !result.includes(num1)) result.push(num1);
-    })
-  })
+//   nums1.filter(num1 => {
+//     nums2.filter(num2 => {
+//       if (num1 === num2 && !result.includes(num1)) result.push(num1);
+//     })
+//   })
 
-  return result;
-}
+//   return result;
+// }
 
-console.log(commonElements([-1, 3, 4, 6, 7, 9], [1, 3])); // ➞ [3]
-console.log(commonElements([1, 3, 4, 6, 7, 9], [1, 2, 3, 4, 7, 10])); // ➞ [1, 3, 4, 7]
-console.log(commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 4, 5])); // ➞ [1, 2, 4, 5]
-console.log(commonElements([1, 2, 3, 4, 5], [10, 12, 13, 15])); // ➞ []
+// console.log(commonElements([-1, 3, 4, 6, 7, 9], [1, 3])); // ➞ [3]
+// console.log(commonElements([1, 3, 4, 6, 7, 9], [1, 2, 3, 4, 7, 10])); // ➞ [1, 3, 4, 7]
+// console.log(commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 4, 5])); // ➞ [1, 2, 4, 5]
+// console.log(commonElements([1, 2, 3, 4, 5], [10, 12, 13, 15])); // ➞ []
 
 /* =======================
 8. Common Prefix
@@ -413,4 +413,110 @@ Output: ""
 Explanation: There is no common prefix among the input strings.
 
 Note:
-All given inputs are in lowercase letters a-z. */
+All given inputs are in lowercase letters a-z.
+
+PROBLEM
+- input: array of strings
+- output: string
+
+Algo
+- input array
+- initialize `prefix` to empty string
+- sort the array from shortest to longest element
+- initialize `substring`
+- iterate through shortest word
+  - check for letters in each element
+  - if longer make prefix the substring
+- return prefix */
+
+// function commonPrefix(words) {
+//   let prefix = '';
+//   words = words.sort((a, b) => a.length - b.length);
+
+//   let substring = '';
+
+//   for (let idx = 0; idx < words[0].length; idx++) {
+//     substring += words[0][idx];
+//     // console.log(substring)
+//     if (words.every(word => word.startsWith(substring))) {
+//       prefix = substring;
+//     }
+//   }
+
+//   return prefix;
+// }
+// // Test Cases
+// console.log(commonPrefix(['']) === ''); // true
+// console.log(commonPrefix(['throne', 'dungeon']) === ''); // true
+// console.log(commonPrefix(['throne', 'throne']) === 'throne'); // true
+// console.log(commonPrefix(['flower', 'flow', 'flight']) === 'fl'); // true
+// console.log(commonPrefix(['dog', 'racecar', 'car']) === ''); // true
+// console.log(commonPrefix(['interspecies', 'interstellar', 'interstate']) === 'inters'); // true
+
+/* =======================
+9. Count Matching Indices
+
+Consider the word "abode".
+The letter `a` is in position 1 and `b` is in position 2.
+In the alphabet, `a` and `b` are also in positions 1 and 2.
+
+The letters `d` and `e` in "abode" occupy the positions they would occupy in the alphabet, which are positions 4 and 5.
+
+Given an array of words, return an array of the number of letters that occupy their positions in the alphabet for each word.
+
+For example,
+countMatchingIndices(["abode","ABc","xyzD"]) // [4, 3, 1]
+
+Input will consist of alphabetic characters, both uppercase and lowercase. No spaces.
+
+PROBLEM
+- input: array of strings
+- output: array of numbers
+
+Rules
+- return an array of the number of letters that occupy their positions in the alphabet for each word
+- input is letters, upper and lower case, but position is case-insensitive, so A and a both occupy position 1
+- no spaces
+- the letter a is in position 1 and b is in position 2 and so on
+- empty array as input returns an empty array
+
+EXAMPLES
+- countMatchingIndices(["abode","ABc","xyzD"]) // [4, 3, 1]
+  - ['abode'] => [4] because a in position, b in position, o not in position d in position, e in position, so 4/5 letter in position
+
+DATA STRUCTURE
+- input: array of strings
+- intermediate: array (map, filter, indexOf)
+- output: array of numbers
+
+ALGORITHM
+- input array of string/words
+- initialize `alphabet` to 'a-z'
+- iterate through the words
+  - reassign word to lowercase
+  - split word by char
+  - iterate by char
+    - filter chars whose index position matches that of their position in the `alphabet` string
+    - compute how many chars in each word match by using the length property
+- return array of numbers */
+
+// function countMatchingIndices(words) {
+//   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+//   return words.map(word => {
+//     return word
+//       .toLowerCase()
+//       .split('')
+//       .filter((char, idx) => alphabet.indexOf(char) === idx)
+//       .length;
+//   });
+// }
+
+// console.log(countMatchingIndices(['abode', 'ABc', 'xyzD'])); // [4, 3, 1]
+// console.log(countMatchingIndices(['abide', 'ABc', 'xyz'])); // [4, 3, 0]
+// console.log(
+//   countMatchingIndices(['IAMDEFANDJKL', 'thedefgh', 'xyzDEFghijabc'])
+// ); // [6, 5, 7]
+// console.log(countMatchingIndices(['encode', 'abc', 'xyzD', 'ABmD'])); // [1, 3, 1, 3]
+// console.log(countMatchingIndices([])); // []
+

@@ -4757,3 +4757,11 @@ for ([initialExpression]; [condition]; [incrementExpression]) {
 13:07 Note to self to practice "Alphabet Score" and "Common Chars" problems a few more times.
 
 14:48 Keep practicing. I think some of the medium problems in my medium directory are not that difficult. Maybe it's because I understand them now. It's almost time to get the kids.
+
+17:42 Also need to do `Count Matching Indices` again and again.
+
+* [ ] Alphabet Score
+* [ ] Common Chars
+* [ ] Count Matching Indices
+
+19:49 Out of the 9 medium problems I did today 3/9 were difficult. I need more practice.

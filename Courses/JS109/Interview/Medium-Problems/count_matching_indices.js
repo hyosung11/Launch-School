@@ -134,6 +134,7 @@ console.log(countMatchingIndices([])); // []
 //   });
 // }
 
+// using `map` and `filter`
 // function countMatchingIndices(array) {
 //   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
