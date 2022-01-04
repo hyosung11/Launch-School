@@ -80,8 +80,8 @@ function differenceOfTwo(nums) {
   sortedNums.forEach((num, idx) => {
     sortedNums.slice(idx).forEach(nextNum => {
       if (nextNum - num === 2) result.push([num, nextNum]);
-    })
-  })
+    });
+  });
 
   return result;
 }

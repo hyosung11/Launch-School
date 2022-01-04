@@ -125,3 +125,40 @@ function alphabetScore(string) {
   return wordArray[maxIndex];
 }
 
+
+
+/* Approach with Alex
+ALGORITHM
+- input string of words
+- initialize `wordsArray` to value of splitting string of words into words at each space
+- initialize `highest` to '';
+- iterate through `wordsArray`
+  - call `getWordScore` helper function on each word
+  - if word at index has higher score
+    - reassign `highest` to word at the index
+- return `highest`the word with the highest score
+
+getWordScore helper function
+- input word
+- initialize `alphabet` to 'a-z'
+- split the word into char
+- iterate through chars
+  - compute value of each char based on its position in the `alphabet` string
+- return score for word */
+
+function alphabetScore(words) {
+  let highest = '';
+  let wordsArray = words.split(' ');
+
+  for (let idx = 0; idx < wordsArray.length; idx++) {
+    let word = wordsArray[idx];
+    if (getWordScore(word) > getWordScore(highest)) highest = word;
+  }
+
+  return highest;
+}
+
+function getWordScore(word) {
+  let alphabet = '_abcdefghijklmnopqrstuvwxyz';
+  return word.split('').reduce((sum, char) => sum + alphabet.indexOf(char), 0);
+}

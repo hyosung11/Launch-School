@@ -4767,3 +4767,7 @@ for ([initialExpression]; [condition]; [incrementExpression]) {
 19:49 Out of the 9 medium problems I did today 3/9 were difficult. I need more practice.
 
 20:32 I easily did "Difference of Two" problem from a recent study group. I remembered Antonina's solution and am more comfortable with switching between a for loop and `forEach`. Okay, time to watch "Ramy" with Sohee. See you tomorrow bright and early to study with Alex at 6:00.
+
+## 20220104 화요일
+
+09:00 I learned another way to do the `alphabetScore` problem with Alex this morning. Now certify or UI benefits and then do a study session with Laurent.
