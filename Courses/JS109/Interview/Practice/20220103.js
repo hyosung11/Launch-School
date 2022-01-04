@@ -554,23 +554,23 @@ ALGORITHM
       - push both numbers to result array
 - return `result` array */
 
-function differenceOfTwo(numbers) {
-  let result = [];
+// function differenceOfTwo(numbers) {
+//   let result = [];
 
-  let sortedNums = numbers.slice(0).sort((a, b) => a - b);
+//   let sortedNums = numbers.slice(0).sort((a, b) => a - b);
 
-  sortedNums.forEach((num, idx) => {
-    sortedNums.slice(idx).forEach(nextNum => {
-      if (nextNum - num === 2) result.push([num, nextNum]);
-    });
-  });
+//   sortedNums.forEach((num, idx) => {
+//     sortedNums.slice(idx).forEach(nextNum => {
+//       if (nextNum - num === 2) result.push([num, nextNum]);
+//     });
+//   });
 
-  return result;
-}
+//   return result;
+// }
 
-console.log(differenceOfTwo([1, 2, 3, 4])); // [[1, 3], [2, 4]]
-console.log(differenceOfTwo([4, 1, 2, 3])); // [[1, 3], [2, 4]]
-console.log(differenceOfTwo([1, 23, 3, 4, 7])); //  [[1, 3]]
-console.log(differenceOfTwo([4, 3, 1, 5, 6])); // [[1, 3], [3, 5], [4, 6]]
-console.log(differenceOfTwo([2, 4])); // [[2, 4]]
-console.log(differenceOfTwo([1, 4, 7, 10, 13])); // []
+// console.log(differenceOfTwo([1, 2, 3, 4])); // [[1, 3], [2, 4]]
+// console.log(differenceOfTwo([4, 1, 2, 3])); // [[1, 3], [2, 4]]
+// console.log(differenceOfTwo([1, 23, 3, 4, 7])); //  [[1, 3]]
+// console.log(differenceOfTwo([4, 3, 1, 5, 6])); // [[1, 3], [3, 5], [4, 6]]
+// console.log(differenceOfTwo([2, 4])); // [[2, 4]]
+// console.log(differenceOfTwo([1, 4, 7, 10, 13])); // []

@@ -4773,3 +4773,66 @@ for ([initialExpression]; [condition]; [incrementExpression]) {
 09:00 I learned another way to do the `alphabetScore` problem with Alex this morning. Now certify or UI benefits and then do a study session with Laurent.
 
 12:31 Another PEDAC study session with an easy problem that I got confused about how to code initially. I have an interview with EarthCam at 13:00 today and then more studying of medium problems.
+
+13:29 The salary for the Technical Support Specialist at EarthCam was $40k, so I declined the position. Ugh.
+
+17:11 I need to understand where to slice to get two distinct slices:
+
+```js
+function findEvenIndex(numbers) {
+  for (let idx = 0; idx <= numbers.length; idx++) {
+    // slices from 0 and grows
+    let leftSide = numbers.slice(0, idx);
+    // slices from 1 and shrinks
+    let rightSide = numbers.slice(idx + 1);
+    let leftSideSum = leftSide.reduce((sum, num) => sum + num, 0);
+    let rightSideSum = rightSide.reduce((sum, num) => sum + num, 0);
+
+    if (leftSideSum === rightSideSum) return idx;
+  }
+
+  return -1;
+}
+```
+
+17:54 Working through more medium problems:
+
+```js
+// remember to sort strings!
+function grabscrab(string, array) {
+  let result = [];
+  let sortedString = string.split('').sort().join('');
+
+  for (let idx = 0; idx < array.length; idx++) {
+    let word = array[idx];
+    let sortedWord = word.split('').sort().join('');
+    if (sortedString === sortedWord) result.push(word);
+  }
+
+  return result;
+}
+
+// concise version
+function grabscrab(string, array) {
+  return array.filter(word => {
+    return word.split('').sort().join('') === string.split('').sort().join('')
+  });
+}
+```
+
+18:09 Worked myself through `longestConsecutive`.
+
+```js
+function longestConsecutive(array, count) {
+  if (array.length === 0 || count > array.length || count <= 0) return '';
+
+  let longestString = '';
+
+  for (let idx = 0; idx < array.length; idx++) {
+    let testString = array.slice(idx, idx + count).join('');
+    if (testString.length > longestString.length) longestString = testString;
+  }
+
+  return longestString;
+}
+```

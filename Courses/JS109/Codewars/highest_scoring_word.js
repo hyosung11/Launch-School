@@ -114,25 +114,25 @@ function tallyScore(word) {
 
 /* Sergio Pichardo
 
-INPUT: string 
-OUTPUT: string 
+INPUT: string
+OUTPUT: string
 
-RULES 
+RULES
 - you need to find the highest scoring word.
 - Each letter of a word scores points according to its position in the alphabet: a = 1, b = 2, c = 3 etc.
-- all letters are lowercase 
+- all letters are lowercase
 - all inputs will be valid (no empty string as input)
 - If two words score the same, return the word that appears earliest in the original string.
 
-EXAMPLES 
+EXAMPLES
 - highest scoring: 'aa' --> 1 + 1 = 2
 - highest scoring: 'aa', 'b' --> 2, 2
 
-ALGORITHM 
-- create a variable and set to empty string to track highest scoring word 
-- create a variable and set to 0 to track highest score 
+ALGORITHM
+- create a variable and set to empty string to track highest scoring word
+- create a variable and set to 0 to track highest score
 
-- split the string by single space into an array of strings  
+- split the string by single space into an array of strings
 - traverse the array of strings
   - for each string calculate the total score and store in variable (HELPER function)
   - if the current word has a higher score than the highest score variable 

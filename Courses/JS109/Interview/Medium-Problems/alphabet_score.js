@@ -125,8 +125,6 @@ function alphabetScore(string) {
   return wordArray[maxIndex];
 }
 
-
-
 /* Approach with Alex
 ALGORITHM
 - input string of words

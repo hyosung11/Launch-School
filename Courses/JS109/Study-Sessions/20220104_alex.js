@@ -8,30 +8,23 @@ Write a function that takes an integer as an argument and returns the next featu
 
 NOTE: The largest possible featured number is 9876543201. */
 
-console.log(featured(12));           // 21
-console.log(featured(20));           // 21
-console.log(featured(21));           // 35
-console.log(featured(997));          // 1029
-console.log(featured(1029));         // 1043
-console.log(featured(999999));       // 1023547
-console.log(featured(999999987));    // 1023456987
-console.log(featured(9876543186));   // 9876543201
-console.log(featured(9876543200));   // 9876543201
-console.log(featured(9876543201));   // "There is no possible number that fulfills those requirements."
+// console.log(featured(12));           // 21
+// console.log(featured(20));           // 21
+// console.log(featured(21));           // 35
+// console.log(featured(997));          // 1029
+// console.log(featured(1029));         // 1043
+// console.log(featured(999999));       // 1023547
+// console.log(featured(999999987));    // 1023456987
+// console.log(featured(9876543186));   // 9876543201
+// console.log(featured(9876543200));   // 9876543201
+// console.log(featured(9876543201));   // "There is no possible number that fulfills those requirements."
 
-/* Next Featured Number Higher than a Given Value
-
-A featured number (something unique to this exercise) is an odd number that is a multiple of 7, with all of its digits occurring exactly once each. For example, 49 is a featured number, but 98 is not (it is not odd), 97 is not (it is not a multiple of 7), and 133 is not (the digit 3 appears twice).
-
-Write a function that takes an integer as an argument and returns the next featured number greater than the integer. Issue an error message if there is no next featured number.
-
-NOTE: The largest possible featured number is 9876543201. 
-
+/*
 PROBLEM
 input: integer
 output: integer
 
-rules: 
+rules:
 - int % 2 !== 0
 - int % 7 === 0
 - digits of number have no duplicates
@@ -47,8 +40,8 @@ ALGO
 - input a number
 - while number is less than 9876543201
   - num += 1
-  - if number divided by 2 remainder 0, continue
-  - if number divided by 7 remainder !0, continue
+  - if number divided by 2 has a remainder 0, continue
+  - if number divided by 7 has a remainder !0, continue
   - initialize `result` to an empty object
   - convert number to string of digits
   - split digits by char
@@ -83,18 +76,19 @@ function featured(number) {
   return "There is no possible number that fulfills those requirements."
 }
 
-console.log(featured(12));           // 21
-console.log(featured(20));           // 21
-console.log(featured(21));           // 35
-console.log(featured(997));          // 1029
-console.log(featured(1029));         // 1043
-console.log(featured(999999));       // 1023547
-console.log(featured(999999987));    // 1023456987
-console.log(featured(9876543186));   // 9876543201
-console.log(featured(9876543200));   // 9876543201
-console.log(featured(9876543201));   // "There is no possible number that fulfills those requirements."
+// console.log(featured(12));           // 21
+// console.log(featured(20));           // 21
+// console.log(featured(21));           // 35
+// console.log(featured(997));          // 1029
+// console.log(featured(1029));         // 1043
+// console.log(featured(999999));       // 1023547
+// console.log(featured(999999987));    // 1023456987
+// console.log(featured(9876543186));   // 9876543201
+// console.log(featured(9876543200));   // 9876543201
+// console.log(featured(9876543201));   // "There is no possible number that fulfills those requirements."
 
-/* Alphabet Score
+/* ===========
+Alphabet Score
 
 Given a string of words, you need to find the highest scoring word. Each letter of a word scores points according to it's position in the alphabet:
 a = 1, b = 2, c = 3 etc.
@@ -105,11 +99,11 @@ All letters will be lowercase and all inputs will be valid.
 
 PROBLEM
 input: string of words
-ouput: string (highest scoring word)
+output: string (highest scoring word)
 
 rules:
 - all input are lowercase
-- empty string returns empy string
+- empty string returns empty string
 - no spaces returns original string
 - each letter gets number value based on its position in alphabet
 - get sum of these values for each word in input string
@@ -122,18 +116,15 @@ output: string (highest scoring word)
 
 ALGO
 -input: string of words
-- empty string returns empy string
+- empty string returns empty string
 - no spaces returns original string
-
 - create alphabet string
-
--split string by spaces into arr of words
-
--set highest = ''
--set highestScore = 0
-iterate through words
-  if getWordScore(word) is > highestScore, assign word as highest
-return highest
+- split string by spaces into arr of words
+- set highest = ''
+- set highestScore = 0
+- iterate through words
+  - if getWordScore(word) is > highestScore, assign word as highest
+- return highest
 
 helper function getWordScore
   split word into array of letters
@@ -143,23 +134,21 @@ helper function getWordScore
 */
 
 function alphabetScore(words) {
-  if (words === '') return '';
-  if (!words.includes(' ')) return words;
-
-  let arrayOfWords = words.split(' ');
   let highest = '';
+  let wordsArray = words.split(' ');
 
-  for (let idx = 0; idx < arrayOfWords.length; idx += 1) {
-    if (getWordScore(arrayOfWords[idx]) > getWordScore(highest)) {
-      highest = arrayOfWords[idx];
-    }
+  for (let idx = 0; idx < wordsArray.length; idx++) {
+    let word = wordsArray[idx];
+    if (getWordScore(word) > getWordScore(highest)) highest = word;
+    // console.log(word) // take, me, to, semynak
+    console.log(highest); // take, take, take, semnyak
   }
+
   return highest;
 }
 
 function getWordScore(word) {
   let alphabet = '_abcdefghijklmnopqrstuvwxyz';
-  
   return word.split('').reduce((sum, char) => sum + alphabet.indexOf(char), 0);
 }
 
@@ -172,4 +161,3 @@ console.log(alphabetScore('aa b') === 'aa');
 console.log(alphabetScore('man i need a taxi up to ubud') === 'taxi');
 console.log(alphabetScore('what time are we climbing up the volcano') === 'volcano');
 console.log(alphabetScore('take me to semynak') === 'semynak');
-*/
