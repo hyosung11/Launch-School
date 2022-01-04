@@ -520,3 +520,57 @@ ALGORITHM
 // console.log(countMatchingIndices(['encode', 'abc', 'xyzD', 'ABmD'])); // [1, 3, 1, 3]
 // console.log(countMatchingIndices([])); // []
 
+/* ======================
+10. Difference of Two
+
+The objective is to return all pairs of numbers from a given array of numbers that have a difference of 2. The result array should be sorted in ascending order of values. Assume there are no duplicate numbers in the array. The order of the numbers in the input array should not matter.
+
+PROBLEM
+- input: array of number
+- output: array of arrays of pairs of numbers
+
+Rules
+- return all pairs of numbers from a given array of numbers that have a difference of 2
+- sort the result array in ascending order of values
+- no duplicate numbers in input array
+- can have duplicate numbers in output array pairs
+
+EXAMPLES
+- see below
+
+DATA STRUCTURE
+- input: array
+- intermediary: array (sort, slice, )
+- output: array of arrays
+
+ALGORITHM
+- input array
+- initialize `result` array to empty array
+- copy the input array
+- sort the copied array
+- iterate through the array
+  - iterate through numbers of array
+    - if difference between two adjacent numbers is two
+      - push both numbers to result array
+- return `result` array */
+
+function differenceOfTwo(numbers) {
+  let result = [];
+
+  let sortedNums = numbers.slice(0).sort((a, b) => a - b);
+
+  sortedNums.forEach((num, idx) => {
+    sortedNums.slice(idx).forEach(nextNum => {
+      if (nextNum - num === 2) result.push([num, nextNum]);
+    });
+  });
+
+  return result;
+}
+
+console.log(differenceOfTwo([1, 2, 3, 4])); // [[1, 3], [2, 4]]
+console.log(differenceOfTwo([4, 1, 2, 3])); // [[1, 3], [2, 4]]
+console.log(differenceOfTwo([1, 23, 3, 4, 7])); //  [[1, 3]]
+console.log(differenceOfTwo([4, 3, 1, 5, 6])); // [[1, 3], [3, 5], [4, 6]]
+console.log(differenceOfTwo([2, 4])); // [[2, 4]]
+console.log(differenceOfTwo([1, 4, 7, 10, 13])); // []
