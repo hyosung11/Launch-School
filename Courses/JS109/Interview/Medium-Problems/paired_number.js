@@ -144,44 +144,44 @@ algo:
 helper function:
 result does not include array[index] as the second element of one of its subarrays */
 
-// function pairedNums(array) {
-//   let result = [];
-
-//   array.sort((a, b) => a - b);
-
-//   for (let idx = 0; idx < array.length; idx += 1) {
-//     if (array.includes(array[idx] + 2) && !isAlreadyThere(array[idx], result)) {
-//       result.push([array[idx], array[idx] + 2]);
-//     }
-//   }
-
-//   return result;
-// }
-
-// function isAlreadyThere(number, arr) {
-//   if (arr.length === 0) return false;
-//   for (let idx = 0; idx < arr.length; idx++) {
-//     if (arr[idx][1] === number) return true;
-//   }
-//   return false;
-// }
-
 function pairedNums(array) {
   let result = [];
+
   array.sort((a, b) => a - b);
 
-  while (array.length !== 0) {
-    let plusTwo = array.filter((number) => number === array[0] + 2);
-
-    if (plusTwo.length > 0) {
-      result.push([array[0]].concat(plusTwo));
-      array.splice(array.indexOf(plusTwo[0]), 1);
+  for (let idx = 0; idx < array.length; idx += 1) {
+    if (array.includes(array[idx] + 2) && !isAlreadyThere(array[idx], result)) {
+      result.push([array[idx], array[idx] + 2]);
     }
-    array.shift();
   }
 
   return result;
 }
+
+function isAlreadyThere(number, arr) {
+  if (arr.length === 0) return false;
+  for (let idx = 0; idx < arr.length; idx++) {
+    if (arr[idx][1] === number) return true;
+  }
+  return false;
+}
+
+// function pairedNums(array) {
+//   let result = [];
+//   array.sort((a, b) => a - b);
+
+//   while (array.length !== 0) {
+//     let plusTwo = array.filter((number) => number === array[0] + 2);
+
+//     if (plusTwo.length > 0) {
+//       result.push([array[0]].concat(plusTwo));
+//       array.splice(array.indexOf(plusTwo[0]), 1);
+//     }
+//     array.shift();
+//   }
+
+//   return result;
+// }
 
 console.log(pairedNums([1, 3, 2, 6, 8, 5, 9, 7])); // ==> [ [ 1, 3 ], [ 5, 7 ], [ 6, 8 ] ]
 console.log(pairedNums([22, 33, 24, 26, 31, 35, 20, 27])); // ==> [ [ 20, 22 ], [ 24, 26 ], [ 31, 33 ] ]

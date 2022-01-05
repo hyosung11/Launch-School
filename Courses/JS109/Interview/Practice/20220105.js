@@ -137,3 +137,78 @@ ALGORITHM
 // console.log(twoSum([3, 2, 4], 6)); // [1, 2]
 // console.log(twoSum([3, 3], 6)); // [0, 1]
 // console.log(twoSum([3, 2, 3], 6)); // [0, 2]
+
+/* LeetCode - 14. Longest Common Prefix
+
+Write a function to find the longest common prefix string amongst an array of strings.
+
+If there is no common prefix, return an empty string "".
+
+Example 1:
+Input: strs = ["flower","flow","flight"]
+Output: "fl"
+
+Example 2:
+Input: strs = ["dog","racecar","car"]
+Output: ""
+Explanation: There is no common prefix among the input strings. */
+
+// function longestCommonPrefix(words) {
+//   let prefix = '';
+//   words = words.sort((a, b) => a.length - b.length);
+
+//   let substring = '';
+
+//   for (let idx = 0; idx < words[0].length; idx++) {
+//     substring += words[0][idx];
+//     if (words.every((word) => word.startsWith(substring))) prefix = substring;
+//   }
+
+//   return prefix;
+// }
+
+/* 20. Paired Number
+
+The objective is to return all pairs of numbers from a given array of numbers that have a difference of 2. The result array should be sorted in ascending order of values. Assume there are no duplicate numbers in either the input or output arrays. The order of the numbers in the input array should not matter.
+
+PROBLEM
+
+algo:
+- input an array of numbers
+- initialize `result` to empty array
+- sort the array
+- iterate through the array
+  - if the array includes the number at the index position + 2 and it is not already in the array (helper function)
+  - add the number at the index position and the number + 2 as an array to the result array
+- return the result array
+
+isAlreadyThere helper function
+- input number and array
+- loop through array
+  - if number equals second element in paired numbers of array return true
+- return false */
+
+function pairedNums(array) {
+  let result = [];
+  array.sort((a, b) => a - b);
+
+  for (let idx = 0; idx < array.length; idx++) {
+    let num = array[idx];
+    if (array.includes(num + 2) && !isAlreadyThere(num, result)) {
+      result.push([num, num + 2]);
+    }
+  }
+
+  return result;
+}
+
+function isAlreadyThere(num, array) {
+  for (let idx = 0; idx < array.length; idx++) {
+    if (num === array[idx][1]) return true;
+  }
+  return false;
+}
+
+console.log(pairedNums([2, 3, 25]));
+console.log(pairedNums([1, 3, 2, 6, 8, 5, 9, 7])); // ==> [ [ 1, 3 ], [ 5, 7 ], [ 6, 8 ] ]
+console.log(pairedNums([22, 33, 24, 26, 31, 35, 20, 27])); // ==> [ [ 20, 22 ], [ 24, 26 ], [ 31, 33 ] ]

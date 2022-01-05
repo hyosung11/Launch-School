@@ -4846,3 +4846,5 @@ function longestConsecutive(array, count) {
 11:05 I did a study session with Jonathan Bouren and he gave me a problem that I couldn't solve, so that means I have more to practice before I'm ready for the interview assessment.
 
 13:38 Practicing "Three By Three" problem again and again. I get tripped up by `length` and comparison operators returning booleans.
+
+14:49 I really need to break problems down to understand them and then work backwords to the solution and rewrite my algorithms based on the solutions.
