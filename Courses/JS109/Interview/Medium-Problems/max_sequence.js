@@ -165,3 +165,19 @@ console.log(maxSequence([-2, 1, -7, 4, -10, 2, 1, 5, 4]) === 12); // true
 //   }
 //   return subArrays;
 // }
+
+// Antonina's Alternative Solution with `slice`
+function maxSequence(array) {
+  let maxSum = 0;
+  if (array.length === 0) return 0;
+
+  for (let start = 0; start < array.length; start += 1) {
+    for (let end = start; end < array.length; end += 1) {
+      let subarray = array.slice(start, end + 1);
+      let sum = subarray.reduce((total, value) => total + value, 0);
+      if (sum > maxSum) maxSum = sum;
+    }
+  }
+
+  return maxSum;
+}

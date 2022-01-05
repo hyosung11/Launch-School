@@ -4842,3 +4842,5 @@ function longestConsecutive(array, count) {
 ## 20220105 수요일
 
 08:49 Feeling like the bug today with my programming skills suffering. I don't want a job, I want to keep studying as much as I can to complete Launch School, but what makes most sense for me to do to appease Sohee? I don't know. I do have another study session today at 12:00.
+
+11:05 I did a study session with Jonathan Bouren and he gave me a problem that I couldn't solve, so that means I have more to practice before I'm ready for the interview assessment.
