@@ -507,21 +507,251 @@ ALGORITHM
     - reassign longestString to testString
 - return `longestString` */
 
-function longestConsecutive(array, count) {
-  if (array.length === 0 || count > array.length || count <= 0) return '';
+// function longestConsecutive(array, count) {
+//   if (array.length === 0 || count > array.length || count <= 0) return '';
 
-  let longestString = '';
+//   let longestString = '';
 
-  for (let idx = 0; idx < array.length; idx++) {
-    let testString = array.slice(idx, idx + count).join('');
-    if (testString.length > longestString.length) longestString = testString;
-  }
+//   for (let idx = 0; idx < array.length; idx++) {
+//     let testString = array.slice(idx, idx + count).join('');
+//     if (testString.length > longestString.length) longestString = testString;
+//   }
 
-  return longestString;
-}
+//   return longestString;
+// }
 
-console.log(longestConsecutive([], -1));
-console.log(longestConsecutive(["zone"], 2));
-console.log(longestConsecutive(["Laurent", "Staub"], 0));
-console.log(longestConsecutive(['zone', 'abigail', 'theta', 'form', 'libe', 'zas', 'theta', 'abigail'], 2)); // 'abigailtheta'
-console.log(longestConsecutive(['hi', 'tim', 'california', 'howdy', 'not', 'california'], 3)); // 'timcaliforniahowdy'
+// console.log(longestConsecutive([], -1));
+// console.log(longestConsecutive(["zone"], 2));
+// console.log(longestConsecutive(["Laurent", "Staub"], 0));
+// console.log(longestConsecutive(['zone', 'abigail', 'theta', 'form', 'libe', 'zas', 'theta', 'abigail'], 2)); // 'abigailtheta'
+// console.log(longestConsecutive(['hi', 'tim', 'california', 'howdy', 'not', 'california'], 3)); // 'timcaliforniahowdy'
+
+/* ================
+16. Max Multiple
+
+Given a divisor and a bound, find the largest number N such that:
+N is divisible by the divisor
+N is less than or equal to the bound
+N is greater than 0.
+
+PROBLEM
+- input: two numbers: divisor and bound
+- output: number
+
+Rules
+- return largest number that is divisible by the divisor that is less than equal to the bound
+- number is greater than 0
+
+EXAMPLES
+- 2, 7 => 6 because it is the highest multiple of 2 less than equal to bound which is 7
+
+DATA STRUCTURE
+- input two numbers
+- output: number
+
+ALGORITHM
+- input two numbers
+- while divisor is less than bound
+  - start at bound and divide by divisor to remainder of 0
+  - if remainder equals 0, return the bound
+  - decrement bound by 1 */
+
+// function maxMultiple(divisor, bound) {
+//   while (divisor <= bound) {
+//     if (bound % divisor === 0) return bound;
+//     bound -= 1;
+//   }
+// }
+
+/* Alternative Algorithm
+- input divisor and bound
+- initialize result to 0
+- iterate from divisor to bound by increment of divisor
+  - initialize `current` to divisor
+  - if current > result
+    - reassign result to current
+- return result */
+
+// function maxMultiple(divisor, bound) {
+//   let result = 0;
+
+//   for (let current = divisor; current <= bound; current += divisor) {
+//     if (current > result) result = current;
+//   }
+
+//   return result;
+// }
+
+// function maxMultiple(divisor, bound) {
+//   let result = 0;
+//   let current = 0;
+
+//   // 0 <= 7, 2, 4, 6, 8
+//   while (current <= bound) {
+//     // 2 > 0 => result is now 6
+//     if (current > result) result = current
+//     // 0 + 2
+//     current += divisor
+//   }
+
+//   return result; // 6
+// }
+
+
+// function maxMultiple(increment, bound) {
+//   let result = 0;
+
+//   for (let currentNumber = 0; currentNumber <= bound; currentNumber += increment) {
+//     if (currentNumber <= bound) result = currentNumber;
+//   }
+
+//   return result;
+// }
+
+// Test Cases
+// console.log(maxMultiple(2, 7) === 6);
+// console.log(maxMultiple(3, 10) === 9);
+// console.log(maxMultiple(7, 17) === 14);
+// console.log(maxMultiple(10, 50) === 50);
+// console.log(maxMultiple(37, 200) === 185);
+// console.log(maxMultiple(7, 100) === 98);
+
+/* ================
+17. Max Sequence
+
+The maximum sum subarray problem consists in finding the maximum sum of a contiguous subsequence in an array of integers:
+
+maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4])
+-- should be 6: [4, -1, 2, 1]
+
+The easy case is when the array is made up of only positive numbers and the maximum sum is the sum of the whole array.
+If the array is made up of only negative numbers, return 0 instead.
+
+Empty array is considered to have zero greatest sum.
+Note that the empty array is also a valid argument array.
+
+ALGORITHM
+- input array of integers
+- if all numbers are positive, sum the array
+- if all numbers are negative, return 0
+- if array is empty, return 0
+- initialize `maxSum` to 0
+- initialize `subarrays` to callback from `getSubarrays` helper function
+- iterate through subarrays
+  - initialize `currentSum` to value of subarray at index
+  - compute sum of values of subarrays at the index
+    - if currentSum is greater than maxSum
+      - reassign maxSum to currentSum
+- return maxSum
+
+getSubarrays helper function
+- input array
+- initialize subarrays to empty array
+- iterate through array
+  - iterate through elements
+    - slice array at idx and jdx
+- return subarrays */
+
+// function maxSequence(array) {
+//   if (array.every(num => num > 0)) return array.reduce((sum, num) => sum + num, 0);
+//   if (array.every(num => num < 0)) return 0;
+//   if (array.length === 0) return 0;
+
+//   let maxSum = 0;
+//   let subarrays = getSubarrays(array);
+
+//   for (let idx = 0; idx < subarrays.length; idx++) {
+//     let currentSum = subarrays[idx].reduce((sum, num) => sum + num, 0);
+//     if (currentSum > maxSum) maxSum = currentSum;
+//   }
+
+//   return maxSum;
+// }
+
+// function getSubarrays(array) {
+//   let subarrays = [];
+
+//   for (let idx = 0; idx < array.length; idx++) {
+//     for (let jdx = idx + 1; jdx <= array.length; jdx++) {
+//       subarrays.push(array.slice(idx, jdx));
+//     }
+//   }
+
+//   return subarrays;
+// }
+
+// Alternative Solution with `slice`
+// function maxSequence(array) {
+//   let maxSum = 0;
+//   // if (array.length === 0) return 0;
+
+//   for (let start = 0; start < array.length; start += 1) {
+//     for (let end = start; end < array.length; end += 1) {
+//       let subarray = array.slice(start, end + 1);
+//       let sum = subarray.reduce((total, value) => total + value, 0);
+//       if (sum > maxSum) maxSum = sum;
+//     }
+//   }
+
+//   return maxSum;
+// }
+// console.log(getSubarrays([1, 2, 3]))
+
+// console.log(maxSequence([]) === 0); // true
+// console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]) === 6); // true
+// console.log(maxSequence([11]) === 11); // true
+// console.log(maxSequence([5, 11, 5, 12]) === 33); // true
+// console.log(maxSequence([-32]) === 0); // true
+// console.log(maxSequence([-1, -32]) === 0); // true
+// console.log(maxSequence([-2, 1, -7, 4, -10, 2, 1, 5, 4]) === 12); // true
+
+/* ======================
+18. /* Multiples of 3 or 5
+
+If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+
+Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in. Additionally, if the number is negative, return 0 (for languages that do have them).
+
+Note: If the number is a multiple of both 3 and 5, only count it once.
+
+PROBLEM
+- input number
+- output number
+
+Rules
+- return sum of all the multiples of 3 or 5 below input number
+- only count number once if multiple of both 3 and 5
+- if number is negative, return 0
+
+EXAMPLES
+- -1 => 0
+- 10 => 23 [3, 6, 9, 5]
+
+DATA STRUCTURE
+- input number
+- intermediary number
+- output number
+
+ALGORITHM
+- input number
+- initialize `result` to 0
+- iterate up to input number
+  - if number at index divided by 3 is 0, or
+  - if number at index divided by 5 is 0
+    - increment result by number
+- return number summing multiples */
+
+// function multiples(number) {
+//   let result = 0;
+
+//   for (let idx = 0; idx < number; idx ++) {
+//     if (idx % 3 === 0 || idx % 5 === 0) result += idx;
+//   }
+
+//   return result;
+// }
+
+// console.log(multiples(-1)) // 0
+// console.log(multiples(10)) // 23
+// console.log(multiples(15)) // [3, 5, 6, 9, 10, 12, ] => 45
+// console.log(multiples(20)) // 78
