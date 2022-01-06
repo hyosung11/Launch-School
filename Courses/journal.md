@@ -4874,3 +4874,11 @@ function duplicates(array) {
 19:58 I need to go up and put the kids to bed.
 
 20:25 Moving to MBP now on the couch next to Sohee.
+
+## 20220106 목요일
+
+07:28 Tough problems with Alex this morning. Another beautiful day to study though.
+
+10:15 After marriage counseling, I still need to find a new job quickly. Ugh. Talk to Jeff Federman at Gusto.
+
+10:58 Reading the Tech Resume book. Now going to study with Laurent.

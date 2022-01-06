@@ -1,5 +1,7 @@
 /* Count Matching Indices - Problem Description
 
+Alphabet Symmetry - 7 kyu Codewars Problem
+
 Consider the word "abode".
 The letter `a` is in position 1 and `b` is in position 2.
 In the alphabet, `a` and `b` are also in positions 1 and 2.
