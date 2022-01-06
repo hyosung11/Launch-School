@@ -4875,6 +4875,8 @@ function duplicates(array) {
 
 20:25 Moving to MBP now on the couch next to Sohee.
 
+21:09 Started going through Sergio's list of Codewars problems. But am stopping to watch tv with Sohee.
+
 ## 20220106 목요일
 
 07:28 Tough problems with Alex this morning. Another beautiful day to study though.
