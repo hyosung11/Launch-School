@@ -4848,3 +4848,27 @@ function longestConsecutive(array, count) {
 13:38 Practicing "Three By Three" problem again and again. I get tripped up by `length` and comparison operators returning booleans.
 
 14:49 I really need to break problems down to understand them and then work backwords to the solution and rewrite my algorithms based on the solutions.
+
+19:51 Got stuck on a Codewars problem and found a solution that used `idx += 1` after the `if` statement to advance the index position over an extra element to avoid duplication:
+
+```js
+function duplicates(array) {
+  let count = 0;
+  // if (array.length === 0 || array.length === 1) return 0;
+  let sortedArray = array.slice(0).sort((a, b) => a - b);
+  // [0, 0, 0, 0, 0, 0, 0]
+  for (let idx = 0; idx < sortedArray.length; idx++) {
+    // idx = 0: 0 === 0
+    // idx = 2: 0 === 0
+    // idx = 4: 0 === 0
+    if (sortedArray[idx] === sortedArray[idx + 1]) {
+      count += 1;
+      // this is the key to the solution - increment the index, so it skips an element
+      idx += 1;
+    }
+  }
+  return count;
+}
+```
+
+19:58 I need to go up and put the kids to bed.

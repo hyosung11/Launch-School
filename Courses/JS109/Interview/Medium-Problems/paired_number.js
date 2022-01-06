@@ -83,11 +83,8 @@ Implementation of Algorithm
 //   let allPairs = [];
 
 //   for (let outerIdx = 0; outerIdx < arrSorted.length; outerIdx += 1) {
-//     for (
-//       let innerIdx = outerIdx + 1;
-//       innerIdx < arrSorted.length;
-//       innerIdx += 1
-//     ) {
+//     for (let innerIdx = outerIdx + 1; innerIdx < arrSorted.length;
+//       innerIdx += 1) {
 //       let pair = [arrSorted[outerIdx], arrSorted[innerIdx]];
 
 //       if (pair[1] - pair[0] === 2) {

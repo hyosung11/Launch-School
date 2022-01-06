@@ -185,30 +185,130 @@ algo:
 isAlreadyThere helper function
 - input number and array
 - loop through array
-  - if number equals second element in paired numbers of array return true
+  - if number equals second element in the nested array of the array return true
 - return false */
 
-function pairedNums(array) {
-  let result = [];
-  array.sort((a, b) => a - b);
+// function pairedNums(array) {
+//   let result = [];
+//   array.sort((a, b) => a - b);
 
-  for (let idx = 0; idx < array.length; idx++) {
-    let num = array[idx];
-    if (array.includes(num + 2) && !isAlreadyThere(num, result)) {
-      result.push([num, num + 2]);
+//   for (let idx = 0; idx < array.length; idx++) {
+//     let num = array[idx];
+//     if (array.includes(num + 2) && !isAlreadyThere(num, result)) {
+//       result.push([num, num + 2]);
+//     }
+//   }
+
+//   return result;
+// }
+
+// function isAlreadyThere(num, array) {
+//   for (let idx = 0; idx < array.length; idx++) {
+//     if (num === array[idx][1]) return true;
+//   }
+//   return false;
+// }
+
+// console.log(pairedNums([2, 3, 25]));
+// console.log(pairedNums([1, 3, 2, 6, 8, 5, 9, 7])); // ==> [ [ 1, 3 ], [ 5, 7 ], [ 6, 8 ] ]
+// console.log(pairedNums([22, 33, 24, 26, 31, 35, 20, 27])); // ==> [ [ 20, 22 ], [ 24, 26 ], [ 31, 33 ] ]
+
+/* Codewars - 7 kyu
+
+Find all pairs
+
+You are given array of integers, your task will be to count all pairs in that array and return their count.
+
+Notes:
+- Array can be empty or contain only one value; in this case return 0
+- If there are more pairs of a certain number, count each pair only once. E.g.: for [0, 0, 0, 0] the return value is 2 (= 2 pairs of 0s)
+- Random tests: maximum array length is 1000, range of values in array is between 0 and 1000
+
+Examples
+[1, 2, 5, 6, 5, 2]  -->  2
+...because there are 2 pairs: 2 and 5
+
+[1, 2, 2, 20, 6, 20, 2, 6, 2]  -->  4
+...because there are 4 pairs: 2, 20, 6 and 2 (again)
+
+PROBLEM
+- input: array of integers
+- output: number representing count of pairs in the input array
+
+Rules
+- return count of how many pairs of integers occur in input array
+- if array is empty return 0
+- if array's length is 1, return 0
+- if more than one pair of a number, count each additional pair only once
+  - E.g.: for [0, 0, 0, 0] the return value is 2 (= 2 pairs of 0s)
+
+EXAMPLES
+- see below
+
+DATA STRUCTURE
+- input: array
+- intermediary: subarrays
+- output: number
+
+ALGORITHM
+- input array of integers
+- initialize `count` to 0
+- if array's length is 0 or 1, return 0
+- sort the array
+- iterate through array
+  - iterate through integers
+    - if number at idx is equal to number at jdx
+      - increment count
+- return `count` representing amount of pairs in array */
+
+function duplicates(array) {
+  let count = 0;
+  // if (array.length === 0 || array.length === 1) return 0;
+  let sortedArray = array.slice(0).sort((a, b) => a - b);
+  // [0, 0, 0, 0, 0, 0, 0]
+  for (let idx = 0; idx < sortedArray.length; idx++) {
+    // idx = 0: 0 === 0
+    // idx = 2: 0 === 0
+    // idx = 4: 0 === 0
+    if (sortedArray[idx] === sortedArray[idx + 1]) {
+      count += 1;
+      // this is the key to the solution - increment the index, so it skips an element
+      idx += 1;
     }
   }
-
-  return result;
+  return count;
 }
 
-function isAlreadyThere(num, array) {
-  for (let idx = 0; idx < array.length; idx++) {
-    if (num === array[idx][1]) return true;
+function duplicates(array) {
+  let count = 0;
+  let sortedArray = array.slice(0).sort((a, b) => a - b);
+  for (let idx = 0; idx < sortedArray.length; idx++) {
+    if (sortedArray[idx] === sortedArray[idx + 1]) {
+      count += 1;
+      idx += 1;
+    }
   }
-  return false;
+  return count;
 }
 
-console.log(pairedNums([2, 3, 25]));
-console.log(pairedNums([1, 3, 2, 6, 8, 5, 9, 7])); // ==> [ [ 1, 3 ], [ 5, 7 ], [ 6, 8 ] ]
-console.log(pairedNums([22, 33, 24, 26, 31, 35, 20, 27])); // ==> [ [ 20, 22 ], [ 24, 26 ], [ 31, 33 ] ]
+console.log(duplicates([]) === 0);
+console.log(duplicates([54]) === 0);
+console.log(duplicates([1000, 1000]) === 1);
+console.log(duplicates([1, 2, 5, 6, 5, 2]) === 2);
+console.log(duplicates([0, 0, 0, 0, 0, 0, 0]));
+console.log(duplicates([0, 0, 0, 0, 0, 0, 0]) === 3);
+console.log(duplicates([1, 2, 2, 20, 6, 20, 2, 6, 2]) === 4);
+
+
+// function duplicates(array) {
+//   let sortArr = array.sort((a, b) => a - b);
+//   let count = 0;
+
+//   for (let i = 0; i < sortArr.length; i++) {
+//     if (sortArr[i] == sortArr[i + 1]) {
+//       count += 1;
+//       i += 1;
+//     }
+//   }
+//   return count;
+// }
