@@ -4872,3 +4872,5 @@ function duplicates(array) {
 ```
 
 19:58 I need to go up and put the kids to bed.
+
+20:25 Moving to MBP now on the couch next to Sohee.
