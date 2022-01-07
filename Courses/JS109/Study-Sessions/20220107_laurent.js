@@ -26,7 +26,7 @@ function replace(string) {
     }
   }
   return result;
-} 
+}
 */
 
 function replace(string) {
@@ -68,7 +68,7 @@ ALGORITHM
 - initialize `result` to an empty object
 - iterate through the string
   - convert string to lowercase
-  - check each char of the string 
+  - check each char of the string
     - if char exists in `result` increment its value in `result`
     - otherwise set char value in `result` to 1
 - return `result` object
@@ -86,7 +86,7 @@ function countChars(array, string) {
       let letter = string[jdx].toLowerCase();
       if (arrayLetter === letter) {
         result[letter] ? result[letter] += 1 : result[letter] = 1;
-      } 
+      }
     }
   }
 

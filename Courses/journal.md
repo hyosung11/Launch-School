@@ -4912,3 +4912,5 @@ function duplicates(array) {
 07:43 I wrote back to Ravi and thanked him for the referral to the GitHub Inside Solutions Engineer position. Today, I'd rather be a solutions engineer than a project manager.
 
 10:41 Laurent gave me some problems to do today and I struggled with the last one about objects and arrays and iterating to collect the right keys and values for the object.
+
+17:29 Did a fun study session with Ian Austin. He gave me a list of problems to solve in preparation for the interview assessment.
