@@ -4884,3 +4884,23 @@ function duplicates(array) {
 10:15 After marriage counseling, I still need to find a new job quickly. Ugh. Talk to Jeff Federman at Gusto.
 
 10:58 Reading the Tech Resume book. Now going to study with Laurent.
+
+15:16 Reading blog posts by Raymond Gan
+
+> Practice with LeetCode, HackerRank, Codility, Project Euler, and Interview Cake because these are the sites most similar to real coding interview questions I've seen. Many companies have asked me to solve problems on LeetCode, HackerRank, and Codility as their first coding test. If you fail here, you're out.
+
+[How to Be a Kickass New Software Engineer](https://www.linkedin.com/pulse/how-kickass-new-software-engineer-raymond-gan/)
+
+[How to Make Your LinkedIn Page Popular (for Software Engineers)](https://www.linkedin.com/pulse/software-developers-how-make-popular-linkedin-page-raymond-gan/)
+
+[How Are Coding Bootcamps Weak?](https://www.linkedin.com/pulse/how-coding-bootcamps-weak-raymond-gan/)
+
+[My Ideal Coding Bootcamp. How to TRULY Be Competitive for Software Jobs](https://www.linkedin.com/pulse/my-ideal-coding-bootcamp-raymond-gan/)
+
+[To Bootcamp Grads: The Cold Cutthroat Reality of Becoming a Software Engineer](https://www.linkedin.com/pulse/bootcamp-grads-cold-cutthroat-reality-becoming-software-raymond-gan/)
+
+[How to Be Competitive & Land the Dev Job (What Every Bootcamp, Self-taught, and CS Grad Should Know)](https://www.youtube.com/watch?v=WqFOTeiSeEY)
+
+17:39 I don't understand this problem: Alphabetical Numbers.
+
+20:13 Bug in my code, but I can't figure out why?
