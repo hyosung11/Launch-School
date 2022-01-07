@@ -4906,3 +4906,9 @@ function duplicates(array) {
 20:13 Bug in my code, but I can't figure out why?
 
 20:24 There's something about my code where it won't return a string from `filter` but an array. Why?
+
+## 20220107 금요일
+
+07:43 I wrote back to Ravi and thanked him for the referral to the GitHub Inside Solutions Engineer position. Today, I'd rather be a solutions engineer than a project manager.
+
+10:41 Laurent gave me some problems to do today and I struggled with the last one about objects and arrays and iterating to collect the right keys and values for the object.
