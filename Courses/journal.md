@@ -4904,3 +4904,5 @@ function duplicates(array) {
 17:39 I don't understand this problem: Alphabetical Numbers.
 
 20:13 Bug in my code, but I can't figure out why?
+
+20:24 There's something about my code where it won't return a string from `filter` but an array. Why?

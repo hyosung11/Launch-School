@@ -382,37 +382,40 @@ For the purpose of this exercise, you should consider all characters and pay att
 //   return substrings(string).filter(isPalindrome);
 // }
 
-// function isPalindrome(word) {
-//   return word.length > 1 && word === word.split('').reverse().join('');
-// }
+function isPalindrome(word) {
+  // console.log(word)
+  return word.length > 1 && word === word.split('').reverse().join('');
+}
 
-// function palindromes(string) {
-//   return substrings(string).filter(isPalindrome);
-// }
+function palindromes(string) {
+  let test = substrings(string).filter(isPalindrome);
+  console.log(test);
+  return test;
+}
 
-// function leadingSubstrings(string) {
-//   let result = [];
+function leadingSubstrings(string) {
+  let result = [];
 
-//   for (let idx = 0; idx < string.length; idx++) {
-//     result.push(string.slice(0, idx + 1));
-//   }
+  for (let idx = 0; idx < string.length; idx++) {
+    result.push(string.slice(0, idx + 1));
+  }
 
-//   return result;
-// }
+  return result;
+}
 
-// function substrings(string) {
-//   let result = [];
+function substrings(string) {
+  let result = [];
 
-//   for (let idx = 0; idx < string.length; idx++) {
-//     let substring = string.slice(idx);
-//     result.push(leadingSubstrings(substring));
-//   }
+  for (let idx = 0; idx < string.length; idx++) {
+    let substring = string.slice(idx);
+    result.push(leadingSubstrings(substring));
+  }
+  // console.log(result);
+  return result;
+}
 
-//   return result;
-// }
-
-// console.log(palindromes('abcd'));       // []
-// console.log(palindromes('madam'));      // [ "madam", "ada" ]
+console.log(palindromes('abcd'));       // []
+console.log(palindromes('madam'));      // [ "madam", "ada" ]
 
 // console.log(palindromes('hello-madam-did-madam-goodbye'));
 // returns
@@ -426,42 +429,42 @@ For the purpose of this exercise, you should consider all characters and pay att
 
 
 
-function substrings(string) {
-  let substrings = [];
-  for (let startIndex = 0; startIndex < string.length; startIndex += 1) {
-    let substring = string.substring(startIndex);
-    substrings = substrings.concat(leadingSubstrings(substring));
-  }
+// function substrings(string) {
+//   let substrings = [];
+//   for (let startIndex = 0; startIndex < string.length; startIndex += 1) {
+//     let substring = string.substring(startIndex);
+//     substrings = substrings.concat(leadingSubstrings(substring));
+//   }
 
-  return substrings;
-}
+//   return substrings;
+// }
 
-function leadingSubstrings(string) {
-  let substrings = [];
-  for (let length = 1; length <= string.length; length += 1) {
-    substrings.push(string.slice(0, length));
-  }
+// function leadingSubstrings(string) {
+//   let substrings = [];
+//   for (let length = 1; length <= string.length; length += 1) {
+//     substrings.push(string.slice(0, length));
+//   }
 
-  return substrings;
-}
+//   return substrings;
+// }
 
-function isPalindrome(word) {
-  return word.length > 1 && word === word.split('').reverse().join('');
-}
+// function isPalindrome(word) {
+//   return word.length > 1 && word === word.split('').reverse().join('');
+// }
 
-function palindromes(string) {
-  return substrings(string).filter(isPalindrome);
-}
+// function palindromes(string) {
+//   return substrings(string).filter(isPalindrome);
+// }
 
-console.log(palindromes('abcd'));       // []
-console.log(palindromes('madam'));      // [ "madam", "ada" ]
+// console.log(palindromes('abcd'));       // []
+// console.log(palindromes('madam'));      // [ "madam", "ada" ]
 
-console.log(palindromes('hello-madam-did-madam-goodbye'));
-// returns
-// [ "ll", "-madam-", "-madam-did-madam-", "madam", "madam-did-madam", "ada",
-//   "adam-did-mada", "dam-did-mad", "am-did-ma", "m-did-m", "-did-", "did",
-//   "-madam-", "madam", "ada", "oo" ]
+// console.log(palindromes('hello-madam-did-madam-goodbye'));
+// // returns
+// // [ "ll", "-madam-", "-madam-did-madam-", "madam", "madam-did-madam", "ada",
+// //   "adam-did-mada", "dam-did-mad", "am-did-ma", "m-did-m", "-did-", "did",
+// //   "-madam-", "madam", "ada", "oo" ]
 
-console.log(palindromes('knitting cassettes'));
-// returns
-// [ "nittin", "itti", "tt", "ss", "settes", "ette", "tt" ]
+// console.log(palindromes('knitting cassettes'));
+// // returns
+// // [ "nittin", "itti", "tt", "ss", "settes", "ette", "tt" ]
