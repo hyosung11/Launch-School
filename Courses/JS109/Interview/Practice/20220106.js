@@ -382,40 +382,40 @@ For the purpose of this exercise, you should consider all characters and pay att
 //   return substrings(string).filter(isPalindrome);
 // }
 
-function isPalindrome(word) {
-  // console.log(word)
-  return word.length > 1 && word === word.split('').reverse().join('');
-}
+// function isPalindrome(word) {
+//   // console.log(word)
+//   return word.length > 1 && word === word.split('').reverse().join('');
+// }
 
-function palindromes(string) {
-  let test = substrings(string).filter(isPalindrome);
-  console.log(test);
-  return test;
-}
+// function palindromes(string) {
+//   let test = substrings(string).filter(isPalindrome);
+//   console.log(test);
+//   return test;
+// }
 
-function leadingSubstrings(string) {
-  let result = [];
+// function leadingSubstrings(string) {
+//   let result = [];
 
-  for (let idx = 0; idx < string.length; idx++) {
-    result.push(string.slice(0, idx + 1));
-  }
+//   for (let idx = 0; idx < string.length; idx++) {
+//     result.push(string.slice(0, idx + 1));
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
-function substrings(string) {
-  let result = [];
+// function substrings(string) {
+//   let result = [];
 
-  for (let idx = 0; idx < string.length; idx++) {
-    let substring = string.slice(idx);
-    result.push(leadingSubstrings(substring));
-  }
-  // console.log(result);
-  return result;
-}
+//   for (let idx = 0; idx < string.length; idx++) {
+//     let substring = string.slice(idx);
+//     result.push(leadingSubstrings(substring));
+//   }
+//   // console.log(result);
+//   return result;
+// }
 
-console.log(palindromes('abcd'));       // []
-console.log(palindromes('madam'));      // [ "madam", "ada" ]
+// console.log(palindromes('abcd'));       // []
+// console.log(palindromes('madam'));      // [ "madam", "ada" ]
 
 // console.log(palindromes('hello-madam-did-madam-goodbye'));
 // returns
@@ -468,3 +468,71 @@ console.log(palindromes('madam'));      // [ "madam", "ada" ]
 // console.log(palindromes('knitting cassettes'));
 // // returns
 // // [ "nittin", "itti", "tt", "ss", "settes", "ette", "tt" ]
+
+// function substrings(string) {
+//   let substrings = [];
+//   for (let startIndex = 0; startIndex < string.length; startIndex += 1) {
+//     let substring = string.substring(startIndex);
+//     substrings = substrings.concat(leadingSubstrings(substring));
+//   }
+
+//   return substrings;
+// }
+
+// function leadingSubstrings(string) {
+//   let substrings = [];
+//   for (let length = 1; length <= string.length; length += 1) {
+//     substrings.push(string.slice(0, length));
+//   }
+
+//   return substrings;
+// }
+
+// function isPalindrome(word) {
+//   return word.length > 1 && word === word.split('').reverse().join('');
+// }
+
+// function palindromes(string) {
+//   return substrings(string).filter(isPalindrome);
+// }
+
+// console.log(palindromes('abcd')); // []
+// console.log(palindromes('madam')); // [ "madam", "ada" ]
+
+// console.log(palindromes('hello-madam-did-madam-goodbye'));
+// // returns
+// // [ "ll", "-madam-", "-madam-did-madam-", "madam", "madam-did-madam", "ada",
+// //   "adam-did-mada", "dam-did-mad", "am-did-ma", "m-did-m", "-did-", "did",
+// //   "-madam-", "madam", "ada", "oo" ]
+
+// console.log(palindromes('knitting cassettes'));
+// // returns
+// // [ "nittin", "itti", "tt", "ss", "settes", "ette", "tt" ]
+
+/* Sum of Sums
+
+Write a function that takes an array of numbers and returns the sum of the sums of each leading subsequence in that array. Examine the examples to see what we mean. You may assume that the array always contains at least one number.
+
+Algo
+- input array of numbers
+- initialize `sum` to zero
+- iterate through array
+  - add value at index 0 to sum
+  - add values at index 0 and index + 1 to sum
+  - ...
+- return `sum`*/
+
+function sumOfSums(numbers) {
+  let sumTotal = 0;
+
+  for (let idx = 0; idx < numbers.length; idx++) {
+    sumTotal += numbers.slice(0, idx + 1).reduce((sum, num) => sum + num, 0);
+  }
+
+  return sumTotal;
+}
+// Examples:
+console.log(sumOfSums([3, 5, 2]));  // (3) + (3 + 5) + (3 + 5 + 2) --> 21
+console.log(sumOfSums([1, 5, 7, 3]));     // (1) + (1 + 5) + (1 + 5 + 7) + (1 + 5 + 7 + 3) --> 36
+console.log(sumOfSums([4]));              // 4
+console.log(sumOfSums([1, 2, 3, 4, 5]));  // 35
