@@ -4916,3 +4916,13 @@ function duplicates(array) {
 17:29 Did a fun study session with Ian Austin. He gave me a list of problems to solve in preparation for the interview assessment.
 
 20:49 I still find solving problems fun. Keep going.
+
+## 20220108 토요일
+
+09:34 I asked Frank about the sale engineer position at Greenshades and he agreed to help me with the process.
+
+09:35 I'm looking at Codewars problems right now.
+
+09:58 I figured out that my problem had to do with how I was filtering the values and I needed to just look at the last digit. That makes sense to me now.
+
+14:24 Doing Codewars problems, but still getting confused by the little details where the solution resides.
