@@ -66,6 +66,36 @@ ALGORITHM
 - count all the items in the odd numbers array
 - return the count of all odd items
 */
+
+function solve(string) {
+  let substrings = [];
+
+  for (let idx = 0; idx < string.length; idx++) {
+    // `jdx < string.length + 1` => what is this doing?
+    // I changed it to `jdx <= string.length` and it works
+    for (let jdx = idx + 1; jdx <= string.length; jdx++) {
+      substrings.push(string.slice(idx, jdx));
+    }
+  }
+  // check the last digit and see if it's odd
+  return substrings.filter(num => Number(num[num.length - 1]) % 2 === 1).length;
+}
+
+
+// function solve(s){
+//   let subStrArray = [];
+
+//     for (let i = 0; i < s.length; i++) {
+//       for (let j = i + 1; j < s.length + 1; j++) {
+//           subStrArray.push(s.slice(i,j))
+//       }
+//     }
+//   // console.log(s)
+//   return subStrArray.filter(el =>Number(el[el.length - 1]) % 2 === 1).length
+// };
+
+console.log(solve('1341'));
+
 console.log(solve("1341") === 7);
 console.log(solve("1357") === 10);
 console.log(solve("13471")=== 12);

@@ -4922,3 +4922,5 @@ function duplicates(array) {
 09:34 I asked Frank about the sale engineer position at Greenshades and he agreed to help me with the process.
 
 09:35 I'm looking at Codewars problems right now.
+
+09:58 I figured out that my problem had to do with how I was filtering the values and I needed to just look at the last digit. That makes sense to me now.
