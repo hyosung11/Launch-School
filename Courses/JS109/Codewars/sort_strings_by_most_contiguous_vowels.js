@@ -34,7 +34,7 @@ Rule:
 'aa' 2
 'aba' 1
 
-APROACH 1
+APPROACH 1
 initiate a `max counter` to 0
 
 initiate a counter to 0

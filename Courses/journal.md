@@ -4914,3 +4914,5 @@ function duplicates(array) {
 10:41 Laurent gave me some problems to do today and I struggled with the last one about objects and arrays and iterating to collect the right keys and values for the object.
 
 17:29 Did a fun study session with Ian Austin. He gave me a list of problems to solve in preparation for the interview assessment.
+
+20:49 I still find solving problems fun. Keep going.

@@ -181,30 +181,44 @@
 // console.log(staggeredCase('ALL_CAPS'));                     // "AlL_CaPs"
 // console.log(staggeredCase('ignore 77 the 4444 numbers'));   // "IgNoRe 77 ThE 4444 nUmBeRs"
 
-function staggeredCase(string) {
-  let needUpper = true;
+// function staggeredCase(string) {
+//   let needUpper = true;
 
+//   return string
+//     .split('')
+//     .map(char => {
+//       char = char.toLowerCase();
+//       if (char >= 'a' && char <= 'z') {
+//         if (needUpper) {
+//         needUpper = false;
+//         return char.toUpperCase();
+//       } else {
+//         needUpper = true;
+//         return char.toLowerCase();
+//       }
+//     } else {
+//       return char;
+//     }
+//   })
+//   .join('');
+// }
+
+// console.log(staggeredCase('I Love Launch School!') === 'I lOvE lAuNcH sChOoL!');
+// console.log(staggeredCase('ALL CAPS') === 'AlL cApS');
+// console.log(
+//   staggeredCase('ignore 77 the 444 numbers') === 'IgNoRe 77 ThE 444 nUmBeRs'
+// );
+
+/* Big list of 109 interview prep problems from Codewars */
+
+// Count letters in string
+function letterCount(string) {
   return string
     .split('')
-    .map(char => {
-      char = char.toLowerCase();
-      if (char >= 'a' && char <= 'z') {
-        if (needUpper) {
-        needUpper = false;
-        return char.toUpperCase();
-      } else {
-        needUpper = true;
-        return char.toLowerCase();
-      }
-    } else {
-      return char;
-    }
-  })
-  .join('');
+    .reduce((obj, char) => {
+      obj[char] = obj[char] + 1 || 1;
+      return obj;
+    }, {});
 }
 
-console.log(staggeredCase('I Love Launch School!') === 'I lOvE lAuNcH sChOoL!');
-console.log(staggeredCase('ALL CAPS') === 'AlL cApS');
-console.log(
-  staggeredCase('ignore 77 the 444 numbers') === 'IgNoRe 77 ThE 444 nUmBeRs'
-);
+console.log(letterCount('abcdeabcde'))
