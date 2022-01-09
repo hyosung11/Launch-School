@@ -4926,3 +4926,7 @@ function duplicates(array) {
 09:58 I figured out that my problem had to do with how I was filtering the values and I needed to just look at the last digit. That makes sense to me now.
 
 14:24 Doing Codewars problems, but still getting confused by the little details where the solution resides.
+
+## 20220109 일요일
+
+09:39 Watching Bloom's Taxonomy video for Launch School.
