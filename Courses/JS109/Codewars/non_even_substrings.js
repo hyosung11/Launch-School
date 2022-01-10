@@ -71,15 +71,27 @@ function solve(string) {
   let substrings = [];
 
   for (let idx = 0; idx < string.length; idx++) {
-    // `jdx < string.length + 1` => what is this doing?
-    // I changed it to `jdx <= string.length` and it works
     for (let jdx = idx + 1; jdx <= string.length; jdx++) {
       substrings.push(string.slice(idx, jdx));
     }
   }
-  // check the last digit and see if it's odd
+
   return substrings.filter(num => Number(num[num.length - 1]) % 2 === 1).length;
 }
+
+// function solve(string) {
+//   let substrings = [];
+
+//   for (let idx = 0; idx < string.length; idx++) {
+//     // `jdx < string.length + 1` => what is this doing?
+//     // I changed it to `jdx <= string.length` and it works
+//     for (let jdx = idx + 1; jdx <= string.length; jdx++) {
+//       substrings.push(string.slice(idx, jdx));
+//     }
+//   }
+//   // check the last digit and see if it's odd
+//   return substrings.filter(num => Number(num[num.length - 1]) % 2 === 1).length;
+// }
 
 
 // function solve(s){
@@ -102,3 +114,24 @@ console.log(solve("13471")=== 12);
 console.log(solve("134721") === 13);
 console.log(solve("1347231") === 20);
 console.log(solve("13472315") === 28);
+
+// Jack Aitken
+// function solve(s) {
+//   let allSubstrs = substrings(s);
+
+//   let oddSubstrs = allSubstrs.filter((num) => {
+//     return num[num.length - 1] % 2 !== 0;
+//   });
+//   return oddSubstrs.length;
+// }
+
+// function substrings(s) {
+//   let arr = [];
+
+//   for (let i = 0; i < s.length; i++) {
+//     for (let j = i + 1; j <= s.length; j++) {
+//       arr.push(s.slice(i, j));
+//     }
+//   }
+//   return arr;
+// }

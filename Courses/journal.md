@@ -4930,3 +4930,9 @@ function duplicates(array) {
 ## 20220109 일요일
 
 09:39 Watching Bloom's Taxonomy video for Launch School.
+
+## 20220109 월요일
+
+05:57 I was wiped out yesterday, possibly from covid. I feel better this morning.
+
+08:59 I am still working on problems, but taking shortcuts. I have to stop doing that. Struggle to learn!

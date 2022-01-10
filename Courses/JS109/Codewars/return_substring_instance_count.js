@@ -27,9 +27,9 @@ DATA STRUCTURE
 
 ALGORITHM
 - input fullText and searchText
-- create new RegExp that for searchText
+- create new RegExp for searchText
 - look for matches in fullText
-- return matches as a number
+- return matches as a number based on length
   */
 
 // function solution(fullText, searchText) {
