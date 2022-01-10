@@ -4936,3 +4936,5 @@ function duplicates(array) {
 05:57 I was wiped out yesterday, possibly from covid. I feel better this morning.
 
 08:59 I am still working on problems, but taking shortcuts. I have to stop doing that. Struggle to learn!
+
+11:07 I've seen some of these Codewars problems before but that doesn't mean I can solve them. Ugh.
