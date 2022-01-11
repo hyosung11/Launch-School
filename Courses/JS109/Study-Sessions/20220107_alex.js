@@ -181,7 +181,6 @@ console.log(scrambleWords('i') === 'i') // 'Must handle single character words')
 console.log(scrambleWords('me') === 'me'); // 'Must handle 2 character words'
 console.log(scrambleWords('you') === 'you'); // 'Must handle 3 character words')
 
-
 console.log(scrambleWords('card-carrying') === 'caac-dinrrryg'); // 'Only spaces separate words and punctuation should remain at the same place as it started')
 
 console.log(scrambleWords("shan't") === "sahn't"); // 'Punctuation should remain at the same place as it started')

@@ -4931,7 +4931,7 @@ function duplicates(array) {
 
 09:39 Watching Bloom's Taxonomy video for Launch School.
 
-## 20220109 월요일
+## 20220110 월요일
 
 05:57 I was wiped out yesterday, possibly from covid. I feel better this morning.
 
@@ -4942,3 +4942,7 @@ function duplicates(array) {
 19:52 Applied for Sales Engineer position at Greenshades and worked on Codewars problems. Go up to put the kids to bed now.
 
 22:39 I still don't fully understand what is happening in my code. Ugh. I'm going to watch the end of Georgia vs Alabama and go to bed.
+
+## 20220111 화요일
+
+08:34 It's my legal 52nd birthday today. Feels like most other days these days. Okay. I still want to keep studying and solving more coding problems.
