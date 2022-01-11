@@ -4947,4 +4947,6 @@ function duplicates(array) {
 
 08:34 It's my legal 52nd birthday today. Feels like most other days these days. Okay. I still want to keep studying and solving more coding problems.
 
-13:25 After an arduous study session with Laurent, I did some study of objects from the Launch School curriculm, and I think I understand them better.
+13:25 After an arduous study session with Laurent, I did some study of objects from the Launch School curriculum, and I think I understand them better.
+
+15:29 I don't understand what is happening in the solutions of other people sometimes. Ugh.
