@@ -54,20 +54,20 @@ function repeatedSubstringPattern(string) {
 }
 
 // Refactored
-// function repeatedSubstringPattern(string) {
-//   let substring = '';
-//   let maxIdx = Math.floor(string.length / 2);
+function repeatedSubstringPattern(string) {
+  let substring = '';
+  let maxIdx = Math.floor(string.length / 2);
 
-//   for (let idx = 0; idx < maxIdx; idx += 1) {
-//     substring = string.slice(0, idx + 1);
-//     let substringLength = idx + 1;
+  for (let idx = 0; idx < maxIdx; idx += 1) {
+    substring = string.slice(0, idx + 1);
+    let substringLength = idx + 1;
 
-//     if (substring.repeat(string.length / substringLength) === string) {
-//       return true;
-//     }
-//   }
-//   return false;
-// }
+    if (substring.repeat(string.length / substringLength) === string) {
+      return true;
+    }
+  }
+  return false;
+}
 
 console.log(repeatedSubstringPattern('abab') === true); // true
 console.log(repeatedSubstringPattern('aba') === false); // true

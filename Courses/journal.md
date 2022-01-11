@@ -4938,3 +4938,5 @@ function duplicates(array) {
 08:59 I am still working on problems, but taking shortcuts. I have to stop doing that. Struggle to learn!
 
 11:07 I've seen some of these Codewars problems before but that doesn't mean I can solve them. Ugh.
+
+19:52 Applied for Sales Engineer position at Greenshades and worked on Codewars problems. Go up to put the kids to bed now.
