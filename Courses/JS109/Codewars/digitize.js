@@ -1,4 +1,6 @@
-/* Given a non-negative integer, return an array / a list of the individual digits in order.
+/* Digitize
+
+Given a non-negative integer, return an array / a list of the individual digits in order.
 
 Examples:
 

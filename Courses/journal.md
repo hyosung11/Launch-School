@@ -4940,3 +4940,5 @@ function duplicates(array) {
 11:07 I've seen some of these Codewars problems before but that doesn't mean I can solve them. Ugh.
 
 19:52 Applied for Sales Engineer position at Greenshades and worked on Codewars problems. Go up to put the kids to bed now.
+
+22:39 I still don't fully understand what is happening in my code. Ugh. I'm going to watch the end of Georgia vs Alabama and go to bed.
