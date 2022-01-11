@@ -4946,3 +4946,5 @@ function duplicates(array) {
 ## 20220111 화요일
 
 08:34 It's my legal 52nd birthday today. Feels like most other days these days. Okay. I still want to keep studying and solving more coding problems.
+
+13:25 After an arduous study session with Laurent, I did some study of objects from the Launch School curriculm, and I think I understand them better.
