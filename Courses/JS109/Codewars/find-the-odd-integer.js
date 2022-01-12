@@ -31,7 +31,7 @@ ALGORITHM
 - input array of integers
 - initialize `result` to empty object
 - iterate through array
-  - add number to array
+  - add number to `result`
   - if present in `result` increment value of number in `result` object
 - iterate over the keys of `result` object
   - if value at the key is odd => `result[key]`
@@ -98,7 +98,7 @@ ALGORITHM
 
 // function findOdd(numbers) {
 //   numbers.sort();
-//   console.log(numbers) 
+//   console.log(numbers)
 //   if (numbers[0] !== numbers[1]) return numbers[0];
 //   else {
 //     numbers.splice(0, 2);

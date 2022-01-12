@@ -4950,3 +4950,4 @@ function duplicates(array) {
 13:25 After an arduous study session with Laurent, I did some study of objects from the Launch School curriculum, and I think I understand them better.
 
 15:29 I don't understand what is happening in the solutions of other people sometimes. Ugh.
+
