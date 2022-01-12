@@ -4951,3 +4951,8 @@ function duplicates(array) {
 
 15:29 I don't understand what is happening in the solutions of other people sometimes. Ugh.
 
+## 20220112 수요일
+
+10:45 Alex missed our study session. Did a study session with Laurent. I'm okay. It's cold and the water isn't flowing in the kitchen sink.
+
+16:26 Seriously wondering today if I'm cut out for software engineering, at least by my lack of ability to do coding challenges. Ugh. Now go and play some Uno with SungOh for fun.
