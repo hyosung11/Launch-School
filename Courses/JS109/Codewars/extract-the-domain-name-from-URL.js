@@ -27,30 +27,19 @@ DATA STRUCTURE
 
 ALGORITHM
 - input string
-- initialize `result` to empty string
-- split string into array of chars
-- iterate through chars
-- return `result` substring
+- replace 'http://' with empty string
+- replace 'https://' with empty string
+- replace 'www.' with empty string
+- split string at period '.'
+- return the string at index 0
 */
 
-// function domainName(domain) {
-  
-// }
+function domainName(url) {
+  url = url.replace('http://', '');
+  url = url.replace('https://', '');
+  url = url.replace('www.', '');
 
-function domainName(websiteURL) {
-  let result = '';
-
-  if (websiteURL.indexOf('//') > -1) {
-    result = websiteURL.split('/')[2];
-    // console.log(result);
-  } else {
-    result = websiteURL.split('.')[1];
-  }
-
-  result = result.split(':')[0];
-  result = result.split('.')[0];
-
-  return result;
+  return url.split('.')[0];
 }
 
 // console.log(domainName('http://google.com'));

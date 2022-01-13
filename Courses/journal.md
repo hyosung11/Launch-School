@@ -4958,3 +4958,7 @@ function duplicates(array) {
 16:26 Seriously wondering today if I'm cut out for software engineering, at least by my lack of ability to do coding challenges. Ugh. Now go and play some Uno with SungOh for fun.
 
 20:31 I will succeed in becoming a professional software engineer. All is well and good night.
+
+## 20220113 목요일
+
+09:00 Did study session with Alex this morning and he understood the problem better than me as usual, but we did work together to solve an intricate problem that's considered 4 kyu on Codewars.

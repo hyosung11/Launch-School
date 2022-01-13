@@ -45,7 +45,7 @@ function solve(arr) {
   return results;
 }
 
-function solve(arr){    
+function solve(arr) {
   return arr.map(string => {
     string = string.toLowerCase();
     return string.split('').reduce((acc, char, index) => {
