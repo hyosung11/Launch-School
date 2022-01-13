@@ -4956,3 +4956,5 @@ function duplicates(array) {
 10:45 Alex missed our study session. Did a study session with Laurent. I'm okay. It's cold and the water isn't flowing in the kitchen sink.
 
 16:26 Seriously wondering today if I'm cut out for software engineering, at least by my lack of ability to do coding challenges. Ugh. Now go and play some Uno with SungOh for fun.
+
+20:31 I will succeed in becoming a professional software engineer. All is well and good night.
