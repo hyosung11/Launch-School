@@ -4962,3 +4962,7 @@ function duplicates(array) {
 ## 20220113 목요일
 
 09:00 Did study session with Alex this morning and he understood the problem better than me as usual, but we did work together to solve an intricate problem that's considered 4 kyu on Codewars.
+
+## 20220113 금요일
+
+10:54 Two study session today. One with Alex and another with Laurent. Keep going.
