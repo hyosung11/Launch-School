@@ -4970,3 +4970,5 @@ function duplicates(array) {
 ## 20220113 금요일
 
 10:54 Two study session today. One with Alex and another with Laurent. Keep going.
+
+17:44 I enjoy solving 7 kyu problems on Codewars. Time for dinner.
