@@ -10,7 +10,6 @@ If two words score the same, return the word that appears earliest in the origin
 
 All letters will be lowercase and all inputs will be valid.
 
-
 /* rasodha
 input: string
 output: string
@@ -51,7 +50,7 @@ function getScore(str) {
 function high(x){
   let wordsArr = x.split(' ');
   let highestScore = wordsArr[0];
-  
+
   for (let idx = 1; idx < wordsArr.length; idx++) {
     if (getScore(wordsArr[idx]) > getScore(highestScore)) {
       highestScore = wordsArr[idx];
