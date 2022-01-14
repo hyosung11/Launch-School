@@ -7,7 +7,7 @@ PROBLEM
 - output: array of strings
 
 Rules
-- return an array strings of pairs of two chars
+- return an array of strings of pairs of two chars
 - if string contains an odd number of char, replace the missing 2nd char with an underscore( '_')
 
 - multiple strings?
@@ -28,6 +28,7 @@ ALGORITHM
   - push string at the index + string at the index + 1 to result
 - return `result` array
 */
+
 // function solution(string) {
 //   let result = [];
 //   let count = 0;
