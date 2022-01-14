@@ -30,52 +30,52 @@ ALGORITHM
     compare the sums of the values of each word
 - return word with the highest sum value */
 
-function alphabetScore(string) {
-  let alphabet = '_abcdefghijklmnopqrstuvwxyz';
+// function alphabetScore(string) {
+//   let alphabet = '_abcdefghijklmnopqrstuvwxyz';
 
-  let words = string.split(' ')
-  let arrayOfScores = words.map(word => {
-     return word.split('').reduce((sum, char) => sum + alphabet.indexOf(char), 0)
-    });
-  let maxIndex = arrayOfScores.indexOf(Math.max(...arrayOfScores));
+//   let words = string.split(' ')
+//   let arrayOfScores = words.map(word => {
+//      return word.split('').reduce((sum, char) => sum + alphabet.indexOf(char), 0)
+//     });
+//   let maxIndex = arrayOfScores.indexOf(Math.max(...arrayOfScores));
 
-  return words[maxIndex];
-}
+//   return words[maxIndex];
+// }
 
-console.log(alphabetScore('') === '');
-console.log(alphabetScore('aa') === 'aa');
-console.log(alphabetScore('a z') === 'z');
-console.log(alphabetScore('y z') === 'z');
-console.log(alphabetScore('aa b') === 'aa');
-console.log(alphabetScore('man i need a taxi up to ubud') === 'taxi');
-console.log(alphabetScore('what time are we climbing up the volcano') === 'volcano');
-console.log(alphabetScore('take me to semynak') === 'semynak');
+// console.log(alphabetScore('') === '');
+// console.log(alphabetScore('aa') === 'aa');
+// console.log(alphabetScore('a z') === 'z');
+// console.log(alphabetScore('y z') === 'z');
+// console.log(alphabetScore('aa b') === 'aa');
+// console.log(alphabetScore('man i need a taxi up to ubud') === 'taxi');
+// console.log(alphabetScore('what time are we climbing up the volcano') === 'volcano');
+// console.log(alphabetScore('take me to semynak') === 'semynak');
 
-// for loop
-function alphabetScore(string) {
-  let alphabet = '_abcdefghijklmnopqrstuvwxyz';
+// // for loop
+// function alphabetScore(string) {
+//   let alphabet = '_abcdefghijklmnopqrstuvwxyz';
 
-  let words = string.split(' ')
-  let arrayOfScores = words.map(word => {
-     return word.split('').reduce((sum, char) => sum + alphabet.indexOf(char), 0)
-    });
+//   let words = string.split(' ')
+//   let arrayOfScores = words.map(word => {
+//      return word.split('').reduce((sum, char) => sum + alphabet.indexOf(char), 0)
+//     });
 
-  let maxIndex = 0;
-  for (let index = 0; index < arrayOfScores.length; index += 1) {
-    if (arrayOfScores[index] > arrayOfScores[maxIndex]) maxIndex = index;
-  }
+//   let maxIndex = 0;
+//   for (let index = 0; index < arrayOfScores.length; index += 1) {
+//     if (arrayOfScores[index] > arrayOfScores[maxIndex]) maxIndex = index;
+//   }
 
-  return words[maxIndex];
-}
+//   return words[maxIndex];
+// }
 
-console.log(alphabetScore('') === '');
-console.log(alphabetScore('aa') === 'aa');
-console.log(alphabetScore('a z') === 'z');
-console.log(alphabetScore('y z') === 'z');
-console.log(alphabetScore('aa b') === 'aa');
-console.log(alphabetScore('man i need a taxi up to ubud') === 'taxi');
-console.log(alphabetScore('what time are we climbing up the volcano') === 'volcano');
-console.log(alphabetScore('take me to semynak') === 'semynak');
+// console.log(alphabetScore('') === '');
+// console.log(alphabetScore('aa') === 'aa');
+// console.log(alphabetScore('a z') === 'z');
+// console.log(alphabetScore('y z') === 'z');
+// console.log(alphabetScore('aa b') === 'aa');
+// console.log(alphabetScore('man i need a taxi up to ubud') === 'taxi');
+// console.log(alphabetScore('what time are we climbing up the volcano') === 'volcano');
+// console.log(alphabetScore('take me to semynak') === 'semynak');
 
 
 // 
@@ -107,23 +107,23 @@ console.log(alphabetScore('take me to semynak') === 'semynak');
 
 // APPROACH 2: create an array of scores find the max value
 
-function alphabetScore(string) {
-  if (string === '') return '';
+// function alphabetScore(string) {
+//   if (string === '') return '';
 
-  let alphabet = '_abcdefghijklmnopqrstuvwxyz';
-  let wordArray = string.split(' ');
+//   let alphabet = '_abcdefghijklmnopqrstuvwxyz';
+//   let wordArray = string.split(' ');
 
-  let scoresArray = wordArray
-    .map(word => {
-      return word.split('').reduce((acc, char) => {
-        return acc + alphabet.indexOf(char);
-      }, 0)
-    })
+//   let scoresArray = wordArray
+//     .map(word => {
+//       return word.split('').reduce((acc, char) => {
+//         return acc + alphabet.indexOf(char);
+//       }, 0)
+//     })
 
-  let maxIndex = scoresArray.indexOf(Math.max(...scoresArray));
+//   let maxIndex = scoresArray.indexOf(Math.max(...scoresArray));
 
-  return wordArray[maxIndex];
-}
+//   return wordArray[maxIndex];
+// }
 
 /* Approach with Alex
 ALGORITHM
@@ -143,6 +143,34 @@ getWordScore helper function
 - iterate through chars
   - compute value of each char based on its position in the `alphabet` string
 - return score for word */
+
+function alphabetScore(words) {
+  let highest = '';
+  let wordsArray = words.split(' ');
+
+  for (let idx = 0; idx < wordsArray.length; idx++) {
+    let word = wordsArray[idx];
+    if (getWordScore(word) > getWordScore(highest)) highest = word;
+  }
+
+  return highest;
+}
+
+function getWordScore(word) {
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  return word.split('').reduce((total, num) => total + alphabet.indexOf(num), 0);
+}
+
+console.log(alphabetScore('') === '');
+console.log(alphabetScore('aa') === 'aa');
+console.log(alphabetScore('a z') === 'z');
+console.log(alphabetScore('y z') === 'z');
+console.log(alphabetScore('aa b') === 'aa');
+console.log(alphabetScore('man i need a taxi up to ubud') === 'taxi');
+console.log(
+  alphabetScore('what time are we climbing up the volcano') === 'volcano'
+);
+console.log(alphabetScore('take me to semynak') === 'semynak');
 
 function alphabetScore(words) {
   let highest = '';
