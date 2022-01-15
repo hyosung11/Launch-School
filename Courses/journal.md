@@ -4967,3 +4967,10 @@ function duplicates(array) {
 
 20:44 A problem I had seen before didn't seem as daunting as before, so that's progress. Good night.
 
+## 20220113 금요일
+
+10:54 Two study session today. One with Alex and another with Laurent. Keep going.
+
+17:44 I enjoy solving 7 kyu problems on Codewars. Time for dinner.
+
+21:48 Stuck on a problem and going to watch Cobra Kai with Sohee now. Alex got a baby gift for Jeff's kid and I split the cost with him. Nice gesture.
