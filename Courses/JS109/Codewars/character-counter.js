@@ -14,16 +14,15 @@ Examples
 
 function validateWord(string) {
   let result = {};
+  string = string.toLowerCase();
 
   string.split('').forEach(char => {
     result[char] = result[char] + 1 || 1;
   })
 
-  let count = Object.values(result).reduce((total, num) => total + num, 0)
-  console.log(count)
-
-  if ((count / string.length) === 1) return true
-  return false;
+  // console.log(result)
+  console.log(Object.values(result))
+  return Object.values(result).every((val, _, array) => val === array[1]);
 }
 
 // console.log(validateWord("abcde")); // true
@@ -31,7 +30,7 @@ function validateWord(string) {
 // console.log(validateWord("Abcabc")); // true
 // console.log(validateWord("abc123")); // true
 console.log(validateWord("abcabcd")); // false
-// console.log(validateWord("abc!abc!")); // true
+console.log(validateWord("abc!abc!")); // true
 console.log(validateWord("abc:abc")); // false
 
 // true/false

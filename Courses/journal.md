@@ -4974,3 +4974,5 @@ function duplicates(array) {
 17:44 I enjoy solving 7 kyu problems on Codewars. Time for dinner.
 
 21:48 Stuck on a problem and going to watch Cobra Kai with Sohee now. Alex got a baby gift for Jeff's kid and I split the cost with him. Nice gesture.
+
+22:22 Had to look up answer for Character Count. Now going to bed.
