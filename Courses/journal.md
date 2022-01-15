@@ -4966,3 +4966,4 @@ function duplicates(array) {
 19:28 I am slow solving problems.
 
 20:44 A problem I had seen before didn't seem as daunting as before, so that's progress. Good night.
+
