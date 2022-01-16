@@ -258,6 +258,22 @@ Note that not everything that looks like a control character escape is a genuine
 
 ### Ignoring Case
 
+As we've seen, regex are case sensitive by default. If you want to match a lowercase `s`, you need to use a lowercase `s` in your regex. If you want to match an uppercase `S`, you must use an `S` in your regex.
+
+You can change this default behavior by appending an `i` to the close `/` of a regex, which makes the entire regex ignore case. For example, try the pattern `/launch/` against these strings:
+
+```sh
+I love Launch School!
+LAUNCH SCHOOL! Gotta love it!
+launchschool.com
+```
+
+You should see one match -- `launch` in the domain name. Now add an `i` option to the regex, i.e., `/launch/i` and try again. This time, Rubular will highlight all three instances of `launch` without regard to their case. Nifty!
+
+There are other useful **options** like `/i`, but the options are language specific. We don't have a dedicated section to discuss any other options, some of which we'll meet later. See the documentation for your language of choice for complete list of available options.
+
+The documentation calls these options **flags** or **modifiers**, but we can use all three terms interchangeably.
+
 ### Summary
 
 The discussion so far is straight-forward. You've learned the basic regex syntax, seen an example of using regex, and played around with a few basic regex. You've also learned about one of the fundamental concepts behind regex: **concatenation of patterns**. In the next chapter, we'll explore a little further and examine regex that can match any set of characters.
@@ -266,3 +282,83 @@ But, before you proceed, take a little while to work the exercises below. In the
 
 ### Exercises
 
+1. Write a regex that matches an uppercase K. Test it with these strings:
+
+```sh
+Kx
+BlacK
+kelly
+```
+
+Solution: `/K/`.
+The correct matches are `K` at the beginning of line 1, and `K` at the end of line 2.
+
+2. Write a regex that matches an uppercase or lowercase `H`. Test it with these strings:
+
+```sh
+Henry
+perch
+golf
+```
+
+Solution: `/h/i' or `/H/i'
+
+An alternative solution is to use alternation: `/(h|H)/`
+The correct matches are `H` at the beginning of line 1, and `h` at the end of line 2. Can you think of a situation where you might want to use alternation instead of the `i` option.
+
+3. Write a regex that matches the string `dragon`. Test it with these strings:
+
+```sh
+snapdragon
+bearded dragon
+dragoon
+```
+
+Solution: `/dragon/`
+The regex should match the word `dragon` at the end of lines 1 and 2.
+
+4. Write a regex that matches any of the following fruits: banana, orange, apple, strawberry. The fruits may appear in other words. Test it with these strings:
+
+```sh
+banana
+orange
+pineapples
+strawberry
+raspberry
+grappler
+```
+
+Solution: `/(banana|orange|apple|strawberry)/`
+The solution matches everything except `raspberry`.
+
+5. Write a regex that matches a comma or space. Test your regex with these strings:
+
+```sh
+This line has spaces
+This,line,has,commas,
+No-spaces-or-commas
+```
+
+Solution: `( |,)/`
+The expression should match three spaces on line 1 and four commas on line 2.
+
+6. Challenge: Write a regex that matches blueberry or blackberry, but write berry precisely once. Test it with these strings:
+
+```sh
+blueberry
+blackberry
+black berry
+strawberry
+```
+
+Hint: you need both concatenation and alternation.
+
+Solution: `/(blue|black)berry/`
+
+The key to this challenge is that concatenation works with **patterns**, not characters. Thus, we can concatenate (blue|black) with berry to produce the final result.
+
+The expression matches the first two lines.
+
+How come the regex doesn't match `black berry`? Because of the space.
+
+END 20220115 21:01

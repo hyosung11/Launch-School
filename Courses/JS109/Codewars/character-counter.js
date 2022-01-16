@@ -7,9 +7,9 @@ For this kata, capitals are considered the same as lowercase letters. Therefore:
 The input is a string (with no spaces) containing [a-z],[A-Z],[0-9] and common symbols. The length will be 0 < length < 100.
 Examples
 
-    "abcabc" is a valid word because "a" appears twice, "b" appears twice, and"c" appears twice.
-    "abcabcd" is NOT a valid word because "a" appears twice, "b" appears twice, "c" appears twice, but "d" only appears once!
-    "123abc!" is a valid word because all of the characters only appear once in the word.
+- "abcabc" is a valid word because "a" appears twice, "b" appears twice, and"c" appears twice.
+- "abcabcd" is NOT a valid word because "a" appears twice, "b" appears twice, "c" appears twice, but "d" only appears once!
+- "123abc!" is a valid word because all of the characters only appear once in the word.
 */
 
 function validateWord(string) {
@@ -20,15 +20,13 @@ function validateWord(string) {
     result[char] = result[char] + 1 || 1;
   })
 
-  // console.log(result)
-  console.log(Object.values(result))
-  return Object.values(result).every((val, _, array) => val === array[1]);
+  return Object.values(result).every((value, _, array) => value === array[0]);
 }
 
-// console.log(validateWord("abcde")); // true
-// console.log(validateWord("abcabc")); // true
-// console.log(validateWord("Abcabc")); // true
-// console.log(validateWord("abc123")); // true
+console.log(validateWord("abcde")); // true
+console.log(validateWord("abcabc")); // true
+console.log(validateWord("Abcabc")); // true
+console.log(validateWord("abc123")); // true
 console.log(validateWord("abcabcd")); // false
 console.log(validateWord("abc!abc!")); // true
 console.log(validateWord("abc:abc")); // false
