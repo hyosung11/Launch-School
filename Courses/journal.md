@@ -4986,3 +4986,9 @@ function duplicates(array) {
 18:40 After dinner more problems to solve.
 
 21:01 Studying Regular Expressions and now going to watch TV with Sohee.
+
+## 20220115 일요일
+
+13:46 Back after reffing this morning and ready to work on some more coding problems. I think I need to review and also continue working on my interview assessment study guide.
+
+15:34 I worked successfully on a few 7 kyu string problems. I'm going to take a break and then go back to the Big List of 109 Interview Problems.

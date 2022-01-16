@@ -32,6 +32,3 @@ console.log(greet('riley'));
 console.log(greet('Bbaily')); // Hello Bbaily!
 // console.log(greet('riley') === 'Hello Riley!')
 
-Just return the numbers - 
-Expected: 142258358364925210000, 
-instead go142258358364925200000

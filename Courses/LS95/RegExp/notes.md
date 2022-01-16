@@ -361,4 +361,4 @@ The expression matches the first two lines.
 
 How come the regex doesn't match `black berry`? Because of the space.
 
-END 20220115 21:01
+END Saturday, 20220115 @ 21:01
