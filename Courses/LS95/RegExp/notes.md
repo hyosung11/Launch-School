@@ -362,3 +362,143 @@ The expression matches the first two lines.
 How come the regex doesn't match `black berry`? Because of the space.
 
 END Saturday, 20220115 @ 21:01
+
+## Character Classes
+
+Let's move out a little further into the regex waters, knee-deep, by wading into **character classes**, which are patterns that let you specify a set of characters that you want to match. We'll stick to the simple character class information in this section; later, we'll explore some handy shortcut patterns you can use to specify some of the most commonly needed classes. Right now, though, understanding how to *construct elementary classes* yourself is paramount.
+
+### Set of Characters
+
+Character class patterns use a list of characters *between square brackets*, e.g., `/[abc]/`. Such a pattern matches a **single** occurrence of any of the characters between the brackets. Try these regex:
+
+```sh
+/[FX]/
+/[e+]/
+/[abAB]/
+/[*+]/
+```
+
+against the string `Four score + seven`. You should find that the third regex fails to match at all, while the other regex match at least one character in the string. (We'll come back to why we don't escape `*` and `+`.)
+
+against the string `Four score + seven`. You should find that the third regex fails to match at all, while the other regex match at least one character in the string. (We'll come back to why we *don't escape* `*` and `+`.)
+
+**Character class patterns** come in handy in all kinds of situations. For example, if a program wants a user to choose between five different options by entering a number between 1 and 5, you can validate that input with the regex `/[12345]/`. Likewise, you can validate a `y/n` prompt response with `/[nyNY]/`.
+
+Single-character classes (e.g., `/[a]/`) are possible and even useful, though we won't get into that here. Don't automatically remove the brackets if you encounter one in code you're working on: it's probably there for a reason.
+
+Character classes also come in handy when you need to check for uppercase and lowercase letters, but can't use the `i` flag to make the entire regex case insensitive. For example, `/[Hh]oover/` matches `Hoover` or `hoover`, but not `HOOVER`.
+
+When writing character classes, it's good practice to *group characters by type*: digits, uppercase letters, lowercase letters, whitespace, and non-alphanumeric characters. You can arrange the groups in any order, though typically the non-alphanumerics come first or last in the character class. This practice aids **readability**.
+
+Recall that you can *concatenate* any patterns, and that includes character classes. We did so earlier with `/[Hh]oover/`. You can also concatenate character classes. The regex `/[abc][12]/` matches any two characters where the first character is an `a`, `b`, or `c`, and the second is a `1` or a `2`. Try it with these strings:
+
+```sh
+a2
+Model 640c1
+a1 a2 a3 b1 b2 b3 c1 c2 c3 d1 d2 d3
+```
+
+Earlier, we used both `*` and `+` in our character classes; this deserves a bit of explanation. Recall that we said that `*` and `+` are meta-characters, and require a backslash-escape to retain their literal meaning? Well, we told a small lie. In fact, *the number of meta-characters dwindles to a handful inside a character class*:
+
+`^` `\` `-` `[ ]`
+
+Some of these meta-characters are only meta-characters *in certain situations*. For example, you can use `^` as a **non-meta-character** if it *isn't the first character* in the class, and you can use `-` as a **non-meta-character** if it *is the first character in the class*.
+
+You can escape any of the special characters, even if you don't have to. Thus, `/[\*\+]/` is an acceptable, albeit less readable, equivalent to `/[*+]/`. As before, though, you should keep this list of class meta-characters handy until you know it by heart.
+
+### Range of Characters
+
+Sometimes, you'll find that your character class is a natural sequence of characters, such as the letters `a` through `z`. You can abbreviate these ranges inside character classes by specifying the starting character, a hyphen (`-`), and the last character. Thus, `/[a-z]/` matches any lowercase alphabetic character, `/[j-p]/` limits that to the letters `j` through `p`, while `/[0-9]/` matches any decimal digit. You can even combine ranges; suppose you need to match hexadecimal digits. If so, the following method could come in handy:
+
+```rb
+# Ruby
+def hex_digit?(char)
+  char.match(/[0-9A-Fa-f]/)
+end
+```
+
+In this regex, we string together three separate ranges to produce the final character class that covers all hexadecimal digits, including both upper- and lowercase variants.
+
+While it is possible to construct ranges that cover non-alphanumeric characters, *do not do this*. Stick to the alphanumeric characters. Also, don't try to combine lowercase and uppercase alphabetic characters in a single range: `/[A-z]/` does not do what you probably think it does. To see this, try `/[A-z]/` with the following strings:
+
+```sh
+The United Nations
+The [eval] method
+Some^weird_stuff
+```
+
+Rubular should highlight the brackets (`[, ]`), caret (`^`), and underscore (`_`) as matched characters. Change the regex to `/[A-Za-z]/` to highlight the alphabetic characters alone.
+
+### Negated Classes
+
+Another useful feature of character class ranges is **range negation**. Negations look like ordinary character classes, except the first character between the brackets is a caret (`^`). The negated class *matches all characters not identified in the range.*
+
+At its simplest, you can have a negated character range for one character. For example, try `/[^y]/` with these strings:
+
+```sh
+yes
+a
+by
++/-
+ABCXYZ
+y
+yyyyy
+yyayy
+```
+
+As you can see, Rubular highlights everything in these strings except the `y` characters.
+
+More generally, you can negate multiple characters. For instance, the pattern `/[^aeiou]/` matches any character but `a`, `e`, `i`, `o`, or `u`. Try `/[^aeiou]/` with:
+
+```sh
+Four Score And Seven
+abcdefghijklmnopqrstuvwxyz
+123 hello +/* bye
+```
+
+Here, everything except the lowercase vowels lights up.
+
+Importantly, this example shows that *any* character means precisely that. Rubular highlights all the uppercase letters, lowercase consonants, numerics, spaces, and punctuation. It highlights everything but the lowercase vowels. Don't forget this, or you may one day end up learning a lesson the hard way.
+
+In a slightly more subtle vein, what do you think happens in this code?
+
+```rb
+# Ruby
+text = 'xyx'
+puts 'matched' if text.match(/[^x]/)
+```
+
+```js
+// JavaScript
+let text = 'xyx';
+if (text.match(/[^x]/)) {
+  console.log('matched'); // => 'matched' truthy because there is a match to `y` in the string
+}
+```
+
+If you said that the code doesn't output anything, you would be... WRONG! `/[^x]/` does in fact match `xyx`, so in both cases, the program outputs `matched`.
+
+Why is that? Rubular (and Scriptular) show you which characters match each regex; what it doesn't show explicitly is that `match` *returns a truthy value when there is a match anywhere in the string*. Though Rubular shows `/[^x]/` matching the `y` in `xyx` and nothing else, `text.match` is still truthy.
+
+Keep this in mind as you're starting out and using Rubular (or Scriptular) often to test your patterns; if you let the highlighted results mislead you, you'll soon find yourself puzzled. We could have pointed this out earlier, but this issue often occurs when using negated character classes.
+
+### Summary of Character Classes
+
+By now, you're probably starting to realize that regex have some unusual features, and you may even see how useful they can be. If you're still wondering where this is all going, though, we're getting there. First, though, we need to look at **shortcuts** for the most commonplace character classes.
+
+Before we do that, we have some exercises for you. In these exercises, use Rubular to write and test your regex. You don't need to write any code, though you may need to use IRB or the JavaScript console for some items. We expect you to use character classes in these exercises; *do not use alternation* when character classes will do the job.
+
+### Exercises in Character Classes
+
+1. Write a regex that matches uppercase or lowercase `K`s or a lowercase `s`. Test it with these strings:
+
+```sh
+Kitchen Kaboodle
+Reds and blues
+kitchen Servers
+```
+
+Solution: `[Kks]`
+
+This expression matches two `K`s, one `k`, and three `s` characters. Note that it does not match the uppercase `S` in `Servers`.
+
