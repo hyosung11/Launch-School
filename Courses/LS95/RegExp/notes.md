@@ -140,7 +140,7 @@ The following special characters have special meaning in a Ruby or JavaScript re
 
 We call such characters *meta-characters*. If you want to match a literal meta-character, you must *escape* it with a leading backslash (`\`). To match a question mark, for instance, use the regex `/\?/`. Go ahead and try`/\?/` now with these strings (and some of your own if you aren't sure what will happen):
 
-Inside square brackets, the rules for meta-characters change. We'll talk about meta-characters in "character classes" a little later.
+Inside [square brackets], the rules for meta-characters change. We'll talk about meta-characters in "character classes" a little later.
 
 Some variants of regex have different meta-characters, and some reverse the sense of escaped characters. In `vim`, for example, `\(` and `\)` are meta-characters, while `(` and `)` match literal parentheses. This reversal can be confusing, but you must be aware of it.
 
@@ -153,4 +153,116 @@ Silence!
 "What's that?"
 ```
 
-You should find that `/\?/` matches all of the question marks in these strings. Try the same strings using `/?/` - you should see an error message instead.
+You should find that `/\?/` matches all of the question marks in these strings. Try the same strings using `/?/` - you should see an error message instead:
+
+`Target of repeat operator is not specified.`
+
+The remaining characters aren't meta-characters; they have no extraordinary meaning inside a regex. Both colons (`':'`) and spaces (`' '`) fall into this category. You can use these characters without an escape since they have no special meaning inside a pattern. For example, try `/:/` against these strings:
+
+```sh
+chris:x:300
+A thought; no, forget it.
+::::
+```
+
+Try changing the regex to `/ /`.
+
+As of this writing, Rubular does not detect a single space as a regex. Try `/[ ]/` instead - this is equivalent to `/ /`, but it works in Rubular.
+
+Now change the regex to `/./` (that's a period between the `/` characters). Whoa! What happened here? Oh, right, `.` is a meta-character; you must escape it. Change the regex to `/\./` instead. That's better now. (We'll return to `/./` and why everything lit up in a later chapter.)
+
+You don't need to memorize the list of meta-characters. You can escape all non-alphanumerics even when you don't need to. However, it's good to get a feel for which are meta-characters; unnecessary escapes make your regex harder to read. Keep the list of meta-characters handy until you have them fully loaded into your brain.
+
+### Concatenation
+
+You can *concatenate* two or more patterns into a new pattern that matches each of the originals in sequence. The regex `/cat/`, for instance, consists of the concatenation of the `c`, `a`, and `t` patterns, and matches any string that contains a `c` followed by an `a` followed by a `t`.
+
+Give `/cat/` a try using the following strings:
+
+```sh
+cat
+catalog
+copycat
+scatter
+the lazy cat.
+CAT
+cast
+```
+
+If all went well, the first five strings matched the regex, but the last two did not. `CAT` didn't match since it is uppercase, and `cast` didn't match because `s` isn't part of the pattern.
+
+The fact that we use a fancy name like concatenation should give you a hint that more is going on here than meets the eye. The patterns we concatenated are simple; they each match a single, specific character. We aren't limited to these simple patterns though; in fact, you can concatenate any pattern to another to produce a larger regex. There are no practical limits to the number of concatenations you perform other than the physical limitations of your hardware.
+
+This fundamental idea is one of the more important concepts behind regex; **patterns are the building blocks of regex**, not characters or strings. You can construct complex regex by concatenating a series of patterns, and you can analyze a complex regex by breaking it down into its component patterns.
+
+In theory, your computer's capacity to handle large regex places some limitations on the size and complexity of your regex. In practice, though, your ability to understand and maintain your code places more severe restrictions on it. Your head will reach the breaking point long before your computer does. You'll sometimes hear regex called write-only expressions or line noise because it's easy to write an unreadable and unmaintainable mess. Use regex not because you can; use them because your code demands them. Often, a bit of refactoring will eliminate the need for a complex regex.
+
+### Alternation
+
+In this section, we introduce alternation, a simple way to construct a regex that matches one of several sub-patterns. In its most basic form, you write two or more patterns separated by pipe (`|`) characters, and then surround the entire expression in parentheses. For example, try the regex `/(cat|dog|rabbit)/` with the following strings:
+
+```sh
+The lazy cat.
+The dog barks.
+Down the rabbit hole.
+The lazy cat, chased by the barking dog,
+dives down the rabbit hole.
+catalog
+The Yellow Dog
+My bearded dragon's name is Darwin
+```
+
+As with other patterns, case matters, so the `Dog` in `The Yellow Dog` is not matched.
+
+As with concatenation, there are no built-in restrictions on alternation.
+
+Even though parentheses and pipes are meta-characters that require escaping, we don't do that here. We aren't performing a literal match, but are instead using the "meta" meaning of those characters.
+
+To see the difference, give the regex `/\(cat\|dog\)/` a try with the following strings:
+
+```sh
+(cat|dog)
+bird(cat|dog)zebra
+cat
+dog
+```
+
+You'll notice this time that we don't match either cat or dog; since we escaped everything, the regex matcher looks for literal instances of those characters and doesn't treat them as an alternation operation.
+
+### Control Character Escapes
+
+Most modern computing languages use control character escapes in strings to represent characters that don't have a visual representation. For example, \n, \r, and \t are nearly universal ways to represent line feeds, carriage returns, and tabs, respectively. Both Ruby and JavaScript support these escapes, as do all regex engines. For example:
+
+Ruby
+
+```rb
+puts "has tab" if text.match(/\t/)
+```
+
+JavaScript
+
+```js
+if (text.match(/\t/)) {
+  console.log("has tab");
+}
+```
+
+Both print `has tab` if `text` contains a tab character.
+
+Note that not everything that looks like a control character escape is a genuine control character escape. For instance:
+
+* `\s` and `\d` are **special character classes** (we'll cover these later)
+* `\A` and `\z` are **anchors** (we'll cover these as well)
+* `\x` and `\u` are special character code markers (we won't cover these)
+* `\y` and `\q` have no special meaning at all
+
+### Ignoring Case
+
+### Summary
+
+The discussion so far is straight-forward. You've learned the basic regex syntax, seen an example of using regex, and played around with a few basic regex. You've also learned about one of the fundamental concepts behind regex: **concatenation of patterns**. In the next chapter, we'll explore a little further and examine regex that can match any set of characters.
+
+But, before you proceed, take a little while to work the exercises below. In these exercises, use Rubular to write and test your regex. You don't need to write any code.
+
+### Exercises
+
