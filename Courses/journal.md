@@ -4972,3 +4972,27 @@ function duplicates(array) {
 10:54 Two study session today. One with Alex and another with Laurent. Keep going.
 
 17:44 I enjoy solving 7 kyu problems on Codewars. Time for dinner.
+
+21:48 Stuck on a problem and going to watch Cobra Kai with Sohee now. Alex got a baby gift for Jeff's kid and I split the cost with him. Nice gesture.
+
+22:22 Had to look up answer for Character Count. Now going to bed.
+
+## 20220114 토요일
+
+10:06 After soccer and a bath I want to work on solving more problems. Shall I do a warmup first?
+
+15:47 We watched Sing 2 at the theater together. It was fun. I cried at the end when Clay Calloway came on to sing "Where the Streets Have No Name." His character was voiced by Bono himself.
+
+18:40 After dinner more problems to solve.
+
+21:01 Studying Regular Expressions and now going to watch TV with Sohee.
+
+## 20220115 일요일
+
+13:46 Back after reffing this morning and ready to work on some more coding problems. I think I need to review and also continue working on my interview assessment study guide.
+
+15:34 I worked successfully on a few 7 kyu string problems. I'm going to take a break and then go back to the Big List of 109 Interview Problems.
+
+19:16 Finished the next regex chapter.
+
+20:36 I have to keep going when I get stuck. I couldn't unstick myself with "Delete a Digit".

@@ -140,7 +140,7 @@ The following special characters have special meaning in a Ruby or JavaScript re
 
 We call such characters *meta-characters*. If you want to match a literal meta-character, you must *escape* it with a leading backslash (`\`). To match a question mark, for instance, use the regex `/\?/`. Go ahead and try`/\?/` now with these strings (and some of your own if you aren't sure what will happen):
 
-Inside square brackets, the rules for meta-characters change. We'll talk about meta-characters in "character classes" a little later.
+Inside [square brackets], the rules for meta-characters change. We'll talk about meta-characters in "character classes" a little later.
 
 Some variants of regex have different meta-characters, and some reverse the sense of escaped characters. In `vim`, for example, `\(` and `\)` are meta-characters, while `(` and `)` match literal parentheses. This reversal can be confusing, but you must be aware of it.
 
@@ -153,4 +153,484 @@ Silence!
 "What's that?"
 ```
 
-You should find that `/\?/` matches all of the question marks in these strings. Try the same strings using `/?/` - you should see an error message instead.
+You should find that `/\?/` matches all of the question marks in these strings. Try the same strings using `/?/` - you should see an error message instead:
+
+`Target of repeat operator is not specified.`
+
+The remaining characters aren't meta-characters; they have no extraordinary meaning inside a regex. Both colons (`':'`) and spaces (`' '`) fall into this category. You can use these characters without an escape since they have no special meaning inside a pattern. For example, try `/:/` against these strings:
+
+```sh
+chris:x:300
+A thought; no, forget it.
+::::
+```
+
+Try changing the regex to `/ /`.
+
+As of this writing, Rubular does not detect a single space as a regex. Try `/[ ]/` instead - this is equivalent to `/ /`, but it works in Rubular.
+
+Now change the regex to `/./` (that's a period between the `/` characters). Whoa! What happened here? Oh, right, `.` is a meta-character; you must escape it. Change the regex to `/\./` instead. That's better now. (We'll return to `/./` and why everything lit up in a later chapter.)
+
+You don't need to memorize the list of meta-characters. You can escape all non-alphanumerics even when you don't need to. However, it's good to get a feel for which are meta-characters; unnecessary escapes make your regex harder to read. Keep the list of meta-characters handy until you have them fully loaded into your brain.
+
+### Concatenation
+
+You can *concatenate* two or more patterns into a new pattern that matches each of the originals in sequence. The regex `/cat/`, for instance, consists of the concatenation of the `c`, `a`, and `t` patterns, and matches any string that contains a `c` followed by an `a` followed by a `t`.
+
+Give `/cat/` a try using the following strings:
+
+```sh
+cat
+catalog
+copycat
+scatter
+the lazy cat.
+CAT
+cast
+```
+
+If all went well, the first five strings matched the regex, but the last two did not. `CAT` didn't match since it is uppercase, and `cast` didn't match because `s` isn't part of the pattern.
+
+The fact that we use a fancy name like concatenation should give you a hint that more is going on here than meets the eye. The patterns we concatenated are simple; they each match a single, specific character. We aren't limited to these simple patterns though; in fact, you can concatenate any pattern to another to produce a larger regex. There are no practical limits to the number of concatenations you perform other than the physical limitations of your hardware.
+
+This fundamental idea is one of the more important concepts behind regex; **patterns are the building blocks of regex**, not characters or strings. You can construct complex regex by concatenating a series of patterns, and you can analyze a complex regex by breaking it down into its component patterns.
+
+In theory, your computer's capacity to handle large regex places some limitations on the size and complexity of your regex. In practice, though, your ability to understand and maintain your code places more severe restrictions on it. Your head will reach the breaking point long before your computer does. You'll sometimes hear regex called write-only expressions or line noise because it's easy to write an unreadable and unmaintainable mess. Use regex not because you can; use them because your code demands them. Often, a bit of refactoring will eliminate the need for a complex regex.
+
+### Alternation
+
+In this section, we introduce alternation, a simple way to construct a regex that matches one of several sub-patterns. In its most basic form, you write two or more patterns separated by pipe (`|`) characters, and then surround the entire expression in parentheses. For example, try the regex `/(cat|dog|rabbit)/` with the following strings:
+
+```sh
+The lazy cat.
+The dog barks.
+Down the rabbit hole.
+The lazy cat, chased by the barking dog,
+dives down the rabbit hole.
+catalog
+The Yellow Dog
+My bearded dragon's name is Darwin
+```
+
+As with other patterns, case matters, so the `Dog` in `The Yellow Dog` is not matched.
+
+As with concatenation, there are no built-in restrictions on alternation.
+
+Even though parentheses and pipes are meta-characters that require escaping, we don't do that here. We aren't performing a literal match, but are instead using the "meta" meaning of those characters.
+
+To see the difference, give the regex `/\(cat\|dog\)/` a try with the following strings:
+
+```sh
+(cat|dog)
+bird(cat|dog)zebra
+cat
+dog
+```
+
+You'll notice this time that we don't match either cat or dog; since we escaped everything, the regex matcher looks for literal instances of those characters and doesn't treat them as an alternation operation.
+
+### Control Character Escapes
+
+Most modern computing languages use control character escapes in strings to represent characters that don't have a visual representation. For example, \n, \r, and \t are nearly universal ways to represent line feeds, carriage returns, and tabs, respectively. Both Ruby and JavaScript support these escapes, as do all regex engines. For example:
+
+Ruby
+
+```rb
+puts "has tab" if text.match(/\t/)
+```
+
+JavaScript
+
+```js
+if (text.match(/\t/)) {
+  console.log("has tab");
+}
+```
+
+Both print `has tab` if `text` contains a tab character.
+
+Note that not everything that looks like a control character escape is a genuine control character escape. For instance:
+
+* `\s` and `\d` are **special character classes** (we'll cover these later)
+* `\A` and `\z` are **anchors** (we'll cover these as well)
+* `\x` and `\u` are special character code markers (we won't cover these)
+* `\y` and `\q` have no special meaning at all
+
+### Ignoring Case
+
+As we've seen, regex are case sensitive by default. If you want to match a lowercase `s`, you need to use a lowercase `s` in your regex. If you want to match an uppercase `S`, you must use an `S` in your regex.
+
+You can change this default behavior by appending an `i` to the close `/` of a regex, which makes the entire regex ignore case. For example, try the pattern `/launch/` against these strings:
+
+```sh
+I love Launch School!
+LAUNCH SCHOOL! Gotta love it!
+launchschool.com
+```
+
+You should see one match -- `launch` in the domain name. Now add an `i` option to the regex, i.e., `/launch/i` and try again. This time, Rubular will highlight all three instances of `launch` without regard to their case. Nifty!
+
+There are other useful **options** like `/i`, but the options are language specific. We don't have a dedicated section to discuss any other options, some of which we'll meet later. See the documentation for your language of choice for complete list of available options.
+
+The documentation calls these options **flags** or **modifiers**, but we can use all three terms interchangeably.
+
+### Summary
+
+The discussion so far is straight-forward. You've learned the basic regex syntax, seen an example of using regex, and played around with a few basic regex. You've also learned about one of the fundamental concepts behind regex: **concatenation of patterns**. In the next chapter, we'll explore a little further and examine regex that can match any set of characters.
+
+But, before you proceed, take a little while to work the exercises below. In these exercises, use Rubular to write and test your regex. You don't need to write any code.
+
+### Exercises
+
+1. Write a regex that matches an uppercase K. Test it with these strings:
+
+```sh
+Kx
+BlacK
+kelly
+```
+
+Solution: `/K/`.
+The correct matches are `K` at the beginning of line 1, and `K` at the end of line 2.
+
+2. Write a regex that matches an uppercase or lowercase `H`. Test it with these strings:
+
+```sh
+Henry
+perch
+golf
+```
+
+Solution: `/h/i' or `/H/i'
+
+An alternative solution is to use alternation: `/(h|H)/`
+The correct matches are `H` at the beginning of line 1, and `h` at the end of line 2. Can you think of a situation where you might want to use alternation instead of the `i` option.
+
+3. Write a regex that matches the string `dragon`. Test it with these strings:
+
+```sh
+snapdragon
+bearded dragon
+dragoon
+```
+
+Solution: `/dragon/`
+The regex should match the word `dragon` at the end of lines 1 and 2.
+
+4. Write a regex that matches any of the following fruits: banana, orange, apple, strawberry. The fruits may appear in other words. Test it with these strings:
+
+```sh
+banana
+orange
+pineapples
+strawberry
+raspberry
+grappler
+```
+
+Solution: `/(banana|orange|apple|strawberry)/`
+The solution matches everything except `raspberry`.
+
+5. Write a regex that matches a comma or space. Test your regex with these strings:
+
+```sh
+This line has spaces
+This,line,has,commas,
+No-spaces-or-commas
+```
+
+Solution: `( |,)/`
+The expression should match three spaces on line 1 and four commas on line 2.
+
+6. Challenge: Write a regex that matches blueberry or blackberry, but write berry precisely once. Test it with these strings:
+
+```sh
+blueberry
+blackberry
+black berry
+strawberry
+```
+
+Hint: you need both concatenation and alternation.
+
+Solution: `/(blue|black)berry/`
+
+The key to this challenge is that concatenation works with **patterns**, not characters. Thus, we can concatenate (blue|black) with berry to produce the final result.
+
+The expression matches the first two lines.
+
+How come the regex doesn't match `black berry`? Because of the space.
+
+END Saturday, 20220115 @ 21:01
+
+## Character Classes
+
+Let's move out a little further into the regex waters, knee-deep, by wading into **character classes**, which are patterns that let you specify a set of characters that you want to match. We'll stick to the simple character class information in this section; later, we'll explore some handy shortcut patterns you can use to specify some of the most commonly needed classes. Right now, though, understanding how to *construct elementary classes* yourself is paramount.
+
+### Set of Characters
+
+Character class patterns use a list of characters *between square brackets*, e.g., `/[abc]/`. Such a pattern matches a **single** occurrence of any of the characters between the brackets. Try these regex:
+
+```sh
+/[FX]/
+/[e+]/
+/[abAB]/
+/[*+]/
+```
+
+against the string `Four score + seven`. You should find that the third regex fails to match at all, while the other regex match at least one character in the string. (We'll come back to why we don't escape `*` and `+`.)
+
+against the string `Four score + seven`. You should find that the third regex fails to match at all, while the other regex match at least one character in the string. (We'll come back to why we *don't escape* `*` and `+`.)
+
+**Character class patterns** come in handy in all kinds of situations. For example, if a program wants a user to choose between five different options by entering a number between 1 and 5, you can validate that input with the regex `/[12345]/`. Likewise, you can validate a `y/n` prompt response with `/[nyNY]/`.
+
+Single-character classes (e.g., `/[a]/`) are possible and even useful, though we won't get into that here. Don't automatically remove the brackets if you encounter one in code you're working on: it's probably there for a reason.
+
+Character classes also come in handy when you need to check for uppercase and lowercase letters, but can't use the `i` flag to make the entire regex case insensitive. For example, `/[Hh]oover/` matches `Hoover` or `hoover`, but not `HOOVER`.
+
+When writing character classes, it's good practice to *group characters by type*: digits, uppercase letters, lowercase letters, whitespace, and non-alphanumeric characters. You can arrange the groups in any order, though typically the non-alphanumerics come first or last in the character class. This practice aids **readability**.
+
+Recall that you can *concatenate* any patterns, and that includes character classes. We did so earlier with `/[Hh]oover/`. You can also concatenate character classes. The regex `/[abc][12]/` matches any two characters where the first character is an `a`, `b`, or `c`, and the second is a `1` or a `2`. Try it with these strings:
+
+```sh
+a2
+Model 640c1
+a1 a2 a3 b1 b2 b3 c1 c2 c3 d1 d2 d3
+```
+
+Earlier, we used both `*` and `+` in our character classes; this deserves a bit of explanation. Recall that we said that `*` and `+` are meta-characters, and require a backslash-escape to retain their literal meaning? Well, we told a small lie. In fact, *the number of meta-characters dwindles to a handful inside a character class*:
+
+`^` `\` `-` `[ ]`
+
+Some of these meta-characters are only meta-characters *in certain situations*. For example, you can use `^` as a **non-meta-character** if it *isn't the first character* in the class, and you can use `-` as a **non-meta-character** if it *is the first character in the class*.
+
+You can escape any of the special characters, even if you don't have to. Thus, `/[\*\+]/` is an acceptable, albeit less readable, equivalent to `/[*+]/`. As before, though, you should keep this list of class meta-characters handy until you know it by heart.
+
+### Range of Characters
+
+Sometimes, you'll find that your character class is a natural sequence of characters, such as the letters `a` through `z`. You can abbreviate these ranges inside character classes by specifying the starting character, a hyphen (`-`), and the last character. Thus, `/[a-z]/` matches any lowercase alphabetic character, `/[j-p]/` limits that to the letters `j` through `p`, while `/[0-9]/` matches any decimal digit. You can even combine ranges; suppose you need to match hexadecimal digits. If so, the following method could come in handy:
+
+```rb
+# Ruby
+def hex_digit?(char)
+  char.match(/[0-9A-Fa-f]/)
+end
+```
+
+In this regex, we string together three separate ranges to produce the final character class that covers all hexadecimal digits, including both upper- and lowercase variants.
+
+While it is possible to construct ranges that cover non-alphanumeric characters, *do not do this*. Stick to the alphanumeric characters. Also, don't try to combine lowercase and uppercase alphabetic characters in a single range: `/[A-z]/` does not do what you probably think it does. To see this, try `/[A-z]/` with the following strings:
+
+```sh
+The United Nations
+The [eval] method
+Some^weird_stuff
+```
+
+Rubular should highlight the brackets (`[, ]`), caret (`^`), and underscore (`_`) as matched characters. Change the regex to `/[A-Za-z]/` to highlight the alphabetic characters alone.
+
+### Negated Classes
+
+Another useful feature of character class ranges is **range negation**. Negations look like ordinary character classes, except the first character between the brackets is a caret (`^`). The negated class *matches all characters not identified in the range.*
+
+At its simplest, you can have a negated character range for one character. For example, try `/[^y]/` with these strings:
+
+```sh
+yes
+a
+by
++/-
+ABCXYZ
+y
+yyyyy
+yyayy
+```
+
+As you can see, Rubular highlights everything in these strings except the `y` characters.
+
+More generally, you can negate multiple characters. For instance, the pattern `/[^aeiou]/` matches any character but `a`, `e`, `i`, `o`, or `u`. Try `/[^aeiou]/` with:
+
+```sh
+Four Score And Seven
+abcdefghijklmnopqrstuvwxyz
+123 hello +/* bye
+```
+
+Here, everything except the lowercase vowels lights up.
+
+Importantly, this example shows that *any* character means precisely that. Rubular highlights all the uppercase letters, lowercase consonants, numerics, spaces, and punctuation. It highlights everything but the lowercase vowels. Don't forget this, or you may one day end up learning a lesson the hard way.
+
+In a slightly more subtle vein, what do you think happens in this code?
+
+```rb
+# Ruby
+text = 'xyx'
+puts 'matched' if text.match(/[^x]/)
+```
+
+```js
+// JavaScript
+let text = 'xyx';
+if (text.match(/[^x]/)) {
+  console.log('matched'); // => 'matched' truthy because there is a match to `y` in the string
+}
+```
+
+If you said that the code doesn't output anything, you would be... WRONG! `/[^x]/` does in fact match `xyx`, so in both cases, the program outputs `matched`.
+
+Why is that? Rubular (and Scriptular) show you which characters match each regex; what it doesn't show explicitly is that `match` *returns a truthy value when there is a match anywhere in the string*. Though Rubular shows `/[^x]/` matching the `y` in `xyx` and nothing else, `text.match` is still truthy.
+
+Keep this in mind as you're starting out and using Rubular (or Scriptular) often to test your patterns; if you let the highlighted results mislead you, you'll soon find yourself puzzled. We could have pointed this out earlier, but this issue often occurs when using negated character classes.
+
+### Summary of Character Classes
+
+By now, you're probably starting to realize that regex have some unusual features, and you may even see how useful they can be. If you're still wondering where this is all going, though, we're getting there. First, though, we need to look at **shortcuts** for the most commonplace character classes.
+
+Before we do that, we have some exercises for you. In these exercises, use Rubular to write and test your regex. You don't need to write any code, though you may need to use IRB or the JavaScript console for some items. We expect you to use character classes in these exercises; *do not use alternation* when character classes will do the job.
+
+### Exercises in Character Classes
+
+1. Write a regex that matches uppercase or lowercase `K`s or a lowercase `s`. Test it with these strings:
+
+```sh
+Kitchen Kaboodle
+Reds and blues
+kitchen Servers
+```
+
+Solution: `[Kks]`
+
+This expression matches two `K`s, one `k`, and three `s` characters. Note that it does not match the uppercase `S` in `Servers`.
+
+2. Write a regex that matches any of the strings `cat`, `cot`, `cut`, `bat`, `bot`, or `but`, regardless of case. Test it with this text:
+
+```sh
+My cats, Butterscotch and Pudding, like to
+sleep on my cot with me, but they cut my sleep
+short with acrobatics when breakfast time rolls
+around. I need a robotic cat feeder.
+```
+
+There should be nine matches.
+
+Solution: `/[cb][aou][t]/i`
+
+If your pattern is somewhat different, check yourself against these matches:
+
+* Line 1: `cat` in `cats`; `But` and `cot` in `Butterscotch`
+* Line 2: `cot`, `but`, `cut`
+* Line 3: `bat` in `acrobatics`
+* Line 4: `bot` in `robotic`; `cat`
+
+3. Base 20 digits include the decimal digits 0 through 9, and the letters A through J in upper or lowercase. Write a regex that matches base 20 digits. Test it with these strings:
+
+```sh
+0xDEADBEEF
+1234.5678
+Jamaica
+plow ahead
+```
+
+There should be 28 matches.
+
+Solutions: `/[0-9a-jA-J]/` or `/[0-9a-j]/i`
+
+These patterns match everything in the sample text except:
+
+* `x` on line 1
+* `.` on line 2
+* `m` on line 3
+* `p`, `l`, `o`, `w`, and (space) on line 4
+
+4. Write a regex that matches any letter except `x` or `X`. Test it with these strings:
+
+```sh
+0x1234
+Too many XXXXXXXXXXxxxxxxXXXXXXXXXXXX to count.
+The quick brown fox jumps over the lazy dog
+THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+```
+
+There should be 82 matches.
+
+Solution: `/A-WYZa-wyz/` or `/[a-wyz]/i`
+
+This solution should match nearly everything in the sample text except:
+
+* the entire first line
+* none of the spaces
+* none of the `x` or `X` characters
+* the `.` at the end of line 2
+
+5. Why is `/[^xX]/` not a valid answer to the previous exercise?
+
+Solution: `/[^Xx]/` matches everything except `x` and `X`. We asked for an answer that matches any **letter** other than `x` or `X`.
+
+6. Write a regex that matches any character that is not a letter. Test it with these strings:
+
+```sh
+0x1234abcd
+1,000,000,000s and 1,000,000,000s.
+THE quick BROWN fox JUMPS over THE lazy DOG!
+```
+
+There should be 45-46 matches.
+
+Solution: `/[^a-z]/i`
+
+This regex matches the following characters:
+
+* Line 1: `0`, `1`, `2`, `3`, `4`, and the newline.
+* Line 2: Eighteen `0`s, two `1`s, six `,`s (commas), two spaces, a period, and the newline.
+* Line 3: Eight spaces, one `!`, and the newline (if present).
+
+7. Are `/(ABC|abc)/` and `/[Aa][Bb][Cc]/` equivalent regex? If not, how do they differ? Can you provide an example of a string that would match one of these regex, but not the other?
+
+Solution: The patterns are not equivalent. The former *matches nothing but the strings* `ABC` or `abc`; the latter matches any string consisting of the letters `a`, `b`, `c` in sequence, regardless of case. The string `Abc` would match the second pattern, but not the first.
+
+8. Are `/abc/i` and `/[Aa][Bb][Cc]/` equivalent regex? If not, how do they differ? Can you provide an example of a string that would match one of these regex, but not the other?
+
+Solution: The patterns are equivalent as specified; however, that equivalence may not survive a small modification to either pattern. For instance, `/abcd/i` is not equivalent to `/[Aa][Bb][Cc]d/`.
+
+9. Challenge: write a regex that matches a string that looks like a simple negated character class range, e.g., `'[^a-z]'`. (Your answer should match precisely six characters.) Test it with these strings:
+
+```sh
+The regex /[^a-z]/i matches any character that is
+not a letter. Similarly, /[^0-9]/ matches any
+non-digit while /[^A-Z]/ matches any character
+that is not an uppercase letter. Beware: /[^+-<]/
+is at best obscure, and may even be wrong.
+```
+
+There should be three matches.
+
+Solution: `/\[\^[0-9A-Za-z]-[0-9A-Za-z]\]/` or `/[\[][\^][0-9A-Za-z]-[0-9A-Za-z][\]]/`
+
+There are six patterns in each of these regex:
+
+Pattern  | Explanation
+---------|------------
+`\[` or `[\[]`  | a literal `[`
+`\^` or `[\^]`  | a literal `^`
+``[0-9A-Za-z]``  | any of the usual character class range starting values
+`-`  | a literal '-'
+`[0-9A-Za-z]`  | any of the usual character class range ending values
+`\]` or `[\]]`  | a literal `]`
+
+The three matches are `/[^a-z]/i`, `/[^0-9]/`, and `/[^A-Z]/`. Technically, the last regex string in our sample text, `/[^+-<]/`, is a valid regex; there is nothing illegal about character class ranges that don't use alphanumeric starting and ending points. However, you should avoid such ranges; think of them as invalid.
+
+END Section Sunday 20220116 @19:15
+
+## Character Class Shortcuts
+
+### Any Character
+
+### Whitespace
+
+### Digits and Hex Digits
+
+### Word Characters
+
+### Summary of Character Class Shortcuts
+
+### Exercises for Character Class Shortcuts
