@@ -36,6 +36,19 @@ Algorithm
 - return the largest number in numbers
 */
 
+function deleteDigit(num) {
+  let numbers = [];
+  let digits = String(num).split('');
+
+  for (let idx = 0; idx < digits.length; idx++) {
+    let arrayOfDigits = digits.slice();
+    arrayOfDigits.splice(idx, 1);
+    numbers.push(Number(arrayOfDigits.join('')));
+  }
+
+  return Math.max(...numbers);
+}
+
 function deleteDigit(number) {
   let numbers = [];
   let numString = String(number);
