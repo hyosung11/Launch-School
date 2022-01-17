@@ -4992,3 +4992,5 @@ function duplicates(array) {
 13:46 Back after reffing this morning and ready to work on some more coding problems. I think I need to review and also continue working on my interview assessment study guide.
 
 15:34 I worked successfully on a few 7 kyu string problems. I'm going to take a break and then go back to the Big List of 109 Interview Problems.
+
+19:16 Finished the next regex chapter.
