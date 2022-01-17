@@ -621,3 +621,16 @@ The three matches are `/[^a-z]/i`, `/[^0-9]/`, and `/[^A-Z]/`. Technically, the 
 
 END Section Sunday 20220116 @19:15
 
+## Character Class Shortcuts
+
+### Any Character
+
+### Whitespace
+
+### Digits and Hex Digits
+
+### Word Characters
+
+### Summary of Character Class Shortcuts
+
+### Exercises for Character Class Shortcuts

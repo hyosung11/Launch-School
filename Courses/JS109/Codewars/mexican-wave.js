@@ -138,12 +138,14 @@ Algorithm
 
 function wave(str){
  let result = [];
+
   for (let idx = 0; idx < str.length; idx++) {
     let charsArr = str.split('');
     if (charsArr[idx] === ' ') continue;
     charsArr[idx] = charsArr[idx].toUpperCase();
     result.push(charsArr.join(''))
   }
+
   return result;
 }
 
