@@ -4997,6 +4997,8 @@ function duplicates(array) {
 
 20:36 I have to keep going when I get stuck. I couldn't unstick myself with "Delete a Digit".
 
-## 20220117 일요일
+## 20220116 월요일
 
 05:59 Ready to study with Alex.
+
+17:01 Dealt with the water works of the house today. I didn't get to study with Laurent. I'm tired.
