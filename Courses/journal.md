@@ -5002,3 +5002,11 @@ function duplicates(array) {
 05:59 Ready to study with Alex.
 
 17:01 Dealt with the water works of the house today. I didn't get to study with Laurent. I'm tired.
+
+## 20220117 화요일
+
+07:12 End of study session with Alex. He's quiet right now.
+
+08:59 Need to certify for UI benefits and then a study session with Laurent.
+
+12:14 Drilling this problem that confused me in my study session with Laurent. Ugh.
