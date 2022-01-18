@@ -4967,7 +4967,7 @@ function duplicates(array) {
 
 20:44 A problem I had seen before didn't seem as daunting as before, so that's progress. Good night.
 
-## 20220113 금요일
+## 20220114 금요일
 
 10:54 Two study session today. One with Alex and another with Laurent. Keep going.
 
@@ -4977,7 +4977,7 @@ function duplicates(array) {
 
 22:22 Had to look up answer for Character Count. Now going to bed.
 
-## 20220114 토요일
+## 20220115 토요일
 
 10:06 After soccer and a bath I want to work on solving more problems. Shall I do a warmup first?
 
@@ -4987,7 +4987,7 @@ function duplicates(array) {
 
 21:01 Studying Regular Expressions and now going to watch TV with Sohee.
 
-## 20220115 일요일
+## 20220116 일요일
 
 13:46 Back after reffing this morning and ready to work on some more coding problems. I think I need to review and also continue working on my interview assessment study guide.
 
@@ -4996,3 +4996,7 @@ function duplicates(array) {
 19:16 Finished the next regex chapter.
 
 20:36 I have to keep going when I get stuck. I couldn't unstick myself with "Delete a Digit".
+
+## 20220117 일요일
+
+05:59 Ready to study with Alex.
