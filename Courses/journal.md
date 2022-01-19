@@ -4997,16 +4997,22 @@ function duplicates(array) {
 
 20:36 I have to keep going when I get stuck. I couldn't unstick myself with "Delete a Digit".
 
-## 20220116 월요일
+## 20220117 월요일
 
 05:59 Ready to study with Alex.
 
 17:01 Dealt with the water works of the house today. I didn't get to study with Laurent. I'm tired.
 
-## 20220117 화요일
+## 20220118 화요일
 
 07:12 End of study session with Alex. He's quiet right now.
 
 08:59 Need to certify for UI benefits and then a study session with Laurent.
 
 12:14 Drilling this problem that confused me in my study session with Laurent. Ugh.
+
+14:27 Able to solve some problems on my own without peeking for help.
+
+## 20220119 수요일
+
+11:27 Had a later study session with Alex where we couldn't quite get our solution to work and then Laurent figured it out. Met with Laurent and I couldn't figure out how to get a slice of substring with one char removed. Fired ServPro and now NJ Water and Mold is here.

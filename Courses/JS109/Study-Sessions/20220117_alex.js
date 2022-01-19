@@ -11,7 +11,7 @@ For example:
 
 "Example Input" ==> "iNPUT eXAMPLE"
 
-You may assume the input only contain English alphabet and spaces. 
+You may assume the input only contain English alphabet and spaces.
 
 PROBLEM
 - input: string
@@ -35,12 +35,20 @@ DATA STRUCTURE
 - output: new string
 
 ALGO
-- split into arr by spaces
-- filter out empty string
-- use a helper function (or map) to make all lower char upper and vice versa
-- create result variable and set to: reverse and join arr by space
-- return result
+- input string
+  - split into arr by spaces
+  - iterate through each word
+  - use a helper function (or map) to make all lower char upper and vice versa
+  - reverse the words
+  - join
+- return new string
 
+- helper function
+  - split word at char
+  - map each char
+    - if lowercase make it upper
+    - if upper make it lower
+  - join the chars
 */
 
 function stringTransformer(string) {
