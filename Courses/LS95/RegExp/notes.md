@@ -623,14 +623,120 @@ END Section Sunday 20220116 @19:15
 
 ## Character Class Shortcuts
 
+Let's go a little further out; not too far - waist-deep will do. You're now ready to start exploring character class shortcuts. As we saw in the previous chapter, character class patterns match against a set of characters. We use these simple patterns a lot; in fact, you'll find that nearly every regex you use contains at least one character class pattern. It may not look like the character classes you have already seen, though; we use some character classes so often that most regex engines have built-in shortcuts. We'll explore those shortcuts in this chapter.
+
 ### Any Character
+
+The most commonly needed character class is the class that represents *any* character; if you don't care whether a character is alphanumeric, punctuation, whitespace, some control character, or something else entirely, you need a character class that represents any character. That's where the `.` (a period) meta-character comes in. Try matching `/./` against the following strings:
+
+```sh
+This text contains letters, numbers, punctuation,
+whitespace, and even newline characters. 99988222.
+Everything in it should match the /./ pattern.
+```
+
+Rubular should highlight every character in this text, including the spaces. The unhighlighted characters - you probably can't see this - are the newline characters at the end of each line.
+
+By default, `/./` does not match newline characters, which is useful: you typically don't want them. Use the `/m`(multiline) option when `.` should match newlines; see the documentation for your language.
+
+Even though `.` is a shortcut for a character class, it does not appear inside square brackets. A `.` inside square brackets is literal; if you want to match "any character", you must move the period outside the square brackets.
 
 ### Whitespace
 
+Two additional character class shortcuts that are frequently needed are `\s` for whitespace characters, and `\S` for non-whitespace characters. By definition, the whitespace characters are the space (' '), tab ('\t'), vertical tab ('\v'), carriage return ('\r'), line feed ('\n'), and form feed ('\f'). Thus, `/\s/` is equivalent to `/[ \t\v\r\n\f]/`, while `/\S/` is equivalent to `/[^ \t\v\r\n\f]/`.
+
+Consider these examples:
+
+```rb
+# Ruby
+puts 'matched 1' if 'Four score'.match(/\s/)
+puts 'matched 2' if "Four\tscore".match(/\s/)
+puts 'matched 3' if "Four-score\n".match(/\s/)
+puts 'matched 4' if "Four-score".match(/\s/)
+```
+
+```js
+// JavaScript
+if ('Four score'.match(/\s/)) {
+  console.log('matched 1');
+}
+if ("Four\tscore".match(/\s/)) {
+  console.log('matched 2');
+}
+if ("Four-score\n".match(/\s/)) {
+  console.log('matched 3');
+}
+if ("Four-score".match(/\s/)) {
+  console.log('matched 4');
+}
+```
+
+The first three examples in each group all print a matched message because the given string contains a whitespace character; the last in each group outputs nothing since "Four-score" doesn't include whitespace.
+
+Similarly:
+
+```rb
+# Ruby
+puts 'matched 1' if 'a b'.match(/\S/)
+puts 'matched 2' if " \t\n\r\f\v".match(/\S/)
+```
+
+```js
+// JavaScript
+if ('a b'.match(/\S/)) {
+  console.log('matched 1');
+}
+if (" \t\n\r\f\v".match(/\S/)) {
+  console.log('matched 2');
+}
+```
+
+prints `matched 1` since `/\S/` matches each of the letters in `'a b'`, but does not print anything for the second match since all of the characters in the string are whitespace characters.
+
+You can use `\s` and `\S` both in and out of square brackets. Outside square brackets, e.g., `/\s/`, it stands for one of the whitespace characters. Inside square brackets, e.g., `/[a-z\s]/`, they represent an **alternative** to the other members of the class. Here, for instance, it represents any lowercase alphabetic character or any whitespace character.
+
 ### Digits and Hex Digits
+
+The decimal digits, 0-9, and the hexadecimal digits, 0-9, A-F, and a-f, also show up often in character classes, so we have shortcuts for them:
+
+Shortcut  | Meaning
+----------|--------
+\d  | Any decimal digit (0-9)
+\D  | Any character but a decimal digit
+\h  | Any hexadecimal digit (0-9, A-F, a-f) (Ruby)
+\H  | Any character but a hexadecimal digit (Ruby)
+
+Try each these shortcuts against the following strings:
+
+```sh
+Launch school
+July 4th, 1776
+0xABCDef12
+```
+
+As with `\s` and `\S`, you can use these shortcuts in or out of square brackets.
 
 ### Word Characters
 
+This last pair of shortcuts may be confusing. `/\w/` matches "word characters", while `/\W/` matches "non-word characters". At first glance, most people assume that word characters are alphabetic. In fact, the definition of word characters for `\w` is a bit broader than that; they include all alphabetic characters (a-z, A-Z), all decimal digits (0-9), and, oddly, an *underscore* (_). Avoid trouble and commit this to memory.
+
+Try the `/\w/` and `/\W/` patterns against these strings:
+
+```sh
+Launch school
+July 4th, 1776
+one_word_two_words
+Don't fence me in.
+```
+
+There is no simple shortcut for alphabetic character classes.
+
+As with `\d` and `\D` and some other shortcuts on this page, you can use both `\w` and `\W` in or out of square brackets.
+
 ### Summary of Character Class Shortcuts
+
+That's a wrap for character classes and the most basic building blocks of regex. Liberal use of these shortcuts help make your regex easy to type and improve readability. We have one more concept to cover before fully immersing ourselves: anchors.
+
+Before you go, though, we have some exercises for you. In these exercises, use Rubular to write and test your regex. You don't need to write any code, though you may need to use IRB or the JavaScript console for some items.
 
 ### Exercises for Character Class Shortcuts
