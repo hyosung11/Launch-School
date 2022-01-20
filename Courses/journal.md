@@ -5026,3 +5026,5 @@ function duplicates(array) {
 15:39 Back after playing ping pong and still coding. I still like it a lot.
 
 16:29 Trying to really understand the code I read and write. Getting there more and more.
+
+18:51 After dinner and trying to run some code. Ugh. I'll look at more Regular Expressions. I wonder if should crash course in SQL and APIs? I haven't scheduled interviews with Greenshades or ChurnZero yet. Ugh.
