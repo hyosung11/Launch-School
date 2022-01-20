@@ -24,16 +24,20 @@ EXAMPLE
 
 DATA STRUCTURE
 - input string
-- intermediary: array to sort
+- intermediary: array
 - output string
 
 ALGORITHM
 - input string
-- split string into array of chars
-  - convert char to lowercase
-  - sort by char in alphabetical order
-  - return chars in alphabetical order
-  - join chars
+- initialize `result` to empty string
+- initialize `chars` to return value of regex to remove spaces
+- initialize `alphabet` to 'a-z'
+- split `alphabet` into array of letters
+  - iterate over each letter
+  - split chars into an array of char
+      - iterate over each char
+      - if char to lowercase is equal to letter
+        - increment `result` string
 - return new string
 */
 
@@ -114,21 +118,75 @@ ALGORITHM
 */
 
 
-function alphabetized(s) {
-  const alphabet = "abcdefghijklmnopqrstuvwxyz";
-  const result = [];
+// function alphabetized(s) {
+//   const alphabet = "abcdefghijklmnopqrstuvwxyz";
+//   const result = [];
 
-  Array.from(alphabet).forEach((letter, idx) => {
-    const sameLetters = s.split('').filter(char => {
-      return char === letter.toLowerCase() || char === letter.toUpperCase()
-    });
+//   Array.from(alphabet).forEach((letter, idx) => {
+//     const sameLetters = s.split('').filter(char => {
+//       return char === letter.toLowerCase() || char === letter.toUpperCase()
+//     });
 
-    if (sameLetters.length !== 0) {
-      result.push([sameLetters.join(''), idx])
-    }
-  });
+//     if (sameLetters.length !== 0) {
+//       result.push([sameLetters.join(''), idx])
+//     }
+//   });
 
-  return result.sort((a, b) => a[1] - b[1]).map(sub => sub[0]).join('')
+//   return result.sort((a, b) => a[1] - b[1]).map(sub => sub[0]).join('')
+// }
+
+// console.log(alphabetized('The Holy Bible')); // 'BbeehHilloTy'
+
+function alphabetized(string) {
+  let result = '';
+  let letters = string.match(/[a-z]/gi) ? string.match(/[a-z]/gi).join('') : '';
+
+  // console.log(`letters: ${letters}`) // 'TheHolyBible'
+
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+  alphabet.split('').forEach(letter => { // 'a', 'b', 'c'
+    letters.split('').forEach(char => { // 'T', 'h', 'e'
+      console.log(`letter: ${letter} && char: ${char}`)
+
+// outer loop for 'a' && inner loop for letters
+// letter: a && char: T
+// letter: a && char: h
+// letter: a && char: e
+// letter: a && char: H
+// letter: a && char: o
+// letter: a && char: l
+// letter: a && char: y
+// letter: a && char: B
+// letter: a && char: i
+// letter: a && char: b
+// letter: a && char: l
+// letter: a && char: e
+
+// outer loop for 'b' in alphabet && inner loop `letters`
+// letter: b && char: T
+// letter: b && char: h
+// letter: b && char: e
+// letter: b && char: H
+// letter: b && char: o
+// letter: b && char: l
+// letter: b && char: y
+// letter: b && char: B <--
+// letter: b && char: i
+// letter: b && char: b <--
+// letter: b && char: l
+// letter: b && char: e
+
+      if (char.toLowerCase() === letter) { 
+        // B.toLowerCase() === b
+        // b.toLowerCase() === b
+        result += char; // Bb
+      }
+    })
+  })
+
+  return result;
 }
 
-console.log(alphabetized('The Holy Bible')); // 'BbeehHilloTy'
+console.log(alphabetized("The Holy Bible")); // "BbeehHilloTy"
+// console.log(alphabetized("What the FOrK!")); // "aeFhhKOrttW"
