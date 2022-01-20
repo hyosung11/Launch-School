@@ -94,7 +94,7 @@ function SumOfCubesDivisibleByTwo(string) {
 }
 
 function reverse(string) {
-  return string.split('').reverse().join('')
+  return string.split('').reverse().join('');
 }
 
 function rotate(string) {
@@ -124,3 +124,38 @@ console.log(revrot('123456779', 8) === '23456771');
 console.log(revrot('', 8) === '');
 console.log(revrot('123456779', 0) === '');
 console.log(revrot('563000655734469485', 4) === '0365065073456944');
+
+function revrot(str, sz) {
+  // invalid input checks
+  if (sz <= 0 || str === '' || sz > str.length) return '';
+  // split the array by characters converted to numbers
+  let numArray = str.split('').map((char) => Number(char));
+  // declare empty array to hold chunks
+  let chunks = [];
+  // split out chunks based on the sz and append them to chunks array as nested arrays
+  while (numArray.length >= sz) {
+    chunks.push(numArray.splice(0, sz));
+  }
+  // iterate over chunks array and see if the sum of the cubes of each array is even.
+  chunks.forEach((chunk) => {
+    if (
+      chunk.reduce((acc, cv) => {
+        return acc + cv ** 3;
+      }, 0) %
+        2 ===
+      0
+    ) {
+      // if so, reverse it
+      chunk.reverse();
+    } else {
+      // otherwise, rotate it
+      chunk[chunk.length - 1] = chunk.shift();
+    }
+  });
+  // iterate over the chunks array once more, joining together the inner nested arrays
+  for (let idx = 0; idx < chunks.length; idx++) {
+    chunks[idx] = chunks[idx].join('');
+  }
+  // return the joined chunks array
+  return chunks.join('');
+}

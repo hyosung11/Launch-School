@@ -55,6 +55,7 @@ ALGORITHM
 //     .join('');
 // }
 
+// rasodha solution
 // function alphabetized(string) {
 //   let result = '';
 //   let letters = string.match(/[a-z]/gi) ? string.match(/[a-z]/gi).join('') : '';
@@ -87,3 +88,47 @@ console.log(alphabetized("What the FOrK!")); // "aeFhhKOrttW"
 // console.log(alphabetized())
 // expected 'AaBbCcDdEeFfGgHhiIjJKkLlmMNnOopPQqrRsStTuUVvwWXxYyzZ' 
 // to equal 'aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ'
+
+/* Sergio Pichardo
+
+INPUT: string
+OUTPUT: string
+
+RULES
+- Re-order the characters of a string, so that they are concatenated into a new string in "case-insensitively-alphabetical-order-of-appearance" order.
+- whitespace and punctuation shall simply be removed
+
+EXAMPLES
+'The Holy Bible' --> BbeehHilloTy
+
+ALGORITHM
+- create a string with all the letters in the alphabet
+- create an empty result array
+- iterate through all the letters in the alphabet
+  - get the current letter
+  - use current letter to filter out all letter that are the same (case insensitive)
+  - create an array with all the letters found concatenated and their alphabetic index
+- sort all the subarrays based on the alphabetic index
+- get an array with all sorted letters
+- join array into a string
+*/
+
+
+function alphabetized(s) {
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  const result = [];
+
+  Array.from(alphabet).forEach((letter, idx) => {
+    const sameLetters = s.split('').filter(char => {
+      return char === letter.toLowerCase() || char === letter.toUpperCase()
+    });
+
+    if (sameLetters.length !== 0) {
+      result.push([sameLetters.join(''), idx])
+    }
+  });
+
+  return result.sort((a, b) => a[1] - b[1]).map(sub => sub[0]).join('')
+}
+
+console.log(alphabetized('The Holy Bible')); // 'BbeehHilloTy'

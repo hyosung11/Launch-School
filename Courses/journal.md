@@ -5016,3 +5016,10 @@ function duplicates(array) {
 ## 20220119 수요일
 
 11:27 Had a later study session with Alex where we couldn't quite get our solution to work and then Laurent figured it out. Met with Laurent and I couldn't figure out how to get a slice of substring with one char removed. Fired ServPro and now NJ Water and Mold is here.
+
+13:44 Working all morning and getting the two problems from this morning's study sessions correct. Ugh.
+
+## 20220120 목요일
+
+11:09 Studying now with all the noise from the water damage mitigation equipment running. 
+
