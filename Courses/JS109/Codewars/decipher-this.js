@@ -151,6 +151,19 @@ function isLetter(char) {
   return char >= 'a' && char <= 'z';
 }
 
+// another version with `map`
+function decipherThis(str) {
+  // let words = str.split(" ");
+
+  return str.split(' ').map((word) => {
+    let charCode = parseInt(word);
+    let letter = String.fromCharCode(charCode);
+    word = word.replace(charCode, letter);
+    if (word.length > 2) 
+      return word = word[0] + word[word.length - 1] + word.slice(2,word.length - 1) + word[1];
+      else return word;
+  }).join(" ");
+};
 
 // Examples
 console.log(decipherThis('72olle 103doo 100ya')); // 'Hello good day'
