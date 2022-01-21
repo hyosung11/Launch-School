@@ -19,9 +19,9 @@ Problem
   - Numbers will be unique (input & output)
   - Output Sort order is numerically ascending (order dependent)
   -numbers that don't have a difference of two with any other number from the input array are ignored
-  -if no numbers have a difference of two, return an empty array
-  -each pair should be sorted as well as the outer output array
-  -a number might appear in two pairs
+  - if no numbers have a difference of two, return an empty array
+  - each pair should be sorted as well as the outer output array
+  - a number might appear in two pairs
 
 Examples
 

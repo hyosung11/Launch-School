@@ -5041,3 +5041,5 @@ function duplicates(array) {
 `for..of` iterates over the values => object of
 
 12:12 I talked to Revature today and they require relocation, so working with them is out.
+
+13:45 Packing up to play ping pong and also may have to stay at Braden's house for SungOh's playdate.
