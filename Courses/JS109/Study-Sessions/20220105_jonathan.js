@@ -31,6 +31,7 @@ add them to a results array, and then return the first result
 
 */
 
+// Jonathan's Version
 function alphabetScore(str) {
   if (str === '') return '';
   let test = str.split(' ').map((e) =>
@@ -90,7 +91,7 @@ a a a a => aaAa
 
 DATA STRUCTURE
 - input: string
-- intermediary: object
+- intermediary: object and an array (split, reverse, join)
 - output: new string
 
 ALGORITHM

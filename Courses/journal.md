@@ -5043,3 +5043,5 @@ function duplicates(array) {
 12:12 I talked to Revature today and they require relocation, so working with them is out.
 
 13:45 Packing up to play ping pong and also may have to stay at Braden's house for SungOh's playdate.
+
+16:11 I turned off the machines upstairs, but left the one downstairs running. Getting closer to being ready for the interview assessment.
