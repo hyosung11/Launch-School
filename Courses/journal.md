@@ -5021,10 +5021,13 @@ function duplicates(array) {
 
 ## 20220120 목요일
 
-11:09 Studying now with all the noise from the water damage mitigation equipment running. 
+11:09 Studying now with all the noise from the water damage mitigation equipment running.
 
 15:39 Back after playing ping pong and still coding. I still like it a lot.
 
 16:29 Trying to really understand the code I read and write. Getting there more and more.
 
 18:51 After dinner and trying to run some code. Ugh. I'll look at more Regular Expressions. I wonder if should crash course in SQL and APIs? I haven't scheduled interviews with Greenshades or ChurnZero yet. Ugh.
+
+21:46 Studied regex more and ready to shut it down for tonight.
+

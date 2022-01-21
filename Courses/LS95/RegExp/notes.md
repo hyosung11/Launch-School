@@ -808,3 +808,451 @@ This question was tricky in that it doesn't use any character class shortcuts; r
 If you entered something different, check your work: Rubular should highlight `The`, `red`, `cha`, `ses`, `the`, `ack`, and `cat` if your regex is correct. Note in particular that neither `d0g` (dee-zero-gee) nor `b1a` (bee-one-ay) light up, nor do either of the underscored values.
 
 End 20220119 @21:11
+
+## Anchors
+
+Let's get wet by moving into chest-deep waters. Keep your feet anchored to the bottom, though. That's what we're about to discuss: anchors. Anchors provide a way to limit how a regex matches a particular string by telling the regex engine where matches can begin and where they can end.
+
+Anchors are a bit strange in the world of regex; they don't match any characters. What they do is ensure that a regex matches a string at a specific place: the beginning or end of the string or end of a line, or on a word or non-word boundary.
+
+### 1. Start (`^`) / End (`$`) of Line
+
+If you've ever used regex in any other context, there's a pretty good chance that you are familiar with the `^` and `$` anchors, so we'll start our exploration of anchors there. Don't skip ahead though! There are some subtleties of which you should be aware.
+
+The `^` and `$` meta-characters are **anchors** that fix a regex match to the *beginning* (`^`) or *ending* (`$`) of a line of text. In Ruby, there's some subtlety to that definition which we will circle back to in the next subsection; for now, though, you can think of it as meaning that `^` and `$` anchor a regex to the beginning or end of a string.
+
+Let's see how the `^` anchor works. Try this regex, `/^cat/` against these strings:
+
+```sh
+cat
+catastrophe
+wildcat
+I love my cat
+<cat>
+```
+
+You should find that this regex matches the first two strings, but not the last three. This example demonstrates that `^` forces the `cat` pattern to match at the beginning of each line.
+
+Similarly, you can see the `$` anchor in operation by trying `/cat$/` against those same strings. This time, the regex matches the first, third, and fourth lines; those lines all end with `cat`.
+
+Lastly, you can combine `^` and `$`. Try `/^cat$/` against the five strings shown above. This time, the first string matches, but none of the others do.
+
+### 2. Lines vs Strings
+
+This sub-section is **not relevant in JavaScript**. *Please skip ahead if you're reading this for information on JavaScript regex.*
+
+As we mentioned above, there's some subtlety involved with how ^ and $ work in Ruby. This subtlety arises when the string you are attempting to match contains one or more newline characters that aren't the last character in the string. For example, consider this code:
+
+```rb
+TEXT1 = "red fish\nblue fish"
+puts "matched red" if TEXT1.match(/^red/)
+puts "matched blue" if TEXT1.match(/^blue/)
+```
+
+It may surprise you, but this example outputs both `matched red` and `matched blue` since `^` anchors the regex to the beginning of each line in the string, not the beginning of the string. For Ruby's purposes, each new line occurs after a `\n` character, with the beginning of the string marking the beginning of the first line. The line runs through - and includes - the next `\n` character. If no more `\n` characters are available, the last line runs through to the end of the string.
+
+With that in mind, our example using `$` shouldn't be too surprising:
+
+```rb
+TEXT2 = "red fish\nred shirt"
+puts "matched fish" if TEXT2.match(/fish$/)
+puts "matched shirt" if TEXT2.match(/shirt$/)
+```
+
+As before, we get a match for both regex. Note in particular that even though the first line in the string ends with a `\n`, `fish` is still said to occur at the end of the line. `$` doesn't care if there is a `\n` character at the end, provided there is no more than one.
+
+### 3. Start/End of String
+
+This sub-section is **not relevant in JavaScript**. Please skip ahead if you are reading this for information on JavaScript regex.
+
+It's not too often that you'll encounter situations where you need to match multi-line strings as shown in the previous sub-section, but they do arise. More often, though, you must match at the beginning or end of the string, not the line. For these matches, use the `\A`, `\Z`, and `\z` anchors (note that there is no `\a` anchor).
+
+The `\A` anchor ensures that a regex matches at the beginning of the string, while `\Z` and `\z` match at the end of the string. The difference between `\Z`and `\z` is somewhat subtle and seldom of concern: `\z` always matches at the end of a string, while `\Z` matches up to, but not including, a newline at the end of the string. As a rule, use `\z` until you determine that you need` \Z`.
+
+```rb
+TEXT3 = "red fish\nblue fish"
+TEXT4 = "red fish\nred shirt"
+puts "matched red" if TEXT3.match(/\Ared/)
+puts "matched blue" if TEXT3.match(/\Ablue/)
+puts "matched fish" if TEXT4.match(/fish\z/)
+puts "matched shirt" if TEXT4.match(/shirt\z/)
+```
+
+In contrast to the examples in the previous subsection, this prints matched red and matched shirt.
+
+Even though we recommend using `\A` and `\z` for most anchored matches in Ruby, most examples and exercises in this book use `^` and `$` instead. It is easier to demonstrate certain behaviors when using `^` and `$` on Rubular.
+
+### 4. Word Boundaries
+
+The last two anchors *anchor* regex matches to **word boundaries** (`\b`) and **non-word boundaries** (`\B`). For these anchors, words are sequences of word characters (`\w`), while non-words are sequences of non-word characters (`\W`). A **word boundary** occurs:
+
+* between any pair of characters, one of which is a word
+character and one which is not.
+* at the beginning of a string if the first character is a word character.
+* at the end of a string if the last character is a word character.
+
+A **non-word boundary** matches any place else:
+
+* between any pair of characters, both of which are word characters or both of which are not word characters.
+* at the beginning of a string if the first character is a non-word character.
+* at the end of a string if the last character is a non-word character.
+
+For instance:
+
+```sh
+Eat some food.
+```
+
+Here, word boundaries occur before the `E`, `s`, and `f` at the start of the three words, and after the `t`, `e`, and `d` at their ends. Non-word boundaries occur elsewhere, such as between the `o` and `m` in some, and following the `.` at the end of the sentence.
+
+To anchor a regex to a word boundary, use the `\b` pattern. For example, to match 3 letter words consisting of "word characters", you can use `/\b\w\w\w\b/`. Try it with:
+
+```sh
+One fish,
+Two fish,
+Red fish,
+Blue fish.
+123 456 7890
+```
+
+It's rare that you must use the non-word boundary anchor, `\B`. Here's a somewhat contrived example you can try. Try the regex `/\Bjohn/i` against these strings:
+
+```sh
+John Silver
+Randy Johnson
+Duke Pettijohn
+Joe_Johnson
+```
+
+The regex matches `john` in the last two strings, but not the first two.
+
+`\b` and `\B` do not work as word boundaries inside of character classes (between square brackets). In fact, `\b` means something else entirely when inside square brackets: *it matches a backspace character*.
+
+### 5. Summary
+
+With the use of **anchors**, you now have a great deal more flexibility. These simple constructs provide a degree of control over your regex that you didn't have before -- you can tell the regex engine where matches can occur. If you need it, more is available with look-ahead and look-behind assertions, but that topic is beyond the scope of this book.
+
+In the next chapter, we'll get into **quantifiers**. Quantifiers, more than any other feature, lie at the heart of what makes regex so useful.
+
+But, before you wade out any further, take a little while to work the exercises below. In these exercises, use Rubular to write and test your regex. You don't need to write any code.
+
+### 6. Exercises
+
+1. Write a regex that matches the word `The` when it occurs at the beginning of a line. Test it with these strings:
+
+```sh
+The lazy cat sleeps.
+The number 623 is not a word.
+Then, we went to the movies.
+Ah. The bus has arrived.
+```
+
+There should be two matches.
+
+Solution: `/^The\b/`
+
+This regex should match the word `The` in the first two lines, but should not match anything on the last two.
+
+If you tried using `/\AThe\b/` on Rubular, the match probably didn't work right. Why not? If you haven't already tried, try it now. In most cases, you should use `\A` instead of `^` in Ruby, but Rubular treats the test string as a single multi-line string, so you need to use `^` instead.
+
+2. Write a regex that matches the word `cat` when it occurs at the end of a line. Test it with these strings:
+
+```sh
+The lazy cat sleeps
+The number 623 is not a cat
+The Alaskan drives a snowcat
+```
+
+There should be one match.
+
+Solution: `/\bcat$/`
+
+This regex should match the word `cat` in the second line, but should not match anything else.
+
+If you tried using `/\bcat\z/` on Rubular, the match probably didn't work right. Why not? If you haven't already tried, try it now. In most cases, you should use `\z` instead of `$` in Ruby, but Rubular treats the test string as a single multi-line string, so you need to use `$` instead.
+
+3. Write a regex that matches any three-letter word; a word is any string comprised entirely of letters. You can use these test strings.
+
+```sh
+reds and blues
+The lazy cat sleeps.
+The number 623 is not a word. Or is it?
+```
+
+There should be five matches.
+
+Solution: `/\b[a-z][a-z][a-z]\b/i`
+
+As expected, this regex matches `and`, `cat`, `The` (both occurrences), and `not`. Notice that it does not match `623` or `it?`.
+
+4. Challenge: Write a regex that matches an entire line of text that consists of exactly 3 words as follows:
+
+* The first word is `A` or `The`.
+* There is a single space between the first and second words.
+* The second word is any 4-letter word.
+* There is a single space between the second and third words.
+* The third word -- the last word -- is either `dog` or `cat`.
+
+Test your solution with these strings:
+
+```sh
+A grey cat
+A blue caterpillar
+The lazy dog
+The white cat
+A loud dog
+--A loud dog
+Go away dog
+The ugly rat
+The lazy, loud dog
+```
+
+There should be three matches.
+
+Solution: `/^(A|The) [a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z] (dog|cat)$/`
+
+The valid matches are `A grey cat`, `The lazy dog`, and `A loud dog`.
+
+This solution employs **alternation** from the first chapter in this section to define the words that occur at the beginning and end of each line and includes a match for a four-letter word in the middle. We have assumed that the middle word can contain both uppercase and lowercase letters, so we have to specify `[a-zA-Z]` for each of the four letters. We don't use `\w` because the problem explicitly asked for four-*letter* words.
+
+As with the other exercises, a proper Ruby solution would use `\A` and `\z` instead of `^` and `$`, but to allow for Rubular limitations, we use `^` and `$` instead.
+
+End 20220120 @ 20:16
+
+## Quantifiers
+
+It's time to get soaked. There's a fascinating world right beneath the surface, the world of quantifiers. Go ahead. Put your facemask on, and take a look around beneath the waves. What you'll see is the real heart of regex.
+
+### 1. Zero or More
+
+We've seen that regex let you *concatenate* multiple patterns that can match sequences of characters. Sometimes, you want to repeat a pattern. For instance, to match all sequences of three **digits**, you can use the regex `/\b\d\d\d\b/` - here we repeat the `\d` shortcut for three times.
+
+Suppose, though, you need to find all sequences of three or more digits. How would you code this? You might try something like:
+
+`/\b(\d\d\d\d\d\d|\d\d\d\d\d|\d\d\d\d|\d\d\d)\b/`
+
+But this matches 3-6 digits, not three or more, and it's already hard to read. You could keep adding additional sequences of `\d`s until you reach some maximum level, but it is limiting and may cause problems in the future.
+
+You could try matching `/\d\d\d/`. It will certainly get all three-digit and longer numbers, but it mixes in results like `XY321Z`.
+
+Regex engines provide a variety of **quantifiers** that you can use to match sequences. The quantifier that gets used most frequently is `*`; it matches zero or more occurrences of the pattern to its left. For example, try `/\b\d\d\d\d*\b/` against these strings in Rubular:
+
+```sh
+Four and 20 black birds
+365 days in a year, 100 years in a century.
+My phone number is 222-555-1212.
+My serial number is 345678912.
+```
+
+You should see that this pattern matches `365`, `100`, `222`, `555`, `1212`, and `345678912`, but it does not match `20`.
+
+The way you read that regex is that you want to match three consecutive digits beginning at a word boundary, followed by any number of digits, and then another word boundary. The engine reads the regex as six sub-patterns:
+
+Pattern  | Explanation
+---------|------------
+`\b`  | Starting at a word boundary
+`\d`  | A single digit followed by ...
+`\d` | a single digit followed by ...
+`\d`  | a single digit followed by ...
+`\d*`  | Zero or more additional digits
+`\b` | Ending with a word boundary
+
+One thing to watch out for is that "zero or more" truly means **zero** or more. The regex `/x*/` matches every string, even an empty string, or a string that contains no `x`s anywhere. If you try this pattern in Rubular, it matches between every character.
+
+When talking about regular expressions that match zero-length strings, imagine an arrow that starts out pointing to the beginning of the string, prior to the first character. When the regex engine goes to work, it moves this imaginary arrow to the right one character at a time until it either finds a match or determines that there is no match. The arrow never points directly at a character, but always points between each pair of characters, and matches typically occur against the character to the right of the arrow. (There are a few exceptions that match the character to the left as well, such as `\b`.)
+
+When you try to match `/x/` for instance, the regex engine looks to the character to the right of the arrow position. If it sees an `x`, it matches. Otherwise, it advances the arrow one position to the right, and again tries to match starting with the next character.
+
+This is why something like `/x*/` matches wherever in the string you're at - with the arrow pointing between characters, the regex is free to say "Nope. There are no `x`'s between me and the next character, so it's a match."
+
+Another way to see this is to try the regex `/co*t/` against these strings:
+
+```sh
+ct
+cot
+coot
+cooot
+```
+
+The regex matches every one of these strings, including the one without the letter `o`.
+
+Note that *the quantifier always applies to one pattern*; the pattern it finds to the left of the quantifier. If necessary, you can use grouping parentheses to define the pattern to which you want to apply the `*`. For instance, try `/1(234)*5/` against:
+
+```sh
+15
+12345
+12342342345
+1234235
+```
+
+You should see that the engine treats (`234`) as a single pattern, so the regex matches anywhere zero or more occurrences of `234` separate `1` and `5`.
+
+The regex `*` quantifier looks similar to the `*` wildcard you find in most command line shells, but it is different. The `*` wildcard from a shell is more like the regex `/.*/`; it *matches any sequence of characters*, regardless of what those characters are. Thus, the wildcard `blue*doc` matches any file whose name begins with `blue` and ends with `doc`. `/blue*doc/`, however, matches any sequence of characters that begins with `blu`, ends with `doc`, and contains any number of `e`s between the beginning and end.
+
+### 2. One or More
+
+The `+` **quantifier** is nearly identical to the `*` quantifier, but, instead of matching zero or more occurrences of something, it *matches one or more occurrences* of that thing. Not all regex engines offer the `+` quantifier - some older engines do not - but both Ruby and JavaScript provide it.
+
+We can illustrate the `+` quantifier using our three-or-more digits example from the previous sub-section. In that section, we used `/\b\d\d\d\d*\b/` to match three or more digits. If we replace the `*` with a `+`, `/\b\d\d\d\d+\b/` we get a regex that matches **four** or more digits. Since we want three digits, we can eliminate one of the `\d` patterns, leaving `/\b\d\d\d+\b/`. To see that this still works as desired, try it against these strings from above:
+
+```sh
+Four and 20 black birds
+365 days in a year, 100 years in a century.
+My phone number is 222-555-1212.
+My serial number is 345678912.
+```
+
+We saw earlier that a regex like `/x*/` matches any string because it matches between every character. There is no similar subtlety to the `+` quantifier; `/x+/` matches any sequence of one or more `x`s; it never matches the empty string between characters. Try it:
+
+```sh
+a single x matches.
+As is a string of xxxxx like that.
+```
+
+### 3. Zero or One
+
+Sometimes, you need an optional pattern in a regex; that is, a pattern that either occurs once or doesn't occur at all. For these situations, you need the `?` quantifier. As with `*` and `+`, `?` applies to the pattern to its left.
+
+Suppose you need to test whether a string contains the words `cot` or `coot`, but don't want to match against `ct` or `cooot`. In this case, you can use `/coo?t/`, which matches a `c` followed by an `o` followed by an **optional** `o` followed by a `t`. Try it:
+
+`Scott scoots but doesn't act cooot.`
+
+One place you might use a `?` would be a pattern where you are trying to match a date whose components may or may not include `-` separator characters. For instance, you have dates formatted as both `20170111` or `2017-01-11`. To match such dates, you can use the regex `/\b\d\d\d\d-?\d\d-?\d\d\b/`. This matches:
+
+```sh
+20170111
+2017-01-11
+2017-0111
+201701-11
+```
+
+but not:
+
+`2017/01/11`
+
+Note that `?` has the same behavior subtlety as `*`; *it matches zero occurrences*. Thus, `/h?/` matches each of these strings:
+
+```sh
+his
+is
+ish
+```
+
+The regex `?` quantifier looks similar to the `?` wildcard you find in most command line shells, but it isn't the same. The `?` wildcard means zero or one occurrence of *any* character, or acts as a placeholder for a single character, depending on what shell you are using. The `?` regex quantifier *means zero or one occurrence* of the pattern to its left. If you allow yourself to become confused by the similarity in appearance, you will have trouble.
+
+### 4. Ranges
+
+The `*`, `+`, and `?` quantifiers *match repeated sequences*. They may provide all the regex functionality you need. However, sometimes you need to specify the repeat count more precisely. For example, you may want to test a phone number to see if contains precisely ten digits, or perhaps you want to look at all words that contain at least seven characters, or you want words that are 5-8 characters long. It's possible to do all this with the patterns and quantifiers you've already learned, but it will be tedious and messy. That's where the **range quantifier** comes in.
+
+The range quantifier consists of a pair of curly braces, `{}`, with one or two numbers and an optional comma between the braces:
+
+* `p{m}` matches *precisely* `m` occurrences of the pattern `p`.
+* `p{m,}` matches `m` *or more* occurrences of `p`.
+* `p{m,n}` matches `m` or more occurrences of `p`, but not more than `n`.
+
+Let's go through the examples we talked about above.
+
+If you need to test a string to see if it contains precisely ten consecutive digits (perhaps it represents a US-style phone number), you can try it with the regex `/\b\d{10}\b/` and these strings:
+
+`2225551212 1234567890 123456789 12345678900`
+
+You should see that this regex matches the first two numbers: they have ten digits each.
+
+To match numbers that are at least three digits in length, we can use `/\b\d{3,}\b/`. Try it with these strings:
+
+```sh
+Four and 20 black birds
+365 days in a year, 100 years in a century.
+My phone number is 222-555-1212.
+My serial number is 345678912.
+```
+
+This pattern matches the same six numbers that our earlier three-digits-or-more patterns matched.
+
+If you want to match words of 5-8 letters, use `/\b[a-z]{5,8}\b/i`:
+
+```sh
+Bizarre
+a
+one two three four five six seven eight nine
+sensitive
+dropouts
+```
+
+This pattern matches `Bizarre`, `three`, `seven`, `eight`, and `dropouts`.
+
+### 5. Greediness
+
+The quantifiers we've discussed thus far are **greedy**: they always match the longest possible string they can. For instance, try matching `/a[abc]*c/` against `xabcbcbacy`. You should see that this pattern matches `abcbcbac`, not `abc` or `abcbc` both of which could match the pattern, but are shorter than the final match string. This aspect of regex isn't often a concern, but when it is, it can be highly confusing if you aren't familiar with greediness.
+
+In most cases, greediness is what you want. However, sometimes it isn't, and you need to match the fewest number of characters possible; we call this a **lazy** match. In Ruby and JavaScript, you can request a lazy match by adding a `?` after the main quantifier. For example, `/a[abc]*?c/` matches `abc` and `ac` in `xabcbcbacy`.
+
+See [this article](https://d186loudes4jlv.cloudfront.net/regex/files/greedy-vs-lazy.pdf) for a more visual description of greediness vs. laziness.
+
+### 6. Summary
+
+That concludes our overview of regular expressions. You've now seen most of the patterns you need to use regex proficiently, but you haven't put them to use yet. Now it's time to learn how to use regex in real programs. In the next section, we show you the basics of using regex in your applications.
+
+Before taking that plunge, though, take a little while to work the exercises below. In these exercises, use Rubular to write and test your regex. You don't need to write any code.
+
+### 7. Exercises
+
+#### 1. Write a regex that matches any word that begins with b and ends with an e, and has any number of letters in-between. You may limit your regex to lowercase letters. Test it with these strings.
+
+```sh
+To be or not to be
+Be a busy bee
+I brake for animals.
+```
+
+There should be four matches.
+
+Solution: `/\bb[a-z]*e\b/`
+
+The regex should match the words `be` (both instances), `bee`, and `brake`.
+
+#### 2. Write a regex that matches any line of text that ends with a `?`. Test it with these strings:
+
+```sh
+What's up, doc?
+Say what? No way.
+?
+Who? What? Where? When? How?
+```
+
+There should be three matches.
+
+Solution: `/^.*\?$/`
+
+This regex should match the first, third, and fourth lines, but not the second line. Note the use of `.*`; you'll see this often in regex. It matches any sequence of characters, but, by default, *does not match a newline character*. It's how you ignore everything between two points when matching.
+
+Note that the `?` must be `\`-escaped since we want to match a literal `?`.
+
+#### 3. Write a regex that matches any line of text that ends with a `?`, but does not match a line that consists entirely of a single `?`. Test it with the strings from the previous exercise.
+
+There should be two matches.
+
+Solution: `/^.+\?$/`
+
+This regex should match the first and fourth lines, but not the second or third. The `.+` pattern makes the regex *match at least one character* before it attempts to match the `?`.
+
+#### 4. Write a regex that matches any line of text that contains nothing but a URL. For this exercise, a URL begins with `http://` or `https://`, and continues until it detects a whitespace character or end of line. Test your regex with these strings:
+
+```sh
+http://launchschool.com/
+https://mail.google.com/mail/u/0/#inbox
+htpps://example.com
+Go to http://launchschool.com/
+https://user.example.com/test.cgi?a=p&c=0&t=0&g=0 hello
+    http://launchschool.com/
+```
+
+There should be two matches.
+
+Solution: `/^https?:\/\/\S*$/`
+
+This regex should match the first and second text lines, but none of the others. The third line doesn't match because of a misspelling; the fourth and fifth don't match because of extra content, and the last doesn't match because of the leading spaces.
+
+The regex begins with a line anchor, `^`, and then the `http` part of the URL followed by an optional `s`. Next, we have the `:`, and two `/` characters (both `/` characters must be `\`-escaped). We then have the rest of the URL, which we achieve by matching a string of non-whitespace characters. We also require an explicit line anchor, `$`, to prevent matching a URL that isn't at the end of the line.
+
+Stop 20220120 @21:45
