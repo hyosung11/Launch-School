@@ -120,6 +120,7 @@ Algorithm
 
 function bouncingBall(height, bounce, window) {
   if (height <= 0 || bounce <= 0 || bounce >= 1 || window >= height) return -1;
+
   let seen = 0;
   while (height > window) {
     seen++;

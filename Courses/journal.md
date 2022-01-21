@@ -5031,3 +5031,13 @@ function duplicates(array) {
 
 21:46 Studied regex more and ready to shut it down for tonight.
 
+## 20220121 금요일
+
+06:07 Getting ready for study session with Alex.
+
+11:47 Learning something new everyday:
+
+`for..in` iterates over the indexes => index in
+`for..of` iterates over the values => object of
+
+12:12 I talked to Revature today and they require relocation, so working with them is out.
