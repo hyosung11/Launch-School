@@ -1256,3 +1256,645 @@ This regex should match the first and second text lines, but none of the others.
 The regex begins with a line anchor, `^`, and then the `http` part of the URL followed by an optional `s`. Next, we have the `:`, and two `/` characters (both `/` characters must be `\`-escaped). We then have the rest of the URL, which we achieve by matching a string of non-whitespace characters. We also require an explicit line anchor, `$`, to prevent matching a URL that isn't at the end of the line.
 
 Stop 20220120 @21:45
+
+#### 5. Modify your regex from the previous exercise so the URL can have optional leading or trailing whitespace, but is otherwise on a line by itself. To test your regex with trailing whitespace, you must add some spaces to the end of some lines in your sample text.
+
+```sh
+http://launchschool.com/
+https://mail.google.com/mail/u/0/#inbox
+htpps://example.com
+Go to http://launchschool.com/
+https://user.example.com/test.cgi?a=p&c=0&t=0&g=0 hello
+    http://launchschool.com/
+```
+
+There should be three matches.
+
+Solution: `/^\s*https?:\/\/\S*\s*$/`
+
+This regex should match the URLs on the first, second, and last lines.
+
+#### 6. Modify your regex from the previous exercise so the URL can appear anywhere on each line, so long as it begins at a word boundary.
+
+```sh
+http://launchschool.com/
+https://mail.google.com/mail/u/0/#inbox
+htpps://example.com
+Go to http://launchschool.com/
+https://user.example.com/test.cgi?a=p&c=0&t=0&g=0 hello
+    http://launchschool.com/
+```
+
+There should be five matches.
+
+Solution: `/\bhttps?:\/\/\S*/`
+
+This solution should match all of the URLs above. (Note that the third line is a not a URL.)
+
+#### 7. Write a regex that matches any word that contains at least three occurrences of the letter `i`. Test your regex against these strings:
+
+```sh
+Mississippi
+ziti 0minimize7
+inviting illegal iridium
+```
+
+There should be three matches.
+
+Solutions:
+1. `/\b[a-z]*i[a-z]*i[a-z]*i[a-z]*\b/i`
+2. `/\b([a-z]*i){3}[a-z]*\b/i`
+3. `/\b([a-z]*i{3,}[a-z]*\b/i`
+
+Your solution should match `Mississippi`, `inviting`, and `iridium`. We use word boundary anchors in our solution to guard against strings that aren't words, such as `0minimize7`). Each `[a-z]*i` matches a sequence of 0 or more letters followed by the letter `i`. Connecting three occurrences of `[a-z]*i` and then adding one more `[a-z]*` to the end, we get a regex that matches any word with 3 `i`s.
+
+Our alternate solution is similar, but it uses the `{3}` quantifier to perform the 3-occurrences part of the match. The quantifier applies to `([a-z]*i)` which, uses grouping parentheses to treat `[a-z]*i` as a single pattern for use by `{3}`.
+
+The final solution we show uses `{3,}` instead of `{3}`. See if you can determine why both solutions work.
+
+#### 8. Write a regex that matches the last word in each line of text. For this exercise, assume that words are any sequence of non-whitespace characters. Test your regex against these strings:
+
+```sh
+What's up, doc?
+I tawt I taw a putty tat!
+Thufferin' thuccotath!
+Oh my darling, Clementine!
+Camptown ladies sing this song, doo dah.
+```
+
+There should be five matches.
+
+Solution: `/\S+$/`
+
+Your solution should match `doc?`, `tat!`, `thuccotath!`, `Clementine!`, and `dah`.
+
+#### 9. Write a regex that matches lines of text that contain at least 3, but no more than 6, consecutive comma separated numbers. You may assume that every number on each line is both preceded by and followed by a comma. Test your regex against these strings:
+
+```sh
+,123,456,789,123,345,
+,123,456,,789,123,
+,23,56,7,
+,13,45,78,23,45,34,
+,13,45,78,23,45,34,56,
+```
+
+There should be three matches.
+
+Solution: `/^,(\d+,){3,6}$/`
+
+Your solution should match the first, third, and fourth lines.
+
+#### 10. Write a regex that matches lines of text that contain at least 3, but no more than 6, consecutive comma separated numbers. In this exercise, you can assume that the first number on each line is not preceded by a comma, and the last number is not followed by a comma. Test your regex against these strings:
+
+```sh
+123,456,789,123,345
+123,456,,789,123
+23,56,7
+13,45,78,23,45,34
+13,45,78,23,45,34,56
+```
+
+There should be three matches.
+
+Solution: `/^(\d+,){2,5}\d+$/`
+
+Your solution should match the first, third, and fourth lines. In this case, the lack of a comma at each end of the strings complicates our solution slightly - we can't check for 3-6 occurrences of `\d+`,, but have to check for 2-5 occurrences followed by a final `\d+` pattern.
+
+#### 11. Challenge: Write a regex that matches lines of text that contain either 3 comma separated numbers or 6 or more comma separated numbers. Test your regex against these strings:
+
+```sh
+123,456,789,123,345
+123,456,,789,123
+23,56,7
+13,45,78,23,45,34
+13,45,78,23,45,34,56
+```
+
+There should be three matches.
+
+Solutions:
+
+* `/(^(\d+,){2}\d+$|^(\d+,){5,}\d+$)/`
+* `/^(\d+,){2}((\d+,){3,})?\d+$/`
+
+Your solution should match the last three lines. Regex provide no simple way to say something like three occurrences, or 6 or more occurrences. We have two approaches we can take instead: either use alternation or use the ? quantifier to make part of the pattern optional.
+
+Our first solution uses alternation. Let's break it up a bit using "extended" syntax:
+
+```sh
+/
+  (                  # Grouping for alternation
+    ^(\d+,){2}\d+$   # Match precisely 3 numbers on a line
+    |                # *or*
+    ^(\d+,){5,}\d+$  # Match 6 or more numbers on a line
+  )                  # All done
+/x
+```
+
+Our alternate solution uses the `?` quantifier instead. Breaking it down once again, we see:
+
+```sh
+/
+  ^                  # Start of line
+  (\d+,){2}          # 2 numbers at start
+  (                  # followed by...
+    (\d+,){3,}       #    at least 3 more numbers
+  )?                 #    that are optional
+  \d+                # followed by one last number
+  $                  # end of line
+/x
+```
+
+Note the use of the 'x' option on these broken out patterns. This **Ruby-specific** option is useful when you have a convoluted regex. It lets you write a regex over several lines, and put comments on each line. See the Ruby Regexp documentation for more information.
+
+In a real program, you may instead choose to use two separate regex:
+
+```rb
+if text.match(/^(\d+,){2}\d+$/) || text.match(/^(\d+,){5,}\d+$/)
+```
+
+This code is easier to understand, but not always practical.
+
+#### 12. Challenge: Write a regex that matches HTML h1 header tags, e.g.,
+
+```html
+<h1>Main Heading</h1>
+<h1>Another Main Heading</h1>
+<h1>ABC</h1> <p>Paragraph</p> <h1>DEF</h1><p>Done</p>
+```
+
+and the content between the opening and closing tags. If multiple header tags appear on one line, your regex should match the opening and closing tags and the text content of the headers, but nothing else. You may assume that there are no nested tags in the text between `<h1>` and `</h1>`.
+
+Solution: `/<h1>.*?<\/h1>/`
+
+For this exercise, we need to use a "lazy" quantifier instead of the default greedy quantifier, so we use .*? to match the text in between the <h1> opening tag and its closing tag, </h1>.
+
+What would happen if you omitted the `'?'`? Try both the correct regex and the one with a greedy quantifier (`/<h1>.*<\/h1>/`) against this HTML to see:
+
+```html
+<h1>ABC</h1> <p>Paragraph</p> <h1>DEF</h1><p>Done</p>
+```
+
+## Using Regular Expressions in Ruby and JavaScript
+
+Now that you're bobbing along atop the waves, it's time to relax and explore your surroundings. Get your swim fins on, and head on out into deeper waters.
+
+Thus far, our explorations have given us a good handle on the different types of patterns that can appear in a regex. You know how to match specific characters, classes of characters, can anchor your matches, and can even match strings of different sizes and content. However, you've seen but a handful of examples that show what this looks like in real code. We're going to rectify that a bit in this section and introduce a handful of Ruby and JavaScript methods that use regex. This discussion won't be comprehensive, but it does provide the tools you'll need in the future. Most developers won't ever need anything more.
+
+Oddly, the `Regexp` (Ruby) and `RegExp` (JavaScript) classes don't provide the regex methods you'll use most often. Instead, the `String` class does.
+
+### Matching Strings
+
+We've already seen `match` in some of our examples. This method returns a value that indicates whether a match occurred, and what substrings matched. This return value is "truthy"; you can test it in a conditional expression in either Ruby or JavaScript to determine whether a given string matched a regex. At its most basic, we use it like this:
+
+```rb
+fetch_url(text) if text.match(/\Ahttps?:\/\/\S+\z/)
+```
+
+```js
+if (text.match(/^https?:\/\/\S+$)) {
+  fetchUrl(text);
+}
+```
+
+Here we call `fetch_url(text)` when `match` returns a value that indicates a match: that is when `text` contains something that looks like a URL.
+
+We won't discuss the return value of `match` in detail -- see the documentation instead. For now, `match` returns an **Array** that contains the string we matched against, along with the capture groups defined in the regex. If we name this Array `capture`, then `capture[0]` represents the entire matched portion of `text`, while `capture[1]`, `capture[2]`, etc. correspond to the capture groups. (We discuss capture groups below.). If the regex doesn't match `text`, then Ruby returns `nil`, while JavaScript returns `null`.
+
+In Ruby, the return value of `match` isn't an Array, but a `MatchData` object that responds to `[0]`, [`1]`, `[2]`, and so on. You cannot apply most Array methods to this object directly.
+
+In Ruby, you sometimes see something like this:
+
+```rb
+fetch_url(text) if text =~ /\Ahttps?:\/\/\S+\z/
+```
+
+`=~` is similar to `match`, except that it returns the index within the string at which the regex matched, or `nil` if there was no match. `=~` is measurably faster than `match`, so some rubyists prefer to use it when they can. Others dislike it because it is unfamiliar, or solely because `=~` reminds them of the Perl language where it saw widespread use.
+
+Rubyists should also investigate the `String#scan` method; it is a global form of `match` that returns an Array of all matching substrings.
+
+### Splitting Strings
+
+Applications that process text often must analyze data comprised of records and fields delimited by some special characters or delimiters. A typical format has records separated by newlines, and fields delineated by tabs. Such data often needs parsing before you can use it in your program; the `split` method is an often-useful parsing tool.
+
+`split` is frequently used with a simple string as a delimiter:
+
+```rb
+record = "xyzzy\t3456\t334\tabc"
+fields = record.split("\t")
+# -> ['xyzzy', '3456', '334', 'abc']
+```
+
+```js
+let record = "xyzzy\t3456\t334\tabc";
+let fields = record.split("\t");
+// => ['xyzzy', '3456', '334', 'abc']
+```
+
+As you can see, `split` returns an `Array` that contains the values from each of the split fields.
+
+Not all delimiters are as simple as that, though. Sometimes, formatting is much more relaxed. For example, you may encounter data where arbitrary whitespace characters separate fields, and there may be more than one whitespace character between each pair of items. The regex form of `split` comes in handy in such cases:
+
+```rb
+record = "xyzzy  3456  \t  334\t\t\tabc"
+fields = record.split(/\s+/)
+# -> ['xyzzy', '3456', '334', 'abc']
+```
+
+```js
+let record = "xyzzy  3456  \t  334\t\t\tabc";
+let fields = record.split(/\s+/);
+// -> ['xyzzy', '3456', '334', 'abc']
+```
+
+Beware of regex like `/:*/` and `/\t?/` when using `split`. Recall that the `*` quantifier matches zero or more occurrences of the pattern it is modifying. In the case of `split`, the result may be totally unexpected:
+
+```rb
+'abc:xyz'.split(/:*/)
+# -> ['a', 'b', 'c', 'x', 'y', 'z']
+```
+
+A six element array instead of the two element array you may have expected. This result occurs because the regex matches the gaps between each letter; zero occurrences of `:` occurs between each pair of characters.
+
+### Capture Groups: A Diversion
+
+Before moving on to the final methods in our whirlwind tour, we need to first talk about **capture groups**. (Note that regex also have **non-capture groups** but we won't cover them here.) You've already encountered these before, though we called them something different at the time: grouping parentheses. We didn't mention it at the time, but these meta-characters have another function: they provide capture and non-capture groups.
+
+Capture groups capture the matching characters that correspond to part of a regex. You can reuse these matches later in the same regex, and when constructing new values based on the matched string.
+
+We'll start with a simple example. Suppose you need to match quoted strings inside some text, where either single or double quotes delimit the strings. How would you do that using the regex patterns you know? You might consider:
+
+`/['"].+?['"]/`
+
+as your first attempt to match quotes, but, you'll soon find that it also matches mixed single and double quotes. This may not be what you want. Instead, you need a way to capture the opening quote and reuse that character for the closing quote. It's time to call on capture groups:
+
+`/(['"]).+?\1/`
+
+Here the group captures the part of the string that matches the pattern between parentheses; in this case, either a single or double quote. We then match one or more of any other character and end with a `\1`: we call this sequence a **backreference** - it references the first capture group in the regex. If the first group matches a double quote, then `\1` matches a double quote, but not a single quote.
+
+It may be more reasonable to use two regex to solve this problem:
+
+```rb
+if text.match(/".*?"/) || text.match(/'.*?'/)
+  puts "Got a quoted string"
+end
+```
+
+It's easier to read and maintain when written like this. However, you will almost certainly encounter problems where a single regex with a backreference is the preferred solution.
+
+A regex may contain multiple capture groups, numbers from left to right as groups 1, 2, 3, and so on, up to 9. As you might expect, the backreferences are `\1`, `\2`, `\3`, ..., and `\9`.
+
+Note that there are patterns in Ruby that allow for named groups and named backreferences, but this is beyond the scope of this book. If you find yourself needing multiple groups in Ruby regex, you may want to investigate these named groups and backreferences.
+
+While you can use capture groups in any regex, they are most useful in conjunction with methods that use regex to transform strings. We'll see this in the next two sections.
+
+By the way: did you notice that lazy quantifier in our regex? Why do you think we used that here?
+
+### Transformations in Ruby
+
+* Skipped
+
+### Transformations in JavaScript
+
+While regex-based transformations in Ruby and JavaScript are conceptually similar, the implementations are different. We'll cover these transformations in separate sections.
+
+Transforming a string with regex involves matching that string against the regex, and using the results of the match to construct a new value. In JavaScript, we can use the `replace` method which transforms the matched part of a string. If the regex includes a `g` option, the transformation applies to every match in the string.
+
+Here's a simple example:
+
+```js
+let text = 'Four score and seven';
+let vowelless = text.replace(/[aeiou]/g, '*');
+// -> 'F**r sc*r* *nd s*v*n'
+```
+
+Here we replace every vowel in `text` with an `*`. We applied the transformation globally since we used the `g` option on the regex.
+
+We can use backreferences in the replacement string (the second argument):
+
+```js
+let text = 'We read "War of the Worlds".';
+console.log(text.replace(/(['"]).+\1/, '$1The Time Machine$1'));
+// outputs: We read "The Time Machine".
+```
+
+One thing to note here is that the backreferences in the replacement string use `$1`, `$2`, etc. instead of `\1`, `\2`, etc.
+
+### Summary of Using Regular Expressions
+
+We now conclude our little dive into the regex ocean. We hope you've learned a lot and enjoyed the experience. We have one more section: it includes a regex cheat sheet and a few other useful tidbits.
+
+But, before you proceed, take a little while to work the exercises below. In these exercises, write your code using your language of choice. Rubyists may want to use IRB to test their methods, while JavaScripters can check their answers in node or their browser's JavaScript console.
+
+### Exercises for Using Regular Expressions
+
+#### 1. Write a method that returns true if its argument looks like a URL, false if it does not.
+
+Examples:
+
+```js
+isUrl('http://launchschool.com');   // -> true
+isUrl('https://example.com');       // -> true
+isUrl('https://example.com hello'); // -> false
+isUrl('   https://example.com');    // -> false
+```
+
+Solution
+
+```js
+let isUrl = function(text) {
+  return !!text.match(/^https?:\/\/\S+$/);
+}
+```
+
+Note that we use `!!` to coerce the result of our `match` call to a boolean value. More recent Ruby versions add the `String.match?` method, which we demonstrate in our second Ruby solution.
+
+#### 2. Write a method that returns all of the fields in a haphazardly formatted string. A variety of spaces, tabs, and commas separate the fields, with possibly multiple occurrences of each delimiter.
+
+```js
+fields("Pete,201,Student");
+// -> ['Pete', '201', 'Student']
+
+fields("Pete \t 201    ,  TA");
+// -> ['Pete', '201', 'TA']
+
+fields("Pete \t 201");
+// -> ['Pete', '201']
+
+fields("Pete \n 201");
+// -> ['Pete', '\n', '201']
+```
+
+Solution
+
+```js
+let fields = function (str) {
+  return str.split(/[ \t,]+/);
+};
+```
+
+Note that we don't use `\s` here since we want to split at spaces and tabs, not other whitespace characters.
+
+#### 3. Write a method that changes the first arithmetic operator (`+`, `-`, `*`, `/`) in a string to a '?' and returns the resulting string. Don't modify the original string.
+
+```js
+mysteryMath('4 + 3 - 5 = 2');
+// -> '4 ? 3 - 5 = 2'
+
+mysteryMath('(4 * 3 + 2) / 7 - 1 = 1');
+// -> '(4 ? 3 + 2) / 7 - 1 = 1'
+```
+
+Solution
+
+```js
+let mysteryMath = function (equation) {
+  return equation.replace(/[+\-*\/]/, '?');
+};
+```
+
+Note that we need to escape the `-` character in our character class to interpret as a literal hyphen, not a range specification. We also must escape the `/` character in the Ruby code; in the JavaScript code, we don't need to escape the `/` character but do so here for consistency.
+
+#### 4. Write a method that changes every arithmetic operator (`+`, `-`, `*`, `/`) to a `'?'` and returns the resulting string. Don't modify the original string.
+
+```js
+mysteriousMath('4 + 3 - 5 = 2');           // -> '4 ? 3 ? 5 = 2'
+mysteriousMath('(4 * 3 + 2) / 7 - 1 = 1'); // -> '(4 ? 3 ? 2) ? 7 ? 1 = 1'
+```
+
+Solution:
+
+```js
+let mysteriousMath = function (equation) {
+  return equation.replace(/[+\-*\/]/g, '?');
+};
+```
+
+Note that we now use the `gsub` method in Ruby, and apply the `g` option to the regex in JavaScript.
+
+#### 5. Write a method that changes the first occurrence of the word `apple`, `blueberry`, or `cherry` in a string to `danish`.
+
+```js
+danish('An apple a day keeps the doctor away');
+// -> 'An danish a day keeps the doctor away'
+
+danish('My favorite is blueberry pie');
+// -> 'My favorite is danish pie'
+
+danish('The cherry of my eye');
+// -> 'The danish of my eye'
+
+danish('apple. cherry. blueberry.');
+// -> 'danish. cherry. blueberry.'
+
+danish('I love pineapple');
+// -> 'I love pineapple'
+```
+
+Solution
+
+```js
+function danish(text) {
+  return text.replace(/\b(apple|blueberry|cherry)\b/, 'danish');
+}
+```
+
+Note that `pineapple` is not changed in the last example for each language.
+
+#### 6. Challenge: write a method that changes strings in the date format `2016-06-17` to the format `17.06.2016`. You must use a regular expression and should use methods described in this section.
+
+```js
+formatDate('2016-06-17'); // -> '17.06.2016'
+formatDate('2016/06/17'); // -> '2016/06/17' (no change)
+```
+
+Solution
+
+```js
+let formatDate = function (originalDate) {
+  return originalDate.replace(/^(\d\d\d\d)-(\d\d\)-(\d\d)$/, '$3.$2.$1')
+};
+```
+
+We use three capture groups here to capture the year, month, and date, then use them in the replacement string in reverse order, this time separated by periods instead of hyphens.
+
+#### 7. Challenge: write a method that changes dates in the format 2016-06-17 or 2016/06/17 to the format 17.06.2016. You must use a regular expression and should use methods described in this section.
+
+```js
+formatDate('2016-06-17'); // -> '17.06.2016'
+formatDate('2017/05/03'); // -> '03.05.2017'
+formatDate('2015/01-31'); // -> '2015/01-31' (no change)
+```
+
+Solutions
+
+```js
+// 1
+let formatDate = function (originalDate) {
+  return originalDate
+    .replace(/^(\d\d\d\d)-(\d\d)-(\d\d)$/, '$3.$2.$1')
+    .replace(/^(\d\d\d\d)\/(\d\d)\/(\d\d)$/, '$3.$2.$1');
+};
+
+// 2
+let formatDate = function (originalDate) {
+  let dateRegex = /^(\d\d\d\d)([\-\/])(\d\d)\2(\d\d)$/;
+  return originalDate.replace(dateRegex, '$4.$3.$1');
+}
+```
+
+The easiest way to approach this problem is to split it into smaller sub-problems, one that handles dates in `2016-05-17` format, and one that handles `2016/05/17` format, which is what both of our primary solutions do. One possible gotcha here is that you must remember to escape the `/` characters in the regex.
+
+You can solve this problem with one regex, as in our alternate solutions, but at the expense of a more complex regex and lowered readability. The regex adds one additional capture group to capture the first `-` or `/`, and uses a `\2` backreference to refer back to that capture in the regex. However, this additional capture group modifies the backreference numbers for the month and day components of the date, so we now need to refer to them as `\4` and `\3` in Ruby, `$4` and `$3` in JavaScript. In Ruby, this might be a good time to look up how to use named capture groups.
+
+Note that our alternate solutions use variables to store the regex. We do this both for readability, and to show that regex are no different than any other object; you can manipulate and pass them around as needed.
+
+## Conclusion
+
+### Overview
+
+With the skills you've learned from this book, you're ready to begin using regex. Whenever you process strings or test, parse, and modify their content, you may find that regex will help. Take these opportunities to think about the problem, and decide whether a regex may help you do the job.
+
+In this book, we've discussed the primary building blocks of regex, patterns, and have discussed the patterns you'll use most often. We've also learned some fundamental concepts:
+
+* **Patterns** are the building blocks of **regex**. You construct regex from patterns using **concatenation** and **alternation**. You then place the resulting pattern between two `/` characters.
+* Concatenation and alternation of two patterns create a new pattern.
+* The most basic patterns match a single character, a range of characters, or a set of characters.
+* We call some special characters **meta-characters**; they have special meaning inside a regex. When you must match one literally, **escape** it with a leading `\` character.
+* **Character class** patterns match any character in a set or range of characters of any combination of sets and ranges.
+* **Anchors** force a regex to match at a specific location inside a string.
+* A **quantifier** matches a pattern multiple times; they always apply to the pattern to the left of the quantifier. Quantifiers are **greedy** by default, but also have **lazy** forms.
+* Parentheses let you combine patterns as a series of alternates. They also provide a way to **capture** parts of a match for later reuse; when used this way, we call the groups **capture groups**. We can access captured values with **backreferences**.
+
+We've also learned a bit about using regex in a Ruby or JavaScript program. We learned how to test a string against a regex; how to split strings into multiple items using regex; and how to construct new strings from existing strings by using regex to extract the info we need.
+
+### Cheat Sheet
+
+In the following tables, unescaped `a`, `b`, and `z` characters denote regular characters (letters, digits, punctuation), while unescaped `p` and `q` characters indicate patterns (each pattern may be arbitrarily complex). Other characters are literals.
+
+#### 1. Basic Matching
+
+**Pattern**  | **Meaning**
+---------|--------
+`/a/`  | Match the character `a`
+`/\?/`, `/\./`  | Match a meta-character literally
+`/\n/`, `/\t/`  | Match a control character (newline, tab, etc.)
+`/pq/`  | Concatenation (`p` followed by `q`)
+`/(p)/`  | Capture Group
+`/(p|q)/`  | Alternation (`p` or `q`)
+`/p/i`  | Case insensitive match
+
+#### 2. Character Classes and Shortcuts
+
+**Pattern**  | **Meaning**
+---------|--------
+`/[ab]/`  | `a` or `b`
+`/[a-z]/`  | `a` through `z`, inclusive
+`/[^ab]/`  | Not (`a` or `b`)
+`/[^a-z]/`  | Not (`a` through `z`)
+`/./`  | Any character except newline
+`/\s/`, `/[\s]/`  | Whitespace character (space, tab, newline, etc)
+`/\S/`, `/[\S]/`  | Not a whitespace character
+`/\d/`, `/[\d]/`  | Decimal digit (0-9)
+`/\D/`, `/[\D]/`  | Not a decimal digit
+`/\w/`, `/[\w]/`  | Word character (0-9, a-z, A-Z, _)
+`/\W/`, `/[\W]/`  | Not a word character
+
+#### 3. Anchors
+
+**Pattern**  | **Meaning**
+---------|--------
+`/^p/`  | Pattern at start of line
+`/p$/`  | Pattern at end of line
+`/\Ap/`  | Pattern at start of string
+`/p\z/`  | Pattern at end of string (after newline)
+`/p\Z/`  | Pattern at end of string (before newline)
+`/\bp/`  | Pattern begins at word boundary
+`/p\b/`  | Pattern ends at word boundary
+`/\Bp/`  | Pattern begins at non-word boundary
+`/p\B/`  | Pattern ends at non-word boundary
+
+#### 4. Quantifiers
+
+**Pattern**  | **Meaning**
+---------|--------
+`/p*/`  | 0 or more occurrences of pattern
+`/p+/`  | 1 or more occurrences of pattern
+`/p?/`  | 0 or 1 occurrence of pattern
+`/p{m}/`  | m occurrences of pattern
+`/p{m,}/`  | m or more occurrences of pattern
+`/p{m,n}/`  | m through n occurrences of pattern
+`/p*?/`  | 0 or more occurrences (lazy)
+`/p+?/`  | 1 or more occurrences (lazy)
+`/p??/`  | 0 or 1 occurrence (lazy)
+`/p{m,}?/`  | m or more occurrences (lazy)
+`/p{m,n}?/`  | m through n occurrences (lazy)
+
+#### 5. Meta-characters
+
+**Outside Character Classes**  | **Inside Character Classes**
+---------------------------|-------------------------
+`$ ^ * + ? . ( ) [ ] { }  | \ /`
+
+#### 6. Common JavaScript Functions for Regex
+
+**Method**  | **Use**
+--------|----
+`String.match`  | Determine if regex matches a string
+`String.split`  | Split string by regex
+`String.replace`  | Replace regex match
+
+### Variants
+
+Regex have variants; though most have similarities to each other, the different **engines** also have noticeable differences. For instance, Ruby supports the `\A` and `\z` anchors, while JavaScript does not.
+
+Other languages besides Ruby and JavaScript support regex: Perl, Python, PHP, Awk, C/C++, Java, and more all provide varying levels of support for regex. Even editors like vim, emacs, Atom, and Sublime Text, as well as command line tools like sed and grep use regex. Nearly every language and program has a slightly different take on regex, though.
+
+Every regex engine should support the following features:
+
+* basic single character matches, e.g., `/a/`.
+* concatenation, e.g., `/pq/`.
+* meta-characters escapes, e.g., `/\*/`.
+* character classes, e.g., `/[abc]/` and `/[a-m]/`.
+* `*` quantifiers, e.g., `/a*/`.
+* `.` matches any character except a newline.
+* `^` and `$` line anchors
+
+Other regex engines may not support some of the features we discussed. For instance, `\A`, `\z` and `\Z` aren't available with most older engines. Some features may require escapes to designate meta-characters (the convention today is that we use escapes when we want to match literals). In Ruby and JavaScript, for example, you can use `/(p|q)/` for alternation, but in vim's default mode, you must use `/\(p\|q\)/` instead.
+
+Some programs even let you specify the engine you want to use. Typically, you have a choice between **basic** (the default), **extended**, and **POSIX** engines. You often find this choice with modern versions of ancient programs like `awk`, `sed`, and `grep`.
+
+Most modern programs cover all or most of the features we have discussed, perhaps with slight variations and various levels of custom enhancements.
+
+### Resources
+
+While this book covers almost everything you need to get started with regex, it doesn't pretend to be a reference or complete. There is much more to even the most basic implementations, so read the documentation. Familiarize yourself with the features that your regex engine supports, but don't try to memorize them; that sometimes encourages overuse of regex and the construction of regex with too much complexity. When you find that you need a feature, go ahead and look it up.
+
+Your first place for information should be the documentation for your language's regex implementation. Since regex engines differ, sometimes considerably, ensure you're using the right information. The documentation is the best insurance against misunderstandings.
+
+Despite the engine differences, most have a common subset of features and work in the same general way. Thus, most online discussions of regex are useful regardless of which language you use. Don't avoid sites because they use the wrong engine. Here are a few sites that may be useful:
+
+* [Essential Guide To Regular Expressions: Tools and Tutorials](https://www.smashingmagazine.com/2009/06/essential-guide-to-regular-expressions-tools-tutorials-and-resources/)
+* [Regular-Expressions.info](https://www.regular-expressions.info/)
+* [Regex Tutorial—From Regex 101 to Advanced Regex](http://www.rexegg.com/)
+
+And don't forget about [Rubular](https://rubular.com/) and [Scriptular](https://scriptular.com/) as well!
+
+Developers frequently recommend two books as good regex resources:
+
+* [Introducing Regular Expressions](https://www.oreilly.com/library/view/introducing-regular-expressions/9781449338879/)
+* [Mastering Regular Expressions, 3rd Edition](https://www.oreilly.com/library/view/mastering-regular-expressions/0596528124/)
+
+The former is a thorough introduction to regex and how to use them. It even covers advanced regex features, such as look-ahead and look-behind assertions. The latter assumes that you are familiar with the basics of regex, and takes you out to the deep waters where you can explore, in excruciating technical detail, nearly every facet of regex and their implementations.
+
+### Where to go from here
+
+Congratulations! You've made your first dive into the regex ocean, and returned to shore, unharmed. You should have a good grasp on how to construct regex, and how to employ them in your programs. At the same time, you may be a little doubtful of how much you remember. Fear not. It takes time and practice to learn how to use regex. The more you use them, the less difficulty you will have using them, and the more opportunities you'll find to use them. Skillful use of regex can make for concise, easy-to-read and easy-and-understand programs.
+
+However, don't get carried away; a regex packs a lot of meaning into a small area and can be challenging to understand six months after you write it. If you think a regex that you are writing may be too hard to understand, you may be right. Take a step back and see if you can simplify the problem; sometimes, for instance, it's better to write multiple regex than to write one large one.
+
+Don't forget to use **Rubular** and **Scriptular**; these two sites are incredibly useful when constructing regex. By giving them appropriate test data, you can play with and fine-tune your regex until it does what you want it to do.
+
+Above all, keep practicing!
+
+End 20220121 @22:06

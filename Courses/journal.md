@@ -5048,8 +5048,11 @@ function duplicates(array) {
 
 18:35 My stomach is full of Tori Ramen and I am back at my work station working on problems.
 
+22:06 I finished the Launch School book Introduction to Regular Expressions. Time for bed and cold soccer game tomorrow.
+
 ## 20220122 토요일
 
 10:05 Working on a problem from yesterday and I can't get it to work. Why?
 
 16:23 I want to update my commits.
+
