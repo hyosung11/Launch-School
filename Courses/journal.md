@@ -5047,3 +5047,5 @@ function duplicates(array) {
 16:11 I turned off the machines upstairs, but left the one downstairs running. Getting closer to being ready for the interview assessment.
 
 18:35 My stomach is full of Tori Ramen and I am back at my work station working on problems.
+
+22:06 I finished the Launch School book Introduction to Regular Expressions. Time for bed and cold soccer game tomorrow.
