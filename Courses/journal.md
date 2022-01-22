@@ -5047,3 +5047,9 @@ function duplicates(array) {
 16:11 I turned off the machines upstairs, but left the one downstairs running. Getting closer to being ready for the interview assessment.
 
 18:35 My stomach is full of Tori Ramen and I am back at my work station working on problems.
+
+## 20220122 토요일
+
+10:05 Working on a problem from yesterday and I can't get it to work. Why?
+
+16:23 I want to update my commits.
