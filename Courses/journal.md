@@ -5107,3 +5107,5 @@ postgres=#
 11:31 I spent all morning working on one problem that had to do with getting names from an object. That's my nemesis right now. Ugh. I want to watch Chelsea vs Tottenham now.
 
 14:35 I think I spent more than an hour on 'Find the Missing Letter'. I think I understand it now.
+
+16:34 Codewars seems to have a problem. I'm not sure why there's a blinking green cursor.
