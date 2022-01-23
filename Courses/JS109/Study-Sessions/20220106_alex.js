@@ -1,4 +1,4 @@
-/* Non-even substrings  codewars - 6kyu
+/* Non-even substrings  codewars - 6 kyu
 
 Given a string of integers, return the number of odd-numbered substrings that can be formed.
 
@@ -93,28 +93,28 @@ ALGORITHM
 - return new string
 */
 
-console.log(scrambleWords('professionals') === 'paefilnoorsss'); // 'The first and last letters of a word should reamin in place with the inner letters sorted')
-console.log(scrambleWords('i') === 'i') // 'Must handle single character words')
-console.log(scrambleWords('me') === 'me'); // 'Must handle 2 character words'
-console.log(scrambleWords('you') === 'you'); // 'Must handle 3 character words')
-console.log(scrambleWords('card-carrying') === 'caac-dinrrryg'); // 'Only spaces separate words and punctuation should remain at the same place as it started'
+// console.log(scrambleWords('professionals') === 'paefilnoorsss'); // 'The first and last letters of a word should reamin in place with the inner letters sorted')
+// console.log(scrambleWords('i') === 'i') // 'Must handle single character words')
+// console.log(scrambleWords('me') === 'me'); // 'Must handle 2 character words'
+// console.log(scrambleWords('you') === 'you'); // 'Must handle 3 character words')
+// console.log(scrambleWords('card-carrying') === 'caac-dinrrryg'); // 'Only spaces separate words and punctuation should remain at the same place as it started'
 
-console.log(scrambleWords('professionals') === 'paefilnoorsss'); // 'The first and last letters of a word should reamin in place with the inner letters sorted')
-console.log(scrambleWords('i') === 'i') // 'Must handle single character words')
-console.log(scrambleWords('me') === 'me'); // 'Must handle 2 character words'
-console.log(scrambleWords('you') === 'you'); // 'Must handle 3 character words')
-
-
-console.log(scrambleWords('card-carrying') === 'caac-dinrrryg'); // 'Only spaces separate words and punctuation should remain at the same place as it started')
-
-console.log(scrambleWords("shan't") === "sahn't"); // 'Punctuation should remain at the same place as it started')
-
-scrambleWords('-dcba'), '-dbca', 'Must handle special character at the start')
-scrambleWords('dcba.'), 'dbca.', 'Must handle special character at the end')
-scrambleWords("you've gotta dance like there's nobody watching, love like you'll never be hurt, sing like there's nobody listening, and live like it's heaven on earth."), "you've gotta dacne like teehr's nbdooy wachintg, love like ylo'ul neevr be hrut, sing like teehr's nbdooy leiinnstg, and live like it's haeevn on earth.", 'Must handle a full sentence')
+// console.log(scrambleWords('professionals') === 'paefilnoorsss'); // 'The first and last letters of a word should reamin in place with the inner letters sorted')
+// console.log(scrambleWords('i') === 'i') // 'Must handle single character words')
+// console.log(scrambleWords('me') === 'me'); // 'Must handle 2 character words'
+// console.log(scrambleWords('you') === 'you'); // 'Must handle 3 character words')
 
 
-/* Find the missing letter
+// console.log(scrambleWords('card-carrying') === 'caac-dinrrryg'); // 'Only spaces separate words and punctuation should remain at the same place as it started')
+
+// console.log(scrambleWords("shan't") === "sahn't"); // 'Punctuation should remain at the same place as it started')
+
+// scrambleWords('-dcba'), '-dbca', 'Must handle special character at the start')
+// scrambleWords('dcba.'), 'dbca.', 'Must handle special character at the end')
+// scrambleWords("you've gotta dance like there's nobody watching, love like you'll never be hurt, sing like there's nobody listening, and live like it's heaven on earth."), "you've gotta dacne like teehr's nbdooy wachintg, love like ylo'ul neevr be hrut, sing like teehr's nbdooy leiinnstg, and live like it's haeevn on earth.", 'Must handle a full sentence')
+
+
+/* Find the missing letter - 6 kyu
 
 Write a method that takes an array of consecutive (increasing) letters as input and that returns the missing letter in the array.
 
@@ -130,4 +130,21 @@ Example:
 
 (Use the English alphabet with 26 letters!) */
 
- findMissingLetter(['a','b','c','d','f']) === 'e';findMissingLetter(['O','Q','R','S']) === 'P';
+function findMissingLetter(array) {
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  if (array[0] === array[0].toUpperCase()) {
+    alphabet = alphabet.toUpperCase();
+  }
+
+  let start = alphabet.indexOf(array[0]);
+  let end = alphabet.indexOf(array[array.length - 1]) + 1;
+  let sequence = alphabet.slice(start, end);
+
+  for (let idx = 0; idx < sequence.length; idx++) {
+    if (!array.includes(sequence[idx])) return sequence[idx];
+  }
+}
+
+ console.log(findMissingLetter(['a','b','c','d','f']) === 'e');
+
+console.log(findMissingLetter(['O','Q','R','S']) === 'P');

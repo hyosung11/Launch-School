@@ -5105,3 +5105,5 @@ postgres=#
 09:53 Practicing the Codewars problems still tabbed on Firefox and able to do them quickly which is a good sign. I am retaining something then. Ha ha.
 
 11:31 I spent all morning working on one problem that had to do with getting names from an object. That's my nemesis right now. Ugh. I want to watch Chelsea vs Tottenham now.
+
+14:35 I think I spent more than an hour on 'Find the Missing Letter'. I think I understand it now.
