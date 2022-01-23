@@ -5103,3 +5103,5 @@ postgres=#
 09:31 I told Michael Cremonini that I want to take the interview assessment on Monday, 31 January 2022. I'm close, I think but it will be good to do some timed study sessions this week and see how they go. I'm more familiar with how to solve problems more quickly because I have seen them before.
 
 09:53 Practicing the Codewars problems still tabbed on Firefox and able to do them quickly which is a good sign. I am retaining something then. Ha ha.
+
+11:31 I spent all morning working on one problem that had to do with getting names from an object. That's my nemesis right now. Ugh. I want to watch Chelsea vs Tottenham now.
