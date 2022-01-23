@@ -140,17 +140,17 @@ function sumOfNumbers(str) {
   let chars = str.split('');
 
   let delim = '-';
-  let numbersChar = '0123456789';
+  let numbers = '0123456789';
 
-  let nums = chars.map((char) => {
-    if (numbersChar.includes(char)) {
+  let digits = chars.map((char) => {
+    if (numbers.includes(char)) {
       return char;
     } else {
       return delim;
     }
   });
 
-  let numbers = nums
+  let numbers = digits
     .join('')
     .split(delim)
     .map((str) => Number(str));
@@ -201,3 +201,10 @@ console.log(
     3635
 );
 console.log(sumOfNumbers('') === 0);
+
+// Another Version
+function sumOfIntegersInString(string) {
+  let digits = string.replace(/[^0-9]/g, '-');
+  let result = digits.split('-').reduce((sum, num) => sum + Number(num), 0);
+  return result;
+}

@@ -5056,3 +5056,44 @@ function duplicates(array) {
 
 16:23 I want to update my commits.
 
+16:31 Reading the Launch School SQL book and updating homebrew and my version of PostgreSQL to 14.1.
+
+## SQL
+
+Commands to start and stop PostgreSQL
+`brew services start postgresql`
+`brew services stop postgresql`
+`brew services restart postgresql`
+
+The psql console
+`$ psql postgres`
+
+```sh
+psql (14.1)
+Type "help" for help.
+
+postgres=# 
+```
+
+There are two different types of commands you can issue from the psql console prompt:
+
+1. You can issue psql console meta-commands
+2. You can run SQL statements using standard SQL syntax
+
+### Meta-commands
+
+`\` followed by the command and any optional arguments. E.g., `\conninfo`.
+
+```sh
+postgres=# \conninfo
+You are connected to database "postgres" as user "hyosungbidol-lee" via socket in "/tmp" at port "5432".
+postgres=# 
+```
+
+`\q` - quits the psql console and returns to the normal command line.
+
+### SQL Statements
+
+`SELECT` retrieves data from a database.
+
+20:25 Not sure why I took notes on SQL in my journal file. I still have trouble with the little things with coding. Ugh.
