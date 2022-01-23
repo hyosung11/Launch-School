@@ -5097,3 +5097,9 @@ postgres=#
 `SELECT` retrieves data from a database.
 
 20:25 Not sure why I took notes on SQL in my journal file. I still have trouble with the little things with coding. Ugh.
+
+## 20220123 일요일
+
+09:31 I told Michael Cremonini that I want to take the interview assessment on Monday, 31 January 2022. I'm close, I think but it will be good to do some timed study sessions this week and see how they go. I'm more familiar with how to solve problems more quickly because I have seen them before.
+
+09:53 Practicing the Codewars problems still tabbed on Firefox and able to do them quickly which is a good sign. I am retaining something then. Ha ha.

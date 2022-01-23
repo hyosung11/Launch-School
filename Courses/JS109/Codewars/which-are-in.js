@@ -49,37 +49,22 @@ ALGORITHM
     - append word to result array
 - sort `result` array lexicographically from a-z
 - return `result` array
+
+Alternative Algorithm
+- input two arrays
+- iterate through first array
+  - for each substring in first array
+    - check (filter) if that substring exists in each word of second array
+- sort the array
+- return new array
 */
 
 // Example 1:
 let array1 = ["arp", "live", "strong"]
 let array2 = ["lively", "alive", "harp", "sharp", "armstrong"]
 
-// function inArray(array1, array2) {
-//   let result = [];
-//   let substrings = getSubstrings(array2)
-//   // console.log(substrings);
-
-//   for (let idx = 0; idx < array1.length; idx++) {
-//     if (substrings.includes(array1[idx]))
-//     result.push(array1[idx]);
-//   }
-
-//   return result;
-// }
-
-// function getSubstrings(array) {
-//   let result = [];
-//   for (let idx = 0; idx < array.length; idx++) {
-//     for (let jdx = idx + 1; jdx <= array.length; jdx++) {
-//       result.push(array.slice(idx, jdx));
-//     }
-//   }
-//   return result;
-// }
-
 function inArray(array1, array2) {
-  return array1.filter(word => array2.some(substring => substring.includes(word))).sort();
+  return array1.filter(substring => array2.some(word => word.includes(substring))).sort();
 }
 
 console.log(inArray(array1, array2));
