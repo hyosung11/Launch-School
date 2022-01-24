@@ -78,19 +78,19 @@ ALGORITHM
 // console.log(alphabetScore('take me to semynak') === 'semynak');
 
 
-// 
+
 // function alphabetScore(string) {
 //   if (string === '') return '';
-  
+
 //   let alphabet = '_abcdefghijklmnopqrstuvwxyz';
 //   let highScore = 0;
 //   let highScoreIndex = null;
 //   let wordArray = string.split(' ');
-  
+
 //   for (let index = 0; index < wordArray.length; index += 1) {
 //     let wordScore = 0;
 //     let charArray = wordArray[index].split('');
-    
+
 //     for (let jndex = 0; jndex < charArray.length; jndex += 1) {
 //       let char = charArray[jndex];
 //       wordScore += alphabet.indexOf(char);
