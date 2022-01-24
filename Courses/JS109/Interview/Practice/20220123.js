@@ -64,7 +64,7 @@ EXAMPLES
 
 DATA STRUCTURE
 - input: string
-- intermediary: array
+- intermediary: array (split, reduce)
 - output: word
 
 ALGORITHM
@@ -93,12 +93,12 @@ ALGORITHM
 //   return words[maxIndex];
 // }
 
-/* Algo
+/* Alternative Algo
 - input string
 - initialize `highest` to empty string
 - initialize `words` to an array of words by splitting the string at each space
 - iterate by word through `words` array
-  - call helper function `getScore` on each word
+  - call helper function `getScore` on each word and on `highest`
   - if score of word at index is greater than score of `highest`
     - reassign `highest` to word at index
 - return `highest`
@@ -112,32 +112,166 @@ getScore helper function
 - return word's score
 */
 
-function alphabetScore(string) {
-  let highest = '';
-  let words = string.split(' ');
+// function alphabetScore(string) {
+//   let highest = '';
+//   let words = string.split(' ');
 
-  for (let idx = 0; idx < words.length; idx++) {
-    let word = words[idx];
-    if (getScore(word) > getScore(highest))
-      highest = word;
-  }
+//   words.forEach(word => {
+//     if (getScore(word) > getScore(highest))
+//       highest = word;
+//   });
 
-  return highest;
-}
+//   return highest;
+// }
 
-function getScore(word) {
-  let alphabet = '_abcdefghijklmnopqrstuvwxyz';
-  return word
-    .split('')
-    .reduce((sum, char) => sum + alphabet.indexOf(char), 0);
-}
+// const getScore = word => {
+//   let alphabet = '_abcdefghijklmnopqrstuvwxyz';
+//   return word
+//     .split('')
+//     .reduce((sum, char) => sum + alphabet.indexOf(char), 0);
+// }
+
+// console.log(alphabetScore('aa b')); // 'aa'
 
 // Examples / Test Cases
-console.log(alphabetScore('man i need a taxi up to ubud') === 'taxi');
-console.log(alphabetScore('what time are we climbing up the volcano') === 'volcano');
-console.log(alphabetScore('take me to semynak') === 'semynak');
-console.log(alphabetScore('aa b') === 'aa');
-console.log(alphabetScore('aa') === 'aa');
-console.log(alphabetScore('a z') === 'z');
-console.log(alphabetScore('y z') === 'z');
-console.log(alphabetScore('') === '');
+// console.log(alphabetScore('') === '');
+// console.log(alphabetScore('a z') === 'z');
+// console.log(alphabetScore('y z') === 'z');
+// console.log(alphabetScore('aa b') === 'aa');
+
+// console.log(alphabetScore('aa') === 'aa');
+// console.log(alphabetScore('man i need a taxi up to ubud') === 'taxi');
+// console.log(alphabetScore('what time are we climbing up the volcano') === 'volcano');
+// console.log(alphabetScore('take me to semynak') === 'semynak');
+
+/* ==============================
+Move Capital Letters to the Front
+
+Create a function that moves all capital letters to the front of a word.
+
+Examples
+
+capToFront("hApPy") ➞ "APhpy"
+capToFront("moveMENT") ➞ "MENTmove"
+capToFront("shOrtCAKE") ➞ "OCAKEshrt"
+
+Notes:
+
+Keep the original relative order of the upper and lower case letters the same.
+
+PROBLEM
+- input: string
+- output: new string
+
+Rules
+- return a new string where the capital letters are moved to the beginning of the string
+- keep the original relative order of the upper and lower case letters the same
+- one word?
+- just letters?
+- empty string?
+
+EXAMPLES
+- 'hApPy' => APhpy
+
+DATA STRUCTURE
+- input string
+- intermediary: split into an array or build a new string?
+- output new string
+
+ALGORITHM
+- input string of letters
+- initialize `upper` to empty string
+- initialize `lower` to empty string
+- iterate over string by char
+  - if char at idx is uppercase and to `upper`
+  - if char at idx is lowercase add to `lower`
+- concatenate `upper` and lower`
+- return new string of letters */
+
+// function capToFront(string) {
+//   let upper = '';
+//   let lower = '';
+
+//   string.split('').forEach(char => {
+//     if (char === char.toUpperCase()) upper += char;
+//     else if (char === char.toLowerCase()) lower += char;
+//   })
+
+//   return upper + lower;
+// }
+
+// function capToFront(string) {
+//   return string
+//     .split('')
+//     .filter(char => char === char.toUpperCase())
+//     .join('') +
+//     string
+//       .split('')
+//       .filter(char => char === char.toLowerCase())
+//       .join('');
+// }
+
+// console.log(capToFront("hApPy")); // "APhpy"
+// console.log(capToFront("moveMENT")); // "MENTmove"
+// console.log(capToFront("shOrtCAKE")); // "OCAKEshrt"
+
+/* ========
+Change Me
+
+Given a string, write a function changeMe which returns the same string but with all the words in it that are palindromes uppercased.
+
+PROBLEM
+- input: string of words
+- output: new string of words with palindromes capitalized
+
+Rules
+- return a string of words with palindromes uppercased
+- only letters?
+- empty string returns an empty string
+- palindromes case-sensitive?
+- words are split by space in string
+
+EXAMPLES
+- see below
+
+DATA STRUCTURE
+- input: string
+- intermediary: array (map, split, reverse, join for palindrome check)
+- output: string
+
+ALGORITHM
+- input string of words
+- initialize `words` to array of words by splitting the string at each space
+- iterate through words
+  - using `isPalindrome` helper function
+    - check if word is a palindrome
+    - if so return word in all caps
+    - otherwise return word as-s
+  - join the words and return
+*/
+
+// function changeMe(string) {
+//   return string
+//     .split(' ')
+//     .map(word => {
+//       if (isPalindrome(word)) return word.toUpperCase();
+//       else return word;
+//     })
+//     .join(' ');
+// }
+
+// function isPalindrome(word) {
+//   return word === word.split('').reverse().join('');
+// }
+
+// console.log(changeMe("We will meet at noon")) // === "We will meet at NOON"); // true
+// console.log(changeMe("No palindromes here")) // === "No palindromes here"); // true
+// console.log(changeMe("")) // === ""); // true
+// console.log(changeMe("I LOVE my mom and dad equally")) // === "I LOVE my MOM and DAD equally"); // true
+
+// // Test Cases
+// console.log(changeMe("We will meet at noon") === "We will meet at NOON"); // true
+// console.log(changeMe("No palindromes here") === "No palindromes here"); // true
+// console.log(changeMe("") === ""); // true
+// console.log(changeMe("I LOVE my mom and dad equally") === "I LOVE my MOM and DAD equally"); // true
+
