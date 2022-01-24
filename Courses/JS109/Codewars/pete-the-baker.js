@@ -1,4 +1,4 @@
-/* Pete, the Baker - 5kyu
+/* Pete, the Baker - 5 kyu
 
 Pete likes to bake some cakes. He has some recipes and ingredients. Unfortunately he is not good in maths. Can you help him to find out, how many cakes he could bake considering his recipes?
 
@@ -28,7 +28,7 @@ ALGORITHM
 - iterate through the items in recipe
   - if recipe item's value is greater than the item's value in ingredients or
   - if ingredient item doesn't exist
-    - return return 0
+    - return 0
   - otherwise initialize `cake` to the value of dividing the ingredient item value by the recipe item value and take the floor of that
     - push `cake` to `cakeCount
 - return `cakeCount` lowest value as number of cakes that can be made
@@ -47,7 +47,6 @@ function cakes(recipe, ingredients) {
 
   return Math.min(...cakeCount);
 }
-
 
 // Examples
 console.log(cakes({flour: 500, sugar: 200, eggs: 1}, {flour: 1200, sugar: 1200, eggs: 5, milk: 200})); // must return 2
@@ -122,3 +121,34 @@ console.log(cakes({apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100}, {sug
 
 //   return Math.min(...cakeCount);
 // }
+
+/* Antonina's Solution
+Inputs:
+  -object (recipe)
+  -object (available ingredients)
+Output: integer
+
+Rules:
+- if some ingredient does not exist in an object, its value can be considered to be 0
+- return maximum number of cakes that can be baked using the available ingredients
+
+Algorithm:
+- create an empty array
+- for each ingredient in the `recipe` object
+  - divide the available amount of that ingredient in the available ingredients object
+     - and keep the integer part of the result and push it in the array
+  - if an ingredient does not exist in the available ingredients object, push 0
+     to the array
+- return the minimum number from the array
+*/
+
+function cakes(recipe, available) {
+  let count = [];
+
+  for (let item in recipe) {
+    if (!available[item]) count.push(0);
+    else count.push(Math.floor(available[item] / recipe[item]));
+  }
+
+  return Math.min(...count);
+}

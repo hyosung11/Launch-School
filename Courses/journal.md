@@ -5113,3 +5113,17 @@ postgres=#
 19:45 Fork! I needed to peek to figure out 'Alphabet Score' which is a problem similar to one that Felicia Bacon said she had in her interview assessment. There's a little, critical piece that I struggle with in each problem. Maybe it's not so little. Ugh. Keep going though.
 
 21:10 Definitely some more difficult problems that I need to practice again before I take the interview assessment. I want to watch the end of the football game now.
+
+## 20220124 월요일
+
+07:00 in study session with Alex.
+
+09:00 I will call NJ Water and Mold now and find out when they are coming.
+
+09:17 I don't understand the Homesite claim information. I'll let Sohee look at it. I still have problems with objects.
+
+10:34 Practicing some more before my session with Michael at 11:00. NJ Water and Mold not coming until this afternoon.
+
+15:54 I have had a good day. I interviewed for the Sales Engineer position at Greenshades. I did a study session with Michael and see that I still need to practice with objects. NJ Water & Mold is coming to pick up the rest of the equipment.
+
+18:29 We lost power a couple of times, so I'm not sure what was lost from my notes. I feel like doing some more 7 kyu problems to boost my confidence.

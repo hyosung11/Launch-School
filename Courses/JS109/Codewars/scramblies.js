@@ -65,6 +65,19 @@ function scramble(str1, str2) {
   return true;
 }
 
+/* Alternative version
+Algo
+- input str1, str2
+- initialize `count` to empty object
+- iterate by char through str1
+  - add char to `count`
+  - or increment char in `count`
+- iterate through str2 by char
+  - subtract every instance of char from `count`
+  - if every char from str2 can be subtracted from count
+    - return true
+- return false
+*/
 function scramble(str1, str2) {
   let count = {};
 
