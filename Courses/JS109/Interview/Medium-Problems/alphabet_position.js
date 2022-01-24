@@ -13,18 +13,18 @@ EXAMPLES
 
 DATA STRUCTURE
 - input: string
-- intermediary: string
-- output: numbers
+- intermediary: array
+- output: string of numbers
 
 ALGORITHM
 - input string
 - reassign string to all lowercase letters
 - initialize `alphabet` to letters of the alphabet
-- initialize `result` array
+- initialize `result` array to empty array
 - iterate through the input string
     - if char at current index position is in alphabet string, add that characters index position in the alphabet string to the result array
 - join result array by spaces
-- return numbers */
+- return string of numbers */
 
 function alphabetPosition(string) {
   string = string.toLowerCase();
