@@ -5127,3 +5127,56 @@ postgres=#
 15:54 I have had a good day. I interviewed for the Sales Engineer position at Greenshades. I did a study session with Michael and see that I still need to practice with objects. NJ Water & Mold is coming to pick up the rest of the equipment.
 
 18:29 We lost power a couple of times, so I'm not sure what was lost from my notes. I feel like doing some more 7 kyu problems to boost my confidence.
+
+20:18 Still trying to understand `sort()`:
+
+Some Useful Sorting Rules:
+
+* **Uppercase** letters *come before* **lowercase** letters (sometimes called ASCIIbetical order, but that is imprecise when talking about UTF-16 code points).
+* **Digits** and most punctuation *come before* letters.
+* There are several punctuation characters between the uppercase and lowercase letters, and several more that come after all of the letters.
+* There is an extended ASCII table that contains accented and other characters - this comes after the main ASCII table.
+* All other UTF-16 characters come after the extended ASCII table and have a code point of at least 256.
+
+```js
+// Ascending Order Sort
+[2, 11, 9, 4, 107, 21, 1].sort((a, b) => {
+  if (a < b) {
+    return -1; // place 'a' before 'b'
+  } else if (a > b) {
+    return 1; // place 'b' before 'a'
+  } else {
+    return 0; // leave unchanged
+  }
+}); // => [ 1, 2, 4, 9, 11, 21, 107 ]
+
+// Simplified
+[2, 11, 9, 4, 107, 21, 1].sort((a, b) => a - b);
+// => [ 1, 2, 4, 9, 11, 21, 107 ]
+```
+
+Rules for Ascending Order Sort
+
+1. If the callback returns a number less than `0`, place `a` before `b`.
+2. If the callback returns a number greater than `0` place `b` before `a`.
+3. If the callback returns `0`, leave the relative positions of a and b unchanged.
+
+```js
+// Descending Order Sort
+[2, 11, 9, 4, 107, 21, 1].sort((a, b) => {
+  if (a > b) {
+    return -1 // place 'a' before 'b'
+  } else if (a < b) {
+    return 1 // place 'b' before 'a'
+  } else {
+    return 0 // don't change
+  }
+});
+// => [ 107, 21, 11, 9, 4, 2, 1 ]
+
+// succinct version
+[2, 11, 9, 4, 107, 21, 1].sort((a, b) => b - a);
+// => [ 107, 21, 11, 9, 4, 2, 1 ]
+```
+
+21:05 `sort()` still confusing me. How to burn it into my brain? Okay, so noisy. I want to watch something with Sohee now.
