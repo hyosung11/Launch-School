@@ -168,25 +168,5 @@ ALGO
 // console.log(findOutlier([0,0,3,0,0]) === 3);
 // console.log(findOutlier([1,1,0,1,1]) === 0);
 
-/* Is Integer Array - 6 kyu
 
-Write a function with the signature shown below:
-
-function isIntArray(arr) {
-  return true
-}
-
-- returns true / True if every element in an array is an integer or a float with no decimals.
-- returns true / True if array is empty.
-- returns false / False for every other input.
-*/
-
-function isIntArray(array) {
-  if (!Array.isArray(array)) return false;
-  return array.every(int => Number.isInteger(int));
-}
-
-console.log(isIntArray([]) === true); // 'Input: []';
-console.log(isIntArray([1, 2, 3, 4]) === true); // 'Input: [1, 2, 3, 4]';
-console.log(isIntArray([1, 2, 3, NaN]) === false); // 'Input: [1, 2, 3, NaN]';
 

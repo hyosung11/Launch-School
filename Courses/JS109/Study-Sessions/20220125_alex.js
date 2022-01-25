@@ -100,36 +100,25 @@ function getMissingIngredients(recipe, added) {
   return obj;
 }
 
-/* Reversing and Combining Text - 6 kyu
 
-Your task is to Reverse and Combine Words. It's not too difficult, but there are some things you have to consider...
-So what to do?
+/* Is Integer Array - 6 kyu
 
-Input: String containing different "words" separated by spaces
+Write a function with the signature shown below:
 
-1. More than one word? Reverse each word and combine first with second, third with fourth and so on...
-   (odd number of words => last one stays alone, but has to be reversed too)
-2. Start it again until there's only one word without spaces
-3. Return your result...
+function isIntArray(arr) {
+  return true
+}
 
-Some easy examples:
+- returns true / True if every element in an array is an integer or a float with no decimals.
+- returns true / True if array is empty.
+- returns false / False for every other input.
+*/
 
-Input:  "abc def"
-Output: "cbafed"
+function isIntArray(array) {
+  if (!Array.isArray(array)) return false;
+  return array.every(int => Number.isInteger(int));
+}
 
-Input:  "abc def ghi 123"
-Output: "defabc123ghi"
-
-Input:  "abc def gh34 434ff 55_eri 123 343"
-Output: "43hgff434cbafed343ire_55321" */
-
-
-console.log(reverseAndCombineText("abc def") === "cbafed");
-
-console.log(reverseAndCombineText("abc def ghi jkl") === "defabcjklghi");
-
-console.log(reverseAndCombineText("dfghrtcbafed") === "dfghrtcbafed");
-
-console.log(reverseAndCombineText("234hh54 53455 sdfqwzrt rtteetrt hjhjh lllll12  44") === "trzwqfdstrteettr45hh4325543544hjhjh21lllll");
-
-console.log(reverseAndCombineText("sdfsdf wee sdffg 342234 ftt") === "gffds432243fdsfdseewttf");
+console.log(isIntArray([]) === true); // 'Input: []';
+console.log(isIntArray([1, 2, 3, 4]) === true); // 'Input: [1, 2, 3, 4]';
+console.log(isIntArray([1, 2, 3, NaN]) === false); // 'Input: [1, 2, 3, NaN]';

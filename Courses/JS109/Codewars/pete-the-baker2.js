@@ -18,9 +18,63 @@ getMissingIngredients(recipe, {flour: 50, eggs: 1}); // must return {flour: 150,
 getMissingIngredients(recipe, {}); // must return {flour: 200, eggs: 1, sugar: 100}
 getMissingIngredients(recipe, {flour: 500, sugar: 200}); // must return {flour: 100, eggs: 3, sugar: 100}
 
+PROBLEM
+- input: `recipe` and `added` object of ingredients
+- output: object of needed ingredients
+
+Rules
+- return an object that contains the needed ingredients in the right amount to complete one unit of the recipe or multiple units of the recipe to use the ingredients in `added` with the `recipe`
+- if item value in `recipe` equals item value in `added` don't return in the `result` object
+  - if item doesn't need to be added, don't add to `result`
+  - e.g., recipe requires one egg, and added has an egg
+- if amount added for an item is less than amount required in the recipe, add the difference to `result`
+  - e.g., recipe has flour: 200, added has 50, so flour needs 150
+
+EXAMPLES
+- see below
+
+DATA STRUCTURE
+- input:
+  - `recipe` which is an object of ingredients and their values
+  - `added` which is an object of ingredients and their values that have already been added for the recipe
+- intermediary: object
+- output: new object with the missing ingredients and their values
+
+ALGORITHM
+- input `recipe` and `added`
+- initialize `result` to empty object
+- initialize `count` to 1
+- iterate through `recipe` by item
+  - if item not in added, set added item's value to 0
+  - if added item's value divided by recipe item's value is greater than `count`
+    - reassign `count` to the rounded up value of dividing added item's value by the recipe item's value (to make complete recipe units)
+- iterate through recipe by item again
+  - initialize `value` to recipe item times count and subtract added item's value
+  - if `value` is truthy
+    - assign the result item to that value
+- return `result`
+
 */
 
-var recipe = {flour: 200, eggs: 1, sugar: 100};
+function getMissingIngredients(recipe, added) {
+  let result = {};
+  let count = 1;
+
+  for (let item in recipe) {
+    if (!added[item]) added[item] = 0;
+    if (added[item] / recipe[item] > count)
+      count = Math.ceil(added[item] / recipe[item]);
+  }
+
+  for (item in recipe) {
+    let value = (recipe[item] * count) - added[item];
+    if (value) result[item] = value;
+  }
+
+  return result;
+}
+
+const recipe = {flour: 200, eggs: 1, sugar: 100};
 
 console.log(getMissingIngredients(recipe, {flour: 50, eggs: 1})); // must return {flour: 150, sugar: 100}
 console.log(getMissingIngredients(recipe, {})); // must return {flour: 200, eggs: 1, sugar: 100}

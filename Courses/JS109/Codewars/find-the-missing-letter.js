@@ -43,27 +43,27 @@ ALGORITHM
   - if the current letter is not included in the input array
     - return that letter
 */
-function findMissingLetter(array) {
-  // initialize `alphabet` to 'a-z'
-  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
-  // check if the first element of the input array is upper case (all elements will be this same case)
-  if (array[0] === array[0].toUpperCase()) {
-    // since the default alphabet letters are lowercase, if the first letter in the input array is uppercase, we have to change all the letters of our alphabet string lookup to uppercase
-    alphabet = alphabet.toUpperCase();
-  }
-  // ['a', 'b', 'c', 'd', 'f']
-  // set a starting index position in the alphabet lookup string as a reference for iterating through the input array. We start at the first letter in the input string which is at index position 0 of the array that corresponds with its position in the alphabet string. So if the first letter in the array is 'a' that is position 0 in the alphabet string. If the first letter in the array is 'c' that's idx[2] in the alphabet string
-  let firstIndex = alphabet.indexOf(array[0]); // this is an index position which is located somewhere along the alphabet
-  // + 1 to account for the missing letter?
-  // we want to figure out where to end our iteration through the alphabet string based on what the last element is in the input array. Since array's have zero-based indexing and we have to account for the missing letter that we're trying to find, we need to add one to the last index position. Remember that the last element in an array is at array.length - 1, so we go to there and add 1
-  let lastIndex = alphabet.indexOf(array[array.length - 1]) + 1;
-  // now we have the start index and end index for our sequence; the sequence is the section of the alphabet string that we are going to use to check each element of the input array. as long as the element in the input array is in the alphabet sequence that we have defined, we move to the next element; if the element is not found in the alphabet string, we stop iterating and we return that element that was missing from the sequence
-  let sequence = alphabet.slice(firstIndex, lastIndex);
+// function findMissingLetter(array) {
+//   // initialize `alphabet` to 'a-z'
+//   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+//   // check if the first element of the input array is upper case (all elements will be this same case)
+//   if (array[0] === array[0].toUpperCase()) {
+//     // since the default alphabet letters are lowercase, if the first letter in the input array is uppercase, we have to change all the letters of our alphabet string lookup to uppercase
+//     alphabet = alphabet.toUpperCase();
+//   }
+//   // ['a', 'b', 'c', 'd', 'f']
+//   // set a starting index position in the alphabet lookup string as a reference for iterating through the input array. We start at the first letter in the input string which is at index position 0 of the array that corresponds with its position in the alphabet string. So if the first letter in the array is 'a' that is position 0 in the alphabet string. If the first letter in the array is 'c' that's idx[2] in the alphabet string
+//   let firstIndex = alphabet.indexOf(array[0]); // this is an index position which is located somewhere along the alphabet
+//   // + 1 to account for the missing letter?
+//   // we want to figure out where to end our iteration through the alphabet string based on what the last element is in the input array. Since array's have zero-based indexing and we have to account for the missing letter that we're trying to find, we need to add one to the last index position. Remember that the last element in an array is at array.length - 1, so we go to there and add 1
+//   let lastIndex = alphabet.indexOf(array[array.length - 1]) + 1;
+//   // now we have the start index and end index for our sequence; the sequence is the section of the alphabet string that we are going to use to check each element of the input array. as long as the element in the input array is in the alphabet sequence that we have defined, we move to the next element; if the element is not found in the alphabet string, we stop iterating and we return that element that was missing from the sequence
+//   let sequence = alphabet.slice(firstIndex, lastIndex);
 
-  for (let idx = 0; idx < sequence.length; idx++) {
-    if (!array.includes(sequence[idx])) return sequence[idx];
-  }
-}
+//   for (let idx = 0; idx < sequence.length; idx++) {
+//     if (!array.includes(sequence[idx])) return sequence[idx];
+//   }
+// }
 
 // function findMissingLetter(array) {
 //   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
@@ -112,7 +112,79 @@ function findMissingLetter(array) {
 // }
 
 // console.log(findMissingLetter(['a', 'b', 'c', 'd', 'f'])); // === 'e');
-console.log(findMissingLetter(['O', 'Q', 'R', 'S'])) // === 'P');
+// console.log(findMissingLetter(['O', 'Q', 'R', 'S'])) // === 'P');
 
 // console.log(findMissingLetter(['a', 'b', 'c', 'd', 'f']) === 'e');
 // console.log(findMissingLetter(['O', 'Q', 'R', 'S']) === 'P');
+
+// Another Version
+const findMissingLetter = (array) => {
+  const alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  const start = alphabet.indexOf(array[0]);
+  return alphabet
+    .slice(start, start + array.length)
+    .find((el) => !array.includes(el));
+};
+
+// Practice, Practice, Practice!
+// Write a method that takes an array of consecutive (increasing) letters as input and that returns the missing letter in the array.
+
+// You will always get a valid array. And always exactly one letter will be missing. The length of the array will always be at least 2.
+// The array will always contain letters in only one case.
+
+// Example:
+
+// ['a','b','c','d','f'] -> 'e' ['O','Q','R','S'] -> 'P'
+
+/* 
+PROBLEM
+- input array of letters in alphabetical order
+- output: the letter missing from the sequence
+
+Rules
+- return the letter missing from the alphabetical sequence
+- exactly one letter is missing
+- array has at least two letters
+- input array is either all lowercase or all uppercase letters
+- just letters no other types of chars
+
+EXAMPLES
+- ['a', 'b', 'c', 'd', 'f'] => 'e';
+
+DATA STRUCTURE
+- input: array
+- intermediary: alphabet lookup
+- output: letter that's missing
+
+ALGORITHM
+- input array
+- initialize `alphabet` to 'a-z';
+- if array element at idx is uppercase
+  - reassign `alphabet` to uppercase
+- need to find selection of `alphabet` to compare to array elements
+- initialize `start` to index position of the first element in the array based on its position in `alphabet`
+- initialize `end` to index position of the last element in the array according to its position in `alphabet`
+- initialize `selection` to section of `alphabet` from `start` to `end`
+- iterate through `selection`
+  - if letter at idx of selection is not in the `array`
+    - return that letter */
+
+// function findMissingLetter(array) {
+//   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+//   if (array[0] === array[0].toUpperCase()) {
+//     alphabet = alphabet.toUpperCase();
+//   }
+
+//   let start = alphabet.indexOf(array[0]);
+//   let end = alphabet.indexOf(array[array.length - 1])
+//   let selection = alphabet.slice(start, end + 1);
+
+//   for (let idx = 0; idx < selection.length; idx++) {
+//     if (!array.includes(selection[idx])) return selection[idx]
+//   }
+// }
+
+console.log(findMissingLetter(['a','b','c','d','f']));//, 'e')
+console.log(findMissingLetter(['O','Q','R','S']));//, 'P');
+
+

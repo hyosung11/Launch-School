@@ -77,8 +77,6 @@ ALGORITHM
 // console.log(alphabetScore('what time are we climbing up the volcano') === 'volcano');
 // console.log(alphabetScore('take me to semynak') === 'semynak');
 
-
-
 // function alphabetScore(string) {
 //   if (string === '') return '';
 
@@ -136,7 +134,7 @@ ALGORITHM
     - reassign `highest` to word at the index
 - return `highest`the word with the highest score
 
-getWordScore helper function
+getScore helper function
 - input word
 - initialize `alphabet` to 'a-z'
 - split the word into char
@@ -144,22 +142,22 @@ getWordScore helper function
   - compute value of each char based on its position in the `alphabet` string
 - return score for word */
 
-function alphabetScore(words) {
-  let highest = '';
-  let wordsArray = words.split(' ');
+// function alphabetScore(words) {
+//   let highest = '';
+//   let wordsArray = words.split(' ');
 
-  for (let idx = 0; idx < wordsArray.length; idx++) {
-    let word = wordsArray[idx];
-    if (getWordScore(word) > getWordScore(highest)) highest = word;
-  }
+//   for (let idx = 0; idx < wordsArray.length; idx++) {
+//     let word = wordsArray[idx];
+//     if (getScore(word) > getScore(highest)) highest = word;
+//   }
 
-  return highest;
-}
+//   return highest;
+// }
 
-function getWordScore(word) {
-  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
-  return word.split('').reduce((total, num) => total + alphabet.indexOf(num), 0);
-}
+// function getScore(word) {
+//   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+//   return word.split('').reduce((total, num) => total + alphabet.indexOf(num), 0);
+// }
 
 console.log(alphabetScore('') === '');
 console.log(alphabetScore('aa') === 'aa');
