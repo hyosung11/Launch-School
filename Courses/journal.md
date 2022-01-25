@@ -5192,3 +5192,5 @@ Rules for Ascending Order Sort
 13:27 Michael and I spent two hours together on our respective problems. I'm not ready to take the Interview Assessment yet.
 
 13:43 Take a short break and then keep studying and practicing.
+
+15:24 I don't fully understand the solution to "Reversing and Combining Text".

@@ -29,7 +29,7 @@ PROBLEM
 Rules:
 -return a obj comprised of the missing amount of each ingredient in the recipe in order to make the next complete cake
 -in second obj, if any properties of first object are missing, assume they have a value of 0
--if any of the values in obj2 exceed that property value in obj1, 
+-if any of the values in obj2 exceed that property value in obj1,
   find the greatest result (k) when each property value in obj2 is divided by that property value in obj1 and round up (Math.ceil)
   -multiply each value in obj1 by multiple, then follow previous subtraction scheme below
 -return object in which the second obj values have been subtracted from first

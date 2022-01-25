@@ -1,10 +1,12 @@
 /* Another Study Session with Michael Cremonini to prepare for the JS109 Interview Assessment
 
-/* You'll be given a string of random characters (numbers, letters, and symbols).
+/* Decrypt
+
+You'll be given a string of random characters (numbers, letters, and symbols).
 To decode this string into the key we're searching for:
-(1) count the number of occurences of each ascii lowercase letter, and
+(1) count the number of occurrences of each ascii lowercase letter, and
 (2) return an ordered string, 26 places long, corresponding to the number of
-occurences for each corresponding letter in the alphabet.
+occurrences for each corresponding letter in the alphabet.
 
 Example:
 '$aaaa#bbb*cc^fff!z' gives '43200300000000000000000001'
@@ -82,42 +84,6 @@ console.log(decrypt('$aaaa#bbb*ccfff!z')) //=== '43200300000000000000000001');
 // console.log(threeByThree(['93', '9', '1', '25', '1212']));
 // // true
 
-/* Reversing and Combining Text - 6 kyu
-
-Your task is to Reverse and Combine Words. It's not too difficult, but there are some things you have to consider...
-So what to do?
-
-Input: String containing different "words" separated by spaces
-
-1. More than one word? Reverse each word and combine first with second, third with fourth and so on...
-   (odd number of words => last one stays alone, but has to be reversed too)
-2. Start it again until there's only one word without spaces
-3. Return your result...
-
-Some easy examples:
-
-Input:  "abc def"
-Output: "cbafed"
-
-Input:  "abc def ghi 123"
-Output: "defabc123ghi"
-
-Input:  "abc def gh34 434ff 55_eri 123 343"
-Output: "43hgff434cbafed343ire_55321" */
-
-console.log(reverseAndCombineText('abc def') === 'cbafed');
-
-console.log(reverseAndCombineText('abc def ghi jkl') === 'defabcjklghi');
-
-console.log(reverseAndCombineText('dfghrtcbafed') === 'dfghrtcbafed');
-
-console.log(
-  reverseAndCombineText('234hh54 53455 sdfqwzrt rtteetrt hjhjh lllll12  44') ===
-    'trzwqfdstrteettr45hh4325543544hjhjh21lllll'
-);
-
-console.log(reverseAndCombineText('sdfsdf wee sdffg 342234 ftt') ===    'gffds432243fdsfdseewttf'
-);
 
 /* Alphabet Score aka Highest Scoring Word - for Michael */
 
@@ -130,8 +96,7 @@ console.log(reverseAndCombineText('sdfsdf wee sdffg 342234 ftt') ===    'gffds43
 
 // ['a','b','c','d','f'] -> 'e' ['O','Q','R','S'] -> 'P'
 
-/* 
-PROBLEM
+/* PROBLEM
 - input array of letters in alphabetical order
 - output: the letter missing from the sequence
 
@@ -170,7 +135,7 @@ function findMissingLetter(array) {
   let selection = alphabet.slice(start, end + 1)
   // console.log(selection) // OPQRS
 
-  
+
   for (let idx = 0; idx < selection.length; idx++) {
     let letter = selection[idx];
     // console.log(letter)
