@@ -5180,3 +5180,9 @@ Rules for Ascending Order Sort
 ```
 
 21:05 `sort()` still confusing me. How to burn it into my brain? Okay, so noisy. I want to watch something with Sohee now.
+
+## 20220125 화요일
+
+6:06 I turned off the drying machines before my study session with Alex.
+
+08:45 I need to review the problem that we did this morning. Break it down and understand it completely. Okay! It's okay to be confused. Keep going.
