@@ -1,6 +1,6 @@
 /* Repeated Substring 6 kyu
 
-For a given nonempty string s find a minimum substring t and the maximum number k, such that the entire string s is equal to t repeated k times.
+For a given nonempty string `s` find a minimum substring `t` and the maximum number `k`, such that the entire string `s` is equal to `t` repeated `k`times.
 
 The input string consists of lowercase latin letters.
 
@@ -24,6 +24,8 @@ the answer is
 
 because for this string "abcde" the minimum substring t, such that s is t repeated k times, is itself.
 
+=============================================
+
 PROBLEM
 - input: string
 - output: array with substring and number
@@ -44,7 +46,7 @@ DATA STRUCTURE
 
 ALGORITHM
 - input string
-- initialize `substring` to helper function `getSubstrings` to get all leadinbg substrings of string
+- initialize `substring` to helper function `getSubstrings` to get all leading substrings of string
 - iterate through substrings
   - initialize `testString` to empty string
   - initialize `count` to 0
@@ -134,10 +136,7 @@ console.log(getLeadingSubstrings('abcabcabc'));
 // }
 
 // console.log(deepEqual('abcde'));
-
-
 // console.log(deepEqual('ababab'));
-// console.log(deepEqual('abcde'));
 
 /*
 Input: string
@@ -187,13 +186,12 @@ Algorithm
  start 0 and end index
 3. calculate the length of the sub string
 4. divide the string length / sub string length divides evenly and if it doesn't continue
-5. If it does divide evenly, the check strictly equal to the argument
+5. If it does divide evenly, then check strictly equal to the argument
 6. return [substring, calculate number]
 
-Problems
-
-input: String
-Output: Array first element minimum substring
+Problem
+- input: String
+- Output: Array first element minimum substring
 second element is how many times repeated
 
 Explicit requirements
@@ -222,7 +220,7 @@ High overview
 Specific
 
 1. For loop to the end string length
-2. For each iteration, start 1  end string length we'd use slice method invocation on the string
+2. For each iteration, start 1 end string length we'd use slice method invocation on the string
  start 0 and end index
 3. calculate the length of the sub string
 4. divide the string length / sub string length divides evenly and if it doesn't continue
@@ -291,3 +289,8 @@ Specific
 // console.log(deepEqual('abcbcabc'))
 // console.log(deepEqual('ababab'));
 // console.log(deepEqual('abcde'));
+
+// console.log(repeated ("abcde")); // ["abcde", 1])
+// console.log(repeated("ababab")); // ["ab", 3])
+// console.log(repeated('abcabcabc')); // ['abc', 3]
+// console.log(repeated('abcbcabc')) // ['abcbcabc', 1]

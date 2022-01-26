@@ -60,16 +60,16 @@ function reverseAndCombineText(str) {
   return words[0];
 }
 
-// console.log(reverseAndCombineText('dfghrtcbafed') === 'dfghrtcbafed');
+console.log(reverseAndCombineText('dfghrtcbafed') === 'dfghrtcbafed');
 
-// console.log(reverseAndCombineText('abc def') === 'cbafed');
+console.log(reverseAndCombineText('abc def') === 'cbafed');
 
 console.log(reverseAndCombineText('abc def ghi jkl') === 'defabcjklghi');
 
-// console.log(
-//   reverseAndCombineText('234hh54 53455 sdfqwzrt rtteetrt hjhjh lllll12  44') ===
-//     'trzwqfdstrteettr45hh4325543544hjhjh21lllll'
-// );
+console.log(
+  reverseAndCombineText('234hh54 53455 sdfqwzrt rtteetrt hjhjh lllll12  44') ===
+    'trzwqfdstrteettr45hh4325543544hjhjh21lllll'
+);
 
-// console.log(reverseAndCombineText('sdfsdf wee sdffg 342234 ftt') === 'gffds432243fdsfdseewttf'
-// );
+console.log(reverseAndCombineText('sdfsdf wee sdffg 342234 ftt') === 'gffds432243fdsfdseewttf'
+);

@@ -5210,3 +5210,25 @@ items.sort( (a, b) => a.localeCompare(b, 'fr', {ignorePunctuation: true}));
 ```
 
 21:21 More practice needed. Time to wrap up for today. I need to spend time tomorrow researching Greenshades Software.
+
+## 20220126 수요일
+
+6:11 Getting ready for study session with Alex.
+
+07:36 The problem Alex and I did today was difficult. I still don't know how `splice()` works:
+
+`Array.prototype.splice()`
+
+The `splice()` method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place. To access part of an array without modifying it, see `slice()`. If you do not specify any elements, `splice()` will only remove elements from the array.
+
+```js
+// `start` - index at which to start changing the array
+splice(start)
+// `deleteCount` an integer indicating the number of elements in the array to remove from `start`
+splice(start, deleteCount)
+// `item1, item2, ...` the elements to be added to the array, beginning from `start`
+splice(start, deleteCount, item1)
+splice(start, deleteCount, item1, item2, itemN)
+```
+
+14:21 Doing research on Greenshades for prep with Frank and interview tomorrow.
