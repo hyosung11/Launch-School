@@ -5194,3 +5194,19 @@ Rules for Ascending Order Sort
 13:43 Take a short break and then keep studying and practicing.
 
 15:24 I don't fully understand the solution to "Reversing and Combining Text".
+
+16:19 I figured out `decrypt` by myself without any help and in a reasonable amount of time. I got caught with using `match` and remembered that you need to have the option to return `[]` or it won't handle certain conditions. I did remember that though.
+
+21:01 I'm seeing this more in code solutions and I want to understand it: `String.prototype.localeCompare()`
+
+The `localeCompare()` method returns a number indicating whether a reference string comes before, or after, or is the same as the given string in sort order.
+
+`localeCompare()` enables case-insensitive sorting for an array.
+
+```js
+let items = ['réservé', 'Premier', 'Cliché', 'communiqué', 'café', 'Adieu'];
+items.sort( (a, b) => a.localeCompare(b, 'fr', {ignorePunctuation: true}));
+// ['Adieu', 'café', 'Cliché', 'communiqué', 'Premier', 'réservé']
+```
+
+21:21 More practice needed. Time to wrap up for today. I need to spend time tomorrow researching Greenshades Software.

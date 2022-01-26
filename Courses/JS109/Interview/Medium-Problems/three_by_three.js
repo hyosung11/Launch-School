@@ -8,7 +8,7 @@ For example:
 In the array ['35', '01110', '126', '57', '13'],
 the sum of the digits of each element will be: [8, 3, 9, 12, 4]
 from the resulting sums, there are 3 that are evenly divisible by 3: [3, 9, 12]
-so our function would return true.  See the below test cases for more examples
+so our function would return true. See the below test cases for more examples
 
 ALGORITHM
 - input an array of strings
@@ -21,32 +21,52 @@ ALGORITHM
 - output a boolean
   - if three elements in the array have digits whose sum is divisible by 3
     - return true
-    - return false */
+    - return false
+
+Another Algo
+- input array of strings
+- iterate through array by string
+  - split each by digit
+  - compute value of sum of digits
+- filter numbers divided by 3 with a remainder of zero in the array
+- if three or more elements in array return true
+- return false */
+
+function threeByThree(array) {
+  return array
+    .map(string => {
+      return string
+        .split('')
+        .reduce((sum, num) => sum + Number(num), 0);
+    })
+    .filter(num => num % 3 === 0)
+    .length > 2;
+}
 
 // Test Cases
-console.log(threeByThree(['01112', '0111', '00030', '2043', '12043'])); // true
-console.log(threeByThree(['01112', '2043', '12043'])); // false
-console.log(threeByThree(['01112', '2043'])); // false
-console.log(threeByThree(['93', '9', '1', '25', '1212'])); // true
+console.log(threeByThree(['01112', '0111', '00030', '2043', '12043']) === true); // true
+console.log(threeByThree(['01112', '2043', '12043']) === false); // true
+console.log(threeByThree(['01112', '2043']) === false); // true
+console.log(threeByThree(['93', '9', '1', '25', '1212']) === true); // true
 
-function threeByThree(array) {
-  let result = array.map((string) => {
-    return string.split('').reduce((sum, num) => sum + Number(num), 0);
-  });
+// function threeByThree(array) {
+//   let result = array.map((string) => {
+//     return string.split('').reduce((sum, num) => sum + Number(num), 0);
+//   });
 
-  if (result.filter((num) => num % 3 === 0).length > 2) {
-    return true;
-  }
-  return false;
-}
+//   if (result.filter((num) => num % 3 === 0).length > 2) {
+//     return true;
+//   }
+//   return false;
+// }
 
 // Alternative Version
-function threeByThree(array) {
-  let arrayOfThrees = array
-    .map((string) => string.split(''))
-    .map((subArray) => subArray.reduce((acc, num) => acc + Number(num), 0))
-    .filter((num) => num % 3 === 0);
+// function threeByThree(array) {
+//   let arrayOfThrees = array
+//     .map((string) => string.split(''))
+//     .map((subArray) => subArray.reduce((acc, num) => acc + Number(num), 0))
+//     .filter((num) => num % 3 === 0);
 
-  if (arrayOfThrees.length >= 3) return true;
-  return false;
-}
+//   if (arrayOfThrees.length >= 3) return true;
+//   return false;
+// }

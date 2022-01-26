@@ -43,45 +43,44 @@ ALGORITHM
 - sort `result` by values
 - return `result` as nested array */
 
-function letterFrequency(text) {
-  text = text.toLowerCase();
-  let result = [];
-  let count = {};
+// function letterFrequency(text) {
+//   text = text.toLowerCase();
+//   let result = [];
+//   let count = {};
 
-  text.split('').forEach((char) => {
-    if (char >= 'a' && char <= 'z') {
-      count[char] = count[char] + 1 || 1;
-    }
-  });
+//   text.split('').forEach((char) => {
+//     if (char >= 'a' && char <= 'z') {
+//       count[char] = count[char] + 1 || 1;
+//     }
+//   });
 
-  for (let letter in count) {
-    result.push([letter, count[letter]]);
-  }
+//   for (let letter in count) {
+//     result.push([letter, count[letter]]);
+//   }
 
-  // console.log(count);
-  // { w: 2, k: 1, l: 2, v: 5, d: 2, h: 4, f: 1, u: 1, p: 1, j: 1 }
+//   // console.log(count);
+//   // { w: 2, k: 1, l: 2, v: 5, d: 2, h: 4, f: 1, u: 1, p: 1, j: 1 }
 
-  // console.log(result);
-// [
-//   [ 'w', 2 ], [ 'k', 1 ],
-//   [ 'l', 2 ], [ 'v', 5 ],
-//   [ 'd', 2 ], [ 'h', 4 ],
-//   [ 'f', 1 ], [ 'u', 1 ],
-//   [ 'p', 1 ], [ 'j', 1 ]
-// ]
+//   // console.log(result);
+// // [
+// //   [ 'w', 2 ], [ 'k', 1 ],
+// //   [ 'l', 2 ], [ 'v', 5 ],
+// //   [ 'd', 2 ], [ 'h', 4 ],
+// //   [ 'f', 1 ], [ 'u', 1 ],
+// //   [ 'p', 1 ], [ 'j', 1 ]
+// // ]
 
+//   return result.sort((a, b) => {
+//     // sort descending order
+//     if (a[1] > b[1]) return -1; // a before b
+//     if (a[1] < b[1]) return 1;  // b before a
+//     // sort ascending order
+//     else if (a[0] > b[0]) return 1; // b before a
+//     return -1; // a before b
+//   });
+// }
 
-  return result.sort((a, b) => {
-    // sort descending order
-    if (a[1] > b[1]) return -1; // a before b
-    if (a[1] < b[1]) return 1;  // b before a
-    // sort ascending order
-    else if (a[0] > b[0]) return 1; // b before a
-    return -1; // a before b
-  })
-}
-
-console.log(letterFrequency('wklv lv d vhfuhw phvvdjh'));
+// console.log(letterFrequency('wklv lv d vhfuhw phvvdjh'));
 // expected = [['v', 5], ['h', 4], ['d', 2], ['l', 2], ['w', 2], ['f', 1], ['j', 1], ['k', 1], ['p', 1], ['u', 1]];
 
 // console.log(letterFrequency("As long as I'm learning something, I figure I'm OK - it's a decent day."));
@@ -138,3 +137,30 @@ console.log(letterFrequency('wklv lv d vhfuhw phvvdjh'));
 //   }
 //   return result.sort(([pl, pv], [nl, nv]) => nv - pv || pl.localeCompare(nl));
 // };
+
+// refactored Codewars Solution
+const letterFrequency = (text) => {
+  let count = {};
+  let result = [];
+
+  text = text.replace(/[^a-z]/gi, '').toLowerCase();
+
+  for (let letter of text) {
+    count[letter] = count[letter] + 1 || 1;
+  }
+
+  for (let letter in count) {
+    result.push([letter, count[letter]]);
+  }
+
+  return result.sort(([previousLetter, previousValue], [nextLetter, nextValue]) => nextValue - previousValue || previousLetter.localeCompare(nextLetter));
+};
+
+console.log(letterFrequency('wklv lv d vhfuhw phvvdjh'));
+// expected = [['v', 5], ['h', 4], ['d', 2], ['l', 2], ['w', 2], ['f', 1], ['j', 1], ['k', 1], ['p', 1], ['u', 1]];
+
+// console.log(letterFrequency("As long as I'm learning something, I figure I'm OK - it's a decent day."));
+// expected = [["i", 7], ["a", 5], ["e", 5], ["n", 5], ["g", 4], ["s", 4], ["m", 3], ["o", 3], ["t", 3], ["d", 2], ["l", 2], ["r", 2], ["c", 1], ["f", 1], ["h", 1], ["k", 1], ["u", 1], ["y", 1]];
+
+// console.log(letterFrequency('IWT LDGAS XH HIXAA P LTXGS EAPRT, STHEXIT BN TUUDGIH ID BPZT RATPG PCS ETGUTRI HTCHT DU XI.'));
+// expected = [["t", 12], ["i", 7], ["h", 6], ["a", 5], ["g", 5], ["p", 5], ["x", 5], ["d", 4], ["s", 4], ["u", 4], ["e", 3], ["r", 3], ["b", 2], ["c", 2], ["l", 2], ["n", 1], ["w", 1], ["z", 1]];
