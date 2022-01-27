@@ -115,6 +115,7 @@ function progressions(array) {
 
 function progressions(array) {
   let subarrays = [];
+  
   for (let idx = 0; idx < array.length; idx += 1) {
     for (let idx2 = idx + 1; idx2 < array.length; idx2 += 1) {
       for (let idx3 = idx2 + 1; idx3 < array.length; idx3 += 1) {

@@ -8,7 +8,7 @@ PEDA
 
 Rules/notes:
 - Lists are sorted
-- - Try doing this problem with O(n + m) time complexity.
+- Try doing this problem with O(n + m) time complexity.
 Numbers can be negative
 - There can be more than one number of each in each input array
 - Returned array shall only have one of each number
@@ -39,30 +39,30 @@ Algorithm:
   - If the item does not exist in the results array, add it to the array
 When the loop ends, return the results array. */
 
-function commonElements(array1, array2) {
-  let result = [];
+// function commonElements(array1, array2) {
+//   let result = [];
 
-  for (let idx = 0; idx < array1.length; idx++) {
-    let num1 = array1[idx];
+//   for (let idx = 0; idx < array1.length; idx++) {
+//     let num1 = array1[idx];
 
-    for (let jdx = 0; jdx < array2.length; jdx++) {
-      let num2 = array2[jdx];
+//     for (let jdx = 0; jdx < array2.length; jdx++) {
+//       let num2 = array2[jdx];
 
-      if ((num1 === num2) && (!result.includes(num1))) result.push(num1);
-    }
-  }
+//       if ((num1 === num2) && (!result.includes(num1))) result.push(num1);
+//     }
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
 // Examples/test cases:
-console.log(commonElements([-1, 3, 4, 6, 7, 9], [1, 3])); // ➞ [3]
+// console.log(commonElements([-1, 3, 4, 6, 7, 9], [1, 3])); // ➞ [3]
 
-console.log(commonElements([1, 3, 4, 6, 7, 9], [1, 2, 3, 4, 7, 10])); // ➞ [1, 3, 4, 7]
+// console.log(commonElements([1, 3, 4, 6, 7, 9], [1, 2, 3, 4, 7, 10])); // ➞ [1, 3, 4, 7]
 
-console.log(commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 4, 5])); // ➞ [1, 2, 4, 5]
+// console.log(commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 4, 5])); // ➞ [1, 2, 4, 5]
 
-console.log(commonElements([1, 2, 3, 4, 5], [10, 12, 13, 15])); // ➞ []
+// console.log(commonElements([1, 2, 3, 4, 5], [10, 12, 13, 15])); // ➞ []
 
 /* with Laurent 20211117
 
@@ -85,33 +85,65 @@ ALGORITHM
         - if it is a match, we add it to the `result` array
 - return an array of numbers common to both */
 
+// function commonElements(array1, array2) {
+//   let result = [];
+//   let lastPushed = null;
+
+//   for (let i = 0; i < array1.length; i += 1) {
+//     for (let j = 0; j < array2.length; j += 1) {
+//       if (array1[i] === array2[j]) {
+//         if (array1[i] === lastPushed) continue;
+//         result.push(array1[i]);
+//         lastPushed = array1[i];
+//       }
+//     }
+//   }
+
+//   return result;
+// }
+
+// Laurent's version
+// function commonElements(array1, array2) {
+//   let lastPushed = null;
+
+//   return array1.filter((number) => {
+//     if (number === lastPushed) return false;
+//     lastPushed = number;
+//     return array2.includes(number);
+//   });
+// }
+
+// console.log(commonElements([-1, 3, 4, 6, 7, 9], [1, 3])); //  ➞ [3]
+// console.log(commonElements([1, 3, 4, 6, 7, 9], [1, 2, 3, 4, 7, 10])); // ➞ [1, 3, 4, 7]
+// console.log(commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 4, 5])); // ➞ [1, 2, 4, 5]
+// console.log(commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 2])); // ➞ [1, 2]
+// console.log(commonElements([1, 2, 3, 4, 5], [10, 12, 13, 15])); // ➞ []
+
+/* algo
+- input array1, array2
+- initialize `result` to empty array
+- iterate through first array
+- iterate through second array
+- if element common to both and not already in `result`
+  - append to `result`
+- return `result` array */
+
 function commonElements(array1, array2) {
   let result = [];
-  let lastPushed = null;
 
-  for (let i = 0; i < array1.length; i += 1) {
-    for (let j = 0; j < array2.length; j += 1) {
-      if (array1[i] === array2[j]) {
-        if (array1[i] === lastPushed) continue;
-        result.push(array1[i]);
-        lastPushed = array1[i];
-      }
-    }
-  }
+  array1.forEach(num1 => {
+    array2.forEach(num2 => {
+      if (num1 === num2 && !result.includes(num1))
+        result.push(num1);
+    })
+  })
+
 
   return result;
 }
 
-// Laurent's version
-function commonElements(array1, array2) {
-  let lastPushed = null;
 
-  return array1.filter((number) => {
-    if (number === lastPushed) return false;
-    lastPushed = number;
-    return array2.includes(number);
-  });
-}
+
 
 console.log(commonElements([-1, 3, 4, 6, 7, 9], [1, 3])); //  ➞ [3]
 console.log(commonElements([1, 3, 4, 6, 7, 9], [1, 2, 3, 4, 7, 10])); // ➞ [1, 3, 4, 7]
@@ -119,21 +151,15 @@ console.log(commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 4, 5])); // ➞ [1, 2, 
 console.log(commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 2])); // ➞ [1, 2]
 console.log(commonElements([1, 2, 3, 4, 5], [10, 12, 13, 15])); // ➞ []
 
-/* algo
-- input array1, array2
-- iterate through first array
-- iterate through second array
-- if element common to both return element
-- return array with elements common to both input arrays */
 
-function commonElements(nums1, nums2) {
-  let result = [];
+// function commonElements(nums1, nums2) {
+//   let result = [];
 
-  nums1.filter(num1 => {
-    nums2.filter(num2 => {
-      if (num1 === num2 && !result.includes(num1)) result.push(num1);
-    })
-  })
+//   nums1.filter(num1 => {
+//     nums2.filter(num2 => {
+//       if (num1 === num2 && !result.includes(num1)) result.push(num1);
+//     })
+//   })
 
-  return result;
-}
+//   return result;
+// }

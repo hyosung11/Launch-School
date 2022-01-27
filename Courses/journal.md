@@ -5232,3 +5232,9 @@ splice(start, deleteCount, item1, item2, itemN)
 ```
 
 14:21 Doing research on Greenshades for prep with Frank and interview tomorrow.
+
+18:57 I had a good conversation with Frank this evening. I have an interview with ChurnZero tomorrow about the Implementation Specialist position. I also have an interview next week for an IT Project Manager position. I want to keep programming right now.
+
+21:26 Skimming the Introduction to HTTP and Working with Web APIs books.
+
+22:03 Time to go to bed.
