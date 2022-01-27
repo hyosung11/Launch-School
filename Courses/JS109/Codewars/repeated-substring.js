@@ -250,22 +250,6 @@ Specific
 //   return [string, 1];
 // }
 
-
-// function deepEqual(string) {
-//   // use a for loop to go through the string
-//   for (let idx = 1; idx <= string.length / 2; idx++) {
-//     // on each iteration, store the slice of the input up to the value of idx
-//     // use repeat to expand it out to the length of the array
-//     let testString = string.slice(0, idx).repeat(string.length / idx);
-//     // if the testString matches the input, it means we found the repeated substring
-//     // we return an array holding that substring, and the length of the input divided by the idx value
-//     if (testString === string) return [string.slice(0, idx), string.length / idx];
-//   }
-//   // if we make it through the loop without any matches, we return the whole string with 1 in an array
-//   return [string, 1];
-// }
-
-
 /* Algorithm
 - input string
 - iterate to midpoint of string

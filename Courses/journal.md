@@ -5238,3 +5238,9 @@ splice(start, deleteCount, item1, item2, itemN)
 21:26 Skimming the Introduction to HTTP and Working with Web APIs books.
 
 22:03 Time to go to bed.
+
+## 20220127 목요일
+
+06:12 Before study session with Alex. The cold water in the kitchen seems frozen, but the hot water is working.
+
+09:01 Alex and I couldn't completely solve the problem this morning. Let's see how Laurent will do it.
