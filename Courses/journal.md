@@ -5246,3 +5246,5 @@ splice(start, deleteCount, item1, item2, itemN)
 09:01 Alex and I couldn't completely solve the problem this morning. Let's see how Laurent will do it.
 
 15:09 The internet went down for about four hours. It's back up now, but I want to go and sit down to keep studying.
+
+20:37 Working on edabit problems. It seems I'm up to the challenge of very hard problems. They seem easier than even 6 kyu Codewars problems. I think I'm going to stop for tonight and watch some TV with Sohee.

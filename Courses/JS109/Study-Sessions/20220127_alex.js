@@ -14,7 +14,7 @@ PROBLEM
 in: num, remove
 out: string (num)
 
-Rules: 
+Rules:
 -Remove `remove` greatest digits from the input num
 -return a string of the remaining digits in original order
 
@@ -22,14 +22,14 @@ Rules:
 EXAMPLES
 - 123056, 1 --> 12056
 - 87511, 1  --> 7511
-- 
+
 - '123056', 3 => '056'
 
 DATA STRUCTURE
-- input: 
-  - `number` to transform and 
+- input:
+  - `number` to transform and
   - `remove` number of digits
-- intermediary: array 
+- intermediary: array
 - output: string of new number
 
 ALGORITHM
