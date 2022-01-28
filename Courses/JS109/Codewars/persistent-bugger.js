@@ -78,23 +78,6 @@ multiplyDigits helper function
 //   return i;
 // }
 
-function persistence(num) {
-  let count = 0;
-  num = String(num).split('');
-
-  while(num.length > 1) {
-    count += 1;
-    num = String(num.reduce((product, digit) => product * digit, 1)).split('');
-  }
-
-  return count;
-}
-
-console.log(persistence(4) === 0);
-console.log(persistence(25) === 2);
-console.log(persistence(39) === 3);
-console.log(persistence(999) === 4);
-
 // function persistence(number) {
 //   // number = 25
 //   let counter = 0; // counter 0
@@ -135,4 +118,16 @@ console.log(persistence(999) === 4);
 
 // function multiplyElements(array) {
 //   return array.reduce((sum, num) => sum * num, 1);
+// }
+
+// function persistence(num) {
+//   let count = 0;
+//   num = String(num).split('');
+
+//   while (num.length > 1) {
+//     count += 1;
+//     num = String(num.reduce((product, digit) => product * digit, 1)).split('');
+//   }
+
+//   return count;
 // }
