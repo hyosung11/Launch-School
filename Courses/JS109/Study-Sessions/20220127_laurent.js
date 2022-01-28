@@ -27,7 +27,7 @@ Declare a variable `lowestString` and initialize to null
 Iterate over the string number with remaining chars
   length of leftChars number length - removed char
   Check if the number version of the remaining string is larger than `lowest`
-    If it is, 
+    If it is,
       Assign the value as a number to `lowest`
       Assign the value as a string to `lowestString`
     Else we do nothing
