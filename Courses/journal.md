@@ -5248,3 +5248,9 @@ splice(start, deleteCount, item1, item2, itemN)
 15:09 The internet went down for about four hours. It's back up now, but I want to go and sit down to keep studying.
 
 20:37 Working on edabit problems. It seems I'm up to the challenge of very hard problems. They seem easier than even 6 kyu Codewars problems. I think I'm going to stop for tonight and watch some TV with Sohee.
+
+## 20220128 금요일
+
+14:51 I had three study sessions today. Time to get Omi from school.
+
+16:40 Working on edabit problems. I like them better than Codewars. They seem to be better written and with better test cases.

@@ -72,19 +72,13 @@ Revised Algorithm
     - create an array of the two numbers and push it to `result`
 - return `result` array */
 
-
-function differenceOfTwo(nums) {
+function differenceOfTwo(array) {
   let result = [];
-  let sortedNums = nums.slice(0).sort((a, b) => a - b);
 
-  sortedNums.forEach((num, idx) => {
-    sortedNums.slice(idx).forEach(nextNum => {
-      if (nextNum - num === 2) result.push([num, nextNum]);
-    })
-  })
-
-  return result;
+  array.sort((a, b) => a - b);
+  console.log(array);
 }
+
 
 console.log(differenceOfTwo([1, 2, 3, 4])); // [[1, 3], [2, 4]]
 console.log(differenceOfTwo([4, 1, 2, 3])); // [[1, 3], [2, 4]]
@@ -102,6 +96,19 @@ console.log(differenceOfTwo([1, 4, 7, 10, 13])); // []
 //       if (nextNum - num === 2) result.push([num, nextNum]);
 //     });
 //   });
+
+//   return result;
+// }
+
+// function differenceOfTwo(nums) {
+//   let result = [];
+//   let sortedNums = nums.slice(0).sort((a, b) => a - b);
+
+//   sortedNums.forEach((num, idx) => {
+//     sortedNums.slice(idx).forEach(nextNum => {
+//       if (nextNum - num === 2) result.push([num, nextNum]);
+//     })
+//   })
 
 //   return result;
 // }
