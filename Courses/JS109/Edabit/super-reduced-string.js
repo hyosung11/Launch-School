@@ -46,26 +46,50 @@ ALGORITHM
 - if `letters` length is 0, return "Empty String"
 - return `letters` joined to make a string */
 
-function superReducedString(string) {
-  let result = string.split('');
-  // console.log(result); [ 'b', 'c', 'c', 'd', 'd', 'b' ]
+// function superReducedString(string) {
+//   let result = string.split('');
+//   // console.log(result); [ 'b', 'c', 'c', 'd', 'd', 'b' ]
 
-  for (let idx = 0; idx < result.length; idx++) {
-    if (result[idx] === result[idx + 1]) {
-      result.splice(idx, 2);
-      // console.log(result);
-      // [ 'b', 'd', 'd', 'b' ]
-      // [ 'b', 'b' ]
-      // []
-      idx = -1; // <-- I can't find documentation on this
-    }
+//   for (let idx = 0; idx < result.length; idx++) {
+//     if (result[idx] === result[idx + 1]) {
+//       result.splice(idx, 2);
+//       // console.log(result);
+//       // [ 'b', 'd', 'd', 'b' ]
+//       // [ 'b', 'b' ]
+//       // []
+//       idx = -1; // <-- I can't find documentation on this
+//     }
+//   }
+
+//   if (result.length === 0) return 'Empty String';
+//   else return result.join('');
+// }
+
+/* Alternative Algo
+- input string
+- initialize `result` to empty array
+- iterate through string as an array of elements
+  - if `result` length is 0
+    - append char at idx to `result`
+  - else if the char at last idx of `result` equals the char
+    - remove the element
+  else append char to `result
+- if `result` length is not 0, return `result` joined as a string
+- or return `Empty String` */
+
+function superReducedString(string) {
+  let result = [];
+
+  for (let char of [...string]) {
+    if (result.length === 0) result.push(char);
+    else if (result[result.length - 1] === char) result.pop();
+    else result.push(char);
   }
 
-  if (result.length === 0) return 'Empty String';
-  else return result.join('');
+  return result.length === 0 ? 'Empty String' : result.join('');
 }
 
-console.log(superReducedString("bccddb") === "Empty String");
+console.log(superReducedString("bccddb")) // === "Empty String");
 console.log(superReducedString("zzzhhnnttti") === "zti");
 console.log(superReducedString("nnncqwerhhhou") === "ncqwerhou");
 console.log(superReducedString("abbccddfghiaklmno") === "afghiaklmno");
@@ -73,3 +97,23 @@ console.log(superReducedString("") === "Empty String");
 console.log(superReducedString("qqq") === "q");
 console.log(superReducedString("rthiioouusss") === "rths");
 console.log(superReducedString("acdqglrfkqyuqfjkxyqvnrtysfrzrmzlygfveulqfpdbhlqdqrrqdqlhbdpfqluevfgylzmrzrfsytrnvqyxkjfquyqkfrlacdqj") === "acdqgacdqj");
+
+// function superReducedString(string) {
+//   let result = [];
+//   let letters = string.split('');
+
+//   for (let idx = 0; idx < letters.length; idx++) {
+//     let char = letters[idx];
+//     if (result.length === 0) result.push(char);
+//     else if (result[result.length - 1] === char) result.pop();
+//     else result.push(char);
+//   }
+
+//   // for (let char of letters) {
+//   //   if (result.length === 0) result.push(char);
+//   //   else if (result[result.length - 1] === char) result.pop();
+//   //   else result.push(char);
+//   // }
+
+//   return result.length === 0 ? 'Empty String' : result.join('');
+// }

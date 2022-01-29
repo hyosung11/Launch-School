@@ -80,7 +80,7 @@ function isAntiArray(arr1, arr2){
 
 // input two arrays
 // check if two arrays have same length. otherwise return false
-// .includes one aray two check if the other array has its elements
+// .includes one array two check if the other array has its elements
 // ensure if input is not just .length ONE. otherwise return false
 
 // then iterate through array
