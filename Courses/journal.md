@@ -5258,3 +5258,5 @@ splice(start, deleteCount, item1, item2, itemN)
 ## 20220129 토요일
 
 10:35 Upon Sohee's concern, I dropped out of the soccer game this morning because of the winter storm conditions ... blowing snow. I practiced `superReducedString` over and over to get it clear in my head. Just because the problem description says to take two chars at a time that doesn't mean that's how the problem can be solved. I hope I have offers from ChurnZero and Greenshades Software to make a choice. If all things are equal with compensation, I think I'm leaning towards the Implementation Specialist role at ChurnZero because I think it will be more technical and I want to become a master of tech!
+
+12:19 I've spend almost two hours understanding one problem. Maybe time to do an easy problem before making lunch with Omi.
