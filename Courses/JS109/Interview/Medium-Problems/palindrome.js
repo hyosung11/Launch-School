@@ -7,7 +7,7 @@ A palindrome is a word, phrase, number, or other sequence of characters which re
 110011
 54322345
 
-You'll be given 2 numbers as arguments: (num, s). Write a function which returns an array of s number of numerical palindromes that come after num. If num is a palindrome itself, it should be included in the count.
+You'll be given 2 numbers as arguments: (num, size). Write a function which returns an array of size number of numerical palindromes that come after num. If num is a palindrome itself, it should be included in the count.
 
 Return "Not valid" instead if any one of the inputs is not a number or is less than 0.
 
@@ -16,7 +16,7 @@ Single digit numbers will NOT be considered numerical palindromes.
 PROBLEM
 - inputs:
 > num starting number
-> s the number of numerical palindromes we want
+> size the number of numerical palindromes we want
 
 -output
 > an array of numbers (numerical palindromes)
@@ -168,14 +168,14 @@ function isValid(num) {
 // console.log(isValid(-3) === false)
 // console.log(isValid("ABCD") === false)
 
-function palindrome(num, s) {
+function palindrome(num, size) {
   let palindromeArray = [];
 
-  if (!isValid(num) || !isValid(s)) {
+  if (!isValid(num) || !isValid(size)) {
     return 'Not valid';
   }
 
-  while (palindromeArray.length < s) {
+  while (palindromeArray.length < size) {
     if (isPalindrome(num)) {
       palindromeArray.push(num);
     }

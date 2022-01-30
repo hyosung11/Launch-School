@@ -137,8 +137,7 @@ function commonElements(array1, array2) {
         result.push(num1);
     })
   })
-
-
+  
   return result;
 }
 

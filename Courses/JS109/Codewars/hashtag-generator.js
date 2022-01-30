@@ -51,12 +51,12 @@ ALGORITHM
 - add hashtag to beginning of word
 - return `result` word */
 
-function generateHashtag(string) {
-  if (string.length === 0) return false;
+function generateHashtag ( string ) {
+  if ( string.length === 0 ) return false;
 
   result = string
-    .split(' ')
-    .map((word) => {
+    .split( ' ' )
+    .map(( word )  => {
       return `${word.slice(0, 1).toUpperCase()}${word.slice(1).toLowerCase()}`;
     })
     .join('');

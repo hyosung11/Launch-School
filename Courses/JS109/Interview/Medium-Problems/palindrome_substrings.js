@@ -1,8 +1,6 @@
 /*PROBLEM:
 
-Given a string, write a function `palindromeSubstrings` which returns
-all the substrings from a given string which are palindromes. Consider
-palindrome words case sensitive.
+Given a string, write a function `palindromeSubstrings` which returns all the substrings from a given string which are palindromes. Consider palindrome words case sensitive.
 
 QUESTIONS
 1. What is a substring?
@@ -105,8 +103,7 @@ Algorithm:
 
  isPalindrome function
  =====================
-   - Inside the `isPalindrome` function, check whether the string
-     value is equal to its reversed value.
+   - Inside the `isPalindrome` function, check whether the string value is equal to its reversed value.
 
  palindromeSubstrings function
  ============================
@@ -117,39 +114,39 @@ Algorithm:
      - if the word is a palindrome, append it to the `result` array
    - return the `result` array */
 
-// function palindromeSubstrings(string) {
-//   let result = [];
-//   let substringsArray = substrings(string);
+function palindromeSubstrings(string) {
+  let result = [];
+  let substringsArray = substrings(string);
 
-//   substringsArray.forEach((substring) => {
-//     if (isPalindrome(substring)) {
-//       result.push(substring);
-//     }
-//   });
+  substringsArray.forEach((substring) => {
+    if (isPalindrome(substring)) {
+      result.push(substring);
+    }
+  });
 
-//   return result;
-// }
+  return result;
+}
 
-// function substrings(string) {
-//   let result = [];
-//   let startingIndex = 0;
+function substrings(string) {
+  let result = [];
+  let startingIndex = 0;
 
-//   while (startingIndex < string.length - 2) {
-//     let numChars = 2;
-//     while (numChars <= string.length - startingIndex) {
-//       let substring = string.slice(startingIndex, startingIndex + numChars);
-//       result.push(substring);
-//       numChars += 1;
-//     }
-//     startingIndex += 1;
-//   }
+  while (startingIndex < string.length - 2) {
+    let numChars = 2;
+    while (numChars <= string.length - startingIndex) {
+      let substring = string.slice(startingIndex, startingIndex + numChars);
+      result.push(substring);
+      numChars += 1;
+    }
+    startingIndex += 1;
+  }
 
-//   return result;
-// }
+  return result;
+}
 
-// function isPalindrome(string) {
-//   return string === string.split('').reverse().join('');
-// }
+function isPalindrome(string) {
+  return string === string.split('').reverse().join('');
+}
 
 // Test cases:
 // console.log(palindromeSubstrings("supercalifragilisticexpialidocious"))

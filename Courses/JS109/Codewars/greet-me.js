@@ -24,7 +24,7 @@ Test.assertEquals(greet('riley'), 'Hello Riley!');
 //   return `Hello ${name[0].toUpperCase() + name.slice(1)}!`
 // }
 
-var greet = function (name) {
+var greet = function ( name ) {
   return `Hello ${name[0].toUpperCase()}${name.toLowerCase().slice(1)}!`;
 };
 

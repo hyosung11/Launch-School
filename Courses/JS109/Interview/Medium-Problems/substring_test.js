@@ -37,6 +37,7 @@ function substringTest(str1, str2) {
 
     if (substrings2.includes(char1) || substrings1.includes(char2)) return true;
   }
+
   return false;
 }
 

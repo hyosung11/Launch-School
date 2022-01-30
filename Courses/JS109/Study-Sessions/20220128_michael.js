@@ -43,7 +43,7 @@ PROBLEM
 - output number
 
 Rules
-- return num representing the amount of times it takes to reduce a multidigit number to a  single digit by multiplying its digits together
+- return num representing the amount of times it takes to reduce a multi-digit number to a  single digit by multiplying its digits together
 - number is always positive?
 
 EXAMPLES
@@ -52,7 +52,7 @@ EXAMPLES
 DATA STRUCTURE
 - input number
 - intermediary: string (while loop)
-- output: number 
+- output: number
 
 ALGORITHM
 - input number
@@ -69,42 +69,68 @@ ALGORITHM
 - initialize `digits` to convert number to string and split into an array of digits
 - while length of `digits` is greater than 1
   - increment `count` by 1
-  - compute the value of multiplying the digits together
+  - compute the value of multiplying `digits` together
+  - transform back to string
+  - split the string back into an array of digits
 - return `count` */
 
-function persistence(num) {
+function persistence(number) {
   let count = 0;
-  let digits = String(num).split('');
-  // console.log(digits); ['9', '9', '9']
+  let digits = String(number).split('');
 
   while (digits.length > 1) {
-    count += 1; 
-    console.log(`count: ${count}`);
-    digits = String(digits.reduce((product, num) => product * num, 1)).split('')
-    // console.log(digits)
-    // [ '7', '2', '9' ]
-    // [ '1', '2', '6' ]
-    // [ '1', '2' ]
-    // [ '2' ]
+    count += 1;
+    digits = String(digits.reduce((product, num) => product * num), 1).split('');
   }
 
   return count;
 }
 
+
+console.log(persistence(4) === 0);
+console.log(persistence(25) === 2);
+console.log(persistence(39) === 3);
+console.log(persistence(999) === 4);
+
+
 // function persistence(num) {
 //   let count = 0;
-//   num = String(num).split('');
+//   let digits = String(num).split('');
+//   // console.log(digits); ['9', '9', '9']
 
-//   while (num.length > 1) {
+//   while (digits.length > 1) {
 //     count += 1;
-//     num = String(num.reduce((product, digit) => product * digit, 1)).split('');
+//     console.log(`count: ${count}`);
+//     digits = String(digits.reduce((product, num) => product * num, 1)).split(
+//       ''
+//     );
+//     // console.log(digits)
+//     // [ '7', '2', '9' ]
+//     // [ '1', '2', '6' ]
+//     // [ '1', '2' ]
+//     // [ '2' ]
 //   }
 
 //   return count;
 // }
 
+// function persistence(number) {
+//   let count = 0;
+//   // turn the number into a string of digits and split the digits into an array of string digits
+//   let digits = String(number).split(''); // ['9', '9', '9']
 
-// console.log(persistence(4) === 0);
-// console.log(persistence(25) === 2);
-// console.log(persistence(39) === 3);
-console.log(persistence(999) === 4);
+//   // iterate through the digits of the array as long as the array's length is greater than 1 which is the exit condition
+//   while (digits.length > 1) {
+//     // 3 => 3 => 3 => 2 => 1 => exit loop
+//     // if we're in the while loop, increment the counter for each iteration
+//     count += 1; // 1 => 2 => 3 => 4
+//     // here's the key => we need to multiply the digits of the array together to get a new number that's less than the previous number
+//     // but we need the length of this number, so we convert it to a string
+//     // but we want it's length as an array, so we split the string at each digit back into an array
+//     digits = String(digits.reduce((product, num) => product * num, 1)).split(
+//       ''
+//     ); // ['7' , '2', '9'] => ['1', '2', '6] => ['1', '2'] => ['2']
+//   }
+
+//   return count; // => 4
+// }
