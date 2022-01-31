@@ -137,12 +137,9 @@ function commonElements(array1, array2) {
         result.push(num1);
     })
   })
-  
+
   return result;
 }
-
-
-
 
 console.log(commonElements([-1, 3, 4, 6, 7, 9], [1, 3])); //  ➞ [3]
 console.log(commonElements([1, 3, 4, 6, 7, 9], [1, 2, 3, 4, 7, 10])); // ➞ [1, 3, 4, 7]
