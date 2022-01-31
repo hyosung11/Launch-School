@@ -1,4 +1,6 @@
-/* You are given a secret message you need to decipher. Here are the things you need to know to decipher it:
+/* Decipher This - 6 kyu
+
+You are given a secret message you need to decipher. Here are the things you need to know to decipher it:
 
 For each word:
 
@@ -48,36 +50,36 @@ Algo
 - join the substrings into a string
 - return the new string */
 
-function decipherThis(string) {
-  let result = [];
-  let words = string.split(' ');
+// function decipherThis(string) {
+//   let result = [];
+//   let words = string.split(' ');
 
-  for (let idx = 0; idx < words.length; idx++) {
-    let word = words[idx];
-    // `+` concatenates the digits
-    let codepoint = word.match(/[0-9]+/g) || [];
-    let letters = word.match(/[a-z]/g) || [];
-    letters.unshift(String.fromCharCode(codepoint));
+//   for (let idx = 0; idx < words.length; idx++) {
+//     let word = words[idx];
+//     // `+` concatenates the digits
+//     let codepoint = word.match(/[0-9]+/g) || [];
+//     let letters = word.match(/[a-z]/g) || [];
+//     letters.unshift(String.fromCharCode(codepoint));
 
-    let second = 1; // index position to change of letter
-    let last = letters.length - 1; // other letter to change
+//     let second = 1; // index position to change of letter
+//     let last = letters.length - 1; // other letter to change
 
-    [letters[second], letters[last]] = [letters[last], letters[second]];
+//     [letters[second], letters[last]] = [letters[last], letters[second]];
 
-    letters = letters.join('');
+//     letters = letters.join('');
 
-    result.push(letters)   
+//     result.push(letters)   
 
-    // console.log(letters)
-  }
+//     // console.log(letters)
+//   }
 
-  return result.join(' ');
-}
+//   return result.join(' ');
+// }
 
 
 
 // Examples
-console.log(decipherThis('72olle 103doo 100ya')); // 'Hello good day'
+// console.log(decipherThis('72olle 103doo 100ya')); // 'Hello good day'
 // console.log(decipherThis('82yade 115te 103o')); // 'Ready set go
 // console.log(decipherThis('72eva 97 103o 97t 116sih 97dn 115ee 104wo 121uo 100o')); // 'Have a go at this and see how you do')
 
@@ -96,21 +98,20 @@ console.log(decipherThis('72olle 103doo 100ya')); // 'Hello good day'
 - return the string
 */
 
-
-
-function decipherThis(str) {
-  const strings = str.split(' ');
+function decipherThis(string) {
+  const words = string.split(' ');
   const result = [];
 
-  for (let idx = 0; idx < strings.length; idx += 1) {
-    const codePoint = strings[idx].match(/[0-9]+/g) || [];
-    const characters = strings[idx].match(/[a-z]/g) || [];
+  for (let idx = 0; idx < words.length; idx += 1) {
+    const codePoint = words[idx].match(/[0-9]+/g) || [];
+    const characters = words[idx].match(/[a-z]/g) || [];
     characters.unshift(String.fromCharCode(codePoint))
 
     const second = 1;
     const last = characters.length -1;
 
     [characters[second], characters[last]] = [characters[last], characters[second]];
+
     result.push(characters.join(''))
   }
 
@@ -137,33 +138,33 @@ Algorithm
 - append the words together in a sentence and return the sentence
 */
 
-function decipherThis(str) {
-  return str.split(' ').map(word => {
-    let firstLetter = String.fromCharCode(parseInt(word));
-    word = word.split('').filter(char => isLetter(char)).join('');
-    if (word.length <= 1) return firstLetter + word;
-    return firstLetter + word[word.length - 1] + word.slice(1, word.length - 1) + word[0];
-  }).join(' ');
-};
+// function decipherThis(str) {
+//   return str.split(' ').map(word => {
+//     let firstLetter = String.fromCharCode(parseInt(word));
+//     word = word.split('').filter(char => isLetter(char)).join('');
+//     if (word.length <= 1) return firstLetter + word;
+//     return firstLetter + word[word.length - 1] + word.slice(1, word.length - 1) + word[0];
+//   }).join(' ');
+// };
 
-function isLetter(char) {
-  char = char.toLowerCase();
-  return char >= 'a' && char <= 'z';
-}
+// function isLetter(char) {
+//   char = char.toLowerCase();
+//   return char >= 'a' && char <= 'z';
+// }
 
 // another version with `map`
-function decipherThis(str) {
-  // let words = str.split(" ");
+// function decipherThis(str) {
+//   // let words = str.split(" ");
 
-  return str.split(' ').map((word) => {
-    let charCode = parseInt(word);
-    let letter = String.fromCharCode(charCode);
-    word = word.replace(charCode, letter);
-    if (word.length > 2) 
-      return word = word[0] + word[word.length - 1] + word.slice(2,word.length - 1) + word[1];
-      else return word;
-  }).join(" ");
-};
+//   return str.split(' ').map((word) => {
+//     let charCode = parseInt(word);
+//     let letter = String.fromCharCode(charCode);
+//     word = word.replace(charCode, letter);
+//     if (word.length > 2) 
+//       return word = word[0] + word[word.length - 1] + word.slice(2,word.length - 1) + word[1];
+//       else return word;
+//   }).join(" ");
+// };
 
 // Examples
 console.log(decipherThis('72olle 103doo 100ya')); // 'Hello good day'
