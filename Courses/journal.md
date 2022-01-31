@@ -5272,3 +5272,7 @@ splice(start, deleteCount, item1, item2, itemN)
 06:10 Alex is 42.
 
 10:50 I'm not ready for the interview assessment based on my struggle with the problem that I did with Laurent this morning.
+
+11:40 Michael working on `decipherThis` and it's been over 35 minutes and he's not done. We both need more practice working faster.
+
+17:23 I'm having doubts about my problem-solving abilities at the moment.
