@@ -5276,3 +5276,11 @@ splice(start, deleteCount, item1, item2, itemN)
 11:40 Michael working on `decipherThis` and it's been over 35 minutes and he's not done. We both need more practice working faster.
 
 17:23 I'm having doubts about my problem-solving abilities at the moment.
+
+## 20220201 화요일
+
+11:00 I've done two study sessions: one with Alex and one with Laurent.
+
+11:04 Waiting for Michael to start.
+
+13:09 I solved a problem that Michael gave me in about 15 minutes. I felt more confident after doing that.

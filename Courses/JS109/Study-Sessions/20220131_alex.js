@@ -18,7 +18,7 @@ Rules
 - remove nonletters
 
 EXAMPLES
-- 
+- see above
 
 DATA STRUCTURE
 - input string
