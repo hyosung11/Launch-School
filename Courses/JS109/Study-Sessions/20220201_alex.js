@@ -37,11 +37,28 @@ ALGORITHM
 - return the array joined by spaces
 
 extractNumber helper function
-- input string
+- input word
 - initialize `numbers` to '1-9'
 - iterate through the string
   - if number includes the char return char
 */
+
+function order(words) {
+  return words
+    .split(' ')
+    .sort((a, b) => extractNumber(a) - extractNumber(b))
+    .join(' ');
+}
+
+function extractNumber(word) {
+  return word
+    .split('')
+    .filter(char => char.match(/[1-9]/));
+}
+
+console.log(order('') === ''); // 'empty input should return empty string'
+console.log(order('is2 Thi1s T4est 3a') === 'Thi1s is2 3a T4est');
+console.log(order('4of Fo1r pe6ople g3ood th5e the2') === 'Fo1r the2 g3ood 4of th5e pe6ople');
 
 // function order(words) {
 //   return words
@@ -61,34 +78,30 @@ extractNumber helper function
 //   }
 // }
 
-function order(words) {
-  return words
-    .split(' ')
-    .sort((a, b) => extractNumber(a) - extractNumber(b))
-    .join(' ');
-}
+// function order(words) {
+//   return words
+//     .split(' ')
+//     .sort((a, b) => extractNumber(a) - extractNumber(b))
+//     .join(' ');
+// }
 
-function extractNumber(word) {
-  return word
-    .split('')
-    .filter(char => char >= '1' && char <= '9')
-}
+// function extractNumber(word) {
+//   return word
+//     .split('')
+//     .filter(char => char >= '1' && char <= '9')
+// }
 
 
-function order(words) {
-  return words
-    .split(' ')
-    .sort((a, b) => extractNumber(a) - extractNumber(b))
-    .join(' ');
-}
+// function order(words) {
+//   return words
+//     .split(' ')
+//     .sort((a, b) => extractNumber(a) - extractNumber(b))
+//     .join(' ');
+// }
 
-function extractNumber(word) {
-  return word.split('').filter((char) => /[1-9]/.test(char));
-}
-
-console.log(order('') === ''); // 'empty input should return empty string'
-console.log(order('is2 Thi1s T4est 3a') === 'Thi1s is2 3a T4est');
-console.log(order('4of Fo1r pe6ople g3ood th5e the2') === 'Fo1r the2 g3ood 4of th5e pe6ople');
+// function extractNumber(word) {
+//   return word.split('').filter((char) => /[1-9]/.test(char));
+// }
 
 /* Decipher This - 6 kyu
 

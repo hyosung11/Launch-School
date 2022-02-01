@@ -63,7 +63,6 @@ function solution(array1, array2) {
     result.length
   );
 
-  //return result;
 }
 
 console.log(solution([1, 2, 3], [4, 5, 6])); //, 9)
