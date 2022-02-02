@@ -5286,3 +5286,9 @@ splice(start, deleteCount, item1, item2, itemN)
 13:09 I solved a problem that Michael gave me in about 15 minutes. I felt more confident after doing that.
 
 13:47 Need to take a break.
+
+## 20220202 수요일
+
+07:28 Other older folks starting at Launch School too.
+
+07:45 It's hard to keep the code in my head.
