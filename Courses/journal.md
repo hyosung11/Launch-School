@@ -5300,3 +5300,7 @@ splice(start, deleteCount, item1, item2, itemN)
 10:40 I need to keep practicing to get better at programming. I did get another interview with ChurnZero that I delayed to next week instead of tomorrow.
 
 19:58 I peeked at a solution and then figured out the problem that Laurent gave me this morning.
+
+## 20220202 수요일 
+
+08:40 I didn't mean to kill the terminal while updating homebrew.
