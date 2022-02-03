@@ -40,11 +40,12 @@ DATA STRUCTURE
 
 ALGORITHM
 - input string
+- initialize `result` to empty array
 - split string into an array of chars
-- filter letters from the chars
+- initialize `letters` to filter letters from the chars
 - iterate through string
   - if char is a letter, pop letter from the `letters` array and push to result array
-  - else return char
+  - else push char to `result` array
 - join the string
 - return the string
 
@@ -52,9 +53,28 @@ charsOnly = ["a"]
 ["c", "b", "-", "a"]
 
 Iterate over the original string
-filter for only letters
+filter for only letters */
 
-*/
+function reverseOnlyLetters(string) {
+  let result = [];
+  let letters = string.split('').filter(char => char >= 'a' && char <= 'z' || char >= 'A' && char <= 'Z');
+
+  for (let idx = 0; idx < string.length; idx++) {
+    let char = string[idx];
+    if (char >= 'a' && char <= 'z' || char >= 'A' && char <= 'Z')
+      result.push(letters.pop());
+    else result.push(char);
+  }
+
+  return result.join('');
+}
+
+console.log(reverseOnlyLetters('ab-c') === 'cb-a'); // "cb-a"
+console.log(reverseOnlyLetters("ab-cd") === 'dc-ba'); // "dc-ba"
+console.log(reverseOnlyLetters('a-bC-dEf-ghIj') === 'j-Ih-gfE-dCba'); // "j-Ih-gfE-dCba"
+console.log(
+  reverseOnlyLetters('Test1ng-Leet=code-Q!') === 'Qedo1ct-eeLg=ntse-T!'
+); // "Qedo1ct-eeLg=ntse-T!"
 
 // function reverseOnlyLetters(string) {
 //   let result = [];
@@ -106,8 +126,3 @@ filter for only letters
 //     })
 //     .join('');
 // }
-
-console.log(reverseOnlyLetters('ab-c')); // "cb-a"
-console.log(reverseOnlyLetters("ab-cd")); // "dc-ba"
-console.log(reverseOnlyLetters("a-bC-dEf-ghIj")); // "j-Ih-gfE-dCba"
-console.log(reverseOnlyLetters("Test1ng-Leet=code-Q!")); // "Qedo1ct-eeLg=ntse-T!"
