@@ -1,4 +1,6 @@
-/* You are given a secret message you need to decipher. Here are the things you need to know to decipher it:
+/* Decipher This
+
+You are given a secret message you need to decipher. Here are the things you need to know to decipher it:
 
 For each word:
 
