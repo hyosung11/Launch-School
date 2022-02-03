@@ -43,7 +43,7 @@ ALGORITHM
 - split string into an array of chars
 - filter letters from the chars
 - iterate through string
-  - if char is a letter, pop char to array
+  - if char is a letter, pop letter from the `letters` array and push to result array
   - else return char
 - join the string
 - return the string

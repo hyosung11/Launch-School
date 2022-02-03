@@ -64,34 +64,34 @@ ALGO:
 - sort obj keys by descending numerical value of their values
 -return a slice from 0 to 3 of that array */
 
-// function topThreeWords(string) {
-//   let wordsArray = string
-//     .split(' ')
-//     .map((word) => cleanWord(word))
-//     .filter((word) => word.length > 0);
+function topThreeWords(string) {
+  let wordsArray = string
+    .split(' ')
+    .map((word) => cleanWord(word))
+    .filter((word) => word.length > 0);
 
-//   if (wordsArray.length === 0) return [];
+  if (wordsArray.length === 0) return [];
 
-//   let result = {};
+  let result = {};
 
-//   for (let idx = 0; idx < wordsArray.length; idx++) {
-//     let word = wordsArray[idx];
-//     if (word === "'") continue;
-//     result[word] = result[word] + 1 || 1;
-//   }
+  for (let idx = 0; idx < wordsArray.length; idx++) {
+    let word = wordsArray[idx];
+    if (word === "'") continue;
+    result[word] = result[word] + 1 || 1;
+  }
 
-//   let resultArray = Object.keys(result).sort((a, b) => result[b] - result[a]);
+  let resultArray = Object.keys(result).sort((a, b) => result[b] - result[a]);
 
-//   return resultArray.slice(0, 3);
-// }
+  return resultArray.slice(0, 3);
+}
 
-// function cleanWord(word) {
-//   return word
-//     .toLowerCase()
-//     .split('')
-//     .filter((char) => (char >= 'a' && char <= 'z') || char === "'")
-//     .join('');
-// }
+function cleanWord(word) {
+  return word
+    .toLowerCase()
+    .split('')
+    .filter((char) => (char >= 'a' && char <= 'z') || char === "'")
+    .join('');
+}
 
 console.log(topThreeWords('')); // []);
 console.log(topThreeWords('a a a  b  c c  d d d d  e e e e e')); // ['e', 'd', 'a']

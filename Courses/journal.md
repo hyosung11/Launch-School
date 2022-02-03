@@ -5292,3 +5292,11 @@ splice(start, deleteCount, item1, item2, itemN)
 07:28 Other older folks starting at Launch School too.
 
 07:45 It's hard to keep the code in my head.
+
+08:53 We had to come back home to change Omi from her boots to her sneakers for gym, but we made it on time.
+
+09:08 In a study session with Laurent.
+
+10:40 I need to keep practicing to get better at programming. I did get another interview with ChurnZero that I delayed to next week instead of tomorrow.
+
+19:58 I peeked at a solution and then figured out the problem that Laurent gave me this morning.
