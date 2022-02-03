@@ -5301,8 +5301,12 @@ splice(start, deleteCount, item1, item2, itemN)
 
 19:58 I peeked at a solution and then figured out the problem that Laurent gave me this morning.
 
-## 20220202 수요일
+## 20220203 목요일
 
 08:40 I didn't mean to kill the terminal while updating homebrew.
 
 08:57 Installed httpie on my iMac and got Postman running as well for the Working with Web APIs book.
+
+10:08 Back after therapy for a study session with Laurent.
+
+11:23 In study session with Michael.

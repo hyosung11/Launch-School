@@ -129,7 +129,51 @@ To open Postman, find and click its icon in the list of installed Chrome apps.
 
 ### Making a Request
 
+It is fairly easy to make an HTTP request with postman.
+
+You can think of Postman as a specialized web browser that allows a little more manual control and has more buttons and switches as a result. We'll take advantage of these features throughout the course of this book, but we won't need most of them to make some simple requests.
+
+Let's start with loading some web pages you are probably familiar with. Enter www.google.com where it says Enter request URL here and press the Send button. You should see a screen that looks like this:
+
+The HTML code of this page is heavily optimized to be as small as possible, and as a result, it is very difficult for a human to interpret it. Luckily, we have computers and web browsers to do that for us. If we were to dig into this HTML, eventually we would find the form and input elements, from which we could figure out how to build the query to perform a search.
+
+Instead of spending time on that, though, it's better to just tell you that the **path** for searches is `/search` and the **query parameter** that needs to be sent is `q`. Let's put this knowledge to use by appending this path to `www.google.com` to build the **URL** `www.google.com/search` and adding a parameter with a search term. Click Send again to send this new request.
+
+Assuming the **response code** is *200 OK*, the response is the markup used to display a typical Google search result page. You might look at this mess of HTML, CSS, and JavaScript and wonder how anything useful could be done with it. Scroll around and take a look at how much code there is just to display this web page. Due to the complexity and structure of the code (and how it is optimized for size), it would be difficult to do anything other than display this code in a web browser. If you consider how this page really just displays ten or so links and summaries, it seems inefficient to bury that information in such a mountain of markup, styles, and scripts.
+
+The response is so large not because of the size of the data itself, but all of the other information about how to display it that is included. The page includes instructions on what color and size the links should be, some JavaScript code that adds mouse-over effects, and so on. Assuming we just wanted the list of search results for some other use and didn't want to deal with all of the other content, wouldn't it be nice to just get the data?
+
+Web APIs can do a lot of the same things that a user can do through a web browser, but since they are intended to be used by computer programs, there is no need to specify how the data should be presented. API responses are typically just data, represented in a way that makes it easy to put to use.
+
+Let's see what happens when we make a request to a web API that is designed to return simple, cleanly formatted responses. DuckDuckGo provides an API to access its instant answers functionality. This API returns a list of links similar in structure to the kind of results a search engine would return. We'll use the same search term, the URL https://api.duckduckgo.com, and an additional query parameter format (which should have the value json).
+
+This request returned a response that is designed for consumption by a computer, and only the data itself is represented. Unlike the previous responses, there is no HTML, CSS, or JavaScript in the response; there is nothing to describe how to display the data other than its structure. The response is in JSON format, which is a way to represent data that was derived from the JavaScript language. This format is commonly used when formatting data for consumption by other computers as it has a very well defined structure and is widely supported by both servers and clients. We'll be working with JSON throughout this book, but it isn't important to understand everything about how it works right now.
+
+You might have noticed the URL we just used started with https://. Just like a web browser can load pages securely using HTTPS, APIs can be accessed using these secure URLs as well. Postman assumes any URL that doesn't begin with a scheme (http:// or https://) actually starts with http:// and adds that to the URL when making a request.
+
 ### Checking the Weather
+
+If you wanted to build an application that displayed a user's current weather, how would you go about doing it? Where would you find out what the weather actually is in a given location? This is the kind of problem web APIs can help solve, by enabling a program to use information provided by a service anywhere on the internet.
+
+Let's assume this application has a user that lives in Portland, Oregon. We need to get the current conditions for this location. OpenWeatherMap provides a f[ree API that returns the current conditions for anywhere on Earth](https://openweathermap.org/current). The URL for the service is <http://api.openweathermap.org/data/2.5/weather> and the parameter used to specify the location is *q*. We'll use Portland,OR,US as the value for this parameter.
+
+The OpenWeatherMap API started requiring an API key since this book was written. If you'd like to follow along with the requests made in this session, [sign up for a free API key](http://api.openweathermap.org/data/2.5/weather) and add it as an additional parameter, APPID, to any requests you make. [More details are available on the OpenWeatherMap site](https://home.openweathermap.org/users/sign_up).
+
+![screenshot not included]
+
+This screenshot was taken before the country was required to search for a city in the United States. `,US` is required now.
+
+While we don't know the exact meaning of all of the data in the response, we can take a decent guess at what it means based on the keys in the JSON. Keys are the description of each piece of data, and the piece of data itself is referred to as the value. In this case, we have a value for the key temp that is `259.59`, which isn't a temperature you'll find on earth outside of a volcano, fire, or an oven.
+
+Let's take a look at the [documentation for the API we're using](https://openweathermap.org/weather-data#current) and see if there is any information there that explains this incredibly high value.
+
+The documentation looks a little different now, but this image still applies.
+
+The temperature value is in Kelvin. This explains why it was so high.
+
+This brings up an important point about working with APIs: it is very important to read any documentation for the API in order to be able to interpret the values in a response. The same documentation will hopefully also list out what parameters can be sent to the API as a part of the request.
+
+In the case of this weather API, the documentation mentions that by sending the parameter units with a value of imperial along with the request, the data values will be represented in imperial units.
 
 ### Summary
 

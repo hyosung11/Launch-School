@@ -4,7 +4,7 @@ Introductions
 - Antonina, TA
 - Wendy, OR, studying for written assessment
 - Gianni, JS109 written assessment
-- Deepak, New Brunswick, CA, interview
+- Deepak, New Brunswick, Canada, interview
 - H
 - Daniel, PHX, written
 - Michael, Rome, Italy, interview
@@ -195,7 +195,6 @@ function doesNotHaveRepeating(string) {
 
   return true;
 }
-
 
 console.log(nonRepeatingSubstring("abcdefabdhh") === 'abcdef');
 console.log(nonRepeatingSubstring("fgrjnr9e7g") === 'jnr9e7g');

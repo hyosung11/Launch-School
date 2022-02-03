@@ -175,6 +175,7 @@ ALGORITHM
 // //  Output: [3,2,1,0,1,0,0,1,2,2,1,0]
 
 /* =============================================
+
 884. Uncommon Word from Two Sentences - Leetcode
 
 A sentence is a string of single-space separated words where each word consists only of lowercase letters.
@@ -295,3 +296,18 @@ console.log(uncommonFromSentences("this apple is sweet", "this apple is sour"));
 //   }
 //   return ans;
 // };
+
+function uncommonFromSentences(string1, string2) {
+  let result = [];
+  // let array1 = string1.split(' ');
+  // let array2 = string2.split(' ');
+  let combinedArrays = (string1 + ' ' + string2).split(' ');
+  let count = {};
+
+  combinedArrays.forEach((word) => {
+    count[word] = count[word] + 1 || 1;
+  });
+
+  result = Object.keys(count).filter((key) => count[key] === 1);
+  return result;
+}

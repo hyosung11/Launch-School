@@ -80,7 +80,9 @@ ALGO
 // console.log(reverseOnlyLetters('a-bC-dEf-ghIj')); // "j-Ih-gfE-dCba"
 // console.log(reverseOnlyLetters('Test1ng-Leet=code-Q!')); // "Qedo1ct-eeLg=ntse-T!"
 
-/* Decipher This - 6 kyu
+/* ===================
+
+Decipher This - 6 kyu
 
 You are given a secret message you need to decipher. Here are the things you need to know to decipher it:
 
