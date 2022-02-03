@@ -10,10 +10,11 @@ Example 2:
 - output: false
 
 PROBLEM
--input: string
-output: boolean
+- input: string
+- output: boolean
 
-rules: return true if input string is comprised multiple repetitions of a substring
+Rules:
+return true if input string is comprised multiple repetitions of a substring
 -all lowercase letters
 -non-empty string
 -question: can the substring be comprised of a single letter? ex aaaaaaaaaa
@@ -83,3 +84,4 @@ function repeatedSubstringPattern(string) {
 // console.log(repeatedSubstringPattern('aabaaba') === false); // true
 // console.log(repeatedSubstringPattern('abaababaab') === true); // true
 // console.log(repeatedSubstringPattern('abcabcabcabc') === true); // true
+

@@ -5310,3 +5310,7 @@ splice(start, deleteCount, item1, item2, itemN)
 10:08 Back after therapy for a study session with Laurent.
 
 11:23 In study session with Michael.
+
+13:22 After lunch and studying APIs a little bit.
+
+16:32 Back after playing pinp pong with Louis and getting crushed today. I can't figure out a way to keep the `repeatedSubstringPattern` problem in my head.
