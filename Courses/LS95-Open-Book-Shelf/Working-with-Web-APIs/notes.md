@@ -79,7 +79,7 @@ Once you have completed the installation, make sure everything is working by run
 
 ```sh
 $ http --version
-0.8.0
+3.0.2 # 20220203
 ```
 
 The installed version of HTTPie should print out its version.
@@ -100,6 +100,40 @@ Option  | What it does
 
 HTTPie's built-in help can be viewed by running it with the --help flag:
 
+```sh
+$ http --help
+usage: http [--json] [--form] [--pretty {all,colors,format,none}]
+            [--style STYLE] [--print WHAT] [--verbose] [--headers] [--body]
+            [--stream] [--output FILE] [--download] [--continue]
+            [--session SESSION_NAME_OR_PATH | --session-read-only SESSION_NAME_OR_PATH]
+            [--auth USER[:PASS]] [--auth-type {basic,digest}]
+            [--proxy PROTOCOL:PROXY_URL] [--follow] [--verify VERIFY]
+            [--timeout SECONDS] [--check-status] [--ignore-stdin] [--help]
+            [--version] [--traceback] [--debug]
+            [METHOD] URL [REQUEST_ITEM [REQUEST_ITEM ...]]
+
+HTTPie - a CLI, cURL-like tool for humans. <http://httpie.org>
+
+...
+```
+
+We'll be going over how to use HTTPie to make requests when we review HTTP.
 
 ### Installing Postman
 
+You will need to have Google Chrome installed. Then, visit the Postman page on the Chrome store and install Postman.
+
+To open Postman, find and click its icon in the list of installed Chrome apps.
+
+## Using Postman
+
+### Making a Request
+
+### Checking the Weather
+
+### Summary
+
+- Postman makes it easy to make HTTP requests from a web browser.
+- Because it runs in a web browser, Postman has few dependencies and is easy to install on almost any computer.
+
+We'll be using some of the more advanced features of Postman when we look at the Twitter API. In the meantime, you can use Postman for working through any of the examples, even those this book uses other tools for.
