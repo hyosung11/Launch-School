@@ -5353,3 +5353,5 @@ every(function(element, index, array) { /* ... */ }, thisArg)
 ```
 
 10:59 Doing another study session with Michael in a moment.
+
+17:20 The study session with Deepak was good. He's good. I need to keep practicing.

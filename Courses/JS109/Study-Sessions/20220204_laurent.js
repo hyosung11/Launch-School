@@ -34,7 +34,7 @@ ALGORITHM
 - get all substrings of string with helper function
 - iterate through substrings
   - initialize `count` to 0
-  - if every char in substring 
+  - if every char in substring
 
 getSubstrings
 - input string
@@ -43,7 +43,7 @@ getSubstrings
 - split string into chars
   - slice string into substrings
   - append substrings to `substrings`
-- join 
+- join
 - return `substrings`
 
 Declare a helper function `numberOfsubstrings` that would take a string an return the number of substrings = summing index from 1 to string.length
@@ -56,33 +56,33 @@ Then sum the number of substrings
 
 // "aab" => ["aa", "b"]
 
-function countLetters(string) {
-  let result = [];
-  let current = '';
+// function countLetters(string) {
+//   let result = [];
+//   let current = '';
 
-  for (let idx = 0; idx <= string.length; idx++) {
-    current += string[idx];
+//   for (let idx = 0; idx <= string.length; idx++) {
+//     current += string[idx];
 
-    if (string[idx + 1] !== string[idx]) {
-      result.push(current);
-      current = '';
-    }
-  }
+//     if (string[idx + 1] !== string[idx]) {
+//       result.push(current);
+//       current = '';
+//     }
+//   }
 
-  return result
-    .map((substring) => numberOfSubstrings(substring))
-    .reduce((sum, num) => sum + num, 0);
-}
+//   return result
+//     .map((substring) => numberOfSubstrings(substring))
+//     .reduce((sum, num) => sum + num, 0);
+// }
 
-function numberOfSubstrings(string) {
-  let sum = 0;
+// function numberOfSubstrings(string) {
+//   let sum = 0;
 
-  for (let number = 1; number <= string.length; number += 1) {
-    sum += number;
-  }
+//   for (let number = 1; number <= string.length; number += 1) {
+//     sum += number;
+//   }
 
-  return sum;
-}
+//   return sum;
+// }
 
 // version getting all substrings
 function countLetters(string) {
@@ -104,6 +104,7 @@ function getSubstrings(string) {
   return substrings;
 }
 
+console.log(countLetters('cdaba')); // 5 => c, d, a, b, a
 console.log(countLetters('aab')); // 4
 console.log(countLetters('aaaba')); // 8
 

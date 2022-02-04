@@ -170,7 +170,6 @@ function nonRepeatingSubstring(string) {
   return substrings[0];
 }
 
-
 function findSubstrings(string) {
   let substrings = [];
   for (let i = 0; i < string.length; i += 1) {
@@ -180,10 +179,8 @@ function findSubstrings(string) {
   }
 
   return substrings;
-
   // return substrings.filter(word => word.length < string.length);
 }
-
 
 function doesNotHaveRepeating(string) {
   for (let i = 0; i < string.length; i += 1) {
