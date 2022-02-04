@@ -5326,3 +5326,30 @@ splice(start, deleteCount, item1, item2, itemN)
 20:30 Continuing to study the API book. I will get this job at ChurnZero!
 
 20:46 Tired and ready to break for the night to watch some TV.
+
+## 20220204 금요일
+
+08:44 I didn't write anything until now? It took the whole study session for me and Alex to figure out one problem this morning that is probably a more difficult than a problem I will face on the actual interview assessment.
+
+10:40 Working with Laurent and got stuck using `Array.prototype.every()`
+
+Syntax
+
+```js
+// Arrow function
+every((element) => { /* ... */ } )
+every((element, index) => { /* ... */ } )
+every((element, index, array) => { /* ... */ } )
+
+// Callback function
+every(callbackFn)
+every(callbackFn, thisArg)
+
+// Inline callback function
+every(function(element) { /* ... */ })
+every(function(element, index) { /* ... */ })
+every(function(element, index, array){ /* ... */ })
+every(function(element, index, array) { /* ... */ }, thisArg)
+```
+
+10:59 Doing another study session with Michael in a moment.

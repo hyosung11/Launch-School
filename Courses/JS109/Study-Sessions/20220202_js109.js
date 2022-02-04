@@ -99,8 +99,6 @@ console.log(topThreeWords("  //wont won't won't")); // => ["won't", "wont"]
 console.log(topThreeWords("  ...  ")); // []
 console.log(topThreeWords("  '  ")); // []
 
-
-
 // function topThreeWords(string) {
 //   let wordsArray = string
 //     .split(' ')
