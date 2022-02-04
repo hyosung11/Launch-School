@@ -5322,3 +5322,7 @@ splice(start, deleteCount, item1, item2, itemN)
 19:14 Still drilling on practice problems. I'm getting there.
 
 19:43 I switched to reading the API book. Time to go up to put the kids to bed.
+
+20:30 Continuing to study the API book. I will get this job at ChurnZero!
+
+20:46 Tired and ready to break for the night to watch some TV.

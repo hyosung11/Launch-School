@@ -269,11 +269,227 @@ The number of things a modern web application is expected to do is vast. Even fa
 
 ### Public and Private
 
+**Public APIs** are intended for consumption outside the organization that provides them. Twitter, Facebook, Instagram, and many other social media sites provide public APIs that enable third-party programs to interact with their services. This is the type of web API this book deals with.
+
+**Private APIs** are intended only for internal use. These APIs are subject to change at any time. The Google search page uses a private API to get a list of search suggestions to display while a user is entering search terms. Sometimes it is possible to call private APIs, but in general, doing so is a bad idea for a variety of technical, ethical, and even potentially legal reasons.
+
+Companies and services that provide public APIs are usually not shy about doing so, as offering a good API can be a competitive advantage. Look for *API or Developers* links at the bottom of websites which will usually lead to useful information about that site's APIs.
+
+Providers of public APIs can and will dictate the conditions of using their API. Just because an API is public doesn't mean that access will be granted to anyone, or that there aren't any rules around how the API can be used. Many APIs require consumers to have accounts with the provider's service and verify this by requiring requests to include authentication data or parameters.
+
 ### Terms and Conditions
+
+The data accessed via APIs carries with it ethical and legal responsibilities. Many API providers require developers to agree to terms and conditions of use before they are granted access. While these documents are usually written in legalese and can be a bit dense, it is important to understand what is and isn't allowed with respect to API data. In particular, keep in mind the following:
+
+- **What restrictions does the API place on your use of its data?** For example, data from the Amazon Product Advertising API can not be used on mobile devices or TV set top boxes, nor can it be stored for more than 24 hours.
+- **Is the API exposing any data that could be linked back to a person?** Many social applications allow access to a user's personal information, and by accessing it, you are taking on the responsibility of keeping this information safe and secure.
+- **Does the API have rate limits, and if so, what are they?** Many APIs limit how many requests can be sent from a single user or application within a given time frame. Such restrictions can have an impact on the design of programs that interact with their APIs.
 
 ### Accessibility Summary
 
 - APIs come in two flavors, *public* and *private*. You will generally work with public APIs. Using private APIs is most common when they are your own.
 - API usage is often conditional on the acceptance of a set of terms set by the API provider.
 
+## A Review of HTTP
 
+This chapter will review the basics of how HTTP works, but only as much as is needed to discuss concepts related to web APIs. The next chapter will cover URLs, and following that will be a discussion of data serialization. Just as humans use names to identify each other, speech to create sounds and language to interpret those sounds into meaning, computers use these technologies to communicate with each other: URLs describe what resource is being targeted, HTTP defines how systems send messages about these resources, and data formats allow these messages to be converted into data that is then acted on.
+
+The technologies of the web enable collaboration between systems. Let's start with the backbone of these communications, HTTP.
+
+Note: For a more thorough look at HTTP, we have an entire book dedicated to the subject.
+
+### Request and Response
+
+Web APIs are based on the same technologies that allow websites, web browsers, and web servers to work: **HTTP**.
+
+HTTP, or **Hypertext Transfer Protocol**, describes how a client program (such as a web browser) interacts with servers. These interactions are based on a **request-response** pattern, where the client asks the server for something it wants (the **request**) and the server then sends something back (the **response**.) The web, as complicated as it can seem, is almost entirely built on top of this model of sequential requests and responses.
+
+For example, if a person types `http://google.com` into the address bar of their browser, the browser will request a page from the server at `google.com`. The server's response is then interpreted by the browser and displayed to the user. Each image, stylesheet, and script file referenced in the rendered page is loaded in the same way: the browser makes a request to the server, receives a response, and then does something with it. In this way, multiple requests and responses are used together to achieve a larger goal (in this case, the display of an entire webpage).
+
+APIs work in basically the same way, only instead of a human making requests through a web browser, API requests are usually made from one computer program to another. As a developer, you can call APIs from your own programs. This can enable your programs to do all kinds of things that would be difficult or impossible to do by themselves.
+
+We've already looked at how requests can be made with Postman. It is also possible to explore some APIs from the command line, and we will use that as an example to review some important HTTP concepts.
+
+### Making a Simple Request
+
+Entering the following command in a terminal will retrieve the country name (and other information) for the IP 161.185.160.93:
+
+```sh
+$ http https://api.ip2country.info/ip?161.185.160.93 --json
+```
+
+The `--json` isn't strictly required here, but we include it just in case the API gets updated.
+
+Like most of the web, the request and response are text-based, which makes things fairly easy for us to look at and understand as humans. We can break the response into three main parts: *the status code*, *the headers*, and *the body*.
+
+```sh
+# response:
+HTTP/1.1 200 OK
+CF-Cache-Status: BYPASS
+CF-RAY: 6d800d583832e704-EWR
+Connection: keep-alive
+Content-Encoding: gzip
+Content-Type: application/json; charset=utf-8
+Date: Fri, 04 Feb 2022 01:16:11 GMT
+Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+NEL: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=xogq2OvHOwbnL2QtwGXgAV153m80x%2BAqKT%2FNNbfaucZipdbU%2Fo5EkZIS0j1ZZzArgcEUGjjRpwd0QUqQfSTNEK94lo98MQHc9cbe8iHRHgbAIPM%2BDQ%2BWNTgr%2FH5XIG1q%2FbJu6ejM"}],"group":"cf-nel","max_age":604800}
+Server: cloudflare
+Transfer-Encoding: chunked
+Vary: Accept-Encoding
+access-control-allow-methods: GET, HEAD
+access-control-allow-origin: *
+alt-svc: h3=":443"; ma=86400, h3-29=":443"; ma=86400
+cache-control: max-age=0, private, must-revalidate
+strict-transport-security: max-age=31536000
+x-cache-status: MISS
+x-content-type-options: nosniff
+x-frame-options: deny
+x-robots-tag: noindex
+x-xss-protection: 1; mode=block
+
+{
+    "countryCode": "US",
+    "countryCode3": "USA",
+    "countryEmoji": "🇺🇸",
+    "countryName": "United States"
+}
+
+```
+
+### Status Code
+
+The first line of the response looks like this:
+
+```sh
+HTTP/1.1 200 OK
+```
+
+The important part of this line is the last part, 200 OK. All HTTP responses will start with a three digit numeric code and message that summarize the result of the preceding request. There are a lot of status codes, and there is no need to try to remember them all because they are [easy to look up](https://httpstatuses.com/) as needed. There are, however, a few basic rules to interpreting these codes that will come in handy:
+
+- If a status code is in the format 2xx, such as `200` or `201`, it means that **everything is fine** and the request was handled successfully.
+- A status in the form 3xx, such as `303`, means that the request was handled successfully, but the response to the request is *located at a different URL*, which is usually provided in a header (we'll talk about headers next.) `3xx` statuses are commonly used by a server to respond to a HTML form POST submission. They are much less commonly used when working with HTTP APIs.
+- A status in the form 4xx, such as `404`, means that the client did something in the request that the server didn't like. It often means that a required parameter was forgotten or that the URL is incorrect.
+- A status code in the form 5xx, such as `500`, means that the server encountered an error processing the request. Usually this means that the system you are connecting to is having issues that need to be resolved by those who run it before you can continue, although sometimes it can also be the result of a bad request.
+
+It's worth noting that *servers don't always return the correct status code*, often as a result of a programming oversight. This will be covered in depth in a future course; for now, know that it is sometimes necessary to look at the entire response for clues as to what is happening when you have received a status code that doesn't make sense.
+
+### Headers
+
+The next section of the response includes a lot of detailed information, such as when the response was created, the name of the server handling the request, and a lot more:
+
+```sh
+Access-Control-Allow-Methods: GET, HEAD
+Access-Control-Allow-Origin: *
+CF-Cache-Status: BYPASS
+CF-RAY: 5f581e324a538d39-PDX
+Cache-Control: max-age=0, private, must-revalidate
+Connection: keep-alive
+Content-Encoding: gzip
+Content-Type: application/json; charset=utf-8
+Date: Sat, 21 Nov 2020 05:47:47 GMT
+Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+NEL: {"report_to":"cf-nel","max_age":604800}
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=A9pqHyo5wkDoUv3kD0aV%2FJw98TTNH542ziarGlMtEzSad831AiFA5ElekrwCUMbydIzgWOrr%2FGAuYIpw9gxaxDcM8sbpUr%2BJ9Du4mqL36IDT4rv0"}],"group":"cf-nel","max_age":604800}
+Server: cloudflare
+Set-Cookie: __cfduid=d456dafe3419cc30d128676411cc9737c1605937666; expires=Mon, 21-Dec-20 05:47:46 GMT; path=/; domain=.ip2country.info; HttpOnly; SameSite=Lax
+Strict-Transport-Security: max-age=31536000
+Transfer-Encoding: chunked
+Vary: Accept-Encoding
+X-Cache-Status: HIT
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-Robots-Tag: noindex
+X-XSS-Protection: 1; mode=block
+cf-request-id: 068af1337000008d3958a9e000000001
+```
+
+The most important line is the one that defines the response's Content Type:
+
+```sh
+Content-Type: application/json; charset=utf-8
+```
+
+The content type describes the format of the rest of the response's content. This response's content type is `application/json`, which means we can interpret the body as JSON. It also says that the body is written in UTF-8, which tells us that the characters in the body are in the UTF-8 encoding. UTF-8 is a very common encoding on the internet, and in general, you don't need to do anything special to work with it. It is the default encoding in many programming languages and tools.
+
+We'll spend more time on media types in a later section.
+
+The rest of the headers specify other pieces of information about the response. There are a lot of headers that can be used, and systems can even define their own. We will cover some additional headers as we encounter them throughout our exploration of APIs, and there is a list of some common ones in the [appendix](https://launchschool.com/books/working_with_apis/read/http_response_headers).
+
+### Body
+
+By looking at the content type of the response body, we know that the rest of the response is in JSON format. HTTPie notices this and prints out the response body in a way that is more suitable for human consumption:
+
+```sh
+{
+    "countryCode": "US",
+    "countryCode3": "USA",
+    "countryEmoji": "🇺🇸",
+    "countryName": "United States"
+}
+```
+
+If you run the command with an IP from a different country, you will, of course, see different data. The structure of the data should be the same, though.
+
+A program that is making a call to an API such as this one would probably pull a few pieces of data out of this payload and do something with it. An app that displayed the current value of a stock portfolio might just need the current price and maybe the high and low values to display to a user. To do this, the app could **parse** the JSON and then access the parts it cared about.
+
+*Parsing* is the process of converting data from one format (often one that is designed to transfer or persist the data) into a representation that is easier to work with for a computer. When a web browser loads an HTML page, one of the first things it does is parse the HTML text into an internal representation used to draw the page on a screen
+
+### A Review of HTTP Summary
+
+- Web APIs are built on top of HTTP, the technology that makes the web work.
+- HTTP Responses have 3 main parts: status code, headers, and body.
+- The *Content-Type* header describes the format of the response body.
+
+## A Review of URLs
+
+### URL or URI?
+
+It is common to come across the acronyms URL and URI used throughout technical literature. Part of the cause for confusion stems from how they seem to be used interchangeably.
+
+**URI**, or **uniform resource identifier**, is a name used to identify a resource. **The resources represented by URIs can be anywhere.**
+
+**URL**, or **uniform resource locator**, is the location where a resource can be found.
+
+*URIs are like social security numbers*: every US citizen has a unique number, and as a result, these numbers could be used to reference specific individuals in a computer system (and in fact, they often are used for exactly this purpose in the medical and health insurance industry). But if you needed to have a face to face conversation with a person, just knowing their social security number would do little to tell you where to find them.
+
+*URLs, on the other hand, are like street addresses*. Given the street address of a person, it is possible to actually find and interact with that person. These identifiers also uniquely identify a resource, which means that a URL is a kind of URI.
+
+URLs also include *how* to access the resource. All the URLs we will be working with in this book (and that you'll work with on most projects) begin with *http://* or *https://*, which signify the resource can be accessed using the HTTP protocol. When the scheme is *https://*, it is an HTTP connection over a secure connection.
+
+When it comes to deciding to use URI or URL, The thing to remember is this: **if you are working with resources on the internet, just use URL.**
+
+### The Parts of a URL
+
+URLs are made up of a few components:
+
+- A **scheme**, such as *http*
+- *://*, a colon and two slashes
+- A **hostname**, usually a domain name such as *blogs.com*
+- An optional colon and **port**, such as *:81*
+- The **path** to the resource, such as */api/v1/pages/1*
+- An optional **query string**, such as *?query=term*
+
+Put together, the example values above would construct the URL *http://blogs.com:81/api/v1/pages/1?query=term*. Ports are relatively uncommon in the URLs used when interacting with public APIs, and we won't go into them further.
+
+This book will discuss a lot on URLs. It will also reference paths quite a bit, as they are shorter and make the relevant sections more obvious. If you have a full URL and need to know what its path is, just remove everything from the beginning to the end of the domain name, leaving the slash.
+
+### Identifiers in Paths
+
+Some of the paths used in API documentation or when discussing APIs include identifiers for specific resources. Take, for example, the path `/products/42`. The final segment of the path, `42`, is a value that is used to identify a specific product.
+
+When referring to this path in the general sense and without a particular product in mind, it would be written `/products/:id`. The final segment, `:id`, is a placeholder for a value to be filled in later. Any value in a path that begins with a colon in this book should be considered a **placeholder**. Here are a few other examples:
+
+- `/api/:version/products/:id`
+- `/api/v1/users/:id/profile`
+
+It is possible for paths to include multiple placeholders. If a product could have many comments, and the product's path was `/products/:id`, it is possible that an individual comment's path could be `/products/:product_id/comments/:id`. This form of path can be referred to as *nested*, because the route for comments, `/products/:product_id/comments`, is nested underneath the path for a product, `/products/:id`.
+
+The specific placeholder used within a path isn't important as long as it is unique within the path. It is common for the final identifier to be named `:id`, while other placeholders have names prefixed with the resource they map to.
+
+### A Review of URLs Summary
+
+- Working with web APIs involves working with *URLs*.
+- URLs represent *where* a resource is and *how* it can be accessed.
+- URLs typically contain a *scheme*, *hostname*, *path*, and sometimes a *query string*.
+- Paths (and URLs) can include *placeholders* when they are written generically.
