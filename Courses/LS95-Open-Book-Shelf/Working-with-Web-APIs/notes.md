@@ -175,9 +175,105 @@ This brings up an important point about working with APIs: it is very important 
 
 In the case of this weather API, the documentation mentions that by sending the parameter units with a value of imperial along with the request, the data values will be represented in imperial units.
 
-### Summary
+### Postman Summary
 
 - Postman makes it easy to make HTTP requests from a web browser.
 - Because it runs in a web browser, Postman has few dependencies and is easy to install on almost any computer.
 
 We'll be using some of the more advanced features of Postman when we look at the Twitter API. In the meantime, you can use Postman for working through any of the examples, even those this book uses other tools for.
+
+## Defining API
+
+### What is an API?
+
+An **API** or **Application Programming Interface**, provides a way for computer systems to interact with each other. There are many types of APIs. Every programming language has a built-in API that is used to write programs. Mobile devices provide APIs to give access to location or other sensor data, such as the device's GPS location or the orientation of the device. Operating systems themselves have APIs used by programs to open files, access memory, and draw text on the screen. While the types of uses for APIs are vast, the one thing all APIs have in common is **providing functionality for use by another program**.
+
+### Web APIs
+
+This book is going to focus on APIs that are built with web technologies and that work in a similar way to the web. These are often called **web APIs** or **HTTP APIs** because, like the web, they operate over HTTP. We'll use the term *web APIs* most often as it is shorter and potentially more common in discussion. There will be more detail about how APIs relate to HTTP as we work through the rest of this book as we delve into *how* web APIs work.
+
+### Provider and Consumer
+
+When discussing APIs and how systems interact using them, distinguish between the system that the API belongs to and the external service (or user) that will use this API.
+
+- An API **provider** is the system that provides an API for other parties to use. GitHub is the *provider* of the GitHub API, and Dropbox is the *provider* of the Dropbox API.
+- An API **consumer** is the system that uses the API to accomplish some work. When you check the weather on your phone, it is running a program that is *consuming* a weather API to retrieve forecast data.
+
+Throughout the course of this book, we will be manual consumers of the web store API. The web store server will be the provider for our initial investigation, and the following chapters will move on to working with some real world API providers.
+
+### What about Clients and Servers?
+
+*Client* and *server* are rather overloaded terms, with server conjuring up images of racks and racks of computers in massive server farms, and clients as being small or mobile computers. In this way, client and server are often used to indicate the location or size of a computer and not its role in communicating with another machine.
+
+When we speak of clients and servers in the context of APIs, the server is generally going to be the API provider and the client will be the consumer (technically, a client is the side of a communication that initiates the connection.) As a result of this, the terms are sometimes used as if they were synonyms.
+
+As a result, it is best to stick to using *provider* and *consumer* when discussing APIs, as this makes the relationship of the computer to the API much clearer.
+
+### Defining API Summary
+
+- *Web APIs* allow one system to interact with another over HTTP (just like the web).
+- The system offering the API for use by others is the *provider*.
+- The system interacting with the API to accomplish a goal is the *consumer*.
+- It is best to prefer the terms *provider* and *consumer* over client and server.
+
+With all of this terminology out of the way, let's get into why you might use an API when writing a program.
+
+## What APIs Can Do
+
+### Sharing Data
+
+Perhaps the most common use case for web APIs is simply **sharing data between systems**. Consider a web application for creating birthday cards. Instead of requiring a user to enter the names and birthdays for each of their friends, the application could use an API provided by Facebook to fetch data about a user's friends automatically.
+
+At a certain level, all APIs are used to transfer data between systems. This basic capability offers many benefits to application developers and users alike. An extremely common case would be providing data to a mobile application that needs to access data from a web-based service. The Netflix mobile application (and actually all of the various Netflix apps that run on different devices) need to be able to access your same Netflix account. Since this data is kept on a central server, it can be exposed to the mobile and other apps using an API.
+
+### Enabling Automation
+
+Imagine a hat manufacturer who is really working on making its customers happy. Let's call this company HatCo. HatCo has a web store where their entire catalog of hats is available for shipment anywhere in the world. As part of a new customer happiness campaign, HatCo has announced that each order enters the purchaser into a drawing for a free custom hat.
+
+HatCo needs to make sure that every person who places an order through the website is entered into a sweepstakes for a daily drawing. Right now the company is a year old and only fills a few orders each day. It is one of the employees' responsibilities to manually enter each customer's information into the sweepstakes system.
+
+Fast-forward a few years into the future. After several years of steady growth, hundreds of orders are now placed on the HatCo web site each day. It takes hours for a human to copy the customer information into the sweepstakes system, and there are plenty of typos and mistakes made along the way that corrupt some of the data as it is transferred.
+
+Luckily, both the HatCo web store and their sweepstakes system provide APIs. The store's API grants access to information about orders and customers, and the sweepstakes' API offers a way to add or remove entries from a drawing. The company hires a developer to write a program that fetches a days' worth of orders from the web store and enters the customers who placed those orders into the sweepstakes system. This program is set up to run at midnight every night. It copies the data from one system to the other without making any mistakes and allows a now happy HatCo employee to use their time for something more fun.
+
+**APIs allow users of a service to make use of it in new and useful ways.**
+
+### Leverage Existing Services
+
+NearPhoto is a new (imaginary) mobile application startup with plenty of VC funding. This company is dedicated to *changing the way nearby photos are found*.
+
+NearPhoto is working on an app that, not surprisingly, displays photos taken near a mobile device's current location. Their founder has drawn up a plan to ship this application by the end of the year:
+
+1. Create a large data set of images from all over the world and associate each with the geographic location where it was taken.
+2. Build a way to search all this data spatially in order to find images taken near a given point.
+3. Build an app that sends queries to this system and displays the results.
+
+After consulting with the CTO, the founder learns that the proposed plan is going to be a whole lot of work, take a really long time, and require huge amounts of disk space to store all the photos. Luckily, the CTO has a different idea of how to proceed with development:
+
+1. Get access to an existing photo dataset that includes geographic search functionality, such as that of Instagram, Facebook, or Flickr.
+2. Build an app that sends queries to this system and displays the results.
+
+This new plan is easily accomplished using existing APIs. By following this path, the company is well on its way to a profitable exit for everyone involved.
+
+The number of things a modern web application is expected to do is vast. Even fairly simple sites will need to process credit card payments, send emails, fetch information about books, or call cell phones and read messages to the recipient. While it is possible to write all of the code to perform these tasks oneself, it usually doesn't make sense to, especially for smaller companies with basic needs.
+
+**APIs enable application developers to build their applications on top of a variety of other specialized systems, allowing them to focus on their actual objectives and not worry about all the complexities of every part of the system.** In a way, it's like hiring a team of specialists for a construction project. While it would be possible to do everything, it makes a lot more sense to delegate certain responsibilities to a specialist. A project will have better results if it is built by a plumber, an electrician, and a carpenter than if it was all done by a single person. Plus, the team effort will likely result in a higher quality product in less time.
+
+### What APIs Can Do Summary
+
+- APIs break down the walls between systems, allowing them to share data.
+- APIs provide an "escape hatch" enabling service users to customize the software's behavior or integrate it into other systems if required.
+- Many modern web applications provide an API that allows developers to integrate their own code with these applications, taking advantage of the services' functionality in their own apps.
+
+## Accessibility
+
+### Public and Private
+
+### Terms and Conditions
+
+### Accessibility Summary
+
+- APIs come in two flavors, *public* and *private*. You will generally work with public APIs. Using private APIs is most common when they are your own.
+- API usage is often conditional on the acceptance of a set of terms set by the API provider.
+
+

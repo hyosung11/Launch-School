@@ -5320,3 +5320,5 @@ splice(start, deleteCount, item1, item2, itemN)
 18:51 Reviewing problems from this week's study sessions and they don't seem as difficult as when I first worked on them. That's progress.
 
 19:14 Still drilling on practice problems. I'm getting there.
+
+19:43 I switched to reading the API book. Time to go up to put the kids to bed.
