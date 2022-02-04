@@ -145,12 +145,12 @@ function fix(word) {
     let char = array[idx];
     if ('0123456789'.includes(char)) num += char;
   }
-  
+
   array.splice(0, num.length);
   array.unshift(String.fromCharCode(Number(num)));
 
   if (array.length <= 2) return array.join('');
-  
+
   return array[0] + array[array.length - 1] + array.slice(2, array.length -1).join('') + array[1];
 }
 

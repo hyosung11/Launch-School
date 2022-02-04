@@ -51,7 +51,7 @@ DATA STRUCTURE
 ALGORITHM
 - input string and char
 - initialize `result` array to empty array
-- initialize charIndexes to empty array
+- initialize `charIndexes` to empty array
 - iterate through string
   - if string element at idx equals the char
     - append string element's idx to `charIndexes` => [3, 5, 6, 11]

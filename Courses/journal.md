@@ -5316,3 +5316,7 @@ splice(start, deleteCount, item1, item2, itemN)
 16:32 Back after playing pinp pong with Louis and getting crushed today. I can't figure out a way to keep the `repeatedSubstringPattern` problem in my head.
 
 16:47 I can't figure out this LeetCode problem, so I'm going to take a break and move to my MBP.
+
+18:51 Reviewing problems from this week's study sessions and they don't seem as difficult as when I first worked on them. That's progress.
+
+19:14 Still drilling on practice problems. I'm getting there.
