@@ -5395,3 +5395,5 @@ const result = /^hello/.test(str);
 
 console.log(result); // true
 ```
+
+15:23 There's definitely going to be a merge conflict because there's info on my iMac that's not here.

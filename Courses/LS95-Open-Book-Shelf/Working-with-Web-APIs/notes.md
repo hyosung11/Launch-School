@@ -493,3 +493,128 @@ The specific placeholder used within a path isn't important as long as it is uni
 - URLs represent *where* a resource is and *how* it can be accessed.
 - URLs typically contain a *scheme*, *hostname*, *path*, and sometimes a *query string*.
 - Paths (and URLs) can include *placeholders* when they are written generically.
+
+## Media Types
+
+### What is a Media Type?
+
+In the same way that humans have developed shared languages to facilitate communication, the internet has given rise to a set of shared markup languages and data formats for transferring information between computers. One example of this is **HTML**, the markup language used to create all web pages, including this one. Because nearly all computers (and now most phones, tablets, and even televisions) can understand HTML and display it, the web is extremely accessible for people using a wide range of devices.
+
+HTML is one of many different **media types** (also called **content types** or sometimes **MIME types**) supported by modern web browsers. It is represented in an HTTP response as the `Content-Type:` header as `text/html`.
+
+```sh
+Content-Type: text/html
+```
+
+This tells the browser to interpret the content as HTML and render it graphically on the screen.
+
+Most web servers also include a `charset` for certain text media types, so a real world response header would look more like this:
+
+```sh
+Content-Type: text/html; charset=UTF-8
+```
+
+The `charset` (or character set) tells the browser which set of characters the response is using. The charset for most requests will be `UTF-8` or `ISO-8859-1`. For the purposes of this book, and for the work we'll be doing with APIs, we don't need to get into the difference between these or other character sets. If at some point you are seeing strange characters when working with an API, you should check the response charset to make sure it is something compatible with the tools you are using.
+
+Other media types include `text/plain` for plain text responses, `text/css` for CSS stylesheets, `application/javascript` for JavaScript files, and many, many more. There are media types for PDF documents, sound files, videos, ZIP archives, and many, many, more.
+
+It is possible to use HTTPie to look at the content type of a variety of URLS and see some of the different media types. Using the `--headers` switch tells `httpie` to only print out the response's headers (in the following listings, some headers have been omitted for brevity):
+
+```sh
+$ http --headers www.google.com
+HTTP/1.1 200 OK
+Cache-Control: private, max-age=0
+Content-Encoding: gzip
+Content-Length: 6250
+Content-Type: text/html; charset=ISO-8859-1
+Date: Sat, 05 Feb 2022 20:12:16 GMT
+Expires: -1
+P3P: CP="This is not a P3P policy! See g.co/p3phelp for more info."
+Server: gws
+Set-Cookie: 1P_JAR=2022-02-05-20; expires=Mon, 07-Mar-2022 20:12:16 GMT; path=/; domain=.google.com; Secure
+Set-Cookie: NID=511=nQ8d-ttl54xJ6bvdYASDoaKm41e4XQkL1N1pC0qtm9ua3uBowFY_e6zLeGjI6LWbDHg17N65DtvRD5WVJIybUvCgNUMXRTOdmVaBXB84yHX5wcLvupho8NuH7GQW2IOKMbvbBzS0V7CIylTSMaqdWjIG0jdtqDsAnKDsjP5Hu8g; expires=Sun, 07-Aug-2022 20:12:16 GMT; path=/; domain=.google.com; HttpOnly
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 0
+```
+
+The Google homepage has a media type of `text/html`, which makes sense: it is a basic web page.
+
+Many other parts of the web are built with text as well, such as the CSS used to tell a browser how to display HTML. Google Fonts provides CSS files that enable browsers to display text in specific fonts using the media type `text/css`:
+
+```sh
+$ http --headers http://fonts.googleapis.com/css\?family\=Open+Sans
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Cache-Control: private, max-age=86400
+Content-Encoding: gzip
+Content-Type: text/css; charset=utf-8
+Cross-Origin-Opener-Policy: same-origin-allow-popups
+Cross-Origin-Resource-Policy: cross-origin
+Date: Sat, 05 Feb 2022 20:16:46 GMT
+Expires: Sat, 05 Feb 2022 20:16:46 GMT
+Server: ESF
+Timing-Allow-Origin: *
+Transfer-Encoding: chunked
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 0
+```
+
+The media type returned by loading a photo URL from Flickr is `image/jpeg`, which tells the browser to display the request's body as an image.
+
+```sh
+✗ http --headers https://c2.staticflickr.com/4/3913/15095210318_930069f3d6_c.jpg
+HTTP/1.1 200 OK
+Access-Control-Allow-Methods: GET, OPTIONS
+Access-Control-Allow-Origin: *
+Cache-Control: public, max-age=31536000
+Connection: keep-alive
+Content-Type: image/jpeg
+Date: Sat, 05 Feb 2022 20:18:28 GMT
+ETag: "f9bf1c34c2d1c60b123229a47ed855d1.1"
+Edge-Control: public, max-age=31536000
+Expires: Sun, 05 Feb 2023 20:18:29 GMT
+Hiring: Change the world of photography with us. https://www.flickr.com/jobs/
+ImageHeight: 800
+ImageWidth: 530
+Last-Modified: Sun, 17 Feb 2019 04:11:29 GMT
+MiB: 2
+OriginType: X
+OurValues: Grow Together (#1 of 5)
+P3P: CP="This is not a P3P policy. We respect your privacy."
+Powered-By: Mutation/1.0
+Quote: "I'm not a kid anymore, I'm one of you, one of the X-Men. It means more to me than anything in the world."
+Server: Jubilee
+Streaming: false
+Surrogate-Control: public, max-age=31536000
+Transfer-Encoding: chunked
+Via: 1.1 4a124e8b579c1eb5bfcb198db51e61fe.cloudfront.net (CloudFront)
+X-Amz-Cf-Id: YSxamPymIFeSokxWfdPYE4Jji46N4tMp-ExzJToO08ZAJTdZxifw2g==
+X-Amz-Cf-Pop: PHL50-C1
+X-Cache: Miss from cloudfront
+X-Env: a=live, b=jubilee, c=4cf206a9, e=5017319cdd8b6f0e8ca83f5d61e011f0dc7d4baa
+X-Frame-Options: DENY
+X-Request-Id: 53e976b2
+X-TTDB-L: 113957
+X-TTFB: 0.1405
+X-UA-Compatible: IE=edge
+```
+
+### Data Serialization
+
+APIs are generally used to allow systems to communicate by passing structured data back and forth. The content of most requests will use a format and media type that *works well for representing hierarchical data*. These formats are known as data serialization formats.
+
+A **data serialization format** describes a way for programs to convert data into a form which is more easily or efficiently stored or transferred. The stored or transferred data can then be converted back into the original data at any time by the original program or any other program that can understand its format.
+
+In 1915, the artist Kazimir Malevich created his now well known piece Black Circle to go along with his manifesto From Cubism to Suprematism . It looks like this:
+
+![Black-Circle](tealeaf-black-circle-original.jpg)
+
+
+
+### XML
+
+### JSON
+
+### Media Types Summary
+
