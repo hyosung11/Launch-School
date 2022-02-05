@@ -5355,3 +5355,7 @@ every(function(element, index, array) { /* ... */ }, thisArg)
 10:59 Doing another study session with Michael in a moment.
 
 17:20 The study session with Deepak was good. He's good. I need to keep practicing.
+
+## 20220205 토요일
+
+15:23 There's definitely going to be a merge conflict because there's info on my iMac that's not here.
