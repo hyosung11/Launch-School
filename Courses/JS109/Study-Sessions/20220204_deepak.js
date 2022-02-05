@@ -40,12 +40,15 @@ function cakes(recipe, available) {
   let result = [];
 
   for (let item in recipe) { // hasOwnProperty()
-    if (available.hasOwnProperty(item) === false) return 0;
+    // if (available.hasOwnProperty(item) === false) return 0;
+    if (available[item] === undefined) return 0;
 
-    let amount = Math.floor(available[item] / recipe[item]);
-    result.push(amount);
+    // let amount = Math.floor(available[item] / recipe[item]);
+    // result.push(amount)
+    result.push(Math.floor(available[item] / recipe[item]));
+
   }
-
+  console.log(result)
   return Math.min(...result);
 }
 
@@ -126,37 +129,37 @@ Algorithm:
         increment b
 */
 
-function scrambleWords(string) {
-  return string.split(' ').map(word => wordTransformer(word)).join(' ');
-}
+// function scrambleWords(string) {
+//   return string.split(' ').map(word => wordTransformer(word)).join(' ');
+// }
 
-function wordTransformer(word) {
-  let bareWord = word.replace(/[-',.]/g, '');
-  let flippedWord = bareWord[0] + bareWord.slice(1, -1).split('').sort().join('') + bareWord.at(-1)
+// function wordTransformer(word) {
+//   let bareWord = word.replace(/[-',.]/g, '');
+//   let flippedWord = bareWord[0] + bareWord.slice(1, -1).split('').sort().join('') + bareWord.at(-1)
 
-  let resultWord = '';
+//   let resultWord = '';
 
-  let flippedWordCounter = 0;
+//   let flippedWordCounter = 0;
 
-  for (let wordCounter = 0; wordCounter < word.length; wordCounter += 1) {
-    if (/[-',.]/.test(word[wordCounter])) {
-      resultWord += word[wordCounter];
-    } else {
-      resultWord += flippedWord[flippedWordCounter];
-      flippedWordCounter += 1;
-    }
-  }
+//   for (let wordCounter = 0; wordCounter < word.length; wordCounter += 1) {
+//     if (/[-',.]/.test(word[wordCounter])) {
+//       resultWord += word[wordCounter];
+//     } else {
+//       resultWord += flippedWord[flippedWordCounter];
+//       flippedWordCounter += 1;
+//     
+//   }
 
-  return resultWord;
-}
+//   return resultWord;
+// }
 
 
 // console.log(wordTransformer("sahn't"));
 
 
-console.log(scrambleWords('professionals') === 'paefilnoorsss');
-console.log(scrambleWords('card-carrying') === 'caac-dinrrryg');
-console.log(scrambleWords("shan't") === "sahn't");
-console.log(scrambleWords('-dcba') === '-dbca');
-console.log(scrambleWords('dcba.') === 'dbca.');
-console.log(scrambleWords("you've gotta dance like there's nobody watching, love like you'll never be hurt, sing like there's nobody listening, and live like it's heaven on earth." ) === "you've gotta dacne like teehr's nbdooy wachintg, love like ylo'ul neevr be hrut, sing like teehr's nbdooy leiinnstg, and live like it's haeevn on earth.");
+// console.log(scrambleWords('professionals') === 'paefilnoorsss');
+// console.log(scrambleWords('card-carrying') === 'caac-dinrrryg');
+// console.log(scrambleWords("shan't") === "sahn't");
+// console.log(scrambleWords('-dcba') === '-dbca');
+// console.log(scrambleWords('dcba.') === 'dbca.');
+// console.log(scrambleWords("you've gotta dance like there's nobody watching, love like you'll never be hurt, sing like there's nobody listening, and live like it's heaven on earth." ) === "you've gotta dacne like teehr's nbdooy wachintg, love like ylo'ul neevr be hrut, sing like teehr's nbdooy leiinnstg, and live like it's haeevn on earth.");

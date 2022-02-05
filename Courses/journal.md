@@ -5355,3 +5355,43 @@ every(function(element, index, array) { /* ... */ }, thisArg)
 10:59 Doing another study session with Michael in a moment.
 
 17:20 The study session with Deepak was good. He's good. I need to keep practicing.
+
+## 20220205 토요일
+
+10:07 Using Deepak's algorithm to write code for the Typoglycemia Generator problem.
+
+`String.protype.at() => at(index)`
+
+The at() method takes an integer value and returns a new String consisting of the single UTF-16 code unit located at the specified offset. This method allows for positive and negative integers. Negative integers count back from the last string character.
+
+```js
+// A function which returns the last character of a given string
+function returnLast(arr) {
+  return arr.at(-1);
+}
+
+let invoiceRef = 'myinvoice01';
+
+console.log( returnLast(invoiceRef) );
+// Logs: '1'
+
+invoiceRef = 'myinvoice02';
+
+console.log( returnLast(invoiceRef) );
+// Logs: '2'
+```
+
+11:16 Reverse engineering Deepak's code and looking at `RegExp.prototype.test()`:
+
+`RegExp.prototype.test()`
+
+The `test()` method executes a search for a match between a regular expression and a specified string. Returns `true` or `false`.
+
+Simple example that tests if `"hello"` is contained at the very beginning of a string, returning a boolean result.
+
+```js
+const str = 'hello world!';
+const result = /^hello/.test(str);
+
+console.log(result); // true
+```
