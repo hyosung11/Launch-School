@@ -610,7 +610,19 @@ In 1915, the artist Kazimir Malevich created his now well known piece Black Circ
 
 ![Black-Circle](tealeaf-black-circle-original.jpg)
 
+Now let's imagine a world where Malevich was born one hundred years later, in 1979 instead of 1879. In this reality, it is conceivable that *Black Circle* would have been created in a vector graphics program instead of on canvas. In this world, it looks more like this:
 
+![Black-Circle-Vector](tealeaf-black-circle-vector.png)
+
+When it came time for Malevich to save his creation to a disk or perhaps send it to another system, the graphics program might save a representation of the circle into a file using some SVG code:
+
+```xml
+<svg viewBox="0 0 55 54">
+  <circle cx="32.5" cy="22" r="21.3" fill="black"/>
+</svg>
+```
+
+This SVG code is written using XML, which is an older data serialization format that is sometimes used by APIs. By serializing data that represented the circle, the drawing program could more easily store the information or transfer it to another system. The data could also be read back into another application, which could display the circle on the screen, send it to a printer, or allow a user to make additional modifications.
 
 ### XML
 
