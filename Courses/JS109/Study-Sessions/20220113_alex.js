@@ -65,7 +65,7 @@ ALGO:
 function topThreeWords(string) {
   let arr = string.split(' ');
   arr = arr.map((word) => cleanWord(word)).filter((word) => word.length > 0);
-  
+
   if (arr.length === 0) return [];
 
   let result = {};
