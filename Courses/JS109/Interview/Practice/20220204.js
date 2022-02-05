@@ -95,7 +95,7 @@ function threeByThree(array) {
     .map(string => {
       return string
         .split('')
-        .reduce((sum, num) => sum + Number(num), 0)
+        .reduce((sum, num) => sum + Number(num), 0);
     })
     .filter(num => num % 3 === 0)
     .length > 2;
