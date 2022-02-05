@@ -626,7 +626,75 @@ This SVG code is written using XML, which is an older data serialization format 
 
 ### XML
 
+**XML** (or **extensible markup language**) shares common heritage with HTML: they are both based on an earlier and similar type of markup, SGML. XML is generally stricter than HTML and doesn't handle missing tags or improper nesting. It was fairly common to see XML used with APIs in the past, and while some services continue to support XML, JSON has become much more common.
+
+Here is one way to represent an address in XML:
+
+```xml
+<address>
+    <street>1600 Pennsylvania Ave NW</street>
+    <city>Washington</city>
+    <state>DC</state>
+    <zipcode>20500</zipcode>
+    <country>Unites States</country>
+</address>
+```
+
 ### JSON
 
+**JSON** (or **JavaScript Object Notation**) is perhaps the most popular data serialization format used by web APIs today. The syntax JSON uses is based on the way object literals are written in JavaScript, the ubiquitous scripting language of the web. While JSON's popularity is partially due to being based on existing web technologies, a distinction it shares with XML, it is also the result of JSON being a simpler and less ambiguous format.
+
+A simple JSON document is used to represent key and value pairs. Here is one way to represent a US address as JSON:
+
+```json
+{
+  "street": "1600 Pennsylvania Ave NW",
+  "city": "Washington",
+  "state": "DC",
+  "zipcode": "20500",
+  "country": "United States"
+}
+```
+
+JSON can represent objects, arrays, strings, and numbers:
+
+```json
+{
+  "object": {
+    "city": "Boston"
+  },
+  "array": [1, 1, 2, 3, 5],
+  "string": "Hello, World!",
+  "number": 8675.309
+}
+```
+
+We will be using JSON exclusively in this book. The tools we use will create most of the JSON for us, so we won't be writing it manually. Being able to reference specific values with a JSON structure, however, will be useful.
+
+Given the following JSON data:
+
+```json
+{
+  "menus": {
+    "breakfast": {
+      "toast": 1,
+      "coffee": [1.25, 1.75, 2.25]
+    },
+    "lunch": {
+      "sandwich": 6.50,
+      "soup": [4, 5],
+      "salad": 7
+    }
+  }
+}
+```
+
+We could say that the value at `menus.breakfast.toast` is `1` and the value at `menus.lunch.soup[0]` is `4`.
+
 ### Media Types Summary
+
+- *Media types* describe the format of a response's body.
+- Media types are represented in an HTTP response's `Content-Type` header, and as a result, are sometimes referred to as *content types*.
+- *Data serialization* provides a common way for systems to pass data to each other, with a guarantee that each system will be able to understand the data.
+- JSON is the most popular media type for web APIs and the one this book will focus on.
 
