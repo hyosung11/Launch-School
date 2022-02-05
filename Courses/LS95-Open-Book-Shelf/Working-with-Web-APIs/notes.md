@@ -698,3 +698,154 @@ We could say that the value at `menus.breakfast.toast` is `1` and the value at `
 - *Data serialization* provides a common way for systems to pass data to each other, with a guarantee that each system will be able to understand the data.
 - JSON is the most popular media type for web APIs and the one this book will focus on.
 
+## REST and CRUD
+
+### What is REST?
+
+The term *REST* is often used to describe a set of conventions for how to build APIs. REST stands for representational state transfer, and it was originally defined by Roy Fielding in his doctoral dissertation in 2000. Let's take this term apart:
+
+- *representational* refers to how a representation of a resource is being *transferred*, and not the resource itself.
+- *state transfer* refers to how HTTP is a *stateless* protocol. This means that servers don't know anything at all about the clients, and that everything the server needs to process the request (the state) is included in the request itself.
+
+The basic ideas behind REST were based on observations about how the web already worked. From this, Fielding derived a set of formalized patterns about the kind of interactions that take place on the web. Loading web pages, submitting forms, and using links to find related content all factor into what REST is and how it applies to the web and API design. If you think about the web page as being a resource this makes a little more sense.
+
+Consider the act of creating, editing, and deleting your user profile on a social network. Doing so might involve loading some forms, entering some values, and sending the new information back to the server. Let's put this into a table to make it easier to see, adding in a few more steps for a more complete example and add the HTTP methods and paths used by the browser to accomplish each step:
+
+Action  | HTTP Method  | Path  | Params
+--------|--------------|-------|-------
+Load new profile page  | GET  | /profiles/new  |
+Submit filled out profile form to server  | POST  | /profiles  | email=ramenfan@gmail.com&password=iluvnoodles
+View new profile page (and notice a typo)  | GET  | /profiles/1  |
+Load edit profile page  | GET  | /profiles/1/edit  |
+Submit profile changes to server  | POST  | /profiles/1  | email=ramenfan2@gmail.com&password=ireallyluvnoodles
+View new profile page (and decide to delete your profile)  | GET  | /profiles/1  |
+Click the delete button and delete profile  | POST  | /profiles/1  | _method=delete
+
+Other than possibly being the shortest-lived user profile ever, this is a pretty realistic list of steps. The same actions could be performed with an API instead of using HTML forms, although there would be a few differences:
+
+- HTML forms must be loaded before they can be submitted. APIs don't have forms, so this initial GET request is unnecessary.
+- HTML forms only support two of the many HTTP methods, GET and POST. APIs are able to take advantage of all HTTP methods, which helps clarify the purpose of API requests.
+
+A good way to think about REST is as a way to define everything you might want to do with two values, what and how:
+
+- *What*: Which resource is being acted upon?
+- *How*: How are we changing / interacting with the resource?
+
+Nearly all interactions with a RESTful API can be defined in this way. In the case of editing a user profile, the resource (the *what*) is a *user profile*. The *how* depends on what action is being taken.
+
+### CRUD
+
+**CRUD** is an acronym that is used to describe the four actions that can be taken upon resources:
+
+- **C**reate
+- **R**ead
+- **U**pdate
+- **D**elete
+
+RESTful APIs will model most functionality by matching one of these operations to the appropriate resource. As an example, the following table contains the same actions as the previous one, only this time, the HTML-form driven actions have been converted into operations that could be performed with an API. Each action has been mapped to the appropriate element of CRUD.
+
+Action  | CRUD Operation  | HTTP Method  | Path  | Params
+--------|-----------------|--------------|-------|-------
+Create new profile  | Create  | POST  | /profiles  |
+
+{
+ | "email": "ramenfan@gmail.com",
+ | "password": "iluvnoodles"
+}
+
+Fetch profile  | Read  | GET  | /profiles/1  |
+Update profile with new values  | Update  | PUT  | /profiles/1  |
+
+{
+ | "email": "ramenfan2@gmail.com",
+ | "password": "ireallyluvnoodles"
+}
+
+Delete profile  | Delete  | DELETE  | /profiles/1  |
+
+Compared to the table of steps using HTML forms, this one is shorter as only the actions that make changes to a resource are included. Some of the other steps, such as loading a form to know what attributes to send for a resource, are instead handled by documentation.
+
+While web forms are limited by what HTTP methods are supported by the HTML spec and web browser implementations, APIs have far fewer limitations. As a result, web APIs tend to more fully embrace the concepts of HTTP. The development of APIs also moves much faster than the world of HTML rendering since compatibility is ensured by using HTTP, leading to much faster adoption of new ideas and specifications.
+
+The ability of APIs to more fully adopt HTTP manifests itself in API as the use of HTTP methods beyond GET and POST. Instead of using POST with a parameter `_method=delete` to remove a profile, the DELETE HTTP method is used. Updating a resource is done via PUT instead of POST. There are a few other HTTP methods used by some APIs, but GET, POST, PUT, and DELETE provide a method for each CRUD action.
+
+Keeping in mind that API interactions revolve around which resource and what action is being taken, here is the same table, this time reformulated to emphasize the what and how:
+
+**Objective**  | **How**  | **What**
+-----------|------|-----
+**Operation**  | **HTTP Method**  | **Resource**  | **Path**
+Get the information about a profile  | Read  | GET  | Profile  | /profiles/:id
+Add a profile to the system  | Create  | POST  | Profiles Collection  | /profiles
+Make a change to a profile  | Update  | PUT  | Profile  | /profiles/:id
+Remove a profile from the system  | Delete  | DELETE  | Profile  | /profiles/:id
+
+Not all APIs follow this pattern exactly, but as a general rule, the mapping between CRUD actions and HTTP methods shown above doesn't change depending on the resource or API. POST requests will usually *Create* resources, GET requests will usually *Read* resources' data, and so on. So if you know which CRUD action you want to take with a resource, you probably already know which HTTP method to use.
+
+What is most powerful about REST is that by being a set of conventions, it is universal and applies just as well to any kind of resource. By following REST conventions, API designers have fewer decisions to make about how to build an API and API consumers have fewer questions to answer before using one. Fetching an object? *It's probably a GET request to `/things/:id`*. Creating a new resource? *Use a POST to `/things`*. The resource-centric nature of REST and limited set of CRUD actions limit the complexity for API providers and consumers alike.
+
+### A RESTful API Template
+
+Here is one more table, only this time it is a template for **any resource**. That's right- any resource at all! Profiles, products, ingredients, automobiles, flights, money transfers, payments... anything.
+
+We'll use *$RESOURCE* to represent the specific resource in this table.
+
+**Objective**  | **How**  | **What**
+-----------|------|-----
+**Operation**  | **HTTP Method**  | **Resource**  | **Path**
+Get the information about a $RESOURCE  | Read  | GET  | $RESOURCE  | /$RESOURCEs/:id
+Add a $RESOURCE to the system  | Create  | POST  | $RESOURCEs Collection  | /$RESOURCEs
+Make a change to a $RESOURCE  | Update  | PUT  | $RESOURCE  | /$RESOURCEs/:id
+Remove a $RESOURCE from the system  | Delete  | DELETE  | $RESOURCE  | /$RESOURCEs/:id
+
+By following REST conventions, most of the decisions a designer has to make turn into: *What resources will be exposed?* API consumers mostly need to ask: *what resource will allow me to achieve my goal?*
+
+A RESTful design is one in which any action a user needs to make can be accomplished using CRUD operations on one or many resources. It can take a while to get used to thinking in a resource-oriented way since translating verb-oriented functionality (**deposit** $100 into this **account**) into noun- or resource-oriented actions (**create** a new transaction with an amount of $100 for this account) needs a change of perspective.
+
+Since the only actions that can be taken on a resource are create, read, update, and delete, the creative side of RESTful design lies in what resources are exposed to allow users to accomplish their goals. The limitation of only choosing the resources and their relationship can feel sort of similar to designing a database schema, in that the same basic CRUD actions apply to rows in a database table.
+
+### Resource Oriented Thinking
+
+Here are some examples of how real-world objectives could be mapped into interactions with RESTful APIs:
+
+**Objective**  | **How**  | **What**  | **Attributes**
+-----------|------|-------|-----------
+**Operation**  | **HTTP Method**  | **Resource**  | **Path**
+Rate a book  | Create  | POST  | Rating  | /ratings  | book_id, rating
+Transfer money  | Create  | POST  | Transfer  | /transfers  | from_acct_id, to_acct_id, amount
+Update a mailing address  | Update  | PUT  | Address  | /addresses/:id  | street, city, state, postal_code, country
+Unfriend someone on a social site  | Delete  | DELETE  | Friendship  | /friendships/:id  | -
+Fetch a list of movie showtimes  | Read  | GET  | Showings  | /showings  | -
+Change the quantity of a product in an order  | Update  | PUT  | LineItem  | /line_items/:id  | item_id, quantity
+
+Sometimes performing what initially appears to be a single action will translate into multiple requests to a RESTful API. Placing an order through an API might, for example, require the following steps:
+
+**Objective**  | **How**  | **What**  | **Attributes**
+-----------|------|-------|-----------
+**Operation**  | **HTTP Method**  | **Resource**  | **Path**
+Create an order  | Create  | POST  | Orders  | /orders
+Add an item to the order  | Create  | POST  | LineItem  | /line_items  | order_id, product_id
+Add a second item to the order  | Create  | POST  | LineItem  | /line_items  | order_id, product_id
+Create an address to use for shipping and billing  | Create  | POST  | Address  | /addresses  | street, city, state, postal_code, country
+Update the order with the shipping and billing addresses  | Update  | PUT  | Address  | /addresses/:id  | shipping_address_id, billing_address_id
+Add a credit card to the system for use as payment  | Create  | POST  | CreditCard  | /credit_cards  | number, crc, name, expiration_date, billing_address_id
+Set the order to use the credit card for payment  | Create  | POST  | PaymentMethod  | /payment_methods  | order_id, credit_card_id, amount
+Complete and submit the order  | Create  | POST  | OrderPlacement  | /orders/:id/placement  | -
+
+You can see how *submitting an order for two items* can turn into an eight step process fairly easily. Most of the time, the cost of making multiple requests is offset by the simplicity of what each of those requests does.
+
+Also, take a look at the final step. See how the resource (*Placement*) and the path (`/orders/:id/placement`) are both singular? This is what is called a **singular resource** or **singleton resource**. Paths and URLs for singular resources identify a single resource. Any of the routes in the table that include an `:id` placeholder are really singular resources since they identify single resources. In the case of `/orders/:id/placement`, it looks a little different because the path does not end with an `/:id` placeholder. This kind of resource is common when there can only be one of that resource. In this case, there can only be a single Placement for each order.
+
+### Conventions, not Rules
+
+As a developer, you may have already encountered discussions about exactly what REST is or how *RESTful* an API truly is. While there are many benefits for both providers and consumers in the use of RESTful APIs, pragmatic solutions often require favoring practical solutions, and that can mean deviating from conventions when there is reason to.
+
+It is important to remember that REST is a set of conventions and patterns for building APIs. It is more of a proven way to handle common situations than a workable solution for all possible problems. Each API provider has to decide how to build their API based on the functionality it needs to provide and the resources it needs to represent. Business needs and practical concerns such as development and support costs also factor into these decisions. As a result, few real world APIs strictly follow RESTful conventions, but many adhere very close to them. This is another power of REST being a set of conventions: even if a particular API deviates from the conventions, it still gets all the benefits of REST for those parts that embrace it.
+
+### REST and CRUD Summary
+
+- *REST* is a set of conventions about how to build APIs.
+- RESTful APIs consist of CRUD actions on a resource
+- By limiting actions to CRUD, REST requires thinking in a *resource-oriented way*.
+- It is worth being as RESTful as possible, but there are times when it is not the best solution.
+
+The specific approach described in this section and throughout most of this book is one particular flavor of REST. It is based on common practices in real world API development as of 2014. Let's take a closer look.
