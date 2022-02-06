@@ -1,7 +1,7 @@
 /* PEDAC with Antonina
 
 Introductions
-- Antonina, Greece, JS185, wouldn't be able to survive Launch School with PEDAC
+- Antonina, Greece, JS185, wouldn't be able to survive Launch School without PEDAC
 - Jonathan, preparing for the interview with the small problems, writing algorithms
 - H
 - Daniel, JS101 L3, working on medium problems, want to learn PEDAC

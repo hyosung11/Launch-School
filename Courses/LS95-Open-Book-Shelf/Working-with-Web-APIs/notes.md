@@ -610,11 +610,448 @@ In 1915, the artist Kazimir Malevich created his now well known piece Black Circ
 
 ![Black-Circle](tealeaf-black-circle-original.jpg)
 
+Now let's imagine a world where Malevich was born one hundred years later, in 1979 instead of 1879. In this reality, it is conceivable that *Black Circle* would have been created in a vector graphics program instead of on canvas. In this world, it looks more like this:
 
+![Black-Circle-Vector](tealeaf-black-circle-vector.png)
+
+When it came time for Malevich to save his creation to a disk or perhaps send it to another system, the graphics program might save a representation of the circle into a file using some SVG code:
+
+```xml
+<svg viewBox="0 0 55 54">
+  <circle cx="32.5" cy="22" r="21.3" fill="black"/>
+</svg>
+```
+
+This SVG code is written using XML, which is an older data serialization format that is sometimes used by APIs. By serializing data that represented the circle, the drawing program could more easily store the information or transfer it to another system. The data could also be read back into another application, which could display the circle on the screen, send it to a printer, or allow a user to make additional modifications.
 
 ### XML
 
+**XML** (or **extensible markup language**) shares common heritage with HTML: they are both based on an earlier and similar type of markup, SGML. XML is generally stricter than HTML and doesn't handle missing tags or improper nesting. It was fairly common to see XML used with APIs in the past, and while some services continue to support XML, JSON has become much more common.
+
+Here is one way to represent an address in XML:
+
+```xml
+<address>
+    <street>1600 Pennsylvania Ave NW</street>
+    <city>Washington</city>
+    <state>DC</state>
+    <zipcode>20500</zipcode>
+    <country>Unites States</country>
+</address>
+```
+
 ### JSON
+
+**JSON** (or **JavaScript Object Notation**) is perhaps the most popular data serialization format used by web APIs today. The syntax JSON uses is based on the way object literals are written in JavaScript, the ubiquitous scripting language of the web. While JSON's popularity is partially due to being based on existing web technologies, a distinction it shares with XML, it is also the result of JSON being a simpler and less ambiguous format.
+
+A simple JSON document is used to represent key and value pairs. Here is one way to represent a US address as JSON:
+
+```json
+{
+  "street": "1600 Pennsylvania Ave NW",
+  "city": "Washington",
+  "state": "DC",
+  "zipcode": "20500",
+  "country": "United States"
+}
+```
+
+JSON can represent objects, arrays, strings, and numbers:
+
+```json
+{
+  "object": {
+    "city": "Boston"
+  },
+  "array": [1, 1, 2, 3, 5],
+  "string": "Hello, World!",
+  "number": 8675.309
+}
+```
+
+We will be using JSON exclusively in this book. The tools we use will create most of the JSON for us, so we won't be writing it manually. Being able to reference specific values with a JSON structure, however, will be useful.
+
+Given the following JSON data:
+
+```json
+{
+  "menus": {
+    "breakfast": {
+      "toast": 1,
+      "coffee": [1.25, 1.75, 2.25]
+    },
+    "lunch": {
+      "sandwich": 6.50,
+      "soup": [4, 5],
+      "salad": 7
+    }
+  }
+}
+```
+
+We could say that the value at `menus.breakfast.toast` is `1` and the value at `menus.lunch.soup[0]` is `4`.
 
 ### Media Types Summary
 
+- *Media types* describe the format of a response's body.
+- Media types are represented in an HTTP response's `Content-Type` header, and as a result, are sometimes referred to as *content types*.
+- *Data serialization* provides a common way for systems to pass data to each other, with a guarantee that each system will be able to understand the data.
+- JSON is the most popular media type for web APIs and the one this book will focus on.
+
+## REST and CRUD
+
+### What is REST?
+
+The term *REST* is often used to describe a set of conventions for how to build APIs. REST stands for representational state transfer, and it was originally defined by Roy Fielding in his doctoral dissertation in 2000. Let's take this term apart:
+
+- *representational* refers to how a representation of a resource is being *transferred*, and not the resource itself.
+- *state transfer* refers to how HTTP is a *stateless* protocol. This means that servers don't know anything at all about the clients, and that everything the server needs to process the request (the state) is included in the request itself.
+
+The basic ideas behind REST were based on observations about how the web already worked. From this, Fielding derived a set of formalized patterns about the kind of interactions that take place on the web. Loading web pages, submitting forms, and using links to find related content all factor into what REST is and how it applies to the web and API design. If you think about the web page as being a resource this makes a little more sense.
+
+Consider the act of creating, editing, and deleting your user profile on a social network. Doing so might involve loading some forms, entering some values, and sending the new information back to the server. Let's put this into a table to make it easier to see, adding in a few more steps for a more complete example and add the HTTP methods and paths used by the browser to accomplish each step:
+
+Action  | HTTP Method  | Path  | Params
+--------|--------------|-------|-------
+Load new profile page  | GET  | /profiles/new  |
+Submit filled out profile form to server  | POST  | /profiles  | email=ramenfan@gmail.com&password=iluvnoodles
+View new profile page (and notice a typo)  | GET  | /profiles/1  |
+Load edit profile page  | GET  | /profiles/1/edit  |
+Submit profile changes to server  | POST  | /profiles/1  | email=ramenfan2@gmail.com&password=ireallyluvnoodles
+View new profile page (and decide to delete your profile)  | GET  | /profiles/1  |
+Click the delete button and delete profile  | POST  | /profiles/1  | _method=delete
+
+Other than possibly being the shortest-lived user profile ever, this is a pretty realistic list of steps. The same actions could be performed with an API instead of using HTML forms, although there would be a few differences:
+
+- HTML forms must be loaded before they can be submitted. APIs don't have forms, so this initial GET request is unnecessary.
+- HTML forms only support two of the many HTTP methods, GET and POST. APIs are able to take advantage of all HTTP methods, which helps clarify the purpose of API requests.
+
+A good way to think about REST is as a way to define everything you might want to do with two values, what and how:
+
+- *What*: Which resource is being acted upon?
+- *How*: How are we changing / interacting with the resource?
+
+Nearly all interactions with a RESTful API can be defined in this way. In the case of editing a user profile, the resource (the *what*) is a *user profile*. The *how* depends on what action is being taken.
+
+### CRUD
+
+**CRUD** is an acronym that is used to describe the four actions that can be taken upon resources:
+
+- **C**reate
+- **R**ead
+- **U**pdate
+- **D**elete
+
+RESTful APIs will model most functionality by matching one of these operations to the appropriate resource. As an example, the following table contains the same actions as the previous one, only this time, the HTML-form driven actions have been converted into operations that could be performed with an API. Each action has been mapped to the appropriate element of CRUD.
+
+**Action**  | **CRUD Operation**  | **HTTP Method**  | **Path**  | **Params**
+--------|-----------------|--------------|-------|-------
+Create new profile  | Create  | POST  | /profiles  | ```js
+{
+  "email": "ramenfan@gmail.com",
+  "password": "iluvnoodles"
+}
+```
+
+Fetch profile  | Read  | GET  | /profiles/1  |
+Update profile with new values  | Update  | PUT  | /profiles/1  | ```js
+{
+  "email": "ramenfan2@gmail.com",
+  "password": "ireallyluvnoodles"
+}
+```
+
+Delete profile  | Delete  | DELETE  | /profiles/1  |
+
+Compared to the table of steps using HTML forms, this one is shorter as only the actions that make changes to a resource are included. Some of the other steps, such as loading a form to know what attributes to send for a resource, are instead handled by documentation.
+
+While web forms are limited by what HTTP methods are supported by the HTML spec and web browser implementations, APIs have far fewer limitations. As a result, web APIs tend to more fully embrace the concepts of HTTP. The development of APIs also moves much faster than the world of HTML rendering since compatibility is ensured by using HTTP, leading to much faster adoption of new ideas and specifications.
+
+The ability of APIs to more fully adopt HTTP manifests itself in API as the use of HTTP methods beyond GET and POST. Instead of using POST with a parameter `_method=delete` to remove a profile, the DELETE HTTP method is used. Updating a resource is done via PUT instead of POST. There are a few other HTTP methods used by some APIs, but GET, POST, PUT, and DELETE provide a method for each CRUD action.
+
+Keeping in mind that API interactions revolve around which resource and what action is being taken, here is the same table, this time reformulated to emphasize the what and how:
+
+**Objective**  | **How**  | **What**
+-----------|------|-----
+**Operation**  | **HTTP Method**  | **Resource**  | **Path**
+Get the information about a profile  | Read  | GET  | Profile  | /profiles/:id
+Add a profile to the system  | Create  | POST  | Profiles Collection  | /profiles
+Make a change to a profile  | Update  | PUT  | Profile  | /profiles/:id
+Remove a profile from the system  | Delete  | DELETE  | Profile  | /profiles/:id
+
+Not all APIs follow this pattern exactly, but as a general rule, the mapping between CRUD actions and HTTP methods shown above doesn't change depending on the resource or API. POST requests will usually *Create* resources, GET requests will usually *Read* resources' data, and so on. So if you know which CRUD action you want to take with a resource, you probably already know which HTTP method to use.
+
+What is most powerful about REST is that by being a set of conventions, it is universal and applies just as well to any kind of resource. By following REST conventions, API designers have fewer decisions to make about how to build an API and API consumers have fewer questions to answer before using one. Fetching an object? *It's probably a GET request to `/things/:id`*. Creating a new resource? *Use a POST to `/things`*. The resource-centric nature of REST and limited set of CRUD actions limit the complexity for API providers and consumers alike.
+
+### A RESTful API Template
+
+Here is one more table, only this time it is a template for **any resource**. That's right- any resource at all! Profiles, products, ingredients, automobiles, flights, money transfers, payments... anything.
+
+We'll use *$RESOURCE* to represent the specific resource in this table.
+
+**Objective**  | **How**  | **What**
+-----------|------|-----
+**Operation**  | **HTTP Method**  | **Resource**  | **Path**
+Get the information about a $RESOURCE  | Read  | GET  | $RESOURCE  | /$RESOURCEs/:id
+Add a $RESOURCE to the system  | Create  | POST  | $RESOURCEs Collection  | /$RESOURCEs
+Make a change to a $RESOURCE  | Update  | PUT  | $RESOURCE  | /$RESOURCEs/:id
+Remove a $RESOURCE from the system  | Delete  | DELETE  | $RESOURCE  | /$RESOURCEs/:id
+
+By following REST conventions, most of the decisions a designer has to make turn into: *What resources will be exposed?* API consumers mostly need to ask: *what resource will allow me to achieve my goal?*
+
+A RESTful design is one in which any action a user needs to make can be accomplished using CRUD operations on one or many resources. It can take a while to get used to thinking in a resource-oriented way since translating verb-oriented functionality (**deposit** $100 into this **account**) into noun- or resource-oriented actions (**create** a new transaction with an amount of $100 for this account) needs a change of perspective.
+
+Since the only actions that can be taken on a resource are create, read, update, and delete, the creative side of RESTful design lies in what resources are exposed to allow users to accomplish their goals. The limitation of only choosing the resources and their relationship can feel sort of similar to designing a database schema, in that the same basic CRUD actions apply to rows in a database table.
+
+### Resource Oriented Thinking
+
+Here are some examples of how real-world objectives could be mapped into interactions with RESTful APIs:
+
+**Objective**  | **How**  | **What**  | **Attributes**
+-----------|------|-------|-----------
+**Operation**  | **HTTP Method**  | **Resource**  | **Path**
+Rate a book  | Create  | POST  | Rating  | /ratings  | book_id, rating
+Transfer money  | Create  | POST  | Transfer  | /transfers  | from_acct_id, to_acct_id, amount
+Update a mailing address  | Update  | PUT  | Address  | /addresses/:id  | street, city, state, postal_code, country
+Unfriend someone on a social site  | Delete  | DELETE  | Friendship  | /friendships/:id  | -
+Fetch a list of movie showtimes  | Read  | GET  | Showings  | /showings  | -
+Change the quantity of a product in an order  | Update  | PUT  | LineItem  | /line_items/:id  | item_id, quantity
+
+Sometimes performing what initially appears to be a single action will translate into multiple requests to a RESTful API. Placing an order through an API might, for example, require the following steps:
+
+**Objective**  | **How**  | **What**  | **Attributes**
+-----------|------|-------|-----------
+**Operation**  | **HTTP Method**  | **Resource**  | **Path**
+Create an order  | Create  | POST  | Orders  | /orders
+Add an item to the order  | Create  | POST  | LineItem  | /line_items  | order_id, product_id
+Add a second item to the order  | Create  | POST  | LineItem  | /line_items  | order_id, product_id
+Create an address to use for shipping and billing  | Create  | POST  | Address  | /addresses  | street, city, state, postal_code, country
+Update the order with the shipping and billing addresses  | Update  | PUT  | Address  | /addresses/:id  | shipping_address_id, billing_address_id
+Add a credit card to the system for use as payment  | Create  | POST  | CreditCard  | /credit_cards  | number, crc, name, expiration_date, billing_address_id
+Set the order to use the credit card for payment  | Create  | POST  | PaymentMethod  | /payment_methods  | order_id, credit_card_id, amount
+Complete and submit the order  | Create  | POST  | OrderPlacement  | /orders/:id/placement  | -
+
+You can see how *submitting an order for two items* can turn into an eight step process fairly easily. Most of the time, the cost of making multiple requests is offset by the simplicity of what each of those requests does.
+
+Also, take a look at the final step. See how the resource (*Placement*) and the path (`/orders/:id/placement`) are both singular? This is what is called a **singular resource** or **singleton resource**. Paths and URLs for singular resources identify a single resource. Any of the routes in the table that include an `:id` placeholder are really singular resources since they identify single resources. In the case of `/orders/:id/placement`, it looks a little different because the path does not end with an `/:id` placeholder. This kind of resource is common when there can only be one of that resource. In this case, there can only be a single Placement for each order.
+
+### Conventions, not Rules
+
+As a developer, you may have already encountered discussions about exactly what REST is or how *RESTful* an API truly is. While there are many benefits for both providers and consumers in the use of RESTful APIs, pragmatic solutions often require favoring practical solutions, and that can mean deviating from conventions when there is reason to.
+
+It is important to remember that REST is a set of conventions and patterns for building APIs. It is more of a proven way to handle common situations than a workable solution for all possible problems. Each API provider has to decide how to build their API based on the functionality it needs to provide and the resources it needs to represent. Business needs and practical concerns such as development and support costs also factor into these decisions. As a result, few real world APIs strictly follow RESTful conventions, but many adhere very close to them. This is another power of REST being a set of conventions: even if a particular API deviates from the conventions, it still gets all the benefits of REST for those parts that embrace it.
+
+### REST and CRUD Summary
+
+- *REST* is a set of conventions about how to build APIs.
+- RESTful APIs consist of CRUD actions on a resource
+- By limiting actions to CRUD, REST requires thinking in a *resource-oriented way*.
+- It is worth being as RESTful as possible, but there are times when it is not the best solution.
+
+The specific approach described in this section and throughout most of this book is one particular flavor of REST. It is based on common practices in real world API development as of 2014. Let's take a closer look.
+
+## Fetching Resources
+
+To follow along with the examples is this chapter, you will need to have a Heroku account. Sign up for one at Heroku if you don't already have one.
+
+### Server Setup
+
+This section of the book is going to make extensive use of a simple web API server, the code of which is [available on GitHub](https://github.com/gotealeaf/web_store).
+
+To get a server of your own up and running, click the "Deploy to Heroku" button on [the repo's GitHub page](https://github.com/gotealeaf/web_store). Clicking the button will ask for the required information to spin up a new application under your Heroku account from the `web_store` repo. The **hostname** for your server will be based on the app name you choose, with *.herokuapp.com* appended.
+
+When working through the examples in this section, remember to replace *book-example* with your Heroku app's name.
+
+### Fetching a Resource
+
+Given a working example API server, basic interactions can be performed with a simple command in a terminal– just like they were against the weather API:
+
+```sh
+$ http GET http://book-example.herokuapp.com/v1/products/1
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 53
+Content-Type: application/json
+Date: Mon, 22 Sep 2014 19:55:17 GMT
+Server: Cowboy
+Status: 200 OK
+Via: 1.1 vegur
+
+{
+    "id": 1,
+    "name": "Red Pen",
+    "price": 100,
+    "sku": "redp100"
+}
+```
+
+The response should look fairly familiar, but let's go over a few important details:
+
+- The media type is *application/json*.
+- The *status* is 200 OK.
+- The *body* is in *JSON* format.
+
+The JSON body of the response is a representation of a single **resource** on the server, which represents a single product. When deserialized into a programming environment, the response body will be a single object. This representation includes *id*, *name*, *price*, and *sku* properties. The properties *id* and *price* are numbers, and *name* and *sku* are strings.
+
+### What is a Resource?
+
+A **resource** is the representation of some grouping of data. A resource can be anything an API user needs to interact with. Blog software might expose posts, sections, tags, and comments as resources in its API, and it might allow users to create or edit any of those resources. A bank's API might provide access to accounts and transactions but only allow viewing transactions.
+
+Every resource in a web API must have a unique URL that can be used to identify and access it. In this case, the URL was `http://book-example.herokuapp.com/v1/products/1`, and this URL was for a single resource on the server.
+
+The *hostname* for this URL is `book-example.herokuapp.com`. Everything after the hostname is considered to be the **path**, which for this resource is `/v1/products/1`. The first segment of the path, `/v1/`, indicates we will be accessing *version 1* of this API. APIs can have multiple versions, just like any other software.
+
+While this path identifies a single resource, some identify multiple resources as a group. Let's look at an example.
+
+### Fetching a Collection
+
+The web store server comes with a few preloaded products: a variety of pens, each with unique ink color. To see all of these products, perform a GET request using the collection's path:
+
+```sh
+$ http GET http://book-example.herokuapp.com/v1/products
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 166
+Content-Type: application/json
+Date: Tue, 23 Sep 2014 01:30:07 GMT
+Server: Cowboy
+Status: 200 OK
+Via: 1.1 vegur
+
+[
+    {
+        "id": 1,
+        "name": "Red Pen",
+        "price": 100,
+        "sku": "redp100"
+    },
+    {
+        "id": 2,
+        "name": "Blue Pen",
+        "price": 100,
+        "sku": "blup100"
+    },
+    {
+        "id": 3,
+        "name": "Black Pen",
+        "price": 100,
+        "sku": "blap100"
+    }
+]
+```
+
+This response is very similar to the previous one for a single resource:
+
+- The *media type* is *application/json*.
+- The status is 200 OK.
+- The body is in JSON format.
+
+A closer look at the content of the response, however, shows that data for three products has been returned. The JSON body of this response is a representation of a **collection** resource. When deserialized in a programming environment, the body of the response will be an array containing 3 objects. (Just for this example?)
+
+### Elements and Collections
+
+There are two types of resources involved in the use of RESTful APIs: elements and collections.
+
+**Elements** are the representation of a single resource, such as the first request above. Operations that involve a single resource are done in the context of that resource, and will use that resource's path.
+
+**Collections** represent a grouping of elements of the same type. It is common for collection and element resources to have a parent-child relationship, where the collection is the "parent" and an element is a "child", although this is not always the case. Here is what could be the path to a collection of blog posts:
+
+```sh
+/api/blog/posts
+```
+
+This path represents the collection of all blog posts. Compare to it the path to an individual post:
+
+```sh
+/api/blog/posts/1
+```
+
+Since a single blog post is one of the elements in the collection of all blog posts, the path to the post is the path to the collection *plus* an extra value to identify the specific element of the collection. In this case, that value is `1`.
+
+#### How to know if a URL is for a collection or a resource?
+
+There are a few ways to know what kind of resource a URL represents by looking closely at its path. Keep in mind that when in doubt, **it is best to reference the API's official documentation**. Sometimes there won't be documentation, though, and there are a few clues that can be a sign of what kind of resource a URL is for.
+
+Signs a URL is for a collection:
+
+  1. The path ends in a plural word, such as *example.com/products*
+  2. The response body contains multiple elements
+
+Signs a URL is for a single element:
+
+  1. The path ends in a plural word, a slash, and then what could be an identifier (which could be numeric or alphabetic)
+  2. The response body contains a single element
+
+### Fetching Resources Summary
+
+- APIs provide access to single resources (**elements**) or groups of resources (**collections**).
+- The path for an element is usually the path for its collection, plus an identifier for that resource.
+
+## Requests in Depth
+
+### GET and POST
+
+All requests made to web servers start with an **HTTP method** (sometimes called a **verb**), which tells the server what operation to perform.
+
+While the HTTP spec defined a larger set of allowed methods, the only methods used for a long time were GET and POST. This is because web browsers only supported these methods for a long time as they provide enough functionality for the HTML-based web to operate.
+
+You have already performed many GET and POST requests! This page was loaded with a GET request. When you logged in to Launch School, your web browser performed a POST request when it sent your username and password to the server.
+
+GET and POST are still the most common request methods on the web today, although APIs often take advantage of some of the additional methods.
+
+### Parts of a Request
+
+This book has spent a good amount of time looking at HTTP responses, but it hasn't yet spent much time looking at requests. We can use HTTPie to take a closer look at the requests themselves and see exactly how they are constructed. This is accomplished by running HTTPie with slightly different flags (we will include the HTTP method for clarity, even though *GET* is the default and can be omitted):
+
+```sh
+$ http --print H GET http://book-example.herokuapp.com/v1/products/1
+
+GET /v1/products/1 HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Host: book-example.herokuapp.com
+User-Agent: HTTPie/3.0.2
+
+```
+
+With the use of `--print H`, the program prints out the text that is being sent to the remote server (in this case, a server at book-example.herokuapp.com.) Note the first line of the output:
+
+```sh
+GET /v1/products/1 HTTP/1.1
+```
+
+This line tells the server *which resource* the client is referring to and *what action* the client wants to be taken with that resource. More specifically:
+
+- GET is the HTTP method for the request. The client wants the server to return a representation of the resource.
+- */v1/products/1* is the path to a specific resource.
+- *HTTP/1.1* is the protocol version being used. Nearly all modern servers and clients support at least this version of HTTP.
+
+POST and PUT requests can also include a body, which is similar to the body of a response in that it follows any headers. Since this was a GET request, there wasn't a body.
+
+Another part of the request that is very important is one of the headers:
+
+```sh
+Accept: */*
+```
+
+The **Accept Header** specifies what media types the client will accept in response to this request. */* means that the client will accept any media type in a request. The web store server returns JSON by default, so requests like the previous one would probably be OK to use. However, it is better to be in the habit of crafting more explicit requests.
+
+What we want to do is tell the server to return JSON to us. We can do that by specifying a media type in the request's accept header. We want to get a response in JSON format, and recall that the media type for JSON is *application/json*:
+
+```sh
+$ http --print=H GET http://book-example.herokuapp.com/v1/products/1 Accept:application/json
+GET /v1/products/1 HTTP/1.1
+Accept: application/json
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Host: book-example.herokuapp.com
+User-Agent: HTTPie/3.0.2
+```
+
+The Accept Header for this last request was correctly set to *application/json*.
+
+### Requests in Depth Summary
+
+- HTTP requests include a path, method, headers, and body.
+- The **Accept** header tells the provider what media types can be used to respond to the request.

@@ -5397,3 +5397,13 @@ console.log(result); // true
 ```
 
 15:23 There's definitely going to be a merge conflict because there's info on my iMac that's not here.
+
+20:51 Still shaky on problems that I've seen before. Going to stop now for the night, I think.
+
+## 20220206 일요일
+
+09:05 I slept in but it felt kind of useless. Now I want to study some more.
+
+11:38 Reading more about APIs now.
+
+12:42 Break for lunch and then a study group a 1:00 PM
