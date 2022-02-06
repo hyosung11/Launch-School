@@ -1055,3 +1055,257 @@ The Accept Header for this last request was correctly set to *application/json*.
 
 - HTTP requests include a path, method, headers, and body.
 - The **Accept** header tells the provider what media types can be used to respond to the request.
+
+## Creating Resources
+
+So far we've focused on fetching data from a server. Sometimes this will be enough to fulfill a project's goals. For example, a web site might need to display a Twitter account's latest tweets. This could be accomplished using only a GET request to the Twitter API to fetch these tweets. There are also many applications that provide specialized reporting for some aspect of another system such as social networking sites. These apps provide marketing insights by using the Facebook and Twitter APIs to fetch user activity, analyzing the data, and then displaying it in a unique way. Similar services exist for other industries, such as those that connect to a Square account and provide aggregate statistics for sales and revenue.
+
+### HTTP Request Side Effects
+
+All of the requests we've made to the web store server have been GET requests. GET requests, by definition, should not alter the resources they are performed against. There **can**, however, be other side effects. One example of this is a simple hit counter that increments each time a page is loaded. As a result, even though making GET requests is generally considered "safe" in that no data is being explicitly altered on the remote end, it is always worth considering what effects the requests you make could be having on the remote system.
+
+### Creating a Resource
+
+Making changes to the resources presented by the server is often the purpose of a program. This can be thought of as whether the API usage is "read only", which can be accomplished with GET requests, or "read and write", which will require the use of other request types such as POST, PUT, or DELETE. We will go over what each of these methods do in the following sections, and we will start with the HTTP method used by form submissions from one end of the internet to the other: POST.
+
+Let's say we want to add a new product to the web store system using its API. This can be done with a single POST request.
+
+```sh
+$ http -a admin:password POST book-example.herokuapp.com/v1/products name="Ahbba Pen" sku="ahbba100" price=111
+HTTP/1.1 201 Created
+Connection: keep-alive
+Content-Length: 57
+Content-Type: application/json
+Date: Sun, 06 Feb 2022 22:58:56 GMT
+Server: Cowboy
+Status: 201 Created
+Via: 1.1 vegur
+
+{
+    "id": 47,
+    "name": "Ahbba Pen",
+    "price": 111,
+    "sku": "ahbba100"
+}
+```
+
+This response is very similar to those we saw when fetching a single resource:
+
+- The **media type** is *application/json*.
+- The **status** is *201 Created*, which we haven't seen before. Since the code is in the 2xx format, we know this is a successful response. *201 Created* means the request was successful and that it resulted in the creation of a new resource.
+- The **body** is in *JSON format*. The data looks similar to the data we saw previously, but the values reflect the parameters we sent to the server as a part of the most recent request.
+
+By fetching all of the products again, it is possible to verify a new product was created. There are now four products where there once were only three:
+
+```sh
+$ http GET book-example.herokuapp.com/v1/products
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 1762
+Content-Type: application/json
+Date: Sun, 06 Feb 2022 23:02:38 GMT
+Server: Cowboy
+Status: 200 OK
+Via: 1.1 vegur
+
+[
+    {
+        "id": 2,
+        "name": "Blue Pen",
+        "price": 150,
+        "sku": "blup100"
+    },
+    {
+        "id": 1,
+        "name": "Purple Pencil",
+        "price": 175,
+        "sku": "newc123"
+    },
+    {
+        "id": 47,
+        "name": "Ahbba Pen",
+        "price": 111,
+        "sku": "ahbba100"
+    }
+]
+```
+
+### Handling Errors
+
+HTTP requests don't always complete successfully. A failure can be due to a request being incomplete or containing an invalid value, a problem on the server, or even a network connection disruption.
+
+While user-friendly APIs will return useful error messages indicating the exact problems with a request, there are also a lot of systems that will only return vague error responses. Sometimes there will be no information beyond an error status code; in these situations, the best course of action is to reread any relevant documentation and look for example code that could offer clues.
+
+When working with APIs, it is common to use the status code to determine at a high level if a request was successful or not. Depending on the outcome, the response body can be inspected for additional clues as needed.
+
+Let's take a look at some of the most common errors and what steps can be taken to resolve each one.
+
+#### Missing or Invalid Parameters
+
+Most systems have a set of requirements that must be met to allow the creation of resources. A store might require a price for every product or an email in the correct format for every customer. These kind of restrictions, or **validations**, are used to ensure all data in the system is valid and complete. Programs are dependent on the structure, format, and type of data in order to operate correctly. A store that allowed users to place orders would need to know the price of each item, how many were available for sale, and if there were any limits on how many a single customer could purchase at once. If the price was missing for a product or had been set to a value that didn't make sense for computing an order total (such as something non-numeric like a string), it is likely that the program would break, preventing a customer from successfully creating an order.
+
+The web store server validates the values provided when creating a product resource using its API. Most often, the documentation for an API will describe what attributes are required when creating a resource and if there are any other requirements that need to be met. The web store is no exception to this, and its documentation describes all three attributes as being required:
+
+![web-store-requirements](product_attribute_docs.png)
+
+This table lists the name, a description, and a data type for each parameter in a product resource. You can view the documentation on your own server as well by visiting its hostname in a web browser. Take some time to experiment with the documentation. It is even possible to make requests to the API directly from these docs.
+
+Previously we were able to create a product by supplying all of the parameters, but what happens if we try to create product without sending any parameters at all?
+
+```sh
+$ http -a admin:password POST book-example.herokuapp.com/v1/products
+HTTP/1.1 422 Unprocessable Entity
+Connection: keep-alive
+Content-Length: 97
+Content-Type: application/json
+Date: Sun, 06 Feb 2022 23:33:52 GMT
+Server: Cowboy
+Status: 422 Unprocessable Entity
+Via: 1.1 vegur
+
+{
+    "message": "Name is missing, sku is missing, sku is invalid, price is missing",
+    "status_code": 422
+}
+```
+
+This is a very different response than what we received when sending all of the parameters. Let's look at some of the important differences:
+
+- The **status** is *422 Unprocessable Entity*. Since the code is in the 4xx format, we know the request was not successful. *Unprocessable Entity* is a cryptic way of saying the request was invalid in a way that prevented the server from working with it. This is often caused by a *validation error*.
+- The **body** is in JSON format, but instead of being the representation of a product, it is an error message. The `message` string contains an explicit list of problems with the request: `name is missing, sku is missing, sku is invalid, price is missing`.
+
+To address this type of error, simply provide valid values for all required parameters.
+
+#### Missing Resources
+
+A very common error is attempting to access a resource that doesn't exist. The corresponding HTTP status code for this error is 404 Not Found. We can receive this type of error by trying to fetch a product we know doesn't exist from the web store:
+
+```sh
+✗ http book-example.herokuapp.com/v1/products/77
+HTTP/1.1 404 Not Found
+Connection: keep-alive
+Content-Length: 76
+Content-Type: application/json
+Date: Sun, 06 Feb 2022 23:37:24 GMT
+Server: Cowboy
+Status: 404 Not Found
+Via: 1.1 vegur
+
+{
+    "message": "Couldn't find WebStore::Product with 'id'=77",
+    "status_code": 404
+}
+```
+
+There are a few common causes for this type of error when working with APIs:
+
+- The resource might not actually exist. It could have been deleted or perhaps it was never there in the first place. Verify that any parameters in the request are correct, especially identifiers.
+- The URL could be incorrect. APIs can have a variety of different URL schemes, from the simple and short to the long and complex. Be sure to look in the documentation for the API you are working with to see what hosts and paths to use. Keep in mind that services with different environments for testing and production will often have a unique URL for each environment.
+- Accessing the requested resource may require authentication. In an ideal world, these errors would use a more accurate HTTP status code of 401 or 403, but for security reasons, it is sometimes better to only expose the existence of a resource to those who are authorized to access it.
+
+#### Authentication
+
+We briefly worked with authentication earlier in this chapter while creating a product. Many systems require authentication on some or all of their APIs. For the most part, missing authentication credentials will receive `401`, `403`, or `404` errors, and can be resolved by sending valid credentials.
+
+#### Incorrect Media Type
+
+There are multiple ways to send parameters along with a web request. Since JSON has emerged as the most common format for API requests and responses in newly released APIs, HTTPie automatically converts any parameters into JSON when sending a request. HTTPie doesn't print out the request by default, but we can change this behavior and see what is going on.
+
+HTTPie can print out the entire request using the `--print` flag. A value of `HBhb` tells HTTPie to print out the headers and body for both the request and response:
+
+```sh
+ ✗ http --print HBhb -a admin:password POST book-example.herokuapp.com/v1/products name="Ahbba Pen" sku="Ahbba100" price=111
+POST /v1/products HTTP/1.1
+Accept: application/json, */*;q=0.5
+Accept-Encoding: gzip, deflate
+Authorization: Basic YWRtaW46cGFzc3dvcmQ=
+Connection: keep-alive
+Content-Length: 56
+Content-Type: application/json
+Host: book-example.herokuapp.com
+User-Agent: HTTPie/3.0.2
+
+{
+    "name": "Ahbba Pen",
+    "price": "111",
+    "sku": "Ahbba100"
+}
+
+
+HTTP/1.1 201 Created
+Connection: keep-alive
+Content-Length: 57
+Content-Type: application/json
+Date: Sun, 06 Feb 2022 23:44:51 GMT
+Server: Cowboy
+Status: 201 Created
+Via: 1.1 vegur
+
+{
+    "id": 48,
+    "name": "Ahbba Pen",
+    "price": 111,
+    "sku": "Ahbba100"
+}
+```
+
+The request begins with the first line of output and continues until `HTTP/1.1 201` Created, which is the first line of the response. There are a few things about the request worth noting:
+
+- The **Content-Type** is *application/json; charset=utf-8*. This means that parameters will be sent in JSON format and all text will use the *UTF-8 encoding*.
+- The body is indeed represented in JSON.
+
+Some APIs will expect parameters to be provided in other formats, and some are flexible enough to accept parameters in more than one format. This is what happens when the wrong media type is used in a request:
+
+```sh
+✗ http --print HBhb -a admin:password --form POST book-example.herokuapp.com/v1/products name="Purple Pen 2.0" sku="purp103" price=100
+POST /v1/products HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Authorization: Basic YWRtaW46cGFzc3dvcmQ=
+Connection: keep-alive
+Content-Length: 41
+Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Host: book-example.herokuapp.com
+User-Agent: HTTPie/3.0.2
+
+name=Purple+Pen+2.0&sku=purp103&price=100
+
+HTTP/1.1 415 Unsupported Media Type
+Connection: keep-alive
+Content-Length: 99
+Content-Type: application/json
+Date: Sun, 06 Feb 2022 23:50:32 GMT
+Server: Cowboy
+Status: 415 Unsupported Media Type
+Via: 1.1 vegur
+
+{
+    "message": "POST, PUT, and PATCH requests must have application/json media type",
+    "status_code": 415
+}
+```
+
+#### Rate Limiting
+
+Making a request to an API server requires the receiving system to do some work in order to return a response. Unlike the requests performed by human users of websites, who click links relatively slowly, APIs are usually consumed by automated systems. Just as it is easy to write a simple loop in a programming language that does something thousands of times in just a few seconds, it is just as easy to make thousands of requests to a remote API in an equally short period of time. Since many APIs have to support many users at the same time, the possibility of there being too many requests to handle becomes extremely likely.
+
+Most APIs address these by enforcing **rate limiting**. This means that each API consumer is allotted a certain number of requests within a specified amount of time. Any requests made beyond these limits are sent an error response and not processed further. The status code of responses to rate limited requests varies by service, but it is often *403 Forbidden*.
+
+When encountering these rate-limiting errors, it is often enough to simply perform the request less often. If the same request is being made over and over, the response can be stored locally to reduce the number of requests being made.
+
+#### Server Errors
+
+The errors we've looked at so far are all in the format 4xx, and they can all be described at a high level as *client errors*. They are the result of the client doing something in a way that is incompatible with the server. It is also possible for errors to occur on the server that are not a direct result of anything a client does. These errors will be in the format *5xx*, and have many potential causes, such as:
+
+- A bug or oversight in the server implementation. Sometimes these can result from the correct and intended usage of an API.
+- A hardware or other infrastructure problem with the remote system.
+- Any other error that was not foreseen by the remote server implementors.
+- Some APIs even return 5xx errors when a specific client error would be more accurate and useful.
+
+Unlike client errors, resolving a server error is usually not useful as an API consumer. Since server errors can be intermittent, simply retrying the request after a bit of time is often worth attempting. If the server errors continue, though, it is best to stop making requests until the remote system has been fixed. Continuing to make requests to a remote system returning errors can worsen many problems and should be avoided.
+
+### Creating Resources Summary
+
+- Resources can be created with POST requests.
+- Requests should include all required parameters and use the proper media type.
+- Responses to failed requests will often contain information about the cause of the failure.
