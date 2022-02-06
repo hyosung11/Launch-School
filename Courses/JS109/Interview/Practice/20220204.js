@@ -250,20 +250,88 @@ Algorithm
 - compute the sum of the digits
 - return number */
 
-function sumOfNumbers(string) {
-  return string
-    .split('')
-    .map(char => {
-      if (char.match(/[0-9]/)) return char;
-      return '-';
-    })
-    .join('')
-    .split('-')
-    .reduce((sum, num) => sum + Number(num), 0);  
+// function sumOfNumbers(string) {
+//   return string
+//     .split('')
+//     .map(char => {
+//       if (char.match(/[0-9]/)) return char;
+//       return '-';
+//     })
+//     .join('')
+//     .split('-')
+//     .reduce((sum, num) => sum + Number(num), 0);
+// }
+
+// console.log(sumOfNumbers("HE2LL3O W1OR5LD"))// === 11);
+// console.log(sumOfNumbers("The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog")) // === 3635);
+
+// console.log(sumOfNumbers("HE2LL3O W1OR5LD") === 11);
+// console.log(sumOfNumbers("The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog") === 3635);
+
+/* Progressions
+
+Medium Problem
+You're given an array of integers. You must return the number of 'arithmetic progressions' of size 3 that are possible from that list.
+
+In each progression, the differences between the elements must be the same.
+
+Example:
+[1, 2, 3, 5, 7, 9] ==> 5
+The above has 5 progressions, seen below:
+[1, 2, 3], [1, 3, 5], [1, 5, 9], [3, 5, 7], and [5, 7, 9]
+
+All array elements will be unique and the array will be sorted. 
+
+P:
+- input array
+- output number
+
+Rules
+- return number of arithmetic progressions of size 3
+- differences between elements must be the same
+- all array elements unique and sorted
+
+Examples
+- see above
+
+D:
+- input array
+- intermediary
+- output number
+
+A
+- input array
+- initialize `count` to 0
+- iterate through array
+  - iterate through array from idx + 1
+    - iterater through array from idx + 2
+    - if element at idx + 2 minus element at idx + 1 equals element at idx + 1 minus element at idx
+    - increment count
+- return `count`*/
+
+function progressions(array) {
+  let count = 0;
+
+  for (let idx = 0; idx < array.length; idx++) {
+    for (let jdx = idx + 1; jdx < array.length; jdx++) {
+      for (let kdx = jdx + 1; kdx < array.length; kdx++) {
+        if (array[kdx] - array[jdx] === array[jdx] - array[idx]) {
+          count += 1;
+        }
+      }
+    }
+  }
+
+  return count;
 }
 
-console.log(sumOfNumbers("HE2LL3O W1OR5LD"))// === 11);
-console.log(sumOfNumbers("The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog")) // === 3635);
-
-console.log(sumOfNumbers("HE2LL3O W1OR5LD") === 11);
-console.log(sumOfNumbers("The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog") === 3635);
+console.log(progressions([]));  // 0
+console.log(progressions([1, 2]));  // 0
+console.log(progressions([1, 2, 3]));  // 1
+console.log(progressions([1, 2, 4]));  // 0
+console.log(progressions([1, 20, 21, 22]));  // 1
+console.log(progressions([1, 10000001, 20000001]));  // 1
+console.log(progressions([1, 2, 3, 4, 5])); // 4
+console.log(progressions([1, 2, 3, 5, 7, 9])); // 5
+console.log(progressions([1, 2, 3, 4, 5]));  // 4
+console.log(progressions([0, 5, 8, 9, 11, 13, 14, 16, 17, 19])); // 10

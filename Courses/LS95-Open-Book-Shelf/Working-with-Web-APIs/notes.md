@@ -986,3 +986,72 @@ Signs a URL is for a single element:
 
 - APIs provide access to single resources (**elements**) or groups of resources (**collections**).
 - The path for an element is usually the path for its collection, plus an identifier for that resource.
+
+## Requests in Depth
+
+### GET and POST
+
+All requests made to web servers start with an **HTTP method** (sometimes called a **verb**), which tells the server what operation to perform.
+
+While the HTTP spec defined a larger set of allowed methods, the only methods used for a long time were GET and POST. This is because web browsers only supported these methods for a long time as they provide enough functionality for the HTML-based web to operate.
+
+You have already performed many GET and POST requests! This page was loaded with a GET request. When you logged in to Launch School, your web browser performed a POST request when it sent your username and password to the server.
+
+GET and POST are still the most common request methods on the web today, although APIs often take advantage of some of the additional methods.
+
+### Parts of a Request
+
+This book has spent a good amount of time looking at HTTP responses, but it hasn't yet spent much time looking at requests. We can use HTTPie to take a closer look at the requests themselves and see exactly how they are constructed. This is accomplished by running HTTPie with slightly different flags (we will include the HTTP method for clarity, even though *GET* is the default and can be omitted):
+
+```sh
+$ http --print H GET http://book-example.herokuapp.com/v1/products/1
+
+GET /v1/products/1 HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Host: book-example.herokuapp.com
+User-Agent: HTTPie/3.0.2
+
+```
+
+With the use of `--print H`, the program prints out the text that is being sent to the remote server (in this case, a server at book-example.herokuapp.com.) Note the first line of the output:
+
+```sh
+GET /v1/products/1 HTTP/1.1
+```
+
+This line tells the server *which resource* the client is referring to and *what action* the client wants to be taken with that resource. More specifically:
+
+- GET is the HTTP method for the request. The client wants the server to return a representation of the resource.
+- */v1/products/1* is the path to a specific resource.
+- *HTTP/1.1* is the protocol version being used. Nearly all modern servers and clients support at least this version of HTTP.
+
+POST and PUT requests can also include a body, which is similar to the body of a response in that it follows any headers. Since this was a GET request, there wasn't a body.
+
+Another part of the request that is very important is one of the headers:
+
+```sh
+Accept: */*
+```
+
+The **Accept Header** specifies what media types the client will accept in response to this request. */* means that the client will accept any media type in a request. The web store server returns JSON by default, so requests like the previous one would probably be OK to use. However, it is better to be in the habit of crafting more explicit requests.
+
+What we want to do is tell the server to return JSON to us. We can do that by specifying a media type in the request's accept header. We want to get a response in JSON format, and recall that the media type for JSON is *application/json*:
+
+```sh
+$ http --print=H GET http://book-example.herokuapp.com/v1/products/1 Accept:application/json
+GET /v1/products/1 HTTP/1.1
+Accept: application/json
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Host: book-example.herokuapp.com
+User-Agent: HTTPie/3.0.2
+```
+
+The Accept Header for this last request was correctly set to *application/json*.
+
+### Requests in Depth Summary
+
+- HTTP requests include a path, method, headers, and body.
+- The **Accept** header tells the provider what media types can be used to respond to the request.
