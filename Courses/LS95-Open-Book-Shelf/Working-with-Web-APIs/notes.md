@@ -744,22 +744,22 @@ Nearly all interactions with a RESTful API can be defined in this way. In the ca
 
 RESTful APIs will model most functionality by matching one of these operations to the appropriate resource. As an example, the following table contains the same actions as the previous one, only this time, the HTML-form driven actions have been converted into operations that could be performed with an API. Each action has been mapped to the appropriate element of CRUD.
 
-Action  | CRUD Operation  | HTTP Method  | Path  | Params
+**Action**  | **CRUD Operation**  | **HTTP Method**  | **Path**  | **Params**
 --------|-----------------|--------------|-------|-------
-Create new profile  | Create  | POST  | /profiles  |
-
+Create new profile  | Create  | POST  | /profiles  | ```js
 {
- | "email": "ramenfan@gmail.com",
- | "password": "iluvnoodles"
+  "email": "ramenfan@gmail.com",
+  "password": "iluvnoodles"
 }
+```
 
 Fetch profile  | Read  | GET  | /profiles/1  |
-Update profile with new values  | Update  | PUT  | /profiles/1  |
-
+Update profile with new values  | Update  | PUT  | /profiles/1  | ```js
 {
- | "email": "ramenfan2@gmail.com",
- | "password": "ireallyluvnoodles"
+  "email": "ramenfan2@gmail.com",
+  "password": "ireallyluvnoodles"
 }
+```
 
 Delete profile  | Delete  | DELETE  | /profiles/1  |
 
@@ -849,3 +849,6 @@ It is important to remember that REST is a set of conventions and patterns for b
 - It is worth being as RESTful as possible, but there are times when it is not the best solution.
 
 The specific approach described in this section and throughout most of this book is one particular flavor of REST. It is based on common practices in real world API development as of 2014. Let's take a closer look.
+
+## Fetching Resources
+

@@ -8,14 +8,14 @@ PROBLEM
 input: string
 output: number (sum)
 
-rules: 
+rules:
 -add up all of the digits in a string
 -non-digits should be ignored
 -consecutive digits within the string should be concatenated into a larger number
 
 data structures:
 input: string
-in-beween: array, string, array
+in-between: array, string, array
 output: number (sum)
 
 ALGORITHM

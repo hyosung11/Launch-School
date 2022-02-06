@@ -5397,3 +5397,6 @@ console.log(result); // true
 ```
 
 15:23 There's definitely going to be a merge conflict because there's info on my iMac that's not here.
+
+20:51 Still shaky on problems that I've seen before. Going to stop now for the night, I think.
+
