@@ -852,3 +852,137 @@ The specific approach described in this section and throughout most of this book
 
 ## Fetching Resources
 
+To follow along with the examples is this chapter, you will need to have a Heroku account. Sign up for one at Heroku if you don't already have one.
+
+### Server Setup
+
+This section of the book is going to make extensive use of a simple web API server, the code of which is [available on GitHub](https://github.com/gotealeaf/web_store).
+
+To get a server of your own up and running, click the "Deploy to Heroku" button on [the repo's GitHub page](https://github.com/gotealeaf/web_store). Clicking the button will ask for the required information to spin up a new application under your Heroku account from the `web_store` repo. The **hostname** for your server will be based on the app name you choose, with *.herokuapp.com* appended.
+
+When working through the examples in this section, remember to replace *book-example* with your Heroku app's name.
+
+### Fetching a Resource
+
+Given a working example API server, basic interactions can be performed with a simple command in a terminal– just like they were against the weather API:
+
+```sh
+$ http GET http://book-example.herokuapp.com/v1/products/1
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 53
+Content-Type: application/json
+Date: Mon, 22 Sep 2014 19:55:17 GMT
+Server: Cowboy
+Status: 200 OK
+Via: 1.1 vegur
+
+{
+    "id": 1,
+    "name": "Red Pen",
+    "price": 100,
+    "sku": "redp100"
+}
+```
+
+The response should look fairly familiar, but let's go over a few important details:
+
+- The media type is *application/json*.
+- The *status* is 200 OK.
+- The *body* is in *JSON* format.
+
+The JSON body of the response is a representation of a single **resource** on the server, which represents a single product. When deserialized into a programming environment, the response body will be a single object. This representation includes *id*, *name*, *price*, and *sku* properties. The properties *id* and *price* are numbers, and *name* and *sku* are strings.
+
+### What is a Resource?
+
+A **resource** is the representation of some grouping of data. A resource can be anything an API user needs to interact with. Blog software might expose posts, sections, tags, and comments as resources in its API, and it might allow users to create or edit any of those resources. A bank's API might provide access to accounts and transactions but only allow viewing transactions.
+
+Every resource in a web API must have a unique URL that can be used to identify and access it. In this case, the URL was `http://book-example.herokuapp.com/v1/products/1`, and this URL was for a single resource on the server.
+
+The *hostname* for this URL is `book-example.herokuapp.com`. Everything after the hostname is considered to be the **path**, which for this resource is `/v1/products/1`. The first segment of the path, `/v1/`, indicates we will be accessing *version 1* of this API. APIs can have multiple versions, just like any other software.
+
+While this path identifies a single resource, some identify multiple resources as a group. Let's look at an example.
+
+### Fetching a Collection
+
+The web store server comes with a few preloaded products: a variety of pens, each with unique ink color. To see all of these products, perform a GET request using the collection's path:
+
+```sh
+$ http GET http://book-example.herokuapp.com/v1/products
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 166
+Content-Type: application/json
+Date: Tue, 23 Sep 2014 01:30:07 GMT
+Server: Cowboy
+Status: 200 OK
+Via: 1.1 vegur
+
+[
+    {
+        "id": 1,
+        "name": "Red Pen",
+        "price": 100,
+        "sku": "redp100"
+    },
+    {
+        "id": 2,
+        "name": "Blue Pen",
+        "price": 100,
+        "sku": "blup100"
+    },
+    {
+        "id": 3,
+        "name": "Black Pen",
+        "price": 100,
+        "sku": "blap100"
+    }
+]
+```
+
+This response is very similar to the previous one for a single resource:
+
+- The *media type* is *application/json*.
+- The status is 200 OK.
+- The body is in JSON format.
+
+A closer look at the content of the response, however, shows that data for three products has been returned. The JSON body of this response is a representation of a **collection** resource. When deserialized in a programming environment, the body of the response will be an array containing 3 objects. (Just for this example?)
+
+### Elements and Collections
+
+There are two types of resources involved in the use of RESTful APIs: elements and collections.
+
+**Elements** are the representation of a single resource, such as the first request above. Operations that involve a single resource are done in the context of that resource, and will use that resource's path.
+
+**Collections** represent a grouping of elements of the same type. It is common for collection and element resources to have a parent-child relationship, where the collection is the "parent" and an element is a "child", although this is not always the case. Here is what could be the path to a collection of blog posts:
+
+```sh
+/api/blog/posts
+```
+
+This path represents the collection of all blog posts. Compare to it the path to an individual post:
+
+```sh
+/api/blog/posts/1
+```
+
+Since a single blog post is one of the elements in the collection of all blog posts, the path to the post is the path to the collection *plus* an extra value to identify the specific element of the collection. In this case, that value is `1`.
+
+#### How to know if a URL is for a collection or a resource?
+
+There are a few ways to know what kind of resource a URL represents by looking closely at its path. Keep in mind that when in doubt, **it is best to reference the API's official documentation**. Sometimes there won't be documentation, though, and there are a few clues that can be a sign of what kind of resource a URL is for.
+
+Signs a URL is for a collection:
+
+  1. The path ends in a plural word, such as *example.com/products*
+  2. The response body contains multiple elements
+
+Signs a URL is for a single element:
+
+  1. The path ends in a plural word, a slash, and then what could be an identifier (which could be numeric or alphabetic)
+  2. The response body contains a single element
+
+### Fetching Resources Summary
+
+- APIs provide access to single resources (**elements**) or groups of resources (**collections**).
+- The path for an element is usually the path for its collection, plus an identifier for that resource.

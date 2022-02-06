@@ -5400,3 +5400,8 @@ console.log(result); // true
 
 20:51 Still shaky on problems that I've seen before. Going to stop now for the night, I think.
 
+## 20220206 일요일
+
+09:05 I slept in but it felt kind of useless. Now I want to study some more.
+
+11:38 Reading more about APIs now.
