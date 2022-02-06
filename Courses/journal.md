@@ -5407,3 +5407,5 @@ console.log(result); // true
 11:38 Reading more about APIs now.
 
 12:42 Break for lunch and then a study group a 1:00 PM
+
+15:12 After the study group with Allison. She was great. Tired right now. I think we're going to get ice cream soon.
