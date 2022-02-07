@@ -110,3 +110,23 @@ function freqAlphabets(string) {
 
   return result;
 }
+
+function freqAlphabets(string) {
+  let result = '';
+  let alphabet = '_abcdefghijklmnopqrstuvwxyz';
+
+  // let idx = 0;
+
+  for (let idx = 0; idx < string.length; idx += 1) {
+    let tempString = '';
+    if (string[idx + 2] === '#') {
+      tempString = string[idx] + string[idx + 1]; // 10
+      result += alphabet[tempString];
+      idx += tempString.length;
+    } else {
+      result += alphabet[string[idx]];
+    }
+  }
+
+  return result;
+}

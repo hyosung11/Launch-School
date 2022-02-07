@@ -18,12 +18,12 @@ The test cases are generated so that a unique mapping will always exist. */
 // console.log(freqAlphabets('10#11#12')); // "jkab"
 // console.log(freqAlphabets('1326#')); // "acz"
 
-/* 
+/*
 
 11:44
 12:03 solved in 19 minutes */
 
-/*Given a string, return a new string that has transformed based on the input:
+/* Given a string, return a new string that has transformed based on the input:
 
 Change case of every character, ie. lower case to upper case, upper case to lower case.
 Reverse the order of words from the input.
