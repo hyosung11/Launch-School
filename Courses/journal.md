@@ -5411,3 +5411,9 @@ console.log(result); // true
 15:12 After the study group with Allison. She was great. Tired right now. I think we're going to get ice cream soon.
 
 18:56 Studying APIs more after dinner. I fell asleep and took a nap before dinner. Lots of sleeping this Sunday.
+
+## 2022020 월요일
+
+05:57 It's Monday morning before a study session with Alex.
+
+07:28 Alex seems to find simpler more clear ways to write code than other people.

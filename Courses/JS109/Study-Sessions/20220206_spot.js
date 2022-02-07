@@ -112,11 +112,11 @@ function countSubstring2(text, search) {
 
 // PROBLEM - 02
 // Substring Instance Count
-// Return the number of times a search-string is found within the given searchable string. 
+// Return the number of times a search-string is found within the given searchable string.
 // Assume that both inputs will only be strings.
 // Assume that all characters are important.
 // Assume the searchable string will always be provided as an argument.
-// Return `-1` if the search-string is empty or missing. 
+// Return `-1` if the search-string is empty or missing.
 // Solve without using Regex.
 
 

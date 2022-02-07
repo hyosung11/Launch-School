@@ -113,6 +113,7 @@ console.log(countLetters('a')); // 1   1
 console.log(countLetters('ab')); // 2
 console.log(countLetters('aa')); // 3   1 + 2
 console.log(countLetters('aaa')); // 6    1 + 2 + 3
+console.log(countLetters('aab')); // 4
 console.log(countLetters('aaaa')); // 10    1 + 2 + 3 + 4
 console.log(countLetters('aaaba')); // 8
 console.log(countLetters('aaaaaaaaaa')); // 55
