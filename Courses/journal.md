@@ -4847,7 +4847,7 @@ function longestConsecutive(array, count) {
 
 13:38 Practicing "Three By Three" problem again and again. I get tripped up by `length` and comparison operators returning booleans.
 
-14:49 I really need to break problems down to understand them and then work backwords to the solution and rewrite my algorithms based on the solutions.
+14:49 I really need to break problems down to understand them and then work backwards to the solution and rewrite my algorithms based on the solutions.
 
 19:51 Got stuck on a Codewars problem and found a solution that used `idx += 1` after the `if` statement to advance the index position over an extra element to avoid duplication:
 
@@ -5419,3 +5419,5 @@ console.log(result); // true
 07:28 Alex seems to find simpler more clear ways to write code than other people.
 
 08:55 Practice, practice, practice!
+
+10:56 Got stuck on a problem that Laurent gave me. He's patient with me. I think I figured it out by reverse-engineering the problem.
