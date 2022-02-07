@@ -31,7 +31,7 @@ Array.from(arrayLike, function mapFn(element) { /* ... */ }, thisArg)
 Array.from(arrayLike, function mapFn(element, index) { /* ... */ }, thisArg)
 ```
 
-### `Array.isArray(value)`
+### Array.isArray(value)
 
  The `Array.isArray()` method determines whether the passed value is an Array.
 
@@ -42,17 +42,17 @@ Array.isArray('foobar');   // false
 Array.isArray(undefined);  // false
 ```
 
-### `Array.prototype.length`
+### Array.prototype.length
 
 The length property of an object which is an instance of type `Array` sets or returns the number of elements in that array. The value is an unsigned, 32-bit integer that is always numerically greater than the highest index in the array.
 
-### `Array.prototype.at(index)`
+### Array.prototype.at(index)
 
 The `at()` method takes an integer value and returns the item at that index, allowing for positive and negative integers. Negative integers count back from the last item in the array.
 
 `array.at(-1)` returns the last item; same as `array[array.length -1]`
 
-### `Array.prototype.concat()`
+### Array.prototype.concat()
 
 ```js
 concat()
@@ -61,7 +61,7 @@ concat(value0, value1)
 concat(value0, value1, ... , valueN)
 ```
 
-### `Array.prototype.every()`
+### Array.prototype.every()
 
 The `every()` method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.
 
@@ -82,7 +82,7 @@ every(function(element, index, array){ /* ... */ })
 every(function(element, index, array) { /* ... */ }, thisArg)
 ```
 
-### `Array.prototype.filter()`
+### Array.prototype.filter()
 
 The `filter()` method **creates a new array** with all elements that pass the test implemented by the provided function.
 
@@ -103,7 +103,7 @@ filter(function(element, index, array){ /* ... */ })
 filter(function(element, index, array) { /* ... */ }, thisArg)
 ```
 
-### `Array.prototype.find()`
+### Array.prototype.find()
 
 The `find()` method returns the **value** of the **first element** in the provided array that satisfies the provided testing function. If no values satisfy the testing function, `undefined` is returned.
 
@@ -124,7 +124,7 @@ find(function(element, index, array){ /* ... */ })
 find(function(element, index, array) { /* ... */ }, thisArg)
 ```
 
-### `Array.prototype.findIndex()`
+### Array.prototype.findIndex()
 
 The `findIndex()` method returns the **index** of the **first element** in the array that satisfies the provided testing function. Otherwise, it returns `-1`, indicating that no element passed the test.
 
@@ -145,7 +145,7 @@ findIndex(function(element, index, array){ /* ... */ })
 findIndex(function(element, index, array) { /* ... */ }, thisArg)
 ```
 
-### `Array.prototype.flat()`
+### Array.prototype.flat()
 
 The `flat()` method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.
 
@@ -154,7 +154,7 @@ flat()
 flat(depth)
 ```
 
-### `Array.prototype.forEach()`
+### Array.prototype.forEach()
 
 The `forEach()` method executes a provided function once for each array element.
 
@@ -175,7 +175,7 @@ forEach(function(element, index, array){ /* ... */ })
 forEach(function(element, index, array) { /* ... */ }, thisArg)
 ```
 
-### `Array.prototype.includes()`
+### Array.prototype.includes()
 
 The `includes()` method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
 
@@ -184,7 +184,7 @@ includes(searchElement)
 includes(searchElement, fromIndex)
 ```
 
-### `Array.prototype.indexOf()`
+### Array.prototype.indexOf()
 
 The `indexOf()` method returns the **first** index at which a given element can be found in the array, or `-1` if it is not present.
 
@@ -193,7 +193,7 @@ indexOf(searchElement)
 indexOf(searchElement, fromIndex)
 ```
 
-### `Array.prototype.join()`
+### Array.prototype.join()
 
 The `join()` method creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator. 
 
@@ -202,7 +202,7 @@ join()
 join(separator)
 ```
 
-### `Array.prototype.lastIndexOf()`
+### Array.prototype.lastIndexOf()
 
 The `lastIndexOf()` method returns the **last** index at which a given element can be found in the array, or `-1` if it is not present. The array is searched *backwards*, starting at fromIndex.
 
@@ -386,6 +386,60 @@ for (const value of iterator) {
 // expected output: "c"
 ```
 
+## Looping
+
+### for...in
+
+The `for...in` statement iterates over all enumerable properties of an object that are keyed by **strings** (ignoring ones keyed by Symbols), including inherited enumerable properties.
+
+```js
+for (variable in object) {
+  statement
+}
+```
+
+```js
+const object = { a: 1, b: 2, c: 3 };
+
+for (const property in object) {
+  console.log(`${property}: ${object[property]}`);
+}
+
+// expected output:
+// "a: 1"
+// "b: 2"
+// "c: 3"
+```
+
+### for...of
+
+The `for...of` statement creates a loop iterating over iterable objects, including: built-in String, Array, array-like objects (e.g., arguments or NodeList), TypedArray, Map, Set, and user-defined iterables. It invokes a custom iteration hook with statements to be executed for the value of each distinct property of the object.
+
+```js
+for (variable of iterable) {
+  statement
+}
+```
+
+```js
+const array1 = ['a', 'b', 'c'];
+
+for (const element of array1) {
+  console.log(element);
+}
+
+// expected output: "a"
+// expected output: "b"
+// expected output: "c"
+```
+
+## Math
+
+
+
+## Numbers
+
+
 ## Objects
 
 ### Object.assign()
@@ -393,6 +447,121 @@ for (const value of iterator) {
 The `Object.assign()` method copies all enumerable own properties from one or more source objects to a target object. It returns the modified target object.
 
 `Object.assign(target, ...sources)`
+
+```js
+const target = { a: 1, b: 2 };
+const source = { b: 4, c: 5 };
+
+const returnedTarget = Object.assign(target, source);
+
+console.log(target);
+// expected output: Object { a: 1, b: 4, c: 5 }
+
+console.log(returnedTarget);
+// expected output: Object { a: 1, b: 4, c: 5 }
+```
+
+### Object.entries()
+
+ The `Object.entries()` method returns an array of a given object's own enumerable string-keyed property `[key, value]` pairs. This is the same as iterating with a f`or...in` loop, except that a `for...in` loop enumerates properties in the prototype chain as well.
+
+The order of the array returned by `Object.entries()` is the same as that provided by a `for...in` loop. If there is a need for different ordering, then the array should be sorted first, like `Object.entries(obj).sort((a, b) => b[0].localeCompare(a[0]));`.
+
+`Object.entries(obj)`
+
+```js
+const object1 = {
+  a: 'somestring',
+  b: 42
+};
+
+for (const [key, value] of Object.entries(object1)) {
+  console.log(`${key}: ${value}`);
+}
+
+// expected output:
+// "a: somestring"
+// "b: 42"
+```
+
+### Object.freeze()
+
+The `Object.freeze()` method *freezes* an object. A frozen object can no longer be changed; freezing an object prevents new properties from being added to it, existing properties from being removed, prevents changing the enumerability, configurability, or writability of existing properties, and prevents the values of existing properties from being changed. In addition, freezing an object also prevents its prototype from being changed. `freeze()` returns the same object that was passed in.
+
+### Object.fromEntries()
+
+The `Object.fromEntries()` method transforms a list of key-value pairs into an object.
+
+`Object.fromEntries(iterable);`
+
+```js
+const entries = new Map([
+  ['foo', 'bar'],
+  ['baz', 42]
+]);
+
+const obj = Object.fromEntries(entries);
+
+console.log(obj);
+// expected output: Object { foo: "bar", baz: 42 }
+```
+
+### Object.hasOwn()
+
+The `Object.hasOwn()` static method returns `true` if the specified object has the indicated property as its own property. If the property is inherited, or does not exist, the method returns `false`.
+
+Note: `Object.hasOwn()` is intended as a replacement for `Object.hasOwnProperty()`.
+
+`Object.hasOwn(instance, prop)`
+
+### Object.prototype.hasOwnProperty()
+
+The `hasOwnProperty()` method returns a boolean indicating whether the object has the specified property as its own property (as opposed to inheriting it).
+
+Note: `Object.hasOwn()` is recommended over `hasOwnProperty()`, in browsers where it is supported.
+
+`hasOwnProperty(prop)`
+
+### Object.is()
+
+The `Object.is()` method determines whether two values are the same value.
+
+`Object.is(value1, value2);`
+
+```js
+// Case 1: Evaluation result is the same as using ===
+Object.is(25, 25);                // true
+Object.is('foo', 'foo');          // true
+Object.is('foo', 'bar');          // false
+Object.is(null, null);            // true
+Object.is(undefined, undefined);  // true
+Object.is(window, window);        // true
+Object.is([], []);                // false
+var foo = { a: 1 };
+var bar = { a: 1 };
+Object.is(foo, foo);              // true
+Object.is(foo, bar);              // false
+
+// Case 2: Signed zero
+Object.is(0, -0);                 // false
+Object.is(+0, -0);                // false
+Object.is(-0, -0);                // true
+Object.is(0n, -0n);               // true
+
+// Case 3: NaN
+Object.is(NaN, 0/0);              // true
+Object.is(NaN, Number.NaN)        // true
+```
+
+### Object.keys()
+
+The `Object.keys()` method returns an **array** of a given object's own enumerable property **names**, iterated in the same order that a normal loop would.
+
+### Object.values()
+
+The `Object.values()` method returns an **array** of a given object's own enumerable property **values**, in the same order as that provided by a `for...in` loop. (The only difference is that a `for...in` loop enumerates properties in the prototype chain as well.)
+
+
 
 ## Regular Expressions
 
