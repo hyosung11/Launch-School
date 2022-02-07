@@ -4,6 +4,14 @@ by Launch School
 
 This book covers the basics of how web APIs work, how to interact with them, and what to think about when building your own. After reading this book and finishing its associated course, you will be able to work with web APIs in your own projects and even build your own APIs. This book is required reading as part of the course work at Launch School.
 
+The book has the following main parts:
+
+* Getting Started
+* API Basics
+* Working with an API
+* Real World APIs
+* Reference
+
 ## Introduction
 
 ### What this Book Covers
@@ -16,8 +24,8 @@ This book covers the basics of how web APIs work, how to interact with them, and
 
 ### Who This Book is For
 
-- This book is for beginning developers who have some experience programming and a familiarity with using the web through a web browser.
-- This book assumes you have already read through our book on HTTP, or are working your way through it concurrently to this book.
+* This book is for beginning developers who have some experience programming and a familiarity with using the web through a web browser.
+* This book assumes you have already read through our book on HTTP, or are working your way through it concurrently to this book.
 
 Some of the examples will involve the command line, but entering and editing commands is all that is required. Other examples will use a graphical HTTP tool.
 
@@ -145,7 +153,7 @@ The response is so large not because of the size of the data itself, but all of 
 
 Web APIs can do a lot of the same things that a user can do through a web browser, but since they are intended to be used by computer programs, there is no need to specify how the data should be presented. API responses are typically just data, represented in a way that makes it easy to put to use.
 
-Let's see what happens when we make a request to a web API that is designed to return simple, cleanly formatted responses. DuckDuckGo provides an API to access its instant answers functionality. This API returns a list of links similar in structure to the kind of results a search engine would return. We'll use the same search term, the URL https://api.duckduckgo.com, and an additional query parameter format (which should have the value json).
+Let's see what happens when we make a request to a web API that is designed to return simple, cleanly formatted responses. DuckDuckGo provides an API to access its instant answers functionality. This API returns a list of links similar in structure to the kind of results a search engine would return. We'll use the same search term, the URL <https://api.duckduckgo.com>, and an additional query parameter format (which should have the value json).
 
 This request returned a response that is designed for consumption by a computer, and only the data itself is represented. Unlike the previous responses, there is no HTML, CSS, or JavaScript in the response; there is nothing to describe how to display the data other than its structure. The response is in JSON format, which is a way to represent data that was derived from the JavaScript language. This format is commonly used when formatting data for consumption by other computers as it has a very well defined structure and is widely supported by both servers and clients. We'll be working with JSON throughout this book, but it isn't important to understand everything about how it works right now.
 
@@ -177,8 +185,8 @@ In the case of this weather API, the documentation mentions that by sending the 
 
 ### Postman Summary
 
-- Postman makes it easy to make HTTP requests from a web browser.
-- Because it runs in a web browser, Postman has few dependencies and is easy to install on almost any computer.
+* Postman makes it easy to make HTTP requests from a web browser.
+* Because it runs in a web browser, Postman has few dependencies and is easy to install on almost any computer.
 
 We'll be using some of the more advanced features of Postman when we look at the Twitter API. In the meantime, you can use Postman for working through any of the examples, even those this book uses other tools for.
 
@@ -196,8 +204,8 @@ This book is going to focus on APIs that are built with web technologies and tha
 
 When discussing APIs and how systems interact using them, distinguish between the system that the API belongs to and the external service (or user) that will use this API.
 
-- An API **provider** is the system that provides an API for other parties to use. GitHub is the *provider* of the GitHub API, and Dropbox is the *provider* of the Dropbox API.
-- An API **consumer** is the system that uses the API to accomplish some work. When you check the weather on your phone, it is running a program that is *consuming* a weather API to retrieve forecast data.
+* An API **provider** is the system that provides an API for other parties to use. GitHub is the *provider* of the GitHub API, and Dropbox is the *provider* of the Dropbox API.
+* An API **consumer** is the system that uses the API to accomplish some work. When you check the weather on your phone, it is running a program that is *consuming* a weather API to retrieve forecast data.
 
 Throughout the course of this book, we will be manual consumers of the web store API. The web store server will be the provider for our initial investigation, and the following chapters will move on to working with some real world API providers.
 
@@ -211,10 +219,10 @@ As a result, it is best to stick to using *provider* and *consumer* when discuss
 
 ### Defining API Summary
 
-- *Web APIs* allow one system to interact with another over HTTP (just like the web).
-- The system offering the API for use by others is the *provider*.
-- The system interacting with the API to accomplish a goal is the *consumer*.
-- It is best to prefer the terms *provider* and *consumer* over client and server.
+* *Web APIs* allow one system to interact with another over HTTP (just like the web).
+* The system offering the API for use by others is the *provider*.
+* The system interacting with the API to accomplish a goal is the *consumer*.
+* It is best to prefer the terms *provider* and *consumer* over client and server.
 
 With all of this terminology out of the way, let's get into why you might use an API when writing a program.
 
@@ -261,9 +269,9 @@ The number of things a modern web application is expected to do is vast. Even fa
 
 ### What APIs Can Do Summary
 
-- APIs break down the walls between systems, allowing them to share data.
-- APIs provide an "escape hatch" enabling service users to customize the software's behavior or integrate it into other systems if required.
-- Many modern web applications provide an API that allows developers to integrate their own code with these applications, taking advantage of the services' functionality in their own apps.
+* APIs break down the walls between systems, allowing them to share data.
+* APIs provide an "escape hatch" enabling service users to customize the software's behavior or integrate it into other systems if required.
+* Many modern web applications provide an API that allows developers to integrate their own code with these applications, taking advantage of the services' functionality in their own apps.
 
 ## Accessibility
 
@@ -281,14 +289,14 @@ Providers of public APIs can and will dictate the conditions of using their API.
 
 The data accessed via APIs carries with it ethical and legal responsibilities. Many API providers require developers to agree to terms and conditions of use before they are granted access. While these documents are usually written in legalese and can be a bit dense, it is important to understand what is and isn't allowed with respect to API data. In particular, keep in mind the following:
 
-- **What restrictions does the API place on your use of its data?** For example, data from the Amazon Product Advertising API can not be used on mobile devices or TV set top boxes, nor can it be stored for more than 24 hours.
-- **Is the API exposing any data that could be linked back to a person?** Many social applications allow access to a user's personal information, and by accessing it, you are taking on the responsibility of keeping this information safe and secure.
-- **Does the API have rate limits, and if so, what are they?** Many APIs limit how many requests can be sent from a single user or application within a given time frame. Such restrictions can have an impact on the design of programs that interact with their APIs.
+* **What restrictions does the API place on your use of its data?** For example, data from the Amazon Product Advertising API can not be used on mobile devices or TV set top boxes, nor can it be stored for more than 24 hours.
+* **Is the API exposing any data that could be linked back to a person?** Many social applications allow access to a user's personal information, and by accessing it, you are taking on the responsibility of keeping this information safe and secure.
+* **Does the API have rate limits, and if so, what are they?** Many APIs limit how many requests can be sent from a single user or application within a given time frame. Such restrictions can have an impact on the design of programs that interact with their APIs.
 
 ### Accessibility Summary
 
-- APIs come in two flavors, *public* and *private*. You will generally work with public APIs. Using private APIs is most common when they are your own.
-- API usage is often conditional on the acceptance of a set of terms set by the API provider.
+* APIs come in two flavors, *public* and *private*. You will generally work with public APIs. Using private APIs is most common when they are your own.
+* API usage is often conditional on the acceptance of a set of terms set by the API provider.
 
 ## A Review of HTTP
 
@@ -315,7 +323,7 @@ We've already looked at how requests can be made with Postman. It is also possib
 Entering the following command in a terminal will retrieve the country name (and other information) for the IP 161.185.160.93:
 
 ```sh
-$ http https://api.ip2country.info/ip?161.185.160.93 --json
+http https://api.ip2country.info/ip?161.185.160.93 --json
 ```
 
 The `--json` isn't strictly required here, but we include it just in case the API gets updated.
@@ -367,10 +375,10 @@ HTTP/1.1 200 OK
 
 The important part of this line is the last part, 200 OK. All HTTP responses will start with a three digit numeric code and message that summarize the result of the preceding request. There are a lot of status codes, and there is no need to try to remember them all because they are [easy to look up](https://httpstatuses.com/) as needed. There are, however, a few basic rules to interpreting these codes that will come in handy:
 
-- If a status code is in the format 2xx, such as `200` or `201`, it means that **everything is fine** and the request was handled successfully.
-- A status in the form 3xx, such as `303`, means that the request was handled successfully, but the response to the request is *located at a different URL*, which is usually provided in a header (we'll talk about headers next.) `3xx` statuses are commonly used by a server to respond to a HTML form POST submission. They are much less commonly used when working with HTTP APIs.
-- A status in the form 4xx, such as `404`, means that the client did something in the request that the server didn't like. It often means that a required parameter was forgotten or that the URL is incorrect.
-- A status code in the form 5xx, such as `500`, means that the server encountered an error processing the request. Usually this means that the system you are connecting to is having issues that need to be resolved by those who run it before you can continue, although sometimes it can also be the result of a bad request.
+* If a status code is in the format 2xx, such as `200` or `201`, it means that **everything is fine** and the request was handled successfully.
+* A status in the form 3xx, such as `303`, means that the request was handled successfully, but the response to the request is *located at a different URL*, which is usually provided in a header (we'll talk about headers next.) `3xx` statuses are commonly used by a server to respond to a HTML form POST submission. They are much less commonly used when working with HTTP APIs.
+* A status in the form 4xx, such as `404`, means that the client did something in the request that the server didn't like. It often means that a required parameter was forgotten or that the URL is incorrect.
+* A status code in the form 5xx, such as `500`, means that the server encountered an error processing the request. Usually this means that the system you are connecting to is having issues that need to be resolved by those who run it before you can continue, although sometimes it can also be the result of a bad request.
 
 It's worth noting that *servers don't always return the correct status code*, often as a result of a programming oversight. This will be covered in depth in a future course; for now, know that it is sometimes necessary to look at the entire response for clues as to what is happening when you have received a status code that doesn't make sense.
 
@@ -437,9 +445,9 @@ A program that is making a call to an API such as this one would probably pull a
 
 ### A Review of HTTP Summary
 
-- Web APIs are built on top of HTTP, the technology that makes the web work.
-- HTTP Responses have 3 main parts: status code, headers, and body.
-- The *Content-Type* header describes the format of the response body.
+* Web APIs are built on top of HTTP, the technology that makes the web work.
+* HTTP Responses have 3 main parts: status code, headers, and body.
+* The *Content-Type* header describes the format of the response body.
 
 ## A Review of URLs
 
@@ -463,14 +471,14 @@ When it comes to deciding to use URI or URL, The thing to remember is this: **if
 
 URLs are made up of a few components:
 
-- A **scheme**, such as *http*
-- *://*, a colon and two slashes
-- A **hostname**, usually a domain name such as *blogs.com*
-- An optional colon and **port**, such as *:81*
-- The **path** to the resource, such as */api/v1/pages/1*
-- An optional **query string**, such as *?query=term*
+* A **scheme**, such as *http*
+* *://*, a colon and two slashes
+* A **hostname**, usually a domain name such as *blogs.com*
+* An optional colon and **port**, such as *:81*
+* The **path** to the resource, such as */api/v1/pages/1*
+* An optional **query string**, such as *?query=term*
 
-Put together, the example values above would construct the URL *http://blogs.com:81/api/v1/pages/1?query=term*. Ports are relatively uncommon in the URLs used when interacting with public APIs, and we won't go into them further.
+Put together, the example values above would construct the URL *<http://blogs.com:81/api/v1/pages/1?query=term>*. Ports are relatively uncommon in the URLs used when interacting with public APIs, and we won't go into them further.
 
 This book will discuss a lot on URLs. It will also reference paths quite a bit, as they are shorter and make the relevant sections more obvious. If you have a full URL and need to know what its path is, just remove everything from the beginning to the end of the domain name, leaving the slash.
 
@@ -480,8 +488,8 @@ Some of the paths used in API documentation or when discussing APIs include iden
 
 When referring to this path in the general sense and without a particular product in mind, it would be written `/products/:id`. The final segment, `:id`, is a placeholder for a value to be filled in later. Any value in a path that begins with a colon in this book should be considered a **placeholder**. Here are a few other examples:
 
-- `/api/:version/products/:id`
-- `/api/v1/users/:id/profile`
+* `/api/:version/products/:id`
+* `/api/v1/users/:id/profile`
 
 It is possible for paths to include multiple placeholders. If a product could have many comments, and the product's path was `/products/:id`, it is possible that an individual comment's path could be `/products/:product_id/comments/:id`. This form of path can be referred to as *nested*, because the route for comments, `/products/:product_id/comments`, is nested underneath the path for a product, `/products/:id`.
 
@@ -489,10 +497,10 @@ The specific placeholder used within a path isn't important as long as it is uni
 
 ### A Review of URLs Summary
 
-- Working with web APIs involves working with *URLs*.
-- URLs represent *where* a resource is and *how* it can be accessed.
-- URLs typically contain a *scheme*, *hostname*, *path*, and sometimes a *query string*.
-- Paths (and URLs) can include *placeholders* when they are written generically.
+* Working with web APIs involves working with *URLs*.
+* URLs represent *where* a resource is and *how* it can be accessed.
+* URLs typically contain a *scheme*, *hostname*, *path*, and sometimes a *query string*.
+* Paths (and URLs) can include *placeholders* when they are written generically.
 
 ## Media Types
 
@@ -693,10 +701,10 @@ We could say that the value at `menus.breakfast.toast` is `1` and the value at `
 
 ### Media Types Summary
 
-- *Media types* describe the format of a response's body.
-- Media types are represented in an HTTP response's `Content-Type` header, and as a result, are sometimes referred to as *content types*.
-- *Data serialization* provides a common way for systems to pass data to each other, with a guarantee that each system will be able to understand the data.
-- JSON is the most popular media type for web APIs and the one this book will focus on.
+* *Media types* describe the format of a response's body.
+* Media types are represented in an HTTP response's `Content-Type` header, and as a result, are sometimes referred to as *content types*.
+* *Data serialization* provides a common way for systems to pass data to each other, with a guarantee that each system will be able to understand the data.
+* JSON is the most popular media type for web APIs and the one this book will focus on.
 
 ## REST and CRUD
 
@@ -704,8 +712,8 @@ We could say that the value at `menus.breakfast.toast` is `1` and the value at `
 
 The term *REST* is often used to describe a set of conventions for how to build APIs. REST stands for representational state transfer, and it was originally defined by Roy Fielding in his doctoral dissertation in 2000. Let's take this term apart:
 
-- *representational* refers to how a representation of a resource is being *transferred*, and not the resource itself.
-- *state transfer* refers to how HTTP is a *stateless* protocol. This means that servers don't know anything at all about the clients, and that everything the server needs to process the request (the state) is included in the request itself.
+* *representational* refers to how a representation of a resource is being *transferred*, and not the resource itself.
+* *state transfer* refers to how HTTP is a *stateless* protocol. This means that servers don't know anything at all about the clients, and that everything the server needs to process the request (the state) is included in the request itself.
 
 The basic ideas behind REST were based on observations about how the web already worked. From this, Fielding derived a set of formalized patterns about the kind of interactions that take place on the web. Loading web pages, submitting forms, and using links to find related content all factor into what REST is and how it applies to the web and API design. If you think about the web page as being a resource this makes a little more sense.
 
@@ -723,13 +731,13 @@ Click the delete button and delete profile  | POST  | /profiles/1  | _method=del
 
 Other than possibly being the shortest-lived user profile ever, this is a pretty realistic list of steps. The same actions could be performed with an API instead of using HTML forms, although there would be a few differences:
 
-- HTML forms must be loaded before they can be submitted. APIs don't have forms, so this initial GET request is unnecessary.
-- HTML forms only support two of the many HTTP methods, GET and POST. APIs are able to take advantage of all HTTP methods, which helps clarify the purpose of API requests.
+* HTML forms must be loaded before they can be submitted. APIs don't have forms, so this initial GET request is unnecessary.
+* HTML forms only support two of the many HTTP methods, GET and POST. APIs are able to take advantage of all HTTP methods, which helps clarify the purpose of API requests.
 
 A good way to think about REST is as a way to define everything you might want to do with two values, what and how:
 
-- *What*: Which resource is being acted upon?
-- *How*: How are we changing / interacting with the resource?
+* *What*: Which resource is being acted upon?
+* *How*: How are we changing / interacting with the resource?
 
 Nearly all interactions with a RESTful API can be defined in this way. In the case of editing a user profile, the resource (the *what*) is a *user profile*. The *how* depends on what action is being taken.
 
@@ -737,16 +745,18 @@ Nearly all interactions with a RESTful API can be defined in this way. In the ca
 
 **CRUD** is an acronym that is used to describe the four actions that can be taken upon resources:
 
-- **C**reate
-- **R**ead
-- **U**pdate
-- **D**elete
+* **C**reate
+* **R**ead
+* **U**pdate
+* **D**elete
 
 RESTful APIs will model most functionality by matching one of these operations to the appropriate resource. As an example, the following table contains the same actions as the previous one, only this time, the HTML-form driven actions have been converted into operations that could be performed with an API. Each action has been mapped to the appropriate element of CRUD.
 
 **Action**  | **CRUD Operation**  | **HTTP Method**  | **Path**  | **Params**
 --------|-----------------|--------------|-------|-------
-Create new profile  | Create  | POST  | /profiles  | ```js
+Create new profile  | Create  | POST  | /profiles  |
+
+```js
 {
   "email": "ramenfan@gmail.com",
   "password": "iluvnoodles"
@@ -754,7 +764,9 @@ Create new profile  | Create  | POST  | /profiles  | ```js
 ```
 
 Fetch profile  | Read  | GET  | /profiles/1  |
-Update profile with new values  | Update  | PUT  | /profiles/1  | ```js
+Update profile with new values  | Update  | PUT  | /profiles/1  |
+
+```js
 {
   "email": "ramenfan2@gmail.com",
   "password": "ireallyluvnoodles"
@@ -843,10 +855,10 @@ It is important to remember that REST is a set of conventions and patterns for b
 
 ### REST and CRUD Summary
 
-- *REST* is a set of conventions about how to build APIs.
-- RESTful APIs consist of CRUD actions on a resource
-- By limiting actions to CRUD, REST requires thinking in a *resource-oriented way*.
-- It is worth being as RESTful as possible, but there are times when it is not the best solution.
+* *REST* is a set of conventions about how to build APIs.
+* RESTful APIs consist of CRUD actions on a resource
+* By limiting actions to CRUD, REST requires thinking in a *resource-oriented way*.
+* It is worth being as RESTful as possible, but there are times when it is not the best solution.
 
 The specific approach described in this section and throughout most of this book is one particular flavor of REST. It is based on common practices in real world API development as of 2014. Let's take a closer look.
 
@@ -887,9 +899,9 @@ Via: 1.1 vegur
 
 The response should look fairly familiar, but let's go over a few important details:
 
-- The media type is *application/json*.
-- The *status* is 200 OK.
-- The *body* is in *JSON* format.
+* The media type is *application/json*.
+* The *status* is 200 OK.
+* The *body* is in *JSON* format.
 
 The JSON body of the response is a representation of a single **resource** on the server, which represents a single product. When deserialized into a programming environment, the response body will be a single object. This representation includes *id*, *name*, *price*, and *sku* properties. The properties *id* and *price* are numbers, and *name* and *sku* are strings.
 
@@ -942,9 +954,9 @@ Via: 1.1 vegur
 
 This response is very similar to the previous one for a single resource:
 
-- The *media type* is *application/json*.
-- The status is 200 OK.
-- The body is in JSON format.
+* The *media type* is *application/json*.
+* The status is 200 OK.
+* The body is in JSON format.
 
 A closer look at the content of the response, however, shows that data for three products has been returned. The JSON body of this response is a representation of a **collection** resource. When deserialized in a programming environment, the body of the response will be an array containing 3 objects. (Just for this example?)
 
@@ -984,8 +996,8 @@ Signs a URL is for a single element:
 
 ### Fetching Resources Summary
 
-- APIs provide access to single resources (**elements**) or groups of resources (**collections**).
-- The path for an element is usually the path for its collection, plus an identifier for that resource.
+* APIs provide access to single resources (**elements**) or groups of resources (**collections**).
+* The path for an element is usually the path for its collection, plus an identifier for that resource.
 
 ## Requests in Depth
 
@@ -1023,9 +1035,9 @@ GET /v1/products/1 HTTP/1.1
 
 This line tells the server *which resource* the client is referring to and *what action* the client wants to be taken with that resource. More specifically:
 
-- GET is the HTTP method for the request. The client wants the server to return a representation of the resource.
-- */v1/products/1* is the path to a specific resource.
-- *HTTP/1.1* is the protocol version being used. Nearly all modern servers and clients support at least this version of HTTP.
+* GET is the HTTP method for the request. The client wants the server to return a representation of the resource.
+* */v1/products/1* is the path to a specific resource.
+* *HTTP/1.1* is the protocol version being used. Nearly all modern servers and clients support at least this version of HTTP.
 
 POST and PUT requests can also include a body, which is similar to the body of a response in that it follows any headers. Since this was a GET request, there wasn't a body.
 
@@ -1053,8 +1065,8 @@ The Accept Header for this last request was correctly set to *application/json*.
 
 ### Requests in Depth Summary
 
-- HTTP requests include a path, method, headers, and body.
-- The **Accept** header tells the provider what media types can be used to respond to the request.
+* HTTP requests include a path, method, headers, and body.
+* The **Accept** header tells the provider what media types can be used to respond to the request.
 
 ## Creating Resources
 
@@ -1091,9 +1103,9 @@ Via: 1.1 vegur
 
 This response is very similar to those we saw when fetching a single resource:
 
-- The **media type** is *application/json*.
-- The **status** is *201 Created*, which we haven't seen before. Since the code is in the 2xx format, we know this is a successful response. *201 Created* means the request was successful and that it resulted in the creation of a new resource.
-- The **body** is in *JSON format*. The data looks similar to the data we saw previously, but the values reflect the parameters we sent to the server as a part of the most recent request.
+* The **media type** is *application/json*.
+* The **status** is *201 Created*, which we haven't seen before. Since the code is in the 2xx format, we know this is a successful response. *201 Created* means the request was successful and that it resulted in the creation of a new resource.
+* The **body** is in *JSON format*. The data looks similar to the data we saw previously, but the values reflect the parameters we sent to the server as a part of the most recent request.
 
 By fetching all of the products again, it is possible to verify a new product was created. There are now four products where there once were only three:
 
@@ -1171,8 +1183,8 @@ Via: 1.1 vegur
 
 This is a very different response than what we received when sending all of the parameters. Let's look at some of the important differences:
 
-- The **status** is *422 Unprocessable Entity*. Since the code is in the 4xx format, we know the request was not successful. *Unprocessable Entity* is a cryptic way of saying the request was invalid in a way that prevented the server from working with it. This is often caused by a *validation error*.
-- The **body** is in JSON format, but instead of being the representation of a product, it is an error message. The `message` string contains an explicit list of problems with the request: `name is missing, sku is missing, sku is invalid, price is missing`.
+* The **status** is *422 Unprocessable Entity*. Since the code is in the 4xx format, we know the request was not successful. *Unprocessable Entity* is a cryptic way of saying the request was invalid in a way that prevented the server from working with it. This is often caused by a *validation error*.
+* The **body** is in JSON format, but instead of being the representation of a product, it is an error message. The `message` string contains an explicit list of problems with the request: `name is missing, sku is missing, sku is invalid, price is missing`.
 
 To address this type of error, simply provide valid values for all required parameters.
 
@@ -1199,9 +1211,9 @@ Via: 1.1 vegur
 
 There are a few common causes for this type of error when working with APIs:
 
-- The resource might not actually exist. It could have been deleted or perhaps it was never there in the first place. Verify that any parameters in the request are correct, especially identifiers.
-- The URL could be incorrect. APIs can have a variety of different URL schemes, from the simple and short to the long and complex. Be sure to look in the documentation for the API you are working with to see what hosts and paths to use. Keep in mind that services with different environments for testing and production will often have a unique URL for each environment.
-- Accessing the requested resource may require authentication. In an ideal world, these errors would use a more accurate HTTP status code of 401 or 403, but for security reasons, it is sometimes better to only expose the existence of a resource to those who are authorized to access it.
+* The resource might not actually exist. It could have been deleted or perhaps it was never there in the first place. Verify that any parameters in the request are correct, especially identifiers.
+* The URL could be incorrect. APIs can have a variety of different URL schemes, from the simple and short to the long and complex. Be sure to look in the documentation for the API you are working with to see what hosts and paths to use. Keep in mind that services with different environments for testing and production will often have a unique URL for each environment.
+* Accessing the requested resource may require authentication. In an ideal world, these errors would use a more accurate HTTP status code of 401 or 403, but for security reasons, it is sometimes better to only expose the existence of a resource to those who are authorized to access it.
 
 #### Authentication
 
@@ -1251,8 +1263,8 @@ Via: 1.1 vegur
 
 The request begins with the first line of output and continues until `HTTP/1.1 201` Created, which is the first line of the response. There are a few things about the request worth noting:
 
-- The **Content-Type** is *application/json; charset=utf-8*. This means that parameters will be sent in JSON format and all text will use the *UTF-8 encoding*.
-- The body is indeed represented in JSON.
+* The **Content-Type** is *application/json; charset=utf-8*. This means that parameters will be sent in JSON format and all text will use the *UTF-8 encoding*.
+* The body is indeed represented in JSON.
 
 Some APIs will expect parameters to be provided in other formats, and some are flexible enough to accept parameters in more than one format. This is what happens when the wrong media type is used in a request:
 
@@ -1297,18 +1309,18 @@ When encountering these rate-limiting errors, it is often enough to simply perfo
 
 The errors we've looked at so far are all in the format 4xx, and they can all be described at a high level as *client errors*. They are the result of the client doing something in a way that is incompatible with the server. It is also possible for errors to occur on the server that are not a direct result of anything a client does. These errors will be in the format *5xx*, and have many potential causes, such as:
 
-- A bug or oversight in the server implementation. Sometimes these can result from the correct and intended usage of an API.
-- A hardware or other infrastructure problem with the remote system.
-- Any other error that was not foreseen by the remote server implementors.
-- Some APIs even return 5xx errors when a specific client error would be more accurate and useful.
+* A bug or oversight in the server implementation. Sometimes these can result from the correct and intended usage of an API.
+* A hardware or other infrastructure problem with the remote system.
+* Any other error that was not foreseen by the remote server implementors.
+* Some APIs even return 5xx errors when a specific client error would be more accurate and useful.
 
 Unlike client errors, resolving a server error is usually not useful as an API consumer. Since server errors can be intermittent, simply retrying the request after a bit of time is often worth attempting. If the server errors continue, though, it is best to stop making requests until the remote system has been fixed. Continuing to make requests to a remote system returning errors can worsen many problems and should be avoided.
 
 ### Creating Resources Summary
 
-- Resources can be created with POST requests.
-- Requests should include all required parameters and use the proper media type.
-- Responses to failed requests will often contain information about the cause of the failure.
+* Resources can be created with POST requests.
+* Requests should include all required parameters and use the proper media type.
+* Responses to failed requests will often contain information about the cause of the failure.
 
 ## More HTTP Methods
 
@@ -1365,8 +1377,8 @@ Via: 1.1 vegur
 
 It looks like the product that needs to be updated has an `id` of `40`. Making a change to this product is going to be very similar to creating a product, with two main differences:
 
-- Using *PUT* as the HTTP method instead of POST
-- Using the product's path instead of the product collection path (e.g. */products/1* instead of */products*)
+* Using *PUT* as the HTTP method instead of POST
+* Using the product's path instead of the product collection path (e.g. */products/1* instead of */products*)
 
 **PUT** is the correct HTTP method for updating the value of a resource and sending all of its values back to the server. PUT tells the server to *put this resource in this place*. According to the HTTP spec, PUT requests must take a complete representation of the resource being updated. This means that if a parameter was required to create the resource, it is required to be sent in any PUT requests modifying that resource. This also means that any parameter left out of a PUT request is assumed to have an empty value (usually null or nil). Most APIs don't strictly follow this requirement, however, and provide a much simpler behavior by updating any parameters sent in a PUT request, and not modifying any other parameters that are already on the resource. This is technically the behavior of another HTTP method, PATCH, which we won't get into in this book as it is new and not yet widely used.
 
@@ -1473,7 +1485,41 @@ It looks like the product is gone, which is exactly what we would expect.
 
 ### More HTTP Methods Summary
 
-- Use HTTP method **PUT** to update resources.
-- Use HTTP method **DELETE** to delete resources.
+* Use HTTP method **PUT** to update resources.
+* Use HTTP method **DELETE** to delete resources.
 
 Now that we've gone over what web APIs do and how they operate, it is time to apply these concepts to a real API.
+
+## Twitter API
+
+### Our Goal
+
+This is the first tweet currently available on Twitter, authored by Twitter co-founder Jack Dorsey:
+
+![first-tweet](tealeaf-chrome-first-tweet.png)
+
+Twitter's API is used by thousands of applications today, and it was one of the earliest popular services to provide an API for use by other applications. Let's see what is required to fetch the above tweet using this API.
+
+### Reading Documentation
+
+The first step of working with any API is collecting a few pieces of information:
+
+* What *protocol*, *host* and *path* (basically, what URL) will provide access to appropriate resource?
+* What parameters do I need to include in the request?
+* Is authentication required?
+
+In order to answer these questions, we'll start by browsing the [official Twitter API documentation](https://developer.twitter.com/en/docs). The left sidebar lists a few introductory sections and then a list of paths, one for each operation that can be performed. Clicking each of these paths will load a page containing more information about that resource, including the location of the resource and any requirements for interacting with it.
+
+### Gaining Access
+
+### What is OAuth?
+
+### Setting Up a Twitter Application
+
+### Fetching a Tweet
+
+### Posting a Tweet
+
+### Twitter API and REST
+
+### Exercises
