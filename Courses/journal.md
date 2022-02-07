@@ -5417,3 +5417,5 @@ console.log(result); // true
 05:57 It's Monday morning before a study session with Alex.
 
 07:28 Alex seems to find simpler more clear ways to write code than other people.
+
+08:55 Practice, practice, practice!

@@ -1,4 +1,4 @@
-/* 06:03 starting without Alex 
+/* 06:03 starting without Alex
 
 /* 1180. Count Substrings with Only One Distinct Letter
 
@@ -17,7 +17,7 @@ So the answer is 1 + 2 + 4 + 1 = 8
 Constraints:
   1 <= s.length <= 1000
   s[i] consists of only lowercase English letters.
-  
+
 Problem
 - input string
 - output number
@@ -27,10 +27,10 @@ Rules
 
 Algorithm
 - declare function `countLetters` with the parameter `string`
-- init `count` to 0 
+- init `count` to 0
 - get all substrings from string helper function
 - iterate through substrings array
-  - if every char in substring is equal to the char at idx 0 
+  - if every char in substring is equal to the char at idx 0
     - increment count
 - return `count`
 
@@ -80,7 +80,7 @@ Algorithm
 // console.log(countLetters('aab')); // 4
 // console.log(countLetters('aaaa')); // 10    1 + 2 + 3 + 4
 // console.log(countLetters('aaaba')); // 8
-// console.log(countLetters('aaaaaaaaaa')); // 55*/
+// console.log(countLetters('aaaaaaaaaa')); // 55
 
 
 // function countLetters(string) {
@@ -133,18 +133,19 @@ ALGO
 -if count = 0, return -1
 - return count */
 
-function countSubstring (str, substr) {
-  if (!substr) return -1;
-  if (str.length === 0) return 0;
+function countSubstring(string, substring) {
+  if (string.length === 0) return 0;
+  if (!substring) return -1;
+
   let count = 0;
 
-  for (let idx = 0; idx < str.length; idx++) {
-    if (str.slice(idx, idx + substr.length) === substr) {
+  for (let idx = 0; idx < string.length; idx++) {
+    if (string.slice(idx, idx + substring.length) === substring) {
       count += 1;
-      idx += substr.length;
+      idx += substring.length;
     }
   }
-  if (count === 0) return -1;
+
   return count;
 }
 
