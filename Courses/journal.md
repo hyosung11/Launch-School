@@ -5409,3 +5409,5 @@ console.log(result); // true
 12:42 Break for lunch and then a study group a 1:00 PM
 
 15:12 After the study group with Allison. She was great. Tired right now. I think we're going to get ice cream soon.
+
+18:56 Studying APIs more after dinner. I fell asleep and took a nap before dinner. Lots of sleeping this Sunday.

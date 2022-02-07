@@ -1309,3 +1309,171 @@ Unlike client errors, resolving a server error is usually not useful as an API c
 - Resources can be created with POST requests.
 - Requests should include all required parameters and use the proper media type.
 - Responses to failed requests will often contain information about the cause of the failure.
+
+## More HTTP Methods
+
+### Updating a Resource
+
+Now that we've worked through fetching and creating products, it's time to cover making changes to a product that already exists. Suppose we have just found out the price for one of the products in the system (*Purple Pen 2.0*) is too low. We need to update this product's price to $1.50. While we're at it, we need to also change the name to be more eye catching to drive up sales.
+
+Let's take a look at the current state of that product and see what we need to change. We could look back to see what the `id` of that product is by scrolling back in the terminal (or going back a few pages in this book), but it is just as easy to fetch all of the products and take a look at what is there. On a system with a lot of data this wouldn't be practical, but it will be fine in this case since the web store only has a handful of products.
+
+```sh
+✗ http GET book-example.herokuapp.com/v1/products
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 1820
+Content-Type: application/json
+Date: Mon, 07 Feb 2022 00:02:12 GMT
+Server: Cowboy
+Status: 200 OK
+Via: 1.1 vegur
+
+[
+    {
+        "id": 13,
+        "name": "Ipad",
+        "price": 900,
+        "sku": "Electronics"
+    },
+    {
+        "id": 40,
+        "name": "Purple Pen 2.0",
+        "price": 100,
+        "sku": "purp1001"
+    },
+    {
+        "id": 1,
+        "name": "Purple Pencil",
+        "price": 175,
+        "sku": "newc123"
+    },
+    {
+        "id": 47,
+        "name": "Ahbba Pen",
+        "price": 111,
+        "sku": "ahbba100"
+    },
+    {
+        "id": 48,
+        "name": "Ahbba Pen",
+        "price": 111,
+        "sku": "Ahbba100"
+    }
+]
+```
+
+It looks like the product that needs to be updated has an `id` of `40`. Making a change to this product is going to be very similar to creating a product, with two main differences:
+
+- Using *PUT* as the HTTP method instead of POST
+- Using the product's path instead of the product collection path (e.g. */products/1* instead of */products*)
+
+**PUT** is the correct HTTP method for updating the value of a resource and sending all of its values back to the server. PUT tells the server to *put this resource in this place*. According to the HTTP spec, PUT requests must take a complete representation of the resource being updated. This means that if a parameter was required to create the resource, it is required to be sent in any PUT requests modifying that resource. This also means that any parameter left out of a PUT request is assumed to have an empty value (usually null or nil). Most APIs don't strictly follow this requirement, however, and provide a much simpler behavior by updating any parameters sent in a PUT request, and not modifying any other parameters that are already on the resource. This is technically the behavior of another HTTP method, PATCH, which we won't get into in this book as it is new and not yet widely used.
+
+The web store follows the PUT convention of *not requiring all parameters to be sent when updating a product*. Let's take advantage of this and update just the price of the product. A product's price is represented in cents, so instead of sending a value of `1.50`, we will use `150`:
+
+```sh
+✗ http -a admin:password PUT book-example.herokuapp.com/v1/products/40 price=150 
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 62
+Content-Type: application/json
+Date: Mon, 07 Feb 2022 00:10:26 GMT
+Server: Cowboy
+Status: 200 OK
+Via: 1.1 vegur
+
+{
+    "id": 40,
+    "name": "Purple Pen 2.0",
+    "price": 150,
+    "sku": "purp1001"
+}
+```
+
+We can see from the response that the `name` and `sku` of the product remain unchanged and the `price` has been updated to `150`. Multiple values can be changed at once by sending them at the same time:
+
+```sh
+✗ http -a admin:password PUT book-example.herokuapp.com/v1/products/40 name="New and Improved Purple Pen" sku="newp100"
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 74
+Content-Type: application/json
+Date: Mon, 07 Feb 2022 00:12:43 GMT
+Server: Cowboy
+Status: 200 OK
+Via: 1.1 vegur
+
+{
+    "id": 40,
+    "name": "New and Improved Purple Pen",
+    "price": 150,
+    "sku": "newp100"
+}
+```
+
+Fetching the product shows that the new values we have sent to the server have been stored successfully:
+
+```sh
+✗ http book-example.herokuapp.com/v1/products/40
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 74
+Content-Type: application/json
+Date: Mon, 07 Feb 2022 00:13:54 GMT
+Server: Cowboy
+Status: 200 OK
+Via: 1.1 vegur
+
+{
+    "id": 40,
+    "name": "New and Improved Purple Pen",
+    "price": 150,
+    "sku": "newp100"
+}
+```
+
+### Deleting a Resource
+
+Now that the updates have been made to the `New and Improved Purple Pen`, it is time to remove the older product `Purple Pen` from our system. Deleting a resource is very similar to fetching a resource, with one difference: Using the **DELETE** HTTP method instead of *GET*. Otherwise, everything else should look very familiar. On the web store API, delete requests need to be authenticated, so those arguments to `http` should be included:
+
+```sh
+✗ http -a admin:password DELETE book-example.herokuapp.com/v1/products/47
+HTTP/1.1 204 No Content
+Connection: keep-alive
+Content-Length: 0
+Date: Mon, 07 Feb 2022 00:18:18 GMT
+Server: Cowboy
+Status: 204 No Content
+Via: 1.1 vegur
+```
+
+`204 No Content` is in the format 2xx, which means the request was processed successfully. `204 No Content` is commonly used when it doesn't make sense to return anything in the response body, and deleting a resource is one such case. If there is no longer a resource at the path being accessed, there isn't anything to send back.
+
+Although we have no reason not to trust the web store API, we can attempt to fetch the product that was just deleted to see if there is still a resource at its path:
+
+```sh
+✗ http book-example.herokuapp.com/v1/products/47
+HTTP/1.1 404 Not Found
+Connection: keep-alive
+Content-Length: 76
+Content-Type: application/json
+Date: Mon, 07 Feb 2022 00:20:23 GMT
+Server: Cowboy
+Status: 404 Not Found
+Via: 1.1 vegur
+
+{
+    "message": "Couldn't find WebStore::Product with 'id'=47",
+    "status_code": 404
+}
+```
+
+It looks like the product is gone, which is exactly what we would expect.
+
+### More HTTP Methods Summary
+
+- Use HTTP method **PUT** to update resources.
+- Use HTTP method **DELETE** to delete resources.
+
+Now that we've gone over what web APIs do and how they operate, it is time to apply these concepts to a real API.
