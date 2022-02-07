@@ -1,4 +1,4 @@
-# Methods, Properties Plus for Interview Assessment
+# Interview Assessment Methods Plus
 
 ## Arrays
 
@@ -234,11 +234,11 @@ map(function(element, index, array) { /* ... */ }, thisArg)
 
 ### Array.prototype.pop()
 
-The pop() method removes the **last** element from an array and returns that element. This method changes the length of the array.
+The `pop()` method removes the **last** element from an array and returns that element. This method changes the length of the array.
 
 ### Array.prototype.push()
 
-The push() method adds one or more elements to the **end** of an array and *returns the new length of the array*.
+The `push()` method adds one or more elements to the **end** of an array and *returns the new length of the array*.
 
 ```js
 push(element0)
@@ -248,7 +248,7 @@ push(element0, element1, /* ... ,*/ elementN)
 
 ### Array.prototype.reduce()
 
-The reduce() method executes a user-supplied “reducer” callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a **single value**.
+The `reduce()` method executes a user-supplied “reducer” callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a **single value**.
 
 The first time that the callback is run there is no "return value of the previous calculation". If supplied, an initial value may be used in its place. Otherwise array element 0 is used as the initial value and iteration starts from the next element (index 1 instead of index 0).
 
@@ -435,7 +435,9 @@ for (const element of array1) {
 
 ## Math
 
+### Math.abs()
 
+The `Math.abs()` function returns the absolute value of a number. That is, it returns `x` if `x` is positive or zero, and the negation of `x` if `x` is negative.
 
 ## Numbers
 
