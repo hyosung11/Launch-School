@@ -439,6 +439,74 @@ for (const element of array1) {
 
 The `Math.abs()` function returns the absolute value of a number. That is, it returns `x` if `x` is positive or zero, and the negation of `x` if `x` is negative.
 
+### Math.ceil()
+
+The `Math.ceil()` function always rounds a number up to the next largest integer.
+
+Note: `Math.ceil(null)` returns integer 0 and does not give a `NaN` error.
+
+### Math.floor()
+
+The `Math.floor()` function returns the largest integer less than or equal to a given number.
+
+### Math.max()
+
+The `Math.max()` function returns the largest of the zero or more numbers given as input parameters, or `NaN` if any parameter isn't a number and can't be converted into one.
+
+```js
+Math.max()
+Math.max(value0)
+Math.max(value0, value1)
+Math.max(value0, value1, /* ... ,*/ valueN)
+```
+
+### Math.min()
+
+The static function `Math.min()` returns the lowest-valued number passed into it, or `NaN` if any parameter isn't a number and can't be converted into one.
+
+```js
+Math.min()
+Math.min(value0)
+Math.min(value0, value1)
+Math.min(value0, value1, ... , valueN)
+```
+
+### Math.pow()
+
+The `Math.pow()` static method, given two arguments, *base* and *exponent*, returns `base` to `exponent`.
+
+`Math.pow(base, exponent)`
+
+### Math.random()
+
+The `Math.random()` function returns a floating-point, pseudo-random number in the range 0 to less than 1 (inclusive of 0, but not 1) with approximately uniform distribution over that range — which you can then scale to your desired range. The implementation selects the initial seed to the random number generation algorithm; it cannot be chosen or reset by the user.
+
+### Math.round()
+
+The `Math.round()` function returns the value of a number *rounded to the nearest integer*.
+
+### Math.sign()
+
+The `Math.sign()` function returns either a **positive** or **negative** +/- 1, indicating the sign of a number passed into the argument. If the number passed into `Math.sign()` is 0, it will return a +/- 0. Note that *if the number is positive, an explicit (+) will not be returned*.
+
+```js
+console.log(Math.sign(3));
+// expected output: 1
+
+console.log(Math.sign(-3));
+// expected output: -1
+
+console.log(Math.sign(0));
+// expected output: 0
+
+console.log(Math.sign('-3'));
+// expected output: -1
+```
+
+### Math.sqrt()
+
+The `Math.sqrt()` function returns the square root of a number.
+
 ## Numbers
 
 

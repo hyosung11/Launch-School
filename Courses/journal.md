@@ -5421,3 +5421,5 @@ console.log(result); // true
 08:55 Practice, practice, practice!
 
 10:56 Got stuck on a problem that Laurent gave me. He's patient with me. I think I figured it out by reverse-engineering the problem.
+
+18:28 Is there nothing prior to this in my notes today? After dinner back to my list of methods.
