@@ -71,7 +71,7 @@ Output: false
 Example 3:
 Input: arr = [-3,0,1,-3,1,1,1,-3,10,0]
 Output: true
- 
+
 Constraints:
 
 1 <= arr.length <= 1000
@@ -98,17 +98,18 @@ Algo
 - return true
 */
 
-function uniqueOccurrences(array) {
-  let count = {};
+// doesn't work for all test cases
+// function uniqueOccurrences(array) {
+//   let count = {};
 
-  array.forEach((num) => {
-    count[num] = count[num] + 1 || 1;
-  });
+//   array.forEach((num) => {
+//     count[num] = count[num] + 1 || 1;
+//   });
 
-  if (Object.values(count).every((item, _, array) => item === array[0])) return false;
+//   if (Object.values(count).every((item, _, array) => item === array[0])) return false;
 
-  return true;
-}
+//   return true;
+// }
 
 function uniqueOccurrences(array) {
   let result = {};

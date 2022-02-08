@@ -5439,3 +5439,5 @@ console.log(result); // true
 12:55 Get ready for the ChurnZero interview.
 
 15:39 After the ChurnZero interview before study session with Allison.
+
+18:49 My study session with Allison lasted almost two hours. It felt painful to struggle through the problems. Still so fuzzy with how things work.
