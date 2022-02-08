@@ -842,3 +842,134 @@ items.sort( (a, b) => a.localeCompare(b, 'fr', {ignorePunctuation: true}));
 
 The `match(regexp)` method retrieves the result of matching a string against a regular expression. The return value is an Array whose contents depend on the presence or absence of the global (g) flag, or null if no matches are found.
 
+### String.prototype.matchAll()
+
+The `matchAll(regexp)` method returns an iterator of all results matching a string against a regular expression, including capturing groups.
+
+### String.prototype.padEnd()
+
+The `padEnd()` method pads the current string with a given string (repeated, if needed) so that the resulting string reaches a given length. The padding is applied from the end of the current string.
+
+```js
+padEnd(targetLength)
+padEnd(targetLength, padString)
+
+// Examples
+'abc'.padEnd(10);          // "abc       "
+'abc'.padEnd(10, "foo");   // "abcfoofoof"
+'abc'.padEnd(6, "123456"); // "abc123"
+'abc'.padEnd(1);           // "abc"
+```
+
+### String.prototype.padStart()
+
+The `padStart()` method pads the current string with another string (multiple times, if needed) until the resulting string reaches the given length. The padding is applied from the start of the current string.
+
+```js
+padStart(targetLength)
+padStart(targetLength, padString)
+
+'abc'.padStart(10);         // "       abc"
+'abc'.padStart(10, "foo");  // "foofoofabc"
+'abc'.padStart(6,"123465"); // "123abc"
+'abc'.padStart(8, "0");     // "00000abc"
+'abc'.padStart(1);          // "abc"
+```
+
+### String.prototype.repeat()
+
+The `repeat(count)` method constructs and returns a new string which contains the specified number of copies of the string on which it was called, concatenated together.
+
+### String.prototype.replace()
+
+The `replace()` method returns a new string with some or all matches of a `pattern` replaced by a `replacement`. The `pattern` can be a string or a `RegExp`, and the `replacement` can be a string or a function to be called for each match. If `pattern` is a string, only the first occurrence will be replaced. The original string is left unchanged.
+
+```js
+replace(regexp, newSubstr)
+replace(regexp, replacerFunction)
+
+replace(substr, newSubstr)
+replace(substr, replacerFunction)
+
+// Example
+// In the following example, the regular expression is defined in replace() and includes the ignore case flag. 
+let str = 'Twas the night before Xmas...';
+let newstr = str.replace(/xmas/i, 'Christmas');
+console.log(newstr);  // Twas the night before Christmas...
+```
+
+### String.prototype.replaceAll()
+
+The `replaceAll()` method returns a new string with all matches of a `pattern` replaced by a `replacement`. The `pattern` can be a string or a `RegExp`, and the `replacement` can be a string or a function to be called for each match. The original string is left unchanged.
+
+```js
+replaceAll(regexp, newSubstr)
+replaceAll(regexp, replacerFunction)
+
+replaceAll(substr, newSubstr)
+replaceAll(substr, replacerFunction)
+
+// Example
+'aabbcc'.replaceAll('b', '.');
+// 'aa..cc'
+```
+
+### String.prototype.search()
+
+The `search(regexp)` method executes a search for a match between a regular expression and this `String` object. The return value is the index of the first match between the regular expression and the given string, or `-1` if no match was found.
+
+```js
+let str = "hey JudE"
+let re = /[A-Z]/g
+let reDot = /[.]/g
+console.log(str.search(re))    // returns 4, which is the index of the first capital letter "J"
+console.log(str.search(reDot)) // returns -1 cannot find '.' dot punctuation
+```
+
+### String.prototype.slice()
+
+The `slice(beginIndex, endIndex)` method extracts a section of a string and returns it as a new string, without modifying the original string.
+
+### String.prototype.split()
+
+The `split()` method divides a `String` into an ordered list of substrings, puts these substrings into an array, and returns the array. The division is done by searching for a pattern; where the pattern is provided as the first parameter in the method's call.
+
+```js
+split()
+split(separator)
+split(separator, limit)
+```
+
+### String.prototype.startsWith()
+
+The `startsWith(searchString, position = 0)` method determines whether a string begins with the characters of a specified string, returning `true` or `false` as appropriate.
+
+### String.prototype.substring()
+
+The `substring(indexStart, indexEnd)` method returns the part of the `string` between the start and end indexes, or to the end of the string.
+
+### String.prototype.toLowerCase()
+
+The `toLowerCase()` method returns the calling string value converted to lower case.
+
+### String.prototype.toString()
+
+The `toString()` method returns a string representing the specified object.
+
+### String.prototype.toUpperCase()
+
+The `toUpperCase()` method returns the calling string value converted to uppercase (the value will be converted to a string if it isn't one).
+
+### String.prototype.trim()
+
+The `trim()` method *removes whitespace from both ends of a string* and returns a new string, without modifying the original string. Whitespace in this context is all the whitespace characters (space, tab, no-break space, etc.) and all the line terminator characters (LF, CR, etc.).
+
+### String.prototype.trimStart()
+
+The `trimStart()` method removes whitespace from the beginning of a string. `trimLeft()` is an alias of this method.
+
+### String.prototype.trimEnd()
+
+The `trimEnd()` method removes whitespace from the end of a string. `trimRight()` is an alias of this method.
+
+End
