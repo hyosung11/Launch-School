@@ -660,7 +660,7 @@ The `Object.values()` method returns an **array** of a given object's own enumer
 
 ## Regular Expressions
 
-![JavaScript-Regex-Cheatsheet](Courses/JS109/Interview/JavaScript-Regex-Cheatsheet.pdf)
+![JavaScript-Regex-Cheatsheet](/Users/hyosung11/Launch-School/Courses/JS109/Interview/JavaScript-Regex-Cheatsheet.pdf)
 
 ### Creating a regular expression
 
