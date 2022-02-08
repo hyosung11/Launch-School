@@ -509,6 +509,33 @@ The `Math.sqrt()` function returns the square root of a number.
 
 ## Numbers
 
+### Number.MAX_SAFE_INTEGER
+
+The `Number.MAX_SAFE_INTEGER` constant represents the maximum safe integer in JavaScript (2^53 - 1).
+
+### Number.NaN
+
+The `Number.NaN` property represents Not-A-Number. Equivalent of `NaN`.
+
+### Number.isInteger()
+
+The `Number.isInteger(value)` method determines whether the passed value is an integer.
+
+### Number.isNaN()
+
+The `Number.isNaN(value)` method determines whether the passed value is `NaN` and its type is `Number`. It is a more robust version of the original, global isNaN().
+
+### Number.parseFloat()
+
+The `Number.parseFloat(string)` method parses an argument and *returns a floating point number*. If a number cannot be parsed from the argument, it returns `NaN`.
+
+### Number.parseInt()
+
+The `Number.parseInt(string, radix)` method parses a string argument and returns an integer of the specified radix or base.
+
+### Number.prototype.toFixed()
+
+The `toFixed(digits)` method formats a number using fixed-point notation and returns it as a string.
 
 ## Objects
 
@@ -631,8 +658,14 @@ The `Object.keys()` method returns an **array** of a given object's own enumerab
 
 The `Object.values()` method returns an **array** of a given object's own enumerable property **values**, in the same order as that provided by a `for...in` loop. (The only difference is that a `for...in` loop enumerates properties in the prototype chain as well.)
 
-
-
 ## Regular Expressions
+
+![JavaScript-Regex-Cheatsheet](/JavaScript-Regex-Cheatsheet.pdf)
+
+### Creating a regular expression
+
+`const re = /ab+c/;`
+
+`const re = new RegExp('ab+c');`
 
 ## Strings
