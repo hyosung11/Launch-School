@@ -13,8 +13,8 @@ The test cases are generated so that a unique mapping will always exist.
 12:55 end 
 */
 
-console.log(freqAlphabets("10#11#12"));  // "jkab"
-console.log(freqAlphabets("1326#"));  // "acz"
+// console.log(freqAlphabets("10#11#12"));  // "jkab"
+// console.log(freqAlphabets("1326#"));  // "acz"
 
 /* 1309. Decrypt String from Alphabet to Integer Mapping
 
@@ -115,7 +115,7 @@ For example 99 will have "weight" 18, 100 will have "weight" 1 so in the list 10
 Given a string with the weights of FFC members in normal order can you give this string ordered by "weights" of these numbers?
 Example:
 
-"56 65 74 100 99 68 86 180 90" ordered by numbers weights becomes: 
+"56 65 74 100 99 68 86 180 90" ordered by numbers weights becomes:
 
 "100 180 90 56 65 74 68 86 99"
 
@@ -154,6 +154,42 @@ Algorithm:
     add numbers together
 */
 
+// function orderWeight(string) {
+//   let array = string.split(' ').sort()
+//   array.sort((a, b) => {
+//     if (sumOf(a) - sumOf(b) === 0) {
+//       return a - b;
+//     } else {
+//       return sumOf(a) - sumOf(b);
+//     }
+//   });
+
+//   return array.join(' ');
+// }
+
+function orderWeight(string) {
+  let array = string.split(' ').sort();
+
+  array.sort((a, b) => sumOf(a) - sumOf(b));
+    console.log(array);
+  return array.join(' ');
+}
+
+function sumOf(string) {
+  return string
+    .split('')
+    .reduce((sum, num) => sum + Number(num), 0);
+}
+
 // Test cases:
-console.log(orderWeight("103 123 4444 99 2000") === "2000 103 123 4444 99");
-console.log(orderWeight("2000 10003 1234000 44444444 9999 11 11 22 123") === "11 11 2000 10003 22 123 1234000 44444444 9999");
+// console.log(orderWeight("103 123 4444 99 2000") === "2000 103 123 4444 99");
+// console.log(orderWeight("2000 10003 1234000 44444444 9999 11 11 22 123") === "11 11 2000 10003 22 123 1234000 44444444 9999");
+console.log(
+  orderWeight(
+    '1 2 200 4 4 6 6 7 7 27 18 81 9 72 91 425 31064 7920 67407 96488 34608557 71899703'
+  ) ===
+    '1 2 200 4 4 6 6 7 7 18 27 72 81 9 91 425 31064 7920 67407 96488 34608557 71899703'
+);
+// expected '1 2 200 4 4 6 6 7 7 27 18 81 9 72 91 425 31064 7920 67407 96488 34608557 71899703'
+// to equal '1 2 200 4 4 6 6 7 7 18 27 72 81 9 91 425 31064 7920 67407 96488 34608557 71899703'
+

@@ -5412,7 +5412,7 @@ console.log(result); // true
 
 18:56 Studying APIs more after dinner. I fell asleep and took a nap before dinner. Lots of sleeping this Sunday.
 
-## 2022020 월요일
+## 20220207 월요일
 
 05:57 It's Monday morning before a study session with Alex.
 
@@ -5429,3 +5429,9 @@ console.log(result); // true
 21:27 Took personality test. Orchestrator!
 
 21:59 Practice problems and go to sleep now.
+
+## 20220208 화요일
+
+06:00 Time for study session with Alex.
+
+08:43 Alex did well in the study session this morning, but the first solution doesn't work on all Codewars test cases.
