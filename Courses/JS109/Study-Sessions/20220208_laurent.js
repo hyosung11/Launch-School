@@ -110,26 +110,26 @@ function uniqueOccurrences(array) {
   return true;
 }
 
-// function uniqueOccurrences(array) {
-//   let result = {};
+function uniqueOccurrences(array) {
+  let result = {};
 
-//   array.forEach((num) => {
-//     result[num] = result[num] + 1 || 1;
-//   });
+  array.forEach((num) => {
+    result[num] = result[num] + 1 || 1;
+  });
 
-//   let uniqueValues = [];
+  let uniqueValues = [];
 
-//   let values = Object.values(result);
+  let values = Object.values(result);
 
-//   for (let value of values) {
-//     if (!uniqueValues.includes(value)) {
-//       uniqueValues.push(value);
-//     } else {
-//       return false;
-//     }
-//   }
-//   return true;
-// }
+  for (let value of values) {
+    if (!uniqueValues.includes(value)) {
+      uniqueValues.push(value);
+    } else {
+      return false;
+    }
+  }
+  return true;
+}
 
 console.log(uniqueOccurrences([1, 2]) === false)
 console.log(uniqueOccurrences([1, 2, 2, 1, 1, 3]) === true)
