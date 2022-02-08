@@ -668,4 +668,122 @@ The `Object.values()` method returns an **array** of a given object's own enumer
 
 `const re = new RegExp('ab+c');`
 
+### Using regular expressions
+
+Regular expressions are used with the `RegExp` methods `test()` and `exec()` and with the `String` methods `match()`, `replace()`, `search()`, and `split()`.
+
+**Method**  | **Description**
+--------|------------
+`exec()`  | Executes a search for a match in a string. It returns an array of information or `null` on a mismatch.
+`test()`  | Tests for a match in a string. It returns `true` or `false`.
+match()  | Returns an array containing all of the matches, including capturing groups, or `null` if no match is found.
+`matchAll()`  | Returns an iterator containing all of the matches, including capturing groups.
+search()  | Tests for a match in a string. It returns the index of the match, or -1 if the search fails.
+`replace()`  | Executes a search for a match in a string, and replaces the matched substring with a replacement substring.
+`replaceAll()`  | Executes a search for all matches in a string, and replaces the matched substrings with a replacement substring.
+`split()`  | Uses a regular expression or a fixed string to break a string into an array of substrings.
+
 ## Strings
+
+### String length
+
+The `length` property of a `String` object contains the length of the string, in UTF-16 code units. length is a read-only data property of string instances.
+
+### String.prototype.at()
+
+The `at(index)` method takes an integer value and returns a new `String` consisting of the **single** UTF-16 code unit located at the specified offset. This method allows for positive and negative integers. Negative integers count back from the last string character.
+
+```js
+const myString = 'Every green bus drives fast.';
+
+// Using length property and charAt() method
+const lengthWay = myString.charAt(myString.length-2);
+console.log(lengthWay); // Logs: 't'
+
+// Using slice() method
+const sliceWay = myString.slice(-2, -1);
+console.log(sliceWay); // Logs: 't'
+
+// Using at() method
+const atWay = myString.at(-2);
+console.log(atWay); // Logs: 't'
+```
+
+### String.prototype.charAt()
+
+The String object's `charAt(index)` method returns a new string consisting of the **single** UTF-16 code unit located at the specified offset into the string. If `index` is out of range, `charAt()` returns an empty string.
+
+### String.prototype.charCodeAt()
+
+The `charCodeAt(index)` method returns an **integer** between 0 and 65535 representing the UTF-16 code unit at the given index.
+
+### String.prototype.codePointAt()
+
+The `codePointAt(pos)` method returns a non-negative integer that is the Unicode code point value at the given position.
+
+### String.prototype.concat()
+
+The `concat()` method concatenates the string arguments to the calling string and returns a new string.
+
+```js
+// Syntax
+concat(str1)
+concat(str1, str2)
+concat(str1, str2, ... , strN)
+
+// Examples
+const str1 = 'Hello';
+const str2 = 'World';
+
+console.log(str1.concat(' ', str2));
+// expected output: "Hello World"
+
+console.log(str2.concat(', ', str1));
+// expected output: "World, Hello"
+```
+
+### String.prototype.endsWith()
+
+The `endsWith()` method determines whether a string ends with the characters of a specified string, returning `true` or `false` as appropriate.
+
+```js
+endsWith(searchString)
+// length Optional
+// If provided, it is used as the length of str. Defaults to str.length.
+endsWith(searchString, length)
+```
+
+### String.fromCharCode()
+
+The static `String.fromCharCode()` method returns a string created from the specified sequence of UTF-16 code units. Because `fromCharCode()` is a static method of `String`, you always use it as `String.fromCharCode()`, rather than as a method of a `String` object you created.
+
+```js
+String.fromCharCode(num1)
+String.fromCharCode(num1, num2)
+String.fromCharCode(num1, num2, ..., numN)
+
+String.fromCharCode(65, 66, 67);   // returns "ABC"
+String.fromCharCode(0x2014);       // returns "—"
+String.fromCharCode(0x12014);      // also returns "—"; the digit 1 is truncated and ignored
+String.fromCharCode(8212);         // also returns "—"; 8212 is the decimal form of 0x2014
+```
+
+### String.fromCodePoint()
+
+The static `String.fromCodePoint()` method returns a string created by using the specified sequence of code points.
+
+```js
+// Syntax
+String.fromCodePoint(num1)
+String.fromCodePoint(num1, num2)
+String.fromCodePoint(num1, num2, ..., numN)
+
+// Examples
+String.fromCodePoint(42);       // "*"
+String.fromCodePoint(65, 90);   // "AZ"
+String.fromCodePoint(0x404);    // "\u0404" == "Є"
+String.fromCodePoint(0x2F804);  // "\uD87E\uDC04"
+String.fromCodePoint(194564);   // "\uD87E\uDC04"
+String.fromCodePoint(0x1D306, 0x61, 0x1D307); // "\uD834\uDF06a\uD834\uDF07"
+```
+
