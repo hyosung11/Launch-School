@@ -787,3 +787,58 @@ String.fromCodePoint(194564);   // "\uD87E\uDC04"
 String.fromCodePoint(0x1D306, 0x61, 0x1D307); // "\uD834\uDF06a\uD834\uDF07"
 ```
 
+### String.prototype.includes()
+
+The `includes()` method performs a case-sensitive search to determine whether one string may be found within another string, returning true or false as appropriate.
+
+```js
+includes(searchString)
+includes(searchString, position)
+```
+
+### String.prototype.indexOf()
+
+The `indexOf()` method, given one argument: a substring to search for, searches the entire calling string, and returns the index of the first occurrence of the specified substring. Given a second argument: a number, the method returns the first occurrence of the specified substring at an index greater than or equal to the specified number.
+
+```js
+indexOf(searchString)
+indexOf(searchString, position)
+```
+
+### String.prototype.lastIndexOf()
+
+The `lastIndexOf()` method, given one argument: a substring to search for, searches the entire calling string, and returns the index of the last occurrence of the specified substring. Given a second argument: a number, the method returns the last occurrence of the specified substring at an index less than or equal to the specified number.
+
+```js
+lastIndexOf(searchString)
+lastIndexOf(searchString, position)
+```
+
+### String.prototype.localeCompare()
+
+The `localeCompare()` method returns a **number** indicating whether a reference string comes before, or after, or is the same as the given string *in sort order*.
+
+```js
+localeCompare(compareString)
+localeCompare(compareString, locales)
+localeCompare(compareString, locales, options)
+
+// The letter "a" is before "c" yielding a negative value
+'a'.localeCompare('c'); // -2 or -1 (or some other negative value)
+
+// Alphabetically the word "check" comes after "against" yielding a positive value
+'check'.localeCompare('against'); // 2 or 1 (or some other positive value)
+
+// "a" and "a" are equivalent yielding a neutral value of zero
+'a'.localeCompare('a'); // 0
+
+// localeCompare() enables case-insensitive sorting for an array.
+let items = ['réservé', 'Premier', 'Cliché', 'communiqué', 'café', 'Adieu'];
+items.sort( (a, b) => a.localeCompare(b, 'fr', {ignorePunctuation: true}));
+// ['Adieu', 'café', 'Cliché', 'communiqué', 'Premier', 'réservé']
+```
+
+### String.prototype.match()
+
+The `match(regexp)` method retrieves the result of matching a string against a regular expression. The return value is an Array whose contents depend on the presence or absence of the global (g) flag, or null if no matches are found.
+
