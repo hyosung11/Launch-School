@@ -179,7 +179,7 @@ ALTERNATE ALGORITHM
       isolate the remainder of the string
       const remainder = text.split(i);
       // c
-      if the search string is part of the rest of the searchable string, 
+      if the search string is part of the rest of the searchable string,
         push the search string onto `foundStrings`
         jump to 'first found index' + the search-string's length iterations - 1.
         aaabbbcccc
@@ -187,27 +187,24 @@ ALTERNATE ALGORITHM
     end iteration
 
     return `foundStrings` length
-    
-    
     - find every substring in an array from input string
-    - filter based on given substring 
+    - filter based on given substring
 */
 
 
 
-function countSubstring(string, substring) {
-  let result = [];
-  
-  // const hello = 'hello'
-  // const splitHello = hello.split('ll');
-  // console.log(splitHello);
-  
-  const splitString = string.split(substring);
-  console.log(splitString);
-  // result.push(count); 
-  
-  return result;  
-}
+// function countSubstring(string, substring) {
+//   let result = [];
+
+//   // const hello = 'hello'
+//   // const splitHello = hello.split('ll');
+//   // console.log(splitHello);
+//   const splitString = string.split(substring);
+//   console.log(splitString);
+//   // result.push(count);
+
+//   return result;
+// }
 
 // Tests
 console.log(countSubstring2('aa_bb_cc_dd_bb_e_b', 'bb') === 2);
@@ -249,3 +246,18 @@ function countSubstring3(text, search) {
 
   return matches ? matches.length : 0;
 }
+
+function countSubstring(text, substring) {
+  if (text.length === 0) return 0;
+  if (!text || !substring) return -1;
+
+  return text.split(substring).length - 1;
+}
+
+console.log(countSubstring('', 'abbb') === 0);
+console.log(countSubstring('aaaaa', '') === -1);
+console.log(countSubstring('aaaaa') === -1);
+
+console.log(countSubstring('aa_bb_cc_dd_bb_e_b', 'bb') === 2);
+console.log(countSubstring('aaabbbcccc', 'ccc') === 1);
+console.log(countSubstring('bbAaaaA', 'Aa') === 1);

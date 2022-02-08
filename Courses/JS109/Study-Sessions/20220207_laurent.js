@@ -130,3 +130,21 @@ function freqAlphabets(string) {
 
   return result;
 }
+
+function freqAlphabets(string) {
+  let result = [];
+  let alphabet = '_abcdefghijklmnopqrstuvwxyz';
+
+  for (let idx = 0; idx < string.length; idx++) {
+    let digits = '';
+    if (string[idx + 2] === '#') {
+      digits += string[idx] + string[idx + 1];
+      result += alphabet[digits];
+      idx += digits.length;
+    } else {
+      result += alphabet[string[idx]];
+    }
+  }
+
+  return result;
+}

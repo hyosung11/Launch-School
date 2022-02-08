@@ -144,11 +144,11 @@ Algorithm:
     sort `arrayOfNumbers`
       if sumOf(a) - sumOf(b) === 0
         return a - b
-      else return sumOf(a) - sumbOf(b)
-    
+      else return sumOf(a) - sumOf(b)
+
     join 'arrayOfNumber'
-    
-  define `sumOf()` with the paramter `string`
+
+  define `sumOf()` with the parameter `string`
     split `string` into an `arrayOfChars`
     transform each `char` into a number
     add numbers together

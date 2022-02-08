@@ -111,8 +111,8 @@ Assume that both inputs will only be strings.
 Assume that all characters are important.
 Assume the searchable string will always be provided as an argument.
 Return `-1` if the search-string is empty or missing.
-Solve without using Regex. 
- 
+Solve without using Regex.
+
 PROBLEM
 in: str, substr
 out: num (occurrences of substr within str)

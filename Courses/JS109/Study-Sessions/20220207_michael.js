@@ -55,7 +55,6 @@ Algo
 */
 
 function stringTransformer(string) {
-
   return string
     .split(' ')
     .map(word => {
@@ -66,8 +65,8 @@ function stringTransformer(string) {
           return char.toUpperCase();
       }).join('')
   }).reverse().join(' ')
-  
 }
+
 console.log(stringTransformer('abcD eFgh')) // === 'EfGH ABCd');
 // console.log(stringTransformer("Example Input") === 'iNPUT eXAMPLE');
 // console.log(stringTransformer('Example string'))//, 'STRING eXAMPLE'));
