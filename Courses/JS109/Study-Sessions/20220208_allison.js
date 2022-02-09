@@ -70,11 +70,11 @@ Algo
 //   return ints.length === 0;
 // }
 
-// PROBLEM 02
-// Triple Double
-// Write a function that takes two integer numbers and returns whether `num1`
-// has consecutive triple digits of any number, and whether `num2` has consecutive
-// double digits of that same number. (I rewrote this poorly)
+/* PROBLEM 02
+Triple Double
+Write a function that takes two integer numbers and returns whether `num1`
+has consecutive triple digits of any number, and whether `num2` has consecutive
+double digits of that same number. */
 
 /*
   PROBLEM
@@ -130,11 +130,11 @@ Algo
 //   return false;
 // }
 
-// console.log(tripleDouble(451999277, 41177722899) === true); // 9 
-// console.log(tripleDouble(444555, 544) === true);  // 4
-// console.log(tripleDouble(12555, 544) === false);  // 5
-// console.log(tripleDouble(12345, 12345) === false); // no consecuctive triples
-// console.log(tripleDouble(10000, 10000) === true); // 0 is my consuctive triple
+// console.log(tripleDouble(451999277, 41177722899) === true);
+// console.log(tripleDouble(444555, 544) === true);
+// console.log(tripleDouble(12555, 544) === false);
+// console.log(tripleDouble(12345, 12345) === false);
+// console.log(tripleDouble(10000, 10000) === true);
 
 // PROBLEM 03
 // Write a function that takes an array of consecutive (increasing) 
