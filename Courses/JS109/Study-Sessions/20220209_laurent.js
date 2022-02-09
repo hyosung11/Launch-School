@@ -25,7 +25,7 @@ Explanation: The digits are replaced as follows:
 - s[3] -> shift('b',2) = 'd'
 - s[5] -> shift('c',3) = 'f'
 - s[7] -> shift('d',4) = 'h'
- 
+
 Constraints:
 1 <= s.length <= 100
 s consists only of lowercase English letters and digits.
@@ -43,11 +43,10 @@ Algo
 - init `alphabet` to 'a-z'
 - init `result` to '';
 - iterate through string
-  - if alphabet includes string[idx] 
+  - if alphabet includes string[idx]
     - increment `result` with string[idx]
-  - else if alphabet does not include string[idx] 
-    - increment `result` with the char at the index position
-      of the previous char plus the number
+  - else if alphabet does not include string[idx]
+    - increment `result` with the string[idx -1] plus the number
 - return `result`
 */
 
@@ -56,7 +55,7 @@ function replaceDigits(string) {
   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
   for (let idx = 0; idx < string.length; idx++) {
-    let char = string[idx]; // 'a', '1', 'c'
+    let char = string[idx];
     if (alphabet.includes(char)) {
       result += char;
     } else {
@@ -64,7 +63,6 @@ function replaceDigits(string) {
     }
   }
 
-  console.log(result);
   return result;
 }
 

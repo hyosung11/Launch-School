@@ -5445,3 +5445,9 @@ console.log(result); // true
 20:16 Pretty tired at the moment.
 
 20:35 Going to stop and watch Jeopardy.
+
+## 20220209 수요일
+
+10:34 After study session with Laurent where I still get confused about how to access values in an array or an object versus accessing indices.
+
+15:14 Advancing forward in both my current job prospects.
