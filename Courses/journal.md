@@ -5441,3 +5441,7 @@ console.log(result); // true
 15:39 After the ChurnZero interview before study session with Allison.
 
 18:49 My study session with Allison lasted almost two hours. It felt painful to struggle through the problems. Still so fuzzy with how things work.
+
+20:16 Pretty tired at the moment.
+
+20:35 Going to stop and watch Jeopardy.

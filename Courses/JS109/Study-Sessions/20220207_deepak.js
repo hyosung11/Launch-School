@@ -10,7 +10,7 @@ The test cases are generated so that a unique mapping will always exist.
 
 12:31 start for Deepak
 12:39 start coding
-12:55 end 
+12:55 end
 */
 
 // console.log(freqAlphabets("10#11#12"));  // "jkab"
@@ -29,47 +29,39 @@ The test cases are generated so that a unique mapping will always exist.
 Problem:
   Input: string
   Output: string
-  
+
 Algorithm:
   define `freqAlphabets()` with the paramter `string`
-    
+
     declare `splitStrings` and initialize it to `[]`
-    
+
     split `string` into an `arrayOfChars`
-    
+
     interate through `arrayOfChars`
-      
-      if `char === 1` 
+
+      if `char === 1`
         if string[i + 2] === #
           push string[i... i+ 2] into `splitStrings
           i += 3;
-          
+
       if `char === 2`
         if string[i + 2] === #
           push string[i... i+ 2] into `splitStrings
           i += 3;
-          
+
       push `string[i]` to `splitStrings`
-      
-      
-    
+
     Transform `splitString`  // ['10#', '11#', '1', '2']
       transform each `char` based on dictionary
-      
-    
+
   declare DICTIONARY = {1 : a, 2: b, ..., 10#: j... 26#: z}
-    
 */
 
-
 // function freqAlphabets(string) {
-  
+
 //   let splitStrings = [];
-  
 //   let arrayOfChars = string.split('');
-  
 //   for (let i = 0; i < arrayOfChars.length; i += 1) {
-    
 //     if (arrayOfChars[i] === '1' || arrayOfChars[i] === '2') {
 //       if (arrayOfChars[i + 2] === '#') {
 //         splitStrings.push(arrayOfChars.slice(i, i + 3).join(''));
@@ -78,18 +70,13 @@ Algorithm:
 //         splitStrings.push(arrayOfChars[i]);
 //       }
 //     }
-    
 //     if (/[3456789]/.test(arrayOfChars[i])) {
 //       splitStrings.push(arrayOfChars[i]);
 //     }
-    
 //   }
-  
 //   return splitStrings.map(char => {
 //     return DICTIONARY[char];
-    
 //   }).join('');
-  
 // }
 
 // const DICTIONARY = {1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e', 6: 'f', 7: 'g', 8: 'h', 9: 'i', '10#': 'j', '11#': 'k', '12#': 'l', '13#': 'm', '14#': 'n', '15#': 'o', '16#': 'p', '17#': 'q', '18#': 'r', '19#': 's', '20#': 't', '21#': 'u', '22#': 'v', '23#': 'w', '24#': 'x', '25#': 'y', '26#': 'z'};
@@ -105,7 +92,6 @@ Algorithm:
 /* 13:05 */
 
 /*
-
 My friend John and I are members of the "Fat to Fit Club (FFC)". John is worried because each month a list with the weights of members is published and each month he is the last on the list which means he is the heaviest.
 
 I am the one who establishes the list so I told him: "Don't worry any more, I will modify the order of the list". It was decided to attribute a "weight" to numbers. The weight of a number will be from now on the sum of its digits.
@@ -167,18 +153,31 @@ Algorithm:
 //   return array.join(' ');
 // }
 
-function orderWeight(string) {
-  let array = string.split(' ').sort();
+/* Algo
+- input string of numbers
+- split string at spaces into an array
+- sort the values after passing through `weight` helper function
+  - sort by value or localeCompare()
 
-  array.sort((a, b) => sumOf(a) - sumOf(b));
-    console.log(array);
-  return array.join(' ');
+`weight` helper function
+- input digits
+- split digits
+- compute sum of digits
+- return number
+*/
+
+function orderWeight(string) {
+  let array = string.split(' ' );
+
+  return array.sort((a, b) => {
+    return weight(a) - weight(b) || a.localeCompare(b);
+  }).join(' ')
 }
 
-function sumOf(string) {
-  return string
+function weight(digits) {
+  return digits
     .split('')
-    .reduce((sum, num) => sum + Number(num), 0);
+    .reduce((sum, num) => sum + +num, 0);
 }
 
 // Test cases:
@@ -193,3 +192,15 @@ console.log(
 // expected '1 2 200 4 4 6 6 7 7 27 18 81 9 72 91 425 31064 7920 67407 96488 34608557 71899703'
 // to equal '1 2 200 4 4 6 6 7 7 18 27 72 81 9 91 425 31064 7920 67407 96488 34608557 71899703'
 
+function orderWeight(string) {
+  return string
+    .split(' ')
+    .sort((a, b) => {
+      return weight(a) - weight(b) || a.localeCompare(b);
+    })
+    .join(' ');
+}
+
+function weight(digits) {
+  return digits.split('').reduce((sum, num) => sum + +num, 0);
+}

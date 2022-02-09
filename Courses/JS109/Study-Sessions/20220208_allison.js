@@ -30,7 +30,7 @@ Algo
 //   for (let idx = 0; idx < array.length; idx++) {
 //     console.log(idx);
 //     if (!Number.isInteger(array[idx])) {
-//       console.log(`Entered conditoinal with ${array[idx]}`);
+//       console.log(`Entered conditional with ${array[idx]}`);
 //       return false;
 //     }
 //   }
@@ -48,8 +48,8 @@ Algo
 
 // Loops and conditionals.
 // First I check the conditionals. I ask myself - am I entering the conditional when I expect to?
-// If the problem isn't the conditoinal, I take a look at the loop.
-// The first thing I check wiht the loop - Can I print every index? (Is the loop completing?)
+// If the problem isn't the conditional, I take a look at the loop.
+// The first thing I check with the loop - Can I print every index? (Is the loop completing?)
 // If the answer to that is 'yes' then I will ask - Am I accessing every element?
 
 /*
@@ -80,7 +80,7 @@ Algo
   PROBLEM
     input will be two integers
     output will be a boolean value
-    output will be true if we have a triple consecutive number in the first input and the same double consuctive number in the second input.
+    output will be true if we have a triple consecutive number in the first input and the same double consecutive number in the second input.
     output will be false otherwise.
     I will assume that both inputs will always be present
     I know that both inputs are integers
@@ -169,7 +169,7 @@ Algorithm
   - indexOf? - I want the letter not the index
   - compare the value at the idx in the array to the value at the index in the alphabet string
     - if they are the same, go to the next
-    - if the element at the array[idx] !== to the element at the alphabet[idx] return the element at the alphabet[idx]; d === a; c === b; e === c
+    - if the element at the array[idx] !== to the element at the section[idx] return the element at the section[idx]; d === a; c === b; e === c
 - return missing letter
   */
 

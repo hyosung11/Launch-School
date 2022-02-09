@@ -66,63 +66,61 @@ Algo
 - return `result`
 */
 
-function freqAlphabets(string) {
-  let result = '';
-  let alphabet = '_abcdefghijklmnopqrstuvwxyz';
+// function freqAlphabets(string) {
+//   let result = '';
+//   let alphabet = '_abcdefghijklmnopqrstuvwxyz';
 
-  let idx = 0;
+//   let idx = 0;
 
-  while (idx < string.length) {
-    let tempString = '';
-    if (string[idx + 2] === '#') {
-      tempString = string[idx] + string[idx + 1]; // 10
-      result += alphabet[tempString];
-      idx += tempString.length + 1;
-    } else {
-      result += alphabet[string[idx]];
-      idx += 1;
-    }
-  }
+//   while (idx < string.length) {
+//     let tempString = '';
+//     if (string[idx + 2] === '#') {
+//       tempString = string[idx] + string[idx + 1]; // 10
+//       result += alphabet[tempString];
+//       idx += tempString.length + 1;
+//     } else {
+//       result += alphabet[string[idx]];
+//       idx += 1;
+//     }
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
 console.log(freqAlphabets("10#11#12"));  // "jkab"
 console.log(freqAlphabets("1326#"));  // "acz"
 
+// function freqAlphabets(string) {
+//   let result = '';
+//   let alphabet = '_abcdefghijklmnopqrstuvwxyz';
+
+//   let idx = 0;
+
+//   while (idx < string.length) {
+//     let digits = '';
+//     if (string[idx + 2] === '#') {
+//       digits = string[idx] + string[idx + 1];
+//       result += alphabet[digits];
+//       idx += 3;
+//     } else {
+//       result += alphabet[string[idx]];
+//       idx += 1;
+//     }
+//   }
+
+//   return result;
+// }
+
 function freqAlphabets(string) {
   let result = '';
   let alphabet = '_abcdefghijklmnopqrstuvwxyz';
-
-  let idx = 0;
-
-  while (idx < string.length) {
-    let digits = '';
-    if (string[idx + 2] === '#') {
-      digits = string[idx] + string[idx + 1];
-      result += alphabet[digits];
-      idx += 3;
-    } else {
-      result += alphabet[string[idx]];
-      idx += 1;
-    }
-  }
-
-  return result;
-}
-
-function freqAlphabets(string) {
-  let result = '';
-  let alphabet = '_abcdefghijklmnopqrstuvwxyz';
-
-  // let idx = 0;
 
   for (let idx = 0; idx < string.length; idx += 1) {
-    let tempString = '';
+    let digits = '';
     if (string[idx + 2] === '#') {
-      tempString = string[idx] + string[idx + 1]; // 10
-      result += alphabet[tempString];
-      idx += tempString.length;
+      digits = string[idx] + string[idx + 1]; // 10
+      result += alphabet[digits];
+      idx += digits.length;
     } else {
       result += alphabet[string[idx]];
     }

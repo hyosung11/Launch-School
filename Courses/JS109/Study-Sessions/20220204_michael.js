@@ -38,8 +38,7 @@ PROBLEM:
   input: string
   output: number of total substrings
   use an array to push the charcaters that are are the same character;
-  
-  
+
   ALGORITHM:
     define a helper function substring --- that gets all the substrings;
       define countLetters with para string
@@ -49,19 +48,39 @@ PROBLEM:
               return the length total;
 */
 
+// function countLetters(string) {
+//   return substring(string).filter((ele) =>
+//     ele.split('').every((char, _, array) => char === array[0])
+//   ).length;
+// }
+
+// function substring(string) {
+//   let substrings = [];
+//   for (let i = 0; i <= string.length; i++) {
+//     for (let j = i + 1; j <= string.length; j++) {
+//       substrings.push(string.slice(i, j));
+//     }
+//   }
+//   return substrings;
+// }
+
 function countLetters(string) {
-  return substring(string).filter((ele) =>
-    ele.split('').every((char, _, array) => char === array[0])
-  ).length;
+  // let substrings = getSubstrings(string);
+  return getSubstrings(string)
+    .filter(substring => {
+      return substring.split('').every((char, _, array) => char === array[0])
+  }).length;
 }
 
-function substring(string) {
+function getSubstrings(string) {
   let substrings = [];
-  for (let i = 0; i <= string.length; i++) {
-    for (let j = i + 1; j <= string.length; j++) {
-      substrings.push(string.slice(i, j));
+
+  for (let idx = 0; idx < string.length; idx++) {
+    for (let jdx = idx + 1; jdx <= string.length; jdx++) {
+      substrings.push(string.slice(idx, jdx));
     }
   }
+
   return substrings;
 }
 
@@ -97,7 +116,7 @@ special characters do not take the position of the non special characters, for e
 for this kata puctuation is limited to 4 characters: hyphen(-), apostrophe('), comma(,) and period(.)
 ignore capitalisation */
 
-PROBLEM
+/* PROBLEM
 - input string
 - return new string
 

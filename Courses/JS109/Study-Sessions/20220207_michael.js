@@ -33,7 +33,6 @@ For example:
 
 "Example Input" ==> "iNPUT eXAMPLE"
 
-
 Problem
 - input string
 - output new string

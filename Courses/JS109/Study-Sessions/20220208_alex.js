@@ -95,7 +95,7 @@ ALGO
     -push a slice(idx, idx + 2) to results arr 
     -idx += 3
   - else, push str[idx] to results
--return results mapped to indices in alphabet and then joined 
+-return results mapped to indices in alphabet and then joined
 
 */
 
