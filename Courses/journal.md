@@ -5508,3 +5508,5 @@ aABab
 13:44 The interview with Rob Bright at Greenshades went well.
 
 14:32 I'm a little tired, but I feel pretty upbeat and good about my landing a job soon and continuing on my software engineering journey.
+
+14:48 Killing myself with simple mistakes like using `slice` when I want to use `split`. Ugh.
