@@ -70,19 +70,19 @@ console.log(replaceDigits('a1c1e1') === 'abcdef');
 console.log(replaceDigits('a1b2c3d4e') === 'abbdcfdhe');
 
 // Laurent's version
-function shift(prevChar, digit) {
-  let alphabet = "abcdefghijklmnopqrstuvwxyz";
-  let charIndex = alphabet.indexOf(prevChar);
-  
-  return alphabet[charIndex + digit];
-}
+// function shift(prevChar, digit) {
+//   let alphabet = "abcdefghijklmnopqrstuvwxyz";
+//   let charIndex = alphabet.indexOf(prevChar);
 
-function replaceDigits(string) {
-  return string
-    .split('')
-    .map((char, index, array) => {
-      if (char >= '0' && char <= '9') return shift(array[index - 1], Number(char));
-      else return char;
-    })
-    .join('');
-};
+//   return alphabet[charIndex + digit];
+// }
+
+// function replaceDigits(string) {
+//   return string
+//     .split('')
+//     .map((char, index, array) => {
+//       if (char >= '0' && char <= '9') return shift(array[index - 1], Number(char));
+//       else return char;
+//     })
+//     .join('');
+// };
