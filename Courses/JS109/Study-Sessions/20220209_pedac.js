@@ -9,34 +9,20 @@ Introductions
 - Gianni Barber, prep for written assessment, too much detail in algorithm, getting the level of abstraction right
 - Tyler Wenzel, Columbus OH, JS101 L6, level of granularity for PEDAC
 
-// You're given an array of integers. You must return the number of 'arithmetic progressions' of size 3 that are possible from that list.
+You're given an array of integers. You must return the number of 'arithmetic progressions' of size 3 that are possible from that list.
 
-// In each progression, the differences between the elements must be the same.
+In each progression, the differences between the elements must be the same.
 
-// Example:
-// [1, 2, 3, 5, 7, 9] ==> 5
-// The above has 5 progressions, seen below:
-// [1, 2, 3], [1, 3, 5], [1, 5, 9], [3, 5, 7], and [5, 7, 9]
+Example:
+[1, 2, 3, 5, 7, 9] ==> 5
+The above has 5 progressions, seen below:
+[1, 2, 3], [1, 3, 5], [1, 5, 9], [3, 5, 7], and [5, 7, 9]
 
-// All array elements will be unique and the array will be sorted.
+All array elements will be unique and the array will be sorted.
 
 console.log(progressions([1, 2, 3, 5, 7, 9])); // 5
 console.log(progressions([1, 2, 3, 4, 5]));    // 4
-[1, 2, 3]
-[2, 3, 4]
-[3, 4, 5]
-[1, 3, 5]
 console.log(progressions([0, 5, 8, 9, 11, 13, 14, 16, 17, 19])); // 10
-[0, 8, 16]
-[5, 8, 11]
-[8, 11, 14]
-[11, 14, 17]
-[13, 16, 19]
-[9, 13, 17]
-[9, 14, 19]
-[9, 11, 13]
-[5, 11, 17]
-[5, 9, 13]
 
 
 /*
