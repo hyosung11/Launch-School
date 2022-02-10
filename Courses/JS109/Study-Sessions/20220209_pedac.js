@@ -45,19 +45,11 @@ nested array of the progressions
 
 ALGORITHM
 - input array of integers
-- init `result` to empty array
-- iterate through input array
-  - if array[idx + 1] - array[idx] === array[idx + 2] - array[idx + 1]
-    - push array[idx], array[idx + 1], array[idx + 2] to `results` array
-- return length of `result` array
-
-ALGORITHM
-- input array of integers
 - init `count` to 0
-- iterate through array outer loop
-  - iterate through array middle loop
-    - iterate through array middle loop
-      - if num at jdx - num at idx equals num at kdx - num at jdx
+- iterate through array from idx 0
+  - iterate through array from idx + 1
+    - iterate through array from idx + 2
+      - if num at idx + 1 - num at idx equals num at idx + 2 - num at idx + 1
         - increment count
 - return count
 */
