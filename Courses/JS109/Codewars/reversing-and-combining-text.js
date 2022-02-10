@@ -63,9 +63,9 @@ EXAMPLES
 
 /* Algo
 - input string
-- initialize `words` to an array by splitting the string 
+- initialize `words` to an array by splitting the string
 at each space
-- while the length of `words` is greater than 1, 
+- while the length of `words` is greater than 1,
   - iterate by word
     - split the word into chars
     - reverse the chars
@@ -104,16 +104,30 @@ function reverseAndCombineText(str){
   return words[0]; // ['defabcjklghi']
 }
 
-// console.log(reverseAndCombineText('dfghrtcbafed') === 'dfghrtcbafed');
+console.log(reverseAndCombineText('dfghrtcbafed') === 'dfghrtcbafed');
 
-// console.log(reverseAndCombineText('abc def') === 'cbafed');
+console.log(reverseAndCombineText('abc def') === 'cbafed');
 
 console.log(reverseAndCombineText('abc def ghi jkl') === 'defabcjklghi');
 
-// console.log(
-//   reverseAndCombineText('234hh54 53455 sdfqwzrt rtteetrt hjhjh lllll12  44') ===
-//     'trzwqfdstrteettr45hh4325543544hjhjh21lllll'
-// );
+console.log(
+  reverseAndCombineText('234hh54 53455 sdfqwzrt rtteetrt hjhjh lllll12  44') ===
+    'trzwqfdstrteettr45hh4325543544hjhjh21lllll'
+);
 
-// console.log(reverseAndCombineText('sdfsdf wee sdffg 342234 ftt') === 'gffds432243fdsfdseewttf'
-// );
+console.log(reverseAndCombineText('sdfsdf wee sdffg 342234 ftt') === 'gffds432243fdsfdseewttf'
+);
+
+function reverseAndCombineText(str) {
+  let words = str.split(' ');
+
+  while (words.length > 1) {
+    words = words.map((word) => word.split('').reverse().join(''));
+
+    for (let idx = 0; idx < words.length; idx++) {
+      words[idx] = words[idx].concat(words.splice(idx + 1, 1));
+    }
+  }
+
+  return words[0];
+}

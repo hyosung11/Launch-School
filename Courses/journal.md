@@ -5457,3 +5457,50 @@ console.log(result); // true
 19:34 Just got to keep doing the reps. I will get it. I am getting it. Keep going.
 
 21:00 Stopping for the night.
+
+## 20220210 목요일
+
+06:17 In study session with Alex.
+
+07:45 Time to make some coffee.
+
+08:24 On Zoom call with Gianni about the JS109 Written Assessment. I like helping people. All is well.
+
+08:49 Looked at Ryan Talbot's website.
+
+08:54 Laurent can't study today, so I'm on my own until 11:00 with Michael. That's fine.
+
+09:28 I took a break since Laurent can't study today. I want to do a practice LeetCode problem under timed conditions.
+
+10:19 I still have a hard time visualizing what is happening in the code:
+
+```js
+function secondToLastCap(string) {
+  let array = string.split('');
+  let count = {};
+
+  for (let idx = array.length - 1; idx >= 0; idx--) {
+    count[array[idx]] = count[array[idx]] + 1 || 1;
+    if (count[array[idx]] === 2) array[idx] = array[idx].toUpperCase();
+  }
+
+  return array.join('')
+}
+
+console.log(secondToLastCap('aabab') === 'aABab'); // true
+/*
+count => { b: 1 }
+array => [ 'a', 'a', 'b', 'a', 'b' ]
+{ b: 1, a: 1 }
+[ 'a', 'a', 'b', 'a', 'b' ]
+{ b: 2, a: 1 }
+[ 'a', 'a', 'B', 'a', 'b' ]
+{ b: 2, a: 2 }
+[ 'a', 'A', 'B', 'a', 'b' ]
+{ b: 2, a: 3 }
+[ 'a', 'A', 'B', 'a', 'b' ]
+aABab
+*/
+```
+
+12:39 Not sharp about my logic. Or not yet able to fully understand in my algorithm what I need to do, so not able to code a working solution.

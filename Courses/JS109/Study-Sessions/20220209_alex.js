@@ -14,11 +14,11 @@ Output: false
 Example 3:
 Input: arr = [-3,0,1,-3,1,1,1,-3,10,0]
 Output: true
- 
+
 Constraints:
 
 1 <= arr.length <= 1000
--1000 <= arr[i] <= 1000 
+-1000 <= arr[i] <= 1000
 
 -create an object and count occurrences of each num
 -return Object.values(obj).every(val => isUnique(val))
@@ -59,20 +59,20 @@ Return count < 2
 // console.log(uniqueOccurrences([1, 2, 2, 1, 1, 3]) === true);
 // console.log(uniqueOccurrences([-3, 0, 1, -3, 1, 1, 1, -3, 10, 0]) === true);
 
-// /* PROBLEM 
-// Triple Double
-// Write a function that takes two integer numbers and returns whether `num1` has consecutive triple digits of any number, and whether `num2` has consecutive double digits of that same number. 
+/* PROBLEM
+Triple Double
+Write a function that takes two integer numbers and returns whether `num1` has consecutive triple digits of any number, and whether `num2` has consecutive double digits of that same number.
 
-// Algo
-// - input two numbers
-// - change num1 to string1
-// - change num2 to string2
-// - iterate through string1 to string1.length - 2
-//   - if string1[idx] === string1[idx + 1] && string1[idx] === string1[idx + 2] 
-//     -if string2.includes(string1.slice(idx, idx + 2))
-//       - return true
-// -return false
-// */
+Algo
+- input two numbers
+- change num1 to string1
+- change num2 to string2
+- iterate through string1 to string1.length - 2
+  - if string1[idx] === string1[idx + 1] && string1[idx] === string1[idx + 2] 
+    -if string2.includes(string1.slice(idx, idx + 2))
+      - return true
+-return false
+*/
 
 // function tripleDouble(num1, num2) {
 //   let str1 = String(num1);
@@ -94,17 +94,16 @@ Return count < 2
 // console.log(tripleDouble(12345, 12345) === false);
 // console.log(tripleDouble(10000, 10000) === true);
 
-// doesn't work for last two cases
 function commonPrefix(arr) {
   let inCommon = '';
-
   for (let idx = 0; idx < arr[0].length; idx++) {
-    if (arr[0].slice(0, idx) === arr[1].slice(0, idx) && arr[0].slice(0, idx) === arr[2].slice(0, idx)) {
-      inCommon = arr[0].slice(0, idx);
+    if (arr.every((el) => el.slice(0, idx + 1) === arr[0].slice(0, idx + 1))) {
+      inCommon = arr[0].slice(0, idx + 1);
     } else {
-      break;
+      return inCommon;
     }
   }
+  // console.log(inCommon);
   return inCommon;
 }
 
