@@ -9,13 +9,14 @@ Michael
 
 */
 
-// You are going to be given an array of integers. Your job is to take that array and find
-// an index N where the sum of the integers to the left of N is equal to the sum of the
-// integers to the right of N. If there is no index that would make this happen, return -1.
-//
-// [1, 2, 3, 4, 3, 2, 1] returns 3. The sum of the left side of index 3 [1, 2, 3] and the sum
-// of the right side of the index [3, 2, 1] both equal 6.
-// these should all return true
+/*
+You are going to be given an array of integers. Your job is to take that array and find
+an index N where the sum of the integers to the left of N is equal to the sum of the
+integers to the right of N. If there is no index that would make this happen, return -1.
+
+[1, 2, 3, 4, 3, 2, 1] returns 3. The sum of the left side of index 3 [1, 2, 3] and the sum
+of the right side of the index [3, 2, 1] both equal 6.
+these should all return true */
 
 /* Algo
 - input an array of numbers
