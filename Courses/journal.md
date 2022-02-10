@@ -5504,3 +5504,7 @@ aABab
 ```
 
 12:39 Not sharp about my logic. Or not yet able to fully understand in my algorithm what I need to do, so not able to code a working solution.
+
+13:44 The interview with Rob Bright at Greenshades went well.
+
+14:32 I'm a little tired, but I feel pretty upbeat and good about my landing a job soon and continuing on my software engineering journey.

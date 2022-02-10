@@ -87,7 +87,7 @@ Algorithm
   - if every element includes the char
     - push char to `result`
   - iterate from next element in the array
-    - replace char in elements after the first element with an empty string
+    - replace the char of the first element that's in the subsequent elements with an empty string
 - return `result`
 */
 
