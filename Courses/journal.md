@@ -5451,3 +5451,5 @@ console.log(result); // true
 10:34 After study session with Laurent where I still get confused about how to access values in an array or an object versus accessing indices.
 
 15:14 Advancing forward in both my current job prospects.
+
+21:00 Stopping for the night.
