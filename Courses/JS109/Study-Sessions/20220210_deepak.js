@@ -152,42 +152,7 @@ console.log(incrementString("foobar99") === "foobar100");
 console.log(incrementString("foobar099") === "foobar100");
 
 
-/* 15:22
-16:07
-/*
 
-Write a function which increments a string, to create a new string.
-
-    If the string already ends with a number, the number should be incremented by 1.
-    If the string does not end with a number. the number 1 should be appended to the new string.
-    If the number has leading zeros the amount of digits should be considered.
-
-Problem
-- input string
-- output new string
-
-Examples
-- 'foobar000' => ends with 0 as number => 'foobar001'
-- 'foo' => 'foo1'
-- input empty string increment to 1
-
-Algorithm
-- input string
-- if string length is 0 return '1'
-- init `letters` to '';
-- init `numbers` to ''
-- iterate through string by char
-  - if char is a letter
-    - increment the `letters`
-  - else increment numbers
-
-- iterate throgh `numbers` // '001' => '002'
-  - coerce string into a number and increment by 1
-
-- concatenate `letters` with `numbers
-- return this string
-
-*/
 
 function incrementString(string) {
 
@@ -354,7 +319,7 @@ console.log(incrementString("foobar000"))// === "foobar001"); //foobar1
 
 /*
 
-Write a function that incremnts a string of digits by 1
+Write a function that increments a string of digits by 1
 
 input
 - string of digits

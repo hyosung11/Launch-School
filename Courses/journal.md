@@ -5520,3 +5520,7 @@ aABab
 05:55 Awake and ready to go today with study sessions and my written assessment for ChurnZero.
 
 07:45 Solving problems with Alex is fun.
+
+08:46 I want to schedule my interview assessment for next Friday, 20220218 in the morning. I will make a decision later today. It's a few minutes before a study session with Michael. I learn a lot from the study sessions with Deepak.
+
+10:20 Expecting call from Jen Spiegel at ChurnZero about written assessment.
