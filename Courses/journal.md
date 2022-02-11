@@ -5514,3 +5514,9 @@ aABab
 17:06 Tough problem that Deepak gave me, but I learned some new things. Tired right now.
 
 19:24 Tired and my brain is mush. Ugh. Take a break then. Okay.
+
+## 20220211 금요일
+
+05:55 Awake and ready to go today with study sessions and my written assessment for ChurnZero.
+
+07:45 Solving problems with Alex is fun.
