@@ -5526,3 +5526,5 @@ aABab
 10:20 Expecting call from Jen Spiegel at ChurnZero about written assessment.
 
 12:16 I don't know about that written assessment with ChurnZero. I just don't know. Can I make the API call and send it later?
+
+16:53 Back from the playground after school with the kids and I want to keep practicing coding problems. It's sustaining itself, so that's good.

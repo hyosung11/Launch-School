@@ -41,7 +41,6 @@ function cleanString(string) {
   for (let idx = 0; idx < array.length; idx += 1) {
     if (array[idx] !== '#') { // 'abc#'
       result.push(array[idx]);
-      // console.log(result)
     } else result.pop();
   }
 
