@@ -42,7 +42,7 @@ DATA STRUCTURE:
   array for words;
   iterate through words; reverse; join;
   input: string
-  output: string; one word each word is reversed     
+  output: string; one word each word is reversed
 
 ALGO:
   define the function with para string;
@@ -59,7 +59,9 @@ ALGO:
 
 12:04 start
 
-Given an array of strings made only form lowercase letters, return an array of all characters that show up in all strings within the given array (including duplicates). For example, if a character occurs 3 times in all strings but not 4 times, you need to include that character three times in the final answer. 
+Common Chars
+
+Given an array of strings made only form lowercase letters, return an array of all characters that show up in all strings within the given array (including duplicates). For example, if a character occurs 3 times in all strings but not 4 times, you need to include that character three times in the final answer.
 
 Problem
 - input string
@@ -111,7 +113,7 @@ function commonChars(words) {
 console.log(commonChars(['cool', 'lock', 'cook'])) // ['c', 'o']
 console.log(commonChars(['a', 'b'])) // []
 console.log(commonChars(['ab', 'bc'])) // ['b']
-console.log(commonChars(['bella', 'label', 'roller'])) // ['e','l','l'] 
+console.log(commonChars(['bella', 'label', 'roller'])) // ['e','l','l']
 console.log(commonChars(['cool', 'lock', 'cook'])) // ['c', 'o']
 console.log(commonChars(['hello', 'goodbye', 'booya', 'random'])) // [o]
 console.log(commonChars(['aabbaaaa', 'ccdddddd', 'eeffee', 'ggrrrr', 'yyyzzz'])) // []
