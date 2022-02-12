@@ -24,7 +24,7 @@ Algo
 - return `result` as new string
 */
 
-// my working solutoin
+// my working solution
 // function makePassword(string) {
 //   let result = '';
 //   let words = string.split(' ');

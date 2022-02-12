@@ -49,7 +49,7 @@ function solution(str) {
   let result = [];
 
   if (str.length % 2 === 1) {
-    str += '_';
+    str = str + '_';
   }
 
   for (let idx = 0; idx < str.length; idx += 2) {

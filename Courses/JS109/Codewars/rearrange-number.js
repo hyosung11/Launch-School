@@ -4,7 +4,7 @@ Create a function that takes one positive three digit integer and rearranges its
 
 Return -1 if the argument is not valid
 
-Return null (nil for Ruby, nothing for Julia) if the argument is not valid. */
+Return null if the argument is not valid. */
 
 // function maxRedigit(number) {
 //   if (number <= 0) return null;

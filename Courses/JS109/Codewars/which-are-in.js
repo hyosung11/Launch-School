@@ -142,9 +142,7 @@ function inArray(array1, array2) {
   let common = [];
   
   let substrings2 = getSubstrings(array2);
-  
-  
-  
+
   array1.forEach((string) => {
     if (substrings2.includes(string)) {
        common.push(string);
@@ -173,24 +171,36 @@ Algorithm
 */
 
 function substring(string) {
+
   let substrings = [];
+
   for (let idx = 0; idx <= string.length; idx++) {
+
     for (let jdx = idx + 1; jdx <= string.length; jdx++) {
+
       let sub = string.slice(idx, jdx);
+
       substrings.push(sub);
     }
   }
+
   return substrings;
 }
 
 function inArray(array1, array2) {
   let substrings = [];
+
   array2.forEach(word => substrings.push(...substring(word)));
+
   let result = [];
+
   for (let idx = 0; idx < substrings.length; idx++) {
+
     if (array1.includes(substrings[idx]) && !result.includes(substrings[idx])) {
+
       result.push(substrings[idx]);
     }
   }
+
   return result.sort();
 }

@@ -5528,3 +5528,11 @@ aABab
 12:16 I don't know about that written assessment with ChurnZero. I just don't know. Can I make the API call and send it later?
 
 16:53 Back from the playground after school with the kids and I want to keep practicing coding problems. It's sustaining itself, so that's good.
+
+17:15 Maybe I should tailor my job search for software engineering positions? That's a thought that's come back into my head after this tedious interview process with ChurnZero and Greenshades Software. I have no idea what they wanted in the ChurnZero written assessment.
+
+## 20220212 토요일
+
+09:47 Don't I have any comments from later in the day yesterday? I played okay today and got a big cut on my shin/ankle where Junior cleated me. It's bloody and bruised. My body is making itself known to me again. Ha ha.
+
+10:49 I seem to unnecessarily have two VS Code windows open at the same time. My leg hurts. I'm practicing problems again today.

@@ -26,7 +26,7 @@ for reference: http://en.wikipedia.org/wiki/Typoglycemia
 
 ALGORITHM
 - input string
-- intialize `punctuation` to "-',.";
+- initialize `punctuation` to "-',.";
 - initialize `result` to empty string
 - initialize `noSpecials` array
 - iterate through string

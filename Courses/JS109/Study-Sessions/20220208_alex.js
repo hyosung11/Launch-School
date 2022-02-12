@@ -26,7 +26,6 @@ Rules:
 - sort by sum of digits in number
 -if there is a tie it should be broken alphabetically
 
-
 DATA
 - in: str
 - between: arr, num
@@ -34,7 +33,7 @@ DATA
 
 ALGO
 - in: str
-- split by spaces  into arr
+- split by spaces into arr
 - sort by alpha
 - sort by sum of digits (helper)
 - join by spaces and return
@@ -100,17 +99,20 @@ ALGO
 */
 
 function freqAlphabets (str) {
+
   let alphabet = '_abcdefghijklmnopqrstuvwxyz';
-  let results = [];
+  let result = [];
+
   for (let idx = 0; idx < str.length; idx++) {
     if (str[idx + 2] === '#') {
-      results.push(str.slice(idx, idx + 2));
+      result.push(str.slice(idx, idx + 2));
       idx += 2;
     } else {
-      results.push(str[idx]);
-      }
+      result.push(str[idx]);
+    }
   }
-  return results.map(char => alphabet[Number(char)]).join('');
+
+  return result.map(char => alphabet[Number(char)]).join('');
 }
 
 console.log(freqAlphabets("10#11#12"));  // "jkab"

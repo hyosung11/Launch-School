@@ -46,8 +46,11 @@ Algo
 // console.log(isIntArray({ 1: 1, 2: 2, 3: 3 }) === false);
 
 /* Loops and conditionals.
+
 First I check the conditionals. I ask myself - am I entering the conditional when I expect to?
+
 If the problem isn't the conditional, I take a look at the loop.
+
 The first thing I check with the loop - Can I print every index? (Is the loop completing?)
 If the answer to that is 'yes' then I will ask - Am I accessing every element? */
 
@@ -69,7 +72,9 @@ If the answer to that is 'yes' then I will ask - Am I accessing every element? *
 //   return notIntegers.length === 0;
 // }
 
-/* PROBLEM 02
+/* ====================
+
+PROBLEM 02
 Triple Double
 Write a function that takes two integer numbers and returns whether `num1` has consecutive triple digits of any number, and whether `num2` has consecutive double digits of that same number.
 
@@ -82,7 +87,7 @@ PROBLEM
 - I know that both inputs are integers
 
 ALGORITHM
-- delcare variable `str1` and initialize it to the string version of `num1`
+- declare variable `str1` and initialize it to the string version of `num1`
 - declare variable `str2` and initialize it to the string version of `num2`
 - declare variable `digit` and initialize it to the empty string.
 
@@ -114,7 +119,6 @@ ALGORITHM
 //         const secondChar = str2[j];
 //         if (secondChar === digit) {
 //           if (secondChar === str2[j + 1]) {
-//             console.log(`secondChar is equal to the next digit`);
 //             return true;
 //           }
 //         }
@@ -132,8 +136,8 @@ ALGORITHM
 // console.log(tripleDouble(10000, 10000) === true);
 
 /* PROBLEM 03
-Write a function that takes an array of consecutive (increasing)
-letters as input and that returns the missing letter in the array.
+
+Write a function that takes an array of consecutive (increasing) letters as input and that returns the missing letter in the array.
 
 Problem
 - input an array of letters
@@ -168,10 +172,13 @@ Algorithm
   */
 
 function missingLetter(array) {
+
   let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
   if (array[0] === array[0].toUpperCase()) {
     alphabet = alphabet.toUpperCase();
   }
+
   const first = alphabet.indexOf(array[0])   // 0
   const last = alphabet.indexOf(array[array.length - 1]);  // 3=
   const section = alphabet.slice(first, last + 1) // bcde

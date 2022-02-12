@@ -26,7 +26,7 @@ Rules
 - if several users come closest, return the one with the lowest rank
 
 EXAMPLES
-- {"1":3,"3":3,"5":3} => 3
+- { "1":3, "3":3, "5":3 } => 3
 
 
 DATA STRUCTURE
@@ -130,6 +130,7 @@ function tripledouble(num1, num2) {
       if (num2[jdx] === num1[idx] && num2[jdx + 1] === num1[idx]) return 1
     }
   }
+  
   return 0
 }
 
