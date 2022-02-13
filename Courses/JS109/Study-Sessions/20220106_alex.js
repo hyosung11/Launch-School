@@ -1,4 +1,4 @@
-/* Non-even substrings  codewars - 6 kyu
+/* Non-even substrings codewars - 6 kyu
 
 Given a string of integers, return the number of odd-numbered substrings that can be formed.
 

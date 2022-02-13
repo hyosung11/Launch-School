@@ -127,3 +127,189 @@ console.log(grabscrab('ourf', ['one', 'two', 'three'])); // []);
 
 /* 3. =====================================================
 
+Reverse or Rotate - 6 kyu
+
+The input is a string `string` of digits. Cut the string into chunks (a chunk here is a substring of the initial string) of size `size` (ignore the last chunk if its size is less than `size`).
+
+If a chunk represents an integer such that the sum of the cubes of its digits is divisible by 2, reverse that chunk; otherwise rotate it to the left by one position. Put together these modified chunks and return the result as a string.
+
+If
+- size is <= 0 or if str is empty return ""
+- size is greater (>) than the length of str it is impossible to take a chunk of size `size` hence return "".
+
+
+15:27 start
+15:44 this problem gets me with so many steps. My brain doesn't like it.
+16:04 even after copying the code and algorithm, it took me this long to get a working solution together
+
+Problem
+- input string of digits, number representing size of chunks
+- output new string number
+
+Rules
+- if string is empty return empty string
+- if size is less than or equal to 0 return empty string
+- if size is greater than string length return empty string
+
+Algorithm
+- declare function `revrot` with parameters `string` and `size`
+- if string is empty return empty string
+- if size is less than or equal to 0 return empty string
+- if size is greater than string length return empty string
+
+- init chunks to getChunks of string and size helper function
+
+- iterate over and transform `chunks`
+  - pass chunk through sumOfCubesDivisibleByTwo helper function
+    - reverse chunk and return
+    - else rotate chunk and return
+  - join
+
+- getChunks helper function
+- input string and size
+- init `result` to empty array
+- init `array` to string split into an array by char
+- while array length is greater than or equal to size
+  - push splice of array from 0 to size joined to result
+- return result
+
+`sumOfCubesDivisibleByTwo
+- input string
+- split string
+- conpute sum of its digits cubed
+- divided by 2 remainder 0
+
+`reverse` helper function
+- input string
+- split string into an array by char
+- reverse
+- join
+
+`rotate` helper function
+- input string
+- slice string at idx 1 and concatenate with string at idx 0
+
+*/
+
+function revrot (string, size) {
+  if (!string || size <= 0 || size > string.length) return '';
+
+  let chunks = getChunks(string, size);
+
+  return chunks
+    .map(chunk => {
+      if (sumOfCubesDivisibleByTwo(chunk)) {
+        return reverse(chunk);
+      } else {
+        return rotate(chunk)
+      }
+  }).join('')
+}
+
+function getChunks (string, size) {
+  let result = [];
+  let array = string.split('');
+
+  while (array.length >= size) {
+    result.push(array.splice(0, size).join(''));
+  }
+
+  return result;
+}
+
+function sumOfCubesDivisibleByTwo (digits) {
+  return digits
+    .split('')
+    .reduce((sum, num) => sum + Math.pow(num, 3), 0) % 2 === 0;
+}
+
+function reverse (string) {
+  return string.split('').reverse().join('')
+}
+
+function rotate (string) {
+  return string.slice(1) + string[0];
+}
+
+// console.log(sumOfCubesDivisibleByTwo('1234'))
+// console.log(revrot('', 8) === '');
+// console.log(revrot('123456779', 0) === '');
+// console.log(revrot('123456987654', 6) === '234561876549');
+// console.log(revrot('123456987653', 6) === '234561356789');
+// console.log(revrot('66443875', 4) === '44668753');
+// console.log(revrot('66443875', 8) === '64438756');
+// console.log(revrot('664438769', 8) === '67834466');
+// console.log(revrot('123456779', 8) === '23456771');
+// console.log(revrot('563000655734469485', 4) === '0365065073456944');
+
+/* 4. =====================================================
+
+Non-even substrings codewars - 6 kyu
+
+Given a string of integers, return the number of odd-numbered substrings that can be formed.
+
+For example, in the case of "1341", they are 1, 1, 3, 13, 41, 341, 1341, a total of 7 numbers.
+
+solve("1341") = 7. See test cases for more examples. 
+
+16:37 start
+16:40 algo done but I did peek at the problem before starting it
+16:44 solved with a correction of a missing brace
+
+Problem
+- input string of integers
+- output number
+
+Algo
+- declare `solve` function with `string` parameter
+- init `result` to empty array
+- iterate over string outer loop
+  - iterate over string inner loop
+    - slice string from idx to jdx
+    - if substring coerced to a Number divided by two has a remainder of 1
+      - push substring to `result`
+- return length of `result`
+
+*/
+
+// function solve (string) {
+
+//   let result = [];
+
+//   for (let idx = 0; idx < string.length; idx += 1) {
+//     for (let jdx = idx + 1; jdx <= string.length; jdx += 1) {
+//       let substring = string.slice(idx, jdx);
+//       if (substring % 2 === 1) result.push(substring);
+//     }
+//   }
+
+//   return result.length;
+// }
+
+// Using `getSubstring` helper function and `filter`
+function oddSubstrings (string) {
+  let substrings = getSubstrings(string);
+
+  return substrings.filter(substring => {
+    return +substring % 2 === 1
+  }).length;
+}
+
+function getSubstrings (string) {
+  let result = [];
+
+  for (let idx = 0; idx < string.length; idx += 1) {
+    for (let jdx = idx + 1; jdx <= string.length; jdx += 1) {
+      result.push(string.slice(idx, jdx));
+    }
+  }
+
+  return result;
+}
+
+console.log(oddSubstrings('1341') === 7);
+console.log(oddSubstrings('1357') === 10);
+console.log(oddSubstrings('13471') === 12);
+console.log(oddSubstrings('134721') === 13);
+console.log(oddSubstrings('1347231') === 20);
+console.log(oddSubstrings('13472315') === 28);
