@@ -5540,3 +5540,10 @@ aABab
 14:29 I feel a little sleepy and a little sore in my leg.
 
 19:28 There are problems that I don't want to do, but why? Also, my right pinky finger feels a little strained right now.
+
+## 20220213 일요일
+
+14:25 Back from reffing and want to write some code now.
+
+15:18 Working on some problems like `grabscrab` and `scramblies` and they seem more understandable now.
+

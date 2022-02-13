@@ -8,13 +8,13 @@ solve("1341") = 7. See test cases for more examples.
 
 Good luck!
 
-If you like substring Katas, please try 
+If you like substring Katas, please try
 
 PROBLEM
 input: number string
 output: number (length of an array of odd numbers)
 
-rules: 
+rules:
 - count number of possible substrings that are odd
 - if number occurs twice, it counts twice
 
