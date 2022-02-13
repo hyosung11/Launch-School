@@ -129,7 +129,7 @@ ALGO
 - iterate through str
   if a slice from the current idx to the idx + length of th if substr === substr:
     -count += 1
-    -idx+= substr.length
+    -idx += substr.length
 -if count = 0, return -1
 - return count */
 

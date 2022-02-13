@@ -1,4 +1,6 @@
-/* Pete, the Baker - 5 kyu
+/* ===================================================
+
+1. Pete, the Baker - 5 kyu
 
 Pete likes to bake some cakes. He has some recipes and ingredients. Unfortunately he is not good in math. Can you help him to find out, how many cakes he could bake considering his recipes?
 
@@ -47,7 +49,9 @@ Algo
 //   )
 // ); // must return 0
 
-/* Triple Double
+/* =======================================================
+
+2. Triple Double
 
 Write a function that takes two integer numbers and returns whether `num1` has consecutive triple digits of any number, and whether `num2` has consecutive double digits of that same number.
 
@@ -135,7 +139,9 @@ function tripleDouble(num1, num2) {
 // console.log(tripleDouble(12345, 12345) === false);
 // console.log(tripleDouble(10000, 10000) === true);
 
-/* Clean String
+/* ===================================================================
+
+3. Clean String
 
 Assume "#" is like a backspace in string. This means that string "a#bc#d" actually is "bd"
 
@@ -182,7 +188,9 @@ function cleanString(string) {
 console.log(cleanString('abc#d##c')); //"ac"
 console.log(cleanString('abc####d##c#')); //''
 
-/* Increment String
+/* =======================================================
+
+4. Increment String
 
 Write a function which increments a string, to create a new string.
 
@@ -245,7 +253,9 @@ function incrementString(string) {
 // console.log(incrementString('foobar99') === 'foobar100');
 // console.log(incrementString('foobar099') === 'foobar100');
 
-/* Reversing and Combining Text - 6 kyu
+/* ========================================================
+
+5. Reversing and Combining Text - 6 kyu
 
 Your task is to Reverse and Combine Words. It's not too difficult, but there are some things you have to consider...
 
@@ -266,7 +276,7 @@ Input:  "abc def ghi 123"
 Output: "defabc123ghi"
 
 Input:  "abc def gh34 434ff 55_eri 123 343"
-Output: "43hgff434cbafed343ire_55321" 
+Output: "43hgff434cbafed343ire_55321"
 
 13:25 start
 13:29 algo done
@@ -326,7 +336,9 @@ function reverseAndCombineText(string) {
 // console.log(reverseAndCombineText('sdfsdf wee sdffg 342234 ftt') === 'gffds432243fdsfdseewttf'
 // );
 
-/* Common Chars
+/* =======================================================
+
+6. Common Chars
 
 Given an array of strings made only form lowercase letters, return an array of all characters that show up in all strings within the given array (including duplicates). For example, if a character occurs 3 times in all strings but not 4 times, you need to include that character three times in the final answer.
 
@@ -374,3 +386,258 @@ function commonChars(array) {
 // console.log(commonChars(['bella', 'label', 'roller'])) // ['e','l','l']
 // console.log(commonChars(['hello', 'goodbye', 'booya', 'random'])) // [o]
 // console.log(commonChars(['aabbaaaa', 'ccdddddd', 'eeffee', 'ggrrrr', 'yyyzzz'])) // []
+
+/* =================================================
+
+7. 1180. Count Substrings with Only One Distinct Letter
+
+Given a string s, return the number of substrings that have only one distinct letter.
+
+EXAMPLES
+- 'aaaba' => 8
+
+Explanation: The substrings with one distinct letter are "aaa", "aa", "a", "b".
+"aaa" occurs 1 time.
+"aa" occurs 2 times.
+"a" occurs 4 times.
+"b" occurs 1 time.
+So the answer is 1 + 2 + 4 + 1 = 8
+
+16:42 start
+16:48 algo (data structure?)
+16:57 solved and able to debug my code
+
+problem
+- input string
+- output number
+
+algo
+- declare `countLetters` with `string` parameter
+- init `substring` to getSubstrings() helper function
+- iterate through substrings
+  - return length of the array of filtering and finding every substring whose letters are all the same
+  - `every` element, idx, array
+
+`getSubstrings`
+- input string
+- init `substring` to empty array
+- iterate through string by char
+  - iterate from string at char + 1
+    - slice string from idx, jdx and push to `substrings`
+- return `substrings`
+
+*/
+
+function countLetters(string) {
+  let substrings = getSubstrings(string);
+
+  return substrings.filter(substring => substring.split('').every((char, _, array) => char === array[0])).length;
+}
+
+function getSubstrings(string) {
+  let substrings = [];
+
+  for (let idx = 0; idx < string.length; idx += 1) {
+    for (let jdx = idx + 1; jdx <= string.length; jdx += 1) {
+      substrings.push(string.slice(idx, jdx));
+    }
+  }
+
+  return substrings;
+}
+
+// console.log(countLetters('')); // 0
+// console.log(countLetters('a')); // 1   1
+// console.log(countLetters('ab')); // 2
+// console.log(countLetters('aa')); // 3   1 + 2
+// console.log(countLetters('aaa')); // 6    1 + 2 + 3
+// console.log(countLetters('aab')); // 4
+// console.log(countLetters('aaaa')); // 10    1 + 2 + 3 + 4
+// console.log(countLetters('aaaba')); // 8
+// console.log(countLetters('aaaaaaaaaa')); // 55
+
+/* ===================================================
+
+8. Substring Instance Count
+
+Return the number of times a search-string is found within the given searchable string.
+Assume that both inputs will only be strings.
+Assume that all characters are important.
+Assume the searchable string will always be provided as an argument.
+Return `-1` if the search-string is empty or missing.
+Solve without using Regex.
+
+17:09 start
+17:13 algo done
+17:17 solved with `split`
+
+problem
+- input `fullText` and `searchText`
+- output number
+
+algo
+- declare `countSubstring` with `fullText` and `searchText` as parameters
+- if `fullText` is sn empty string return 0
+- if `searchText` is empty or undefined return -1
+
+- return the length minus one of splitting the `fullText` by the `searchText`
+
+*/
+
+function countSubstring(fullText, searchText) {
+  if (!fullText) return 0;
+  if (!searchText) return -1;
+
+  return fullText.split(searchText).length - 1;
+}
+
+/* Another Version
+
+Algo
+- declare `countSubstring` with `string` and `substring` parameters
+- if `string` is empty return 0
+- if `substring` is empty or undefined, return -1
+
+- init `count` to 0
+
+- iterate over string
+  - if a slice of the string from idx to idx + 2 equals substring
+    - increment count
+    - increment idx by substring's length
+
+- return count */
+
+function countSubstring(string, substring) {
+
+  if (!string) return 0;
+  if (!substring) return - 1;
+
+  let count = 0;
+
+  for (let idx = 0; idx < string.length; idx += 1) {
+    if (string.slice(idx, idx + substring.length) === substring) {
+      count = count + 1;
+      idx = idx + substring.length;
+    }
+  }
+
+  return count;
+}
+
+// Tests
+// console.log(countSubstring('', 'abbb') === 0);
+// console.log(countSubstring('aaaaa', '') === -1);
+// console.log(countSubstring('aaaaa') === -1);
+
+// console.log(countSubstring('aa_bb_cc_dd_bb_e_b', 'bb') === 2);
+// console.log(countSubstring('aaabbbcccc', 'ccc') === 1);
+// console.log(countSubstring('bbAaaaA', 'Aa') === 1);
+
+/* ===================================================
+
+9. Second to Last Capitalized
+
+Given a string of words or a single word
+return the string with the second to last occurrence of each letter capitalized.
+
+Examples:
+'hownowbrncow' => howNOWbrncow
+'chickenbiscuits' => chiCkenbIScuits
+'aabab' => 'aABab' 
+
+aa // Aa
+aaa // aAa
+
+18:40 start
+18:46 algo done but a little fuzzy about whether I need a `result` array
+18:53 solved but made a couple of mistakes where I placed the `===` in the wrong place and I used `===` instead of `=`.
+
+problem
+- input string
+- output new string
+
+algo
+- declare `secondToLastCap()` with `string` parameter
+- init `count` to empty object
+- init `array` to split of string into chars
+
+- iterate over array in reverse
+  - add char to `count` or
+  - increment `count` with char
+  - if value of char in count is 2
+    - change char to uppercase
+
+- join and return `array`
+
+*/
+
+function secondToLastCap(string) {
+  let count = {};
+  let array = string.split('');
+
+  for (let idx = array.length - 1; idx >= 0; idx -= 1) {
+    let char = array[idx];
+    count[char] = count[char] + 1 || 1;
+    if (count[char] === 2) {
+      array[idx] = char.toUpperCase();
+    }
+  }
+
+  return array.join('');
+}
+
+console.log(secondToLastCap('aaa')); // aAa
+console.log(secondToLastCap('aabaa')); // aabAa
+console.log(secondToLastCap('aabab')); // aABab
+console.log(secondToLastCap('hownowbrncow'));  // howNOWbrncow
+
+/* ===================================================
+
+10. Find the Missing Letter
+
+Write a function that takes an array of consecutive (increasing)
+letters as input and that returns the missing letter in the array.
+
+19:03 start
+19:07 algo done
+19:14 done - seemed easy and I liked using slice from Alex instead of making a first, last, and section variables
+
+problem
+- input array of letters
+- output missing letter
+
+algo
+- declare `findMissingLetter` function with `array` parameter
+- init `alphabet` to 'a-z'
+- if first element in array is uppercase
+  - uppercase `alphabet`
+
+- init `section` to slice of `alphabet` from first element of array to last element plus one to account for the missing letter
+
+- iterate over `section`
+  - if `array` does not include element in `section`
+    - return element from section
+
+*/
+
+function findMissingLetter(array) {
+
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+  if (array[0] === array[0].toUpperCase()) {
+    alphabet = alphabet.toUpperCase();
+  }
+
+  let section = alphabet.slice(alphabet.indexOf(array[0]), alphabet.indexOf(array[array.length - 1]) + 1)
+
+  for (let idx = 0; idx < section.length; idx += 1) {
+    if (!array.includes(section[idx])) return section[idx];
+  }
+
+}
+
+// console.log(findMissingLetter(['a', 'b', 'd']) === 'c');
+// console.log(findMissingLetter(['b', 'c', 'e']) === 'd');
+// console.log(findMissingLetter(['Q', 'R', 'T']) === 'S');
+// console.log(findMissingLetter(['a','b','c','d','f']) === 'e');
+// console.log(findMissingLetter(['O','Q','R','S']) === 'P');

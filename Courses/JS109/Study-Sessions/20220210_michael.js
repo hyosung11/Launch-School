@@ -24,18 +24,18 @@ Input:  "abc def ghi 123"
 Output: "defabc123ghi"
 
 Input:  "abc def gh34 434ff 55_eri 123 343"
-Output: "43hgff434cbafed343ire_55321" 
+Output: "43hgff434cbafed343ire_55321"
 
-PROBLEM: 
+PROBLEM:
   intput: string; that has mutliple words
   output: string; one word each word is reversed
 
   rules:
-    if the string has not spaces then return the string 
+    if the string has not spaces then return the string
     string has atleast 1 space; then reverse;
 
  Example / Test Cases:
-  'abc def ghi jkl') === 'defabcjklghi' - 1st and 2nd - revresed; 
+  'abc def ghi jkl') === 'defabcjklghi' - 1st and 2nd - revresed;
   3rd and fouth reversed and joined; 1st and second are reversed then joined;
 
 DATA STRUCTURE:
@@ -78,7 +78,7 @@ Examples
 
 Data Structure
 - input an array of two or more strings
-- intermediary: array 
+- intermediary: array
 - output array of letters
 
 Algorithm

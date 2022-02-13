@@ -1,6 +1,4 @@
 /* 1844. Replace All Digits with Characters
- nj
- 9op[]][p098767890-
 
   figured it out pretty easily */
 
@@ -66,7 +64,9 @@ console.log(secondToLastCap('aabab')); // aABab
 //   return result.split('').reverse().join('');
 // }
 
-/* PROBLEM 03
+/* ==========================
+
+Find the Missing Letter
 Write a function that takes an array of consecutive (increasing)
 letters as input and that returns the missing letter in the array.
 

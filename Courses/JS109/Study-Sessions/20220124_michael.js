@@ -60,7 +60,7 @@ console.log(cakes({apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100}, {sug
 //   for(let propAvail in available){
 //     for(let propRecipe in recipe){
 //       if(propAvail === propRecipe){
-//         result.push(Math.floor(available[propAvail] / recipe[propRecipe])) 
+//         result.push(Math.floor(available[propAvail] / recipe[propRecipe]))
 //       }
 //     }
 //   }

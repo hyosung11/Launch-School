@@ -5538,3 +5538,5 @@ aABab
 10:49 I seem to unnecessarily have two VS Code windows open at the same time. My leg hurts. I'm practicing problems again today.
 
 14:29 I feel a little sleepy and a little sore in my leg.
+
+19:28 There are problems that I don't want to do, but why? Also, my right pinky finger feels a little strained right now.
