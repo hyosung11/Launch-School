@@ -307,9 +307,84 @@ function getSubstrings (string) {
   return result;
 }
 
-console.log(oddSubstrings('1341') === 7);
-console.log(oddSubstrings('1357') === 10);
-console.log(oddSubstrings('13471') === 12);
-console.log(oddSubstrings('134721') === 13);
-console.log(oddSubstrings('1347231') === 20);
-console.log(oddSubstrings('13472315') === 28);
+// console.log(oddSubstrings('1341') === 7);
+// console.log(oddSubstrings('1357') === 10);
+// console.log(oddSubstrings('13471') === 12);
+// console.log(oddSubstrings('134721') === 13);
+// console.log(oddSubstrings('1347231') === 20);
+// console.log(oddSubstrings('13472315') === 28);
+
+/* 5. =====================================================
+
+Alphabet Score
+
+Given a string of words, you need to find the highest scoring word. Each letter of a word scores points according to it's position in the alphabet:
+a = 1, b = 2, c = 3 etc.
+
+You need to return the highest scoring word as a string. If two words score the same,return the word that appears earliest in the original string.
+
+All letters will be lowercase and all inputs will be valid.
+
+17:30 start
+17:36 complete algo, I had a memory of this problem
+TEST TEST TEST
+17:41 solved pretty easily
+
+Problem
+- input string of words
+- output word with the highest score based on its letters in the alphabet
+
+Algorithm
+- declare `alphabetScore` function with `string` parameter
+
+- init `highest` to empty string
+
+- init `words` to array of words by splitting string at spaces
+- iterate through words
+  - init `current` to first word in the array
+  - get score of current and highest with `getScore` helper function
+    - if current is greater than highest
+      - reassign highest to current
+- return highest
+
+getScore helper function
+- init `alphabet` to '_a'-z'
+- input word
+- split word into array of chars
+- compute sum of value of each char in alphabet string
+- return score
+
+*/
+
+function alphabetScore (string) {
+
+  let highest = '';
+  let words = string.split(' ');
+
+  for (let idx = 0; idx < words.length; idx += 1) {
+    let current = words[idx];
+    if (getScore(current) > getScore(highest)) {
+      highest = current;
+    }
+  }
+
+  return highest;
+}
+
+function getScore(word) {
+
+  let alphabet = '_abcdefghijklmnopqrstuvwxyz';
+
+  return word
+    .split('')
+    .reduce((sum, char) => sum + alphabet.indexOf(char), 0);
+}
+
+console.log(alphabetScore('man i need a taxi up to ubud') === 'taxi');
+console.log(alphabetScore('what time are we climbing up the volcano') === 'volcano');
+console.log(alphabetScore('take me to semynak') === 'semynak');
+console.log(alphabetScore('aa b') === 'aa');
+console.log(alphabetScore('aa') === 'aa');
+console.log(alphabetScore('a z') === 'z');
+console.log(alphabetScore('y z') === 'z');
+console.log(alphabetScore('') === '');
