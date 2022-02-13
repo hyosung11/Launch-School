@@ -5548,3 +5548,5 @@ aABab
 15:18 Working on some problems like `grabscrab` and `scramblies` and they seem more understandable now.
 
 17:00 Keep things fresh in my mind. Have the ability to solve a problem. Be familiar with and have practiced techniques repeatedly.
+
+17:28 Read through `Methods Plus` cheatsheet again.

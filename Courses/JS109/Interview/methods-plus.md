@@ -7,14 +7,13 @@
 The Array.from() static method creates a new, shallow-copied Array instance from an array-like or iterable object.
 
 ```js
+// Examples
 console.log(Array.from('foo'));
 // expected output: Array ["f", "o", "o"]
 
 console.log(Array.from([1, 2, 3], x => x + x));
 // expected output: Array [2, 4, 6]
-```
 
-```js
 /* Syntax */
 // Arrow function
 Array.from(arrayLike, (element) => { /* ... */ } )
@@ -36,19 +35,19 @@ Array.from(arrayLike, function mapFn(element, index) { /* ... */ }, thisArg)
  The `Array.isArray()` method determines whether the passed value is an Array.
 
 ```js
-Array.isArray([1, 2, 3]);  // true
-Array.isArray({foo: 123}); // false
-Array.isArray('foobar');   // false
-Array.isArray(undefined);  // false
+Array.isArray( [ 1, 2, 3 ] );  // true
+Array.isArray( { foo: 123 } ); // false
+Array.isArray( 'foobar' );   // false
+Array.isArray( undefined );  // false
 ```
 
 ### Array.prototype.length
 
-The length property of an object which is an instance of type `Array` sets or returns the number of elements in that array. The value is an unsigned, 32-bit integer that is always numerically greater than the highest index in the array.
+The length property of an object which is an instance of type `Array` sets or *returns the number of elements in that array*. The value is an unsigned, 32-bit integer that is always numerically greater than the highest index in the array.
 
-### Array.prototype.at(index)
+### Array.prototype.at()
 
-The `at()` method takes an integer value and returns the item at that index, allowing for positive and negative integers. Negative integers count back from the last item in the array.
+The `at(index)` method takes an integer value and *returns the item at that index*, allowing for positive and negative integers. Negative integers count back from the last item in the array.
 
 `array.at(-1)` returns the last item; same as `array[array.length -1]`
 
@@ -195,7 +194,7 @@ indexOf(searchElement, fromIndex)
 
 ### Array.prototype.join()
 
-The `join()` method creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator. 
+The `join()` method *creates and returns a new string* by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator.
 
 ```js
 join()
@@ -250,7 +249,7 @@ push(element0, element1, /* ... ,*/ elementN)
 
 The `reduce()` method executes a user-supplied “reducer” callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a **single value**.
 
-The first time that the callback is run there is no "return value of the previous calculation". If supplied, an initial value may be used in its place. Otherwise array element 0 is used as the initial value and iteration starts from the next element (index 1 instead of index 0).
+The first time that the callback is run there is no "return value of the previous calculation". If supplied, an initial value may be used in its place. Otherwise, array element 0 is used as the initial value and iteration starts from the next element (index 1 instead of index 0).
 
 ```js
 // Arrow function
@@ -272,7 +271,7 @@ reduce(function(previousValue, currentValue, currentIndex, array) { /* ... */ },
 
 ### Array.prototype.reverse()
 
-The reverse() method reverses an array in place. The first array element becomes the last, and the last array element becomes the first.
+The reverse() method *reverses an array in place*. The first array element becomes the last, and the last array element becomes the first.
 
 ### Array.prototype.shift()
 
@@ -290,7 +289,7 @@ slice(start, end)
 
 ### Array.prototype.some()
 
-The `some()` method *tests whether at least one element in the array passes the test* implemented by the provided function. It returns `true` if, in the array, it finds an element for which the provided function returns `true`; otherwise it returns `false`. It doesn't modify the array.
+The `some()` method *tests whether at least one element in the array passes the test* implemented by the provided function. It returns `true` if, in the array, it finds an element for which the provided function returns `true`; otherwise, it returns `false`. It doesn't modify the array.
 
 ```js
 // Arrow function
