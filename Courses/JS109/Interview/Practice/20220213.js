@@ -388,3 +388,55 @@ console.log(alphabetScore('aa') === 'aa');
 console.log(alphabetScore('a z') === 'z');
 console.log(alphabetScore('y z') === 'z');
 console.log(alphabetScore('') === '');
+
+/* 6. =====================================================
+
+Consider the word "abode".
+
+The letter `a` is in position 1 and `b` is in position 2.
+In the alphabet, `a` and `b` are also in positions 1 and 2.
+
+The letters `d` and `e` in "abode" occupy the positions they would occupy in the alphabet, which are positions 4 and 5.
+
+Given an array of words, return an array of the number of letters that occupy their positions in the alphabet for each word. For example,
+
+solve(["abode","ABc","xyzD"]) // [4, 3, 1]
+
+Input will consist of alphabetic characters, both uppercase and lowercase. No spaces.
+
+20:14 start
+20:23 problem still confuses me
+20:57 had to review a solution and then practiced a concise solution
+
+Problem
+- input array of words
+- output array of numbers
+
+Algorithm
+- declare function `countMatchingIndices` with parameter `array`
+- init `alphabet` to 'a-z'
+- iterate over array
+  - iterate by word
+    - split each word by char
+    - filter char at idx
+      - compare to alphabet's index of char to lowercase
+    - return length
+
+*/
+
+function countMatchingIndices ( array ) {
+
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+  return array.map(word => {
+    return word.split('').filter((char, idx) => {
+      return idx === alphabet.indexOf(char.toLowerCase())
+    }).length;
+  })
+}
+
+console.log(countMatchingIndices(['abode', 'ABc', 'xyzD'])); // [4, 3, 1]
+console.log(countMatchingIndices(['abide', 'ABc', 'xyz'])); // [4, 3, 0]
+console.log(countMatchingIndices(['IAMDEFANDJKL', 'thedefgh', 'xyzDEFghijabc'])); // [6, 5, 7]
+console.log(countMatchingIndices(['encode', 'abc', 'xyzD', 'ABmD'])); // [1, 3, 1, 3]
+console.log(countMatchingIndices([])); // []

@@ -5552,3 +5552,5 @@ aABab
 17:28 Read through `Methods Plus` cheatsheet again.
 
 17:45 I solved `alphabetScore` in 11 minutes. That's definitely progress as when I first got it, I had such a hard time figuring out how to do it.
+
+21:04 Watching the Super Bowl and practicing `countMatchingIndices`.

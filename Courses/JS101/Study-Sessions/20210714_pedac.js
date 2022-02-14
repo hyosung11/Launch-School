@@ -154,15 +154,26 @@ console.log(countMatchingIndices(['encode', 'abc', 'xyzD', 'ABmD'])); // [1, 3, 
 console.log(countMatchingIndices([])); // []
 
 
-// Version 2 with filer and map
-function countMatchingIndices(arr) {
-  return arr.map((str) => solve(str));
-}
+// Version 2 with filter and map
+// function countMatchingIndices(arr) {
+//   return arr.map((str) => solve(str));
+// }
 
-function solve(str) {
-  let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+// function solve(str) {
+//   let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
-  return str.split('').filter((char, idx) => {
-    return alphabet.indexOf(char.toLowerCase()) === idx;
-  }).length;
+//   return str.split('').filter((char, idx) => {
+//     return alphabet.indexOf(char.toLowerCase()) === idx;
+//   }).length;
+// }
+
+// Version 3
+function countMatchingIndices(array) {
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+  return array.map((word) => {
+    return word.split('').filter((char, idx) => {
+      return idx === alphabet.indexOf(char.toLowerCase());
+    }).length;
+  });
 }
