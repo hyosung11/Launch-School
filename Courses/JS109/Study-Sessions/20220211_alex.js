@@ -101,11 +101,11 @@ function incrementString ( string ) {
 
   for ( let idx = 0; idx < string.length; idx += 1 ) {
 
-    if (string[idx].match(/[a-z]/)) letters = letters + string[idx];
+    if ( string[idx].match(/[a-z]/) ) letters = letters + string[idx];
     else numbers = numbers + string[idx]
   }
 
-  let digits = String(Number(numbers) + 1)
+  let digits = String ( Number ( numbers ) + 1 )
 
   while (digits.length < numbers.length) {
     digits = '0' + digits;

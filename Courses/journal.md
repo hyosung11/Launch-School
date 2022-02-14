@@ -5554,3 +5554,17 @@ aABab
 17:45 I solved `alphabetScore` in 11 minutes. That's definitely progress as when I first got it, I had such a hard time figuring out how to do it.
 
 21:04 Watching the Super Bowl and practicing `countMatchingIndices`.
+
+## 20220214 월요일
+
+06:13 In study session with Alex.
+
+07:34 Typoglycemia Generator still kicks my ass. Break the problem down. It's having to think through the steps.
+
+09:10 Study session with Laurent and starting with Typoglycemia Generator.
+
+10:57 Texting with Alex about not getting the ChurnZero position.
+
+11:00 Starting Study Session with Michael.
+
+17:31 Time to make dinner. I think I have done good reps on the Typoglycemia Generator or Scramble Words problem.

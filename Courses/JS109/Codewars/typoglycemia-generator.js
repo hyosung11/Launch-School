@@ -203,17 +203,17 @@ Input: String         Output: String
 2. Iterate through each Word, and return a Transformed Word -> Transformed Word to create a New Array
   - Create an Empty Array to capture Alphabetic Letters
   - Create an Empty Object to capture Punctuation
-  
+
     - EDGE CASE CHECK -> if the Punctuation Object is empty AND the length of the word is less than 4
       return the word
-  
+
     - Iterate through each Character in the Word
       - If it is Alphabetic, add it to the Alphabetic Array
       - Otherwise, add the punctuation location as a Key, and the Punctuation as a Value
-    
+
   - Within the Alphabet Array, keep the positions at the beginning and end
     - Characters in the Middle - sort alphabetically and replace the characters in the middle with the alphabetically sorted characters
-    
+
   - Iterate through the keys in the Punctuation Object, use each key as the Index and we're going to Add the value at that particular Index
 
 3. Return the New Array rejoined as a String
