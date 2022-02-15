@@ -178,7 +178,7 @@ function nonRepeatingSubstring(string) {
         substrings.push(result);
         break;
       }
-      
+
       result += string[jdx];
     }
   }
