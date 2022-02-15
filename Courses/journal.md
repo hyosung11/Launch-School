@@ -5576,3 +5576,5 @@ aABab
 07:35 After the study session with Alex where we couldn't figure out a working solution to `nonRepeatingSubstring`.
 
 09:06 Starting study session with Laurent.
+
+12:10 Be careful about what your expected output is from the function. Caught myself wondering why the return value was an empty array and realized that's the return value I expected. Take a break before study session with Deepak.
