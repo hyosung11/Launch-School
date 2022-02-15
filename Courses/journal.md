@@ -5578,3 +5578,5 @@ aABab
 09:06 Starting study session with Laurent.
 
 12:10 Be careful about what your expected output is from the function. Caught myself wondering why the return value was an empty array and realized that's the return value I expected. Take a break before study session with Deepak.
+
+14:19 I stumbled through the `Mexican Wave` problem and couldn't solve it because I got an aversion to using `slice` in the moment. Ugh. Keep practicing the methods.
