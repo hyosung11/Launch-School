@@ -219,6 +219,7 @@ function doesNotHaveRepeating(string) {
   return true;
 }
 
+/** Laurent's Solution */
 function nonRepeatingSubstring(string) {
   let longest = '';
   let current = '';

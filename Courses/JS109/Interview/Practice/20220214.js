@@ -102,3 +102,57 @@ console.log(
   ) ===
     "you've gotta dacne like teehr's nbdooy wachintg, love like ylo'ul neevr be hrut, sing like teehr's nbdooy leiinnstg, and live like it's haeevn on earth."
 );
+
+/* 2. Non-Repeating Substring
+
+Get the longest substring in a string that does not contain any repeating characters. 
+
+20:28 start
+
+Problem
+- input string
+- output substring
+
+Algorithm
+- declare `nonRepeatingSubstring` function with `string` parameter
+- init `substrings` to getSubstrings helper function
+- transform substrings
+  - split substring into chars
+  - filter array
+  - every element at idx of array whose index of element is equal to idx
+  - sort by longest and return the first element
+  - join
+*/
+
+function nonRepeatingSubstring(string) {
+  
+  let substrings = getSubstrings(string);
+  
+  return substrings
+    .map(substring => substring.split(''))
+    .filter(array => array
+    .every((char, idx, array) => array.indexOf(char) === idx))
+    .sort((a, b) => b.length - a.length)[0]
+    .join('')
+}
+
+
+function getSubstrings(string) {
+  
+  let substrings = [];
+  
+  for (let idx = 0; idx < string.length; idx += 1) {
+    for (let jdx = idx + 1; jdx <= string.length; jdx += 1) {
+      substrings.push(string.slice(idx, jdx));
+    }
+  }
+  
+  return substrings;
+}
+
+
+console.log(nonRepeatingSubstring("aa") === 'a'); // 'a'
+console.log(nonRepeatingSubstring("aAa") === 'aA'); // 'aA'
+console.log(nonRepeatingSubstring("abcdefabdhh") === 'abcdef'); // 'abcdef'
+console.log(nonRepeatingSubstring("fgrjnr9e7g") === 'jnr9e7g'); // 'jnr9e7g'
+
