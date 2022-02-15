@@ -5568,3 +5568,9 @@ aABab
 11:00 Starting Study Session with Michael.
 
 17:31 Time to make dinner. I think I have done good reps on the Typoglycemia Generator or Scramble Words problem.
+
+21:29 Trouble with `nonRepeatingSubstring` problem. Going to stop for tonight and look at it again tomorrow.
+
+## 20220215 화요일
+
+07:35 After the study session with Alex where we couldn't figure out a working solution to `nonRepeatingSubstring`.
