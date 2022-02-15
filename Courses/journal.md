@@ -5574,3 +5574,5 @@ aABab
 ## 20220215 화요일
 
 07:35 After the study session with Alex where we couldn't figure out a working solution to `nonRepeatingSubstring`.
+
+09:06 Starting study session with Laurent.

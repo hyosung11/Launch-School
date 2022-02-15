@@ -286,12 +286,12 @@ console.log(
 console.log(countMatchingIndices(['encode', 'abc', 'xyzD', 'ABmD'])); // [1, 3, 1, 3]
 console.log(countMatchingIndices([])); // []
 
-/* Sort the given array of strings in alphabetical order, case insensitive. 
+/* Sort the given array of strings in alphabetical order, case insensitive.
 
 For example:
 
 ["Hello", "there", "I'm", "fine"]  -->  ["fine", "Hello", "I'm", "there"]
-["C", "d", "a", "B"])              -->  ["a", "B", "C", "d"] 
+["C", "d", "a", "B"])              -->  ["a", "B", "C", "d"]
 
 12:08 start
 12:10 algo
