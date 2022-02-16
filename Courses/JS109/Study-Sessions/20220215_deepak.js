@@ -176,3 +176,28 @@ function wave(string) {
   
   return resultArray;
 }
+
+function wave(str){
+  let result = [];
+  
+  str.split('').forEach((char, idx) => {
+    if (/[a-z]/.test(char)) {
+      result.push(str.slice(0, idx) + char.toUpperCase() + str.slice(idx + 1))
+    }
+  })
+
+  return result;
+}
+
+function wave (string) {
+
+  let result = [];
+
+  for (let idx = 0; idx < string.length; idx += 1) {
+    if (string[idx] === ' ') continue;
+
+    result.push(string.slice(0, idx) + string[idx].toUpperCase() + string.slice(idx + 1))
+  }
+
+  return result;
+}
