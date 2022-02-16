@@ -96,7 +96,7 @@ Data Structure
 
 repeat?
 `map`?
- 
+
 Algorithm
 - declare function `wave` with parameter `string`
 - init `result` to empty array
@@ -175,4 +175,17 @@ function wave(string) {
   }
   
   return resultArray;
+}
+
+function wave (string) {
+
+  let result = [];
+
+  for (let idx = 0; idx < string.length; idx += 1) {
+    if (/[a-z]/.test(string[idx])) {
+      result.push(string.slice(0, idx) + string[idx].toUpperCase() + string.slice(idx + 1))
+    }
+  }
+
+  return result;
 }

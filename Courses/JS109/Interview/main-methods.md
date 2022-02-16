@@ -260,20 +260,26 @@ map((element) => { /* ... */ })
 map((element, index) => { /* ... */ })
 map((element, index, array) => { /* ... */ })
 
-// Callback function
-map(callbackFn)
-map(callbackFn, thisArg)
+const numbers = [1, 4, 9];
+const roots = numbers.map((num) => Math.sqrt(num));
 
-// Inline callback function
-map(function(element) { /* ... */ })
-map(function(element, index) { /* ... */ })
-map(function(element, index, array){ /* ... */ })
-map(function(element, index, array) { /* ... */ }, thisArg)
+// roots is now     [1, 2, 3]
+// numbers is still [1, 4, 9]
 ```
 
 ### Array.prototype.pop()
 
-The `pop()` method removes the **last** element from an array and returns that element. This method changes the length of the array.
+The `pop()` method *removes* the **last** element from an array and returns that element. This method changes the length of the array.
+
+```js
+var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+
+var popped = myFish.pop();
+
+console.log(myFish); // ['angel', 'clown', 'mandarin' ]
+
+console.log(popped); // 'sturgeon'
+```
 
 ### Array.prototype.push()
 
@@ -283,6 +289,22 @@ The `push()` method adds one or more elements to the **end** of an array and *re
 push(element0)
 push(element0, element1)
 push(element0, element1, /* ... ,*/ elementN)
+
+// Adding elements to an array
+let sports = ['soccer', 'baseball']
+let total = sports.push('football', 'swimming')
+
+console.log(sports)  // ['soccer', 'baseball', 'football', 'swimming']
+console.log(total)   // 4
+
+// Merging two arrays
+let vegetables = ['parsnip', 'potato']
+let moreVegs = ['celery', 'beetroot']
+
+// Merge the second array into the first one
+vegetables.push(...moreVegs);
+
+console.log(vegetables)  // ['parsnip', 'potato', 'celery', 'beetroot']
 ```
 
 ### Array.prototype.reduce()
@@ -298,33 +320,78 @@ reduce((previousValue, currentValue, currentIndex) => { /* ... */ } )
 reduce((previousValue, currentValue, currentIndex, array) => { /* ... */ } )
 reduce((previousValue, currentValue, currentIndex, array) => { /* ... */ }, initialValue)
 
-// Callback function
-reduce(callbackFn)
-reduce(callbackFn, initialValue)
-
-// Inline callback function
-reduce(function(previousValue, currentValue) { /* ... */ })
-reduce(function(previousValue, currentValue, currentIndex) { /* ... */ })
-reduce(function(previousValue, currentValue, currentIndex, array) { /* ... */ })
-reduce(function(previousValue, currentValue, currentIndex, array) { /* ... */ }, initialValue)
+let total = [ 0, 1, 2, 3 ].reduce(( previousValue, currentValue ) => previousValue + currentValue, 0)
 ```
 
 ### Array.prototype.reverse()
 
 The reverse() method *reverses an array in place*. The first array element becomes the last, and the last array element becomes the first.
 
+```js
+const array1 = ['one', 'two', 'three'];
+console.log('array1:', array1);
+// expected output: "array1:" Array ["one", "two", "three"]
+
+const reversed = array1.reverse();
+console.log('reversed:', reversed);
+// expected output: "reversed:" Array ["three", "two", "one"]
+
+// Careful: reverse is destructive -- it changes the original array.
+console.log('array1:', array1);
+// expected output: "array1:" Array ["three", "two", "one"]
+```
+
 ### Array.prototype.shift()
 
 The shift() method *removes the first element* from an array and *returns that removed element*. This method changes the length of the array.
 
+```js
+const array1 = [1, 2, 3];
+
+const firstElement = array1.shift();
+
+console.log(array1);
+// expected output: Array [2, 3]
+
+console.log(firstElement);
+// expected output: 1
+```
+
 ### Array.prototype.slice()
 
-The `slice()` method returns a shallow copy of a portion of an array into a new array object selected from `start` to `end` (`end` not included) where `start` and `end` represent the index of items in that array. The original array will not be modified.
+The `slice(start, end)` method returns a shallow copy of a portion of an array into a new array object selected from `start` to `end` (`end` not included) where `start` and `end` represent the index of items in that array. The original array will not be modified.
 
 ```js
 slice()
 slice(start)
 slice(start, end)
+
+const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+
+console.log(animals.slice(2));
+// expected output: Array ["camel", "duck", "elephant"]
+
+console.log(animals.slice(2, 4));
+// expected output: Array ["camel", "duck"]
+
+console.log(animals.slice(1, 5));
+// expected output: Array ["bison", "camel", "duck", "elephant"]
+
+console.log(animals.slice(-2));
+// expected output: Array ["duck", "elephant"]
+
+console.log(animals.slice(2, -1));
+// expected output: Array ["camel", "duck"]
+
+console.log(animals.slice());
+// expected output: Array ["ant", "bison", "camel", "duck", "elephant"]
+
+// Return a portion of an existing array
+let fruits = ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango']
+let citrus = fruits.slice(1, 3)
+
+// fruits contains ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango']
+// citrus contains ['Orange','Lemon']
 ```
 
 ### Array.prototype.some()
@@ -337,15 +404,15 @@ some((element) => { /* ... */ } )
 some((element, index) => { /* ... */ } )
 some((element, index, array) => { /* ... */ } )
 
-// Callback function
-some(callbackFn)
-some(callbackFn, thisArg)
+// Checking whether a value exists
+const fruits = ['apple', 'banana', 'mango', 'guava'];
 
-// Inline callback function
-some(function(element) { /* ... */ })
-some(function(element, index) { /* ... */ })
-some(function(element, index, array){ /* ... */ })
-some(function(element, index, array) { /* ... */ }, thisArg)
+function checkAvailability(arr, val) {
+  return arr.some(arrVal => val === arrVal);
+}
+
+checkAvailability(fruits, 'kela');   // false
+checkAvailability(fruits, 'banana'); // true
 ```
 
 ### Array.prototype.sort()
@@ -364,7 +431,24 @@ sort(compareFn)
 
 // Inline compare function
 sort(function compareFn(firstEl, secondEl) { /* ... */ })
+
+function compare(a, b) {
+  if (a is less than b by some ordering criterion) {
+    return -1;
+  }
+  if (a is greater than b by the ordering criterion) {
+    return 1;
+  }
+  // a must be equal to b
+  return 0;
+}
 ```
+
+compareFunction(a, b) return value  | sort order
+------------------------------------|-----------
+> 0  | sort b before a
+< 0  | sort a before b
+=== 0  | keep original order of a and b
 
 ### Array.prototype.splice()
 
@@ -388,16 +472,6 @@ console.log(months);
 // expected output: Array ["Jan", "Feb", "March", "April", "May"]
 ```
 
-### Array.prototype.toLocaleString()
-
-The `toLocaleString()` method returns a string representing the elements of the array. The elements are converted to Strings using their `toLocaleString` methods and these Strings are separated by a locale-specific String (such as a comma “,”).
-
-```js
-toLocaleString();
-toLocaleString(locales);
-toLocaleString(locales, options);
-```
-
 ### Array.prototype.toString()
 
 The `toString()` method returns a string representing the specified array and its elements.
@@ -417,23 +491,25 @@ The `unshift()` method *adds* one or more elements to the **beginning** of an ar
 unshift(element0)
 unshift(element0, element1)
 unshift(element0, element1, /* ... ,*/ elementN)
-```
 
-### Array.prototype.values()
+// Using `unshift`
+let arr = [1, 2]
 
-The `values()` method returns a new array iterator object that contains the values for each index in the array.
+arr.unshift(0)
+// result of the call is 3, which is the new array length
+// arr is [0, 1, 2]
 
-```js
-const array1 = ['a', 'b', 'c'];
-const iterator = array1.values();
+arr.unshift(-2, -1)
+// the new array length is 5
+// arr is [-2, -1, 0, 1, 2]
 
-for (const value of iterator) {
-  console.log(value);
-}
+arr.unshift([-4, -3])
+// the new array length is 6
+// arr is [[-4, -3], -2, -1, 0, 1, 2]
 
-// expected output: "a"
-// expected output: "b"
-// expected output: "c"
+arr.unshift([-7, -6], [-5])
+// the new array length is 8
+// arr is [ [-7, -6], [-5], [-4, -3], -2, -1, 0, 1, 2 ]
 ```
 
 ## Looping
