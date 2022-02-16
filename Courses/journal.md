@@ -5580,3 +5580,9 @@ aABab
 12:10 Be careful about what your expected output is from the function. Caught myself wondering why the return value was an empty array and realized that's the return value I expected. Take a break before study session with Deepak.
 
 14:19 I stumbled through the `Mexican Wave` problem and couldn't solve it because I got an aversion to using `slice` in the moment. Ugh. Keep practicing the methods.
+
+## 20220216 수요일
+
+08:58 Before study session with Laurent. I feel alright. Got the Greenshades demo in the back of my mind and going to schedule my interview assessment for next week.
+
+10:28 Having problems with `repl.it` as Laurent is working on a solution.

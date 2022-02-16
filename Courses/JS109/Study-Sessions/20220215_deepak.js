@@ -96,7 +96,7 @@ Data Structure
 
 repeat?
 `map`?
- 
+
 Algorithm
 - declare function `wave` with parameter `string`
 - init `result` to empty array
