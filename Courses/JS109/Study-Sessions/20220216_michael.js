@@ -115,13 +115,13 @@ console.log(decipherThis('72eva 97 103o 97t 116sih 97dn 115ee 104wo 121uo 100o')
 11:59 started coding
 12:00 spacing of code
 12:01 good to test loop
-12:04 testing `toUpperCase` method 
+12:04 testing `toUpperCase` method
 12:07 testing `slice`
 12:11 working with `slice`
 12:12 index positions
 12:14 getting unstuck with a hint
 12:15 guard clause
-12:18 solved 
+12:18 solved
 */
 
 /* You are given a secret message you need to decipher. Here are the things you need to know to decipher it:
@@ -140,7 +140,7 @@ Algo
   - init `codepoint` digits of the word
   - init `firstLetter` to the letter from the char code of codepoint
   - init `combined` to `firstLetter` concatenated with word sliced from codepoint length to end of word
-  
+
   - if combined length is greater than 2
     - reassign combined to first letter of combined plus last letter of combined plus middle letters of combined plus the second letter of combined
       - push combined to `result`
@@ -153,13 +153,13 @@ function decipherThis(string) {
 
   let result = [];
   let words = string.split(' ');
-  
+
   for (let word of words) {
-  
+
     let codepoint = word.match(/[0-9]+/).join('');
     let firstLetter = String.fromCharCode(codepoint);
     let combined = firstLetter + word.slice(codepoint.length)
-    
+
     if (combined.length < 3) {
       result.push(combined);
     } else {
@@ -167,8 +167,7 @@ function decipherThis(string) {
      result.push(combined);
     }
   }
-  
-  
+
   return result.join(' ');
 }
 
