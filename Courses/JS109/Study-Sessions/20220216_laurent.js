@@ -60,22 +60,6 @@ Algorithm
 - return `result` array
 */
 
-function indexPairs(string, array) {
-  let result = [];
-
-  for (let idx = 0; idx < array.length; idx += 1) {
-    console.log(array[idx]);
-    if (string.includes(array[idx])) {
-    }
-  }
-
-  return result;
-}
-
-console.log(
-  indexPairs('thestoryofleetcodeandme', ['story', 'fleet', 'leetcode'])
-); // [[3,7],[9,13],[10,17]]
-
 // console.log(indexPairs("ababa", ["aba","ab"])); // [[0,1],[0,2],[2,3],[2,4]]
 
 /** Leetcode 1065. Index Pairs of a String
@@ -83,7 +67,7 @@ console.log(
  * @param {string[]} words
  * @return {number[][]}
  
-find all occurences
+find all occurrences
 sort them
 
 for each word, look for the word and get their index of occurence

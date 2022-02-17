@@ -5598,3 +5598,7 @@ aABab
 ## 20220217 목요일
 
 05:57 Before study session with Alex and I need to cancel my other study sessions today and prepare my demo.
+
+07:18 After study session with Alex and my brain felt fuzzy this morning with the problems.
+
+09:18 Still trying to understand the first problem `wordToDigit` from Alex's solution this morning and I think I understand how it works now. I need to move on to demo prep.

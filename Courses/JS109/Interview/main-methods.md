@@ -1041,7 +1041,7 @@ replace(substr, newSubstr)
 replace(substr, replacerFunction)
 
 // Example
-// In the following example, the regular expression is defined in replace() and includes the ignore case flag. 
+// In the following example, the regular expression is defined in replace() and includes the ignore case flag.
 let str = 'Twas the night before Xmas...';
 let newstr = str.replace(/xmas/i, 'Christmas');
 console.log(newstr);  // Twas the night before Christmas...
