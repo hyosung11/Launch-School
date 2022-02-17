@@ -151,7 +151,7 @@ function fix(word) {
 
   if (array.length <= 2) return array.join('');
 
-  return array[0] + array[array.length - 1] + array.slice(2, array.length -1).join('') + array[1];
+  return array[0] + array[array.length - 1] + array.slice(2, array.length - 1).join('') + array[1];
 }
 
 console.log(decipherThis('72olle 103doo 100ya')); // 'Hello good day'

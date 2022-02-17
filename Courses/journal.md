@@ -5586,3 +5586,7 @@ aABab
 08:58 Before study session with Laurent. I feel alright. Got the Greenshades demo in the back of my mind and going to schedule my interview assessment for next week.
 
 10:28 Having problems with `repl.it` as Laurent is working on a solution.
+
+10:47 The problem that Laurent gave us today was hard. Definitely more difficult than what we will have to do for the interview assessment.
+
+12:34 I failed to solve `decipherThis` and gave up. Ugh. Not ready today. Michael solved the Mexican Wave problem.

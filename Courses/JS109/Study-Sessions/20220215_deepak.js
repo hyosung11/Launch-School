@@ -165,21 +165,21 @@ undefined
 
 function wave(string) {
   let resultArray = [];
-  
+
   for (let i = 0; i < string.length; i += 1) {
-    
+
     if (string[i] === ' ') continue;
-    
+
     resultArray.push(string.slice(0, i) + string[i].toUpperCase() + string.slice(i + 1));
-    
+
   }
-  
+
   return resultArray;
 }
 
 function wave(str){
   let result = [];
-  
+
   str.split('').forEach((char, idx) => {
     if (/[a-z]/.test(char)) {
       result.push(str.slice(0, idx) + char.toUpperCase() + str.slice(idx + 1))

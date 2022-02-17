@@ -149,11 +149,9 @@ flat()
 flat(depth)
 
 const arr1 = [0, 1, 2, [3, 4]];
-
 console.log(arr1.flat()); // expected output: [0, 1, 2, 3, 4]
 
 const arr2 = [0, 1, 2, [[[3, 4]]]];
-
 console.log(arr2.flat(2)); // expected output: [0, 1, 2, [3, 4]]
 ```
 
@@ -563,13 +561,38 @@ for (const element of array1) {
 
 ### Math.abs()
 
-The `Math.abs()` function returns the absolute value of a number. That is, it returns `x` if `x` is positive or zero, and the negation of `x` if `x` is negative.
+The `Math.abs(x)` function returns the absolute value of a number. That is, it returns `x` if `x` is positive or zero, and the negation of `x` if `x` is negative.
 
-### Math.ceil()
+```js
+function difference(a, b) {
+  return Math.abs(a - b);
+}
 
-The `Math.ceil()` function always rounds a number up to the next largest integer.
+console.log(difference(3, 5)); // expected output: 2
 
+console.log(difference(5, 3)); // expected output: 2
+
+console.log(difference(1.23456, 7.89012)); // expected output: 6.6555599999999995
+```
+
+### Math.ceil(x)
+
+The `Math.ceil()` function always *rounds a number up to the next largest integer*.
 Note: `Math.ceil(null)` returns integer 0 and does not give a `NaN` error.
+
+```js
+console.log(Math.ceil(.95));
+// expected output: 1
+
+console.log(Math.ceil(4));
+// expected output: 4
+
+console.log(Math.ceil(7.004));
+// expected output: 8
+
+console.log(Math.ceil(-7.004));
+// expected output: -7
+```
 
 ### Math.floor()
 
