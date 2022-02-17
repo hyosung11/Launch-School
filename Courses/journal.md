@@ -5604,3 +5604,5 @@ aABab
 09:18 Still trying to understand the first problem `wordToDigit` from Alex's solution this morning and I think I understand how it works now. I need to move on to demo prep.
 
 09:23 I played with `replace()` in the CoderPad console and now understand how it works better.
+
+12:23 Context switching from spent the morning getting ready for my demo to having a study session with Deepak at 12:30.
