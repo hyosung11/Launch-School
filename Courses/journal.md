@@ -5606,3 +5606,20 @@ aABab
 09:23 I played with `replace()` in the CoderPad console and now understand how it works better.
 
 12:23 Context switching from spent the morning getting ready for my demo to having a study session with Deepak at 12:30.
+
+14:09 Good study session with Deepak. I got stuck on `tripleDouble` and forgot how `match` works on the entire numeric string.
+
+```js
+function tripledouble (num1, num2) {
+  num1 = String(num1);
+  num2 = String(num2);
+  
+  for (let idx = 0; idx < num2.length; idx += 1) {
+   if (num1.match(num1[idx] + num1[idx] + num1[idx]) && num2.match(num1[idx] + num1[idx])) return 1; 
+  }
+
+  return 0;
+}
+```
+
+15:33 Took a needed break and now I have to keep preparing for my demo. I have a trial run with Louis at 5pm.
