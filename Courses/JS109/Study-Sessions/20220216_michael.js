@@ -1,12 +1,10 @@
-// You are given a secret message you need to decipher. Here are the things you need to know to decipher it:
+/* You are given a secret message you need to decipher. Here are the things you need to know to decipher it:
 
-// For each word:
+For each word:
 
-// the second and the last letter is switched (e.g. Hello becomes Holle)
-// the character code is replaced by its letter (e.g. 72 becomes H)
-// Note: there are no special characters used, only letters and spaces
-
-/*
+the second and the last letter is switched (e.g. Hello becomes Holle)
+the character code is replaced by its letter (e.g. 72 becomes H)
+Note: there are no special characters used, only letters and spaces
 
 11:10 start
 11:20 algorithm
@@ -66,3 +64,55 @@ console.log(decipherThis('72eva 97 103o 97t 116sih 97dn 115ee 104wo 121uo 100o')
 12:15 guard clause
 12:18 solved 
 */
+
+/* You are given a secret message you need to decipher. Here are the things you need to know to decipher it:
+
+For each word:
+
+the second and the last letter is switched (e.g. Hello becomes Holle)
+the character code is replaced by its letter (e.g. 72 becomes H)
+Note: there are no special characters used, only letters and spaces 
+
+Algo
+- declare `decipherThis` function with `string` parameter
+- init `result` to empty array
+- init `words` to array of words of string split by spaces
+- iterate over `words` array
+  - init `codepoint` digits of the word
+  - init `firstLetter` to the letter from the char code of codepoint
+  - init `combined` to `firstLetter` concatenated with word sliced from codepoint length to end of word
+  
+  - if combined length is greater than 2
+    - reassign combined to first letter of combined plus last letter of combined plus middle letters of combined plus the second letter of combined
+      - push combined to `result`
+  - else
+    - push combined as-is to result
+- join and return `result`
+*/
+
+function decipherThis(string) {
+
+  let result = [];
+  let words = string.split(' ');
+  
+  for (let word of words) {
+  
+    let codepoint = word.match(/[0-9]+/).join('');
+    let firstLetter = String.fromCharCode(codepoint);
+    let combined = firstLetter + word.slice(codepoint.length)
+    
+    if (combined.length < 3) {
+      result.push(combined);
+    } else {
+      combined = combined[0] + combined.at(-1) + combined.slice(2, -1) + combined[1];
+     result.push(combined);
+    }
+  }
+  
+  
+  return result.join(' ');
+}
+
+console.log(decipherThis('72olle 103doo 100ya')); // 'Hello good day'
+console.log(decipherThis('82yade 115te 103o')); // 'Ready set go'
+console.log(decipherThis('72eva 97 103o 97t 116sih 97dn 115ee 104wo 121uo 100o')); //, 'Have a go at this and see how you do');
