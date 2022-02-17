@@ -27,23 +27,82 @@ Data Structure
 - intermediary: ?
 - output new string
 
-Algorithm
-- declare function `decipherThis` with `string` parameter
-- split string into an array of words by spaces
-- transform each word
-  - separate number from letters
-  - get the letter from the charcode
-  - prepend the letter to the rest of the word
-  - switch second letter and last letter - slice?
-  - join at spaces
-- return string
+/* Algorithm
+- declare `decipherThis` function with `string` parameter
+- init `result` array
+- init `words` to an array of words by splitting string at spaces
 
-TEST!
+- iterate over `words` array
+  - init `word` to words[idx]
+  - init `codepoint` to word 
+    - split into chars*
+    - filter out numbers
+    - join 
+  - init `firstLetter` to get letter from char code by passing in codepoint
+  - init `combined to `firstLetter` concatenated with word sliced at the codepoint length
+
+  - if combined length is greater than 2
+    - reassign word to combined[0] + combined[combined.length -1] + combined.slice(2, combined.length - 1 + combined[1]
+      - push word to `result`
+  - else push `combined` to `result`
+
+- join `result` at spaces and return
 
 */
 
+function decipherThis (string) {
+
+  let result = [];
+
+  let words = string.split(' ');
+
+  for (let word of words) {
+
+    let codepoint = word.split('').filter(char => char.match(/[0-9]+/)).join('');
+    let firstLetter = String.fromCharCode(+codepoint);
+    let combined = firstLetter + word.slice(codepoint.length);
+
+    if (combined.length > 2) {
+      word = combined[0] + combined[combined.length - 1] + combined.slice(2, combined.length - 1) + combined[1];
+      result.push(word)
+    } else {
+      result.push(combined)
+    }
+  }
+
+  return result.join(' ');
+}
+
+// function decipherThis(string) {
+  
+//   return string
+//     .split(' ')
+//     .map(word => lettersOnly(word))
+//     .join(' ');
+// }
 
 
+// function lettersOnly(word) {
+  
+//   let array = word.split('')
+//   let num = '';
+  
+//   for (let idx = 0; idx < array.length; idx += 1) {
+//     if ('0123456789'.includes(array[idx])) {
+//       num = num + array[idx];
+//     }
+//   }
+  
+//   array.splice(0, num.length);
+//   array.unshift(String.fromCharCode(Number(num)))
+  
+//   if (array.length <= 2) {
+//     return array.join('');
+//   }
+    
+//   // console.log(array)
+//   return array[0] + array[array.length - 1] + array.slice(2, array.length -1).join('') + array[1];
+// }
 console.log(decipherThis('72olle 103doo 100ya')); // 'Hello good day'
 console.log(decipherThis('82yade 115te 103o')); // 'Ready set go'
 console.log(decipherThis('72eva 97 103o 97t 116sih 97dn 115ee 104wo 121uo 100o')); //, 'Have a go at this and see how you do');

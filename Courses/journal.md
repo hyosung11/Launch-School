@@ -5590,3 +5590,12 @@ aABab
 10:47 The problem that Laurent gave us today was hard. Definitely more difficult than what we will have to do for the interview assessment.
 
 12:34 I failed to solve `decipherThis` and gave up. Ugh. Not ready today. Michael solved the Mexican Wave problem.
+
+16:34 I code rather than plan for demo.
+
+17:02 Doing practice reps on `decipherThis` because I need to do more reps.
+
+
+## 20220217 목요일
+
+05:57 Before study session with Alex and I need to cancel my other study sessions today and prepare my demo.
