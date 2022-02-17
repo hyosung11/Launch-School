@@ -57,3 +57,49 @@ console.log(charCheck("Despite what some have suggested, this had nothing to do 
     Test.assertSimilar(charCheck("I have no notice period on Phobos. I can start immediately.", 50, true), [false, "I have no notice period on Phobos. I can start imm"], "Your array should include a shortened version of the original text.")
   }); 
 });
+
+/* PEDAC
+
+Problem
+- input string, number, boolean
+- output array with boolean and text
+
+Rules
+- return a two element array with a boolean and `text`
+
+Algorithm
+- input `text`, `max`, `spaces`
+- init `result` to empty array
+
+- if spaces === true (count the space)
+  - if text.length > max
+    - result.push(False, text.slice(0, max))
+  - else 
+    - result.push(True, text
+    
+- if spaces === false (don't count spaces)
+  - text.trim()
+  - if text.length > max
+    - result.push(False, text.slice(0, max))
+   - else
+    - result.push (True, text)
+- return `result` array
+
+*/
+// function charCheck(text, max, spaces) {
+//   if (spaces) {
+//     return text.length <= max ? [true, text] : [false, text.slice(0, max)];
+//   } else if (!spaces) {
+//     text = text.split(" ").join("");
+//     return text.length <= max ? [true, text] : [false, text.slice(0, max)];
+//   }
+// }
+
+
+function charCheck(text, max, spaces) {
+  if (!spaces) text = text.replace(/ +/g, '');
+  return text.length <= max ? [true, text] : [false, text.slice(0, max)];
+};
+
+console.log(charCheck("I am applying for the role of Base Manager on Titan.", 60, true)) // [true, "I am applying for the role of Base Manager on Titan."]
+

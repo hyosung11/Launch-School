@@ -42,7 +42,7 @@ Algorithm
 function differenceOfTwo (array) {
   let result = [];
   array.sort();
-  
+
   for (let idx = 0; idx < array.length; idx += 1) {
 
     for (let jdx = idx + 1; jdx <= array.length; jdx += 1) {

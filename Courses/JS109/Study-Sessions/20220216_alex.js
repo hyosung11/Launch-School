@@ -119,27 +119,32 @@ isPalindrome
 */
 
 function longestPalindrome (str) {
+
   let substrings = getSubstrings(str);
   let palindromes = substrings.filter(substring => isPalindrome(substring));
 
   return longest(palindromes).length;
 }
 
-function getSubstrings (string) { 
+function getSubstrings (string) {
+
   let substrings = [];
   for (let idx = 0; idx < string.length; idx++) {
     for (let jdx = idx  + 1; jdx <= string.length; jdx++) {
       substrings.push(string.slice(idx, jdx));
     }
   }
+
   return substrings;
 }
 
 function isPalindrome (string) {
+
   return string === string.split('').reverse().join('');
 }
 
 function longest (arr) {
+
   arr.sort((a, b) => b.length - a.length);
   return arr[0];
 }
