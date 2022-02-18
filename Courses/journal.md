@@ -5627,3 +5627,9 @@ function tripledouble (num1, num2) {
 20:26 The trial run of the demo went well with Louis and I feel good about my preparation before the actual demo tomorrow. Time to do a little coding now.
 
 21:16 End studying for tonight.
+
+## 20220218 금요일
+
+08:25 After study session with Alex and I booked my interview assessment for Monday, February 28 at 11:00 AM EST.
+
+12:27 Do I grind out more problems, or take a break after my demo interview?
