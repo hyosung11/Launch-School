@@ -38,8 +38,7 @@ Algorithm
 - turn num2 into a string
 
 - iterate over num1 as a string
-  - if num1 at idx + num1 at idx + num1 at idx matches and
-    - num2 at idx and num2 at idx matches num1 at idx
+  - if num1 matches num1 at idx 3 times and num2 matches num1 at idx 2 times
     - return 1
 - return 0
 

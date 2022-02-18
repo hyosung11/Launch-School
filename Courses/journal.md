@@ -5613,7 +5613,7 @@ aABab
 function tripledouble (num1, num2) {
   num1 = String(num1);
   num2 = String(num2);
-  
+
   for (let idx = 0; idx < num2.length; idx += 1) {
    if (num1.match(num1[idx] + num1[idx] + num1[idx]) && num2.match(num1[idx] + num1[idx])) return 1; 
   }
@@ -5623,3 +5623,7 @@ function tripledouble (num1, num2) {
 ```
 
 15:33 Took a needed break and now I have to keep preparing for my demo. I have a trial run with Louis at 5pm.
+
+20:26 The trial run of the demo went well with Louis and I feel good about my preparation before the actual demo tomorrow. Time to do a little coding now.
+
+21:16 End studying for tonight.
