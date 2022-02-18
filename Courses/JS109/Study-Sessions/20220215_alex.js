@@ -52,7 +52,7 @@ Algorithm
 - split and iterate through alphabet str and map
   - if obj contains key, map to each letter's value in obj; if it doesn't exist map to 0
 
--return joined map
+- join and return
 */
 
 function decrypt (string) {
