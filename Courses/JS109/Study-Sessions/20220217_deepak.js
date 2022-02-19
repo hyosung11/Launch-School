@@ -4,9 +4,9 @@
 `map`
 `forEach`
 
+console.log(idx, num1[idx]);
 
-*/
-/* 13:08
+13:08
 
 Write a function
 
@@ -47,9 +47,9 @@ Algorithm
 function tripledouble (num1, num2) {
   num1 = String(num1);
   num2 = String(num2);
-  
+
   for (let idx = 0; idx < num2.length; idx += 1) {
-   if (num1.match(num1[idx] + num1[idx] + num1[idx]) && num2.match(num1[idx] + num1[idx])) return 1; 
+   if (num1.match(num1[idx] + num1[idx] + num1[idx]) && num2.match(num1[idx] + num1[idx])) return 1;
   }
 
   return 0;
@@ -100,13 +100,12 @@ function tripledouble(number1, number2) {
   return triples.some(element => doubles.includes(element)) ? 1 : 0;
 }
 
-
 function findTriples(number) {
-  
+
   let arrayOfTriples = []
-  
+
   let arrayOfStrings = String(number).split('');
-  
+
   for (let i = 0; i < arrayOfStrings.length; i += 1) {
     if (arrayOfStrings[i] === arrayOfStrings[i + 1] && arrayOfStrings[i] === arrayOfStrings[i + 2]) {
       arrayOfTriples.push(Number(arrayOfStrings[i]));
@@ -132,7 +131,7 @@ function findDoubles(number) {
   return arrayOfDoubles;
 }
 
-console.log(idx, num1[idx]);
+
 
 /* Warmup Exercises */
 

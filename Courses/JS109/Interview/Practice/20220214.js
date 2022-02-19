@@ -18,7 +18,7 @@ Assumptions
 - words are separated by single spaces
 - only spaces separate words, special characters do not, for example: tik-tak -> tai-ktk
 - special characters do not take the position of the non special characters, for example: -dcba -> -dbca
-- for this kata puctuation is limited to 4 characters: hyphen(-), apostrophe('), comma(,) and period(.)
+- for this kata punctuation is limited to 4 characters: hyphen(-), apostrophe('), comma(,) and period(.)
 - ignore capitalization
 
 17:12 start again

@@ -5633,3 +5633,9 @@ function tripledouble (num1, num2) {
 08:25 After study session with Alex and I booked my interview assessment for Monday, February 28 at 11:00 AM EST.
 
 12:27 Do I grind out more problems, or take a break after my demo interview?
+
+15:52 Played two games of Rack-O with Omi and now noodling around on the internet before I get back to studying. I think I'm going to go through all the Launch School Small Problems right now. Or review methods some more. I thought about making Anki cards, but I have not.
+
+## 20220219 토요일
+
+11:15 그래 정답을 보고 해결했다. Watching Crystal Palace vs Chelsea and it's 0-0 in the 56th minute.
