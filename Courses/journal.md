@@ -5641,3 +5641,9 @@ function tripledouble (num1, num2) {
 11:15 그래 정답을 보고 해결했다. Watching Crystal Palace vs Chelsea and it's 0-0 in the 56th minute.
 
 19:30 I feel tired. I did some edabit problems but I do like ranking up on Codewars.
+
+## 20220220 일요일
+
+09:12 I slept in today and didn't get out of bed until 7:55 but that didn't necessarily make my morning better. Why do I say it like that? I wish I had gotten up at 5:30 and done some studying. I'll have less time today as we're having my parents and my brother's family over for brunch. I have one more week of preparation before I take the JS109 Interview Assessment. Let's make it a great week of studying.
+
+09:57 I have a week to get ready. I couldn't figure out the problem Michael gave me and I had to look at solutions. I still don't fully understand the solutions and need to deconstruct them.
