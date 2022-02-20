@@ -39,15 +39,16 @@ Data Structure
 
 Algorithm
 - declare `sortStringsByVowels` function with `array` parameter
-- init `result` to empty array
-- init `longestVowelChain` to empty string
 
-- iterate over array elements
-  - init `currentVowelChain` to empty string
-  - if char is a vowel
-    - increment `currentVowelChain` with char
-    - if currentVowelChain is longer than `longestVowelChain`
-      - reassign `longetsVowelChain` to `currentVowelChain`
+- init `result` to array sorted by passing string elements through `longestVowels` helper function
+
+- return `result`
+
+`longestVowel` helper function
+- input string
+- init `vowels` to match vowels in string or an empty array
+- sort `vowels` by longest to shortest in length
+- return the length of first element in `vowels`
 
 - return `result` array
 
@@ -117,12 +118,12 @@ function longestVowels(str) {
 }
 
 // 4
-function sortStringsByVowels(strings) {
-  return strings.sort((a, b) => vowelArr(b) - vowelArr(a));
-}
+// function sortStringsByVowels(strings) {
+//   return strings.sort((a, b) => vowelArr(b) - vowelArr(a));
+// }
 
-function vowelArr(string) {
-  return string.split(/[^aeiou]/gi).sort((a, b) => b.length - a.length)[0]
-    .length;
-}
+// function vowelArr(string) {
+//   return string.split(/[^aeiou]/gi).sort((a, b) => b.length - a.length)[0]
+//     .length;
+// }
 

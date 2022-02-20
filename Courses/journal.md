@@ -5647,3 +5647,5 @@ function tripledouble (num1, num2) {
 09:12 I slept in today and didn't get out of bed until 7:55 but that didn't necessarily make my morning better. Why do I say it like that? I wish I had gotten up at 5:30 and done some studying. I'll have less time today as we're having my parents and my brother's family over for brunch. I have one more week of preparation before I take the JS109 Interview Assessment. Let's make it a great week of studying.
 
 09:57 I have a week to get ready. I couldn't figure out the problem Michael gave me and I had to look at solutions. I still don't fully understand the solutions and need to deconstruct them.
+
+17:40 Family left a little after 17:00, so spent most of the day together which was nice and pleasant. I didn't get much studying done though.
