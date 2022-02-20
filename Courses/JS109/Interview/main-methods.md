@@ -845,6 +845,18 @@ search()       | Tests for a match in a string. It returns the index of the matc
 `replaceAll()` | Executes a search for all matches in a string, and replaces the matched substrings with a replacement substring.
 `split()`      | Uses a regular expression or a fixed string to break a string into an array of substrings.
 
+### RegExp.prototype.test()
+
+The `test(str)` method executes a search for a match between a regular expression and a specified string. Returns `true` or `false`.
+
+```js
+const str = 'hello world!';
+const result = /^hello/.test(str);
+
+console.log(result); // true
+```
+
+
 ## Strings
 
 ### String length

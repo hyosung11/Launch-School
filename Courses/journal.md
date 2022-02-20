@@ -5639,3 +5639,5 @@ function tripledouble (num1, num2) {
 ## 20220219 토요일
 
 11:15 그래 정답을 보고 해결했다. Watching Crystal Palace vs Chelsea and it's 0-0 in the 56th minute.
+
+19:30 I feel tired. I did some edabit problems but I do like ranking up on Codewars.
