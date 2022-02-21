@@ -221,3 +221,23 @@ console.log(pyramidArrays(8)); // => [[1], [2, 2], [3, 3, 3], [4, 4, 4, 4], [5, 
 console.log(pyramidArrays(9)); // => [[1], [2, 2], [3, 3, 3], [4, 4, 4, 4], [5, 5, 5, 5, 5], [6, 6, 6, 6, 6, 6], [7, 7, 7, 7, 7, 7, 7], [8, 8, 8, 8, 8, 8, 8, 8], [9, 9, 9, 9, 9, 9, 9, 9, 9]])
 console.log(pyramidArrays(10)); // => [[1], [2, 2], [3, 3, 3], [4, 4, 4, 4], [5, 5, 5, 5, 5], [6, 6, 6, 6, 6, 6], [7, 7, 7, 7, 7, 7, 7], [8, 8, 8, 8, 8, 8, 8, 8], [9, 9, 9, 9, 9, 9, 9, 9, 9], [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]])
 
+// Alex's Solution
+function pyramidArrays(num) {
+  let result = [];
+  let arrayCount = 1;
+
+  while (arrayCount <= num) {
+    let subArray = [];
+    let elementCount = 0; // 1
+
+    while (elementCount < arrayCount) {
+      elementCount += 1;
+      subArray.push(arrayCount);
+      //elementCount += 1;
+    }
+    result.push(subArray);
+    arrayCount += 1;
+  }
+
+  return result;
+}
