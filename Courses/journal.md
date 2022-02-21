@@ -5649,3 +5649,5 @@ function tripledouble (num1, num2) {
 09:57 I have a week to get ready. I couldn't figure out the problem Michael gave me and I had to look at solutions. I still don't fully understand the solutions and need to deconstruct them.
 
 17:40 Family left a little after 17:00, so spent most of the day together which was nice and pleasant. I didn't get much studying done though.
+
+19:18 Feeling tired and kind of brain dead. I hope I sharpen up tomorrow and the rest of next week as I ramp up to take the interview assessment.
