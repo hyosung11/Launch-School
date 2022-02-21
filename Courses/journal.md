@@ -5649,3 +5649,7 @@ function tripledouble (num1, num2) {
 09:57 I have a week to get ready. I couldn't figure out the problem Michael gave me and I had to look at solutions. I still don't fully understand the solutions and need to deconstruct them.
 
 17:40 Family left a little after 17:00, so spent most of the day together which was nice and pleasant. I didn't get much studying done though.
+
+## 20220221 월요일
+
+07:46 I had a study session with Alex and have others planned today, but the kids are home. I need to study though. Ugh.
