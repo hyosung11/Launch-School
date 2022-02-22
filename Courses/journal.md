@@ -5650,6 +5650,8 @@ function tripledouble (num1, num2) {
 
 17:40 Family left a little after 17:00, so spent most of the day together which was nice and pleasant. I didn't get much studying done though.
 
+19:18 Feeling tired and kind of brain dead. I hope I sharpen up tomorrow and the rest of next week as I ramp up to take the interview assessment.
+
 ## 20220221 월요일
 
 07:46 I had a study session with Alex and have others planned today, but the kids are home. I need to study though. Ugh.
