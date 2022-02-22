@@ -110,7 +110,7 @@ Data Structure
 Algorithm
 - declare `chunk` function with `array` and `size` parameters
 - init `result` to empty array
-- iterate over while array length is greater than 0
+- iterate while array length is greater than 0
   - take chunks of array of `size`
   - push chunks to `result`
 - return `result

@@ -131,7 +131,7 @@ function nonRepeatingSubstring(string) {
   return substrings
     .map(substring => substring.split(''))
     .filter(array => array
-    .every((char, idx, array) => array.indexOf(char) === idx))
+      .every((char, idx, array) => array.indexOf(char) === idx))
     .sort((a, b) => b.length - a.length)[0]
     .join('')
 }
