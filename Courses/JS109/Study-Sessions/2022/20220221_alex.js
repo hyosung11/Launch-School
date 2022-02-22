@@ -106,21 +106,17 @@ Algorithm
 */
 
 function sortStringsByVowels (array) {
-  
+
   return array.sort((a, b) => longestVowels(b) - longestVowels(a));
-  
 }
 
 function longestVowels (string) {
 
   let vowels = string.match(/[aeiou]+/gi) || ['']
-  
   vowels.sort((a, b) => b.length - a.length);
   // console.log(vowels)
-  
   return vowels[0].length;
 }
-
 
 // console.log(sortStringsByVowels(["aa","eee","oo","iiii"]))//,["iiii","eee","aa","oo"]);
 // console.log(sortStringsByVowels(["a","e","ii","ooo","u"]))//,["ooo","ii","a","e","u"]);
@@ -128,3 +124,151 @@ function longestVowels (string) {
 // console.log(sortStringsByVowels( ["high","day","boot"]))// , ["boot","high","day"]);
 // console.log(sortStringsByVowels(["none","uuu","Yuuuge!!"]))// , ["uuu","Yuuuge!!","none"]);
 console.log(sortStringsByVowels(["how about now","a beautiful trio of"]))// , ["a beautiful trio of","how about now"]);
+
+/* ==========================
+
+Combine Arrays from Alex
+
+Create a function that takes three arrays and returns one array where all passed arrays are combined into nested arrays.
+
+These arrays should be combined based on indexes: the first nested array should contain only the items on index 0, the second array on index 1, and so on.
+If any array contains fewer items than necessary, supplement the missing item with "*".
+
+Problem
+- input arr1, arr2 arr3
+- output one array of nested arrays
+
+Rules
+- return an array of nested arrays where the element at that index from each of the input arrays is combined into a nested array of the return array
+- if an array contains fewere than necessary items, insert "*" 
+
+Examples
+- [false, 'false'], ['true', true, 'bool'], ['null', 'undefined'] => [[fales, 'true', 'null], ['false', true, 'undefined'], ['*', 'bool', '*']]
+
+Data Structure
+- input arr1, arr2, arr3
+- inside nested arrays
+- output nested arrays
+
+Algorithm
+- declare `combineArrays` function with `arr1`, `arr2`, and `arr3` parameters
+- init `result` to empty array
+- push arr1 at idx, arr2 at idx, arr3 at idx to `result`
+  - if arr1 at idx equals undefined push '*'
+
+- return `result`
+
+*/
+
+function combineArrays(arr1, arr2, arr3) {
+  let result = [];
+  
+  result.push([arr1[0], arr2[0], arr3[0]], [arr1[1], arr2[1], arr3[1]], [arr1[2], arr2[2], arr3[2]])
+  // console.log(result)
+  
+  for (let idx = 0; idx < result.length; idx += 1) {
+    
+    for (let jdx = 0; jdx < result.length; jdx += 1) {
+      console.log(result[jdx])
+    }
+    // result[idx] = result[idx].replace(undefined, '*')
+  }
+  
+  return result;
+}
+
+console.log(combineArrays([false, "false"], ["true", true, "bool"], ["null", "undefined"])); // ➞ [[false, "true", "null"], ["false", true, "undefined"], ["*", "bool", "*"]]
+
+// combineArrays([1, 2, 3], [4, 5, 6], [7, 8, 9]) // ➞ [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+
+// combineArrays(["Jack", "Joe", "Jill"], ["Stuart", "Sammy", "Silvia"], ["Rick", "Raymond", "Riri"]) // ➞ [["Jack", "Stuart", "Rick"], ["Joe", "Sammy",  "Raymond"], ["Jill", "Silvia", "Riri"]]
+
+/* Sort Me
+
+Sort the given array of strings in alphabetical order, case insensitive. For example:
+
+["Hello", "there", "I'm", "fine"]  -->  ["fine", "Hello", "I'm", "there"]
+["C", "d", "a", "B"])              -->  ["a", "B", "C", "d"]
+
+ */
+
+// input: names - unsorted strings
+// output: case-agnostic sort
+function sortme ( names ) {
+  return names.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))
+}
+
+console.log(sortme(["Hello","there","I'm","fine"])); // => ["fine", "Hello", "I'm", "there"]
+console.log(sortme(["C", "d", "a", "B"])) // => ["a", "B", "C", "d"]
+console.log(sortme(["CodeWars"])) // => ["CodeWars"]
+console.log(sortme([])) // => []
+
+/*
+Problem
+input: String
+Output: A new string of case insensitive alphabetically ordered strings
+
+Explicit requirements
+1. Write a function that accepts a string as argument
+2. Return a new string that has the characters in a case insensitive alphabeticalorder
+3. Whitespaces and punctuation should be removed 
+
+
+Constraints
+1. Input restricted to no numerals and only words containing english alphabet letters
+
+Examples 
+1. alphabetized("The Holy Bible") // "BbeehHilloTy"
+
+Data Structures 
+1. Strings 
+2. Arrays.
+
+Algorithm 
+
+High level
+1. Clean string of spaces and punctuation
+2. Sort the string into case insensitve alphabetical order 
+
+Specifics
+1. Use regex to replace all spaces with empty strings
+2. Use regex to replace all non alphabetic characters 
+3. Convert string to array using split method invocation with empty string seperator.
+3. Use the sort method
+4. Use join method to return new string.
+returning a.localecompare(b) as the callback 
+
+Test algorithm 
+
+input: 'The Holy Bible'
+output: BbeehHilloTy
+
+regex: TheHolyBible
+sort: 'BbeehHilloTy'
+
+My Algorithm
+- declare `alphabetized` function with `string` parameter
+- use regex to replace all non-alphabetic chars
+- split string by char into an array
+- sort if uppercase is equal to uppercase
+  - then by indexOf a - indexOf a or
+  - a localeCompare b
+- join and return
+*/
+
+function alphabetized (string) {
+  string = string.replace(/[^a-z]/gi, '');
+  return string.split('').sort((a, b) => a.toUpperCase() === b.toUpperCase() ?
+             string.indexOf(a) - string.indexOf(b) : a.localeCompare(b))
+  .join('');
+}
+
+console.log(alphabetized('The Holy Bible') === 'BbeehHilloTy');
+
+// function alphabetized(s) {
+//   return s
+//     .replace(/[^a-zA-Z]/g, '')
+//   .split('')
+//   .sort((x, y) => (x.toUpperCase() === y.toUpperCase()) ? (s.indexOf(x) - s.indexOf(y)) : x.localeCompare(y))
+//   .join('')
+// }
