@@ -5673,3 +5673,7 @@ function tripledouble (num1, num2) {
 10:56 A few minutes before my next study session with Michael. I understand the problem with Laurent better now.
 
 11:08 Michael working on a problem and he's set to take his assessment on Thursday.
+
+12:22 Michael and I both solved challenging problems within the timeframe we need to pass the interview assessment. I felt more confident after troubleshooting and solving my problem.
+
+14:34 After study session with Deepak where he helped me with the challenges of substrings and nested arrays.

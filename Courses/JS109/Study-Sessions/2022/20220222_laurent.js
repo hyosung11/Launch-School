@@ -1,4 +1,5 @@
 /* 1662. Check If Two String Arrays are Equivalent
+
 Given two string arrays word1 and word2, return true if the two arrays represent the same string, and false otherwise.
 
 A string is represented by an array if the array elements concatenated in order forms the string.
@@ -80,6 +81,7 @@ function arrayStringsAreEqual(array1, array2) {
 // console.log(arrayStringsAreEqual(['abc', 'd', 'defg'], ['abcddefg'])); // true
 
 /* 1408. String Matching in an Array
+
 Given an array of string words. Return all strings in words which is substring of another word in any order.
 
 String words[i] is substring of words[j], if can be obtained removing some characters to left and/or right side of words[j].

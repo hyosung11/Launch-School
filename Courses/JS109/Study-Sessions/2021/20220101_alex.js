@@ -79,7 +79,7 @@ ALGO
   -if obj has the current char as a property already, increment it by 1
   -otherwise, add that char as a property with a value of 1
 -iterate through the string once more
-  if the current element's value in the obj is 1, return the current  index position of the string
+  if the current element's value in the obj is 1, return the current index position of the string
 -return -1 */
 
 function firstUniqChar(string) {
