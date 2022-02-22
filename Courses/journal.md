@@ -5659,3 +5659,17 @@ function tripledouble (num1, num2) {
 09:00 Laurent cancelled on me and my right knee feels balky at the moment. What should I study now?
 
 14:31 No time to study today because I'm with the kids who are on winter break.
+
+## 20220222 화요일
+
+05:59 Another amazing day to study. I have put in the work. I will pass this interview assessment.
+
+08:49 Memorization is part of learning to code. Use that algorithm as part of working memory.
+
+09:09 In study session with Laurent.
+
+10:26 I'm still having trouble solving the Leetcode problems that Laurent finds. I need his help to solve them. That means I'm not ready.
+
+10:56 A few minutes before my next study session with Michael. I understand the problem with Laurent better now.
+
+11:08 Michael working on a problem and he's set to take his assessment on Thursday.
