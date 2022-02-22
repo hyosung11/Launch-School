@@ -186,28 +186,26 @@ var stringMatching = function (words) {
 
 function stringMatching(array) {
   let result = [];
-
   for (let idx = 0; idx < array.length; idx += 1) {
-    // 'mass' | 'as' | 'hero'
-    // "mass"
-    // ["mass","as","hero","superhero"]
-    // ["as","hero","superhero"]
-    // "mass" is in "as", in "hero", in "superhero"
-
-    // "as" idx = 1  words[idx]
-    // ["mass","as","hero","superhero"]   otherWords
-    // ["mass","hero","superhero"]   otherWords
-    // "as" is in "mass" => push to result
-
     for (let jdx = 0; jdx < array.length; jdx += 1) {
-      // 'as' | 'hero' | 'superhero'
       if (idx === jdx) continue;
       if (array[jdx].includes(array[idx]) && !result.includes(array[idx])) {
-        // console.log(array[jdx])
         result.push(array[idx]);
       }
     }
   }
 
-  return result; // ['as']
+  return result;
+}
+
+/* Alex's Solution */
+function stringMatching(arr) {
+  let results = [];
+  for (let idx = 0; idx < arr.length; idx++) {
+    for (let jdx = 0; jdx < arr.length; jdx++) {
+      if (idx !== jdx && arr[jdx].includes(arr[idx])) results.push(arr[idx]);
+    }
+  }
+
+  return results;
 }
