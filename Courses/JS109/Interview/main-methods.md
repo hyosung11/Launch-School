@@ -87,6 +87,27 @@ function isBigEnough(element, index, array) {
 [12, 54, 18, 130, 44].every(isBigEnough); // true
 ```
 
+### Array.prototype.fill()
+
+The `fill(value)` method changes all elements in an array to a static value, from a start index (default 0) to an end index (default array.length). It returns the modified array.
+
+```js
+[1, 2, 3].fill(4)                // [4, 4, 4]
+[1, 2, 3].fill(4, 1)             // [1, 4, 4]
+[1, 2, 3].fill(4, 1, 2)          // [1, 4, 3]
+[1, 2, 3].fill(4, 1, 1)          // [1, 2, 3]
+[1, 2, 3].fill(4, 3, 3)          // [1, 2, 3]
+[1, 2, 3].fill(4, -3, -2)        // [4, 2, 3]
+[1, 2, 3].fill(4, NaN, NaN)      // [1, 2, 3]
+[1, 2, 3].fill(4, 3, 5)          // [1, 2, 3]
+Array(3).fill(4)                 // [4, 4, 4]
+[].fill.call({ length: 3 }, 4)   // {0: 4, 1: 4, 2: 4, length: 3}
+
+// A single object, referenced by each slot of the array:
+let arr = Array(3).fill({}) // [{}, {}, {}]
+arr[0].hi = "hi"            // [{ hi: "hi" }, { hi: "hi" }, { hi: "hi" }]
+```
+
 ### Array.prototype.filter()
 
 The `filter()` method **creates a new array** with all elements that pass the test implemented by the provided function.

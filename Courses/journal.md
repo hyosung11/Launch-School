@@ -5655,3 +5655,7 @@ function tripledouble (num1, num2) {
 ## 20220221 월요일
 
 07:46 I had a study session with Alex and have others planned today, but the kids are home. I need to study though. Ugh.
+
+09:00 Laurent cancelled on me and my right knee feels balky at the moment. What should I study now?
+
+14:31 No time to study today because I'm with the kids who are on winter break.
