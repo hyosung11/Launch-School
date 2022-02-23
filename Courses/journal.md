@@ -5681,3 +5681,44 @@ function tripledouble (num1, num2) {
 ## 20220223 수요일
 
 06:05 Start study session with Alex.
+
+07:13 Read about nested arrays in JavaScript.
+
+```js
+/* Given an array of subarrays:
+  For every even indexed subarray
+    print every even indexed element
+
+ALGO
+- iterate through arr
+  - if idx % 2 !== 0 continue
+  - iterate through subarray
+    - if jdx % 2 === 0
+      console.log(arr[idx][jdx]);
+*/
+
+function printer (array) {
+
+  for (let idx = 0; idx < array.length; idx += 1) {
+    if (idx % 2 !== 0) continue;
+
+    for (let jdx = 0; jdx < array[idx].length; jdx += 1) {
+      if (jdx % 2 === 0) {
+        console.log(array[idx][jdx])
+      }
+    }
+  }
+}
+
+printer([
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+]);
+// 1
+// 3
+// 7
+// 9
+```
+
+07:47 Not sure if I'm ready to take the interview assessment. I just need to keep working over the next few days.

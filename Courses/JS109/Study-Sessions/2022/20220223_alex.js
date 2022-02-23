@@ -134,3 +134,34 @@ console.log(substringTest('1234567', '541265') === true); // true
 console.log(substringTest('supercalifragilisticexpialidocious', 'Sou dOfItIsAtrocious') === true); // true
 
 
+/* Given an array of subarrays:
+  For every even indexed subarray
+    print every even indexed element
+
+ALGO
+- iterate through arr
+  - if idx % 2 !== 0 continue
+  - iterate through subarray
+    - if jdx % 2 === 0
+      console.log(arr[idx][jdx]);
+*/
+
+function printer (arr) {
+  for (let idx = 0; idx < arr.length; idx++) {
+    if (idx % 2 === 0) {
+      for (let jdx = 0; jdx < arr[idx].length; jdx++) {
+        if (jdx % 2 === 0) console.log(arr[idx][jdx]);
+      }
+    }
+  }
+}
+
+printer([
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+]);
+// 1
+// 3
+// 7
+// 9
