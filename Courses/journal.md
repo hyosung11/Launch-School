@@ -5677,3 +5677,7 @@ function tripledouble (num1, num2) {
 12:22 Michael and I both solved challenging problems within the timeframe we need to pass the interview assessment. I felt more confident after troubleshooting and solving my problem.
 
 14:34 After study session with Deepak where he helped me with the challenges of substrings and nested arrays.
+
+## 20220223 수요일
+
+06:05 Start study session with Alex.
