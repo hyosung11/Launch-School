@@ -5677,3 +5677,21 @@ function tripledouble (num1, num2) {
 12:22 Michael and I both solved challenging problems within the timeframe we need to pass the interview assessment. I felt more confident after troubleshooting and solving my problem.
 
 14:34 After study session with Deepak where he helped me with the challenges of substrings and nested arrays.
+
+15:49 I feel tired. It's halftime of Chelsea vs Lille in UEFA Champions League. I need to practice array indexing in nested loops.
+
+17:20 Gosh I'm tired right now and keep forgetting the stop condition for the inner loop when indexing nested arrays.
+
+```js
+function printer(nestedSubarrays) {
+  for (let idx = 0; idx < nestedSubarrays.length; idx += 1) {
+    if (idx % 2 === 1) {
+      for (let jdx = 0; jdx < nestedSubarrays[idx].length; jdx += 1) {
+        if (jdx % 2 === 1) {
+          console.log(nestedSubarrays[idx][jdx]);
+        }
+      }
+    }
+  }
+} 
+```

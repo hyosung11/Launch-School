@@ -65,7 +65,7 @@ Algorithm
 Algorithm:
   define `printer()` with the parameter `nestedArray`
     iterate trhough `nestedArray`
-      if isEvenInex(index)
+      if isEvenIndex(index)
         iterate through element
           if index of the inner element is even
             console log element
@@ -129,9 +129,9 @@ Algorithm
 
 function printer (nestedSubarrays) {
 
-  for (let idx = 0; idx < nestedSubarrays.length; idx += 1) {   
+  for (let idx = 0; idx < nestedSubarrays.length; idx += 1) {
     if (idx % 2 === 0) {
-      
+
       for (let jdx = 0; jdx < nestedSubarrays[idx].length; jdx += 1) {
         if (jdx % 2 === 0) {
           console.log(idx, jdx);
@@ -140,25 +140,22 @@ function printer (nestedSubarrays) {
       }
     }
   }
-} 
+}
 
 
 function printer2(subarrays) {
   let filteredSubarrays = subarrays.filter((element, index) => index % 2 === 0);
-  
+
   let resultArray = [];
-  
+
   filteredSubarrays.forEach(subarray => {
     subarray.forEach((element, index) =>{
       if (index % 2 === 0) resultArray.push(element)
     })
   })
-  
+
   resultArray.forEach(element => console.log(element));
 }
-
-
-
 
 let a = [
         [1, 2, 3],
@@ -256,3 +253,16 @@ printer2(a);
 // 3
 // 7
 // 9
+
+function printer(nestedSubarrays) {
+  for (let idx = 0; idx < nestedSubarrays.length; idx += 1) {
+    if (idx % 2 === 1) {
+      for (let jdx = 0; jdx < nestedSubarrays[idx].length; jdx += 1) {
+        if (jdx % 2 === 1) {
+          // console.log(idx, jdx);
+          console.log(nestedSubarrays[idx][jdx]);
+        }
+      }
+    }
+  }
+} 
