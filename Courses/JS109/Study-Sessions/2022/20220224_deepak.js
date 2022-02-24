@@ -1,4 +1,4 @@
-/*
+/* Warmup Exercises
 
 Given a string, count all the letters that occur 2 times.
 
@@ -158,7 +158,7 @@ findEvens(a) // [1, 3, 7, 9]
 
 /*
 
-Given a string, return an array of count all the letters that occur 2 times.
+Given a string, return an array of all the letters that occur 2 times.
 
 */
 
