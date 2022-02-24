@@ -188,4 +188,9 @@ var canBeTypedWords = function(text, brokenLetters) {
 2. const checker = word => !lettersArr.some(letter => word.includes(letter)); function to check if a word includes letters from the lettersArr
 3. return text.split(' ').filter(checker).length; split string into array of words, filter it using the checker function, and return the length
 
+<<<<<<< HEAD
 */
+
+=======
+*/
+>>>>>>> 6312bc4189bbe38a7fcaff8e7abe3dd39943b29f

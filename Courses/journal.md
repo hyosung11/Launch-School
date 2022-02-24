@@ -5748,3 +5748,19 @@ printer([
 11:06 Gave Michael same problem.
 
 14:55 I don't fully understand the Homesite claim. I'm tired right now. I might watch some soccer and study later.
+
+16:33 I'm tired. I am dealing with the Homesite Insurance claim. I want to study but I can't seem to focus.
+
+## 20220224 목요일
+
+05:58 Already Thursday and only a few more days until I take the interview assessment. Michael is taking it in a couple of hours.
+
+10:58 Laurent couldn't meet.
+
+11:16 Just off Zoom with Michael. He said the interview assessment was a "breeze".
+
+12:30 Study session with Deepak.
+
+14:17 Met with Deepak for 90 minutes and went over some of my struggles with Object manipulation. Very helpful.
+
+16:52 Went and played ping pong with Louis. I have been winning recently. I'm tired and want to take a shower before dinner and then do some more practice of the areas of focus from my study session with Deepak.
