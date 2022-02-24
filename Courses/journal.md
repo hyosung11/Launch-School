@@ -5754,3 +5754,11 @@ printer([
 ## 20220224 목요일
 
 05:58 Already Thursday and only a few more days until I take the interview assessment. Michael is taking it in a couple of hours.
+
+10:58 Laurent couldn't meet.
+
+11:16 Just off Zoom with Michael. He said the interview assessment was a "breeze".
+
+12:30 Study session with Deepak.
+
+14:17 Met with Deepak for 90 minutes and went over some of my struggles with Object manipulation. Very helpful.
