@@ -5,25 +5,20 @@ Given the array nums consisting of 2n elements in the form [x1,x2,...,xn,y1,y2,.
 Return the array in the form [x1,y1,x2,y2,...,xn,yn].
 
 Example 1:
-
-Input: nums = [2,5,1,3,4,7], n = 3
-Output: [2,3,5,4,1,7]
-Explanation: Since x1=2, x2=5, x3=1, y1=3, y2=4, y3=7 then the answer is [2,3,5,4,1,7].
-
+- Input: nums = [2, 5, 1, 3, 4, 7], n = 3
+- Output: [2,3,5,4,1,7]
+- Explanation: Since x1=2, x2=5, x3=1, y1=3, y2=4, y3=7 then the answer is [2,3,5,4,1,7].
 
 Example 2:
-
-Input: nums = [1,2,3,4,4,3,2,1], n = 4
-Output: [1,4,2,3,3,2,4,1]
-
+- Input: nums = [1,2,3,4,4,3,2,1], n = 4
+- Output: [1,4,2,3,3,2,4,1]
 
 Example 3:
-
-Input: nums = [1,1,2,2], n = 2
-Output: [1,2,1,2]
+- Input: nums = [1, 1, 2, 2], n = 2
+- Output: [1,2,1,2]
 
 9:08 start
-09:26
+09:26 solved
 
 Problem
 - input array of nums
@@ -32,8 +27,7 @@ Problem
 Rules
 - return an array of nums of pattern x1, y1, x2, y2, xn, yn
 - assume just integer inputs
-- assume an even number of integers?
-
+- assume an even number of integers, yes because 2n elements
 
 Examples
 - [1, 1, 2, 2] => [1, 2, 1, 2]
@@ -46,7 +40,7 @@ Data Structure
 Algorithm
 - declare `shuffle()` with `array` parameter
 - init `result` to `[]`
-- init `middle` to Math.floor(array.lengh / 2)
+- init `middle` to Math.floor(array.length / 2)
 - init `first` to array sliced from 0 to middle
 - init `second` to array sliced from middle to end
 - splice and push first at idx and second at idx to result array
@@ -70,10 +64,10 @@ function shuffle(array) {
 // Laurent's Version
 function shuffle(array) {
   let result = [];
-  let middle = array.length / 2;
+  let half = array.length / 2;
 
-  for (let idx = 0; idx < middle; idx += 1) {
-    result.push(array[idx], array[middle + idx]);
+  for (let idx = 0; idx < half; idx += 1) {
+    result.push(array[idx], array[half + idx]);
   }
 
   return result;
@@ -91,28 +85,20 @@ There is a malfunctioning keyboard where some letter keys do not work. All other
 
 Given a string text of words separated by a single space (no leading or trailing spaces) and a string brokenLetters of all distinct letter keys that are broken, return the number of words in text you can fully type using this keyboard.
 
-
-
 Example 1:
-
 Input: text = "hello world", brokenLetters = "ad"
 Output: 1
 Explanation: We cannot type "world" because the 'd' key is broken.
 
-
 Example 2:
-
 Input: text = "leet code", brokenLetters = "lt"
 Output: 1
 Explanation: We cannot type "leet" because the 'l' and 't' keys are broken.
 
-
 Example 3:
-
 Input: text = "leet code", brokenLetters = "e"
 Output: 0
 Explanation: We cannot type either word because the 'e' key is broken.
- 
 
 Constraints:
 1 <= text.length <= 104
@@ -133,11 +119,11 @@ Rules
 - only lowercase letters in either input
 
 Examples
-- 'leet code', 'e' => since both words in text require an 'e' no words can be typeed
+- 'leet code', 'e' => since both words in text require an 'e' no words can be typed
 
 Data Structure
 - input `text` and `brokenLetters`
-- inside 
+- inside
 - output number
 
 Algorithm - incomplete
@@ -148,39 +134,31 @@ Algorithm - incomplete
 - return `count`
 
 */
+function canBeTypedWords(str1, str2) {
+  let words = str1.split(' ');
+  let brokenLetters = str2.split('');
+  let count = 0;
 
-// function canBeTypedWords (text, brokenLetters) {
-//   let count = 0;
-//   let words = text.split(' ');
-  
-//   // brokenLetters = brokenLetters.split('');
-//   // console.log(brokenLetters)
-  
-//   for (let idx = 0; idx < words.length; idx += 1) { // 'leet' | 'code'
-    
-//     for (let jdx = 0; jdx < words[idx].length; jdx += 1) {
-      
-//       if (brokenLetters.includes(words[idx])) {
-//         count = count + 1;
-//         break;
-//       }
-//     }
-  
-//   }
-//   console.log(count)
-//   return words.length - count;
+  words.forEach((word) => {
+    if (canBeTyped(word, brokenLetters)) count += 1;
+  });
 
-// }
+  return count;
+}
+
+function canBeTyped(str, arr) {
+  return arr.every((letter) => !str.includes(letter));
+}
 
 /* Using `split` and `filter` */
-const canBeTypedWords = function(text, brokenLetters) {
-  const textSplit = text.split(' ');
-  const brokenLetterSplit =  brokenLetters.split('');
+function canBeTypedWords(text, brokenLetters) {
+  let words = text.split(' ');
+  let broken = brokenLetters.split('');
 
-  return textSplit.filter(word => {
-    return brokenLetterSplit.every(broken => !word.includes(broken));
-  }).length;
-};
+  return words.filter((word) =>
+    broken.every((letter) => !word.includes(letter))
+  ).length;
+}
 
 console.log(canBeTypedWords("leet code", "e") === 0);
 console.log(canBeTypedWords("leet code", "lt") === 1);
@@ -197,39 +175,10 @@ const canBeTypedWords = (txt, broken) => {
   }
   return result;
 };
- /* */
-var canBeTypedWords = function (text, brokenLetters) {
-  let answer = 0;
-  let arr = text.split(' ');
-
-  for (let i = 0; i < arr.length; i++) {
-    let countFlag = false;
-    for (let j = 0; j < brokenLetters.length; j++) {
-      if (arr[i].includes(brokenLetters[j])) {
-        countFlag = true;
-      }
-    }
-    if (!countFlag) {
-      answer++;
-    }
-  }
-  return answer;
-};
-
-const canBeTypedWords = function (text, brokenLetters) {
-  const textSplit = text.split(' ');
-  const brokenLetterSplit = brokenLetters.split('');
-
-  return textSplit.filter((word) => {
-    return brokenLetterSplit.every((broken) => !word.includes(broken));
-  }).length;
-};
-
-
 
 var canBeTypedWords = function(text, brokenLetters) {
-    const lettersArr = brokenLetters.split('') 
-    const checker = word => !lettersArr.some(letter => word.includes(letter)); 
+    const lettersArr = brokenLetters.split('')
+    const checker = word => !lettersArr.some(letter => word.includes(letter));
     return text.split(' ').filter(checker).length
 };
 
@@ -240,55 +189,3 @@ var canBeTypedWords = function(text, brokenLetters) {
 3. return text.split(' ').filter(checker).length; split string into array of words, filter it using the checker function, and return the length
 
 */
-
-/* Background:
-In Japan, a game called Shiritori is played. The rules are simple, a group of people take turns calling out a word whose beginning syllable is the same as the previous player's ending syllable. 
-For example, the first person would say the word ねこ, and the second player must make a word that starts with こ, like　こむぎ. This repeats until a player can not think of a word fast enough or makes a word that ends in ん, 
-because there are no words that begin with ん　in the Japanese language.
-
-English Shiritori has the same principle, with the first and last letters of words. That being said the lose condition is saying a word that doesn't start with the previous word's last letter or not saying a word quick enough.
-
-For example: apple -> eggs -> salmon -> nut -> turkey ...
-
-Your Task:
-You will be given a list of strings, a transcript of an English Shiritori match. Your task is to find out if the game ended early, and return a list that contains every valid string until the mistake.
-If a list is empty return an empty list. If one of the elements is an empty string, that is invalid and should be handled.
-
-11:50 start
-
-Problem
-- input an array of words
-- output an array of words
-
-Rules
-- return an array of words in which each element starts with the last letter of the previous
-- if word doesn't start with last letter of the previous, stop iteration through array and return array with the words up to that point.
-- empty array return empty array
-- if element is an empty string, stop
-
-Examples
-- ['dog', 'goose' 'tiger' ...] => ['dog', 'goose'] ends because next element does not start with last letter of previous element
-
-Data Structure
--input array of words
-- inside array
-- output array
-
-Algorithm
-- declare `shiritori()` with `array` parameter
-- init `result` to empty array
-
-- iterate over the array
-  - if last char of word at idx
-
-- return `result`
-
-
-*/
-
-
-console.log(shiritori(["dog","goose","elephant","tiger","rhino","orc","cat"]))
-//,["dog","goose","elephant","tiger","rhino","orc","cat"]);
-console.log(shiritori(["dog","goose","tiger","cat", "elephant","rhino","orc"]))
-// //,["dog","goose"]);
-
