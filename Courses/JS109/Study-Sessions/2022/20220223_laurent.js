@@ -159,13 +159,13 @@ Algorithm - incomplete
 //   for (let idx = 0; idx < words.length; idx += 1) { // 'leet' | 'code'
     
 //     for (let jdx = 0; jdx < words[idx].length; jdx += 1) {
-      
+
 //       if (brokenLetters.includes(words[idx])) {
 //         count = count + 1;
 //         break;
 //       }
 //     }
-  
+
 //   }
 //   console.log(count)
 //   return words.length - count;
@@ -240,55 +240,4 @@ var canBeTypedWords = function(text, brokenLetters) {
 3. return text.split(' ').filter(checker).length; split string into array of words, filter it using the checker function, and return the length
 
 */
-
-/* Background:
-In Japan, a game called Shiritori is played. The rules are simple, a group of people take turns calling out a word whose beginning syllable is the same as the previous player's ending syllable. 
-For example, the first person would say the word ねこ, and the second player must make a word that starts with こ, like　こむぎ. This repeats until a player can not think of a word fast enough or makes a word that ends in ん, 
-because there are no words that begin with ん　in the Japanese language.
-
-English Shiritori has the same principle, with the first and last letters of words. That being said the lose condition is saying a word that doesn't start with the previous word's last letter or not saying a word quick enough.
-
-For example: apple -> eggs -> salmon -> nut -> turkey ...
-
-Your Task:
-You will be given a list of strings, a transcript of an English Shiritori match. Your task is to find out if the game ended early, and return a list that contains every valid string until the mistake.
-If a list is empty return an empty list. If one of the elements is an empty string, that is invalid and should be handled.
-
-11:50 start
-
-Problem
-- input an array of words
-- output an array of words
-
-Rules
-- return an array of words in which each element starts with the last letter of the previous
-- if word doesn't start with last letter of the previous, stop iteration through array and return array with the words up to that point.
-- empty array return empty array
-- if element is an empty string, stop
-
-Examples
-- ['dog', 'goose' 'tiger' ...] => ['dog', 'goose'] ends because next element does not start with last letter of previous element
-
-Data Structure
--input array of words
-- inside array
-- output array
-
-Algorithm
-- declare `shiritori()` with `array` parameter
-- init `result` to empty array
-
-- iterate over the array
-  - if last char of word at idx
-
-- return `result`
-
-
-*/
-
-
-console.log(shiritori(["dog","goose","elephant","tiger","rhino","orc","cat"]))
-//,["dog","goose","elephant","tiger","rhino","orc","cat"]);
-console.log(shiritori(["dog","goose","tiger","cat", "elephant","rhino","orc"]))
-// //,["dog","goose"]);
 
