@@ -165,12 +165,15 @@ Given a string, return an array of all the letters that occur 2 times.
 // Test cases:
 console.log(twoCounter('aabbccddefghhijilll')); // [a, b, c, d, h, i]
 
-// Array.prototype.map()
-// Array.prototype.forEach()
-// Array.prototype.filter()
-// RegExp.prototype.test();
-// String.prototype.replace();
-// Object.entries();
-// for...in (OBJECTS ONLY!!!)
-// for loops (procedural iteration)
-// Array.prototype.slice()
+/* Methods to Memorize
+Array.prototype.map()
+Array.prototype.forEach()
+Array.prototype.filter()
+RegExp.prototype.test();
+String.prototype.replace();
+Object.entries();
+for...in (OBJECTS ONLY!!!)
+for loops (procedural iteration)
+Array.prototype.slice()
+Array.prototype.splice()
+*/
