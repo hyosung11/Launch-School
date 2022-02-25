@@ -609,9 +609,9 @@ console.log(difference(5, 3)); // expected output: 2
 console.log(difference(1.23456, 7.89012)); // expected output: 6.6555599999999995
 ```
 
-### Math.ceil(x)
+### Math.ceil()
 
-The `Math.ceil()` function always *rounds a number up to the next largest integer*.
+The `Math.ceil(x)` function always *rounds a number up to the next largest integer*.
 Note: `Math.ceil(null)` returns integer 0 and does not give a `NaN` error.
 
 ```js

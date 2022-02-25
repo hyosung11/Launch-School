@@ -19,7 +19,7 @@ Array.prototype.splice()
 
 2. Find Substrings
 
-Given a string, write a function that returns an array of all its substrings
+Given a string, write a function that returns an array of all its substrings.
 
 */
 

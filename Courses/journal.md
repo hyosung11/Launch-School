@@ -5778,3 +5778,7 @@ printer([
 10:56 Alex figures problems out with simple solutions. It's great.
 
 12:16 Able to solve Typoglycemia Generator without looking at any solutions in about 30 minutes. Okay.
+
+15:24 I still have not heard from Greenshades about the Sale Engineer position. I can just focus on more practice.
+
+16:20 I still have not heard from Greenshades. Frank says they are considering one other candidate. My stomach hurts a little bit. I'm looking forward to passing the interview assessment and moving on to OOP - Object-Oriented Programming. Laurent says he doesn't like OOP.

@@ -12,13 +12,23 @@ Array.prototype.filter()
 - The `filter(element, index, array)` method creates a new array with all elements that pass the test implemented by the provided function.
 
 Array.prototype.slice()
+- The slice(start, end) method returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array. The original array will not be modified.
+
 Array.prototype.splice()
+- The splice(start, deleteCount, item1, item2, itemN) method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.
 
 RegExp.prototype.test();
-String.prototype.replace();
+- The test(string) method executes a search for a match between a regular expression and a specified string. Returns true or false.
 
-Object.entries();
+String.prototype.replace();
+-  The replace(regexp, newSubstring) method returns a new string with some or all matches of a pattern replaced by a replacement. The pattern can be a string or a RegExp, and the replacement can be a string or a function to be called for each match. If pattern is a string, only the first occurrence will be replaced. The original string is left unchanged.
+
+Object.entries(object);
+-  The Object.entries() method returns an array of a given object's own enumerable string-keyed property [key, value] pairs.
+
 for...in (OBJECTS ONLY!!!)
+- The for...in statement iterates over all enumerable properties of an object that are keyed by strings (ignoring ones keyed by Symbols), including inherited enumerable properties.
+
 for loops (procedural iteration)
 
 
