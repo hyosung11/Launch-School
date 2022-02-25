@@ -5764,3 +5764,11 @@ printer([
 14:17 Met with Deepak for 90 minutes and went over some of my struggles with Object manipulation. Very helpful.
 
 16:52 Went and played ping pong with Louis. I have been winning recently. I'm tired and want to take a shower before dinner and then do some more practice of the areas of focus from my study session with Deepak.
+
+17:37 I feel tired again after taking a bath. It's like my brain can't compute code right now.
+
+## 20220225 금요일
+
+05:58 Before study session with Alex. Ready to go.
+
+07:35 Kids have delayed opening and I struggled with the Typoglycemia problem again with Alex.

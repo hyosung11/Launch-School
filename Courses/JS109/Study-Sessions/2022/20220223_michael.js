@@ -68,7 +68,7 @@ Examples
 - ['dog', 'goose' 'tiger' ...] => ['dog', 'goose'] ends because next element does not start with last letter of previous element
 
 Data Structure
--input array of words
+- input array of words
 - inside array
 - output array
 
@@ -77,14 +77,12 @@ Algorithm
 - init `result` to empty array
 
 - iterate over the array
-  - if last char of word at idx 
+  - if last char of word at idx
 
 - return `result`
 
 
 */
-
-
 console.log(shiritori(["dog","goose","elephant","tiger","rhino","orc","cat"]))
 //,["dog","goose","elephant","tiger","rhino","orc","cat"]);
 console.log(shiritori(["dog","goose","tiger","cat", "elephant","rhino","orc"]))
