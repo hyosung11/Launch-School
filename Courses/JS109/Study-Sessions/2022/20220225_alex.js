@@ -30,7 +30,7 @@ Problem
 - output new string
 
 Rules
-- return string 
+- return string
   - with first and last letters in place
   - middle letters sorted alphabetically
   - punctuation in the same place
@@ -104,15 +104,15 @@ sorted = sorted.split('')
 //   return result;
 // }
 
-// console.log(scrambleWords('professionals') === 'paefilnoorsss'); // 'The first and last letters of a word should reamin in place with the inner letters sorted')
+console.log(scrambleWords('professionals') === 'paefilnoorsss'); // 'The first and last letters of a word should reamin in place with the inner letters sorted')
 
-// console.log(scrambleWords("shan't") === "sahn't"); // 'Punctuation should remain at the same place as it started')
+console.log(scrambleWords("shan't") === "sahn't"); // 'Punctuation should remain at the same place as it started')
 
-// console.log(scrambleWords('card-carrying') === 'caac-dinrrryg'); // 'Only spaces separate words and punctuation should remain at the same place as it started')
+console.log(scrambleWords('card-carrying') === 'caac-dinrrryg'); // 'Only spaces separate words and punctuation should remain at the same place as it started')
 
-// console.log(scrambleWords('-dcba') === '-dbca'); // 'Must handle special character at the start')
+console.log(scrambleWords('-dcba') === '-dbca'); // 'Must handle special character at the start')
 
-// console.log(scrambleWords('dcba.') === 'dbca.'); // 'Must handle special character at the end')
+console.log(scrambleWords('dcba.') === 'dbca.'); // 'Must handle special character at the end')
 
 console.log(
   scrambleWords(
@@ -159,3 +159,83 @@ function scrambleWord(word) {
 
   return result;
 }
+
+/*
+Staggered Caps (Part 2)
+
+Modify the function from the previous exercise so it ignores non-alphabetic characters when determining whether it should uppercase or lowercase each letter. The non-alphabetic characters should still be included in the return value; they just don't count when toggling the desired case.
+
+ Algorithm
+ - declare `staggeredCase()` with `string` parameter
+ - init `result` to empty string
+ - init `counter` to 0
+ - init `letters` to 'a-z'
+
+ - convert string to lowercase
+
+ - iterate over string
+  - if alphabet does not includes string at idx
+    - increment result with string at idx
+  - else if counter equals 0
+    - increment result with string at idx to uppercase
+    - increment counter
+  - else
+    - increment result with string at idx
+    - decrement counter
+
+- return result
+
+*/
+
+function staggeredCase (string) {
+
+  let result = '';
+  let counter = 0;
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+  string = string.toLowerCase();
+
+  for (let idx = 0; idx < string.length; idx += 1) {
+    if (!alphabet.includes(string[idx])) {
+      result = result + string[idx];
+    } else if (counter === 0) {
+      result = result + string[idx].toUpperCase();
+      counter = counter + 1;
+    } else {
+      result = result + string[idx];
+      counter = counter - 1;
+    }
+  }
+
+  return result;
+}
+
+// function staggeredCase (str) {
+//   str = str.toLowerCase();
+//   let counter = 0;
+//   let result = '';
+//   for (let idx = 0; idx < str.length; idx++) {
+//     if (!'abcdefghijklmnopqrstuvwxyz'.includes(str[idx])) {
+//       result += str[idx];
+//     } else if (counter === 0) {
+//       result += str[idx].toUpperCase();
+//       counter += 1;
+//     } else {
+//       result+= str[idx];
+//       counter -= 1;
+//     }
+//   }
+//     return result;
+//   }
+
+console.log(staggeredCase("I Love Launch School!")) // === "I lOvE lAuNcH sChOoL!");
+console.log(staggeredCase("ALL CAPS")) // === "AlL cApS");
+console.log(
+  staggeredCase("ignore 77 the 444 numbers")) // === "IgNoRe 77 ThE 444 nUmBeRs"
+// );
+
+// console.log(staggeredCase("I Love Launch School!") === "I lOvE lAuNcH sChOoL!");
+// console.log(staggeredCase("ALL CAPS") === "AlL cApS");
+// console.log(
+//   staggeredCase("ignore 77 the 444 numbers") === "IgNoRe 77 ThE 444 nUmBeRs"
+// );

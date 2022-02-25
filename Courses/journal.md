@@ -5772,3 +5772,9 @@ printer([
 05:58 Before study session with Alex. Ready to go.
 
 07:35 Kids have delayed opening and I struggled with the Typoglycemia problem again with Alex.
+
+08:46 Get to the point of accelerated returns on my practice as my skills develop.
+
+10:56 Alex figures problems out with simple solutions. It's great.
+
+12:16 Able to solve Typoglycemia Generator without looking at any solutions in about 30 minutes. Okay.
