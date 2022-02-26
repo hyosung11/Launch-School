@@ -5782,3 +5782,5 @@ printer([
 15:24 I still have not heard from Greenshades about the Sale Engineer position. I can just focus on more practice.
 
 16:20 I still have not heard from Greenshades. Frank says they are considering one other candidate. My stomach hurts a little bit. I'm looking forward to passing the interview assessment and moving on to OOP - Object-Oriented Programming. Laurent says he doesn't like OOP.
+
+18:05 After dinner of Truly Sichuan and no word from Greenshades. I should look for other positions. Tired. I think I'll pass the interview assessment on Monday.
