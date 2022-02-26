@@ -5782,3 +5782,7 @@ printer([
 15:24 I still have not heard from Greenshades about the Sale Engineer position. I can just focus on more practice.
 
 16:20 I still have not heard from Greenshades. Frank says they are considering one other candidate. My stomach hurts a little bit. I'm looking forward to passing the interview assessment and moving on to OOP - Object-Oriented Programming. Laurent says he doesn't like OOP.
+
+## 20220226 토요일
+
+10:02 I have a little less than 49 hours before my JS109 Interview Assessment. I feel pretty good. I'm a little tired after playing soccer indoors this morning, but my mind is clear. I still want a Treadly 2 Pro under my standing desk treadmill. I may get one regardless of if I get the job at Greenshades. All is well. I'm going to do my warmup that Deepak came up with for me and then do a few practice problems.
