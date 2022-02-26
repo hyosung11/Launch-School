@@ -5786,3 +5786,7 @@ printer([
 ## 20220226 토요일
 
 10:02 I have a little less than 49 hours before my JS109 Interview Assessment. I feel pretty good. I'm a little tired after playing soccer indoors this morning, but my mind is clear. I still want a Treadly 2 Pro under my standing desk treadmill. I may get one regardless of if I get the job at Greenshades. All is well. I'm going to do my warmup that Deepak came up with for me and then do a few practice problems.
+
+11:31 Doing my warmup and a two practice problems and I feel pretty comfortable, if not a little tired right now.
+
+12:00 Good practice session. It still takes me 20 minutes to solve Typoglycemia Generator but I can do it friction-free now.
