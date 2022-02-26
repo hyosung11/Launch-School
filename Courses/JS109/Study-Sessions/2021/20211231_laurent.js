@@ -147,6 +147,19 @@ Iterate over the string
 
 //   return -1;
 // }
+
+function firstUniqChar(string) {
+  let copy = string.split('');
+
+  for (let idx = 0; idx < string.length; idx += 1) {
+    copy.shift();
+
+    if (!copy.includes(string[idx])) return idx;
+  }
+
+  return -1;
+}
+
 console.log(firstUniqChar("leetcode")) // 0
 console.log(firstUniqChar("loveleetcode")) // 2
 console.log(firstUniqChar("aabb")) // -1

@@ -5796,3 +5796,5 @@ printer([
 15:19 I feel tired even afer I took a short nap after watching the end of Everton vs Man City.
 
 16:17 I still struggle a little with using objects and a problem where I have to iterate two separate times through the same string.
+
+17:29 All is well. I still like studying and have so much more to learn in software engineering. Time to make dinner now.
