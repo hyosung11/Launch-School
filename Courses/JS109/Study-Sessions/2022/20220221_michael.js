@@ -9,7 +9,7 @@ Task:
 Place all people in alphabetical order where Mothers are followed by their children, i.e. "aAbaBb" => "AaaBbb".
 
 11:08 start
-11:13 algo 
+11:13 algo
 11:32 ?
 
 Problem
