@@ -5810,3 +5810,5 @@ printer([
 11:02 The learning never stops with programming. Going over more and more problems. Be ready with a good algorithm.
 
 11:31 I want to watch the Carabao Cup with Chelsea and Liverpool now.
+
+12:31 Halftime of Carabao Cup final which is 0 - 0.
