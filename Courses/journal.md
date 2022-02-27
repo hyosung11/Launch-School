@@ -5814,3 +5814,5 @@ printer([
 12:31 Halftime of Carabao Cup final which is 0 - 0.
 
 13:27 Carabao Cup final is going into extra time, but I'm starting my study session with Deepak now.
+
+15:19 End of study session with Deepak.
