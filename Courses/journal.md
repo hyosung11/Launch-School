@@ -5811,4 +5811,6 @@ printer([
 
 11:31 I want to watch the Carabao Cup with Chelsea and Liverpool now.
 
+12:31 Halftime of Carabao Cup final which is 0 - 0.
+
 13:27 Carabao Cup final is going into extra time, but I'm starting my study session with Deepak now.
