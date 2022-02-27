@@ -5810,3 +5810,5 @@ printer([
 11:02 The learning never stops with programming. Going over more and more problems. Be ready with a good algorithm.
 
 11:31 I want to watch the Carabao Cup with Chelsea and Liverpool now.
+
+13:27 Carabao Cup final is going into extra time, but I'm starting my study session with Deepak now.
