@@ -233,19 +233,19 @@ function anagramDifference (str1, str2) {
 
   let word1 = str1.split('');
   let word2 = str2.split('');
-  
+
   str1.split('').forEach(char => {
     if (word2.includes(char)) {
       word2.splice(word2.indexOf(char), 1);
     }
   });
-  
+
   str2.split('').forEach(char => {
     if (word1.includes(char)) {
       word1.splice(word1.indexOf(char), 1);
     }
   });
-  
+
  return word1.length + word2.length;
 }
 
