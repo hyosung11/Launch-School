@@ -5798,3 +5798,15 @@ printer([
 16:17 I still struggle a little with using objects and a problem where I have to iterate two separate times through the same string.
 
 17:29 All is well. I still like studying and have so much more to learn in software engineering. Time to make dinner now.
+
+## 20220227 일요일
+
+07:04 Working on `anagramDifference` problem with Alex and he's trying to use `replace` and it is not working.
+
+07:34 Alex sent me a Slack message where he figured out the solution.
+
+09:01 After big family weekend breakfast, I'm ready to study some more.
+
+11:02 The learning never stops with programming. Going over more and more problems. Be ready with a good algorithm.
+
+11:31 I want to watch the Carabao Cup with Chelsea and Liverpool now.
