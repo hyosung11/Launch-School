@@ -5874,3 +5874,5 @@ TODOs:
 * <g>DONE:</g> Breath deeply and improve karma
 
 17:04 Cruising through the beginning of Object Oriented Programming.
+
+17:34 Time to stop and make dinner. I like OOP so far though.
