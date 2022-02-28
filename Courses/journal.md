@@ -5820,3 +5820,9 @@ printer([
 20:20 I didn't want to look at problems until now. I want to review the problems I did with Deepak and then relax and go to sleep. The interview assessment is tomorrow.
 
 20:54 I must absolutely test every line of code during my assessment tomorrow. No shortcuts or assumptions at all!
+
+## 20220228 월요일
+
+05:58 Hot water is ready for my tea. It's the morning of my interview assessment and I feel fine. Waiting on Alex to start the study session. He's a few minutes late.
+
+07:27 Train on more difficult problems so that the actual assessment is easy, right?
