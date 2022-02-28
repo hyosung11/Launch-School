@@ -5852,3 +5852,5 @@ algorithm that works
 communicative more
 
 11:55 The assessment is over and I solved both problems. All is well.
+
+14:21 I passed the interview assessment and have started OOP. Yes! I still have not heard from Greenshades.

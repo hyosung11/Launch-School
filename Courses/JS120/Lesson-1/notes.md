@@ -29,3 +29,50 @@ Don't worry if this discussion doesn't make much sense right now; the merits of 
 In the next assignment, we'll discuss **encapsulation**, a fundamental concept in object-oriented programing.
 
 ## Encapsulation
+
+Encapsulation is one of the fundamental concepts of object-oriented programming. At its core, encapsulation describes the idea of bundling or combining the data and the operations that work on that data into a single entity, e.g., an object.
+
+Let's examine a simple banking application. The code for the app, at a minimum, must contain data about the bank accounts (account number, balance, account type) and the users (name, address, phone number). The code must also contain behaviors or operations that use and manipulate that data. For instance, we should have operations that open an account, make withdrawals, and deposit new funds.
+
+One thing is evident here: the data and operations that you perform on your data are related. That is, you don't want to apply an operation intended for a bank account on a user's data. For example, it doesn't make much sense to withdraw funds from a user. Instead, you want to withdraw funds from the account, so you want to operate on an account.
+
+If our program keeps track of data about entities and performs operations on that data, it makes sense to combine the data and the functionality into a single entity. That's what object-oriented programming is all about. We call this principle of combining data and the operations relevant to that data **encapsulation**. Encapsulation is about bundling state (data) and behavior (operations) to form an object.
+
+In most OOP languages, encapsulation has a broader purpose. It also refers to restricting access to the state and certain behaviors; an object only exposes the data and behaviors that other parts of the application need to work. In other words, objects expose a **public interface** for interacting with other objects and keep their implementation details hidden. Thus, other objects can't change the data of an object without going through the proper interface. Unfortunately, JavaScript doesn't support access restrictions. There are ways to achieve a degree of access restriction, but they're not perfect. We'll return to this topic later.
+
+In upcoming assignments, we'll see examples of objects with *state* and *behavior*.
+
+## Practice Problems: OOP and Encapsulation
+
+### Q1. In your own words, what is Object Oriented Programming?
+
+A1. Using objects to organize a program.
+
+Solution: Object Oriented Programming is a programming paradigm in which we think about a problem in terms of objects. In particular, it uses objects to organize our program.
+
+### Q2. Describe some advantages and disadvantages of OOP.
+
+A2. Advantages include easier readability and comprehension. Disadvantages include longer programs that take up more memory and can be slower.
+
+Solution:
+
+- Advantages
+  - It lets programmers think about a problem at a higher-level of abstraction, which helps them break down and solve the problem.
+  - OOP helps programmers write programs that reduce the *dependencies* in a program, which makes maintenance easier.
+  - Done right, OOP makes code flexible, easy to understand, and easy to change.
+
+- Disadvantages
+  - OOP programs are often much larger than the equivalent procedural program.
+  - OOP may lead to less efficient code; OO programs may require more memory, disk space, and computing power.
+
+### Q3. In your own words, what does encapsulation refer to in JavaScript?
+
+A3. Encapsulation refers to combining the data and operations that work on that data into one entity, an object.
+
+Solution: In JavaScript, encapsulation is the idea of bundling data and operations associated with that data in a single entity; that is, it's the grouping of related properties and methods in a single object.
+
+### Q4. In JavaScript, how does encapsulation differ from encapsulation in most other OO languages?
+
+A4. Encapsulation in JavaScript cannot completely cut off the public interface.
+
+Solution: In other languages, encapsulation concerns hiding the details of an object from code that uses the object. An object should only expose the methods and properties that other objects need to use the encapsulated object. However, JavaScript does not directly provide the means to limit exposure of properties and methods. There are ways to achieve a degree of access restriction, but they're not perfect.
