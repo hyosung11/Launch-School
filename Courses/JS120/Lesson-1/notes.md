@@ -1,4 +1,4 @@
-# Introduction
+# 1. Introduction
 
 Object-Oriented Programming (OOP) represents a significant departure from procedural programming, and requires not only an entirely new way of thinking but also requires learning a whole new set of vocabulary and concepts. If this is your first time delving into Object Oriented Programming, this is going to be a challenging course for you. The concepts themselves are relatively easy to pick up, but putting them together to construct an object-oriented program isn't easy.
 
@@ -6,7 +6,7 @@ As you move forward in your programming journey, a big chunk, perhaps even the m
 
 This lesson begins by guiding you through some basic OO concepts and vocabulary. You'll need this knowledge to build OO programs. Take your time here and work through the exercises.
 
-## What is OOP?
+## 2. What is OOP?
 
 The phrase **Object-Oriented Programming (OOP*)** suggests a style of programming that involves JavaScript objects. However, since we've already used objects in JS101, you may wonder why the distinction. Object-Oriented Programming is more than merely using objects in your programs; it's a style of programming that*uses objects to organize a program.*
 
@@ -28,7 +28,7 @@ Don't worry if this discussion doesn't make much sense right now; the merits of 
 
 In the next assignment, we'll discuss **encapsulation**, a fundamental concept in object-oriented programing.
 
-## Encapsulation
+## 3. Encapsulation
 
 Encapsulation is one of the fundamental concepts of object-oriented programming. At its core, encapsulation describes the idea of bundling or combining the data and the operations that work on that data into a single entity, e.g., an object.
 
@@ -42,7 +42,7 @@ In most OOP languages, encapsulation has a broader purpose. It also refers to re
 
 In upcoming assignments, we'll see examples of objects with *state* and *behavior*.
 
-## Practice Problems: OOP and Encapsulation
+## 4. Practice Problems: OOP and Encapsulation
 
 ### Q1. In your own words, what is Object Oriented Programming?
 
@@ -77,7 +77,7 @@ A4. Encapsulation in JavaScript cannot completely cut off the public interface.
 
 Solution: In other languages, encapsulation concerns hiding the details of an object from code that uses the object. An object should only expose the methods and properties that other objects need to use the encapsulated object. However, JavaScript does not directly provide the means to limit exposure of properties and methods. There are ways to achieve a degree of access restriction, but they're not perfect.
 
-## Creating Objects
+## 5. Creating Objects
 
 At this point in the curriculum, you already know how to create an object:
 
@@ -221,7 +221,7 @@ The workings of `this` is one of the most difficult JavaScript concepts to grasp
 
 In this assignment, we've seen an example of encapsulation in practice. In JavaScript, we achieve encapsulation by making use of an object. The properties of the object hold the state (data), and methods represent behavior. Inside the methods, the `this` keyword lets us refer to the properties and other methods of the object.
 
-## Collaborator Objects
+## 6. Collaborator Objects
 
 You now know that we can group related state and behavior with objects. An object's state is stored in properties that refer to other values or objects. As we saw in the previous assignment, the state is often a collection of strings, numbers, and booleans. For example, a `person` object can use a `name` property to store the person's name attribute as a string. Here's an example:
 
@@ -328,7 +328,7 @@ We often talk of collaborators in the context of custom objects like `pet`, but 
 
 Collaborator objects let you chop up and modularize the problem domain into cohesive pieces. They play an important role in modeling complicated problem domains in OO programming.
 
-## Functions as Object Factories
+## 7. Functions as Object Factories
 
 So far, we've learned how to create objects and add properties and methods to them. In this assignment, we'll learn how to automate the process of creating objects.
 
@@ -494,3 +494,77 @@ let jaguar = createCar('Jaguar', 0.4, false);
 Automated object creation is an important process. While it's easy to create a single object, copying and pasting the code to create a related object that is independent of the first is both tedious and error-prone. If you need to create hundreds or thousands of similar objects, you'll soon realize why automating object creation is a vital aspect of programming.
 
 In Object Oriented Programming, we often need to create multiple objects of the same type. Object factory functions provide a straightforward abstraction for object creation. We'll see some more involved techniques later.
+
+## 8. Practice Problems: Objects and Factories
+
+In these problems, we will develop a factory function for objects that represent books.
+
+The following three books should give you an idea of what our first book object should look like:
+
+```sh
+Attributes
+  Title: Mythos
+  Author: Stephen Fry
+
+Behavior:
+  Get Description
+
+-----------------------------
+Attributes
+  Title: Me Talk Pretty One Day
+  Author: David Sedaris
+
+Behavior:
+  Get Description
+
+-----------------------------
+Attributes
+ Title: Aunts aren't Gentlemen
+ Author: PG Wodehouse
+
+ Behavior:
+   Get Description
+```
+
+### 1. Create three objects that represent the three books shown above. The method for the "Get Description" behavior should return a string like the following:
+
+```js
+"Me Talk Pretty one day was written by David Sedaris."
+```
+
+Solution
+
+```js
+let book1 = {
+  title: 'Mythos',
+  author: 'Stephen Fry',
+  getDescription: function() {
+    return `${this.title} was written by ${this.author}.`;
+  },
+};
+
+let book2 = {
+  title: 'Me Talk Pretty One Day',
+  author: 'David Sedaris',
+  getDescription: function() {
+    return `${this.title} was written by ${this.author}.`;
+  },
+};
+
+let book3 = {
+  title: "Aunts aren't Gentleman",
+  author: 'PG Wodehouse',
+  getDescription: function() {
+    return `${this.title} was written by ${this.author}.`
+  }
+}
+```
+
+### 2. Think about the code you wrote for problem #1. Is there any unnecessary code? Does it have duplication?
+
+Solution
+
+The method `getDescription` is duplicated in each object. However, each object must hold unique values for its `title` and `author` properties.
+
+### 3. Given our observations about the code so far, implement a factory function for our book objects that we can use with the following code:
+
