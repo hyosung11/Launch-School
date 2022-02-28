@@ -191,10 +191,8 @@ function letterPercentages(string) {
 
 console.log(letterPercentages('abCdef 123'));
 // { lowercase: "50.00", uppercase: "10.00", neither: "40.00" }
-
 console.log(letterPercentages('AbCd +Ef'));
 // { lowercase: "37.50", uppercase: "37.50", neither: "25.00" }
-
 console.log(letterPercentages('123'));
 // { lowercase: "0.00", uppercase: "0.00", neither: "100.00" }
 
@@ -249,7 +247,6 @@ function anagramDifference (str1, str2) {
  return word1.length + word2.length;
 }
 
-
 // console.log(anagramDifference('', '') === 0);
 // console.log(anagramDifference('a', '') === 1);
 // console.log(anagramDifference('', 'a') === 1);
@@ -259,3 +256,132 @@ function anagramDifference (str1, str2) {
 // console.log(anagramDifference('aab', 'a') === 2);
 // console.log(anagramDifference('a', 'aab') === 2);
 console.log(anagramDifference('codewars', 'hackerrank') === 10);
+
+/* ===================================================
+
+9. Mean Square Error - 5 kyu
+
+Complete the function that
+- accepts two integer arrays of equal length
+- compares the value each member in one array to the corresponding member in the other
+- squares the absolute value difference between those two values
+- and returns the average of those squared absolute value difference between each member pair.
+
+Examples:
+[1, 2, 3], [4, 5, 6] -->   9   because (9 + 9 + 9) / 3
+[10, 20, 10, 2], [10, 25, 5, -2]  -->  16.5 because (0 + 25 + 25 + 16) / 4
+[-1, 0], [0, -1]  -->   1   because (1 + 1) / 2
+
+Algorithm
+- declare `solution()` with paramters `array1` and `array2`
+
+- init result to empty array
+
+- iterate over array1
+  - push difference between array1 at idx with array2 at idx
+
+- iterate over `result`
+  - square each element
+  - compute the sum of the elements of the array
+  - divide sum by array1 length
+
+- return result
+*/
+
+function solution (array1, array2) {
+
+  let result = [];
+
+  for (let idx = 0; idx < array1.length; idx += 1) {
+    result.push(array1[idx] - array2[idx]);
+  }
+
+  return result
+    .map(element => element ** 2)
+    .reduce((sum, num) => sum + num, 0)
+    / array1.length;
+}
+
+// Test cases:
+console.log(solution([1,2,3],[4,5,6]) === 9)
+console.log(solution([10,20,10,2],[10,25,5,-2]) === 16.5)
+console.log(solution([0,-1], [-1,0]) === 1)
+
+/* ===================================================
+
+10. Find the longest substring in alphabetical order.
+
+/* Find the longest substring in alphabetical order.
+
+Example: the longest alphabetical substring in "asdfaaaabbbbcttavvfffffdf" is "aaaabbbbctt".
+
+The input will only consist of lowercase characters and will be at least one letter long.
+
+If there are multiple solutions, return the one that appears first.
+
+
+Problem:
+  Input: string
+  Output: string
+
+Algorithm:
+  define `longest()` with the parameter `string`
+
+    declare `subSrings` and initialize it to an array of substrings of `string` // findSubstrings(string)
+
+    declare `alphabeticalSubstrings` and inittialize it to a filtered array using `isAlphabetica(string)`
+
+    sort `alphabeticalSubstrings` by string length
+
+    return `alphabeticalSubstrings[0]`
+
+  define `findSubstrings()` with the parameter string // return an array of substrings
+
+  define `isAlphabetical()` with the parameter string // return boolean
+    iterate through `string` stop iteration before string.length - 1
+      if string at index[i] > string[i + 1]
+        return false
+
+*/
+
+function longest (string) {
+  let substrings = getSubstrings(string);
+  let alphabeticalSubstrings = substrings.filter(substring => isAlphabetical(substring));
+
+  alphabeticalSubstrings.sort((a, b) => b.length - a.length);
+
+  return alphabeticalSubstrings[0];
+}
+
+function getSubstrings (string) {
+  let substrings = [];
+
+  for (let idx = 0; idx < string.length; idx += 1) {
+    for (let jdx = idx + 1; jdx <= string.length; jdx += 1) {
+      substrings.push(string.slice(idx, jdx));
+    }
+  }
+
+  return substrings;
+}
+
+function isAlphabetical (string) {
+
+  for (let idx = 0; idx < string.length - 1; idx += 1) {
+    if (string[idx] > string[idx + 1]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+// Test cases:
+console.log(longest('asd') === 'as');
+console.log(longest('nab') === 'ab');
+console.log(longest('abcdeapbcdef') === 'abcde');
+console.log(longest('asdfaaaabbbbcttavvfffffdf') === 'aaaabbbbctt');
+console.log(longest('asdfbyfgiklag') === 'fgikl');
+console.log(longest('z') === 'z');
+console.log(longest('zyba') === 'z');
+

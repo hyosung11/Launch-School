@@ -5816,3 +5816,7 @@ printer([
 13:27 Carabao Cup final is going into extra time, but I'm starting my study session with Deepak now.
 
 15:19 End of study session with Deepak.
+
+20:20 I didn't want to look at problems until now. I want to review the problems I did with Deepak and then relax and go to sleep. The interview assessment is tomorrow.
+
+20:54 I must absolutely test every line of code during my assessment tomorrow. No shortcuts or assumptions at all!
