@@ -5854,3 +5854,21 @@ communicative more
 11:55 The assessment is over and I solved both problems. All is well.
 
 14:21 I passed the interview assessment and have started OOP. Yes! I still have not heard from Greenshades.
+
+16:24 Here are some text examples for markdown
+
+<span style="color:blue">some *This is Blue italic.* text</span>
+
+<span style="color:red">some **This is Red Bold.** text</span>
+
+<style>
+r { color: Red }
+o { color: Orange }
+g { color: Green }
+</style>
+
+TODOs:
+
+* <r>TODO:</r> Important thing to do
+* <o>TODO:</o> Less important thing to do
+* <g>DONE:</g> Breath deeply and improve karma

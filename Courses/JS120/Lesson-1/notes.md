@@ -109,6 +109,7 @@ What do we have here? -- Some data about a car and the functionality that applie
 
 ```js
 let raceCar = {
+
   make: 'BMW',
   fuelLevel: 0.5,
   engineOn: false,
@@ -135,17 +136,197 @@ let raceCar = {
 };
 ```
 
-This code bundles the data and operations related to a car into an object. The structure of the object is essentially the same as the objects we've encountered so far. The chief difference is that some of the property values are functions. That shouldn't be surprising; we've seen before that JavaScript functions are first-class values, which means that we can treat them as we would any JavaScript value. That includes using them as object property values. When object properties have function values, we call them **methods**. The methods here are responsible for changing the state of the `raceCar` object.
+This code bundles the data and operations related to a car into an object. The structure of the object is essentially the same as the objects we've encountered so far. The chief difference is that *some of the property values are functions*. That shouldn't be surprising; we've seen before that JavaScript functions are first-class values, which means that we can treat them as we would any JavaScript value. That includes using them as object property values. When object properties have function values, we call them **methods**. The methods here are responsible for changing the state of the `raceCar` object.
 
 One advantage of this approach is clear to see: if we want to operate on a car, we don't have to search for both the function and the data that we need. We can see at a glance what you can do with a car merely by looking at the object.
 
-RR
+We can use dot-notation to call a method. For instance:
+
+```js
+raceCar.refuel(30);
+```
+Note that JavaScript won't stop you from changing the fuelLevel property directly instead of calling the refuel method. That's a limitation of JavaScript. The OO style strongly discourages changing property values directly. Instead, it encourages using methods to interface with the object. We can see why that is by looking at the implementation for refuel. The fuelLevel property should be a number that's a fraction of 1. The refuel method ensures that it never exceeds that value. If you only use refuel to increase the fuelLevel of the car, it'll never exceed 1. If you directly access and change fuelLevel, though, you may end up violating that restriction.
 
 ### Compact Method Syntax
 
+Using functions as object values (i.e., methods) is so common that there's a shorthand syntax called the compact syntax for it:
+
+```js
+let raceCar = {
+
+  make: 'BMW',
+  fuelLevel: 0.5,
+  engineOn: false,
+
+  startEngine() {
+    raceCar.engineOn = true;
+  },
+
+  drive() {
+    raceCar.fuelLevel -= 0.1;
+  },
+
+  stopEngine() {
+    raceCar.engineOn = false;
+  },
+
+  refuel(percent) {
+    if ((raceCar.fuelLevel + (percent / 100)) <= 1) {
+      raceCar.fuelLevel += (percent / 100);
+    } else {
+      raceCar.fuelLevel = 1;
+    }
+  },
+};
+```
+
+You can omit the `:` and the `function` keyword and use parenthesis to denote a method. There is a subtle difference between these two syntaxes, however. We'll cover that later when we talk about **prototypes**.
+
 ### The `this` Keyword
 
+Thus far in our example, we refer to the object from inside the methods by directly using the variable name, `raceCar`. Suppose we change the variable name or pass the object to a function that refers to its arguments by a different name. In that case, calling a method with the original variable name will *throw a reference error*. We need some way to refer to the object that contains a method from other methods in that object. The keyword `this` provides the desired functionality:
 
-### Summary
+```js
+let raceCar = {
+
+  make: 'BMW',
+  fuelLevel: 0.5,
+  engineOn: false,
+
+  startEngine() {
+    this.engineOn = true;
+  },
+
+  drive() {
+    this.fuelLevel -= 0.1;
+  },
+
+  stopEngine() {
+    this.engineOn = false;
+  },
+
+  refuel(percent) {
+    if ((this.fuelLevel + (percent / 100)) <= 1) {
+      this.fuelLevel += (percent / 100);
+    } else {
+      this.fuelLevel = 1;
+    }
+  },
+};
+```
+
+The workings of `this` is one of the most difficult JavaScript concepts to grasp; it's the source of a great deal of confusion. We'll talk about it extensively in the next lesson. For now, you can assume that when you use `this` inside a method, it *refers to the object that contains the method.*
+
+### Creating Objects Summary
 
 In this assignment, we've seen an example of encapsulation in practice. In JavaScript, we achieve encapsulation by making use of an object. The properties of the object hold the state (data), and methods represent behavior. Inside the methods, the `this` keyword lets us refer to the properties and other methods of the object.
+
+## Collaborator Objects
+
+You now know that we can group related state and behavior with objects. An object's state is stored in properties that refer to other values or objects. As we saw in the previous assignment, the state is often a collection of strings, numbers, and booleans. For example, a `person` object can use a `name` property to store the person's name attribute as a string. Here's an example:
+
+```js
+let pete = {
+  name: 'Pete',
+
+  printName() {
+    console.log(`My name is ${this.name}!`);
+  },
+};
+```
+
+Notice that `pete.name` holds a string value. An object's properties *can hold any value or object*: strings, numbers, arrays, and even other objects. For instance:
+
+```js
+let pete = {
+  heroes: ['Superman', 'Spiderman', 'Batman'],
+  cash: { ones: 12, fives: 2, tens: 0, twenties: 2, hundreds: 0 },
+
+  cashOnHand() {
+    // This method uses `this.cash` to calculate the total cash value. We'll skip the implementation here.
+  },
+
+  allHeroes() {
+    return.this.heroes.join('');
+  },
+};
+```
+
+From this example, you see that we can use any value or object to *represent an object's state*. Properties can store any object or value. Suppose we need an object that represents a person and his pet. We could have an object like this:
+
+```js
+let cat = {
+  name: 'Fluffy',
+
+  makeNoise() {
+    console.log('Meow! Meow!');
+  },
+
+  eat() {
+    // implementation
+  },
+};
+
+let pete = {
+  name: 'Pete',
+  pet: cat,
+
+  printName() {
+    console.log(`My name is ${this.name}!`);
+    console.log(`My pet's name is ${this.pet.name}`);
+  },
+};
+```
+
+We can now access Pete's pet by referencing the `.pet` property with the `pete` object, e.g., `pete.pet`. Since `pet` is the `cat` object, we can use `pete.pet` to call the `cat`'s methods: `pete.pet.makeNoise()`.
+
+Objects that *help provide state within another object* are called **collaborator objects**, or more simply, **collaborators**. Collaboration is all about objects working together in some manner. A collaborator works in conjunction -- in collaboration -- with another object.
+
+The `pete` object has a collaborator object stored in its `pet` property. The `pete` object and the object referenced by its `pet` property work together. When we need to access the `pet` object or have it perform a behavior, we can use `pete.pet` to access and use the object's properties. For instance, on line 19, the `pete` object collaborates with the `cat` object (via `this.pet`) to access the `cat`'s name.
+
+Collaborator objects play an important role in object-oriented design; they r*epresent the connections between the different classes* in your program. When working on an object-oriented program, be sure to consider what collaborators your objects need and whether those associations make sense, both from a technical standpoint and in terms of modeling the problem your program aims to solve.
+
+Let's now develop our program further and change the implementation to let Pete have many pets. How should we implement this? How about an array of `pet` objects?
+
+```js
+let cat = {
+  name: 'Fluffy',
+
+  makeNoise() {
+    console.log('Meow! Meow!');
+  },
+
+  eat() {
+    // implementation
+  },
+};
+
+let dog = {
+  name: 'Maxi',
+
+  makeNoise() {
+    console.log('Woof! Woof!');
+  },
+
+  eat() {
+    // implementation
+  },
+};
+
+let pete = {
+  name: 'Pete',
+  pets: [],
+};
+
+pete.pets.push(cat);
+pete.pets.push(dog);
+```
+
+We often talk of collaborators in the context of custom objects like `pet`, but collaborators don't have to be custom objects. They can be built-in objects like arrays and dates, as well.
+
+### Collaborator Objects Summary
+
+Collaborator objects let you chop up and modularize the problem domain into cohesive pieces. They play an important role in modeling complicated problem domains in OO programming.
+
+## Functions as Object Factories
+
