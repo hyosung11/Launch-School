@@ -5826,3 +5826,7 @@ printer([
 05:58 Hot water is ready for my tea. It's the morning of my interview assessment and I feel fine. Waiting on Alex to start the study session. He's a few minutes late.
 
 07:27 Train on more difficult problems so that the actual assessment is easy, right?
+
+09:24 Reading a chapter a day of The Programmer's Brain and that's good for me. I will fiddle around a bit, take a walk around the block, do my warmup exercises and then relax before my interview assessment at 11:00.
+
+09:59 Right before I do my warmup and my hands are stiff from being outside in the cold.

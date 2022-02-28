@@ -84,7 +84,7 @@ function solution (array1, array2) {
   let sum = 0;
 
   for (let i = 0; i < squaredDifferences.length; i += 1) {
-    sum += (squaredDifferences[i]);
+    sum = sum + squaredDifferences[i];
   }
 
   return sum / array1.length;
