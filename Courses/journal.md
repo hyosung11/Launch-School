@@ -5829,4 +5829,26 @@ printer([
 
 09:24 Reading a chapter a day of The Programmer's Brain and that's good for me. I will fiddle around a bit, take a walk around the block, do my warmup exercises and then relax before my interview assessment at 11:00.
 
-09:59 Right before I do my warmup and my hands are stiff from being outside in the cold.
+09:59 Right before I do my warmup and my hands are stiff from being outside in the cold. I am looking forward to this interview assessment. All is well. It will be fun!
+
+10:23 I did my warmup but forgot to test on the first two problems. My hands are still stiff from the winter walk outside.
+
+10:35 I feel ready to take the interview assessment now. I have 25 minutes left before I start.
+
+10:47 A few minutes before my interview assessment
+
+1. Code with confidence
+2. Test test test
+3. Refer to my algorithm
+
+11:38 done solved both problems
+
+code is working
+
+reverse
+threeIsMyNumber
+
+algorithm that works
+communicative more
+
+11:55 The assessment is over and I solved both problems. All is well.

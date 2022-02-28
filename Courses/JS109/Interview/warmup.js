@@ -21,8 +21,31 @@ for loops (procedural iteration)
 2. Find Substrings
 
 Given a string, write a function that returns an array of all its substrings.
+Algorithm
+- declare `findSubstrings()` with parameter `string`
+- init `result` to empty array
+
+- iterate over string outer loop
+  - iterate over string inner loop
+    - slice string from idx, jdx
+    - push slices to `result`
+
+- return `result`
 
 */
+
+function findSubstrings (string) {
+  let result = [];
+
+  for (let idx = 0; idx < string.length; idx += 1) {
+    for (let jdx = idx + 1; jdx <= string.length; jdx += 1) {
+      result.push(string.slice(idx, jdx));
+    }
+  }
+
+  return result;
+}
+
 
 // Test case:
 console.log(findSubstrings('hey')); // ['h', 'he', 'hey', 'e', 'ey', 'y'];
@@ -33,6 +56,18 @@ console.log(findSubstrings('hey')); // ['h', 'he', 'hey', 'e', 'ey', 'y'];
 
 Given an array, return an array of all even indexed elements at every even indexed subarray.
 
+Algorithm
+- declare `findEvens()` with parameter `array`
+- init `result` to empty array
+
+- iterate over array
+  - if idx divided by 2 equals 0
+    - iterate over subarrays
+      - if jdx divided by 2 equals 0
+        - push element to `result`
+
+- return `result`
+
 */
 
 // Test case:
@@ -42,18 +77,67 @@ let a = [
   [7, 8, 9]
 ]
 
+function findEvens(array) {
+  let result = [];
+
+  for (let idx = 0; idx < array.length; idx += 1) {
+    if (idx % 2 === 0) {
+      for (let jdx = 0; jdx < array[idx].length; jdx += 1) {
+        if (jdx % 2 === 0) {
+          result.push(array[idx][jdx]);
+        }
+      }
+    }
+  }
+
+  return result;
+}
+
 console.log(findEvens(a)) // [1, 3, 7, 9]
 
 /* ===============================================================
+
 
 4. Object Manipulation
 
 Given a string, return an array of all the letters that occur 2 times.
 
+Algorithm
+- declare `twoCounter()` with `string` parameter
+- init `result` to empty array
+- init `count` to empty object
+- iterate over string
+  - if char in count increment value of char in count by 1
+  - else add char with value 1 to `count`
+
+- iterate over `count` keys
+  - if count[key] equals 2
+    - push key to `result`
+
+- return `result`
+
 */
 
+function twoCounter (string) {
+
+  let result = [];
+  let count = {};
+
+  string.split('').forEach(char => {
+    count[char] = count[char] + 1 || 1;
+  })
+
+  for (let key in count) {
+    if (count[key] === 2) {
+      result.push(key);
+    }
+  }
+
+  return result;
+}
+
 // Test cases:
-console.log(twoCounter('aabbccddefghhijilll')); // [a, b, c, d, h, i]
+console.log(twoCounter('aabbccddefghhijilll')); // ['a', 'b', 'c', 'd', 'h', 'i']
 
 /* ===================================================
 
@@ -274,7 +358,7 @@ Examples:
 [-1, 0], [0, -1]  -->   1   because (1 + 1) / 2
 
 Algorithm
-- declare `solution()` with paramters `array1` and `array2`
+- declare `solution()` with parameters `array1` and `array2`
 
 - init result to empty array
 
