@@ -76,3 +76,76 @@ Solution: In JavaScript, encapsulation is the idea of bundling data and operatio
 A4. Encapsulation in JavaScript cannot completely cut off the public interface.
 
 Solution: In other languages, encapsulation concerns hiding the details of an object from code that uses the object. An object should only expose the methods and properties that other objects need to use the encapsulated object. However, JavaScript does not directly provide the means to limit exposure of properties and methods. There are ways to achieve a degree of access restriction, but they're not perfect.
+
+## Creating Objects
+
+At this point in the curriculum, you already know how to create an object:
+
+```js
+let person = {
+  name: 'John',
+  age: 33,
+};
+```
+
+Simple, isn't it? However, the code does little more than create a data-structure. The object merely stores some data about a person. OOP is about *combining data and behavior* into an object.
+
+Imagine that you're building a car racing game. Such a game, of course, must have cars. That is, it must have some data about cars and some operations associated that use and manipulate that data. We might list the data and operations something like this:
+
+```sh
+Car Attributes
+  Make: BMW
+  Fuel level: 50%
+  Engine status: Turned Off
+
+Car Functionality/Behavior
+  Start engine
+  Stop engine
+  Refuel
+  Drive
+```
+
+What do we have here? -- Some data about a car and the functionality that applies to that data. The "start engine" feature, for example, should change the engine status from "off" to "on" and nothing more. It makes sense for this data and functionality to live together. Let's *encapsulate* it as an object:
+
+```js
+let raceCar = {
+  make: 'BMW',
+  fuelLevel: 0.5,
+  engineOn: false,
+
+  startEngine: function() {
+    raceCar.engineOn = true;
+  },
+
+  drive: function() {
+    raceCar.fuelLevel -= 0.1;
+  },
+
+  stopEngine: function() {
+    raceCar.engineOn = false;
+  },
+
+  refuel: function(percent) {
+    if ((raceCar.fuelLevel + (percent / 100)) <= 1) {
+      raceCar.fuelLevel += (percent / 100);
+    } else {
+      raceCar.fuelLevel = 1;
+    }
+  },
+};
+```
+
+This code bundles the data and operations related to a car into an object. The structure of the object is essentially the same as the objects we've encountered so far. The chief difference is that some of the property values are functions. That shouldn't be surprising; we've seen before that JavaScript functions are first-class values, which means that we can treat them as we would any JavaScript value. That includes using them as object property values. When object properties have function values, we call them **methods**. The methods here are responsible for changing the state of the `raceCar` object.
+
+One advantage of this approach is clear to see: if we want to operate on a car, we don't have to search for both the function and the data that we need. We can see at a glance what you can do with a car merely by looking at the object.
+
+RR
+
+### Compact Method Syntax
+
+### The `this` Keyword
+
+
+### Summary
+
+In this assignment, we've seen an example of encapsulation in practice. In JavaScript, we achieve encapsulation by making use of an object. The properties of the object hold the state (data), and methods represent behavior. Inside the methods, the `this` keyword lets us refer to the properties and other methods of the object.
