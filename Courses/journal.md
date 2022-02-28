@@ -5872,3 +5872,5 @@ TODOs:
 * <r>TODO:</r> Important thing to do
 * <o>TODO:</o> Less important thing to do
 * <g>DONE:</g> Breath deeply and improve karma
+
+17:04 Cruising through the beginning of Object Oriented Programming.
