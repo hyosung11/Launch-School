@@ -5876,3 +5876,7 @@ TODOs:
 17:04 Cruising through the beginning of Object Oriented Programming.
 
 17:34 Time to stop and make dinner. I like OOP so far though.
+
+18:42 After dinner, a shower, and now ready to get back to studying.
+
+19:21 Time to do my OO Rock Paper Scissors assignment.
