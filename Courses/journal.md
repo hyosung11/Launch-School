@@ -5890,3 +5890,7 @@ TODOs:
 06:19 In a study session with Alex and I've given him the second problem. I didn't start teh timer.
 
 07:01 After study session with Alex. He got stuck on a problem but eventually figured it out. I want to continue through OOP.
+
+07:23 Able to find and fix my bug in OO RPS. Yes!
+
+07:36 RPS works so far. It's fun to play with it and change some of the interface.

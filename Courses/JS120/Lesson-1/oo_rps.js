@@ -1,5 +1,48 @@
 const readline = require('readline-sync');
 
+const RPSGame = {
+  human: createPlayer('human'),
+  computer: createPlayer('computer'),
+
+  displayWelcomeMessage() {
+    console.log('Welcome to Rock, Paper, Scissors!');
+  },
+
+  displayGoodbyeMessage() {
+    console.log('Thanks for playing Rock, Paper, Scissors. Goodbye!');
+  },
+
+  displayWinner() {
+    let humanMove = this.human.move;
+    let computerMove = this.computer.move;
+
+    console.log(`You chose: ${this.human.move}`);
+    console.log(`The computer chose: ${this.computer.move}`);
+
+    if ((humanMove === 'rock' && computerMove === 'scissors') ||
+        (humanMove === 'paper' && computerMove === 'rock') ||
+        (humanMove === 'scissors' && computerMove === 'paper')) {
+      console.log('Human wins!');
+    } else if ((humanMove === 'rock' && computerMove === 'paper') ||
+               (humanMove === 'paper' && computerMove === 'scissors') ||
+               (humanMove === 'scissors' && computerMove === 'rock')) {
+      console.log('Computer wins!')
+    } else {
+      console.log("It's a tie.")
+    }
+  },
+
+  play() {
+    this.displayWelcomeMessage();
+    this.human.choose();
+    this.computer.choose();
+    this.displayWinner();
+    this.displayGoodbyeMessage();
+  },
+};
+
+RPSGame.play();
+
 function createPlayer(playerType) {
   return {
     // possible state: player name?
@@ -31,38 +74,6 @@ function createPlayer(playerType) {
   };
 }
 
-const RPSGame = {
-  human: createPlayer('human'),
-  computer: createPlayer('computer'),
-
-  displayWelcomeMessage() {
-    console.log('Welcome to Rock, Paper, Scissors!');
-  },
-
-  displayGoodbyeMessage() {
-    console.log('Thanks for playing Rock, Paper, Scissors. Goodbye!');
-  },
-
-  play() {
-    this.displayWelcomeMessage();
-    this.human.choose();
-    this.computer.choose();
-    displayWinner();
-    this.displayGoodbyeMessage();
-  },
-};
-
-function createPlayer() {
-  return {
-    // possible state: player name?
-    // possible state: player's current move?
-
-    choose() {
-      // not yet implemented
-    },
-  };
-}
-
 function createMove() {
   return {
     // possible state: type of move (paper, rock, scissors)
@@ -80,3 +91,4 @@ function createRule() {
 let compare = function (move1, move2) {
   // not yet implemented
 };
+

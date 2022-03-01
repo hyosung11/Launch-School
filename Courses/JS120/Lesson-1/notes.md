@@ -1138,8 +1138,80 @@ We've implemented all the methods that this method uses except for `displayWinne
 
 The player objects, `human` and `computer`, are properties of the `RPSGame` object, we say that they collaborate with the `RPSGame` object. We can also say that they are **collaborators** of `RPSGame`. That also means that we can refer to them with the `this` keyword in methods that execute in the `RPSGame` context.
 
-To determine who won, the displayWinner method must do something with the human and computer properties. Thus, it makes sense to make displayWinner a method on the object that contains those properties, namely, RPSGame. To get started, let's write some code so we can test our assumptions:
+To determine who won, the `displayWinner` method must do something with the `human` and `computer` properties. Thus, it makes sense to make `displayWinner` a method on the object that contains those properties, namely, `RPSGame`. To get started, let's write some code so we can test our assumptions:
+
+```js
+const RPSGame = {
+  // omitted
+
+  displayWinner() {
+    console.log(`You chose: ${this.human.move}`);
+    console.log(`The computer chose: ${this.computer.move}`);
+  },
+
+  play() {
+    this.displayWelcomeMessage();
+    this.human.choose();
+    this.computer.choose();
+    this.displayWinner();
+    this.displayGoodbyeMessage();
+  }
+}
+```
+
+Thus far in this assignment, we've written a fair amount of code. We really should see whether it works, so let's take it for a spin. When you run the program, you should see something like this on the console.
+
+```sh
+$ node oo_rps.js # replace oo_rps.js with your file name!
+Welcome to Rock, Paper, Scissors!
+Please choose rock, paper, or scissors:
+rock
+You chose: rock
+The computer chose: paper
+Thanks for playing Rock, Paper, Scissors. Goodbye!
+```
+
+The output you see may show different choices for you and the computer, but the rest of the output should be identical.
+
+Great! Lets' go ahead and complete the logic for `RPSGame.displayWinner`:
+
+```js
+displayWinner() {
+  let humanMove = this.human.move;
+  let computerMove = this.computer.move;
+
+  console.log(`You chose: ${this.human.move}`);
+  console.log(`The computer chose: ${this.computer.move}`);
+
+  if ((humanMove === 'rock' && computerMove === 'scissors') ||
+      (humanMove === 'paper' && computerMove === 'rock') ||
+      (humanMove === 'scissors' && computerMove === 'paper')) {
+    console.log('You win!');
+  } else if ((humanMove === 'rock' && computerMove === 'paper') ||
+             (humanMove === 'paper' && computerMove === 'scissors') ||
+             (humanMove === 'scissors' && computerMove === 'rock')) {
+    console.log('Computer wins!');
+  } else {
+    console.log("It's a tie");
+  }
+},
+```
+
+The essential features of our game are now complete. Run the program and play a few games of RPS to verify that it works. You should see something like the following play out on the console:
+
+```sh
+$ node oo_rps.js
+Welcome to Rock, Paper, Scissors!
+Please choose rock, paper, or scissors:
+rock
+You chose: rock
+The computer chose: paper
+Computer wins!
+Thanks for playing Rock, Paper, Scissors. Goodbye!
+```
 
 ### Step 3: Play Again
+
+rr
 
 ### Step 4: Cleanup
