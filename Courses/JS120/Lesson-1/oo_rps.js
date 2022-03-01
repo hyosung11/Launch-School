@@ -1,8 +1,8 @@
 const readline = require('readline-sync');
 
 const RPSGame = {
-  human: createPlayer('human'),
-  computer: createPlayer('computer'),
+  human: createHuman(),
+  computer: createComputer(),
 
   displayWelcomeMessage() {
     console.log('Welcome to Rock, Paper, Scissors!');
@@ -19,16 +19,20 @@ const RPSGame = {
     console.log(`You chose: ${this.human.move}`);
     console.log(`The computer chose: ${this.computer.move}`);
 
-    if ((humanMove === 'rock' && computerMove === 'scissors') ||
-        (humanMove === 'paper' && computerMove === 'rock') ||
-        (humanMove === 'scissors' && computerMove === 'paper')) {
+    if (
+      (humanMove === 'rock' && computerMove === 'scissors') ||
+      (humanMove === 'paper' && computerMove === 'rock') ||
+      (humanMove === 'scissors' && computerMove === 'paper')
+    ) {
       console.log('Human wins!');
-    } else if ((humanMove === 'rock' && computerMove === 'paper') ||
-               (humanMove === 'paper' && computerMove === 'scissors') ||
-               (humanMove === 'scissors' && computerMove === 'rock')) {
-      console.log('Computer wins!')
+    } else if (
+      (humanMove === 'rock' && computerMove === 'paper') ||
+      (humanMove === 'paper' && computerMove === 'scissors') ||
+      (humanMove === 'scissors' && computerMove === 'rock')
+    ) {
+      console.log('Computer wins!');
     } else {
-      console.log("It's a tie.")
+      console.log("It's a tie");
     }
   },
 
@@ -53,53 +57,31 @@ const RPSGame = {
 
 RPSGame.play();
 
-function createPlayer(playerType) {
+// `createPlayer` factory function
+function createPlayer() {
   return {
-    playerType: playerType,
     move: null,
-
-    choose() {
-      if (this.isHuman()) {
-        let choice;
-
-        while (true) {
-          console.log('Please choose rock, paper, or scissors:');
-          choice = readline.question();
-          if (['rock', 'paper', 'scissors'].includes(choice)) break;
-          console.log('Sorry, invalid choice.');
-        }
-
-        this.move = choice;
-      } else {
-        const choices = ['rock', 'paper', 'scissors'];
-        let randomIndex = Math.floor(Math.random() * choices.length);
-        this.move = choices[randomIndex];
-      }
-    },
-
-    isHuman() {
-      return this.playerType === 'human';
-    },
   };
 }
 
 function createComputer() {
-  return {
-    move: null,
+  let playerObject = createPlayer();
 
+  let computerObject = {
     choose() {
       const choices = ['rock', 'paper', 'scissors'];
       let randomIndex = Math.floor(Math.random() * choices.length);
       this.move = choices[randomIndex];
     },
   };
+
+  return Object.assign(playerObject, computerObject);
 }
 
-// createHuman factory function
 function createHuman() {
-  return {
-    move: null,
+  let playerObject = createPlayer();
 
+  let humanObject = {
     choose() {
       let choice;
 
@@ -113,9 +95,13 @@ function createHuman() {
       this.move = choice;
     },
   };
+
+  return Object.assign(playerObject, humanObject);
 }
 
-/* unused so far */
+/* At this point, it seems that we don't need the createMove, createRule, or compare functions. However, it's possible you will need them in the bonus features. Feel free to go ahead and delete them if you don't need them.
+*/
+
 function createMove() {
   return {
     // possible state: type of move (paper, rock, scissors)

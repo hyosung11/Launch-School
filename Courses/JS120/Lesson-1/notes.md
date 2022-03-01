@@ -1406,3 +1406,84 @@ function createHuman() {
   };
 }
 ```
+
+Again, this is a significant improvement over the original code; it has all the same benefits we mentioned in connection with the `createComputer()` factory function.
+
+The only difference between the objects created by our factory functions is the code used to implement the `choose` methods. Thus, code that uses these objects can treat them both as "players" and call their `choose` method. The objects themselves handle choosing which implementation they should run. We can say that the human and computer object types are sub-types of the player type.
+
+We can now get rid of `createPlayer` and use these two functions to create our player objects in `RPSGame`:
+
+```js
+const RPSGame = {
+  human: createHuman(),
+  computer: createComputer(),
+  // code omitted for brevity
+};
+```
+
+Great! We've split the `createPlayer` factory function into two functions. Though we now have an additional factory function, the logic of each function is more straightforward and more specific to its type.
+
+However, there is some duplication between the two factory functions since both objects have a `move` property. Duplicating a single property in two objects isn't too concerning, but, suppose other properties require duplication. In OOP, sub-types often share multiple properties and methods. JavaScript provides some constructs that help extract such duplications to one place; we'll discuss them later when we talk about constructors, prototypes, and classes.
+
+For now, let's see whether we can extract this common `move` property to a single place using the factory function pattern. One way we might try to do that is to move the property to a separate factory function:
+
+```js
+function createPlayer() {
+  return {
+    move: null,
+  };
+}
+```
+
+What's next? How do we make use of this factory function together with the `createComputer` and `createHuman` factory functions? It's not as straightforward as you might like, but here's how to do it with the `createHuman` factory:
+
+```js
+function createHuman() {
+  let playerObject = createPlayer();
+
+  let humanObject = {
+    choose() {
+      let choice;
+
+      while (true) {
+        console.log('Please choose rock, paper, or scissors:');
+        choice = readline.question();
+        if (['rock', 'paper', 'scissors'].includes(choice)) break;
+        console.log('Sorry, invalid choice.');
+      }
+
+      this.move = choice;
+    },
+  };
+
+  return Object.assign(playerObject, humanObject);
+}
+```
+
+In this modified factory function, we first create a player object using the `createPlayer` function, then create the human object. Finally, we merge the two objects using `Object.assign`, then return the result.
+
+See if you can do the same thing with the `createComputer` factory function.
+
+Solution
+
+```js
+function createComputer() {
+  let playerObject = createPlayer();
+
+  let computerObject = {
+    choose() {
+      const choices = ['rock', 'paper', 'scissors'];
+      let randomIndex = Math.floor(Math.random() * choices.length);
+      this.move = choices[randomIndex];
+    },
+  };
+
+  return Object.assign(playerObject, computerObject);
+}
+```
+
+We've extracted the common property, `move`, to a separate object factory, `createPlayer`. Since it's only one property, it's hard to see the benefits here. However, the general principle of *extracting duplicated code to a single place is always worth considering*. It makes changes to the code less error-prone and tedious. In the long run, it often leads to less work.
+
+### One Last Step
+
+At this point, it seems that we don't need the `createMove`, `createRule`, or `compare` functions. However, it's possible you will need them in the bonus features. Feel free to go ahead and delete them if you don't need them.
