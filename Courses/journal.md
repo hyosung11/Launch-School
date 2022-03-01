@@ -5884,3 +5884,9 @@ TODOs:
 19:39 Kids went up but I'm still here studying and I love it. Okay, do a little more to finish this assignment and then go up to put the kids to bed.
 
 20:57 Partially through making OO RPS. Ready to stop and watch some TV with Sohee. Good night.
+
+## 20220301 화요일
+
+06:19 In a study session with Alex and I've given him the second problem. I didn't start teh timer.
+
+07:01 After study session with Alex. He got stuck on a problem but eventually figured it out. I want to continue through OOP.

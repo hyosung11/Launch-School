@@ -1119,7 +1119,26 @@ function createPlayer(playerType) {
 
 ### Step 2: Implement the `displayWinner`
 
-RR
+Thus far, we've used our implementation of `RPSGame.play` to drive the implementation of some other methods. Right now, play looks like this:
+
+```js
+const RPSGame = {
+  // code omitted
+  play() {
+    this.displayWelcomeMessage();
+    this.human.choose();
+    this.computer.choose();
+    displayWinner();
+    this.displayGoodbyeMessage();
+  },
+}
+```
+
+We've implemented all the methods that this method uses except for `displayWinner`. We can implement it now since we know that `choose` stores the player's move as a piece of state in the `move` property.
+
+The player objects, `human` and `computer`, are properties of the `RPSGame` object, we say that they collaborate with the `RPSGame` object. We can also say that they are **collaborators** of `RPSGame`. That also means that we can refer to them with the `this` keyword in methods that execute in the `RPSGame` context.
+
+To determine who won, the displayWinner method must do something with the human and computer properties. Thus, it makes sense to make displayWinner a method on the object that contains those properties, namely, RPSGame. To get started, let's write some code so we can test our assumptions:
 
 ### Step 3: Play Again
 
