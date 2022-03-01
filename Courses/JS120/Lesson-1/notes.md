@@ -1487,3 +1487,5 @@ We've extracted the common property, `move`, to a separate object factory, `crea
 ### One Last Step
 
 At this point, it seems that we don't need the `createMove`, `createRule`, or `compare` functions. However, it's possible you will need them in the bonus features. Feel free to go ahead and delete them if you don't need them.
+
+End
