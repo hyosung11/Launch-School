@@ -5900,3 +5900,7 @@ TODOs:
 09:15 Finished Step 3: Play Again of OO RPS.
 
 10:56 Fixed bug in my logic by copying the code from the example. Why isn't there a view of the entire code for this program?
+
+11:21 Finished Assignment 12: ESLint OO RPS.
+
+17:27 I've completed Lesson 1 and outlined my file for Lesson 2. I want to take a shower now.

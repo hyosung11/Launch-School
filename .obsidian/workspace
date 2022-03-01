@@ -1,0 +1,94 @@
+{
+  "main": {
+    "id": "f3e91fa23fc7356e",
+    "type": "split",
+    "children": [
+      {
+        "id": "f119ab155b585730",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Courses/JS120/Lesson-1/notes.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "25829aafcd7f5cb8",
+    "type": "split",
+    "children": [
+      {
+        "id": "7f595ae126dce585",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c15f16d79a217909",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "c75d6e6f143fd3f9",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "65ee72bf85c31ffb",
+    "type": "split",
+    "children": [
+      {
+        "id": "2bfa24545bc5d318",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5c44e00775f77535",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Courses/JS120/Lesson-1/notes.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "f119ab155b585730",
+  "lastOpenFiles": [
+    "Courses/JS120/Lesson-1/notes.md"
+  ]
+}

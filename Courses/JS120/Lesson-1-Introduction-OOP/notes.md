@@ -145,7 +145,8 @@ We can use dot-notation to call a method. For instance:
 ```js
 raceCar.refuel(30);
 ```
-Note that JavaScript won't stop you from changing the fuelLevel property directly instead of calling the refuel method. That's a limitation of JavaScript. The OO style strongly discourages changing property values directly. Instead, it encourages using methods to interface with the object. We can see why that is by looking at the implementation for refuel. The fuelLevel property should be a number that's a fraction of 1. The refuel method ensures that it never exceeds that value. If you only use refuel to increase the fuelLevel of the car, it'll never exceed 1. If you directly access and change fuelLevel, though, you may end up violating that restriction.
+
+Note that JavaScript won't stop you from changing the `fuelLevel` property directly instead of calling the `refuel` method. That's a limitation of JavaScript. The OO style strongly discourages changing property values directly. Instead, it encourages using methods to interface with the object. We can see why that is by looking at the implementation for `refuel`. The `fuelLevel` property should be a number that's a fraction of 1. The `refuel` method ensures that it never exceeds that value. If you only use `refuel` to increase the `fuelLevel` of the car, it'll never exceed 1. If you directly access and change `fuelLevel`, though, you may end up violating that restriction.
 
 ### Compact Method Syntax
 
@@ -330,7 +331,7 @@ Collaborator objects let you chop up and modularize the problem domain into cohe
 
 ## 7. Functions as Object Factories
 
-So far, we've learned how to create objects and add properties and methods to them. In this assignment, we'll learn how to automate the process of creating objects.
+So far, we've learned how to create objects and add properties and methods to them. In this assignment, we'll learn how to *automate the process of creating objects*.
 
 Let's revisit the car racing game from an earlier assignment where we created the following object:
 
@@ -435,7 +436,7 @@ However, there are several problems with this approach:
 
 The more significant issue is that it's hard to see what attributes characterize and differentiate `raceCar1` from `raceCar2`: what makes them similar and what makes them different and unique?
 
-It's easy to see that we're creating objects of a particular **type** (i.e., a race car). This notion of types will come up repeatedly in this course. We'll often need objects of the same type in our applications. Since we don't want to use the copy and paste approach we used above, we need some other way to create objects. One way to automate object creation is to use **object factorie**s: functions that create and return objects of a particular type.
+It's easy to see that we're creating objects of a particular **type** (i.e., a race car). This notion of types will come up repeatedly in this course. We'll often need objects of the same type in our applications. Since we don't want to use the copy and paste approach we used above, we need some other way to create objects. One way to automate object creation is to use **object factories**: functions that create and return objects of a particular type.
 
 Our car objects are mostly similar, but they have three important distinctions: the values they hold for the `make`, `fuelLevel`, and `engineOn` properties. One way to clarify this in our code is to move the similarities to one location and provide the differences when we create new objects.
 
@@ -1488,4 +1489,162 @@ We've extracted the common property, `move`, to a separate object factory, `crea
 
 At this point, it seems that we don't need the `createMove`, `createRule`, or `compare` functions. However, it's possible you will need them in the bonus features. Feel free to go ahead and delete them if you don't need them.
 
-End
+## 12. ESLint OO RPS
+
+We now have a finished version of the OO RPS program. It's time to run the program through ESLint and see if we've violated any style conventions, and fix them.
+
+`$ npx eslint rps.js`
+
+```sh
+Lesson-1 git:(main) ✗ npx eslint oo_rps.js
+npx: installed 83 in 7.233s
+
+/Users/hyosung11/Launch-School/Courses/JS120/Lesson-1/oo_rps.js
+   15:3   error  Method 'displayWinner' has too many lines (21). Maximum allowed is 20    max-lines-per-function
+  105:10  error  'createMove' is defined but never used                                   no-unused-vars
+  111:10  error  'createRule' is defined but never used                                   no-unused-vars
+  119:5   error  'compare' is assigned a value but never used                             no-unused-vars
+  119:25  error  'move1' is defined but never used. Allowed unused args must match /^_/u  no-unused-vars
+  119:32  error  'move2' is defined but never used. Allowed unused args must match /^_/u  no-unused-vars
+
+✖ 6 problems (6 errors, 0 warnings)
+```
+
+I know and understand these errors and I don't need to do anything about them right now. I figured out how to move my `.eslintrc.yml` to a parent directory to use it.
+
+## 13. Assignment: OO RPS Bonus Features
+
+Below are some ideas for features or additions to your Rock, Paper, Scissors game. Feel free to request a code review after you finish adding the features, but first, *do a self-review by comparing your code with other student solutions* as posted in the Discussions area.
+
+### Keeping score
+
+Right now, the game doesn't have any dramatic flair. It would be more interesting if we were playing up to, say, 5 points. Whoever reaches 5 points first wins. Can you build this functionality? We have a new noun -- a score. Is that a new object type, or a state of an existing class? Explore both options and see which works better.
+
+### Add Lizard and Spock
+
+This variation on the regular Rock, Paper, Scissors game adds two additional options - Lizard and Spock. The full explanation and rules are [here](http://www.samkass.com/theories/RPSSL.html).
+
+### Keep track of a history of moves
+
+As long as the user doesn't quit, keep track of a history of moves by both the human and computer. Which data structure will you use? Will you use a new object or an existing object? How will you display it?
+
+### Adjust computer choice based on history
+
+Come up with some rules based on the history of moves to help the computer make its moves. For instance, if the human tends to win over 60% of his hands when the computer chooses "rock," then decrease the likelihood that the computer will choose "rock." First, come up with an appropriate rule, then implement some history analysis. Use the analysis to adjust the weight of each choice -- for instance, increase the weight to increase the likelihood of choosing a particular move. Currently, the computer has a 33% chance of making any given move -- it's those odds that you need to weight. Finally, have the computer consider the weight of each choice when choosing a move.
+
+## 14. Summary
+
+In this lesson, we learned about some foundational concepts of Object Oriented programming and how we can apply those in JavaScript.
+
+Here's a summary of what we learned in this lesson. Make sure you're fully comfortable with these concepts before moving forward.
+
+1. **Encapsulation** is the idea of bundling data and operations related to that data in a cohesive unit called an object. In OOP, encapsulation also refers to the idea of restricting access to state and some behavior, but JavaScript objects don't support that type of encapsulation.
+
+2. The simplest way to create a JavaScript object is to use the **object literal** syntax: a pair of opening and closing curly braces. Adding methods to an objects is as simple as adding a function as the value of a property.
+
+3. You can *access the properties and methods of an object from within a method* using the `this` keyword.
+
+4. Objects *collaborate* with other objects by using them as part of their **state**. We say that two objects have a **collaborator relationship** *if one of them is part of the state of the other*.
+
+5. One way to *automate the creation of objects* is to use the **factory function pattern**. A factory function returns an object with a particular set of methods and properties. The methods remain the same across the objects, while the property values can be customized by providing them as arguments.
+
+6. One object factory can *reuse another object* factory by mixing the object returned by another factory function into itself by using `Object.assign()`.
+
+## 15. Lesson 1 Quiz 1
+
+A reminder: the quizzes can be difficult, and low scores are commonplace. Don't let a low score leave you feeling frustrated or demoralized. The quizzes are intended to highlight concepts that you might need to review, but they are not used in any way to evaluate your performance. Use the questions you missed to focus your attention on topics where you might need a bit more study. For more information, please review the Quiz Guide.
+
+Assignment: Lesson 1 Quiz 1
+Student Name: HyoSung Bidol-Lee
+Submitted at: less than a minute ago
+Time taken: 0.08 hour(s)
+Score: 8/12 (66.67%)
+
+### Question 5
+
+Which of the following code snippets creates an object with two properties? Select all that apply.
+
+```js
+// correct using object literal syntax
+let cat = {
+  name: "Butterscotch",
+  age: 13
+};
+
+// This code may seem unusual at first, but there are two points to note: (1) you can use `const` when creating objects any place you can use `let`, and (2) `name` and `age` are methods on the object, but methods are also properties. Thus, this code is valid JavaScript for creating an object with two properties.
+const cat = {
+  name() {
+    return "Butterscotch";
+  },
+
+  age() {
+    return 13;
+  },
+};
+
+// Using `this` in this code is a syntax error.
+let cat = {
+  this.name: "Butterscotch",
+  this.age: 13,
+};
+```
+
+### Question 10
+
+Examine the following code:
+
+```js
+let book = {
+  title: "Snow Crash",
+  author: "Neal Stephenson",
+  getDescription() {
+    return `${title} by ${author}`; // line 5 in original code snippet
+  },
+};
+
+// desired return value: 'Snow Crash by Neal Stephenson'
+book.getDescription(); // => ReferenceError: title is not defined
+```
+
+How would you modify line 5 of this program so that it returns the desired value? Choose all solutions that will produce the correct result.
+
+Answer
+
+```js
+return `${this.title} by ${this.author}`; // => Snow Crash by Neal Stephenson
+
+// Same as
+return `${book.title} by ${book.author}`;
+```
+
+The value of `this` inside the `getDescription()` method will refer to the `book` object, so `this.title` and `this.author` will be replaced by the appropriate values.
+
+### Question 11
+
+Which of the following steps are part of the classical approach to planning an object-oriented application:
+
+#### Answer
+
+- [x] A. Organize and associate the verbs and nouns.
+
+- [ ] B. Extract all of the nouns and verbs from the description.
+
+- [x] C. Write a textual description of the problem or exercise.
+
+- [ ] D. Use factory functions to create any objects that you need.
+
+#### Discussion
+
+Incorrect:
+
+B. You should extract the *significant* nouns and verbs, not all of them.
+
+D. OO applications don't require factory functions. You can use them, but you don't have to.
+
+### Question 12
+
+#### Answers
+
+A. Strive to understand the core concepts of OO before focusing on finding optimal designs. In this course, the core concepts are far more crucial; learning how to find optimal designs and architecture may take years.
+
+C. Any given OO problem can have many different possible approaches. Choosing one always involves tradeoffs of some kind.
