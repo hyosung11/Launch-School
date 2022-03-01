@@ -5882,3 +5882,5 @@ TODOs:
 19:21 Time to do my OO Rock Paper Scissors assignment.
 
 19:39 Kids went up but I'm still here studying and I love it. Okay, do a little more to finish this assignment and then go up to put the kids to bed.
+
+20:57 Partially through making OO RPS. Ready to stop and watch some TV with Sohee. Good night.

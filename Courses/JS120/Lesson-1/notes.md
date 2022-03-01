@@ -818,9 +818,307 @@ Once we've organized our nouns and verbs into objects, we need an engine to orch
 RPSGame.play();
 ```
 
+Given that interface, here's our initial attempt at writing the `RPSGame` object:
+
+```js
+const RPSGame = {
+  play() {
+    displayWelcomeMessage();
+    humanChooseMove(); // similar to next line
+    computerChooseMove();
+    displayWinner();
+    displayGoodbyeMessage();
+  },
+};
+```
+
+Lines 4 and 5 are similar and repetitive since both handle the move-choosing part of the problem. This ties into our player object, which has a `choose` method. Can the human and computer both be objects of the player type? If we can do that, then both humans and computers can use the `choose` method. With that insight, let's update the `RPSGame` object:
+
+```js
+const RPSGame = {
+  human: createPlayer(),
+  computer: createPlayer(),
+
+  play() {
+    displayWelcomeMessage();
+    this.human.choose();
+    this.computer.choose();
+    displayWinner();
+    displayGoodbyeMessage();
+  },
+};
+```
+
+Our objects are starting to take shape. However, we still don't know how to use the move and rule types in our game. Perhaps we don't need them at all. We'll stop here for now and continue brainstorming in the next assignment.
 
 ### Assignment: OO Rock Paper Scissors Summary
 
 Object-oriented design and architecture is a broad topic; it takes years to master. This assignment outlines an approach to problem-solving with an object-oriented mindset. One of the hardest things to understand about OOP is that there is no absolute *right* solution. OOP always comes down to making tradeoffs. There are wrong approaches, of course, but many other approaches are acceptable. For now, you should strive to understand the core concepts of OOP; don't worry so much about whether you're using the right or wrong approach, and don't worry about finding the optimal architecture or design.
 
 In the next assignment, we'll continue where we left off here and go on an exploratory coding spree to better understand the problem.
+
+## 10. Walk-through: OO Rock Paper Scissors
+
+Continuing with the design and code from the previous assignment, we'll walk through our initial implementation of Rock, Paper, Scissors. You should type along with us.
+
+### Step 1: Implement the `choose` Method
+
+We'll start with the `RPSGame` object from the previous assignment and then develop it and the rest of the object types as we gain more understanding of our design:
+
+```js
+const RPSGame = {
+  human: createPlayer(),
+  computer: createPlayer(),
+
+  play() {
+    displayWelcomeMessage();
+    this.human.choose();
+    this.computer.choose();
+    displayWinner();
+    displayGoodbyeMessage();
+  },
+};
+
+RPSGame.play();
+```
+
+The game starts when we call the `play` method on the `RPSGame` object; that method contains our procedural code. Let's implement the methods that we call from `RPSGame.play`.
+
+`displayWelcomeMessage` seems easy to implement, so we'll tackle it first. First, though, where do we put it? Our original code calls it as a function, not a method attached to some object. Since we're using OO programming, it should be a **method**. Since `displayWelcomeMessage` is an overall concern of the game, the `RPSGame` object seems like a reasonable choice to place the method.
+
+```js
+const RPSGame = {
+  human: createPlayer(),
+  computer: createPlayer(),
+
+  displayWelcomeMessage() {
+    console.log('Welcome to Rock, Paper, Scissors!');
+  },
+
+  play() {
+    this.displayWelcomeMessage();
+    this.human.choose();
+    this.computer.choose();
+    displayWinner();
+    displayGoodbyeMessage();
+  },
+};
+```
+
+Since `displayWelcomeMessage` is a method in the same object as `play`, we must use `this` to call it.
+
+While we're at it, let's implement `displayGoodbyeMessage` as well -- it's nearly identical except for the message it displays:
+
+```js
+const RPSGame = {
+  human: createPlayer(),
+  computer: createPlayer(),
+
+  displayWelcomeMessage() {
+    console.log('Welcome to Rock, Paper, Scissors!');
+  },
+
+  displayGoodbyeMessage() {
+    console.log('Thanks for playing Rock, Paper, Scissors. Goodbye!');
+  },
+
+  play() {
+    this.displayWelcomeMessage();
+    this.human.choose();
+    this.computer.choose();
+    displayWinner();
+    this.displayGoodbyeMessage();
+  },
+};
+```
+
+The next two method calls assume that we have a factory function that creates player objects. Both `this.human` and `this.computer` are created from a `createPlayer` factory function. Let's update the skeleton `createPlayer` function that we wrote earlier:
+
+```js
+function createPlayer() {
+  return {
+    // possible state: player name?
+    // possible state: player's current move?
+
+    choose() {
+      // not yet implemented
+    },
+  };
+}
+```
+
+We'll use `createPlayer` to create both the computer and human players. We probably need some state in the player object to identify the type of player (human or computer). We can do that with a property named `playerType` that stores either `'human'` or `'computer'` as a string:
+
+```js
+function createPlayer(playerType) {
+  return {
+    // possible state: player name?
+    // possible state: player's current move?
+    playerType: playerType,
+
+    choose() {
+      // not yet implemented
+    },
+  };
+}
+```
+
+We can provide the player type as an argument to `createPlayer` when we call it:
+
+```js
+const RPSGame = {
+  human: createPlayer('human'),
+  computer: createPlayer('computer'),
+
+  // code omitted for brevity
+};
+```
+
+Now that we have a property that identifies the player type, we can use it in our implementation of the `choose` method:
+
+```js
+function createPlayer(playerType) {
+  return {
+    // possible state: player name?
+    // possible state: player's current move?
+    playerType: playerType,
+
+    choose() {
+      if (this.isHuman()) {
+
+      } else {
+
+      }
+    },
+  };
+}
+```
+
+Our `choose` method chooses a move for the player depending on the type of player represented by `playerType`. We can use an `isHuman` method to determine whether the `playerType` is `'human'`. The method would return `true` if `playerType` is `'human'`, and `false` if it is not.
+
+```js
+function createPlayer(playerType) {
+  return {
+    // possible state: player name?
+    // possible state: player's current move?
+    playerType: playerType,
+
+    choose() {
+      if (this.isHuman()) {
+
+      } else {
+
+      }
+    },
+
+    isHuman() {
+      return this.playerType === 'human';
+    },
+  };
+}
+```
+
+Let's write the code for the computer's choice first: it's simpler since the computer merely picks a move at random:
+
+```js
+function createPlayer(playerType) {
+  return {
+    // possible state: player name?
+    // possible state: player's current move?
+    playerType: playerType,
+
+    choose() {
+      if (this.isHuman()) {
+        // TODO
+      } else {
+        const choices = ['rock', 'paper', 'scissors'];
+        let randomIndex = Math.floor(Math.random() * choices.length);
+        return choices[randomIndex];
+      }
+    },
+
+    isHuman() {
+      return this.playerType === 'human';
+    },
+  };
+}
+```
+
+Let's think about this implementation a bit. The `choose` method returns a string that represents the player's move (the computer in this case). However, if we look at the way we call `choose` in `RPSGame.play()`, we can see that we ignore that value:
+
+```js
+const RPSGame = {
+  // code omitted
+
+  play() {
+    this.displayWelcomeMessage();
+    this.human.choose();
+    this.computer.choose();
+    displayWinner();
+    this.displayGoodbyeMessage();
+  },
+};
+```
+
+That suggests that `choose` should *change the state* in one of the application's objects. Since the player makes the move, let's add `move` as a property of the player object, and adjust the `choose` method accordingly:
+
+```js
+function createPlayer(playerType) {
+  return {
+    // possible state: player name?
+    playerType: playerType,
+    move: null,
+
+    choose() {
+      if (this.isHuman()) {
+
+      } else {
+        const choices = ['rock', 'paper', 'scissors'];
+        let randomIndex = Math.floor(Math.random() * choices.length);
+        this.move = choices[randomIndex];
+      }
+    },
+
+    // omitted
+  }
+}
+```
+
+In the next step, we'll handle the situation where the human player chooses a move. That means we need to obtain some input from the human player, and that we need to import the `readline-sync` package into our program. You've done this often, so we'll leave you to write the code yourself. In the rest of this assignment, we will assume that you have imported `readline-sync` into your program and assigned it to a `readline` constant.
+
+```js
+function createPlayer(playerType) {
+  return {
+    // possible state: player name?
+    playerType: playerType,
+    move: null,
+
+    choose() {
+      if (this.isHuman()) {
+        let choice;
+
+        while (true) {
+          console.log('Please choose rock, paper, or scissors:');
+          choice = readline.question();
+          if (['rock', 'paper', 'scissors'].includes(choice)) break;
+          console.log('Sorry, invalid choice.');
+        }
+
+        this.move = choice;
+      } else {
+        const choices = ['rock', 'paper', 'scissors'];
+        let randomIndex = Math.floor(Math.random() * choices.length);
+        this.move = choices[randomIndex];
+      }
+    },
+
+    // omitted
+  }
+}
+```
+
+### Step 2: Implement the `displayWinner`
+
+### Step 3: Play Again
+
+### Step 4: Cleanup
