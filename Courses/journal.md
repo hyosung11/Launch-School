@@ -5887,7 +5887,7 @@ TODOs:
 
 ## 20220301 화요일
 
-06:19 In a study session with Alex and I've given him the second problem. I didn't start teh timer.
+06:19 In a study session with Alex and I've given him the second problem. I didn't start the timer.
 
 07:01 After study session with Alex. He got stuck on a problem but eventually figured it out. I want to continue through OOP.
 
