@@ -5904,3 +5904,5 @@ TODOs:
 11:21 Finished Assignment 12: ESLint OO RPS.
 
 17:27 I've completed Lesson 1 and outlined my file for Lesson 2. I want to take a shower now.
+
+17:48 Spent the last 20 minutes revising my OOP Anki cards to make them into questions. I want to take a shower now and then start working on Lesson 2 after dinner on my MBP.
