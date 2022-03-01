@@ -55,7 +55,6 @@ RPSGame.play();
 
 function createPlayer(playerType) {
   return {
-    // possible state: player name?
     playerType: playerType,
     move: null,
 
@@ -84,6 +83,39 @@ function createPlayer(playerType) {
   };
 }
 
+function createComputer() {
+  return {
+    move: null,
+
+    choose() {
+      const choices = ['rock', 'paper', 'scissors'];
+      let randomIndex = Math.floor(Math.random() * choices.length);
+      this.move = choices[randomIndex];
+    },
+  };
+}
+
+// createHuman factory function
+function createHuman() {
+  return {
+    move: null,
+
+    choose() {
+      let choice;
+
+      while (true) {
+        console.log('Please choose rock, paper, or scissors:');
+        choice = readline.question();
+        if (['rock', 'paper', 'scissors'].includes(choice)) break;
+        console.log('Sorry, invalid choice.');
+      }
+
+      this.move = choice;
+    },
+  };
+}
+
+/* unused so far */
 function createMove() {
   return {
     // possible state: type of move (paper, rock, scissors)

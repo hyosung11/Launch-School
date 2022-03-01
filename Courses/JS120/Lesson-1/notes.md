@@ -1271,4 +1271,138 @@ playAgain() {
 Since `===` returns `true` or `false`, we don't need the ternary operator and we don't need the specific boolean values. This idiom may be a bit challenging to get used to, at first. However, it's so commonplace that most developers prefer it and most style guides recommend it: you may as well get used to it.
 
 ### Step 4: Cleanup
-rr
+
+After all that, our `createPlayer` function looks like this:
+
+```js
+function createPlayer(playerType) {
+  return {
+    // possible state: player name?
+    playerType: playerType,
+    move: null,
+
+    // code omitted
+  }
+}
+```
+
+It looks like we don't need to track the player's name so we can remove the comment from our code:
+
+```js
+function createPlayer(playerType) {
+  return {
+    playerType: playerType,
+    move: null,
+
+    // code omitted
+  }
+}
+```
+
+Don't be afraid to remove something from the original design if you genuinely don't need it. Some developers throw the whole kitchen sink into an object's initial design, only later realizing that they have more state than they need. Worse yet, many are reluctant to get rid of the unneeded state -- after all, they might need it one day. In truth, it's just code clutter that makes it harder to understand the code.
+
+End
+
+## 11. Walk-through: OO RPS Design Choice
+
+Our game's functionality is complete, but there are still some improvements we can make to the code. For instance, the conditional logic in the player object is not ideal and not object-oriented. Let's examine the current implementation of our `choose` method:
+
+```js
+function createPlayer(playerType) {
+  return {
+    // omitted for brevity
+
+    choose() {
+      if (this.isHuman()) {
+        let choice;
+
+        while (true) {
+          console.log('Please choose rock, paper, or scissors:');
+          choice = readline.question();
+          if (['rock', 'paper', 'scissors'].includes(choice)) break;
+          console.log('Sorry, invalid choice.');
+        }
+
+        this.move = choice;
+      } else {
+        const choices = ['rock', 'paper', 'scissors'];
+        let randomIndex = Math.floor(Math.random() * choices.length);
+        this.move = choices[randomIndex];
+      }
+    },
+
+    // omitted
+  }
+}
+```
+
+You'll notice that we have an `if/else` conditional in our `choose` method that does different things based on whether the player is a computer or a human. It's easy to see that we'll always have to deal with these two choices, even if we later extend the application in some manner.
+
+The more significant problem, in this case, is that our factory function creates an object whose behavior depends on a property of that object. That doesn't seem troublesome when we create just two objects, but suppose we have tens, hundreds, or even thousands of objects. This approach rapidly becomes unfeasible and unmanageable.
+
+For instance, let's say we have a `createAnimal` factory function that creates animal objects of different kinds. Suppose further that, within those objects, we have a `makeSound` method that prints the name of the animal sound to the console. Obviously, animals make different sounds: lions roar, cats meow, and dogs bark. Are we supposed to handle all these sounds with `if/else` conditionals for each? That would make our code extremely ugly and difficult to read:
+
+```js
+function createAnimal(animalType) {
+  return {
+    // omitted for brevity
+
+    makeSound() {
+      if (this.animalType === "lion") {
+        console.log("roar!");
+      } else if (this.animalType === "cat") {
+        console.log("meow!");
+      } else if (this.animalType === "dog") {
+        console.log("bark!");
+      } // additional tests omitted for brevity
+    },
+
+    // omitted
+  }
+}
+```
+
+We can think of each animal type (dog, cat, lion) as a *sub-type* of the underlying animal object. Most object-oriented programming languages handle this scenario with a pattern called **class inheritance**: child types inherit common properties and methods from a parent type. JavaScript also supports inheritance; we'll discuss that in another lesson. For now, we'll use separate factory functions for each sub-type.
+
+Returning to our game, the sub-types of the player object are humans and computers. Instead of a single factory function for all players, we can use two separate factory functions, one for humans and one for computers. Let's create the `createComputer` factory function first.
+
+```js
+function createComputer() {
+  return {
+    move: null,
+
+    choose() {
+      const choices = ['rock', 'paper', 'scissors'];
+      let randomIndex = Math.floor(Math.random() * choices.length);
+      this.move = choices[randomIndex];
+    },
+  };
+}
+```
+
+In the above example, we initialize the `move` property to `null`. Strictly speaking, that's unnecessary since `choose` will set the property to one of the three choices. However, it's a good practice to initialize object properties explicitly. That makes it easy to see what the initial state of the object looks like at a glance. It also shows the state of all properties in one place.
+
+That's much better: it's cleaner, simpler, easier to understand, and easier to use since we don't need to provide arguments. It also reduces the likelihood of errors since we don't need to worry about invalid arguments. The `choose` method doesn't have to check whether the object it belongs to is a human or a computer: it is always a computer object, so it only has to handle the logic for computer moves. That also means that both `playerType` and `isHuman` are no longer needed.
+
+Next, lets implement the createHuman factory function:
+
+```js
+function createHuman() {
+  return {
+    move: null,
+
+    choose() {
+      let choice;
+
+      while (true) {
+        console.log('Please choose rock, paper, or scissors:');
+        choice = readline.question();
+        if (['rock', 'paper', 'scissors'].includes(choice)) break;
+        console.log('Sorry, invalid choice.');
+      }
+
+      this.move = choice;
+    },
+  };
+}
+```
