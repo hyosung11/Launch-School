@@ -1212,6 +1212,63 @@ Thanks for playing Rock, Paper, Scissors. Goodbye!
 
 ### Step 3: Play Again
 
-rr
+Let's make our game a little friendlier and add a "play again" feature where we'll ask the user whether they want to play again and proceed based on their answer. Let's make some changes to our `RPSGame.play` method:
+
+```js
+const RPSGame = {
+  // code omitted
+
+  play() {
+    this.displayWelcomeMessage();
+    while (true) {
+      this.human.choose();
+      this.computer.choose();
+      this.displayWinner();
+      if (!this.playAgain()) break;
+    }
+
+    this.displayGoodbyeMessage();
+  },
+}
+```
+
+We've added a loop around the three main game steps, and we break out of the loop when the `playAgain` method returns a falsey value. We'll implement it on the `RPSGame` object since it makes sense as part of the game controller.
+
+```js
+const RPSGame = {
+  // code omitted
+
+  playAgain() {
+    console.log('Would you like to play again? (y/n)');
+    let answer = readline.question();
+    return answer.toLowerCase()[0] === 'y' ? true : false;
+  },
+  play() {
+    this.displayWelcomeMessage();
+    while (true) {
+      this.human.choose();
+      this.computer.choose();
+      this.displayWinner();
+      if (!this.playAgain()) break;
+    }
+    this.displayGoodbyeMessage();
+  }
+}
+```
+
+The `playAgain` method asks the user if they want to play again and if the user input starts with `'y'`, it returns `true`, otherwise it returns `false`. We use that boolean value to control the loop in our `play` method.
+
+There's a more idiomatic way to write that `return` statement: we don't need the explicit `true` and `false` values. Instead, we can write:
+
+```js
+playAgain() {
+  console.log('Would you like to play again? (y/n)');
+  let answer = readline.question();
+  return answer.toLowerCase()[0] === 'y';
+},
+```
+
+Since `===` returns `true` or `false`, we don't need the ternary operator and we don't need the specific boolean values. This idiom may be a bit challenging to get used to, at first. However, it's so commonplace that most developers prefer it and most style guides recommend it: you may as well get used to it.
 
 ### Step 4: Cleanup
+rr

@@ -5894,3 +5894,7 @@ TODOs:
 07:23 Able to find and fix my bug in OO RPS. Yes!
 
 07:36 RPS works so far. It's fun to play with it and change some of the interface.
+
+09:01 Back to studying OOP. Yes!
+
+09:15 Finished Step 3: Play Again of OO RPS.
