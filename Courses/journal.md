@@ -5880,3 +5880,5 @@ TODOs:
 18:42 After dinner, a shower, and now ready to get back to studying.
 
 19:21 Time to do my OO Rock Paper Scissors assignment.
+
+19:39 Kids went up but I'm still here studying and I love it. Okay, do a little more to finish this assignment and then go up to put the kids to bed.
