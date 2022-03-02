@@ -4,7 +4,7 @@
 
 Welcome to lesson 2 of JS120! In this lesson, we'll talk about how functions and objects work together. Specifically, we'll discuss two major topics: **execution context** and **object prototypes**.
 
-It's crucial to understand how the execution context, i.e., the value of this, is determined and what it refers to in various scenarios. Understanding this is one of the most challenging aspects of JavaScript. It's also one of the most important. Many errors and bugs in JavaScript programs result from a poor understanding of the execution context. It's imperative, therefore, that you **pay extra attention to this lesson** and go through it several times to solidify your mental model.
+It's crucial to understand how the execution context, i.e., the value of `this`, is determined and what it refers to in various scenarios. Understanding this is one of the most challenging aspects of JavaScript. It's also one of the most important. Many errors and bugs in JavaScript programs result from a poor understanding of the execution context. It's imperative, therefore, that you **pay extra attention to this lesson** and go through it several times to solidify your mental model.
 
 A cornerstone of object-oriented JavaScript is the concept of object prototypes. In fact, it is the sole mechanism with which JavaScript implements object oriented programming. This is a very important topic, which we'll get an introduction to in this lesson.
 
@@ -142,6 +142,52 @@ Factory functions give us the ability to create objects of the same type by mere
 As useful as factory functions are, *there are other ways to extract code into one place so that multiple objects can use it*. In JavaScript, we rely heavily on **prototypes** to accomplish this.
 
 ### Prototypes
+
+In JavaScript, objects can *inherit properties and behavior from other objects*. If another object, for instance, has a `language` property and a `speak` behavior, a new object can access and use `language` and `speak` without explicitly defining them in the new object.
+
+More specifically, JavaScript objects use something called **prototypal inheritance**. The object that you inherit properties and methods from is called the **prototype**. The function `Object.create` creates a new object that inherits properties from an existing object. It takes an object that is called the prototype object as an argument, and returns a new object that inherits properties from the prototype object. The newly created object has access to all the properties and methods that the prototype object provides.
+
+```js
+let a = {
+  foo: 1,
+  bar: 2,
+};
+
+let b = Object.create(a);
+b.foo; // => 1
+```
+
+An unusual aspect of this relationship is that the **inheriting object** (`b` above) doesn't receive any properties or methods of its own. Instead, it **delegates** property and method access to its prototype. You can see this in the node console:
+
+```sh
+> let a = { foo: 1, bar: 2 }
+undefined
+
+> let b = Object.create(a)
+undefined
+
+> b.foo
+1
+
+> b
+{}
+```
+
+Evaluating `b` in the node console gives us an empty object, which demonstrates that `b` doesn't have any properties of its own. We can also use the `hasOwnProperty` method to demonstrate this:
+
+```js
+let a = {
+  foo: 1,
+  bar: 2,
+};
+
+let b = Object.create(a);
+
+console.log(a.hasOwnProperty('foo')); // => true
+console.log(b.hasOwnProperty('foo')); // => false
+```
+
+The `hasOwnProperty` method is available on all JavaScript objects. It takes the name of a property as a string and returns `true` if the object has a property by that name, `false` if it does not.
 
 RR
 

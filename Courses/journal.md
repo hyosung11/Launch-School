@@ -5908,3 +5908,9 @@ TODOs:
 17:48 Spent the last 20 minutes revising my OOP Anki cards to make them into questions. I want to take a shower now and then start working on Lesson 2 after dinner on my MBP.
 
 20:48 Into Lesson 2 and learning about `prototypes`. Going to stop for the night. I might munch on something.
+
+## 20220302 수요일
+
+06:33 Going through my OOP Anki cards while Alex works on a problem.
+
+07:11 After study session with Alex. Going to continue with OOP.

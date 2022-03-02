@@ -52,7 +52,7 @@ function reverseOnlyLetters(string) {
 
   for (let idx = 0; idx < string.length; idx++) {
     let char = string[idx];
-    if (char >= 'a' && char <= 'z' || char >= 'A' && char <= 'Z')
+    if (/[a-zA-Z]/.test(char));
       result.push(letters.pop());
     else result.push(char);
   }
