@@ -378,7 +378,69 @@ The `Object.prototype` object is at the top of all JavaScript prototype chains. 
 
 ### Objects Without Prototypes
 
+Several times we've said that JavaScript objects all have a prototype object and that the prototype chain ends with `Object.prototype`. In reality, there is a way to create objects that don't have a prototype and, hence, do not have a prototype chain that ends with `Object.prototype`. However, as you're well aware by now, JavaScript is full of surprises waiting to bite the unwary developer.
+
+It turns out that you *can* create an object that doesn't have a prototype by setting the prototype to `null`. This technique is a bit unusual and not seen very often. However, it lets you create a "clean" or "bare" object for use as a general key/value data structure. The bare object doesn't carry around a bunch of excess baggage in the form of unneeded properties and prototypes:
+
+```sh
+> let a = Object.create(null)
+undefined
+
+> Object.getPrototypeOf(a)
+null
+```
+
+Note that objects created in this way do not have access to Object methods like `Object.prototype.hasOwnProperty()` or `Object.prototype.toString()`. They also don't have a prototype chain that ends with `Object.prototype` -- it ends with `null`.
+
+For the most part, you can *assume that all JavaScript objects have* `Object.prototype` at the top of their inheritance chain. You can also assume that all objects can use the usual selection of Object properties. However, be wary of situations where bare objects may be in use. If you have bare objects in your program, you must remember that the usual `Object` properties and methods don't exist on those objects. That's why you sometimes see code like this:
+
+```js
+if (Object.getPrototypeOf(obj) && obj.isPrototypeOf(car)) {
+  // obj has a non-null prototype AND
+  // obj is in the prototype chain of car
+}
+```
+
+If you don't first check whether `obj` has a non-`null` prototype, this code will raise an exception if `obj` has a `null` prototype. Even this code won't work properly if `obj` inherits from an object whose prototype is `null`.
+
+Library developers often write code to check for the **bare object edge cases**. Since their code will see use in many different environments, they need to be ready for such unusual objects.
+
 ### JavaScript OOP Video
+
+One of our students created an informative video that goes into a lot of depth about these concepts. In particular, he spends a lot of time clarifying how the prototype chain works. We believe it's worth watching the first part of the video now, even though it goes into some detail about constructors and the prototype property of function objects. We'll talk about constructors and the prototype property later, after which you might want to rewatch the first part of the video.
+
+[Watch the video here](https://www.youtube.com/watch?v=-N9tBvlO9Bo). You can stop anytime after reaching the 00:39:20 mark (the end of Example 4).
+
+```js
+// Example 1
+
+const obj = {
+  monkey: "yep",
+};
+
+console.log(typeof obj === 'object') // true
+console.log(typeof obj === 'function') // false
+
+console.log(obj.hasOwnProperty('monkey')) // true
+console.log(obj.hasOwnProperty('elephant')) // false
+
+console.log(typeof Object); // 'function'
+
+// Do the exact same thing:
+console.log(obj.__proto__ === Object.prototype); // true, "dunder proto" deprecated
+console.log(Object.getPrototypeOf(obj) === Object.prototype); // true
+
+console.log(obj.constructor === Object); // true
+
+// Trying to reference the plain old object's prototype
+console.log(obj.prototype); // undefined
+
+/* Why does this get confusing?
+
+An object's "prototype" is said to be the next link up the chain, the object that the current object inherits from.
+
+
+```
 
 ### Object Prototypes Summary
 

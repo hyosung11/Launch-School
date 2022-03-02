@@ -5924,3 +5924,5 @@ TODOs:
 12:08 Studied "Methods on Object.prototype'. I think this is fun. Smile. I have to leave in a few minutes to get Moana serviced.
 
 13:56 Of course what was supposed to take an hour is going on 90 minutes and I'll miss playing ping pong with Louis and it's hard to study in this waiting space at Prestige Toyota. Ugh. All is well. Principles of happiness and equanimity.
+
+
