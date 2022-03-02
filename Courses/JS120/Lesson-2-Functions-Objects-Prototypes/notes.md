@@ -189,9 +189,56 @@ console.log(b.hasOwnProperty('foo')); // => false
 
 The `hasOwnProperty` method is available on all JavaScript objects. It takes the name of a property as a string and returns `true` if the object has a property by that name, `false` if it does not.
 
-RR
+JavaScript objects use an internal `[[Prototype]]` property to keep track of their prototype. When you create an object with `Object.create()`, the new object's `[[Prototype]]` property gets assigned to the prototype object.
+
+Note that `[[Prototype]]` is an **internal** property: you cannot access it directly in your code. However, you can access and replace its value with `Object` functions. For instance, `Object.getPrototypeOf()` takes an object as an argument and returns its prototype object:
+
+```js
+> Object.getPrototypeOf(b)
+{ foo: 1, bar: 2}
+```
+
+You can use `Object.setPrototypeOf()` to set the prototype object of an object:
+
+```js
+let a = {
+  foo: 1,
+  bar: 2,
+},
+
+let b = {}; // line 6
+Object.setPrototypeOf(b, a);
+
+console.log(b.foo); // => 1
+console.log(b); // => {}
+console.log(Object.getPrototypeOf(b)); // { foo: 1, bar: 2}
+```
+
+The code on lines 6 and 7 is effectively identical to the code that we used on line 6 of the `Object.create` example. However, in this example, we declare and initialize `b` to an empty object rather than using `Object.create`; we then use `Object.setPrototypeOf` to set the prototype object.
+
+An important consideration when dealing with prototypes is that objects hold a reference to their prototype objects through their internal `[[Prototype]]` property. If the object's prototype changes in some way, the changes are *observable in the inheriting object as well*.
+
+```js
+let a = {
+  foo: 1,
+  bar: 2,
+};
+
+let b = {};
+Object.setPrototypeOf(b, a);
+console.log(b.foo) // => 1
+
+a.foo = 42;
+console.log(b.foo); // => 42
+
+// adds key 'baz' with value 12
+a.baz = 12;
+console.log(b.baz); // => 12
+```
 
 ### The Default Prototype
+
+rr
 
 ### Iterating Over Objects with Prototypes
 

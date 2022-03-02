@@ -5914,3 +5914,5 @@ TODOs:
 06:33 Going through my OOP Anki cards while Alex works on a problem.
 
 07:11 After study session with Alex. Going to continue with OOP.
+
+10:07 Using Anki cards as I copy notes from Launch School into my VS Code Markdown file, so it's going slowly but steadily.
