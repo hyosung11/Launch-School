@@ -411,9 +411,9 @@ One of our students created an informative video that goes into a lot of depth a
 
 [Watch the video here](https://www.youtube.com/watch?v=-N9tBvlO9Bo). You can stop anytime after reaching the 00:39:20 mark (the end of Example 4).
 
-```js
-// Example 1
+#### Example 1
 
+```js
 const obj = {
   monkey: "yep",
 };
@@ -435,11 +435,71 @@ console.log(obj.constructor === Object); // true
 // Trying to reference the plain old object's prototype
 console.log(obj.prototype); // undefined
 
-/* Why does this get confusing?
+/*
+Why does this get confusing?
 
-An object's "prototype" is said to be the next link up the chain, the object that the current object inherits from.
+An object's "prototype" is said to be the next link up the chain, the object that the current object inherits from. In other words, what the current object's __proto__ property references.
 
+But, "prototype" is ALSO the name for a specific property on the object form of Functions.
+*/
+```
 
+#### Example 2
+
+```js
+const func = function() {};
+func.call();
+
+console.log(func.__proto__ === Function.prototype); // true
+console.log(func.constructor === Function); // true
+```
+
+#### Example 3
+
+```js
+const arr = ['a', 'b'];
+console.log(arr.join('')) // 'ab'
+
+console.log(arr.__proto__ === Array.prototype); // true
+console.log(arr.constructor === Array); // true
+
+console.log(typeof arr); // 'object'
+console.log(arr[0]); // 'a'
+console.log(arr[1]); // 'b'
+console.log(arr.prototype); // undefined
+```
+
+#### Example 4
+
+```js
+const arr = ['a', 'b'];
+console.log(arr.hasOwnProperty(0)) // true because `arr` has property 0 (the index)
+
+console.log(arr.__proto__ === Array.prototype); // true
+console.log(arr.constructor === Array); // true
+console.log(Array.prototype.__proto__ === Object.prototype); // true
+console.log(Object.prototype.__proto__); // null
+console.log(arr.fantastical); // undefined
+
+// Why can we call `from()` from on `Array`?
+console.log(Array.from(arguments));
+
+// check
+console.log(typeof Array); // 'function'
+console.log(typeof Function); // 'function'
+console.log(typeof Object); // 'function'
+
+console.log(Array.__proto__ === Function.prototype); // true
+console.log(Array.constructor === Function); // true
+
+console.log(typeof Array.prototype); // 'object'
+console.log(typeof Object.prototype); // 'object'
+console.log(typeof Function.prototype); // 'function'
+
+// Checking the `constructor` property
+console.log(Array.prototype.constructor === Array); // true
+console.log(Function.prototype.constructor === Function); // true
+console.log(Object.prototype.constructor === Object); // true
 ```
 
 ### Object Prototypes Summary
@@ -451,6 +511,8 @@ By default, all object literals inherit from `Object.prototype`.
 When you access a property on an object, JavaScript looks for the property first in the object, then its prototype chain, all the way up to `Object.prototype`.
 
 ## 4. Practice Problems: Object Prototypes
+
+RR
 
 ## 5. Function Expressions
 

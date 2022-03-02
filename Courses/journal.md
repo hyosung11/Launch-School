@@ -5925,4 +5925,5 @@ TODOs:
 
 13:56 Of course what was supposed to take an hour is going on 90 minutes and I'll miss playing ping pong with Louis and it's hard to study in this waiting space at Prestige Toyota. Ugh. All is well. Principles of happiness and equanimity.
 
+17:14 Studied the JavaScript OOP video of a Launch School student that seemed pretty good although the drawings were a little confusing to me.
 
