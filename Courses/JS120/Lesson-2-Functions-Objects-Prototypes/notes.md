@@ -8,10 +8,166 @@ It's crucial to understand how the execution context, i.e., the value of this, i
 
 A cornerstone of object-oriented JavaScript is the concept of object prototypes. In fact, it is the sole mechanism with which JavaScript implements object oriented programming. This is a very important topic, which we'll get an introduction to in this lesson.
 
-
 ## 2. Review - Objects
 
+Objects are one of the eight fundamental types in JavaScript:
+
+- String
+- Number
+- Boolean
+- Null
+- Undefined
+- Object
+- BigInt (you don't need to know about this)
+- Symbol (you don't need to know about this)
+
+They are basically a collection of properties where each property has a key and value. While values can be any of the JavaScript types, **property keys are always strings**. If you define a property with a non-string key, it will first be *converted to a string*.
+
+```js
+let myObject = {};
+
+myObject[false] = "one"
+myObject[7] = "two"
+myObject[[1, 2, 3]] = "three"
+
+Object.keys(myObject); // ["7", "false", "1,2,3"]
+
+myObject["false"]  // "one"
+myObject["7"]      // "two"
+myObject["1,2,3"]  // "three"
+```
+
+### Property Access
+
+When dealing with objects, we are basically doing either one of two things: *setting a property* or *accessing a property*. We do both operations through the property key by using bracket notation or dot notation.
+
+```js
+myObject["foo"] = "bar";
+myObject.foo              // "bar"
+myObject["foo"]           // "bar"
+```
+
+Dot notation is also called **member access notation**, while bracket notation is called **computed member access notation**. The main difference between the two is that bracket notation can take any UTF-8-compatible string as the key, while member access notation requires valid variable names. Most importantly, computed member access notation can be computed on the fly -- *any expression between the brackets gets evaluated as a string and used to reference the property*.
+
+```js
+myObject["a-key"] = 'four';
+
+myObject.a-key // SyntaxError (a-key is not a valid variable name)
+myObject["a-key"] // 'four'
+myObject["a" + "-" + "key"] // 'four'
+```
+
+### Property Existence
+
+What happens if we access a non-existent property on an object? We get `undefined`. However, we also get the same value when we try to access a property that is explicitly set to `undefined`.
+
+```js
+Object.keys(myObject)  //  [ '7', 'false', '1,2,3', 'a-key' ]
+myObject[undefinedKey] = undefined
+
+myObject.undefinedKey // undefined
+myObject.missingKey  // undefined
+```
+
+That’s a dilemma. How do we distinguish one from the other? There are two ways to do that:
+
+- `in` operator
+- `hasOwnProperty`
+
+Both methods check if a property exists in an object. If it does, `true` is returned, and `false` otherwise.
+
+```js
+Object.keys(myObject)  //  [ '7', 'false', '1,2,3', 'a-key' ]
+
+"false" in myObject // true
+"true" in myObject // false
+
+myObject.hasOwnProperty('7') // true
+myObject.hasOwnProperty('8') // false
+```
+
+If they both do the same thing, why the need for duplication? They are not exactly identical. There is a difference but it’s something we have to cover in future assignments. What’s important to note for now is that both `in` operator as well as `hasOwnProperty()` allows us to check for property existence in an object.
+
+Another indirect way of checking for property existence is to enumerate the properties of an object via `Object.keys` or `Object.getOwnPropertyNames`. Both return an array of the object’s properties. The difference is that `Object.keys` returns an array of enumerable properties while `Object.getOwnPropertyNames` returns all properties regardless if they’re enumerable or not. For more on enumerable properties, check [this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty) out.
+
+```js
+Object.keys(myObject) // [ '7', 'false', '1,2,3', 'a-key', 'undefinedKey' ]
+Object.getOwnPropertyNames(myObject) // [ '7', 'false', '1,2,3', 'a-key', 'undefinedKey' ]
+```
+
+### Review - Objects Summary
+
+We’ve reviewed some basic concepts on objects. Specifically, we talked about objects as a collection of properties, setting and accessing properties, as well as checking for property existence. In the next assignments, we’ll dig deeper into objects and discuss topics that are essential to understanding object-oriented JavaScript.
+
 ## 3. Object Prototypes
+
+In an earlier lesson, we learned about the concept of automating object creation and talked about why we need such automation. We studied factory functions as one way to automate object creation. An object factory serves two purposes:
+
+1. It returns objects that represent data of a specific type.
+2. It reuses code.
+
+Let's examine another factory function:
+
+```js
+function createCar(make, model, year) {
+  return {
+    make,         // Same as "make: make"
+    model,        // Same as "model: model"
+    year,         // Same as "year: year"
+    started: false,
+
+    start() {     // Same as "start: function() {"
+      this.started = true;
+    },
+
+    stop() {      // Same as "stop: function() {"
+      this.started = false;
+    },
+  };
+}
+```
+
+With this `createCar` **object factory**, you can create as many car objects as your program needs:
+
+```js
+let car1 = createCar('Toyota', 'Corolla', 2016);
+let car2 = createCar('Honda', 'Civic', 2017);
+
+// my addition
+let car3 = createCar('Tesla', 'Model X', 2022);
+```
+
+Factory functions give us the ability to create objects of the same type by merely calling a function. Entities that are common to multiple objects, such as the `start` and `stop` methods, get declared in one place. On the other hand, *arguments are passed to the factory function* to distinguish one object from another, such as the make, model, and year. Some entities, like `started`, don't fall easily into either category, but that's not important here.
+
+As useful as factory functions are, *there are other ways to extract code into one place so that multiple objects can use it*. In JavaScript, we rely heavily on **prototypes** to accomplish this.
+
+### Prototypes
+
+RR
+
+### The Default Prototype
+
+### Iterating Over Objects with Prototypes
+
+### The Prototype Chain
+
+### The `__proto__` Property
+
+### Property Look-Up in the Prototype Chain
+
+### Methods on Object.prototype
+
+### Objects Without Prototypes
+
+### JavaScript OOP Video
+
+### Object Prototypes Summary
+
+JavaScript objects can *inherit properties from other objects*. The object that another object inherits properties from is its **prototype**. In most cases, we use `Object.create` to create objects whose prototype we need to *set explicitly*. We can also use `Object.setPrototypeOf` to *set the prototype of an object that already exists*.
+
+By default, all object literals inherit from `Object.prototype`.
+
+When you access a property on an object, JavaScript looks for the property first in the object, then its prototype chain, all the way up to `Object.prototype`.
 
 ## 4. Practice Problems: Object Prototypes
 

@@ -5906,3 +5906,5 @@ TODOs:
 17:27 I've completed Lesson 1 and outlined my file for Lesson 2. I want to take a shower now.
 
 17:48 Spent the last 20 minutes revising my OOP Anki cards to make them into questions. I want to take a shower now and then start working on Lesson 2 after dinner on my MBP.
+
+20:48 Into Lesson 2 and learning about `prototypes`. Going to stop for the night. I might munch on something.
