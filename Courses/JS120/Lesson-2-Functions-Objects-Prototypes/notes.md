@@ -141,7 +141,7 @@ Factory functions give us the ability to create objects of the same type by mere
 
 As useful as factory functions are, *there are other ways to extract code into one place so that multiple objects can use it*. In JavaScript, we rely heavily on **prototypes** to accomplish this.
 
-### Prototypes
+### 1. Prototypes
 
 In JavaScript, objects can *inherit properties and behavior from other objects*. If another object, for instance, has a `language` property and a `speak` behavior, a new object can access and use `language` and `speak` without explicitly defining them in the new object.
 
@@ -236,13 +236,78 @@ a.baz = 12;
 console.log(b.baz); // => 12
 ```
 
-### The Default Prototype
+### 2. The Default Prototype
 
-rr
+As mentioned above, all JavaScript objects have access to the `hasOwnProperty()` method. Where does JavaScript get that method? When we create a new object, we don't have to add our own `hasOwnProperty()` method. Instead, JavaScript obtains the method from the object's prototype. All JavaScript objects inherit from a prototype. For instance:
+
+```sh
+> let a = {}
+undefined
+
+> Object.getPrototypeOf(a)
+{}
+```
+
+Passing an empty object to `Object.getPrototypeOf()` returns a default prototype object. That object is the **prototype** for all objects created by using the object literal syntax (e.g., `{ a: 2 }`). The default prototype is the prototype object of the `Object` constructor, `Object.prototype`. We'll see what that means a little later. For now, all you need to know is that Object.prototype provides the default prototype.
 
 ### Iterating Over Objects with Prototypes
 
+Now is an excellent time to revisit the [Iteration](https://launchschool.com/books/javascript/read/objects#iteration) section from the Objects chapter of our Introduction to Programming With JavaScript book. It discusses the impact of object prototypes on iteration. In particular:
+
+- A `for/in` loop iterates over an object's properties. The iteration includes properties from the objects in its prototype chain. Use `hasOwnProperty()` to skip the prototype properties.
+
+- `Object.keys()` returns an object's "own" property keys -- you do not need to use `hasOwnProperty()`.
+
+Note that both `for/in` and `Object.keys()` deal with **enumerable properties**, which is merely a way of talking about properties you can iterate over. Not all properties are enumerable. In particular, most properties and methods of the built-in types are not. Usually, any properties or methods you define for an object are enumerable. You can check whether a property is enumerable with the `Object.prototype.propertyIsEnumerable()` method.
+
+```js
+let arr = [1, 2, 3];
+console.log(arr.propertyIsEnumerable('length'));                     // false
+console.log(arr.propertyIsEnumerable('2'));                          // true
+console.log(arr.propertyIsEnumerable('forEach'));                    // false
+console.log(Array.prototype.propertyIsEnumerable('forEach'));        // false
+
+function Foo() {
+  this.bar = "qux"
+}
+
+Foo.prototype.baz = function() {};
+let foo = new Foo();
+console.log(foo.propertyIsEnumerable('bar'));                        // true
+console.log(Object.getPrototypeOf(foo).propertyIsEnumerable('baz')); // true
+```
+
+You do not have to remember how to use `propertyIsEnumerable`.
+
 ### The Prototype Chain
+
+Earlier, we said that all JavaScript objects could inherit from another object using the prototype model. Since the prototype of an object is itself an object, the prototype can also have a prototype from which it inherits. For example:
+
+```js
+let a = {
+  foo: 1,
+};
+
+let b = {
+  bar: 2,
+};
+
+let c = {
+  baz: 3,
+};
+
+Object.setPrototypeOf(c, b);
+Object.setPrototypeOf(b, a);
+
+console.log(c.bar); // => 2
+console.log(c.foo); // => 1
+```
+
+In this code, object `c` inherits from object `b` which, in turn, inherits from `a`. Stated differently, `b` is the prototype of `c` and `a` is the prototype of `b`. All properties that you can access on `a` or `b` are now available on `c`. We say that objects `b` and `a` are part of the **prototype chain** of object `c`. The complete prototype chain also includes the default prototype, which is the prototype of object `a` in this case. Since the prototype of `Object.prototype` is `null`, the complete prototype chain looks like this:
+
+```sh
+c --> b --> a --> Object.prototype --> null
+```
 
 ### The `__proto__` Property
 

@@ -5916,3 +5916,7 @@ TODOs:
 07:11 After study session with Alex. Going to continue with OOP.
 
 10:07 Using Anki cards as I copy notes from Launch School into my VS Code Markdown file, so it's going slowly but steadily.
+
+10:34 Right now some of the terminology of OOP seems circular, but I'm getting it.
+
+11:21 Studied the Prototype Chain. I still have not heard from Greenshades.
