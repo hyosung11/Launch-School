@@ -311,9 +311,70 @@ c --> b --> a --> Object.prototype --> null
 
 ### The `__proto__` Property
 
+Many older JavaScript programs use a property named `__proto__`, which is pronounced **dunder proto**, instead of `Object.setPrototypeOf` and `Object.getPrototypeOf`. "dunder" is a shortened version of "double underscore", which alludes to the double underscores at the beginning and end of the name. The `__proto__` property is a *deprecated*, non-hidden version of the `[[Prototype]]` property. As a rule, you should only use `__proto__` if you need to support very old browsers or old versions of Node, or as a convenient shortcut with temporary code or debugging operations. You may run into code that uses it, so you need to at least be aware of it.
+
 ### Property Look-Up in the Prototype Chain
 
+When you access a property on an object, JavaScript first looks for an "own" property with that name on the object. If the object does not define the specified property, JavaScript looks for it in the object's prototype. If it can't find the property there, it next looks in the prototype's prototype. This process continues until it finds the property or it reaches `Object.prototype`. If `Object.prototype` also doesn't define the property, the property access evaluates to `undefined`.
+
+The implication here is that when two objects in the same prototype chain have a property with the same name, the object that's closer to the calling object takes precedence. Let's see an example:
+
+```js
+let a = {
+  foo: 1,
+};
+
+let b = {
+  foo: 2,
+};
+
+Object.setPrototypeOf(b, a);
+
+let c = Object.create(b);
+console.log(c.foo); // => 2;
+```
+
+How about *setting a property*? What do you think happens when we set the `foo` property on object `c` to a different value?
+
+```js
+c.foo = 42;
+```
+
+Is `b.foo` assigned to `42` by this code? How can you test that in node?
+
+```js
+let a = {
+  foo: 1,
+};
+
+let b = {
+  foo: 2,
+};
+
+Object.setPrototypeOf(b, a);
+
+let c = Object.create(b);
+console.log(c.foo); // => 2
+c.foo = 42;
+console.log(c.foo); // => 42
+console.log(b.foo); // => 2
+```
+
+Interesting! Object `b` wasn't mutated! When assigning a property on a JavaScript object, it always treats the property as an "own" property. That is, it assumes that the property belongs to the object named to the left of the property name. Even if the prototype chain already has a property with that name, it assigns the "own" property. Here, `foo` becomes an "own" property of `c`:
+
+```js
+console.log(c.hasOwnProperty('foo')); // => true
+```
+
+The discussion of inheriting *properties* from other objects *applies to methods as well*. Methods in JavaScript are merely *properties that refer to functions*. Thus, when we talk about object properties, we also mean methods.
+
 ### Methods on Object.prototype
+
+The `Object.prototype` object is at the top of all JavaScript prototype chains. Thus, its methods are available from any JavaScript object provided you don't explicitly use something like `null` as the prototype object. Here are 3 useful methods:
+
+- `Object.prototype.toString()` returns a string representation of the object.
+- `Object.prototype.isPrototypeOf(obj)` determines whether the object is part of another object's prototype chain.
+- Object.prototype.hasOwnProperty(prop) determines whether the object contains the property.
 
 ### Objects Without Prototypes
 

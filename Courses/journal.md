@@ -5920,3 +5920,5 @@ TODOs:
 10:34 Right now some of the terminology of OOP seems circular, but I'm getting it.
 
 11:21 Studied the Prototype Chain. I still have not heard from Greenshades.
+
+12:08 Studied "Methods on Object.prototype'. I think this is fun. Smile. I have to leave in a few minutes to get Moana serviced.
