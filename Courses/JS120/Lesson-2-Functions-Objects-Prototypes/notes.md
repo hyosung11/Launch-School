@@ -1190,18 +1190,24 @@ foo.bar(); // `foo` is the implicit execution context for `bar`
 
 It's easy to see that the execution context inside a method call is the object used to call the method.
 
-Be careful, however. The first-class nature of JavaScript functions has ramifications for the execution context. Remember that the context is determined solely by how you call the function or method. Here, foo.bar() is considered a method call since we call it as a method; that is, we use the method call syntax object.method(). Since JavaScript functions are first-class objects, bar can be called in other ways that change the context:
+Be careful, however. The first-class nature of JavaScript functions has ramifications for the execution context. Remember that the context is determined solely by how you call the function or method. Here, `foo.bar()` is considered a method call since we *call it as a method*; that is, we use the method call syntax `object.method()`. Since JavaScript functions are first-class objects, `bar` can be called in other ways that change the context:
 
 ```js
 let baz = foo.bar;
 baz(); // Object [global] {...}
 ```
 
-In this code, we assign the foo.bar method to the baz variable. The foo.bar property and the baz variable now refer to the same function object. What should baz() log then? Since baz references a method of the foo object, you may think that its execution context must be foo. That's wrong though: as we've repeated several times, the execution context is determined entirely by how a function or method is called. Since we're calling baz as a standalone function, its execution context is the global object, not the foo object.
+In this code, we assign the `foo.bar` method to the `baz` variable. The `foo.bar` property and the `baz` variable now refer to the same function object. What should `baz()` log then? Since `baz` references a method of the `foo` object, you may think that its execution context must be `foo`. That's wrong though: as we've repeated several times, the execution context is determined entirely by how a function or method is called. Since we're calling `baz` as a standalone function, its execution context is the global object, not the `foo` object.
 
-### 4. Explicit Function and Method Execution Context
+### 8.4 Explicit Function and Method Execution Context
 
-### 5. Implicit and Explicit Execution Context Summary
+
+
+#### 8.4.1 Explicit Execution Context with `call`
+
+#### 8.4.1 Explicit Execution Context with `apply`
+
+### 8.5 Implicit and Explicit Execution Context Summary
 
 All JavaScript functions and methods execute within an execution context, sometimes called its `this` binding. How `this` gets bound depends entirely on how the function is invoked. You can't tell a function's execution context by merely looking at how and where it's defined; y*ou must examine the invocation itself*.
 

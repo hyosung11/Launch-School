@@ -5966,3 +5966,5 @@ TODOs:
 10:57 I finished studying the global object. It's going well today so far.
 
 12:11 Studying execution context and it is a little confusing right now.
+
+12:41 I think I'm going to stop here and be ready for Ed. I just finished "Method Execution Context (Implicit)".
