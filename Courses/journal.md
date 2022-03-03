@@ -5952,10 +5952,10 @@ TODOs:
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [x] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignments 5
-   * [x] 3. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignments 6
-   * [x] 4. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignments 7
-   * [ ] 5. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignments 8
+   * [x] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 5
+   * [x] 3. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 6
+   * [x] 4. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 7
+   * [ ] 5. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 8
    * [ ] 3. Read _The Programmer's Brain_, Chapter 5: Reaching a deeper understanding of code
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -5964,3 +5964,5 @@ TODOs:
 10:08 I think I've improved my studying skills and techniques and using Anki cards seems to be beneficial. Time for a short break.
 
 10:57 I finished studying the global object. It's going well today so far.
+
+12:11 Studying execution context and it is a little confusing right now.
