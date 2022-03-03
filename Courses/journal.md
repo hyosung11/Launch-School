@@ -5927,3 +5927,5 @@ TODOs:
 
 17:14 Studied the JavaScript OOP video of a Launch School student that seemed pretty good although the drawings were a little confusing to me.
 
+20:00 These problems are mostly understandable except for Problem 4 which I made a note to review again tomorrow. Time to get the kids to bed.
+
