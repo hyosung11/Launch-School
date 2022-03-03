@@ -5952,8 +5952,13 @@ TODOs:
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [x] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignments 5 ~ 8
-   * [x] 3. Read *The Programmer's Brain*, Chapter 5: Reaching a deeper understanding of code
+   * [x] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignments 5
+   * [x] 3. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignments 6
+   * [ ] 4. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignments 7
+   * [ ] 5. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignments 8
+   * [ ] 3. Read *The Programmer's Brain*, Chapter 5: Reaching a deeper understanding of code
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I didn't get the Sales Engineer position at Greenshades which means I have to double down on a new job search or have a conversation with Sohee about studying full-time.
+
+10:08 I think I've improved my studying skills and techniques and using Anki cards seems to be beneficial. Time for a short break.
