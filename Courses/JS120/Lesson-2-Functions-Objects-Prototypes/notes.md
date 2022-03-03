@@ -708,6 +708,137 @@ End 20220302 20:19
 
 ## 5. Function Expressions
 
+Before you start this assignment, take a little time to review the section on the [three ways to define](https://launchschool.com/books/javascript/read/functions#threewaystodefineafunction) a function from our introductory JavaScript book.
+
+### 1. Function Declarations vs Function Expressions
+
+Take a look at the following function definition.
+
+```js
+function prompt(message) {
+  console.log(`=> ${message}`);
+}
+```
+
+Functions defined with this syntax *can be invoked before the declaration in the program*:
+
+```js
+prompt('How are you today?');
+
+function prompt(message) {
+  console.log(`=> ${message}`);
+}
+```
+
+This code works since *the JavaScript engine runs our code in two passes*. During the first pass, it does some preparatory work, while the second executes the code. One action that occurs during the first pass is called **hoisting**; the engine effectively moves function declarations to the top of the program file in which they're defined, or the top of the function in which they are nested. The result is that the above code acts as though you wrote it like this:
+
+```js
+function prompt(message) {
+  console.log(`=> ${message}`);
+}
+
+prompt('How are you today?');
+```
+
+Note that you'll never see this hoisted code when working with JavaScript. *Hoisting is an internal step performed by the engine*; it doesn't move any code around. However, it's useful to think of hoisting in this way, so long as you understand that your code is not changed.
+
+Hoisting isn't limited to function declarations. We'll discuss it in more detail later in the curriculum.
+
+Function definitions that are the first thing on a line are known as **function declarations**. On the other hand, **function expressions** are function definitions that are part of an expression. For instance, the code in the above example shows `prompt` as a function declaration; the next example shows `foo` as a function expression: it is *not* a declaration.
+
+```js
+(function foo() {
+
+})
+```
+
+You can test whether a function definition is a function declaration by trying to call it before the declaration. You can't call a function expression until after the expression is evaluated:
+
+```js
+// NOTE: Run this code from a file; don't use the REPL
+
+bar();
+function bar() {
+  console.log("this is bar");
+}
+
+foo();
+const foo = function() {
+  console.log("this is foo");
+};
+```
+
+```sh
+$ node functions.js
+this is bar
+/Users/foobar/projects/functions.js:6
+foo();
+^
+
+ReferenceError: Cannot access 'foo' before initialization
+```
+
+Typically, we assign a function expression to a variable or object property, pass it to another function, or return it to a calling function. For instance:
+
+```js
+let prompt = function() { // Assign to a variable
+
+};
+
+[1, 2, 3].forEach(function(elem) { // pass to another function
+  console.log(elem);
+});
+
+
+function makeIncrementer(increment) {
+  return function(value) { // return to caller
+    return value + increment;
+  }
+}
+```
+
+Notice that we can define function expressions without giving them a name. You may argue that `prompt` is the name of the function we defined on line 1, but that's not the case: instead, we've a*ssigned an unnamed function to the prompt variable*. Such unnamed functions are called **anonymous functions**. Anonymous functions are commonplace in JavaScript code, so be prepared to understand them. You've already seen examples with the callback functions for array methods like `forEach` and `map`: the callback functions for these methods are often anonymous functions.
+
+```js
+let squaredNums = [1, 2, 3].map(function(num) {
+  return num * num;
+}); // => [1, 4, 9]
+```
+
+Function expressions don't have to be anonymous. You can name a function expression:
+
+```js
+let squaredNums = [1, 2, 3].map(function squareNum(num) {
+  return num * num;
+}); // => [1, 4, 9]
+```
+
+The main advantage of naming a function expression occurs when the function throws an error (raises an exception). If the function has a name, the stack trace uses that name to help you determine where the error occurred. Without the name, JavaScript merely reports the location as "anonymous."
+
+The function name given to a function expression is **not visible** in the scope that includes the function expression.
+
+```js
+let foo = function bar() {};
+foo();         // This works
+bar();         // This does not work (line 3)
+```
+
+`foo` is a local variable that contains a reference to the function, so we can invoke the function using `foo()`. However, the function name, `bar`, is not in scope on line 3, so `bar()` does not work.
+
+The function name on a function expression is visible inside the function, which is useful when working with recursive functions. We won't trouble you with an example at this time.
+
+RR 20220302 21:35
+
+### 2. Arrow Functions
+
+### 3. First-Class Functions
+
+### 4. Type of a Function Value
+
+### 5. Function Expressions Summary
+
+Functions in JavaScript are first-class values, just like any other value in JavaScript. You can use them any place that you can use an expression. To use a function as an expression, write its name without the parentheses of invocation. All functions have a type of `function`, which is a kind of object with properties and methods.
+
 ## 6. Higher Order Functions
 
 ## 7. The Global Object

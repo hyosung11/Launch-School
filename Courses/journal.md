@@ -5930,3 +5930,5 @@ TODOs:
 20:00 These problems are mostly understandable except for Problem 4 which I made a note to review again tomorrow. Time to get the kids to bed.
 
 20:26 I finished "Courses > JS120 Object Oriented Programming with JavaScript > Lesson 2: Functions, Objects, and Prototypes > 4. Practice Problems: Object Prototypes".
+
+21:35 I really need to stop for the night and give my brain a rest.
