@@ -5955,8 +5955,9 @@ TODOs:
    * [x] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 5
    * [x] 3. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 6
    * [x] 4. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 7
-   * [ ] 5. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 8
-   * [ ] 3. Read _The Programmer's Brain_, Chapter 5: Reaching a deeper understanding of code
+   * [x] 5. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 8
+   * [x] 6. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 9
+   * [ ] 7. Read _The Programmer's Brain_, Chapter 5: Reaching a deeper understanding of code
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I didn't get the Sales Engineer position at Greenshades which means I have to double down on a new job search or have a conversation with Sohee about studying full-time.
@@ -5972,3 +5973,5 @@ TODOs:
 14:29 Back from lunch with Ed. I want to keep studying now.
 
 16:11 Started Assignment 9, the practice problems on execution context.
+
+17:13 Finished Assignment 9, but need to review how to use `Function.prototype.call()`.
