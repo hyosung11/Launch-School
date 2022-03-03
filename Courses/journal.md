@@ -5938,3 +5938,5 @@ TODOs:
 05:55 Getting ready for my day and my study session with Alex. I need to give him some problems and continue to study Function Expressions.
 
 07:46 Finished Function Expressions before breakfast. I'm going to read my chapter of the Programmer's Brain and then continue with Higher Order Functions after breakfast.
+
+09:02 I cancelled edabit and did Anki cards. Now ready to learn more about Higher Order Functions afer I go to the bathroom. It's a good day to study and learn.
