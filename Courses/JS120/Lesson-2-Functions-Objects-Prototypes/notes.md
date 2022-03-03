@@ -827,19 +827,113 @@ bar();         // This does not work (line 3)
 
 The function name on a function expression is visible inside the function, which is useful when working with recursive functions. We won't trouble you with an example at this time.
 
-RR 20220302 21:35
+End 20220302 21:35
 
 ### 2. Arrow Functions
 
+There's no declaration syntax for arrow functions; arrow functions are always function expressions. That means that we often pass them around or assign them to variables or properties. Also, arrow functions are **always anonymous**: there's no way to define a named arrow function. Arrow functions are either immediately invoked, assigned to variables or properties, or passed around as arguments and return values. We'll discuss immediately invoked functions in a later course.
+
 ### 3. First-Class Functions
 
+You'll often see the phrase **first-class functions** or **first-class objects** when discussing JavaScript functions. It merely refers to the fact that functions in JavaScript are values that we can assign to variables and properties, pass them to other functions, or return them from another function.
+
+Functions of all kinds, including declared functions, can be treated as values:
+
+```js
+function say(words) {
+  console.log(words);
+}
+
+let speak = say;
+
+speak('Howdy!');   // logs 'Howdy'
+```
+
+In this example, we declare a function `say()` and then assign it to the variable `speak`. We then invoke the function using `speak` as a handle. Note that we can still call the function using `say` as well -- both `say` and `speak` refer to the same function.
+
+Here's another example:
+
+```js
+function logNum(num) {
+  console.log('Number: ' + num);
+}
+
+[1, 2, 3].forEach(logNum);
+// Number: 1
+// Number: 2
+// Number: 3
+```
+
+In this case, we're passing the function `logNum()` as an argument to the `forEach` method, which calls it three times. With each invocation of `logNum`, `forEach` passes it one of the array elements as an argument.
+
+Notice that *we don't use invocation syntax*, `()`, when passing `logNum` as an argument to `forEach`. If we did, it would throw a `TypeError` exception since `forEach` expects a function; instead of passing a function, though, we would be passing `undefined`, the return value of `logNum()`.
+
+```js
+function logNum(num) {
+  console.log('Number: ' + num);
+}
+
+[1, 2, 3].forEach(logNum());
+// Uncaught TypeError: undefined is not a function
+```
+
+The takeaway is that you *should not invoke functions when you want to use them as* **values**. Use invocation only when you need to run the code in the function.
+
+Let's return to the following example:
+
+```js
+function logNum(num) {
+  console.log('Number: ' + num);
+}
+
+[1, 2, 3].forEach(logNum);
+// Number: 1
+// Number: 2
+// Number: 3
+```
+
+This code is functionally identical to the following code:
+
+```js
+[1, 2, 3].forEach(function logNum(num) {
+  console.log('Number: ' + num);
+});
+```
+
+The only difference is that we're *using a function expression* instead of a variable.
+
+We can also *use an arrow function* to do the same thing:
+
+```js
+[1, 2, 3].forEach(num => {
+  console.log('Number: ' + num);
+});
+```
+
+In this case, though, the function is anonymous. The results, however, are identical.
+
+The point we want you to remember is that you can *treat any function as you would any other JavaScript value: remove the invocation syntax, and you've got an expression whose value is a function*. You can do whatever you want with that value (at least within the limits of what JavaScript can do).
+
 ### 4. Type of a Function Value
+
+Since functions are first-class values in JavaScript, and all values in JavaScript have a type, functions must also have a type. Right? That's correct! Let's use the handy `typeof` operator to determine the type of a function value:
+
+```js
+let myFunc = function() {};
+console.log(typeof myFunc); // 'function'
+```
 
 ### 5. Function Expressions Summary
 
 Functions in JavaScript are first-class values, just like any other value in JavaScript. You can use them any place that you can use an expression. To use a function as an expression, write its name without the parentheses of invocation. All functions have a type of `function`, which is a kind of object with properties and methods.
 
 ## 6. Higher Order Functions
+
+### 1. Functions that Accept Functions as Arguments
+
+### 2. Functions that Return a Function
+
+### 3. Higher Order Functions Summary
 
 ## 7. The Global Object
 

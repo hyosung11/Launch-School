@@ -5932,3 +5932,9 @@ TODOs:
 20:26 I finished "Courses > JS120 Object Oriented Programming with JavaScript > Lesson 2: Functions, Objects, and Prototypes > 4. Practice Problems: Object Prototypes".
 
 21:35 I really need to stop for the night and give my brain a rest.
+
+## 20220303 목요일
+
+05:55 Getting ready for my day and my study session with Alex. I need to give him some problems and continue to study Function Expressions.
+
+07:46 Finished Function Expressions before breakfast. I'm going to read my chapter of the Programmer's Brain and then continue with Higher Order Functions after breakfast.
