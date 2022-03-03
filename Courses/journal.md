@@ -5968,3 +5968,7 @@ TODOs:
 12:11 Studying execution context and it is a little confusing right now.
 
 12:41 I think I'm going to stop here and be ready for Ed. I just finished "Method Execution Context (Implicit)".
+
+14:29 Back from lunch with Ed. I want to keep studying now.
+
+16:11 Started Assignment 9, the practice problems on execution context.

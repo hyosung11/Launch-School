@@ -1201,11 +1201,158 @@ In this code, we assign the `foo.bar` method to the `baz` variable. The `foo.bar
 
 ### 8.4 Explicit Function and Method Execution Context
 
+Using parenthesis after a function or method name is not the only way to invoke it. As we've seen, when you invoke a function with parentheses, JavaScript uses the global object as the implicit context; when you invoke a method, it uses the object that you used to call the method as the implicit context.
 
+There are, however, several ways to subvert this behavior. You can provide an explicit context to any function or method, and it doesn't have to be the global object or the object that contains the method. Instead, you can use any object -- or even `null` -- as the execution context for any function or method. There are two main ways to do that in JavaScript: `call` and `apply`.
 
 #### 8.4.1 Explicit Execution Context with `call`
 
+In previous assignments, we said that JavaScript functions are objects: they have properties and methods just like any other object. One method that all JavaScript functions have is the call method. The call method calls a function with an explicit execution context. Let's see how that works:
+
+```js
+function logNum() {
+  console.log(this.num);
+}
+
+let obj = {
+  num: 42
+};
+
+logNum.call(obj); // logs 42
+```
+
+That's interesting! We can call the `logNum` function and tell it to use `obj` as its execution context. When we use call in this manner, `this` refers to the `obj` object inside the `logNum` function. The first argument to `call` provides the explicit context for the function invocation.
+
+Again, we see that a function's definition has no bearing on its execution context. The context doesn't get determined until we invoke the function; in this case, we're using `call` to invoke it and set the context.
+
+The code is functionally similar to the following:
+
+```js
+function logNum() {
+  console.log(this.num);
+}
+
+let obj = {
+  num: 42
+};
+
+obj.logNum = logNum;
+obj.logNum(); // logs 42
+```
+
+Those last two code examples aren't identical, however. In the second example, we add a new property to the `obj` object; we don't mutate the object when we use `call`.
+
+You can also use `call` to explicitly set execution context on methods, not just functions:
+
+```js
+let obj1 = {
+  logNum() {
+    console.log(this.num);
+  }
+};
+
+let obj2 = {
+  num: 42
+};
+
+obj1.logNum.call(obj2); // logs 42
+```
+
+The behavior here is similar to:
+
+```js
+let obj1 = {
+  logNum() {
+    console.log(this.num);
+  }
+};
+
+let obj2 = {
+  num: 42
+};
+
+obj2.logNum = obj1.logNum;
+obj2.logNum(); // logs 42
+```
+
+Again, there is a difference: in this case, we *mutate* `obj2` when we give it a `logNum` property that it didn't have before.
+
+You may have already spotted a problem with this pattern. Suppose our function takes arguments. How do we provide them? Let's see an example to illustrate this point:
+
+```js
+function sumNum(num1) {
+  return this.num + num1;
+}
+
+let obj = {
+  num: 42
+};
+```
+
+We want to call `sumNum` in such a way that it updates `obj.num`. Fortunately, the `call` method lets us pass arguments as a comma-separated list to our function:
+
+```js
+obj.num = sumNum.call(obj, 5);
+console.log(obj.num); // => 47
+```
+
+Again, we can understand this better if we try to write the code more directly:
+
+```js
+function sumNum(num1) {
+  return this.num + num1;
+}
+
+let obj = {
+  num: 42
+};
+
+obj.sumNum = sumNum;
+obj.num = obj.sumNum(5);
+console.log(obj.num); // => 47
+```
+
+You can, of course, add as many arguments to the `call` method invocation as the function needs. Let's see another, more complex example:
+
+```js
+let iPad = {
+  name: 'iPad',
+  price: 40000,
+};
+
+let kindle = {
+  name: 'Kindle',
+  price: 30000,
+};
+
+function printLine(lineNumber, punctuation) {
+  console.log(`${lineNumber}: ${this.name}, ${this.price / 100} dollars${punctuation}`);
+}
+
+printLine.call(iPad, 1, ';');        // => 1: iPad, 400 dollars;
+printLine.call(kindle, 2, '.');      // => 2: Kindle, 300 dollars.
+```
+
+The general syntax for `call` is as follows:
+
+```js
+someObject.someMethod.call(context, arg1, arg2, arg3, ...)
+```
+
 #### 8.4.1 Explicit Execution Context with `apply`
+
+The apply method works in much the same way as call. The only difference is that apply uses an array to pass any arguments to the function. Here's the general syntax:
+
+```js
+someObject.someMethod.apply(context, [arg1, arg2, arg3, ...])
+```
+
+`apply` is handy when you have the list of arguments in an array. With modern JavaScript (ES6 and higher), `apply` isn't needed since *you can use call in conjunction with the spread operator to accomplish the same thing*:
+
+```js
+let args = [arg1, arg2, arg3];
+someObject.someMethod.call(context, ...args);
+```
 
 ### 8.5 Implicit and Explicit Execution Context Summary
 
@@ -1217,10 +1364,30 @@ The mechanics of context binding is an essential but difficult concept. Most dif
 
 The execution context is determined by *how you invoke a function or method*. We can't emphasize this enough.
 
+## 9 Practice Problems: Implicit and Explicit Function Execution Contexts
+
+### 9.1 What will the following code output? Try to determine the results without running the code.
+
+```js
+function func() {
+  return this;
+}
+
+let context = func(); // line 5
+
+console.log(context);
+```
+
+Answer: The code will output `global`, the global object in Node, and `window` in a browser.
+
+#### 9.1 Solution
+
+The global object. In Node, that's `global`; in a browser, that's `window`.
+
+Since line 5 calls `func` as a function, the implicit context for `func` is the global object, so it returns the global object.
+
 
 ==========================================================================
-
-## 9. Practice Problems: Implicit and Explicit Function Execution Contexts
 
 ## 10. Hard Binding Functions with Contexts
 
