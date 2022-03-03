@@ -512,7 +512,7 @@ $ npm install eslint@4.x babel-eslint@8 --save-dev
 $ yarn add eslint@4.x babel-eslint@8 -D
 ```
 
-09:49 Took a poop break. I'm going to read a little from *Mastery* before I do a few Anki cards. I also finished listening to LS Podcast S2E2
+09:49 Took a poop break. I'm going to read a little from _Mastery_ before I do a few Anki cards. I also finished listening to LS Podcast S2E2
 
 10:33 Studied 8 Anki cards.
 
@@ -568,7 +568,7 @@ $ yarn add eslint@4.x babel-eslint@8 -D
 3. Are there any blockers or impediments preventing you from doing your work?
    * I couldn't get `calculator.js` with Internationalization to work. I don't think you can evaluation expressions in `JSON`.
 
-07:43 Going to read a little from *Mastery* before breakfast with the kids.
+07:43 Going to read a little from _Mastery_ before breakfast with the kids.
 
 08:04 finished mastery chapter on instruction. ready for breakfast with the kids. Sohee went back to work.
 
@@ -660,9 +660,9 @@ I think this means I can use the latest ESLint version.
    * Feeling a little tired and increasing eye strain and forearm tension. Pace myself.
    * Remember [On Pace and Productivity](https://www.calnewport.com/blog/2021/07/21/on-pace-and-productivity/)
 
-09:22 Trying to settle down. I will read *Mastery* a bit after I poo and before I do some Anki cards.
+09:22 Trying to settle down. I will read _Mastery_ a bit after I poo and before I do some Anki cards.
 
-09:38 Read a section of *Mastery* in the practice chapter. Ready to do some Anki cards.
+09:38 Read a section of _Mastery_ in the practice chapter. Ready to do some Anki cards.
 
 10:01 Studied 8 cards in 1.46 minutes today (10.92s/card). I edited all 8 cards.
 
@@ -790,7 +790,7 @@ console.log(thousands); // => 4 */
 
 09:11 Tired after soccer. My hamstring is still not near 100%. Maybe I should see Dr. Riotto multiple times next week.
 
-10:23 My Anki cards need improvement. I'm tired right now. I think I'm going to read the Coding Tips 2 assignment and then take a nap. We'll see. Also I want to read another chapter of *Mastery*.
+10:23 My Anki cards need improvement. I'm tired right now. I think I'm going to read the Coding Tips 2 assignment and then take a nap. We'll see. Also I want to read another chapter of _Mastery_.
 
 10:32 So many great articles about using tools to program.
 
@@ -806,13 +806,13 @@ console.log(thousands); // => 4 */
     * ![emoji-rendered](emoji-rendered.png)
 * [Emoji Cheat Sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)
 
-11:24 Just took a dump. I'm tired and my body feels sore. I want to take a nap. Okay, read *Mastery* chapter now.
+11:24 Just took a dump. I'm tired and my body feels sore. I want to take a nap. Okay, read _Mastery_ chapter now.
 
 11:47. I was writing in the wrong file. I hope this works. I am now writing in the right file.
 
 11:51 Good job H. I got rid of the older `journal_20210723.md file`
 
-11:52 I read the next chapter in *Mastery*. I like using Markdown in VS Code.
+11:52 I read the next chapter in _Mastery_. I like using Markdown in VS Code.
 
 12:39 Fixed the `undefined` errors in my calculator assignment to add the config file. This is fun!
 
@@ -886,7 +886,7 @@ Vim dumps you into command mode to start
 
 11:49 I finished the "Gain experience through struggling" section of Coding Tips 2.
 
-13:42 I'm tired but more energized after lunch. I'm ready to do Sprint Review, Sprint Retrospective and Sprint Planning. I still haven't gone back to the Assignment: Mortgage / Car Loan Calculator. I did start listening to *A Mind for Numbers* by Barbara Oakley as an audiobook.
+13:42 I'm tired but more energized after lunch. I'm ready to do Sprint Review, Sprint Retrospective and Sprint Planning. I still haven't gone back to the Assignment: Mortgage / Car Loan Calculator. I did start listening to _A Mind for Numbers_ by Barbara Oakley as an audiobook.
 
 15:50 Finished Sprint Review, Sprint Retrospective, and Sprint Planning. The Sprint Planning went faster than last week. Time for a break.
 
@@ -908,7 +908,7 @@ Vim dumps you into command mode to start
    * [x] 5. Sprint 2 Review
    * [x] 6. Sprint 2 Retrospective
    * [x] 7. Sprint 3 Planning
-   * [x] 8. *Mind for Numbers* audiobook
+   * [x] 8. _Mind for Numbers_ audiobook
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
@@ -954,13 +954,13 @@ Vim dumps you into command mode to start
 
 06:37 Awake and reading. I didn't play soccer this morning because I want to heal my hamstring. Alex declined to meet, so I have some free time this morning to read and write and do some work before my interview at 10:30. All is well.
 
-06:59 *Mastery*: liberation comes through the acceptance of limits (129).
+06:59 _Mastery_: liberation comes through the acceptance of limits (129).
 
 07:11 Need to do physical training everyday. My hamstring still feels strained. Dr. Riotto tomorrow?
 
-07:44 I'm still reading *Learn Like a Pro* first chapter. Have a *ready-to-resume* plan before engaging a distraction.
+07:44 I'm still reading _Learn Like a Pro_ first chapter. Have a _ready-to-resume_ plan before engaging a distraction.
 
-07:57 Study between 6 ~ 8 hours per day in addition to classes. More than 8 hours per day doesn't improve grades. *Learn Like a Pro*, 9. What's the proper citation method? Don't listen to music, including binaural beats. It slows down learning.
+07:57 Study between 6 ~ 8 hours per day in addition to classes. More than 8 hours per day doesn't improve grades. _Learn Like a Pro_, 9. What's the proper citation method? Don't listen to music, including binaural beats. It slows down learning.
 
 09:11 After family breakfast and playing outside with SungOh.
 
@@ -1111,7 +1111,7 @@ renames = copies
 
 13:59 Was AFK for ping pong where I got slaughtered today by Louis and then ate lunch and took a cold shower. My right elbow feels irritated even though I changed my trackpad to the left side. I feel tired and am going to take a nap.
 
-14:38 Took a short nap and read *Kettlebell Simple & Sinister*.
+14:38 Took a short nap and read _Kettlebell Simple & Sinister_.
 
 14:55 I read through the RPS Bonus Features and watched the Big Bang Theory clip. I have to pee and take a five minute power break.
 
@@ -1129,7 +1129,7 @@ renames = copies
 
 08:21 Did the full KSS and feel great afterwards. I even did the stretches and the hanging from a pullup bar. Now time to enjoy some Omar hazelnut coffee and read before family breakfast.
 
-08:33 read *Mastery* chapter. Now family breakfast.
+08:33 read _Mastery_ chapter. Now family breakfast.
 
 09:21 Getting to Daily Scrum questions a little later today.
 
@@ -1146,8 +1146,8 @@ renames = copies
    * [ ] 1. Anki cards from JS100 - JavaScript Basics > Loops
    * [ ] 2. Anki cards from JS100 - JavaScript Basics > Conditionals
    * [ ] 3. Anki cards from JS100 - JavaScript Basics > Functions 1
-   * [ ] 4. Read *Learn Like a Pro* chapter
-   * [ ] 5. Read *The Pragmatic Programmer* chapter
+   * [ ] 4. Read _Learn Like a Pro_ chapter
+   * [ ] 5. Read _The Pragmatic Programmer_ chapter
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Not a blocker, but I've slowed way down and am applying the learning to learn principles to the Launch School core curriculum.
@@ -1190,7 +1190,7 @@ renames = copies
 
 19:41 I vacuumed the entire house and it took more than 30 minutes. Checking messages and email. Children's bedtime now.
 
-20:19 Kids in bed. I finished my chapter of *Learn Like a Pro*.
+20:19 Kids in bed. I finished my chapter of _Learn Like a Pro_.
 
 20:56 End study for today. Ready to resume at JS100 - JavaScript Basics > Conditionals > 4. Check the Weather, Part 1.
 
@@ -1200,22 +1200,22 @@ renames = copies
 
 08:29 Finished Kettlebell Simple & Sinister a little more quickly than yesterday. It feels good to get the kinks moving in my body. Time for breakfast.
 
-08:57 After breakfast. I didn't get reading time, so I'll read *Mastery* a little later. I will put it on my work list. I'm not sure I love the word task.
+08:57 After breakfast. I didn't get reading time, so I'll read _Mastery_ a little later. I will put it on my work list. I'm not sure I love the word task.
 
 09:00 Daily Scrum Questions
 
 1. What did you do yesterday?
    * [x] 1. Anki cards from JS100 - JavaScript Basics > Loops
    * [x] 2. Anki cards from Lesson 1 Quiz 1 questions
-   * [x] 3. Read *Learn Like a Pro* chapter
+   * [x] 3. Read _Learn Like a Pro_ chapter
 
 2. What will you do today?
    * [x] 1. Study Session with Alex > Easy 3 > 9. Clean up the words
    * [x] 2. Anki cards from JS100 - JavaScript Basics > Conditionals
    * [ ] 3. Anki cards from JS100 - JavaScript Basics > Functions 1
-   * [x] 4. Read *Mastery* final chapter
-   * [ ] 5. Read *Learn Like a Pro* chapter
-   * [ ] 6. Read *The Pragmatic Programmer* chapter
+   * [x] 4. Read _Mastery_ final chapter
+   * [ ] 5. Read _Learn Like a Pro_ chapter
+   * [ ] 6. Read _The Pragmatic Programmer_ chapter
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * None
@@ -1226,13 +1226,13 @@ renames = copies
 
 10:46 Going down a rabbit hole with [Franz](https://www.techrepublic.com/article/the-best-chat-software-for-linux-macos-and-windows-isnt-slack/?ftag=TRE20d3f17&bhid=30012978669592638273478151313052&mid=13455020&cid=2426660554)
 
-11:28 Finished *Mastery*. I skimmed the part about breathing and energy and ki. No ping pong with Louis. I want to practice soccer drills in my cleats and maybe even outside later during my siesta. I have a partial mind to move to my laptop now. Not sure that I will.
+11:28 Finished _Mastery_. I skimmed the part about breathing and energy and ki. No ping pong with Louis. I want to practice soccer drills in my cleats and maybe even outside later during my siesta. I have a partial mind to move to my laptop now. Not sure that I will.
 
-12:28 Finished Anki cards from JS100 - JavaScript Basics > Conditionals. I started reading *Learn Like a Pro* but feel tired now.
+12:28 Finished Anki cards from JS100 - JavaScript Basics > Conditionals. I started reading _Learn Like a Pro_ but feel tired now.
 
 14:18 Took a long siesta today as I felt kind of tired. All is well.
 
-14:29 Finished *Learn Like a Pro* chapter 4 on "How to Maximize Working Memory - and Take Better Notes".
+14:29 Finished _Learn Like a Pro_ chapter 4 on "How to Maximize Working Memory - and Take Better Notes".
 
 14:50 Working on Function 1.
 
@@ -1240,7 +1240,7 @@ renames = copies
 
 16:47 Back from Dr. Riotto where he reset my wrists and worked on my right hamstring.
 
-16:55 Listened to *A Mind for Numbers* chapter 7 on Audible in the car.
+16:55 Listened to _A Mind for Numbers_ chapter 7 on Audible in the car.
 
 ## 20210731 통요일
 
@@ -1254,15 +1254,15 @@ renames = copies
    * [x] 1. Study Session with Alex > Easy 3 > 9. Clean up the words
    * [x] 2. Anki cards from JS100 - JavaScript Basics > Conditionals
    * [x] 3. Anki cards from JS100 - JavaScript Basics > Functions 1 > 1-5
-   * [x] 4. Read *Mastery* final chapter
-   * [x] 5. Read *Learn Like a Pro* chapter
+   * [x] 4. Read _Mastery_ final chapter
+   * [x] 5. Read _Learn Like a Pro_ chapter
 
 2. What will you do today?
    * [ ] 1. Anki cards from JS100 - JavaScript Basics > Functions 1 > 6-11
    * [ ] 2. Anki cards from JS100 - JavaScript Basics > Variable Scope
-   * [ ] 3. Read *Learn Like a Pro* chapter
-   * [ ] 4. Read *The Pragmatic Programmer* chapter
-   * [ ] 5. Listen to *A Mind for Numbers* chapter on Audible
+   * [ ] 3. Read _Learn Like a Pro_ chapter
+   * [ ] 4. Read _The Pragmatic Programmer_ chapter
+   * [ ] 5. Listen to _A Mind for Numbers_ chapter on Audible
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I have poison ivy over different parts of my body and it itches and feels irritating to my skin.
@@ -1275,7 +1275,7 @@ renames = copies
 
 11:32 Tired today at the moment. I took a break for correspondence. Now listening to Pure Focus on Apple Music, but it has lyrics which is not good for studying.
 
-13:36 After lunch and before that a nap. I read a chapter from *Learn Like a Pro*. I also listened to *A Mind for Numbers* on Audible while prepping and picking up lunch.
+13:36 After lunch and before that a nap. I read a chapter from _Learn Like a Pro_. I also listened to _A Mind for Numbers_ on Audible while prepping and picking up lunch.
 
 14:14 Eyes hurt. They feel dry. I'm tired. Aack.
 
@@ -1293,7 +1293,7 @@ renames = copies
 
 08:17 At the dining room table cleaning up my git commits from my two different machines. Read a little before breakfast and then do my daily scrum. Okay.
 
-08:51 After family breakfast. Drinking coffee and reading *Learn Like a Pro* chapter on "How to gain intuition and think fast".
+08:51 After family breakfast. Drinking coffee and reading _Learn Like a Pro_ chapter on "How to gain intuition and think fast".
 
 08:57 Back to the office workstation for Daily Scrum.
 
@@ -1301,16 +1301,16 @@ renames = copies
 
 1. What did you do yesterday?
    * [x] 1. Anki cards from JS100 - JavaScript Basics > Functions 1 > 6-8
-   * [x] 2. Read *Learn Like a Pro* chapter
-   * [x] 3. Read *The Pragmatic Programmer* chapter
-   * [x] 4. Listen to *A Mind for Numbers* chapter on Audible
+   * [x] 2. Read _Learn Like a Pro_ chapter
+   * [x] 3. Read _The Pragmatic Programmer_ chapter
+   * [x] 4. Listen to _A Mind for Numbers_ chapter on Audible
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [x] 2. Anki cards from JS100 - JavaScript Basics > Functions 1 > 9-11
-   * [x] 3. Read *Learn Like a Pro* chapter
-   * [ ] 4. Read *The Pragmatic Programmer* chapter
-   * [ ] 5. Listen to *A Mind for Numbers* chapter on Audible
+   * [x] 3. Read _Learn Like a Pro_ chapter
+   * [ ] 4. Read _The Pragmatic Programmer_ chapter
+   * [ ] 5. Listen to _A Mind for Numbers_ chapter on Audible
    * [ ] 6. Sprint 3 Review
    * [ ] 7. Sprint 3 Retrospective
    * [ ] 8. Sprint 4 Planning
@@ -1342,7 +1342,7 @@ renames = copies
 
 07:31 Continue working on Variable Scope
 
-08:58 Reading *Learn Like a Pro*
+08:58 Reading _Learn Like a Pro_
 
 09:07 Daily Scrum Questions
 
@@ -1350,7 +1350,7 @@ renames = copies
    * [x] 1. Study Session with Alex
    * [x] 2. Anki cards from JS100 - JavaScript Basics > Functions 1 > 9-11
    * [x] 3. Anki cards from JS100 - JavaScript Basics > Variable Scope > 1-5
-   * [x] 4. Read *Learn Like a Pro* chapter
+   * [x] 4. Read _Learn Like a Pro_ chapter
    * [x] 5. Sprint 3 Review
    * [x] 6. Sprint 3 Retrospective
    * [x] 7. Sprint 4 Planning
@@ -1358,11 +1358,11 @@ renames = copies
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [x] 2. Anki cards from JS100 - JavaScript Basics > Variable Scope > 6-10
-   * [x] 3. Read *Learn Like a Pro* chapter
+   * [x] 3. Read _Learn Like a Pro_ chapter
    * [x] 4. Prep for Interview Prep
    * [x] 5. Interview Prep Meeting
-   * [ ] 6. Read *The Pragmatic Programmer* chapter
-   * [x] 7. Listen to *A Mind for Numbers* chapter on Audible
+   * [ ] 6. Read _The Pragmatic Programmer_ chapter
+   * [x] 7. Listen to _A Mind for Numbers_ chapter on Audible
    * [x] 8. Anki cards from JS100 - JavaScript Basics > Strings > 1-9
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -1396,7 +1396,7 @@ renames = copies
 
 07:10 Worked on capitalize words and making mistakes that I learn from, like forgetting to call the method `.toUpperCase` by forgetting the parentheses.
 
-08:08 Read two chapters of *Learn Like a Pro*.
+08:08 Read two chapters of _Learn Like a Pro_.
 
 08:18 more practice with capitalize words
 
@@ -1409,17 +1409,17 @@ renames = copies
 1. What did you do yesterday?
    * [x] 1. Study Session with Alex
    * [x] 2. Anki cards from JS100 - JavaScript Basics > Variable Scope > 6-10
-   * [x] 3. Read *Learn Like a Pro* chapter
+   * [x] 3. Read _Learn Like a Pro_ chapter
    * [x] 4. Prep for Interview Prep
    * [x] 5. Interview Prep Meeting
-   * [x] 6. Listen to *A Mind for Numbers* chapter on Audible
+   * [x] 6. Listen to _A Mind for Numbers_ chapter on Audible
    * [x] 7. Anki cards from JS100 - JavaScript Basics > Strings > 1-9
 
 2. What will you do today?
    * [x] 1. Anki cards from JS100 - JavaScript Basics > Arrays
-   * [x] 2. Read *Learn Like a Pro* chapter
-   * [x] 3. Listen to *A Mind for Numbers* chapter on Audible
-   * [x] 4. Read *The Pragmatic Programmer* chapter
+   * [x] 2. Read _Learn Like a Pro_ chapter
+   * [x] 3. Listen to _A Mind for Numbers_ chapter on Audible
+   * [x] 4. Read _The Pragmatic Programmer_ chapter
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I sometimes have a false sense of knowing something and then when I code it out, I realize that there are gaps in my knowledge. I just need to keep practicing and honing the procedural system.
@@ -1440,7 +1440,7 @@ renames = copies
 
 17:18 Finished with Arrays!
 
-17:40 Read chapter of *The Pragmatic Programmer*.
+17:40 Read chapter of _The Pragmatic Programmer_.
 
 ## 20210804 수요잏
 
@@ -1448,7 +1448,7 @@ renames = copies
 
 07:22 Wrapping up study session with Alex.
 
-08:02 Decided to wait to do KSS until after my interview. Started reading *Learn Like a Pro* chapter on testing, but decided to read it later. Now reading *A Mind for Numbers*.
+08:02 Decided to wait to do KSS until after my interview. Started reading _Learn Like a Pro_ chapter on testing, but decided to read it later. Now reading _A Mind for Numbers_.
 
 08:33 My stomach itches so much. It feels good instantaneously to itch. Why? I added some hydrocortisone, but I have calamine lotion on my brain.
 
@@ -1458,9 +1458,9 @@ renames = copies
 
 1. What did you do yesterday?
    * [x] 1. Anki cards from JS100 - JavaScript Basics > Arrays
-   * [x] 2. Read *Learn Like a Pro* chapter
-   * [x] 3. Listen to *A Mind for Numbers* chapter on Audible
-   * [x] 4. Read *The Pragmatic Programmer* chapter
+   * [x] 2. Read _Learn Like a Pro_ chapter
+   * [x] 3. Listen to _A Mind for Numbers_ chapter on Audible
+   * [x] 4. Read _The Pragmatic Programmer_ chapter
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
@@ -1468,8 +1468,8 @@ renames = copies
    * [x] 3. Do Interview with Encora
    * [x] 4. Anki cards from JS100 - JavaScript Basics > Function 2 > 1-8
    * [x] 5. Study Session with Laurent
-   * [x] 6. Read *The Pragmatic Programmer* chapter
-   * [x] 7. Read *A Mind for Numbers* chapter on Audible
+   * [x] 6. Read _The Pragmatic Programmer_ chapter
+   * [x] 7. Read _A Mind for Numbers_ chapter on Audible
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I need to use my morning time to prepare for and do the interview with Encora, so I won't get to study until the afternoon.
@@ -1502,9 +1502,9 @@ renames = copies
 
 08:18 I feel tired this morning. I slept until around 7:30, two hours later than usual. Things are simmering in my brain. My body still itches from the poison ivy. What about my massage? When to take the quiz. Behind? I thought the Encora interview went well for me yesterday. We shall see. All is well.
 
-08:51 After family breakfast, I'm at the dining room table about to read *Learn Like a Pro*.
+08:51 After family breakfast, I'm at the dining room table about to read _Learn Like a Pro_.
 
-09:02 Finished *Learn Like a Pro* chapter "How to win big on tests". Ready for 5MJ and Daily Scrum Questions.
+09:02 Finished _Learn Like a Pro_ chapter "How to win big on tests". Ready for 5MJ and Daily Scrum Questions.
 
 09:09 I have to poo first right now after 5MJ.
 
@@ -1516,16 +1516,16 @@ renames = copies
    * [x] 3. Do Interview with Encora
    * [x] 4. Anki cards from JS100 - JavaScript Basics > Function 2 > 1-4
    * [x] 5. Study Session with Laurent > Easy 4 > 7-8
-   * [x] 6. Read *The Pragmatic Programmer* chapter
-   * [x] 7. Read *A Mind for Numbers*
+   * [x] 6. Read _The Pragmatic Programmer_ chapter
+   * [x] 7. Read _A Mind for Numbers_
 
 2. What will you do today?
-   * [x] 1. Read *Learn Like a Pro* chapter
+   * [x] 1. Read _Learn Like a Pro_ chapter
    * [x] 2. Anki cards from JS100 - JavaScript Basics > Function 2 > 5-8
    * [x] 3. Anki cards from JS100 - JavaScript Basics > Objects > 1-10
    * [ ] 4. JS100/101 Beginner Study Group
-   * [ ] 5. Read *The Pragmatic Programmer* chapter
-   * [ ] 6. Read *A Mind for Numbers*
+   * [ ] 5. Read _The Pragmatic Programmer_ chapter
+   * [ ] 6. Read _A Mind for Numbers_
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Overall, feeling tired and lower energy lately. I haven't played soccer this week because of my hamstring, so not getting enough exercise.
@@ -1548,7 +1548,7 @@ renames = copies
 
 13:52 In my siesta time, I checked email and have another interview with the CEO of Encora on Monday. It looks good for getting the job. Just about ready for KSS.
 
-14:57 Finished KSS in 39:07 because I took shorter rests and also didn't do QL straddle which I don't like because it's painful and I want a better alternative. I'm going to shower now. My face is itching again. Ugh. Read some from the *Pragmatic Programmer* while stretching. They say learn a new language and start reading a new book after this one.
+14:57 Finished KSS in 39:07 because I took shorter rests and also didn't do QL straddle which I don't like because it's painful and I want a better alternative. I'm going to shower now. My face is itching again. Ugh. Read some from the _Pragmatic Programmer_ while stretching. They say learn a new language and start reading a new book after this one.
 
 15:21 Rinsed off and put the Tecnu? stuff all over and buzzed my hair a little. Feel itchy in a few spots. Ugh.
 
@@ -1568,26 +1568,26 @@ renames = copies
 
 07:18 Sitting next to Omi on the couch after the study session with Alex.
 
-08:27 Finished Objects and *Learn Like a Pro* book. Ready for coffee and breakfast with the kids.
+08:27 Finished Objects and _Learn Like a Pro_ book. Ready for coffee and breakfast with the kids.
 
 09:12 Daily Scrum Questions
 
 1. What did you do yesterday?
-   * [x] 1. Read *Learn Like a Pro* chapter
+   * [x] 1. Read _Learn Like a Pro_ chapter
    * [x] 2. Anki cards from JS100 - JavaScript Basics > Objects > 1-9
    * [x] 4. JS100/101 Beginner Study Group
-   * [x] 5. Read *The Pragmatic Programmer* chapter
-   * [x] 6. Read *A Mind for Numbers*
+   * [x] 5. Read _The Pragmatic Programmer_ chapter
+   * [x] 6. Read _A Mind for Numbers_
    * [x] 7. Listened to LS Podcast S3E3
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [x] 2. Read *Learn Like a Pro* chapter
+   * [x] 2. Read _Learn Like a Pro_ chapter
    * [x] 3. Anki cards from JS100 - JavaScript Basics > Objects > 10
    * [ ] 4. Review JS101 Lesson 2 and Make Anki cards
    * [ ] 5. Take JS101 Lesson 2 Quiz 1
-   * [ ] 6. Read *The Pragmatic Programmer* chapter
-   * [ ] 7. Read *A Mind for Numbers*
+   * [ ] 6. Read _The Pragmatic Programmer_ chapter
+   * [ ] 7. Read _A Mind for Numbers_
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Poison ivy continues to itch as it heals, but it distracts me at times.
@@ -1620,17 +1620,17 @@ renames = copies
 
 1. What did you do yesterday?
    * [x] 1. Study Session with Alex
-   * [x] 2. Read *Learn Like a Pro* chapter
+   * [x] 2. Read _Learn Like a Pro_ chapter
    * [x] 3. Anki cards from JS100 - JavaScript Basics > Objects > 10
    * [x] 4. Reviewed JS101 Lesson 2 and Made Anki cards up to Implicit Coercion with the Binary `+` operator
-   * [x] 5. Read *The Pragmatic Programmer* chapter
-   * [x] 6. Read *A Mind for Numbers* chapter
+   * [x] 5. Read _The Pragmatic Programmer_ chapter
+   * [x] 6. Read _A Mind for Numbers_ chapter
 
 2. What will you do today?
    * [ ] 1. Review JS101 Lesson 2 and Make Anki cards through rest of lesson
    * [ ] 2. Take JS101 Lesson 2 Quiz 1
-   * [ ] 3. Read *The Pragmatic Programmer* chapter
-   * [ ] 4. Read *A Mind for Numbers* chapter
+   * [ ] 3. Read _The Pragmatic Programmer_ chapter
+   * [ ] 4. Read _A Mind for Numbers_ chapter
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Nothing of note today.
@@ -1643,7 +1643,7 @@ renames = copies
 
 11;44 Short rest with eyes closed and ready to do block scope.
 
-12:30 Taking a break to read *A Mind for Numbers* and then make lunch. I've got a little more left in Lesson 2 to review and then I'll be ready to take the Lesson 2 Quiz 1 later today. Then I'll have next week to work on exercises. Fun stuff.
+12:30 Taking a break to read _A Mind for Numbers_ and then make lunch. I've got a little more left in Lesson 2 to review and then I'll be ready to take the Lesson 2 Quiz 1 later today. Then I'll have next week to work on exercises. Fun stuff.
 
 13:40 After lunch and dropping Omi off at McKenzie's for a play date. I thought about getting a foot massage, but didn't. Oh, I do need new cleats. Time to go shopping online.
 
@@ -1663,9 +1663,9 @@ renames = copies
 
 07:37 Feeling a little unfocused at the moment. I want to choose a book of the dharma.
 
-07:52 Going to keep reading *The Book of Life* by J. Krishnamurti.
+07:52 Going to keep reading _The Book of Life_ by J. Krishnamurti.
 
-07:55 Going to read *A Mind for Number* book now. I seem to have abandoned the audible book because it's not a great book for audio as there are a lot of images and exercises not best suited for audio alone. I think as a video course it's fine or a book.
+07:55 Going to read _A Mind for Number_ book now. I seem to have abandoned the audible book because it's not a great book for audio as there are a lot of images and exercises not best suited for audio alone. I think as a video course it's fine or a book.
 
 08:36 After breakfast and I might start studying earlier than planned.
 
@@ -1674,8 +1674,8 @@ renames = copies
 1. What did you do yesterday?
    * [x] 1. Review JS101 Lesson 2 and Make Anki cards through rest of lesson
    * [x] 2. Review JS101 - Small Problems > Easy 1
-   * [x] 3. Read *The Pragmatic Programmer* chapter
-   * [x] 4. Read *A Mind for Numbers* chapter
+   * [x] 3. Read _The Pragmatic Programmer_ chapter
+   * [x] 4. Read _A Mind for Numbers_ chapter
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
@@ -1751,14 +1751,14 @@ bar();
    * [x] 5. Sprint 4 Retrospective
    * [x] 6. Sprint 5 Planning
    * [x] 7. JS101 > Lesson 3: Practice Problems > 2. Practice Problems: Easy 1
-   * [x] 8. Read *The Pragmatic Programmer* chapter
-   * [x] 9. Read *A Mind for Numbers* chapter
+   * [x] 8. Read _The Pragmatic Programmer_ chapter
+   * [x] 9. Read _A Mind for Numbers_ chapter
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [ ] 2. JS101 > Lesson 3: Practice Problems > 3. Practice Problems: Easy 2
-   * [ ] 3. Read *The Pragmatic Programmer* chapter
-   * [ ] 4. Read *A Mind for Numbers* chapter
+   * [ ] 3. Read _The Pragmatic Programmer_ chapter
+   * [ ] 4. Read _A Mind for Numbers_ chapter
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Starting family vacation today and I also have an interview before we leave, so not sure I'll have much time today or the next few days to do much studying.
@@ -1813,8 +1813,8 @@ bar();
 
 2. What will you do today?
    * [ ] 1. JS101 > Lesson 3: Practice Problems > 4. Practice Problems: Easy 3
-   * [ ] 2. Read *The Pragmatic Programmer* chapter
-   * [x] 3. Read *A Mind for Numbers* chapter
+   * [ ] 2. Read _The Pragmatic Programmer_ chapter
+   * [x] 3. Read _A Mind for Numbers_ chapter
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * None
@@ -1850,8 +1850,8 @@ bar();
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [ ] 2. JS101 > Lesson 3: Practice Problems > 4. Practice Problems: Medium 1 > 1~10
-   * [x] 3. Read *A Mind for Numbers* chapter
-   * [ ] 4. Read *The Pragmatic Programmer* chapter
+   * [x] 3. Read _A Mind for Numbers_ chapter
+   * [ ] 4. Read _The Pragmatic Programmer_ chapter
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Getting later start today because I had to run errands to get groceries and see if we can get Omi's iPad fixed. I also have an interview this afternoon for which I need to spend some time preparing.
@@ -1878,12 +1878,12 @@ bar();
    * [x] 1. Study Session with Alex
    * [x] 2. JS101 > Lesson 3: Practice Problems > 4. Practice Problems: Medium 1 > 1~6
    * [x] 3. Listened to the Huberman Lab podcast on human performance
-   * [x] 4. Read *A Mind for Numbers* chapter
+   * [x] 4. Read _A Mind for Numbers_ chapter
 
 2. What will you do today?
    * [ ] 1. JS101 > Lesson 3: Practice Problems > 4. Practice Problems: Medium 1 > 7~10
-   * [x] 2. Read *A Mind for Numbers* chapter
-   * [ ] 3. Read *The Pragmatic Programmer* chapter
+   * [x] 2. Read _A Mind for Numbers_ chapter
+   * [ ] 3. Read _The Pragmatic Programmer_ chapter
    * [ ] 4. Launch School Meetup in NYC
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -1913,15 +1913,15 @@ bar();
 
 1. What did you do yesterday?
    * [x] 1. JS101 > Lesson 3: Practice Problems > 4. Practice Problems: Medium 1 > 7~10
-   * [x] 2. Read *A Mind for Numbers* chapter
+   * [x] 2. Read _A Mind for Numbers_ chapter
    * [x] 3. Launch School Meetup in NYC
    * [x] 4. Listened to Huberman Lab podcast episodes
    * [x] 5. Listened to Launch School latest podcast episode
 
 2. What will you do today?
    * [x] 1. JS101 > Lesson 3: Practice Problems > 6. Practice Problems: Hard 1 > 1~4
-   * [ ] 2. Read *A Mind for Numbers* chapter
-   * [ ] 3. Read *The Pragmatic Programmer* chapter
+   * [ ] 2. Read _A Mind for Numbers_ chapter
+   * [ ] 3. Read _The Pragmatic Programmer_ chapter
    * [x] 4. Sprint 5 Review
    * [x] 5. Sprint 5 Retrospective
    * [x] 6. Sprint 6 Planning
@@ -1969,7 +1969,7 @@ bar();
 
 1. What did you do yesterday?
    * [x] 1. JS101 > Lesson 3: Practice Problems > 6. Practice Problems: Hard 1 > 1~4
-   * [x] 2. Read *A Mind for Numbers* chapter
+   * [x] 2. Read _A Mind for Numbers_ chapter
    * [x] 3. Sprint 5 Review
    * [x] 4. Sprint 5 Retrospective
    * [x] 5. Sprint 6 Planning
@@ -1981,7 +1981,7 @@ bar();
    * [x] 2. SPOT Study Session
    * [ ] 3. JS101 > Lesson 4: JavaScript Collections > 2. Collection Basics
    * [ ] 4. JS101 Study Session: PEDAC
-   * [ ] 5. Read *A Mind for Numbers* chapter
+   * [ ] 5. Read _A Mind for Numbers_ chapter
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * None
@@ -2000,7 +2000,7 @@ bar();
 
 16:22 Back and ready to read before checking email and making dinner.
 
-16:34 Finished chapter 9 of *A Mind for Numbers*.
+16:34 Finished chapter 9 of _A Mind for Numbers_.
 
 19:16 Looking at the discussion of Hard 1 Question 3 Explanation
 
@@ -2049,13 +2049,13 @@ Automatic merge failed; fix conflicts and then commit the result.
    * [x] 2. SPOT Study Session
    * [x] 3. JS101 > Lesson 4: JavaScript Collections > 2. Collection Basics
    * [x] 4. JS101 Study Session: PEDAC
-   * [x] 5. Read *A Mind for Numbers* chapter
+   * [x] 5. Read _A Mind for Numbers_ chapter
    * [x] 6. Listened to Huberman Lab podcast episode 10 | Master Stress: Tools for Managing Stress & Anxiety
 
 2. What will you do today?
    * [x] 1. JS101 > Lesson 4: JavaScript Collections > 2. Collection Basics
    * [ ] 2. Capstone Presentation: Retrospect
-   * [ ] 3. Read *A Mind for Numbers* chapter
+   * [ ] 3. Read _A Mind for Numbers_ chapter
    * [ ] 4. Listen to Huberman Lab Podcast Episode 11 | How Foods and Nutrients Control Our Moods
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -2096,7 +2096,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 1. What did you do yesterday?
    * [x] 1. JS101 > Lesson 4: JavaScript Collections > 2. Collection Basics
    * [x] 2. Capstone Project Presentation: Retrospect
-   * [x] 3. Read *A Mind for Numbers* Chapter 10: Enhancing Your Memory
+   * [x] 3. Read _A Mind for Numbers_ Chapter 10: Enhancing Your Memory
    * [x] 4. Listened to Huberman Lab Podcast Master Stress: Tools for Managing Stress & Anxiety | Episode 10
 
 2. What will you do today?
@@ -2104,7 +2104,7 @@ Automatic merge failed; fix conflicts and then commit the result.
    * [ ] 2. JS101 > Lesson 4: JavaScript Collections > 3. String Methods
    * [ ] 3. Algorithm Writing Clinic
    * [ ] 4. Capstone Project Presentation: Pioneer
-   * [ ] 5. Read *A Mind for Numbers* chapter 11: More Memory Tips
+   * [ ] 5. Read _A Mind for Numbers_ chapter 11: More Memory Tips
    * [ ] 6. Listen to Huberman Lab podcast How Foods and Nutrients Control Our Moods | Episode 11
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -2145,14 +2145,14 @@ Automatic merge failed; fix conflicts and then commit the result.
    * [x] 2. JS101 > Lesson 4: JavaScript Collections > 3. String Methods
    * [x] 3. Algorithm Writing Clinic
    * [x] 4. Capstone Project Presentation: Pioneer
-   * [x] 5. Read *A Mind for Numbers* chapter 11: More Memory Tips
+   * [x] 5. Read _A Mind for Numbers_ chapter 11: More Memory Tips
    * [x] 6. Listen to Huberman Lab podcast How Foods and Nutrients Control Our Moods | Episode 11
    * [x] 7. Conversation with Arthur Kauffman about how to succeed at Launch School
 
 2. What will you do today?
    * [x] 1. JS101 > Lesson 4: JavaScript Collections > 4. Iterating with for and while Loops
    * [ ] 2. JS101 > Lesson 4: JavaScript Collections > 5. Introduction to the PEDAC Process
-   * [ ] 3. Read *A Mind for Numbers* Chapter 12: Learning to Appreciate Your Talent
+   * [ ] 3. Read _A Mind for Numbers_ Chapter 12: Learning to Appreciate Your Talent
    * [x] 4. Capstone Project Presentation: Tapestry
    * [ ] 5. Capstone Project Presentation: Pilot
    * [ ] 6. Listen to Huberman Lab Podcast Episode: How to Increase Motivation & Drive | Episode 12
@@ -2190,14 +2190,14 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 07:02 End study session because Alex had to get a bottle for his daughter.
 
-07:52 Reading *A Mind for Numbers*.
+07:52 Reading _A Mind for Numbers_.
 
 10:47 Daily Scrum Questions
 
 1. What did you do yesterday?
    * [x] 1. JS101 > Lesson 4: JavaScript Collections > 4. Iterating with for and while Loops
    * [x] 2. JS101 > Lesson 4: JavaScript Collections > 5. Introduction to the PEDAC Process
-   * [x] 3. Read *A Mind for Numbers* Chapter 12: Learning to Appreciate Your Talent
+   * [x] 3. Read _A Mind for Numbers_ Chapter 12: Learning to Appreciate Your Talent
    * [x] 4. Capstone Project Presentation: Tapestry
    * [x] 5. Capstone Project Presentation: Pilot
    * [x] 6. Listen to Huberman Lab Podcast Episode: How to Increase Motivation & Drive | Episode 12
@@ -2207,7 +2207,7 @@ Automatic merge failed; fix conflicts and then commit the result.
    * [x] 2. JS101 Beginner Study Group
    * [x] 3. JS109 Study Group
    * [ ] 4. JS101 > Lesson 4: JavaScript Collections > 5. Introduction to the PEDAC Process
-   * [x] 5. Read *A Mind for Numbers* Chapter 13: Sculpting Your Brain
+   * [x] 5. Read _A Mind for Numbers_ Chapter 13: Sculpting Your Brain
    * [x] 6. Listen to Huberman Lab Podcast Episode: The Science of Emotions & Relationships | Episode 13
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -2236,7 +2236,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 2. What will you do today?
    * [ ] 1. JS101 > Lesson 4: JavaScript Collections > 6. The PEDAC Problem Solving Process
-   * [ ] 2. Read *A Mind for Numbers* Chapter 13: Sculpting Your Brain
+   * [ ] 2. Read _A Mind for Numbers_ Chapter 13: Sculpting Your Brain
    * [ ] 3. Listen to Huberman Lab Podcast Episode: The Science of Sexual Development | Episode 14
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -2265,7 +2265,7 @@ map, filter, forEach
 
 1. What did you do yesterday?
    * [x] 1. JS101 > Lesson 4: JavaScript Collections > 6. The PEDAC Problem Solving Process
-   * [x] 2. Read *A Mind for Numbers* Chapter 13: Sculpting Your Brain
+   * [x] 2. Read _A Mind for Numbers_ Chapter 13: Sculpting Your Brain
    * [x] 3. Listen to Huberman Lab Podcast Episode: The Science of Sexual Development | Episode 14
 
 2. What will you do today?
@@ -2274,7 +2274,7 @@ map, filter, forEach
    * [ ] 3. Sprint 6 Retrospective
    * [ ] 4. Sprint 7 Planning
    * [ ] 5. Learning to Learn Assessment
-   * [x] 6. Read *A Mind for Numbers* Chapter 14: Developing the Mind's Eye through Equation Poems
+   * [x] 6. Read _A Mind for Numbers_ Chapter 14: Developing the Mind's Eye through Equation Poems
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Tired in a pleasant way on a rainy Sunday after playing soccer this morning.
@@ -2291,7 +2291,7 @@ map, filter, forEach
 
 07:27 I have so much to learn about using concise syntax while programming.
 
-07:57 Read *A Mind for Numbers* chapter 15: Renaissance Learning
+07:57 Read _A Mind for Numbers_ chapter 15: Renaissance Learning
 
 08:59 Back from walk with the kids. Ready to go to the gym.
 
@@ -2305,11 +2305,11 @@ map, filter, forEach
    * [x] 3. Sprint 6 Retrospective
    * [x] 4. Sprint 7 Planning
    * [x] 5. Learning to Learn Assessment
-   * [x] 6. Read *A Mind for Numbers* Chapter 14: Developing the Mind's Eye through Equation Poems
+   * [x] 6. Read _A Mind for Numbers_ Chapter 14: Developing the Mind's Eye through Equation Poems
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [x] 2. Read *A Mind for Numbers* Chapter 15: Renaissance Learning
+   * [x] 2. Read _A Mind for Numbers_ Chapter 15: Renaissance Learning
    * [x] 3. Listen to the Huberman Lab Podcast Episode 14 | The Science of Sexual Development
    * [ ] 4. JS101 > Lesson 4 > Assignment 7. Selection and Transformation
 
@@ -2336,13 +2336,13 @@ map, filter, forEach
 
 1. What did you do yesterday?
    * [x] 1. Study Session with Alex
-   * [x] 2. Read *A Mind for Numbers* Chapter 15: Renaissance Learning
+   * [x] 2. Read _A Mind for Numbers_ Chapter 15: Renaissance Learning
    * [x] 3. Listened to the Huberman Lab Podcast Episode 14 | The Science of Sexual Development
    * [x] 4. JS101 > Lesson 4 > Assignment 7. Selection and Transformation
 
 2. What will you do today?
    * [ ] 1. JS101 > Lesson 4 > Assignment 8. Array Methods
-   * [ ] 2. Read *A Mind for Numbers* Chapter 16: Avoiding Overconfidence: The Power of Teamwork
+   * [ ] 2. Read _A Mind for Numbers_ Chapter 16: Avoiding Overconfidence: The Power of Teamwork
    * [ ] 3. Listen to the Huberman Lab Podcast Episode 15 | How to Optimize Testosterone & Estrogen
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -2381,7 +2381,7 @@ map, filter, forEach
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [x] 2. JS101 > Lesson 4 > Assignment 9. More Array Methods
-   * [x] 3. Read *A Mind for Numbers* Chapter 16: Avoiding Overconfidence: The Power of Teamwork
+   * [x] 3. Read _A Mind for Numbers_ Chapter 16: Avoiding Overconfidence: The Power of Teamwork
    * [x] 4. SPOT Study Session
    * [x] 5. Listen to the Huberman Lab Podcast Episode 16 | How Hormones Control Hunger, Eating & Satiety
 
@@ -2415,7 +2415,7 @@ map, filter, forEach
 1. What did you do yesterday?
    * [x] 1. Study Session with Alex
    * [x] 2. JS101 > Lesson 4 > Assignment 9. More Array Methods
-   * [x] 3. Read *A Mind for Numbers* Chapter 16: Avoiding Overconfidence: The Power of Teamwork
+   * [x] 3. Read _A Mind for Numbers_ Chapter 16: Avoiding Overconfidence: The Power of Teamwork
    * [x] 4. SPOT Study Session
    * [x] 5. Study Session with Jeff
    * [x] 5. Listened to the Huberman Lab Podcast Episode 16 | How Hormones Control Hunger, Eating & Satiety
@@ -2423,7 +2423,7 @@ map, filter, forEach
 2. What will you do today?
    * [x] 1. JS101 > Lesson 4 > Assignment 9. More Array Methods
    * [x] 2. JS101 > Lesson 4 > Assignment 10. Arrays: What is an Element?
-   * [ ] 3. Read *A Mind for Numbers* Chapter 16: Avoiding Overconfidence: The Power of Teamwork
+   * [ ] 3. Read _A Mind for Numbers_ Chapter 16: Avoiding Overconfidence: The Power of Teamwork
    * [x] 4. Listen to the Huberman Lab Podcast Episode 17 | How to Control Your Metabolism by Thyroid & Growth Hormone
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -2510,7 +2510,7 @@ arr.includes({c: 'foo'}); // => false
 1. What did you do yesterday?
    * [x] 1. JS101 > Lesson 4 > Assignment 9. More Array Methods
    * [x] 2. JS101 > Lesson 4 > Assignment 10. Arrays: What is an Element?
-   * [x] 3. Read *A Mind for Numbers* Chapter 16: Avoiding Overconfidence: The Power of Teamwork
+   * [x] 3. Read _A Mind for Numbers_ Chapter 16: Avoiding Overconfidence: The Power of Teamwork
    * [x] 4. Listened to the Huberman Lab Podcast Episode 17 | How to Control Your Metabolism by Thyroid & Growth Hormone
 
 2. What will you do today?
@@ -2521,7 +2521,7 @@ arr.includes({c: 'foo'}); // => false
 3. Are there any blockers or impediments preventing you from doing your work?
    * I am with the kids all day, so I will not have time to study during the day.
 
-16:55 I haven't done any programming today since this morning although I did read *The Programmer's Brain* at Graydon Pool. Sohee is back, so I might have a few minutes to study.
+16:55 I haven't done any programming today since this morning although I did read _The Programmer's Brain_ at Graydon Pool. Sohee is back, so I might have a few minutes to study.
 
 19:06 Working on the practice problems before dinner at 장모님의 집. Hungry and tired.
 
@@ -2595,7 +2595,7 @@ arr.includes({c: 'foo'}); // => false
    * [x] 1. JS101 > Lesson 4 > Assignment 11. Practice Problems 10 ~ 11
    * [x] 2. JS101 > Lesson 4 > Assignment 12. Lesson 4 Quiz 1
    * [x] 3. SPOT Study Session with Antonina
-   * [ ] 4. Read *A Mind for Numbers* { 17 } | Test Taking
+   * [ ] 4. Read _A Mind for Numbers_ { 17 } | Test Taking
    * [x] 5. Listen to the Huberman Lab Podcast Episode 21 | How to Lose Fat with Science-Based Tools
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -2622,13 +2622,13 @@ arr.includes({c: 'foo'}); // => false
 1. What did you do yesterday?
    * [x] 1. JS101 > Lesson 4 > Assignment 11. Practice Problems 10 ~ 11
    * [x] 2. SPOT Study Session with Antonina
-   * [ ] 3. Read *A Mind for Numbers* { 17 } | Test Taking
+   * [ ] 3. Read _A Mind for Numbers_ { 17 } | Test Taking
    * [x] 4. Listen to the Huberman Lab Podcast Episode 21 | How to Lose Fat with Science-Based Tools
 
 2. What will you do today?
    * [x] 1. JS101 > Lesson 4 > Assignment 12. Lesson 4 Quiz 1
    * [x] 2. Algorithm Writing Clinic
-   * [x] 3. Read *A Mind for Numbers* { 17 } | Test Taking
+   * [x] 3. Read _A Mind for Numbers_ { 17 } | Test Taking
    * [x] 4. Listen to the Huberman Lab Podcast Episode 22 | Science & Tools for Muscle Growth, Increasing Strength & Muscular Recovery
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -2669,12 +2669,12 @@ Score: 12/24 (50.0%)
 1. What did you do yesterday?
    * [x] 1. JS101 > Lesson 4 > Assignment 12. Lesson 4 Quiz 1
    * [x] 2. Algorithm Writing Clinic
-   * [x] 3. Read *A Mind for Numbers* { 17 } | Test Taking
+   * [x] 3. Read _A Mind for Numbers_ { 17 } | Test Taking
    * [x] 4. Listen to the Huberman Lab Podcast Episode 22 | Science & Tools for Muscle Growth, Increasing Strength & Muscular Recovery
 
 2. What will you do today?
    * [ ] 1. JS101 > Lesson 5: Advanced JavaScript Collections > Assignment 2. Sorting
-   * [x] 2. Read *A Mind for Numbers* { 18 } | Unlock Your Potential
+   * [x] 2. Read _A Mind for Numbers_ { 18 } | Unlock Your Potential
    * [x] 3. Listen to the Huberman Lab Podcast Episode 23 | How to Build Endurance in Your Brain & Body
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -2702,7 +2702,7 @@ Score: 12/24 (50.0%)
 
 07:13 Finished studying session with Alex. We agreed to take the JS109 Written Assessment by Sunday 3 October 2021 at 23:59 and work on code snippet explanations in our study sessions.
 
-07:59 Read *The Programmer's Brain*: chapter 1 | Decoding your confusion while coding: long term memory, short term memory, working memory.
+07:59 Read _The Programmer's Brain_: chapter 1 | Decoding your confusion while coding: long term memory, short term memory, working memory.
 
 10:44 Back from the gym. Talking to Sohee about SungOh's birthday party.
 
@@ -2710,7 +2710,7 @@ Score: 12/24 (50.0%)
 
 1. What did you do yesterday?
    * [x] 1. JS101 > Lesson 5: Advanced JavaScript Collections > Assignment 2. Sorting
-   * [x] 2. Read *A Mind for Numbers* { 18 } | Unlock Your Potential
+   * [x] 2. Read _A Mind for Numbers_ { 18 } | Unlock Your Potential
    * [x] 3. Listen to the Huberman Lab Podcast Episode 23 | How to Build Endurance in Your Brain & Body
 
 2. What will you do today?
@@ -2718,7 +2718,7 @@ Score: 12/24 (50.0%)
    * [x] 2. JS100/101 Study Group
    * [x] 3. SPOT QA Session
    * [ ] 4. JS101 > Lesson 5 > Assignment 3. Nested Data Structures
-   * [x] 5. Read *The Programmer's Brain* | Decoding your confusion while coding
+   * [x] 5. Read _The Programmer's Brain_ | Decoding your confusion while coding
    * [x] 6. Listen to the Huberman Lab Podcast Episode 24 | The Science of Vision, Eye Health & Seeing Better
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -2752,12 +2752,12 @@ Score: 12/24 (50.0%)
    * [x] 3. SPOT QA Session
    * [x] 4. JS101 > Lesson 5 > Assignment 3. Nested Data Structures
    * [ ] 5. JS101 > Lesson 5 > Assignment 4. Working with Callback Functions
-   * [x] 6. Read *The Programmer's Brain* | Chapter 1: Decoding your confusion while coding
+   * [x] 6. Read _The Programmer's Brain_ | Chapter 1: Decoding your confusion while coding
    * [x] 7. Listen to the Huberman Lab Podcast Episode 24 | The Science of Vision, Eye Health & Seeing Better
 
 2. What will you do today?
    * [ ] 1. JS101 > Lesson 5 > Assignment 4. Working with Callback Functions
-   * [ ] 2. Read *The Programmer's Brain* | Chapter 2: Speed reading for code
+   * [ ] 2. Read _The Programmer's Brain_ | Chapter 2: Speed reading for code
    * [ ] 3. Listen to the Huberman Lab Podcast Episode 25 | How Smell, Taste & Pheromone-Like Chemicals Control You
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -2783,14 +2783,14 @@ Score: 12/24 (50.0%)
 
 1. What did you do yesterday?
    * [x] 1. JS101 > Lesson 5 > Assignment 4. Working with Callback Functions > Examples 1 ~ 3
-   * [x] 2. Read *The Programmer's Brain* | Chapter 2: Speed reading for code
+   * [x] 2. Read _The Programmer's Brain_ | Chapter 2: Speed reading for code
    * [ ] 3. Listen to the Huberman Lab Podcast Episode 25 | How Smell, Taste & Pheromone-Like Chemicals Control You
 
 2. What will you do today?
    * [x] 1. PEDAC Study Session
    * [x] 2. Study Group with Alex, Edris and Shane
    * [ ] 3. JS101 > Lesson 5 > Assignment 4. Working with Callback Functions > Examples 4 ~ 6
-   * [ ] 4. Read *The Programmer's Brain* | Chapter 3: Decoding your confusion while coding
+   * [ ] 4. Read _The Programmer's Brain_ | Chapter 3: Decoding your confusion while coding
    * [ ] 5. Listen to the Huberman Lab Podcast Episode 24 | The Science of Vision, Eye Health & Seeing Better
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -2820,12 +2820,12 @@ Score: 12/24 (50.0%)
 
 1. What did you do yesterday?
    * [x] 1. JS101 > Lesson 5 > Assignment 4. Working with Callback Functions > Examples 7 ~ 9
-   * [x] 2. Read *The Programmer's Brain* | Chapter 3: Decoding your confusion while coding
+   * [x] 2. Read _The Programmer's Brain_ | Chapter 3: Decoding your confusion while coding
    * [x] 3. Listened to the Huberman Lab Podcast Episode 25 | How Smell, Taste & Pheromone-Like Chemicals Control You
 
 2. What will you do today?
    * [ ] 1. JS101 > Lesson 5 > Assignment 5. Practice Problems
-   * [x] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [x] 2. Read _The Programmer's Brain_ | Chapter 4: How to read complex code
    * [x] 3. Listen to the Huberman Lab Podcast Episode 26 | Dr. Karl Deisseroth: Understanding & Healing the Mind
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -2873,12 +2873,12 @@ Score: 12/24 (50.0%)
    * [x] 1. JS101 > Lesson 5 > Assignment 5. Practice Problems > 1 ~ 7
    * [x] 2. SPOT Study Session with Austin Miller
    * [x] 3. Capstone Project Presentation: Guardrail
-   * [x] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [x] 2. Read _The Programmer's Brain_ | Chapter 4: How to read complex code
    * [x] 3. Listen to the Huberman Lab Podcast Episode 26 | Dr. Karl Deisseroth: Understanding & Healing the Mind
 
 2. What will you do today?
    * [ ] 1. JS101 > Lesson 5 > Assignment 5. Practice Problems > 8 ~ 19
-   * [ ] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [ ] 2. Read _The Programmer's Brain_ | Chapter 4: How to read complex code
    * [ ] 3. Listen to the Huberman Lab Podcast Episode 27 | The Science of Hearing, Balance & Accelerated Learning
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -2910,12 +2910,12 @@ Score: 12/24 (50.0%)
 
 1. What did you do yesterday?
    * [x] 1. JS101 > Lesson 5 > Assignment 5. Practice Problems > 8 ~ 12
-   * [x] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [x] 2. Read _The Programmer's Brain_ | Chapter 4: How to read complex code
    * [x] 3. Listen to the Huberman Lab Podcast Episode 27 | The Science of Hearing, Balance & Accelerated Learning
 
 2. What will you do today?
    * [ ] 1. JS101 > Lesson 5 > Assignment 5. Practice Problems > 13 ~ 17
-   * [ ] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [ ] 2. Read _The Programmer's Brain_ | Chapter 4: How to read complex code
    * [ ] 3. Listen to the Huberman Lab Podcast Episode 27 | The Science of Hearing, Balance & Accelerated Learning
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -2939,12 +2939,12 @@ Score: 12/24 (50.0%)
 
 1. What did you do yesterday?
    * [x] 1. JS101 > Lesson 5 > Assignment 5. Practice Problems > 13 ~ 14
-   * [ ] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [ ] 2. Read _The Programmer's Brain_ | Chapter 4: How to read complex code
    * [x] 3. Listen to the Huberman Lab Podcast Episode 27 | The Science of Hearing, Balance & Accelerated Learning
 
 2. What will you do today?
    * [ ] 1. JS101 > Lesson 5 > Assignment 5. Practice Problems > 15 ~ 17
-   * [ ] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [ ] 2. Read _The Programmer's Brain_ | Chapter 4: How to read complex code
    * [ ] 3. JS109 Study Group
    * [ ] 4. Listen to the Huberman Lab Podcast Episode 28 | Maximizing Productivity, Physical & Mental Health with Daily Tools
 
@@ -2972,13 +2972,13 @@ Score: 12/24 (50.0%)
 1. What did you do yesterday?
    * [x] 1. JS101 > Lesson 5 > Assignment 5. Practice Problems > 15 ~ 17
    * [x] 2. JS101 > Lesson 5 > Assignment 6. Summary
-   * [ ] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [ ] 2. Read _The Programmer's Brain_ | Chapter 4: How to read complex code
    * [x] 3. JS109 Study Group
    * [x] 4. Listen to the Huberman Lab Podcast Episode 28 | Maximizing Productivity, Physical & Mental Health with Daily Tools
 
 2. What will you do today?
    * [ ] 1. JS101 > Lesson 5 > Assignment 7. Lesson 5 Quiz 1
-   * [ ] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [ ] 2. Read _The Programmer's Brain_ | Chapter 4: How to read complex code
    * [ ] 3. Listen to the Huberman Lab Podcast Episode 29 | Dr. Lex Friedman: Machines, Creativity & Love
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -3006,7 +3006,7 @@ Score: 12/24 (50.0%)
 
 2. What will you do today?
    * [ ] 1. JS101 > Lesson 5 > Assignment 7. Lesson 5 Quiz 1
-   * [ ] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [ ] 2. Read _The Programmer's Brain_ | Chapter 4: How to read complex code
    * [ ] 3. Listen to the Huberman Lab Podcast Episode 29 | Dr. Lex Friedman: Machines, Creativity & Love
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -3048,7 +3048,7 @@ Decisions. Decisions. Good problem to have. I'm going to the dining room table n
 1. What did you do yesterday?
    * [x] 1. JS101 > Lesson 5 > Assignment 7. Lesson 5 Quiz 1
    * [x] 2. JS101 > Lesson 6 > Assignments 1
-   * [x] 2. Read *The Programmer's Brain* | Chapter 4: How to read complex code
+   * [x] 2. Read _The Programmer's Brain_ | Chapter 4: How to read complex code
    * [x] 3. Listen to the Huberman Lab Podcast Episode 29 | Dr. Lex Friedman: Machines, Creativity & Love
 
 2. What will you do today?
@@ -3056,7 +3056,7 @@ Decisions. Decisions. Good problem to have. I'm going to the dining room table n
    * [ ] 2. JS101 > Lesson 6 > Assignments 2
    * [ ] 3. JS100/101 Study Session: Intro to PEDAC
    * [ ] 4. Listen to the Huberman Lab Podcast Episode 30 | How to Optimize Your Brain-Body Function & Health
-   * [ ] 5. Read *The Programmer's Brain* | Chapter 5: Reaching a deeper understanding of code
+   * [ ] 5. Read _The Programmer's Brain_ | Chapter 5: Reaching a deeper understanding of code
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Officiate in the afternoon.
@@ -3090,12 +3090,12 @@ Decisions. Decisions. Good problem to have. I'm going to the dining room table n
    * [x] 2. JS101 > Lesson 6 > Assignments 2
    * [x] 3. JS100/101 Study Session: Intro to PEDAC
    * [x] 4. Listen to the Huberman Lab Podcast Episode 30 | How to Optimize Your Brain-Body Function & Health
-   * [x] 5. Read *The Programmer's Brain* | Chapter 5: Reaching a deeper understanding of code
+   * [x] 5. Read _The Programmer's Brain_ | Chapter 5: Reaching a deeper understanding of code
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [ ] 2. JS101 > Lesson 6 > Assignments 3 ~ 7
-   * [ ] 3. Read *The Programmer's Brain* | Chapter 5: Reaching a deeper understanding of code
+   * [ ] 3. Read _The Programmer's Brain_ | Chapter 5: Reaching a deeper understanding of code
    * [ ] 4. Listen to the Huberman Lab Podcast Episode 31 | Dr. Matthew Walker: The Science and Practice of Perfecting Your Sleep
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -3118,13 +3118,13 @@ Decisions. Decisions. Good problem to have. I'm going to the dining room table n
 1. What did you do yesterday?
    * [x] 1. Study Session with Alex
    * [x] 2. JS101 > Lesson 6 > Assignments 3 ~ 5
-   * [x] 3. Read *The Programmer's Brain* | Chapter 5: Reaching a deeper understanding of code
+   * [x] 3. Read _The Programmer's Brain_ | Chapter 5: Reaching a deeper understanding of code
    * [x] 4. Listen to the Huberman Lab Podcast Episode 31 | Dr. Matthew Walker: The Science and Practice of Perfecting Your Sleep
 
 2. What will you do today?
    * [ ] 1. JS101 > Lesson 6 > Assignments 6 ~ 8
    * [ ] 2. Listen to the Huberman Lab Podcast Episode 32 | How to Control Your Sense of Pain & Pleasure
-   * [ ] 3. Read *The Programmer's Brain* | Chapter 5: Reaching a deeper understanding of code
+   * [ ] 3. Read _The Programmer's Brain_ | Chapter 5: Reaching a deeper understanding of code
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I need to prioritize my job search so I can be employed by the end of November when my UI benefits end.
@@ -3198,13 +3198,13 @@ The global variable `words` is declared and initialized to a nested array. The f
 1. What did you do yesterday?
    * [x] 1. JS101 > Lesson 6 > Assignments 6 ~ 8
    * [x] 2. Listen to the Huberman Lab Podcast Episode 32 | How to Control Your Sense of Pain & Pleasure
-   * [x] 3. Read *The Programmer's Brain* | Chapter 5: Reaching a deeper understanding of code
+   * [x] 3. Read _The Programmer's Brain_ | Chapter 5: Reaching a deeper understanding of code
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [ ] 2. JS101 > Lesson 6 > Assignment 9
    * [ ] 3. PEDAC Study Session
-   * [ ] 4. Read *The Programmer's Brain* | Chapter 5: Reaching a deeper understanding of code
+   * [ ] 4. Read _The Programmer's Brain_ | Chapter 5: Reaching a deeper understanding of code
    * [ ] 5. Listen to the Huberman Lab Podcast Episode 32 | How to Control Your Sense of Pain & Pleasure
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -3239,7 +3239,7 @@ The global variable `words` is declared and initialized to a nested array. The f
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [ ] 2. JS109 > Lesson 1 > Assignment 3. Part 1: Study Guide for Test
-   * [ ] 3. Read *The Programmer's Brain* | Chapter 5: Reaching a deeper understanding of code
+   * [ ] 3. Read _The Programmer's Brain_ | Chapter 5: Reaching a deeper understanding of code
    * [ ] 4. Listen to the Huberman Lab Podcast Episode 34 | Understanding & Conquering Depression
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -3268,7 +3268,7 @@ The global variable `words` is declared and initialized to a nested array. The f
 1. What did you do yesterday?
    * [x] 1. Study Session with Alex
    * [x] 2. JS109 > Lesson 1 > Assignment 3. Part 1: Study Guide for Test
-   * [ ] 3. Read *The Programmer's Brain* | Chapter 5: Reaching a deeper understanding of code
+   * [ ] 3. Read _The Programmer's Brain_ | Chapter 5: Reaching a deeper understanding of code
    * [x] 4. Listen to the Huberman Lab Podcast Episode 34 | Understanding & Conquering Depression
 
 2. What will you do today?
@@ -3305,7 +3305,7 @@ The global variable `words` is declared and initialized to a nested array. The f
 2. What will you do today?
    * [x] 1. Study Session with Alex and Laurent
    * [ ] 2. JS109 > Lesson 1 > Assignment 3. Part 1: Dissect Study Guide for Test
-   * [ ] 3. Read *The Programmer's Brain* | Chapter 5: Reaching a deeper understanding of code
+   * [ ] 3. Read _The Programmer's Brain_ | Chapter 5: Reaching a deeper understanding of code
    * [ ] 4. Listen to the Huberman Lab Podcast Episode 36 | Healthy Eating & Eating Disorders - Anorexia, Bulimia, Binging
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -3330,7 +3330,7 @@ The global variable `words` is declared and initialized to a nested array. The f
 1. What did you do yesterday?
    * [x] 1. Study Session with Alex and Laurent
    * [x] 2. JS109 > Lesson 1 > Assignment 3. Part 1: Dissect Study Guide for Test
-   * [ ] 3. Read *The Programmer's Brain* | Chapter 5: Reaching a deeper understanding of code
+   * [ ] 3. Read _The Programmer's Brain_ | Chapter 5: Reaching a deeper understanding of code
    * [x] 4. Listened to the Huberman Lab Podcast Episode 36 | Healthy Eating & Eating Disorders - Anorexia, Bulimia, Binging
 
 2. What will you do today?
@@ -3423,7 +3423,7 @@ The global variable `words` is declared and initialized to a nested array. The f
 
 2. What will you do today?
    * [ ] 1. JS109 > Lesson 1 > Assignment 3. Part 1: Finish the Glossary Topics: Truthiness vs Boolean, Variable Scope, and Variables as Pointers
-   * [ ] 2. Read *The Programmer's Brain* chapter 5: Reaching a deeper understanding of code
+   * [ ] 2. Read _The Programmer's Brain_ chapter 5: Reaching a deeper understanding of code
    * [ ] 3. SPOT Study Session
    * [ ] 4. Office Hours with Chris Lee
    * [ ] 5. Listen to the Huberman Lab Podcast Episode 39 | Controlling Your Dopamine for Motivation, Focus & Satisfaction
@@ -3468,7 +3468,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 
 1. What did you do yesterday?
    * [ ] 1. JS109 > Lesson 1 > Assignment 3. Part 1: Glossary Topics: Working with Strings
-   * [x] 2. Read *The Programmer's Brain* chapter 5: Reaching a deeper understanding of code
+   * [x] 2. Read _The Programmer's Brain_ chapter 5: Reaching a deeper understanding of code
    * [x] 3. SPOT Study Session
    * [x] 4. Office Hours with Chris Lee
    * [x] 5. Listened to the Huberman Lab Podcast Episode 39 | Controlling Your Dopamine for Motivation, Focus & Satisfaction
@@ -3497,7 +3497,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 2. What will you do today?
    * [x] 1. JS109 > Lesson 1 > Assignment 3. Part 1: Glossary Topics: Truthiness vs Boolean, Variable Scope, and Variables as Pointers
    * [x] 2. JS109 Study Session with Juliette
-   * [x] 3. Read *The Programmer's Brain* chapter 5: Reaching a deeper understanding of code
+   * [x] 3. Read _The Programmer's Brain_ chapter 5: Reaching a deeper understanding of code
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I had marriage counseling this morning. I woke up late. I have a soccer game to officiate in the late afternoon.
@@ -3523,7 +3523,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 1. What did you do yesterday?
    * [x] 1. JS109 > Lesson 1 > Assignment 3. Part 1: Glossary Topics: Truthiness vs Boolean and Variables as Pointers
    * [x] 2. JS109 Study Session with Juliette
-   * [ ] 3. Read *The Programmer's Brain* chapter 5: Reaching a deeper understanding of code
+   * [ ] 3. Read _The Programmer's Brain_ chapter 5: Reaching a deeper understanding of code
 
 2. What will you do today?
    * [x] 1. Study Session with Alex and Laurent
@@ -3550,7 +3550,7 @@ How awesome are the engineers in the company? If you're the best one there, that
 2. What will you do today?
    * [x] 1. Print out and review glossary
    * [ ] 2. Review small problems and annotate the discussion section
-   * [ ] 3. Read *The Programmer's Brain* chapter 5: Reaching a deeper understanding of code
+   * [ ] 3. Read _The Programmer's Brain_ chapter 5: Reaching a deeper understanding of code
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Referee this afternoon.
@@ -3574,14 +3574,14 @@ How awesome are the engineers in the company? If you're the best one there, that
 1. What did you do yesterday?
    * [x] 1. Print out and review glossary
    * [ ] 2. Review small problems and annotate the discussion section
-   * [ ] 3. Read *The Programmer's Brain* chapter 5: Reaching a deeper understanding of code
+   * [ ] 3. Read _The Programmer's Brain_ chapter 5: Reaching a deeper understanding of code
 
 2. What will you do today?
    * [x] 1. Study Session with Alex and Laurent
    * [ ] 2. Review small problems and annotate the discussion section
    * [ ] 3. SPOT Study Session
    * [ ] 4. Algorithm Writing Clinic
-   * [ ] 3. Read *The Programmer's Brain* chapter 5: Reaching a deeper understanding of code
+   * [ ] 3. Read _The Programmer's Brain_ chapter 5: Reaching a deeper understanding of code
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I don't feel ready to take the written assessment. I need to sharpen my code analysis skills and identify the underlying concept faster. This requires more practice.
@@ -3606,7 +3606,7 @@ How awesome are the engineers in the company? If you're the best one there, that
    * [x] 1. Study Session with Alex and Laurent
    * [x] 2. Study Elaine's notes and integrate them into my glossary
    * [x] 3. SPOT Study Session
-   * [ ] 4. Read *The Programmer's Brain* chapter 5: Reaching a deeper understanding of code
+   * [ ] 4. Read _The Programmer's Brain_ chapter 5: Reaching a deeper understanding of code
 
 2. What will you do today?
    * [x] 1. Study Elaine's notes and integrate them into my glossary
@@ -5132,8 +5132,8 @@ postgres=#
 
 Some Useful Sorting Rules:
 
-* **Uppercase** letters *come before* **lowercase** letters (sometimes called ASCIIbetical order, but that is imprecise when talking about UTF-16 code points).
-* **Digits** and most punctuation *come before* letters.
+* **Uppercase** letters _come before_ **lowercase** letters (sometimes called ASCIIbetical order, but that is imprecise when talking about UTF-16 code points).
+* **Digits** and most punctuation _come before_ letters.
 * There are several punctuation characters between the uppercase and lowercase letters, and several more that come after all of the letters.
 * There is an extended ASCII table that contains accented and other characters - this comes after the main ASCII table.
 * All other UTF-16 characters come after the extended ASCII table and have a code point of at least 256.
@@ -5857,7 +5857,7 @@ communicative more
 
 16:24 Here are some text examples for markdown
 
-<span style="color:blue">some *This is Blue italic.* text</span>
+<span style="color:blue">some _This is Blue italic._ text</span>
 
 <span style="color:red">some **This is Red Bold.** text</span>
 
@@ -5948,17 +5948,19 @@ TODOs:
 1. What did you do yesterday?
    * [x] 1. Study Session with Alex
    * [x] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignments 1 ~ 4
-   * [x] 3. Read *The Programmer's Brain*, Chapter 4: How to read complex code
+   * [x] 3. Read _The Programmer's Brain_, Chapter 4: How to read complex code
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [x] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignments 5
    * [x] 3. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignments 6
-   * [ ] 4. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignments 7
+   * [x] 4. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignments 7
    * [ ] 5. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignments 8
-   * [ ] 3. Read *The Programmer's Brain*, Chapter 5: Reaching a deeper understanding of code
+   * [ ] 3. Read _The Programmer's Brain_, Chapter 5: Reaching a deeper understanding of code
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I didn't get the Sales Engineer position at Greenshades which means I have to double down on a new job search or have a conversation with Sohee about studying full-time.
 
 10:08 I think I've improved my studying skills and techniques and using Anki cards seems to be beneficial. Time for a short break.
+
+10:57 I finished studying the global object. It's going well today so far.
