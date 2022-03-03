@@ -647,14 +647,64 @@ Object.keys(foo).forEach(property => {
 
 If `foo` is an arbitrary object, will these loops always log the same results to the console? Explain why they do or do not. If they don't always log the same information, show an example of when the results differ.
 
-for/in will log all the properties of the foo object not just the enumerable properties
+Answer:
 
-`Object.keys` will log only the enumerable properties of the foo object.
+~~for/in will log all the properties of the foo object not just the enumerable properties
 
+`Object.keys` will log only the enumerable properties of the foo object.~~
 
-### 6.
+### Solution 5
 
+They don't always produce the same results since the second loop only iterates over `foo`'s "own" properties, but the first loop iterates over all of the object's enumerable properties, including those inside its prototype chain. For instance, assume that the following code precedes the loops:
 
+```js
+let bar = { a: 1, b: 2 };
+let foo = Object.create(bar);
+foo.a = 3;
+foo.c = 4;
+```
+
+With this code, the first loop (`for/in`) outputs:
+
+```sh
+a: 3        // from foo
+c: 4        // from foo
+b: 2        // from bar
+```
+
+The second loop (`Object.keys()`) outputs:
+
+```sh
+a: 3        // from foo
+c: 4        // from foo
+```
+
+The two loops produce the same results only when the prototype chain doesn't contain enumerable properties.
+
+### 6. How do you create an object that doesn't have a prototype? How can you determine whether an object has a prototype?
+
+Answer: set it to `null` 
+Use Object.getPrototypeOf()
+
+### Solution 6
+
+You can create an object without a prototype by using `Object.create` with a `null` argument:
+
+```js
+let bareObject = Object.create(null);
+```
+
+If you need to check whether an object has a prototype, you can test the value produced by `Object.getPrototypeOf`:
+
+```js
+if (Object.getPrototypeOf(obj)) {
+  // obj has a prototype
+} else {
+  // obj does not have a prototype
+}
+```
+
+End 20220302 20:19
 
 ## 5. Function Expressions
 
