@@ -5939,4 +5939,21 @@ TODOs:
 
 07:46 Finished Function Expressions before breakfast. I'm going to read my chapter of the Programmer's Brain and then continue with Higher Order Functions after breakfast.
 
-09:02 I cancelled edabit and did Anki cards. Now ready to learn more about Higher Order Functions afer I go to the bathroom. It's a good day to study and learn.
+09:02 I cancelled edabit and did Anki cards. Now ready to learn more about Higher Order Functions after I go to the bathroom. It's a good day to study and learn.
+
+09:22 I took a longer break than I thought I would to poo and then talk to Sohee after she came home. I want to study full-time and then do Capstone in the fall of 2022 and get a new job next year. That's a good plan if I can get Sohee onboard.
+
+09:25 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignments 1 ~ 4
+   * [x] 3. Read *The Programmer's Brain*, Chapter 4: How to read complex code
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignments 5 ~ 8
+   * [x] 3. Read *The Programmer's Brain*, Chapter 5: Reaching a deeper understanding of code
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I didn't get the Sales Engineer position at Greenshades which means I have to double down on a new job search or have a conversation with Sohee about studying full-time.
