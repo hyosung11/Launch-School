@@ -512,7 +512,149 @@ When you access a property on an object, JavaScript looks for the property first
 
 ## 4. Practice Problems: Object Prototypes
 
-RR
+### 1. What will the following code log to the console? Explain why it logs that value. Try to answer without running the code.
+
+```js
+let qux = { foo: 1 };
+let baz = Object.create(qux);
+console.log(baz.foo + qux.foo);
+```
+
+Answer: It will log `2` because it evaluates `baz.foo` to 1 + `quz.foo` to 1;
+
+### Solution 1
+
+```sh
+2
+```
+
+Naturally, `qux.foo` returns `1` since `qux` has a `foo` property with that value. However, `baz` doesn't have its "own" copy of the `foo` property. Therefore, JavaScript searches the prototype chain for a `foo` property and finds the property in `qux`. Thus, `baz.foo` is also `1` and the sum of the two values is `2`.
+
+### 2. What will the following code log to the console? Explain why it logs that value. Try to answer without running the code.
+
+```js
+let qux = { foo: 1 };
+let baz = Object.create(qux);
+baz.foo = 2; // line 3
+
+console.log(baz.foo + qux.foo);
+```
+
+Answer: 3. The value of `baz.foo` returns `2` on line 3. `qux.foo` returns `1` on line 1. The assignment of `baz.foo` on line 3 does not mutate the `qux` object because when assigning a property on an object, JavaScript always treats the property as an "own" property. That is, it assumes that the property belongs to the object named to the left of the property name. Even if the prototype chain already has a property with that name, it assigns the "own" property. Here, `foo` becomes an "own" property of `baz`. (copied from notes)
+
+### Solution 2
+
+```sh
+3
+```
+
+This code is very similar to that in problem 1. However, this time, we assign `baz.foo` to a value of `2`. Property assignment doesn't use the prototype chain; instead, it creates a new property in the `baz` object named `foo`.
+
+When we add `baz.foo` and `qux.foo` together, `baz.foo` returns the value of its "own" `foo` property, while `qux.foo` returns the value of its "own" `foo` property. Thus, the result is `3`.
+
+### 3. What will the following code log to the console? Explain why it logs that value. Try to answer without running the code.
+
+```js
+let qux = { foo: 1 };
+let baz = Object.create(qux);
+qux.foo = 2;
+
+console.log(baz.foo + qux.foo);
+```
+
+Answer: 4. The reassignment of `qux.foo` to `2` is inherited by the `baz` object. Thus, `baz.foo` is `2`, and the sum of the two values is `4`.
+
+### Solution 3
+
+```sh
+4
+```
+
+This code is also very similar to problem 1. This time, though, we assign the value `2` to `qux.foo`. Since `baz` doesn't have its "own" copy of the `foo` property, JavaScript uses the prototype chain to look up `baz.foo`, and it finds the `foo` property in `qux`. The result is equivalent to `2 + 2`, or `4`.
+
+An important consideration when dealing with prototypes is that *objects hold a reference to their prototype objects*. If the object's prototype changes in some way, the changes are observable in the inheriting object as well.
+
+### 4. As we saw in problem 2, the following code creates a new property in the baz object instead of assigning the property in the prototype object.
+
+```js
+let qux = { foo: 1 };
+let baz = Object.create(qux);
+baz.foo = 2;
+```
+
+Write a function that searches the prototype chain of an object for a given property and assigns it a new value. If the property does not exist in any of the prototype objects, the function should do nothing. The following code should work as shown:
+
+```js
+let fooA = { bar: 1 };
+let fooB = Object.create(fooA);
+let fooC = Object.create(fooB);
+
+assignProperty(fooC, "bar", 2);
+console.log(fooA.bar); // 2
+console.log(fooC.bar); // 2
+
+assignProperty(fooC, "qux", 3);
+console.log(fooA.qux); // undefined
+console.log(fooC.qux); // undefined
+console.log(fooA.hasOwnProperty("qux")); // false
+console.log(fooC.hasOwnProperty("qux")); // false
+```
+
+### Solution 4
+
+Iterative Solution
+
+```js
+function assignProperty(obj, property, value) {
+  while (obj !== null) {
+    if (obj.hasOwnProperty(property)) {
+      obj[property] = value;
+      break;
+    }
+
+    obj = Object.getPrototypeOf(obj);
+  }
+}
+```
+
+Recursive Solution
+
+```js
+function assignProperty(obj, property, value) {
+  if (obj === null) {// property not found
+    return;
+  } else if (obj.hasOwnProperty(property)) {
+    obj[property] = value;
+  } else {
+    assignProperty(Object.getPrototypeOf(obj), property, value);
+  }
+}
+```
+
+### 5. Consider the following two loops:
+
+```js
+for (let property in foo) {
+  console.log(`${property}: ${foo[property]}`)
+}
+```
+
+```js
+Object.keys(foo).forEach(property => {
+  console.log(`${property}: ${foo[property]}`);
+});
+```
+
+If `foo` is an arbitrary object, will these loops always log the same results to the console? Explain why they do or do not. If they don't always log the same information, show an example of when the results differ.
+
+for/in will log all the properties of the foo object not just the enumerable properties
+
+`Object.keys` will log only the enumerable properties of the foo object.
+
+
+### 6.
+
+
 
 ## 5. Function Expressions
 
