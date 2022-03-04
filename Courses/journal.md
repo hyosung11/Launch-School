@@ -5975,3 +5975,5 @@ TODOs:
 16:11 Started Assignment 9, the practice problems on execution context.
 
 17:13 Finished Assignment 9, but need to review how to use `Function.prototype.call()`.
+
+19:31 Studied Hard Binding Functions with Contexts. This is interesting stuff even as it seems confusing on this pass. I think we covered this briefly and quickly in my General Assembly Coding Bootcamp.
