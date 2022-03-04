@@ -2184,6 +2184,84 @@ In both snippets, the `obj.logData` method gets invoked by `forEach` with the gl
 
 ## 15. Practice Problems: Dealing with Context Loss
 
+### 15.1 The code below should output "Christopher Turk is a Surgeon". Without running the code, what will it output? If there is a difference between the actual and desired output, explain the difference.
+
+```js
+let turk = {
+  firstName: 'Christopher',
+  lastName: 'Turk',
+  occupation: 'Surgeon',
+  getDescription() {
+      return this.firstName + ' ' + this.lastName + ' is a '
+                                  + this.occupation + '.';
+  }
+};
+
+function logReturnVal(func) { // turk.getDescription
+  let returnVal = func();
+  console.log(returnVal);
+}
+
+logReturnVal(turk.getDescription);
+```
+
+~~My Answer: `getDescription()` is tied to the global object, so it will output: undefined~~
+
+### 15.1.1 Solution
+
+```sh
+undefined undefined is a undefined.
+```
+
+When we pass `turk.getDescription` as an argument to `logReturnVal`, we *remove the method from its context*. As a result, when we execute it as `func`, this points to the global object rather than `turk`. Since `global` doesn't have properties defined for `firstName`, `lastName`, or `occupation`, the output isn't what we expect.
+
+### 15.2 Modify the program from the previous problem so that `logReturnVal` accepts an additional `context` argument. If you then run the program with `turk` as the context argument, it should produce the desired output.
+
+```js
+let turk = {
+  firstName: 'Christopher',
+  lastName: 'Turk',
+  occupation: 'Surgeon',
+  getDescription() {
+      return this.firstName + ' ' + this.lastName + ' is a '
+                                  + this.occupation + '.';
+  }
+};
+
+function logReturnVal(func, context) { // <-- `context` argument here
+  let returnVal = func.call(context); // <-- `call`
+  console.log(returnVal);
+}
+
+logReturnVal(turk.getDescription, turk); // line 16 <-- added context argument
+```
+
+By using `call` to invoke `func` and passing it the `context` argument, we can provide the desired context for the function. On line 16, we invoke `logReturnVal` with `turk` as the context argument, then pass that value to `call`; the result is our desired output.
+
+Note that we can use `apply` instead of `call`:
+
+```js
+let returnVal = func.apply(context);
+```
+
+It's also possible to use `bind`, but given the condition that `logReturnVal` must accept a `context` argument, that solution leads to this slightly odd code:
+
+```js
+let returnVal = func.bind(context)();
+```
+
+This code is slightly unclear since it implies that we want the binding to be permanent. Use `call` or `apply` instead.
+
+### 15.3
+
+### 15.4
+### 15.5
+### 15.6
+### 15.7
+### 15.8
+### 15.9
+
+
 ## 16. Summary
 
 ## 17. Lesson 2 Quiz 1

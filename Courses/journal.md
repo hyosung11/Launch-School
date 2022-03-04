@@ -6030,3 +6030,5 @@ TODOs:
 11:02 I got distracted a little this morning and just finished Assignment 13 on Dealing with Context Loss II by using a variable in outer scope, calling inner functions with explicit context, using `bind`, or using arrow functions. I think I have to poo now.
 
 12:31 Sohee came home from the Science Fair. I finished "Dealing with Context Loss III" and am ready to do the practice problems. I do wonder about clicking through to the quizzes first?
+
+14:16 I am on fumes right now. My brain feels fuzzy and I can't think clearly right now. I need a break, some NSDR or a nap, or something of an execution context change for my functioning. Ha ha.
