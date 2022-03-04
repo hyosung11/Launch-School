@@ -2250,11 +2250,72 @@ It's also possible to use `bind`, but given the condition that `logReturnVal` mu
 let returnVal = func.bind(context)();
 ```
 
-This code is slightly unclear since it implies that we want the binding to be permanent. Use `call` or `apply` instead.
+This code is slightly unclear since it implies that we want the binding to be permanent. *Use `call` or `apply` instead*.
 
-### 15.3
+### 15.3 Suppose that we want to extract `getDescription` from `turk`, but we always want it to execute with `turk` as its execution context. How would you modify your code to do that?
 
-### 15.4
+My Answer: Use `bind`, but I don't know how exactly yet.
+
+```js
+let turk = {
+  firstName: 'Christopher',
+  lastName: 'Turk',
+  occupation: 'Surgeon',
+  getDescription() {
+      return this.firstName + ' ' + this.lastName + ' is a '
+                                  + this.occupation + '.';
+  }
+};
+
+function logReturnVal(func) {
+  let returnVal = func();
+  console.log(returnVal);
+}
+
+let getTurkDescription = turk.getDescription.bind(turk);
+logReturnVal(getTurkDescription);
+```
+
+### 15.4 Consider the following code:
+
+```js
+const TESgames = {
+  titles: ['Arena', 'Daggerfall', 'Morrowind', 'Oblivion', 'Skyrim'],
+  seriesTitle: 'The Elder Scrolls',
+  listGames: function() {
+    this.titles.forEach(function(title) {
+      console.log(this.seriesTitle + ': ' + title); // line 6
+    });
+  }
+};
+
+TESgames.listGames();
+```
+
+Will this code produce the following output? Why or why not?
+
+```sh
+The Elder Scrolls: Arena
+The Elder Scrolls: Daggerfall
+The Elder Scrolls: Morrowind
+The Elder Scrolls: Oblivion
+The Elder Scrolls: Skyrim
+```
+
+My Answer: No because the call to `TESgames.listGames()` invokes the `listGames` method which invokes a function expression that is stripped of the TESgames context. So it references the global object which does not have the properties `titles` or `seriesTitle` and the output is  undefined repeatedly.
+
+### 15.4 Solution
+
+```sh
+undefined: Arena
+undefined: Daggerfall
+undefined: Morrowind
+undefined: Oblivion
+undefined: Skyrim
+```
+
+Since functions lose their surrounding context when used as arguments to another function, the context of line 6 is not the `TESgames` object. Instead, it is the global object. Thus, `this.seriesTitle` resolves to `undefined` rather than `"The Elder Scrolls"`.
+
 ### 15.5
 ### 15.6
 ### 15.7
