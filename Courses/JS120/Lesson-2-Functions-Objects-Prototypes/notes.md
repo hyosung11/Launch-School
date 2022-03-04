@@ -1826,11 +1826,69 @@ foo();
 // => hello, John Doe
 ```
 
-`bind` has one significant advantage: once you bind a context to a function, that binding is permanent and does not need to be repeated if it gets called more than once. The disadvantage of `bind` is that it is no longer possible to determine the context by looking at the invocation of the final function.
+`bind` has one significant advantage: once you bind a context to a function, that *binding is permanent* and does not need to be repeated if it gets called more than once. The disadvantage of `bind` is that it is no longer possible to determine the context by looking at the invocation of the final function.
 
 In the next assignment, we'll study how functions can lose their surrounding context. Loss of surrounding context is a common issue when dealing with functions nested within object methods.
 
 ## 13. Dealing with Context Loss II
+
+In this assignment, we'll see how **nested functions** *suffer from context loss*.
+
+### 13.1 Inner Function Not Using the Surrounding Context
+
+Examine the following code:
+
+```js
+let obj = {
+  a: 'hello',
+  b: 'world',
+  foo: function() {
+    function bar() {
+      console.log(this.a + ' ' + this.b);
+    }
+
+    bar(); // line 9
+  },
+};
+
+obj.foo();  // => undefined undefined
+```
+
+By now, you should be able to understand why this code logs `undefined` `undefined` instead of `hello world`. However, the behavior is not intuitive, so don't worry if you can't see the problem just yet.
+
+As we've said repeatedly, a function or method's execution context depends solely on how you invoke it, not on how and where it's defined. Here, `bar` is invoked as a standalone function on line 9. Thus, its execution context is the global object, not the `obj` object that you may have expected.
+
+Let's examine some solutions to this problem.
+
+#### 13.1.1 Solution 1: Preserve Context with a Variable in Outer Scope
+
+One common way to preserve the context in this scenario is to use something like let s`elf = this` or `let that = this` in the outer function. If you define the `self` or `that` variable -- these names are idiomatic, and not a required name --- in the outer scope, you can use that variable and whatever value it contains inside your nested inner function(s).
+
+```js
+let obj = {
+  a: 'hello',
+  b: 'world',
+  foo: function() {
+    let self = this; // line 5
+
+    function bar() {
+      console.log(self.a + ' ' + self.b);
+    }
+
+    bar();
+  },
+};
+
+obj.foo(); // => hello world
+```
+
+In this example, line 5 assigns `this` to the local variable `self`. Since JavaScript uses lexical scoping rules for variables, `bar` can access `self` within its body; that lets us use it instead of `this` to access the correct context object.
+
+#### 13.1.2 Solution 2: Call Inner Functions with Explicit Context
+
+#### 13.1.3 Solution 3: Use `bind`
+
+#### 13.1.4 Solution 4: Using an Arrow Function
 
 ## 14. Dealing with Context Loss III
 

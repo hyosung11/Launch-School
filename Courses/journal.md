@@ -6010,7 +6010,7 @@ TODOs:
 
 2. What will you do today?
    * [x] 1. Study Session with Alex (Anki cards for me)
-   * [ ] 2. Read _The Programmer's Brain_, Chapter 6: Getting better at solving coding problems
+   * [ ] 2. Read _The Programmer's Brain_, Chapter 6: Getting better at solving programming problems
    * [ ] 3. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 13
    * [ ] 4. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 14
    * [ ] 6. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 15
@@ -6021,4 +6021,8 @@ TODOs:
 3. Are there any blockers or impediments preventing you from doing your work?
    1. Nope. I plan to get in a good 6 hours of studying today. I already had a study session with Alex and reviewed some Anki cards. I meet with Michael today at 11:00.
 
+08:46 Watching:
 
+[An Introduction to Functions, Execution Context and the Call Stack (FULL VIDEO - Parts 1-3)](https://www.youtube.com/watch?v=exrc_rLj5iw&t=2s) from Codesmith on YouTube.
+
+09:27 I took a slight detour to watch the video above and now I have to pee.
