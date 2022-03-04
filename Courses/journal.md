@@ -5986,3 +5986,39 @@ TODOs:
 20:57 I finished "Practice Problems: Hard Binding Functions with Contexts" and could mostly arrive at the right output even though as of now I can't really articulate the reasoning with accuracy or precision. I think I'm done for the night. I plan to work through the rest of Lesson 2 tomorrow. I hope at this rate, I can get through the rest of JS120 by the end of next week!
 
 22:18 I started and finished studying "Dealing with Context Loss I - Method Copied from Object. Now I am going to bed.
+
+## 20220304 금요일
+
+05:56 Before my study session with Alex. I feel good this morning and I think the cold showers amp me up in a good way.
+
+07:06 After study session with Alex and I want to do daily scrum questions and start on Dealing with Context Loss II.
+
+0:07 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Read _The Programmer's Brain_, Chapter 5: Reaching a deeper understanding of code
+   * [x] 3. Study Session with Alex (Anki cards for me)
+   * [x] 4. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 5
+   * [x] 5. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 6
+   * [x] 6. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 7
+   * [x] 7. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 8
+   * [x] 8. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 9
+   * [x] 9. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 10
+   * [x] 10. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 11
+   * [x] 11. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 12
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex (Anki cards for me)
+   * [ ] 2. Read _The Programmer's Brain_, Chapter 6: Getting better at solving coding problems
+   * [ ] 3. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 13
+   * [ ] 4. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 14
+   * [ ] 6. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 15
+   * [ ] 7. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 16
+   * [ ] 8. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 17
+   * [ ] 9. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 18
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   1. Nope. I plan to get in a good 6 hours of studying today. I already had a study session with Alex and reviewed some Anki cards. I meet with Michael today at 11:00.
+
+
