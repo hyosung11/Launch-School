@@ -1886,9 +1886,143 @@ In this example, line 5 assigns `this` to the local variable `self`. Since JavaS
 
 #### 13.1.2 Solution 2: Call Inner Functions with Explicit Context
 
+You can also use `call` or `apply` to explicitly provide a context when calling the inner function. For instance:
+
+```js
+let obj = {
+  a: 'hello',
+  b: 'world',
+  foo: function() {
+    function bar() {
+      console.log(this.a + ' ' + this.b);
+    }
+
+    bar.call(this);
+  },
+};
+
+obj.foo(); // => hello world
+```
+
+We won't show an example of `apply` since you can always use `call` in its place if you use the spread operator to expand `apply`'s array argument.
+
 #### 13.1.3 Solution 3: Use `bind`
 
+A third approach is to call `bind` on the inner function and get a new function with its execution context permanently set to the object.
+
+```js
+let obj = {
+  a: 'hello',
+  b: 'world',
+  foo: function() {
+    let bar = function() {
+      console.log(this.a + ' ' + this.b);
+    }.bind(this);
+
+    // some code
+    bar();
+
+    // some more code
+    bar();
+
+    // still more code
+  }
+};
+
+obj.foo();
+// => hello world
+// => hello world
+```
+
+Note that we're calling bind on the function expression here, then assigning the returned function to the bar variable. You can also use a function declaration instead of a function expression, but you'll need an extra variable:
+
+```js
+let obj = {
+  a: 'hello',
+  b: 'world',
+  foo: function() {
+    function bar() {
+      console.log(this.a + ' ' + this.b);
+    }
+
+    let qux = bar.bind(this);
+
+    // some code
+    qux();
+
+    // some more code
+    qux();
+
+    // still more code
+  }
+};
+
+obj.foo();
+// => hello world
+// => hello world
+```
+
+One advantage of `bind` is that you can do it once and then *call it as often as needed without an explicit context*.
+
 #### 13.1.4 Solution 4: Using an Arrow Function
+
+Arrow functions have a property that comes in very handy when dealing with context loss; they inherit their execution context from the surrounding context. That means that an arrow function defined inside another function always has the same context as the outer function's context:
+
+```js
+let obj = {
+  a: 'hello',
+  b: 'world',
+  foo: function() {
+    let bar = () => {
+      console.log(this.a + ' ' + this.b);
+    }
+
+    // some code
+    bar();
+
+    // some more code
+    bar();
+
+    // still more code
+  }
+};
+
+obj.foo();
+// => hello world
+// => hello world
+```
+
+Using arrow functions like this is similar to using bind in that you don't have to worry about arrow functions losing their surrounding context. An arrow function, once created, always has the same context as the function that surrounded it when it was created.
+
+Of all the techniques we saw in this assignment, using arrow functions is the most common these days.
+
+#### 13.1.5 Don't Use Arrow Functions as Methods on an Object
+
+Despite how useful arrow functions are for avoiding context loss, *you should not try to use them as methods on an object*. They don't work as expected.
+
+```js
+let obj = {
+  a: 5,
+
+  foo: () => {
+    console.log(this.a);
+  },
+};
+
+obj.foo(); // => undefined
+```
+
+The reason that this code doesn't work is that arrow functions always get the value of `this` from the surrounding context. In the code shown above, it certainly looks like the surrounding context is `obj`, so shouldn't `this` refer to `obj`? Despite appearances and what your logic tells you, that isn't the case.
+
+The surrounding context is, in fact, the `global object`. The reason for that is simple: the `let` statement in this example *is in the program's top-level code*, so its context is the global object. That means that `this` inside the object literal is also the global object, so `this` on line 5 refers to the global object, not `obj`.
+
+When using `node` to execute a file, e.g., `node somefile.js`, the surrounding context is the `module`, not the global object. This can cause a certain amount of confusion when working with node in both REPL and file modes. We'll discuss modules in a later course.
+
+You may have noticed that `this` in `obj.foo` is not determined by how the method is called. We call the method on line 9, and we seem to be telling JavaScript to use obj as the context. Instead, the context ends up being the global object. That seems to contradict our repeated statements that the context is determined entirely by how a function or method is invoked. That's clearly not the case here; it certainly violates the rule. However, *you won't usually see code like this in practice.*
+
+In general, you should not use arrow functions to write methods. According to [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), "Arrow function expressions are ill suited as methods, and they cannot be used as constructors." The example shown here demonstrates one reason why that is so: it doesn't follow the rules. As long as you don't try to use arrow functions as methods, you can ignore this exception.
+
+In the next assignment, we'll study how functions can lose their context by being passed as arguments.
 
 ## 14. Dealing with Context Loss III
 
