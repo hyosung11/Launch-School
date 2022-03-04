@@ -1504,7 +1504,7 @@ let sumNum2 = sumNum.bind(obj);
 sumNum2(5); // => 47
 ```
 
-In this example, we don't call the function immediately as we do when using `call` and `apply`, Instead, bind returns a new function. The new function is **permanently** bound to the object passed as bind's first argument. You can then pass that method around and call it without worrying about losing its context since it's permanently bound to the provided object.
+In this example, we don't call the function immediately as we do when using `call` and `apply`, Instead, bind returns a new function. The new function is **permanently** bound to the object passed as bind's first argument. You can then pass that method around and call it without worrying about losing its context since it's *permanently bound* to the provided object.
 
 Let's see another example:
 
@@ -1524,7 +1524,7 @@ let baz = object.foo.bind(object);
 baz(); // "hello world"
 ```
 
-An interesting and important property of permanently bound functions is that you cannot change their execution context, even if you use `call` or `apply` or call `bind` a second time. Continuing with the code from the previous example:
+An interesting and important property of permanently bound functions is that *you cannot change their execution context*, even if you use `call` or `apply` or call `bind` a second time. Continuing with the code from the previous example:
 
 ```js
 let object2 = {
@@ -1550,7 +1550,7 @@ Function.prototype.bind = function (...args) {
 
 While you've learned enough to understand most of that code, it's not really important to wrap your head around it. What's important to recognize is that `bind`'s context is the original function, and it returns a new function that calls the original function with the context supplied to bind as its first argument. This code also shows why *the binding makes permanent changes* -- no matter what you do to the returned function, you can't change the value of `context`.
 
-A trap that students often fall into is the thinking that `bind` permanently alters the original function. It's important to remember that `bind` returns a new function, and that new function is permanently context-bound to the object provided as the first argument to `bind`. The original function isn't changed and doesn't have its context changed.
+A trap that students often fall into is the thinking that `bind` permanently alters the original function. It's important to remember that `bind` *returns a new function*, and that new function is permanently context-bound to the object provided as the first argument to `bind`. The original function isn't changed and doesn't have its context changed.
 
 It's also important to understand that bind does not contradict our repeated statement that context is determined entirely based on how you call a function or method, not where you call it or how you define it. Technically, `bind` defines a new function. However, when we call that function, its implementation -- as shown above -- calls the original function using `apply`. Thus, it's still the "how" of the call that determines the context, not the definition or location.
 
@@ -1594,6 +1594,125 @@ In this example, we bind the `greeting` function to the `spanishWords` object an
 In this assignment, we saw a third way to specify the execution context. Unlike `call` and `apply`, though, `bind` *returns a new function that is permanently bound to the context that's provided to bind as the first argument*. You cannot alter the execution context of the resulting function, even if you use `call`, `apply`, or try calling `bind` a second time.
 
 ## 11. Practice Problems: Hard Binding Functions with Contexts
+
+### 11.1 What method can we use to bind a function permanently to a particular execution context?
+
+My Answer: `Function.prototype.bind`
+
+Solution: We can use the `bind` method on function objects to permanently bind a function to an execution context.
+
+### 11.2 What will the following code log to the console?
+
+```js
+let obj = {
+  message: 'JavaScript',
+};
+
+function foo() {
+  console.log(this.message);
+}
+
+foo.bind(obj);
+```
+
+My Answer: 'JavaScript' => this is wrong
+
+### 11.2 Solution
+
+Nothing. Unlike `call` and `apply`, `bind` doesn't invoke the function used to call it. Instead, it returns a new function that is permanently bound to the context argument.
+
+### 11.3 What will the following code output?
+
+```js
+let obj = {
+  a: 2,
+  b: 3,
+};
+
+function foo() {
+  return this.a + this.b;
+}
+
+let bar = foo.bind(obj);
+
+console.log(foo());
+console.log(bar());
+```
+
+My Answer:
+
+// ?
+// 5
+
+### 11.3 Solution
+
+```sh
+NaN
+5
+```
+
+The function `foo` looks for properties `a` and `b` on the global object since it is invoked as a function and `this` is bound to the global object. Both `this.a` and `this.b` evaluate to `undefined`, resulting in a `NaN` value. `bar`, however, is explicitly bound to obj on line 10, and, as a result, references that object's `a` and `b` properties when it is invoked.
+
+If you use strict mode (discussed in more detail in JS130) to run the code, it will raise a `TypeError: Cannot read property 'a' of undefined` error when calling `foo()`.
+
+### 11.4 What will the code below log to the console?
+
+```js
+let positivity = {
+  message: 'JavaScript makes sense!',
+};
+
+let negativity = {
+  message: 'JavaScript makes no sense!',
+};
+
+function foo() {
+  console.log(this.message);
+}
+
+let bar = foo.bind(positivity); // line 13
+
+negativity.logMessage = bar;
+negativity.logMessage();
+```
+
+My Answer:
+
+// ?
+
+### 11.4 Solution
+
+```sh
+JavaScript makes sense!
+```
+
+Since `bar` is bound to `positivity` as the return value of the `bind` invocation on line 13, `positivity`'s property `message` is logged by the function call on the last line, despite the fact that the function is invoked as a method on the `negativity` object.
+
+### 11.5 What will the code below output?
+
+```js
+let obj = {
+  a: 'Amazebulous!',
+};
+
+let otherObj = {
+  a: "That's not a real word!",
+};
+
+function foo() {
+  console.log(this.a);
+}
+
+let bar = foo.bind(obj);
+
+bar.call(otherObj);
+```
+
+My Answer: // 'Amazebulous!`
+
+### 11.5 Solution
+
+Once a function's context gets bound using `bind`, its context can't be changed, even with `call` and `apply`. In keeping with this, the last line of our code outputs "Amazebulous!", because the function `bar`'s context has been permanently bound to `obj`.
 
 ## 12. Dealing with Context Loss I
 

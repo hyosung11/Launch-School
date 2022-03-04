@@ -5957,7 +5957,8 @@ TODOs:
    * [x] 4. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 7
    * [x] 5. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 8
    * [x] 6. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 9
-   * [ ] 7. Read _The Programmer's Brain_, Chapter 5: Reaching a deeper understanding of code
+   * [x] 7. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 10
+   * [8] 8. Read _The Programmer's Brain_, Chapter 5: Reaching a deeper understanding of code
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I didn't get the Sales Engineer position at Greenshades which means I have to double down on a new job search or have a conversation with Sohee about studying full-time.
@@ -5979,3 +5980,5 @@ TODOs:
 19:31 Studied Hard Binding Functions with Contexts. This is interesting stuff even as it seems confusing on this pass. I think we covered this briefly and quickly in my General Assembly Coding Bootcamp.
 
 20:13 Finished "Hard Binding Functions with Contexts".
+
+20:57 I finished "Practice Problems: Hard Binding Functions with Contexts" and could mostly arrive at the right output even though as of now I can't really articulate the reasoning with accuracy or precision. I think I'm done for the night. I plan to work through the rest of Lesson 2 tomorrow. I hope at this rate, I can get through the rest of JS120 by the end of next week!
