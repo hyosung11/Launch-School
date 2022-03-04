@@ -6012,7 +6012,7 @@ TODOs:
    * [x] 1. Study Session with Alex (Anki cards for me)
    * [ ] 2. Read _The Programmer's Brain_, Chapter 6: Getting better at solving programming problems
    * [x] 3. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 13
-   * [ ] 4. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 14
+   * [x] 4. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 14
    * [ ] 6. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 15
    * [ ] 7. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 16
    * [ ] 8. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 17
@@ -6028,3 +6028,5 @@ TODOs:
 09:27 I took a slight detour to watch the video above and now I have to pee.
 
 11:02 I got distracted a little this morning and just finished Assignment 13 on Dealing with Context Loss II by using a variable in outer scope, calling inner functions with explicit context, using `bind`, or using arrow functions. I think I have to poo now.
+
+12:31 Sohee came home from the Science Fair. I finished "Dealing with Context Loss III" and am ready to do the practice problems. I do wonder about clicking through to the quizzes first?

@@ -2026,6 +2026,162 @@ In the next assignment, we'll study how functions can lose their context by bein
 
 ## 14. Dealing with Context Loss III
 
+In this assignment, we'll see how *passing functions as arguments can strip them of their intended context objects*, and see what we can do to deal with that loss.
+
+### 14.1 Function as Argument Losing Surrounding Context
+
+This scenario is a variation of one that we dealt with in the previous assignment. Examine this code:
+
+```js
+function repeatThreeTimes(func) {
+  func();
+  func();
+  func();
+}
+
+let john = {
+  firstName: 'John',
+  lastName: 'Doe',
+  greetings: function() {
+    repeatThreeTimes(function() {
+      console.log('hello, ' + this.firstName + ' ' + this.lastName);
+    });
+  },
+};
+
+john.greetings();
+
+// => hello, undefined undefined
+// => hello, undefined undefined
+// => hello, undefined undefined
+```
+
+In this example, we use the `john` object to call the `greetings` method, with `john` as its context. `greetings`, in turn, calls the `repeatThreeTimes` function with a function argument whose body refers to `this`. `repeatThreeTimes` c*alls its argument three times with an implicit context*. As we've learned, the context is determined by how a function is invoked, so the context for all three invocations will be the global object. Thus, `this` inside the function passed to `repeatThreeTimes` is the **global object**, not `john`.
+
+You might look at this and think that this problem probably doesn't happen often. However, consider the following code:
+
+```js
+let obj = {
+  a: 'hello',
+  b: 'world',
+  foo: function() {
+    [1, 2, 3].forEach(function(number) {
+      console.log(String(number) + ' ' + this.a + ' ' + this.b);
+    });
+  },
+};
+
+obj.foo();
+
+// => 1 undefined undefined
+// => 2 undefined undefined
+// => 3 undefined undefined
+```
+
+That code looks simple enough; it loops over an array and logs some information to the console. The problem, though, is that `forEach` executes the function expression passed to it, so it *gets executed with the global object as context*. Once again, this has the wrong value, and the function doesn't do what we want.
+
+This problem is easy to fix. You can use the same solutions we used to solve a similar problem in the previous assignment.
+
+#### 14.1.1 Solution 1: Preserve the Context with a Variable in Outer Scope
+
+```js
+let obj = {
+  a: 'hello',
+  b: 'world',
+  foo: function() {
+    let self = this;
+    [1, 2, 3].forEach(function(number) {
+      console.log(String(number) + ' ' + self.a + ' ' + self.b);
+    });
+  },
+};
+
+obj.foo();
+
+// => 1 hello world
+// => 2 hello world
+// => 3 hello world
+```
+
+#### 14.1.2 Solution 2: Use `bind`
+
+```js
+let obj = {
+  a: 'hello',
+  b: 'world',
+  foo: function() {
+    [1, 2, 3].forEach(function(number) {
+      console.log(String(number) + ' ' + this.a + ' ' + this.b);
+    }.bind(this));
+  },
+};
+
+obj.foo();
+
+// => 1 hello world
+// => 2 hello world
+// => 3 hello world
+```
+
+#### 14.1.3 Solution 3: Use an Arrow Function
+
+```js
+let obj = {
+  a: 'hello',
+  b: 'world',
+  foo: function() {
+    [1, 2, 3].forEach(number => {
+      console.log(String(number) + ' ' + this.a + ' ' + this.b);
+    });
+  },
+};
+
+obj.foo();
+
+// => 1 hello world
+// => 2 hello world
+// => 3 hello world
+```
+
+#### 14.1.4 Solution 4: Use the optional `thisArg` argument
+
+Some methods that take function arguments allow an optional argument that specifies the context to use when invoking the function. `Array.prototype.forEach`, for instance, has an optional `thisArg` argument for the context. This argument makes it easy to work around this context-loss problem.
+
+```js
+let obj = {
+  a: 'hello',
+  b: 'world',
+  foo: function() {
+    [1, 2, 3].forEach(function(number) {
+      console.log(String(number) + ' ' + this.a + ' ' + this.b);
+    }, this);
+  },
+};
+
+obj.foo();
+
+// => 1 hello world
+// => 2 hello world
+// => 3 hello world
+```
+
+The array methods `map`, `every` and `some` and others also take an optional `thisArg` argument.
+
+### 14.2 Dealing with Context Loss III Summary
+
+Passing a function as an argument to another function strips it of its execution context, which means *the function argument gets invoked with the context set to the global object*. This problem is identical to the problem with copying a method from an object and using it as a bare function. For instance, the following two code snippets do the same thing:
+
+```js
+// Snippet 1
+array.forEach(obj.logData);
+
+// Snippet 2
+let logData = obj.logData;
+array.forEach(logData);
+```
+
+In both snippets, the `obj.logData` method gets invoked by `forEach` with the global object as the context, not `obj`.
+
 ## 15. Practice Problems: Dealing with Context Loss
 
 ## 16. Summary
