@@ -5993,7 +5993,7 @@ TODOs:
 
 07:06 After study session with Alex and I want to do daily scrum questions and start on Dealing with Context Loss II.
 
-0:07 Daily Scrum Questions
+07:07 Daily Scrum Questions
 
 1. What did you do yesterday?
    * [x] 1. Study Session with Alex
@@ -6032,3 +6032,27 @@ TODOs:
 12:31 Sohee came home from the Science Fair. I finished "Dealing with Context Loss III" and am ready to do the practice problems. I do wonder about clicking through to the quizzes first?
 
 14:16 I am on fumes right now. My brain feels fuzzy and I can't think clearly right now. I need a break, some NSDR or a nap, or something of an execution context change for my functioning. Ha ha.
+
+## 20220305 토요일
+
+09:34 I'm back from playing soccer, taking a quick shower, eating breakfast and listening to the latest Syntax - Tasty Web Development Treats: the State of JS survey.
+
+09:36 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex (Anki cards for me)
+   * [x] 2. Read _The Programmer's Brain_, Chapter 6: Getting better at solving programming problems
+   * [x] 3. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 13
+   * [x] 4. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 14
+   * [x] 5. Watched "Introduction to Functions, Execution Context and the Call Stack"
+
+2. What will you do today?
+   * [ ] 1. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 16
+   * [ ] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 17
+   * [ ] 3. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 18
+   * [x] 4. Read _The Programmer's Brain_, Chapter 7: Misconceptions: Bugs in thinking
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   1. Nope.
+
+09:40 Ready to get back to work.
