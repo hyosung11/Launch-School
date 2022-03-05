@@ -2449,5 +2449,7 @@ We can use `apply` or `call` to invoke `increment` on line 8 with explicit conte
 
 ## 17. Lesson 2 Quiz 1
 
+
+
 ## 18. Lesson 2 Quiz 2
 

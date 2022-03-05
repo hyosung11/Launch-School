@@ -6062,4 +6062,6 @@ TODOs:
 
 12:08 I finished Lesson 2: Functions, Objects, and Prototypes > Assignment 16 Summary.
 
-Finish Lesson 2: Functions, Objects, and Prototypes > Assignment 16 Summary
+13:54 Getting some correspondence in before I take the quizzes.
+
+14:19 I got sidetracked by correspondence, mostly about soccer.
