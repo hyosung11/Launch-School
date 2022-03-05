@@ -6049,8 +6049,8 @@ TODOs:
 2. What will you do today?
    * [x] 1. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 15
    * [x] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 16
-   * [ ] 3. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 17
-   * [ ] 4. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 17
+   * [x] 3. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 17. Lesson 2 Quiz 1
+   * [x] 4. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 18. Lesson 2 Quiz 2
    * [ ] 5. Read _The Programmer's Brain_, Chapter 7: Misconceptions: Bugs in thinking
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -6065,3 +6065,7 @@ TODOs:
 13:54 Getting some correspondence in before I take the quizzes.
 
 14:19 I got sidetracked by correspondence, mostly about soccer.
+
+16:20 I feel a little confusion burnout with function execution context. I couldn't focus on the quiz questions. It might be good to review them with Michael and Laurent next week. I have to pee right now. I need to look at them again. Maybe later today or tomorrow. I do want to make Anki cards for each of the quizzes later.
+
+16:26 I have to pee now.

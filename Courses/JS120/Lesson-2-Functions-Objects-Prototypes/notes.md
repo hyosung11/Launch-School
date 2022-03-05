@@ -2487,3 +2487,6 @@ D. Prototypal inheritance means that `baz` doesn't need a separate copy of the m
 
 ## 18. Lesson 2 Quiz 2
 
+Completed on 20220305 at 16:19.
+
+End Lesson 2
