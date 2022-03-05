@@ -2056,7 +2056,7 @@ john.greetings();
 // => hello, undefined undefined
 ```
 
-In this example, we use the `john` object to call the `greetings` method, with `john` as its context. `greetings`, in turn, calls the `repeatThreeTimes` function with a function argument whose body refers to `this`. `repeatThreeTimes` c*alls its argument three times with an implicit context*. As we've learned, the context is determined by how a function is invoked, so the context for all three invocations will be the global object. Thus, `this` inside the function passed to `repeatThreeTimes` is the **global object**, not `john`.
+In this example, we use the `john` object to call the `greetings` method, with `john` as its context. `greetings`, in turn, calls the `repeatThreeTimes` function with a function argument whose body refers to `this`. `repeatThreeTimes` *calls its argument three times with an implicit context*. As we've learned, the context is determined by how a function is invoked, so the context for all three invocations will be the global object. Thus, `this` inside the function passed to `repeatThreeTimes` is the **global object**, not `john`.
 
 You might look at this and think that this problem probably doesn't happen often. However, consider the following code:
 
@@ -2316,12 +2316,104 @@ undefined: Skyrim
 
 Since functions lose their surrounding context when used as arguments to another function, the context of line 6 is not the `TESgames` object. Instead, it is the global object. Thus, `this.seriesTitle` resolves to `undefined` rather than `"The Elder Scrolls"`.
 
-### 15.5
-### 15.6
-### 15.7
-### 15.8
-### 15.9
+### 15.5 Use `let self = this`; to ensure that `TESgames.listGames` uses `TESGames` as its context and logs the proper output.
 
+```js
+const TESgames = {
+  titles: ['Arena', 'Daggerfall', 'Morrowind', 'Oblivion', 'Skyrim'],
+  seriesTitle: 'The Elder Scrolls',
+  listGames: function() {
+    let self = this;
+    this.titles.forEach(function(title) {
+      console.log(self.seriesTitle + ': ' + title);
+    });
+  }
+};
+
+TESgames.listGames();
+```
+
+### 15.6 The `forEach` method provides an alternative way to supply the execution context for the callback function. Modify the program from the previous problem to use that technique to produce the proper output:
+
+```js
+const TESgames = {
+  titles: ['Arena', 'Daggerfall', 'Morrowind', 'Oblivion', 'Skyrim'],
+  seriesTitle: 'The Elder Scrolls',
+  listGames: function() {
+    this.titles.forEach(function(title) {
+      console.log(this.seriesTitle + ': ' + title);
+    }, this); // <-- `thisArg` placement
+  }
+};
+
+TESgames.listGames();
+```
+
+### 15.7 Use an arrow function to achieve the same result:
+
+```js
+const TESgames = {
+  titles: ['Arena', 'Daggerfall', 'Morrowind', 'Oblivion', 'Skyrim'],
+  seriesTitle: 'The Elder Scrolls',
+  listGames: function() {
+    this.titles.forEach(title => {
+      console.log(this.seriesTitle + ': ' + title);
+    });
+  }
+};
+
+TESgames.listGames();
+```
+
+**Note** that this solution *does not pass* `this` to `forEach`.
+
+### 15.8 Consider the following code:
+
+```js
+let foo = {
+  a: 0,
+  incrementA: function() {
+    function increment() {
+      this.a += 1;
+    }
+
+    increment();
+  }
+};
+
+foo.incrementA();
+foo.incrementA();
+foo.incrementA();
+```
+
+What will the value of `foo.a` be after this code runs?
+
+My Answer: `increment()`'s context is `global` which has no `incrementA` property, so the value of `foo.a` will be '0'.
+
+### 15.8 Solution
+
+The value of `foo.a` will be `0`. Since `increment` gets invoked as a function, `this.a` references a property of the global object rather than a property of `foo`. Thus, the property `foo.a` isn't modified by the `increment`; its value remains 0.
+
+### 15.9 Use one of the methods we learned in this lesson to invoke `increment` with an explicit context such that `foo.a` gets incremented with each invocation of `incrementA`.
+
+```js
+let foo = {
+  a: 0,
+  incrementA: function() {
+    function increment() {
+      this.a += 1;
+    }
+
+    increment.apply(this);
+  }
+};
+
+foo.incrementA();
+foo.incrementA();
+foo.incrementA();
+```
+
+We can use `apply` or `call` to invoke `increment` on line 8 with explicit context. We pass `this` as the context argument since inside `incrementA` but outside of `increment`, `this` references the containing object, namely `foo`.
 
 ## 16. Summary
 

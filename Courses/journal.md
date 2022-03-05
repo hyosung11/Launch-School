@@ -6047,12 +6047,15 @@ TODOs:
    * [x] 5. Watched "Introduction to Functions, Execution Context and the Call Stack"
 
 2. What will you do today?
-   * [ ] 1. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 16
-   * [ ] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 17
-   * [ ] 3. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 18
-   * [x] 4. Read _The Programmer's Brain_, Chapter 7: Misconceptions: Bugs in thinking
+   * [x] 1. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 15
+   * [ ] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 16
+   * [ ] 3. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 17
+   * [ ] 4. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 17
+   * [ ] 5. Read _The Programmer's Brain_, Chapter 7: Misconceptions: Bugs in thinking
 
 3. Are there any blockers or impediments preventing you from doing your work?
    1. Nope.
 
 09:40 Ready to get back to work.
+
+10:57 I finished the practice problems on dealing with context loss. I think it could be called context change.
