@@ -2449,7 +2449,41 @@ We can use `apply` or `call` to invoke `increment` on line 8 with explicit conte
 
 ## 17. Lesson 2 Quiz 1
 
+### 17.1 Question 1
 
+Examine the following code:
+
+```js
+let foo = {
+  bar: 42,
+  qux() {
+    console.log("Pudding");
+  },
+};
+
+let baz = Object.create(foo);
+baz.qux()
+```
+
+Which of the following statements about the invocation on line 9 are true? Choose all that apply:
+
+[] A The `baz` object calls a copy of `qux` that the `baz` object owns.
+
+[] B The `foo` object delegates the invocation of `qux` to the `baz` object.
+
+[x] C The `baz` object delegates the invocation of `qux` to the `foo` object.
+
+[] D JavaScript raises a `TypeError` exception.
+
+#### Question 1 Discussion
+
+Incorrect:
+
+A: `Object.create` doesn't create a copy of the object it gets passed as an argument. Instead it creates a new object whose `[[Prototype]]` property references the argument.
+
+B: Delegation occurs in the opposite direction: `baz` delegates to `foo` as described in C.
+
+D. Prototypal inheritance means that `baz` doesn't need a separate copy of the method. Instead, it can use the prototype chain to find the method and delegate the call.
 
 ## 18. Lesson 2 Quiz 2
 
