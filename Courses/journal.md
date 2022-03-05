@@ -6069,3 +6069,5 @@ TODOs:
 16:20 I feel a little confusion burnout with function execution context. I couldn't focus on the quiz questions. It might be good to review them with Michael and Laurent next week. I have to pee right now. I need to look at them again. Maybe later today or tomorrow. I do want to make Anki cards for each of the quizzes later.
 
 16:26 I have to pee now.
+
+17:37 Making Anki cards from the quiz questions now and need to make dinner.
