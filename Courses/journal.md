@@ -6048,7 +6048,7 @@ TODOs:
 
 2. What will you do today?
    * [x] 1. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 15
-   * [ ] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 16
+   * [x] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 16
    * [ ] 3. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 17
    * [ ] 4. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 17
    * [ ] 5. Read _The Programmer's Brain_, Chapter 7: Misconceptions: Bugs in thinking
@@ -6059,3 +6059,7 @@ TODOs:
 09:40 Ready to get back to work.
 
 10:57 I finished the practice problems on dealing with context loss. I think it could be called context change.
+
+12:08 I finished Lesson 2: Functions, Objects, and Prototypes > Assignment 16 Summary.
+
+Finish Lesson 2: Functions, Objects, and Prototypes > Assignment 16 Summary

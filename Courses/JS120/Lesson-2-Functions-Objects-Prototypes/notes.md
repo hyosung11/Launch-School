@@ -2417,6 +2417,36 @@ We can use `apply` or `call` to invoke `increment` on line 8 with explicit conte
 
 ## 16. Summary
 
+1. Every object has an internal `[[Prototype]]` property that points to a special object, the object's prototype. It is used to look up properties that don't exist on the object itself.
+
+  1.1 `Object.create` returns a new object with the passed-in argument as its prototype.
+  1.2 You can use `Object.getPrototypeOf` and `obj.isPrototypeOf` to check for prototype relationships between objects.
+
+2. Looking up a property in the prototype chain is the basis for prototypal inheritance, or property sharing through the prototype chain. Objects lower down in the chain inherit properties and behaviors from objects in the chain above. That is, downstream objects can delegate properties or behaviors to upstream objects.
+
+  2.1 A downstream object overrides an inherited property if it has a property with the same name. (Overriding is similar to shadowing, but it doesn't completely hide the overridden properties.)
+  2.2 `Object.getOwnPropertyNames` and `obj.hasOwnProperty` can be used to test whether an object owns a given property.
+
+3. Function invocations (e.g., `parseInt(numberString)`) rely upon implicit execution context that resolves to the global object. Method invocations (e.g., `array.forEach(processElement)`) rely upon implicit context that resolves to the object that holds the method.
+
+4. All JavaScript code executes within a context. The top-level context is the `window` object in browsers and the `global` object in Node. All global methods and objects, such as `parseInt` and `Math`, are properties of `window` or `global`.
+
+5. The value of `this` is the current execution context of a function or method.
+
+6. The value of `this` changes based on how you invoke a function, not how you define it.
+
+7. JavaScript has first-class functions that have the following characteristics:
+
+   7.1 You can add them to objects and execute them in the respective object's context.
+   7.2 You can remove them from their objects, pass them around, and execute them in entirely different contexts.
+   7.3 They're initially unbound but dynamically bound to a context object at execution time.
+
+8. The `call` and `apply` methods invoke a function with an explicit execution context.
+
+9. The `bind` method returns a new function that permanently binds a function to a context.
+
+10. Arrow functions are permanently bound to the execution context of the enclosing function invocation. When defined at the top level, the context of an arrow function is the global object.
+
 ## 17. Lesson 2 Quiz 1
 
 ## 18. Lesson 2 Quiz 2
