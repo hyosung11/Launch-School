@@ -6072,4 +6072,6 @@ TODOs:
 
 17:37 Making Anki cards from the quiz questions now and need to make dinner.
 
+18:42 I talked to Manny about studying at Launch School and coding bootcamps. I'm going to play ping pong with Louis at 19:00. I didn't read The Programmer's Brain yet today. I guess I'll read a couple chapters tomorrow.
+
 21:25 I'm tired and going to stop making my Anki cards from the quizzes today.
