@@ -6096,3 +6096,7 @@ TODOs:
 
 3. Are there any blockers or impediments preventing you from doing your work?
    1. I am reffing indoor soccer all morning and into the afternoon.
+
+06:57 Alex solved 3 problems in less than an hour. I know he's ready to take and pass the assessment. I studied some Anki cards while he solved problems. I don't have the big picture in my head yet about OOP.
+
+07:50 I have to get ready to ref.
