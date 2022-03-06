@@ -6075,3 +6075,24 @@ TODOs:
 18:42 I talked to Manny about studying at Launch School and coding bootcamps. I'm going to play ping pong with Louis at 19:00. I didn't read The Programmer's Brain yet today. I guess I'll read a couple chapters tomorrow.
 
 21:25 I'm tired and going to stop making my Anki cards from the quizzes today.
+
+## 20220306 일요일
+
+06:10 In a study session with Alex.
+
+06:10 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 15
+   * [x] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 16
+   * [x] 3. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 17. Lesson 2 Quiz 1
+   * [x] 4. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 18. Lesson 2 Quiz 2
+
+2. What will you do today?
+   * [ ] 1. Study Session with Alex
+   * [ ] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 18. Lesson 2 Quiz 1 Anki Cards
+   * [ ] 3. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 18. Lesson 2 Quiz 2 Anki Cards
+   * [ ] 4. Read _The Programmer's Brain_, Chapter 7: Misconceptions: Bugs in thinking
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   1. I am reffing indoor soccer all morning and into the afternoon.
