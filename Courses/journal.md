@@ -6128,7 +6128,7 @@ TODOs:
    * [ ] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 18. Lesson 2 Quiz 2 Anki Cards
    * [ ] 3. Study Session with Laurent
    * [ ] 4. Study Session with Michael
-   * [ ] 5. Read _The Programmer's Brain_, Chapter 7: Misconceptions: Bugs in thinking
+   * [ ] 5. Read *The Coding Career Handbook*, Chapter 1 Part I: Your Coding Career
    * [ ] 6. JS120 > Lesson 3: Object Creation Patterns: Assignment 4. Practice Problems - Factory Functions 3 ~ 5
    * [ ] 7. JS120 > Lesson 3: Object Creation Patterns: Assignment 5. Constructors
 
@@ -6136,3 +6136,7 @@ TODOs:
    1. Nope
 
 06:13 I finished daily scrum questions.
+
+07:34 SungOh wants to type more and I felt resistance to helping him but Sohee just matter-of-factly told me to let him use the computer and that solved the problem.
+
+08:59 Decided to start reading the Coding Career Handbook today instead of the Programmer's Brain. Almost ready for study session with Laurent.
