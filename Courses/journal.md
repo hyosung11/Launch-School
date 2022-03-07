@@ -6108,3 +6108,31 @@ TODOs:
 19:53 I started Lesson 3: Object Creation Patterns.
 
 20:48 I feel tired and ready to relax with Sohee before sleeping. Good night for now.
+
+## 20220307 월요일
+
+05:58 Getting ready for my study session with Alex.
+
+06:07 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 18. Lesson 2 Quiz 1 Anki Cards
+   * [x] 3. JS120 > Lesson 3: Object Creation Patterns > Assignment 1. Introduction
+   * [x] 4. JS120 > Lesson 3: Object Creation Patterns > Assignment 2. Review - OOP Principles: Encapsulation
+   * [x] 5. JS120 > Lesson 3: Object Creation Patterns > Assignment 3. Review - Factory Functions
+   * [x] 6. JS120 > Lesson 3: Object Creation Patterns > Assignment 4. Practice Problems - Factory Functions 2/5
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 18. Lesson 2 Quiz 2 Anki Cards
+   * [ ] 3. Study Session with Laurent
+   * [ ] 4. Study Session with Michael
+   * [ ] 5. Read _The Programmer's Brain_, Chapter 7: Misconceptions: Bugs in thinking
+   * [ ] 6. JS120 > Lesson 3: Object Creation Patterns: Assignment 4. Practice Problems - Factory Functions 3 ~ 5
+   * [ ] 7. JS120 > Lesson 3: Object Creation Patterns: Assignment 5. Constructors
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   1. Nope
+
+06:13 I finished daily scrum questions.
