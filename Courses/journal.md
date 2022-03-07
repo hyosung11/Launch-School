@@ -6140,3 +6140,5 @@ TODOs:
 07:34 SungOh wants to type more and I felt resistance to helping him but Sohee just matter-of-factly told me to let him use the computer and that solved the problem.
 
 08:59 Decided to start reading the Coding Career Handbook today instead of the Programmer's Brain. Almost ready for study session with Laurent.
+
+10:31 Just finished study session with Laurent and got through Lesson 1 Quiz 1 and most of Lesson 2 Quiz 1. Meeting with Michael at 11:00, so will take a break now.
