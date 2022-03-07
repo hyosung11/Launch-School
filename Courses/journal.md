@@ -6089,7 +6089,7 @@ TODOs:
    * [x] 4. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 18. Lesson 2 Quiz 2
 
 2. What will you do today?
-   * [ ] 1. Study Session with Alex
+   * [x] 1. Study Session with Alex
    * [ ] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 18. Lesson 2 Quiz 1 Anki Cards
    * [ ] 3. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 18. Lesson 2 Quiz 2 Anki Cards
    * [ ] 4. Read _The Programmer's Brain_, Chapter 7: Misconceptions: Bugs in thinking
@@ -6100,3 +6100,7 @@ TODOs:
 06:57 Alex solved 3 problems in less than an hour. I know he's ready to take and pass the assessment. I studied some Anki cards while he solved problems. I don't have the big picture in my head yet about OOP.
 
 07:50 I have to get ready to ref.
+
+15:00 Back from reffing and a shower and now ready to eat a late lunch before getting back to studying. I did review Anki cards on OOP during my breaks today. I think I might want to ref the later shift if there are more sessions and study in the mornings.
+
+19:00 Exhausted right now. I finished making Anki cards from Lesson 2 Quiz 1. I played with SungOh this afternoon after reffing, so I didn't study.
