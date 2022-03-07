@@ -6126,7 +6126,7 @@ TODOs:
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [ ] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 18. Lesson 2 Quiz 2 Anki Cards
-   * [ ] 3. Study Session with Laurent
+   * [x] 3. Study Session with Laurent
    * [ ] 4. Study Session with Michael
    * [ ] 5. Read *The Coding Career Handbook*, Chapter 1 Part I: Your Coding Career
    * [ ] 6. JS120 > Lesson 3: Object Creation Patterns: Assignment 4. Practice Problems - Factory Functions 3 ~ 5
@@ -6142,3 +6142,5 @@ TODOs:
 08:59 Decided to start reading the Coding Career Handbook today instead of the Programmer's Brain. Almost ready for study session with Laurent.
 
 10:31 Just finished study session with Laurent and got through Lesson 1 Quiz 1 and most of Lesson 2 Quiz 1. Meeting with Michael at 11:00, so will take a break now.
+
+12:00 After study session with Michael that helped me understand how nested function invocations work in a quiz question.
