@@ -6104,3 +6104,5 @@ TODOs:
 15:00 Back from reffing and a shower and now ready to eat a late lunch before getting back to studying. I did review Anki cards on OOP during my breaks today. I think I might want to ref the later shift if there are more sessions and study in the mornings.
 
 19:00 Exhausted right now. I finished making Anki cards from Lesson 2 Quiz 1. I played with SungOh this afternoon after reffing, so I didn't study.
+
+19:53 I started Lesson 3: Object Creation Patterns.
