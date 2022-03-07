@@ -115,6 +115,80 @@ The factory function lets us create multiple objects of the same "type" with a p
 
 2. There is no way to tell which factory function created an object, so there's no way to be sure that you're working with the right kind of object.
 
+### 4.2 Rewrite the following code to use the object literal syntax to generate the returned object:
 
+```js
+function makeObj() {
+  let obj = {};
+  obj.propA = 10;
+  obj.propB = 20;
+  return obj;
+}
+```
 
+**Solution**
 
+```js
+function makeObj() {
+  return {
+    propA = 10,
+    propB = 20,
+  }
+}
+```
+
+### 4.3 In this problem and the remaining problems, we'll build a simple invoice processing program. To get you started, here's the code to process a single invoice:
+
+```js
+let invoice = {
+  phone: 3000,
+  internet: 6500
+};
+
+let payment = {
+  phone: 1300,
+  internet: 5500
+};
+
+let invoiceTotal = invoice.phone + invoice.internet;
+let paymentTotal = payment.phone + payment.internet;
+let remainingDue = invoiceTotal - paymentTotal;
+
+console.log(paymentTotal); // => 6800
+console.log(remainingDue); // => 2700
+```
+
+To process multiple invoices, we need a factory method that we can use to create invoices. The requirements for the factory function are as follows:
+
+1. It returns an invoice object, with `phone` and `internet` properties, and a `total` method.
+2. The default value for the phone service is 3000, and the internet service is 5500 (in cents, of course!).
+3. The function takes an object argument whose attributes override the default values.
+
+Your function should work with the following code:
+
+```js
+function createInvoices(services) {
+  // implement the factory function here
+}
+
+function invoiceTotal(invoices) {
+  let total = 0;
+
+  for (let index = 0; index < invoices.length; index += 1) {
+    total += invoices[index].total();
+  }
+
+  return total;
+}
+
+let invoices =[];
+invoices.push(createInvoice());
+invoices.push(createInvoice({ internet: 6500 }));
+invoices.push(createInvoice({ phone: 2000 }));
+invoices.push(createInvoice( {
+  phone: 1000,
+  internet: 4500,
+}));
+
+console.log(invoiceTotal(invoices)); // 31000
+```

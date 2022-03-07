@@ -6090,7 +6090,7 @@ TODOs:
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [ ] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 18. Lesson 2 Quiz 1 Anki Cards
+   * [x] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 18. Lesson 2 Quiz 1 Anki Cards
    * [ ] 3. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 18. Lesson 2 Quiz 2 Anki Cards
    * [ ] 4. Read _The Programmer's Brain_, Chapter 7: Misconceptions: Bugs in thinking
 
@@ -6106,3 +6106,5 @@ TODOs:
 19:00 Exhausted right now. I finished making Anki cards from Lesson 2 Quiz 1. I played with SungOh this afternoon after reffing, so I didn't study.
 
 19:53 I started Lesson 3: Object Creation Patterns.
+
+20:48 I feel tired and ready to relax with Sohee before sleeping. Good night for now.
