@@ -6169,7 +6169,7 @@ TODOs:
 2. What will you do today?
    * [x] 1. JS120 > Lesson 3: Object Creation Patterns: Assignment 5. Constructors
    * [x] 2. JS120 > Lesson 3: Object Creation Patterns: Assignment 6. Constructors with Prototypes
-   * [ ] 2. Read *The Coding Career Handbook*, Chapters 4: Junior Developer
+   * [x] 3. Read *The Coding Career Handbook*, Chapter 4: Junior Developer
 
 3. Are there any blockers or impediments preventing you from doing your work?
    1. I need to strength train and I still want the Treadly Pro 2.
@@ -6183,3 +6183,7 @@ TODOs:
 13:29 Completed Lesson 3: Object Creation Patterns > Assignment 6. Constructors with Prototypes.
 
 15:09 Did most of the Kettlebell Simple & Sinister training this afternoon. I still feel kind of tired.
+
+16:55 I have the writers bloc on my schedule but I feel tired and not sure I want to participate today. It's after my work day, so I think I may pass this week.
+
+17:17 I finished assignment 7, but I need to study my notes and look at the questions again, preferably next time with a study partner.
