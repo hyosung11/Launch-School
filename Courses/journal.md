@@ -6175,4 +6175,6 @@ TODOs:
 
 06:05 To reduce some context switching, I will adjust my studying technique by skimming the assignment first, writing out the topics, reading the topics, transcribing the topic and then making Anki cards on the topic. It's kind of what I'm been doing.
 
-09:35 I have been working through the topics of the Constructors assgnment.
+09:35 I have been working through the topics of the Constructors assignment.
+
+11:26 I thought I remembered how to render an image into a markdown file, but I'm not sure. Do I need to copy the relative path?

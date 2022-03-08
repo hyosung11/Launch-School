@@ -681,4 +681,203 @@ Solution:
 
 This code throws a `TypeError` since `scamper` is an undefined property on `lizzy`. Since `Lizard` was invoked without the `new` operator and it doesn't have an explicit return value, the return value is `undefined`. Thus, `lizzy` gets assigned to `undefined` which causes the call to `scamper` to throw an error: you can't call a method on `undefined`.
 
-#### 5.7.3 What naming convention separates constructor functions from other functions?
+#### 5.7.3 Alter the code in problem 2 so that it produces the desired output: I'm scampering!.
+
+```js
+function Lizard() {
+  this.scamper = function() {
+    console.log("I'm scampering!");
+  };
+}
+
+let lizzy = new Lizard();
+lizzy.scamper();
+```
+
+## 6. Constructors with Prototypes
+
+### 6.1 Introduction
+
+In the previous assignment, we learned how to use constructor functions as factories that create objects. One question we didn't answer, however, was why we need to have constructor functions along with their somewhat strange use of `this` and `new`. We can accomplish practically the same thing with object factories. We'll answer that question in this assignment.
+
+Let's take a closer look at what happens when we create some objects with a constructor:
+
+```js
+function Dog(name, breed, weight) {
+  this.name = name;
+  this.breed = breed;
+  this.weight = weight;
+
+  this.bark = function() {
+    console.log(this.weight > 20 ? 'Woof!' : 'Yip!');
+  };
+}
+
+let maxi = new Dog('Maxi', 'German Shepherd', 32);
+let dexter = new Dog('Dexter', 'Rottweiler', 50);
+let biggie = new Dog('Biggie', 'Whippet', 9);
+
+maxi.bark(); // 'Woof!'
+```
+
+Each of these dog objects, when created, receive the `name`, `breed`, and `weight` properties as well as the `bark` method. The properties have values that differ between objects, but the `bark` method remains the same in all. However, every time we create a new dog object, we must create a new `bark` method so we can add it to the object. We can verify that each object has its own `bark` method with `hasOwnProperty`:
+
+```js
+maxi.hasOwnProperty('bark');   // true
+dexter.hasOwnProperty('bark'); // true
+biggie.hasOwnProperty('bark'); // true
+maxi.bark === dexter.bark;     // false
+maxi.bark === biggie.bark;     // false
+dexter.bark === biggie.bark;   // false
+```
+
+If that seems inefficient and wasteful to you, you're right! We're not repeating any code, but the runtime must create a new copy of the method every time we create an object. For small programs with few objects like this one, that may not be a problem. However, when you start getting into hundreds or thousands or even millions of objects, the multiple function objects can be hard on resources, especially on devices with little memory. Wouldn't it be nice if we could create the `bark` method just once rather than using a different copy of that method in every dog object?
+
+### 6.2 Method Delegation to Prototypes
+
+Earlier, we learned that we could use prototypes to share code between objects of the same type. Prototypes are especially useful for sharing methods as all objects of a particular type share the same prototype object. Furthermore, delegation means that we can share methods by putting them in the prototype object; if an object doesn't contain a requested method, JavaScript searches the prototype chain to find the method.
+
+Thus, we can define a method once in the prototype object, and let the inheriting objects delegate the method calls to the prototype. We can use prototypes in conjunction with constructors to achieve the same result:
+
+```js
+let DogPrototype = {
+  bark() {
+    console.log(this.weight > 20 ? 'Woof!' : 'Yip!');
+  }
+};
+
+function Dog(name, breed, weight) {
+  Object.setPrototypeOf(this, DogPrototype);
+  this.name = name;
+  this.breed = breed;
+  this.weight = weight;
+  // this.bark method removed.
+}
+```
+
+In this code, we've changed our `Dog` constructor and created a `DogPrototype` object. The first thing we do inside the constructor is set `DogPrototype` as the prototype of the newly created dog object. We then assign the arguments to the properties.
+
+Note that we can continue to use our constructor without change:
+
+```js
+let maxi = new Dog('Maxi', 'German Shepherd', 32);
+let dexter = new Dog('Dexter', 'Rottweiler', 50);
+let biggie = new Dog('Biggie', 'Whippet', 9);
+
+maxi.bark(); // 'Woof!'
+```
+
+This time, however, the `bark` method isn't defined on the individual objects, but is, instead, defined on the `[[Prototype]]` property:
+
+```js
+maxi.hasOwnProperty('bark'); // false
+dexter.hasOwnProperty('bark'); // false
+biggie.hasOwnProperty('bark'); // false
+Object.getPrototypeOf(maxi).bark === DogPrototype.bark; // true
+Object.getPrototypeOf(dexter).bark === DogPrototype.bark; // true
+Object.getPrototypeOf(biggie).bark === DogPrototype.bark; // true
+```
+
+The `DogPrototype` object has the only copy of the method; all dog objects delegate `bark` to the `DogPrototype` object. If you have dozens of dog objects in your program, it's easy to see that adding prototypes into the mix can make better use of memory.
+
+Okay, we now have a constructor and a related prototype object. Together, they construct objects of some type. In our code here, we can guess that the constructor and prototype are related by looking at their names. However, it would be better if we could establish that relationship more concretely. Let's assign the prototype object to a property of the `Dog` function.
+
+```js
+// Delete DogPrototype
+
+function Dog(name, breed, weight) {
+  Object.setPrototypeOf(this, Dog.myPrototype);
+  // rest of the code
+}
+
+Dog.myPrototype = {
+  bark() {
+    console.log(this.weight > 20 ? 'Woof!' : 'Yip!');
+  }
+};
+```
+
+Since JavaScript functions are objects, we can add properties to them. Here, we assign the prototype object to a `myPrototype` property on the `Dog` function object. Thus, we clearly show our intent that all dogs inherit from the `Dog.myPrototype` object. Once we've done that, we can change our constructor function to use `Dog.myPrototype` as the prototype object.
+
+Take some time to understand why this code works. It can be confusing when you first encounter it. It's a little like working with **recursive functions** as we did in the [Introduction to Programming With JavaScript book](https://launchschool.com/books/javascript/read/loops_iterating#recursion), which is to say, it's a bit hard to wrap your head around this code. To help, here's the complete code as it now stands:
+
+```js
+function Dog(name, breed, weight) {
+  Object.setPrototypeOf(this, Dog.myPrototype);
+  this.name = name;
+  this.breed = breed;
+  this.weight = weight;
+}
+
+Dog.myPrototype = {
+  bark() {
+    console.log(this.weight > 20 ? 'Woof!' : 'Yip!');
+  }
+};
+
+let maxi = new Dog('Maxi', 'German Shepherd', 32);
+let dexter = new Dog('Dexter', 'Rottweiler', 50);
+let biggie = new Dog('Biggie', 'Whippet', 9);
+
+maxi.bark(); // 'Woof!'
+
+maxi.hasOwnProperty('bark'); // false
+dexter.hasOwnProperty('bark'); // false
+biggie.hasOwnProperty('bark'); // false
+
+Object.getPrototypeOf(maxi).bark === Dog.myPrototype.bark; // true
+Object.getPrototypeOf(dexter).bark === Dog.myPrototype.bark; // true
+Object.getPrototypeOf(biggie).bark === Dog.myPrototype.bark; // true
+```
+
+### 6.3 The Constructor `prototype` Property
+
+So far, so good. We have a constructor function and a prototype object that work together. Between them, they create dog objects for us that don't waste memory with multiple copies of methods. However, we still haven't explained why we should bother with constructors. We can pair a prototype with a factory function and get the same effect.
+
+What makes constructors special is a characteristic of all function objects in JavaScript: they all have a prototype property that we call the **function prototype** to distinguish them from the prototypes used when creating ordinary objects. The code we showed in the previous section emulates something that JavaScript bundles with constructors. Let's take a look at that property:
+
+```sh
+Dog.prototype; // => Dog {}
+```
+
+When you call a function `Foo` with the `new` keyword, JavaScript sets the new object's prototype to the current value of `Foo`'s `prototype` property. That is, the constructor creates an object that inherits from the constructor function's prototype (`Foo.prototype`). Since inheritance in JavaScript uses prototypes, we can also say that the constructor creates an object whose prototype references `Foo.prototype`.
+
+The terminology of constructor prototypes and object prototypes is extremely confusing. Note in particular that we use the term "prototype" to refer to 2 distinct but related concepts:
+
+1. If `bar` is an object, then the object from which `bar` inherits is the **object prototype**. By default, constructor functions set the object prototype for the objects they create to the constructor's prototype object.
+
+2. The **constructor's prototype object**, also called the **function prototype**, is an object that the constructor uses as the object prototype for the objects it creates. In other words, each object that the constructor creates inherits from the constructor's prototype object. The constructor stores its prototype object in its `prototype` property; that is, if the constructor's name is `Foo`, then `Foo.prototype` references the constructor's prototype object.
+
+It's easy to get confused about the differences between these two kinds of prototypes. Be sure you understand the differences before moving on. In most cases, when we talk about a **prototype** without being more explicit, we mean an **object prototype**. We'll talk about the constructor's prototype, the function prototype, or the `prototype` property when talking about a constructor's prototype object.
+
+Note that *constructors don't inherit from the constructor's prototype object*. Instead, *the objects that the constructor creates inherit from it*.
+
+At this point, you may want to rewatch the first 12 minutes of the [JavaScript OOP video](https://www.youtube.com/watch?v=-N9tBvlO9Bo) that you watched earlier. The discussion of the differences between the object prototype (what the speaker calls *dunder proto* or `__proto__`) and the constructor's prototype object should help clarify these differences.
+
+As we've said before, every JavaScript function has a `prototype` property. However, JavaScript only uses it when you call that function as a constructor, that is, by using the `new` keyword. With this information, we can abandon our home-grown constructor-prototype pairing and use the one that JavaScript provides instead:
+
+```js
+function Dog (name, breed, weight) {
+  // deleted Object.setPrototypeOf(this, Dog.myPrototype);
+  this.name = name;
+  this.breed = breed;
+  this.weight = weight;
+}
+
+Dog.prototype.bark = function() {
+  console.log(this.weight > 20 ? 'Woof!' : 'Yip!');
+};
+
+let maxi = new Dog('Maxi', 'German Shepherd', 32);
+maxi.bark(); // 'Woof!'
+
+let biggie = new Dog('Biggie', 'Whippet', 9);
+biggie.bark(); // 'Yip!'
+```
+
+Here's a diagram illustrating the `prototype` and `constructor` links we've discussed.
+
+![constructor-prototype-map](Courses/JS120/Lesson-3-Object-Creation-Patterns/constructor-prototype-map.png)
+
+### 6.4 Overriding the Prototype
+
