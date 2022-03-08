@@ -6167,7 +6167,8 @@ TODOs:
    * [x] 7. JS120 > Lesson 3: Object Creation Patterns: Assignment 5. Constructors started
 
 2. What will you do today?
-   * [ ] 1. JS120 > Lesson 3: Object Creation Patterns: Assignment 5. Constructors
+   * [x] 1. JS120 > Lesson 3: Object Creation Patterns: Assignment 5. Constructors
+   * [x] 2. JS120 > Lesson 3: Object Creation Patterns: Assignment 6. Constructors with Prototypes
    * [ ] 2. Read *The Coding Career Handbook*, Chapters 4: Junior Developer
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -6178,3 +6179,5 @@ TODOs:
 09:35 I have been working through the topics of the Constructors assignment.
 
 11:26 I thought I remembered how to render an image into a markdown file, but I'm not sure. Do I need to copy the relative path?
+
+13:29 Completed Lesson 3: Object Creation Patterns > Assignment 6. Constructors with Prototypes.

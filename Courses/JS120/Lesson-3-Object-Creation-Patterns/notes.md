@@ -879,5 +879,69 @@ Here's a diagram illustrating the `prototype` and `constructor` links we've disc
 
 ![constructor-prototype-map](constructor-prototype-map.png)
 
+Note that our constructor doesn't have to explicitly set the prototype of `this` to `Dog.prototype`. JavaScript does that for us when we call the function with `new`. We left this detail out earlier, so let's restate those steps with updated information. We'll assume that the constructor function is named `Foo`:
+
+1. It creates an entirely new object.
+2. It sets `Foo.prototype` as the prototype for the new object. That is, the new object inherits from the object referenced by `Foo.prototype`.
+3. It sets the execution context (`this`) for the function to point to the new object.
+4. It invokes the function.
+5. It returns the new object *unless the function returns another object*.
+
+Since the `bark` method refers to `this` and `bark` belongs to the prototype object, you may think that `this` in `this.weight` refers to the prototype object rather than the object itself (e.g., `maxi` or `biggie`). However, that's not how `this` binding works. You already know those rules, so take a moment to think about what it means inside the `bark` method.
+
+When you call a method on an object, JavaScript binds `this` to the object whose method you used to call it. If it doesn't find the method in that object, but it does find it in the prototype, that doesn't change the value of `this`. `this` always refers to the original object -- that is, the object used to call the method --even if the method is in the prototype. If we find the `bark` method in the prototype, `this` references the original dog object, not the prototype.
+
+A property of interest on a prototype object is the constructor property. For instance:
+
+```sh
+Dog.prototype.constructor; // [Function: Dog]
+```
+
+As with the `instanceof` operator, the `constructor` property lets us determine the type of an object:
+
+```js
+let maxi = new Dog('Maxi', 'German Shepherd', 32);
+
+if (maxi.constructor === Dog) {
+  console.log("It's a dog");
+} else {
+  console.log("It's not a dog");
+}
+```
+
+Be careful, however. It's possible to reassign the `constructor` property to something else. We'll learn about reassigning the `constructor` property in the next assignment. In that case, the test shown above would fail, even though the object is still a dog.
+
+```js
+Dog.prototype.constructor = function() {};
+
+maxi.constructor === Dog; // false
+maxi instanceof Dog;      // true
+```
+
+Note that `instanceOf` still works.
+
 ### 6.4 Overriding the Prototype
 
+Inheriting methods from a prototype doesn't mean that the inheriting object is stuck with those methods. *JavaScript objects are incredibly dynamic and flexible*. Two objects created with the same constructor may end up looking completely different from each other because of changes and additions made after constructing the object. For instance, suppose we have a `dexter` dog that has an unusually loud and deep bark. We want to change the `bark` method to log `WOOF!` instead of `Woof!`. We can do that easily by defining a custom `bark` method on `dexter`.
+
+```js
+let maxi = new Dog('Maxi', 'German Shepherd', 32);
+let dexter = new Dog('Dexter', 'Rottweiler', 50);
+
+dexter.bark = function() {
+  console.log('WOOF!');
+}
+
+maxi.bar(); // Woof!
+dexter.bark(); // WOOF!
+```
+
+The `dexter` object now has its own `bark` method that **overrides** the `bark` method from `Dog.prototype`. Each time we call `bark` on `dexter`, JavaScript looks for it first in the `dexter` object itself. Since it finds it there, it doesn't need to check the prototype.
+
+It's time to return to the [JavaScript OOP](https://www.youtube.com/watch?v=-N9tBvlO9Bo) video that you began watching earlier. The portion of the video that pertains to this assignment starts at about the 00:39:18 mark, and continues through examples 5 and 7 until the 01:25:15 point. Note that we haven't covered inheritance yet, but the video talks about it. If those sections confuse you, just ignore them for now.
+
+If you want a refresher, you can also watch the earlier parts of the video.
+
+You may also want to read this student article: [A shallow dive into the constructor property in JavaScript](https://medium.com/@patel.aneeesh/a-shallow-dive-into-the-constructor-property-in-javascript-b0a89747058b) to get a better handle on the `constructor` property from the perspective of a student at roughly the same point in the JavaScript curriculum as you. The article is meant to be a companion to the JS OOP video above.
+
+End Assignment 6. Constructors with Prototypes ~ 20220308 13:22
