@@ -17,7 +17,7 @@ numInStr(["this is a test", "test1"]) ➞ ["test1"]
 Notes
 
     The strings can contain white spaces or any type of characters.
-    Bonus: Try solving this without RegEx.*/
+    Bonus: Try solving this without RegEx. */
 
 function numInStr(arr) {
   let result = [];

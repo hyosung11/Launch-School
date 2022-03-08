@@ -6109,3 +6109,46 @@ TODOs:
 
 20:48 I feel tired and ready to relax with Sohee before sleeping. Good night for now.
 
+## 20220307 월요일
+
+05:58 Getting ready for my study session with Alex.
+
+06:07 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 18. Lesson 2 Quiz 1 Anki Cards
+   * [x] 3. JS120 > Lesson 3: Object Creation Patterns > Assignment 1. Introduction
+   * [x] 4. JS120 > Lesson 3: Object Creation Patterns > Assignment 2. Review - OOP Principles: Encapsulation
+   * [x] 5. JS120 > Lesson 3: Object Creation Patterns > Assignment 3. Review - Factory Functions
+   * [x] 6. JS120 > Lesson 3: Object Creation Patterns > Assignment 4. Practice Problems - Factory Functions 2/5
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 18. Lesson 2 Quiz 2 Anki Cards
+   * [x] 3. Study Session with Laurent
+   * [x] 4. Study Session with Michael
+   * [x] 5. Read *The Coding Career Handbook*, Chapters 1 ~ 4 Part I: Your Coding Career
+   * [x] 6. JS120 > Lesson 3: Object Creation Patterns: Assignment 4. Practice Problems - Factory Functions 3 ~ 5
+   * [ ] 7. JS120 > Lesson 3: Object Creation Patterns: Assignment 5. Constructors
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   1. Nope
+
+06:13 I finished daily scrum questions.
+
+07:34 SungOh wants to type more and I felt resistance to helping him but Sohee just matter-of-factly told me to let him use the computer and that solved the problem.
+
+08:59 Decided to start reading the Coding Career Handbook today instead of the Programmer's Brain. Almost ready for study session with Laurent.
+
+10:31 Just finished study session with Laurent and got through Lesson 1 Quiz 1 and most of Lesson 2 Quiz 1. Meeting with Michael at 11:00, so will take a break now.
+
+12:00 After study session with Michael that helped me understand how nested function invocations work in a quiz question.
+
+15:41 Back home after ping pong and getting the kids and I haven't had time to study this afternoon.
+
+17:31 It feels hard to get back to focus on studying. I need to make dinner anyway. It feels slow going at the moment. I still need to convert two questions from Lesson 2 Quiz 2 to Anki cards.
+
+19:05 After dinner and I feel tired. I finished the Anki cards for Lesson 2 Quiz 2, but nothing is sinking in right now.
+
+20:59 Finishing for tonight. See you early tomorrow while it's still dark outside.
