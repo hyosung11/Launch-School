@@ -439,7 +439,7 @@ How does that code work, then? What's so different about using the `new` keyword
 
 We can now use the new object in any manner appropriate for a Car object.
 
-JavaScript won't complain about a missing `new` keyword.
+**JavaScript won't complain about a missing `new` keyword.**
 
 ```js
 Car(); // => undefined
@@ -451,12 +451,234 @@ Furthermore, since functions that don't return an explicit value return `undefin
 
 ### 5.2 Who Can be a Constructor
 
+You can use `new` to call almost any JavaScript function that you create. However, *you cannot call arrow functions with `new`* since they use their surrounding context as the value of `this`:
+
+```js
+let Car = (make, model, year) => {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+}
+
+new Car(); // TypeError: Car is not a constructor
+```
+
+You can also use `new` on methods that you define in objects. Consider:
+
+```js
+let foo = {
+  Car: function(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
+};
+
+let car1 = new foo.Car('Toyota', 'Camry', 2019);
+car1.make; //=> 'Toyota'
+```
+
+However, calling a method defined with concise syntax (also called a concise method) *won't work*:
+
+```js
+let foo = {
+  Car(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
+};
+
+new foo.Car(); //=> Uncaught TypeError: foo.Car is not a constructor
+```
+
+In addition, many -- but not all -- built-in objects and methods are *incompatible* with `new`:
+
+```js
+
+new console.log(); //=> Uncaught TypeError: console.log is not a constructor
+new Math();        //=> Uncaught TypeError: Math is not a constructor
+new parseInt("3"); //=> Uncaught TypeError: parseInt is not a constructor
+
+new Date();        //=> 2019-06-26T02:50:20.191Z
+```
+
+`new` is also incompatible with special functions known as **generators** (a topic that we don't currently cover at Launch School).
+
 ### 5.3 Constructors with Explicit Return Values
+
+What happens when you use `new` to call a function that returns an explicit value?
+
+```js
+function Cat(name, breed, weight) {
+  this.name = name;
+  this.breed = breed;
+  this.weight = weight;
+
+  return 'a cat';
+}
+
+let fluffy = new Cat('fluffy', 'Persian', 15);
+fluffy.weight; // 15
+```
+
+That's curious. Even though we explicitly returned the string `'a cat'`, our constructor returned the cat object with `name`, `breed` and `weight` as its properties.
+
+Note that `'a cat'` is a **primitive value**. Suppose we returned an object instead. What would happen, then?
+
+```js
+function Cat(name, breed, weight) {
+  this.name = name;
+  this.breed = breed;
+  this.weight = weight;
+
+  return { foo: 1 };
+}
+
+let fluffy = new Cat('fluffy', 'Persian', 15);
+fluffy.weight; // undefined
+fluffy.foo; // 1
+```
+
+This time the constructor returned the object { foo: 1 }, not a cat object.
+
+The rule here is that a constructor that explicitly tries to return an object returns that object instead of a new object of the desired type. In all other situations, it returns the newly created object, provided no errors occur. In particular, the constructor ignores primitive return values and returns the new object instead.
 
 ### 5.4 Supplying Constructor Arguments with Plain Objects
 
+Constructor functions sometimes have to grow with the needs of a program. That often means adding more arguments to the constructor. For instance, our `Car` constructor may one day end up looking like this:
+
+```js
+function Car(make, model, year, color, passengers, convertible, mileage) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+  this.color = color;
+  this.passengers = passengers;
+  this.convertible = convertible;
+  this.mileage = mileage;
+  this.started = false;
+
+  this.drive = function() {
+    this.started = true;
+  };
+
+  // rest of the methods
+}
+```
+
+That's quite a few parameters, with plenty of opportunities for mistakes. For instance, we may pass the arguments in the wrong order, and JavaScript won't complain. That might seem like a minor inconvenience, but it causes more bugs than you might think. Not only that, those bugs are often quite nasty and hard to diagnose. The more parameters a function needs, the harder it is to read the code and the more likely that problems will arise.
+
+One common technique that we can use to manage our parameters better involves *passing them to our constructor with an object argument*:
+
+```js
+let civicArgs = {
+  make: 'Honda',
+  model: 'Civic',
+  year: 2016,
+  color: 'black',
+  passengers: 5,
+  convertible: false,
+  mileage: 16000
+}
+
+let civic = new Car(civicArgs);
+```
+
+Of course, that means that we now have to rework our `Car` constructor to accept an object as an argument:
+
+```js
+function Car(args) {
+  this.make = args.make;
+  this.model = args.model;
+  this.year = args.year;
+  this.color = args.color;
+  this.passengers = args.passengers;
+  this.convertible = args.convertible;
+  this.mileage = args.mileage;
+  this.started = false;
+
+  this.drive = function() {
+    this.started = true;
+  };
+
+  // rest of methods
+}
+```
+
+With `Object.assign`, we can simplify this constructor considerably:
+
+```js
+function Car(args) {
+  Object.assign(this, args);
+
+  this.drive = function() {
+    this.started = true;
+  };
+
+  // rest of methods
+}
+```
+
+However, one drawback of the `Object.assign` approach is that the `args` object may contain properties that the `Car` object doesn't need. Those additional properties will, nevertheless, get added to the `Car` object. Those properties may just be excess baggage for the objects to carry around, but they *may also cause trouble*.
+
 ### 5.5 Determining an Object's Type
+
+Many object-oriented languages, like Java or C++, have a strong notion of object types. In most such languages, it's easy to determine the object's type, such as a dog or car. JavaScript, however, treats objects and their types in a looser, more dynamic way. You can't determine the specific type of arbitrary JavaScript objects; they are dynamic structures with a type of `object`, no matter what properties and methods they have. However, *we can get some useful information about an object if we know which constructor created it*.
+
+Remember that the `new` operator creates a new object. Suppose that you call the Car constructor with `new`. Informally, we can say that the resulting object is a car. More formally, we can say that the object is an **instance** of a `Car`.
+
+The `instanceof` operator lets us determine whether a given constructor created an object:
+
+```js
+let civicArgs = {
+  make: 'Honda',
+  model: 'Civic',
+  year: 2016,
+  color: 'black',
+  passengers: 5,
+  convertible: false,
+  mileage: 16000
+};
+
+let civic = new Car(civicArgs);
+
+if (civic instanceof Car) {
+  console.log("It's a car!");
+} else {
+  console.log("It's not a car.");
+}
+```
+
+One effect that we didn't mention when talking about the `new` operator is that t*he object it returns contains some information that ties it back to the constructor that created the object*. The `instanceof` operator uses that information to determine what constructor created the object. We'll talk more about how this mechanism works in the next assignment.
 
 ### 5.6 `new` and Implicit Execution Context
 
+In an earlier lesson, we discussed how a function could receive an implicit execution context. In particular, function and method calls provide an implicit context. For a function call, the implicit context is the global object; for a method call, it's the object used to call the method.
+
+Now that we know about constructors, we can add a constructor call with `new` as a third way to provide an implicit execution context. When you call a function with `new`, its implicit context is the new object.
+
 ### 5.7 Problems
+
+#### 5.7.1 What naming convention separates constructor functions from other functions?
+
+Constructor function names are capitalized.
+
+#### 5.7.2 What happens if you run the following code? Why?
+
+```js
+function Lizard() {
+  this.scamper = function() {
+    console.log("I'm scampering!");
+  };
+}
+
+let lizzy = Lizard();
+lizzy.scamper(); // ?
+```
+
+Solution:
+
+This code throws a `TypeError` since `scamper` is an undefined property on `lizzy`. Since `Lizard` was invoked without the `new` operator and it doesn't have an explicit return value, the return value is `undefined`. Thus, `lizzy` gets assigned to `undefined` which causes the call to `scamper` to throw an error: you can't call a method on `undefined`.
+
+#### 5.7.3 What naming convention separates constructor functions from other functions?

@@ -6152,3 +6152,27 @@ TODOs:
 19:05 After dinner and I feel tired. I finished the Anki cards for Lesson 2 Quiz 2, but nothing is sinking in right now.
 
 20:59 Finishing for tonight. See you early tomorrow while it's still dark outside.
+
+## 20220308 화요일
+
+06:00 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 18. Lesson 2 Quiz 2 Anki Cards
+   * [x] 3. Study Session with Laurent
+   * [x] 4. Study Session with Michael
+   * [x] 5. Read *The Coding Career Handbook*, Chapters 1 ~ 4 Part I: Your Coding Career
+   * [x] 6. JS120 > Lesson 3: Object Creation Patterns: Assignment 4. Practice Problems - Factory Functions 3 ~ 5
+   * [x] 7. JS120 > Lesson 3: Object Creation Patterns: Assignment 5. Constructors started
+
+2. What will you do today?
+   * [ ] 1. JS120 > Lesson 3: Object Creation Patterns: Assignment 5. Constructors
+   * [ ] 2. Read *The Coding Career Handbook*, Chapters 4: Junior Developer
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   1. I need to strength train and I still want the Treadly Pro 2.
+
+06:05 To reduce some context switching, I will adjust my studying technique by skimming the assignment first, writing out the topics, reading the topics, transcribing the topic and then making Anki cards on the topic. It's kind of what I'm been doing.
+
+09:35 I have been working through the topics of the Constructors assgnment.
