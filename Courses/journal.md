@@ -6148,3 +6148,5 @@ TODOs:
 15:41 Back home after ping pong and getting the kids and I haven't had time to study this afternoon.
 
 17:31 It feels hard to get back to focus on studying. I need to make dinner anyway. It feels slow going at the moment. I still need to convert two questions from Lesson 2 Quiz 2 to Anki cards.
+
+19:05 After dinner and I feel tired. I finished the Anki cards for Lesson 2 Quiz 2, but nothing is sinking in right now.
