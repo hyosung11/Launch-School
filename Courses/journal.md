@@ -6181,3 +6181,5 @@ TODOs:
 11:26 I thought I remembered how to render an image into a markdown file, but I'm not sure. Do I need to copy the relative path?
 
 13:29 Completed Lesson 3: Object Creation Patterns > Assignment 6. Constructors with Prototypes.
+
+15:09 Did most of the Kettlebell Simple & Sinister training this afternoon. I still feel kind of tired.
