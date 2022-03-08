@@ -877,7 +877,7 @@ biggie.bark(); // 'Yip!'
 
 Here's a diagram illustrating the `prototype` and `constructor` links we've discussed.
 
-![constructor-prototype-map](Courses/JS120/Lesson-3-Object-Creation-Patterns/constructor-prototype-map.png)
+![constructor-prototype-map](constructor-prototype-map.png)
 
 ### 6.4 Overriding the Prototype
 
