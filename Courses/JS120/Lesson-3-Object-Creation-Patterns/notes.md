@@ -1,6 +1,6 @@
 # Lesson 3: Object Creation Patterns
 
-## 1. Introduction
+## Assignment 1. Introduction
 
 In lesson 1, we saw the power of an object creation mechanism when we studied the **object factory pattern** for creating objects. In this lesson, we'll review that pattern, and talk about some other patterns.
 
@@ -10,7 +10,7 @@ We'll begin by looking at different ways to generate individual objects and then
 
 The topics covered by this lesson are at the heart of OOP in JavaScript. Prototype-based object-orientation is not a straightforward concept to grasp, and it takes time to get used to this way of thinking. Take it slow, read the assignment multiple times, and be sure to work through all the practice problems to let the concepts sink in. Let's start!
 
-## 2. Review - OOP Principles: Encapsulation
+## Assignment 2. Review - OOP Principles: Encapsulation
 
 In the previous course, we dealt mostly with procedural programming where we have data stored in a bunch of variables, and functions that operate on this data. As the program grows, so does the complexity and, before you know it, you end up with functions all throughout the code split up from the data that they operate on.
 
@@ -51,7 +51,7 @@ As you can see, everything that's related to the `employee` object is bundled. T
 
 We've just reviewed the concept of encapsulation and how it's relevant to object-oriented programming. In the example given, we *instantiated an object using the object literal syntax*. There are other more sophisticated patterns of object creation that we'll cover over the remaining assignments. However keep in mind that, at the very core, we are essentially doing the same thing: *grouping data and related functions together*.
 
-## 3. Review - Factory Functions
+## Assignment 3. Review - Factory Functions
 
 In lesson 1, we learned how to *create objects in bulk* by using the factory function pattern. We'll review that concept before we move forward and discuss some other object creation patterns.
 
@@ -101,7 +101,7 @@ The factory function lets us create multiple objects of the same "type" with a p
 
 - There is no way to inspect an object and learn whether we created it with a factory function. That effectively *makes it impossible to identify the specific "type" of the object*; at best, you can only determine that an object has some specific characteristics.
 
-## 4. Practice Problems - Factory Functions
+## Assignment 4. Practice Problems - Factory Functions
 
 ### 4.1 What are two disadvantages of working with factory functions?
 
@@ -324,7 +324,7 @@ function createInvoice(services = {}) {
 
 Wow, this is confusing. It looks familiar from GA but not clear at all.
 
-## 5. Constructors
+## Assignment 5. Constructors
 
 **Object constructors**, or **constructors** for short, are another way to create objects in JavaScript. You can think of a constructor as a little factory that can create an endless number of objects of the same type. If that sounds a bit like a factory function, that's okay -- there are some differences, but the basic idea is the same.
 
@@ -1782,3 +1782,4 @@ let ingredients = 'olives';
 
 End Assignment 9. Built-in Constructors @ 20220309 11:03. I still need to make the Anki cards!
 
+## Assignment 10. ES6 Classes

@@ -6222,3 +6222,5 @@ TODOs:
 11:04 End Assignment 9. Built-in Constructors @ 20220309 11:03. I still need to make the Anki cards!
 
 14:48 I just finished my Anki cards for Assignment 9. I also did most of the KSS training session except for the stretching. I have to go and get Omi now and see SungOh off to his playdate. After I get back I will start Assignment 10. ES6 Classes!
+
+15:12 Back from getting Omi and I want to watch Real Madrid vs PSG. Bye!
