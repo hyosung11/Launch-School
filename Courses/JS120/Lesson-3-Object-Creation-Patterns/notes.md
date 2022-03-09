@@ -1305,3 +1305,81 @@ Dog.showSpecies();
 You've already seen examples of static methods on built-in JavaScript constructors.`Object.assign`, `Array.isArray`, and `Date.now` are all examples of static methods.
 
 End Instance and Static Properties and Methods 20220308 20:54
+
+## 9. Built-in Constructors
+
+JavaScript comes with a variety of built-in constructors and prototypes that let you instantiate useful objects. These constructors work like constructors for other objects; they're used with the `new` keyword to create objects. In this assignment, we will discuss some of JavaScript's built-in constructors, their prototypes, and how you can extend them.
+
+### 9.1 The `Array` constructor
+
+You've seen and worked with array objects many times so far. The simplest way to create an array object uses the bracket syntax:
+
+```sh
+> let numbers = [1, 2, 3, 4]
+> numbers
+[ 1, 2, 3, 4 ]
+```
+
+This syntax is how you usually create arrays in JavaScript. However, you can also use the `Array` constructor:
+
+```sh
+> let emptyArray = new Array();
+> emptyArray
+[]
+```
+
+As you might suspect, calling `new Array()` creates and returns a new array. That array is empty unless you also pass some arguments to the constructor. Each argument you provide gets added to the new array as an element:
+
+```sh
+> let numbers = new Array(1, 2, 3, 4)
+> numbers
+[ 1, 2, 3, 4 ]
+
+> let colors = new Array('green', 'blue', 'yellow')
+> colors
+[ 'green', 'blue', 'yellow' ]
+```
+
+The behavior is considerably different when you *provide a single number argument*. In this case, the constructor creates an array with a length equal to the number specified by the argument, but with no actual elements:
+
+```sh
+> new Array(3)
+[ < 3 empty items ]
+```
+
+You can think of `[ <3 empty items> ]` as an array that has three empty slots. In effect, it's an empty array that happens to contain spaces for three items; alternatively, it's a non-empty array that contains no values. Call it Schrödinger's array if you wish.
+
+Note that the single-number form of the constructor does not accept non-integers or negative numbers:
+
+```sh
+> new Array(3.1415)
+=> RangeError: Invalid array length
+
+> new Array(-5)
+=> RangeError: Invalid array length
+```
+
+#### 9.1.1 `Array.prototype`
+
+#### 9.1.2 Static Array Methods
+
+### 9.2 The `Object` constructor
+
+#### 9.2.1 `Object.prototype`
+
+#### 9.2.2 Static `Object` Methods
+
+### 9.3 The Date Constructor
+
+#### 9.3.1 Date.prototype
+
+### 9.4 The `String` Constructor
+
+#### 9.4.1 `String` Without `new`
+
+### 9.5 The `Number` and `Boolean` Constructors
+
+### 9.6 Extending Built-in Prototypes
+
+### 9.7 Borrowing Array Methods for Strings
+

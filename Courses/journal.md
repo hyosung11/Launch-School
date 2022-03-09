@@ -5793,7 +5793,7 @@ printer([
 
 12:00 Good practice session. It still takes me 20 minutes to solve Typoglycemia Generator but I can do it friction-free now.
 
-15:19 I feel tired even afer I took a short nap after watching the end of Everton vs Man City.
+15:19 I feel tired even after I took a short nap after watching the end of Everton vs Man City.
 
 16:17 I still struggle a little with using objects and a problem where I have to iterate two separate times through the same string.
 
@@ -6170,7 +6170,8 @@ TODOs:
    * [x] 1. JS120 > Lesson 3: Object Creation Patterns: Assignment 5. Constructors
    * [x] 2. JS120 > Lesson 3: Object Creation Patterns: Assignment 6. Constructors with Prototypes
    * [x] 3. JS120 > Lesson 3: Object Creation Patterns: Assignment 7. Practice Problems - Constructors and Prototypes
-   * [x] 3. Read *The Coding Career Handbook*, Chapter 4: Junior Developer
+   * [x] 4. JS120 > Lesson 3: Object Creation Patterns: Assignment 7. Practice Problems - Constructors and Prototypes
+   * [x] 5. Read *The Coding Career Handbook*, Chapter 4: Junior Developer
 
 3. Are there any blockers or impediments preventing you from doing your work?
    1. I need to strength train and I still want the Treadly Pro 2.
@@ -6192,3 +6193,28 @@ TODOs:
 20:12 I finished Anki cards for Practice Problems - Constructors and Prototypes and having to make the cards helps me understand the material better.
 
 20:55 I need to make Anki cards for Assignment 8. Static and Instance Properties and Methods. I'm done for tonight though, I think.
+
+## 20220309 수요일
+
+07:15 Alex was a few minutes late, but we had our study hall.
+
+07:25 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS120 > Lesson 3: Object Creation Patterns: Assignment 5. Constructors
+   * [x] 2. JS120 > Lesson 3: Object Creation Patterns: Assignment 6. Constructors with Prototypes
+   * [x] 3. JS120 > Lesson 3: Object Creation Patterns: Assignment 7. Practice Problems - Constructors and Prototypes
+   * [x] 4. JS120 > Lesson 3: Object Creation Patterns: Assignment 7. Practice Problems - Constructors and Prototypes
+   * [x] 5. JS120 > Lesson 3: Object Creation Patterns: Assignment 8. Static and Instance Properties and Methods
+   * [x] 6. Read *The Coding Career Handbook*, Chapter 4: Junior Developer
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. JS120 > Lesson 3: Object Creation Patterns: Assignment 9. Built-in Constructors
+   * [ ] 3. JS120 > Lesson 3: Object Creation Patterns: Assignment 10. ES6 Classes
+   * [ ] 4. Read *The Coding Career Handbook*, Chapter 5: From Junior to Senior
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   1. Nope. I have a clear lane to study from morning to afternoon after I take the kids to school until I have to pick them up in the afternoon.
+
+08:46 Back from dropping the kids off at school and into studying now.
