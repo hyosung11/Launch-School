@@ -6218,3 +6218,6 @@ TODOs:
    1. Nope. I have a clear lane to study from morning to afternoon after I take the kids to school until I have to pick them up in the afternoon.
 
 08:46 Back from dropping the kids off at school and into studying now.
+
+11:04 End Assignment 9. Built-in Constructors @ 20220309 11:03. I still need to make the Anki cards!
+
