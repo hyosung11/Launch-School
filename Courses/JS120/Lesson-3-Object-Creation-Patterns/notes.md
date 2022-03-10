@@ -942,7 +942,11 @@ It's time to return to the [JavaScript OOP](https://www.youtube.com/watch?v=-N9t
 
 If you want a refresher, you can also watch the earlier parts of the video.
 
+### 6.5 A shallow dive into the constructor property in JavaScript by Aneesh Patel
+
 You may also want to read this student article: [A shallow dive into the constructor property in JavaScript](https://medium.com/@patel.aneeesh/a-shallow-dive-into-the-constructor-property-in-javascript-b0a89747058b) to get a better handle on the `constructor` property from the perspective of a student at roughly the same point in the JavaScript curriculum as you. The article is meant to be a companion to the JS OOP video above.
+
+
 
 End Assignment 6. Constructors with Prototypes ~ 20220308 13:22
 
