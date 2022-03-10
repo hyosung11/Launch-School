@@ -6237,17 +6237,20 @@ TODOs:
 
 1. What did you do yesterday?
    * [x] 1. Study Session with Alex
-   * [x] 2. JS120 > Lesson 3: Object Creation Patterns: Assignment 9. Built-in Constructors
-   * [x] 3. JS120 > Lesson 3: Object Creation Patterns: Assignment 10. ES6 Classes
+   * [x] 2. JS120 > Lesson 3: Object Creation Patterns > Assignment 9. Built-in Constructors
+   * [x] 3. JS120 > Lesson 3: Object Creation Patterns > Assignment 10. ES6 Classes
    * [x] 4. Read *The Coding Career Handbook*, Chapter 5: From Junior to Senior
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [x] 2. JS120 > Lesson 3: Object Creation Patterns: Assignment 10. ES6 Classes
-   * [x] 3. JS120 > Lesson 3: Object Creation Patterns: Assignment 11. Practice Problems - Classes
-   * [x] 4. JS120 > Lesson 3: Object Creation Patterns: Assignment 12. Summary
+   * [x] 2. JS120 > Lesson 3: Object Creation Patterns > Assignment 10. ES6 Classes
+   * [x] 3. JS120 > Lesson 3: Object Creation Patterns > Assignment 11. Practice Problems - Classes
+   * [x] 4. JS120 > Lesson 3: Object Creation Patterns > Assignment 12. Summary
    * [x] 4. SPOT Study Session
    * [x] 5. Read *The Coding Career Handbook*, Chapter 6: Senior Developer
+   * [x] 6. JS120 > Lesson 3: Object Creation Patterns > Assignment 13. Lesson 3 Quiz 1
+   * [x] 7. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 1. Introduction
+   * [x] 8. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 2. Object Creation with Prototypes (OLOO)
 
 3. Are there any blockers or impediments preventing you from doing your work?
    1. None
@@ -6280,4 +6283,4 @@ I'm glad I have my MBP to work with right now.
 
 18:11 I finished notes and Anki cards for Lesson 4: Subclassing and Code Reuse Patterns > Assignment 2. Object Creation with Prototypes (OLOO).
 
-'Finish notes and Anki cards for Lesson 4: Subclassing and Code Reuse Patterns > Assignment 2. Object Creation with Prototypes (OLOO)'
+18:17 I feel hungry and we haven't started dinner yet. I seem to outline the assignment, read the topic, transcribe the topic, make Anki cards. It seems to be working for now.
