@@ -6210,9 +6210,9 @@ TODOs:
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [ ] 2. JS120 > Lesson 3: Object Creation Patterns: Assignment 9. Built-in Constructors
-   * [ ] 3. JS120 > Lesson 3: Object Creation Patterns: Assignment 10. ES6 Classes
-   * [ ] 4. Read *The Coding Career Handbook*, Chapter 5: From Junior to Senior
+   * [x] 2. JS120 > Lesson 3: Object Creation Patterns: Assignment 9. Built-in Constructors
+   * [x] 3. JS120 > Lesson 3: Object Creation Patterns: Assignment 10. ES6 Classes
+   * [x] 4. Read *The Coding Career Handbook*, Chapter 5: From Junior to Senior
 
 3. Are there any blockers or impediments preventing you from doing your work?
    1. Nope. I have a clear lane to study from morning to afternoon after I take the kids to school until I have to pick them up in the afternoon.
@@ -6224,3 +6224,6 @@ TODOs:
 14:48 I just finished my Anki cards for Assignment 9. I also did most of the KSS training session except for the stretching. I have to go and get Omi now and see SungOh off to his playdate. After I get back I will start Assignment 10. ES6 Classes!
 
 15:12 Back from getting Omi and I want to watch Real Madrid vs PSG. Bye!
+
+19:43 I finished ES6 Classes, but I need to make Anki cards and review the topics.
+

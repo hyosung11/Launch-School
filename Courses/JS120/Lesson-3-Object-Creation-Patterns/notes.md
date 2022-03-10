@@ -1783,3 +1783,221 @@ let ingredients = 'olives';
 End Assignment 9. Built-in Constructors @ 20220309 11:03. I still need to make the Anki cards!
 
 ## Assignment 10. ES6 Classes
+
+ES6 introduced a new class keyword to JavaScript. We take a brief look at the class keyword in this [Gist](https://launchschool.com/gists/6ba85481).
+
+Once you've finished with the Gist, you can finish watching the [JavaScript OOP video](https://launchschool.com/gists/6ba85481) that you began watching earlier. The portion of the video that pertains to this assignment starts at about the 01:25:10 mark and continues through the end of the video (about 14 minutes remaining).
+
+### 10.1 Classes Introduction
+
+The ECMAScript 6 (ES6) standard added the `class` keyword to JavaScript. In effect, classes act like **syntactic sugar** -- syntax designed to be easier to read or use -- that makes it easier for programmers to migrate to JavaScript from other OOP languages. In essence, they provide little more than a more natural and possibly familiar way to create constructors and prototypes.
+
+That's not the entire story, of course. In JavaScript, there always seems to be some unusual or unexpected behavior behind every feature, no matter how ordinary it looks. It should come as no surprise that classes are no different. We'll barely touch on that in this assignment. For now, think of classes as syntactic sugar, and you'll be okay.
+
+The syntax for defining classes is similar to that of defining functions. In particular, both functions and classes have two significant definition styles: declarations and expressions. We'll examine how classes do that in this assignment.
+
+### A Simple Type
+
+Before we get into the `class` syntax, let's first define a simple `Rectangle` type using the familiar constructor and prototype pattern:
+
+```js
+function Rectangle(length, width) {
+  this.length = length;
+  this.width = width;
+}
+
+Rectangle.prototype.getArea = function() {
+  return this.length * this.width;
+};
+
+let rec = new Rectangle(10, 5);
+console.log(typeof Rectangle);         // function
+console.log(rec instanceof Rectangle); // true
+console.log(rec.constructor);          // [Function: Rectangle]
+console.log(rec.getArea());            // 50
+```
+
+This code is straightforward and easy to follow, and the outputs should be exactly what you expect. In particular, the object created by the `Rectangle` constructor, `rec`, is an instance of the `Rectangle` type, and we can call the `getArea` method from its prototype to calculate the area.
+
+It's interesting to note that you can call the `Rectangle` constructor without the `new` keyword. However, if you do, the constructor won't work properly. It's possible to write constructors that work with or without the `new` keyword, but most JavaScript developers won't bother.
+
+Now, let's see what this code looks like using the `class` keyword.
+
+### Class Declarations
+
+The simplest way to create classes in JavaScript is with the **class declaration**, which looks similar to classes in other languages.
+
+```js
+class Rectangle {
+  constructor(length, width) {
+    this.length = length;
+    this.width = width;
+  }
+
+  getArea() {
+    return this.length * this.width;
+  }
+}
+
+let rec = new Rectangle(10, 5);
+console.log(typeof Rectangle); // function
+console.log(rec instanceof Rectangle); // true
+console.log(rec.constructor); // [class Rectangle]
+console.log(rec.getArea()); // 50
+```
+
+Class declarations begin with the `class` keyword, followed by the name of the class. The rest of the syntax looks similar to the simplified (concise) method definition that you can use in object literals. However, there are *no commas between the properties of the class*.
+
+One significant difference is that the `constructor` is now a method named constructor inside our class instead of being a standalone function. Other methods have no special meaning; you can define as many as you need. In this case, we define `getArea`, and it gets placed in `Rectangle.prototype`.
+
+In most situations, instantiating a new object from a class is identical to creating one with the constructor/prototype pattern:
+
+```js
+let rec = new Rectangle(10, 5);
+```
+
+You can even call methods on `Rectangle.prototype` in the same way:
+
+```js
+console.log(rec.getArea());
+```
+
+The class code and instantiation is so similar to the constructor/prototype code that `typeof` even returns `'function'`, and the object checks out as an instance of `Rectangle`:
+
+```js
+console.log(typeof Rectangle); // "function"
+console.log(rec instanceof Rectangle); // true
+```
+
+One minor difference is that `rec.constructor` may produce different results in the two patterns. For example, in Node, logging `rec.constructor` produces `[Function: Rectangle]` for the constructor/prototype example, and `[class Rectangle]` for the class example. This difference is implementation dependent, and not considered significant.
+
+There is one significant difference, however: you ***must*** use the `new` keyword to call the constructor when using a `class`. JavaScript raises a `TypeError` if you try to call the constructor without the `new` keyword.
+
+Using classes, it's possible to do everything you can with the constructor and prototype pattern. However, the class syntax is easier to read and write, and the enforced `new` keyword helps prevent bugs.
+
+### Class Expressions
+
+Functions have an expression form that does not require a name after the function keyword. Classes have a similar expression form. Consider the following code:
+
+```js
+let Rectangle = class {
+  constructor(length, width) {
+    this.length = length;
+    this.width = width;
+  }
+
+  getArea() {
+    return this.length * this.width;
+  }
+};
+```
+
+Aside from the syntax, class expressions are functionally equivalent to class declarations. Which you use is primarily a matter of style.
+
+### Classes as First-Class Citizens
+
+In programming, a **first-class citizen** is a value that can be passed into a function, returned from a function, and assigned to a variable. Like JavaScript functions, JavaScript classes are also first-class values. For example, you can pass classes into functions as arguments:
+
+```js
+function createObject(classDef) {
+  return new classDef();
+}
+
+class Foo {
+  sayHi() {
+    console.log('Hi');
+  }
+}
+
+let obj = createObject(Foo);
+obj.sayHi(); // => logs 'Hi!'
+```
+
+If that doesn't surprise you, that's good! Earlier, we mentioned that classes are just functions, and demonstrated that with `typeof`:
+
+```js
+typeof Foo; // => "function"
+```
+
+Since functions are first-class objects, classes must also be first-class objects!
+
+### Static Methods and Properties
+
+You may remember seeing some methods like Array.isArray and Object.keys that are invoked with Array or Object as the caller instead of an actual array or object. For instance:
+
+```js
+Array.isArray([1, 2, 3]); // => true
+[1, 2, 3].isArray();      // raises a TypeError
+```
+
+Methods like these are defined on the constructor for the type, e.g., `Array` or `Object`. You may sometimes hear such methods described as class methods. However, in JavaScript, that's a bit of a misnomer. Instead, you should call such methods **static methods**.
+
+Ordinary methods -- those defined on a prototype object -- are sometimes called **instance methods** or **object methods** since you need an instance of (an object) the type. More commonly, they are simply called methods.
+
+You can define static methods on your custom constructor methods. For instance, let's add one to the `Rectangle` type we defined earlier:
+
+```js
+function Rectangle(length, width) {
+  this.length = length;
+  this.width = width;
+}
+
+Rectangle.getDescription = function() {
+  return 'A rectangle is a shape with 4 sides';
+}
+
+console.log(Rectangle.getDescription()); // A rectangle is a shape with 4 sides
+```
+
+This code defines a static method named `getDescription` on the `Rectangle` constructor. To use this method, you invoke it with the `Rectangle` function object.
+
+It should come as no surprise that you can define static methods with the `class` keyword as well: just use the static keyword:
+
+```js
+class Rectangle {
+  constructor(length, width) {
+    this.length = length;
+    this.width = width;
+  }
+
+  static getDescription() {
+    return 'A rectangle is a shape with 4 sides';
+  }
+
+  getArea() {
+    return this.length * this.width;
+  }
+}
+
+console.log(Rectangle.getDescription()); // A rectangle is a shape with 4 sides
+```
+
+As before, we call the method with the name of the constructor function -- in the case of a class, the constructor function's name is the name of the class.
+
+You can also define static properties. Static properties are properties that are defined on the constructor function instead of the individual objects. One well-known example of a static property is the `length` property used by the `String` type. To define a static property with the constructor and prototype pattern, just add it to the constructor function object:
+
+```js
+Rectangle.description = 'A rectangle is a shape with 4 sides';
+```
+
+To do the same thing with a `class`, just use the `static` keyword inside the `class`:
+
+```js
+class Rectangle {
+  static description = 'A rectangle is a shape with 4 sides';
+}
+```
+
+As of this writing in late 2020, static properties are a recent addition to JavaScript. They aren't completely supported, yet. Fortunately, recent versions of Node support them, which means we can use them in our code in this course. If you want to use static properties in a browser or an older version of Node that doesn't support them, you can accomplish the same effect by adding a property directly to the class:
+
+```js
+Rectangle.description = 'A rectangle is a shape with 4 sides';
+```
+
+Yes, that code is identical to what we would write if we were using the constructor/prototype pattern.
+
+### ES6 Classes Summary
+
+ES6 classes provide a cleaner, more compact alternative to constructors and prototypes. As with functions, they are first-class citizens and come in the form of declarations and expressions. Functionally, classes behave almost identically to the constructors and prototypes they aim to replace. Classes allow for static methods by using the `static` modifier.
+
+End ES6 Classes on 20220309 # 19:42, but I still need to make Anki cards.
