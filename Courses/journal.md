@@ -6228,3 +6228,25 @@ TODOs:
 19:43 I finished ES6 Classes, but I need to make Anki cards and review the topics.
 
 20:50 Too tired to do Anki cards right now. Do them tomorrow. Good night.
+
+## 202203010 목요일
+
+06:08 In a study session with Alex.
+
+06:09 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS120 > Lesson 3: Object Creation Patterns: Assignment 9. Built-in Constructors
+   * [x] 3. JS120 > Lesson 3: Object Creation Patterns: Assignment 10. ES6 Classes
+   * [x] 4. Read *The Coding Career Handbook*, Chapter 5: From Junior to Senior
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. JS120 > Lesson 3: Object Creation Patterns: Assignment 10. ES6 Classes
+   * [ ] 3. JS120 > Lesson 3: Object Creation Patterns: Assignment 11. Practice Problems - Classes
+   * [ ] 4. SPOT Study Session
+   * [ ] 5. Read *The Coding Career Handbook*, Chapter 5: From Junior to Senior
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   1. None
