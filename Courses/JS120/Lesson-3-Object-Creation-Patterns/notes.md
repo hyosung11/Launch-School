@@ -2069,3 +2069,12 @@ tv.model();
 5. The pseudo-classical inheritance pattern has types (e.g., classes) that inherit from other types. This way, all objects of a given type can share behaviors from the same source.
 
 6. The class syntax, a relatively new addition to JavaScript, is **syntactic sugar** (cleaner syntax) for creating objects that use constructors and prototypes. JavaScript classes make it look more like a classical OO language to make the transition smoother for developers who have experience working with other OO languages.
+
+## Assignment 13 Quiz 1
+
+Assignment:Lesson 3 Quiz 1
+Student Name: HyoSung Bidol-Lee
+Submitted at: 2 minutes ago
+Time taken: 0.26 hour(s)
+Score: 6/13 (46.15%)
+

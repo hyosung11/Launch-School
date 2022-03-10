@@ -6265,3 +6265,7 @@ Powerful Reading
 3. Active recall
 
 I'm glad I have my MBP to work with right now.
+
+11:00 I rebooted this iMac two times and then shut it down twice and now it seems to be working well again. I think I'm now ready to take the Lesson 3 Quiz 1.
+
+11:19 I took Assignment 13: Lesson 3 Quiz 1 and bombed, but that's okay.
