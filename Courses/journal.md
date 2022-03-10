@@ -6243,10 +6243,12 @@ TODOs:
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [ ] 2. JS120 > Lesson 3: Object Creation Patterns: Assignment 10. ES6 Classes
-   * [ ] 3. JS120 > Lesson 3: Object Creation Patterns: Assignment 11. Practice Problems - Classes
+   * [x] 2. JS120 > Lesson 3: Object Creation Patterns: Assignment 10. ES6 Classes
+   * [x] 3. JS120 > Lesson 3: Object Creation Patterns: Assignment 11. Practice Problems - Classes
    * [ ] 4. SPOT Study Session
-   * [ ] 5. Read *The Coding Career Handbook*, Chapter 5: From Junior to Senior
+   * [x] 5. Read *The Coding Career Handbook*, Chapter 6: Senior Developer
 
 3. Are there any blockers or impediments preventing you from doing your work?
    1. None
+
+08:47 Doing good work this morning studying. I'm always fresher and sharper in the mornings.

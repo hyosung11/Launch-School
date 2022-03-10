@@ -1784,11 +1784,11 @@ End Assignment 9. Built-in Constructors @ 20220309 11:03. I still need to make t
 
 ## Assignment 10. ES6 Classes
 
-ES6 introduced a new class keyword to JavaScript. We take a brief look at the class keyword in this [Gist](https://launchschool.com/gists/6ba85481).
+ES6 introduced a new `class` keyword to JavaScript. We take a brief look at the `class` keyword in this [Gist](https://launchschool.com/gists/6ba85481).
 
 Once you've finished with the Gist, you can finish watching the [JavaScript OOP video](https://launchschool.com/gists/6ba85481) that you began watching earlier. The portion of the video that pertains to this assignment starts at about the 01:25:10 mark and continues through the end of the video (about 14 minutes remaining).
 
-### 10.1 Classes Introduction
+### 10.1 [Classes Introduction](https://launchschool.com/gists/6ba85481)
 
 The ECMAScript 6 (ES6) standard added the `class` keyword to JavaScript. In effect, classes act like **syntactic sugar** -- syntax designed to be easier to read or use -- that makes it easier for programmers to migrate to JavaScript from other OOP languages. In essence, they provide little more than a more natural and possibly familiar way to create constructors and prototypes.
 
@@ -2001,3 +2001,69 @@ Yes, that code is identical to what we would write if we were using the construc
 ES6 classes provide a cleaner, more compact alternative to constructors and prototypes. As with functions, they are first-class citizens and come in the form of declarations and expressions. Functionally, classes behave almost identically to the constructors and prototypes they aim to replace. Classes allow for static methods by using the `static` modifier.
 
 End ES6 Classes on 20220309 # 19:42, but I still need to make Anki cards.
+
+## Assignment 11. Practice Problems - Classes
+
+### 11.1 What do we mean when we say that classes are first-class values?
+
+**Solution**
+
+We can treat JavaScript classes like any other JavaScript value. They can be passed around to functions, returned from functions, assigned to variables, and used anywhere a value is expected.
+
+### 11.2 Consider the following class declaration:
+
+```js
+class Television {
+  static manufacturer() {
+    // omitted code
+  }
+
+  model() {
+    // method logic
+  }
+}
+```
+
+What does the `static` modifier do? How would we call the method `manufacturer`?
+
+**Solution**
+
+The `static` modifier, when used with a method declaration, marks the method as static. That is, the method is defined directly on the class, not on the objects the class creates. We use it like this:
+
+```js
+Television.manufacturer();
+```
+
+The `model` method, on the other hand, is an instance method and must be called by an instance object:
+
+```js
+let tv = new Television();
+tv.model();
+```
+
+## Assignment 12. Summary
+
+1. Factory functions instantiate and return a new object in the function body. They let us create new objects based on a predefined template. However, they have two significant downsides:
+
+  1.1 There is no way to tell whether a factory function created a given object.
+  1.2 All objects created by a factory function have separate copies of the methods, which can be redundant and wasteful.
+
+2. Constructor functions are meant to be invoked with the new operator. They instantiate a new object behind the scenes and let the developer manipulate it through the this keyword. A typical constructor uses the following pattern:
+        The constructor is invoked with new.
+        The JS runtime creates a new object that inherits from the constructor's prototype object.
+        The new object is assigned to this within the function body.
+        The code in the function body is executed.
+        The function returns the object referenced by this unless the function returns an explicit object.
+
+    Every function has a prototype property that points to an object that contains a constructor property. The constructor property points back to the function itself. Thus, if Kumquat is a construction function, then Kumquat.prototype.constructor === Kumquat.
+
+    If the function is used as a constructor, the returned object's [[Prototype]] will reference the constructor's prototype property. That lets us set properties on the constructor's prototype object so that all objects created by the constructor will share them. We call this the pseudo-classical pattern of object creation.
+
+    The pseudo-classical object creation pattern generates objects using a constructor function that defines state and a prototype object that defines shared behaviors.
+
+    The pseudo-classical inheritance pattern has types (e.g., classes) inherit from other types. This way, all objects of a given type can share behaviors from the same source.
+
+    The class syntax, a relatively new addition to JavaScript, is syntactic sugar (cleaner syntax) for creating objects that use constructors and prototypes. JavaScript classes make it look more like a classical OO language to make the transition smoother for developers who have experience working with other OO languages.
+
+
+
