@@ -6246,7 +6246,7 @@ TODOs:
    * [x] 2. JS120 > Lesson 3: Object Creation Patterns: Assignment 10. ES6 Classes
    * [x] 3. JS120 > Lesson 3: Object Creation Patterns: Assignment 11. Practice Problems - Classes
    * [x] 4. JS120 > Lesson 3: Object Creation Patterns: Assignment 12. Summary
-   * [ ] 4. SPOT Study Session
+   * [x] 4. SPOT Study Session
    * [x] 5. Read *The Coding Career Handbook*, Chapter 6: Senior Developer
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -6271,3 +6271,7 @@ I'm glad I have my MBP to work with right now.
 11:19 I took Assignment 13: Lesson 3 Quiz 1 and bombed, but that's okay.
 
 11:44 Working on the Anki cards for the quiz questions and I realize I can break the questions down into smaller Anki cards. Maybe I'll do that the next time around. The SPOT study session is at 12:00.
+
+13:01 After the SPOT study session with Miles, I am thinking about "tearing through the lessons" and then circling back to take notes. Can I do it? Will I do it?
+
+14:58 I took a lunch break and also did KSS the full training session including stretching and I feel tired and good. Going to kick ass playing ping pong now.
