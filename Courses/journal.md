@@ -6245,6 +6245,7 @@ TODOs:
    * [x] 1. Study Session with Alex
    * [x] 2. JS120 > Lesson 3: Object Creation Patterns: Assignment 10. ES6 Classes
    * [x] 3. JS120 > Lesson 3: Object Creation Patterns: Assignment 11. Practice Problems - Classes
+   * [x] 4. JS120 > Lesson 3: Object Creation Patterns: Assignment 12. Summary
    * [ ] 4. SPOT Study Session
    * [x] 5. Read *The Coding Career Handbook*, Chapter 6: Senior Developer
 
@@ -6254,3 +6255,13 @@ TODOs:
 08:47 Doing good work this morning studying. I'm always fresher and sharper in the mornings.
 
 09:27 I finished Lesson 3: Object Creation Patterns > Assignment 12. Summary.
+
+10:34 My iMac was running very slowly, so I rebooted it but that didn't work, so I shut it down and will restart it later. I hope it works then. Right now I'm thinking about how to study better and looked at Learning How to Learn stuff again:
+
+Powerful Reading
+
+1. Picture walk
+2. Read with care
+3. Active recall
+
+I'm glad I have my MBP to work with right now.
