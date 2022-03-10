@@ -6227,3 +6227,4 @@ TODOs:
 
 19:43 I finished ES6 Classes, but I need to make Anki cards and review the topics.
 
+20:50 Too tired to do Anki cards right now. Do them tomorrow. Good night.
