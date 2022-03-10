@@ -6269,3 +6269,5 @@ I'm glad I have my MBP to work with right now.
 11:00 I rebooted this iMac two times and then shut it down twice and now it seems to be working well again. I think I'm now ready to take the Lesson 3 Quiz 1.
 
 11:19 I took Assignment 13: Lesson 3 Quiz 1 and bombed, but that's okay.
+
+11:44 Working on the Anki cards for the quiz questions and I realize I can break the questions down into smaller Anki cards. Maybe I'll do that the next time around. The SPOT study session is at 12:00.
