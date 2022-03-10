@@ -6275,3 +6275,9 @@ I'm glad I have my MBP to work with right now.
 13:01 After the SPOT study session with Miles, I am thinking about "tearing through the lessons" and then circling back to take notes. Can I do it? Will I do it?
 
 14:58 I took a lunch break and also did KSS the full training session including stretching and I feel tired and good. Going to kick ass playing ping pong now.
+
+16:49 I'm back from playing ping pong. We were competitive today. We tied at 7-7 and then Louis went ahead 11-7 and we ended at 11-8.
+
+18:11 I finished notes and Anki cards for Lesson 4: Subclassing and Code Reuse Patterns > Assignment 2. Object Creation with Prototypes (OLOO).
+
+'Finish notes and Anki cards for Lesson 4: Subclassing and Code Reuse Patterns > Assignment 2. Object Creation with Prototypes (OLOO)'
