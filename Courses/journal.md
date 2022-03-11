@@ -6289,6 +6289,10 @@ I'm glad I have my MBP to work with right now.
 
 20:10 I finished the Anki cards for Practice Problems: Object Creation with Prototypes (OLOO). I'm going to the couch and my MBP now.
 
+20:39 On the couch and outlining Lesson 4: Subclassing and Code Reuse Patterns > Assignment 4: Subtyping with Constructors and Prototypes
+
+21:05 Done for tonight.
+
 ## 202203011 금요일
 
 06:01 In a study session with Alex.
@@ -6323,3 +6327,5 @@ Powerful Reading
 3. Active recall
 
 06:11 In study session with Alex. Time to get started on Assignment 4. Subtyping with Constructors and Prototypes.
+
+07:22 I feel a little slow studying today, but it's okay. I'm on to the practice problems before breakfast. All is well.
