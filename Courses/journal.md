@@ -6288,3 +6288,38 @@ I'm glad I have my MBP to work with right now.
 19:45 After dinner and cleaning up I studied a little more and finished Practice Problems: Object Creation with Prototypes
 
 20:10 I finished the Anki cards for Practice Problems: Object Creation with Prototypes (OLOO). I'm going to the couch and my MBP now.
+
+## 202203011 금요일
+
+06:01 In a study session with Alex.
+
+06:04 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS120 > Lesson 3: Object Creation Patterns > Assignment 10. ES6 Classes
+   * [x] 3. JS120 > Lesson 3: Object Creation Patterns > Assignment 11. Practice Problems - Classes
+   * [x] 4. JS120 > Lesson 3: Object Creation Patterns > Assignment 12. Summary
+   * [x] 4. SPOT Study Session
+   * [x] 5. Read *The Coding Career Handbook*, Chapter 6: Senior Developer
+   * [x] 6. JS120 > Lesson 3: Object Creation Patterns > Assignment 13. Lesson 3 Quiz 1
+   * [x] 7. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 1. Introduction
+   * [x] 8. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 2. Object Creation with Prototypes (OLOO)
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. Read *The Coding Career Handbook*, Chapter 6: Senior Developer
+   * [ ] 3. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 4. Subtyping with Constructors and Prototypes
+   * [ ] 4. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 5. Subtyping with Classes
+   * [ ] 5. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 6. Practice Problems: Subtyping with Classes
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   1. Shorter study day because I have to take the kids to school and I'm playing ping pong and getting the kids after school.
+
+Powerful Reading
+
+1. Picture walk
+2. Read with care
+3. Active recall
+
+06:11 In study session with Alex. Time to get started on Assignment 4. Subtyping with Constructors and Prototypes.
