@@ -458,8 +458,91 @@ Both pseudo-classical and prototypal inheritance *use prototypal delegation unde
 
 ### 4.5 Practice Problem
 
+Consider the following code:
+
+```js
+function Greeting() {}
+
+Greeting.prototype.greet = function(message) {
+  console.log(message);
+};
+
+function Hello() {}
+
+Hello.prototype = Object.create(Greeting.prototype);
+
+Hello.prototype.hi = function() {
+  this.greet('Hello');
+};
+
+function Goodbye() {}
+
+Goodbye.prototype = Object.create(Greeting.prototype);
+
+Goodbye.prototype.bye = function() {
+  this.greet('Goodbye');
+};
+```
+
+What happens in each of the following cases? Try to answer without running the code.
+
+**Case 1**
+
+```js
+let hello = new Hello();
+hello.hi(); // Hello!
+```
+
+**Case 2**
+
+```js
+let hello = new Hello();
+hello.bye(); // TypeError: hello.bye is not a function
+```
+
+**Case 3**
+
+```js
+let hello = new Hello();
+hello.greet(); // undefined
+```
+
+**Case 4**
+
+```js
+let hello = new Hello();
+hello.greet('Goodbye'); // Goodbye
+```
+
+**Case 5**
+
+```js
+Hello.hi(); // TypeError: Hello.hi is not a function
+```
+
+**Solution**
+
+**Case 1** This code logs `Hello!` to the console.
+
+**Case 2** This code raises a `TypeError`. Neither `Hello.prototype` nor its prototype, `Greeting.prototype`, have a `bye` method defined.
+
+**Case 3** This code logs `undefined` to the console. Since `Hello` inherits from `Greeting`, the `hello` object has access to `greet`. However, `greet` takes an argument, which isn't supplied by this code.
+
+**Case 4** This code logs `Goodbye` to the console.
+
+**Case 5** This code also raises a `TypeError`. The `hi` method is defined on `Hello.prototype`, not on the `Hello` constructor itself. Thus, only instances of `Hello` have access to `hi`.
+
 ### 4.6 Further Reading
 
+The following article summarizes the topics we've studied so far in this lesson and brings up some interesting aspects of constructors and prototypes that we haven't mentioned. (When is a cat a person?) Be sure to give it a read before you move forward:
+
+[JavaScript Constructors and Prototypes](https://tobyho.com/2010/11/22/javascript-constructors-and/)
+
+Note that the referenced article takes advantage of JavaScript's automatic semicolon insertion mechanism. See the [On Semicolons section](https://launchschool.com/books/javascript/read/preparations#stylishjavascript) of our Introduction to Programming With JavaScript book for more information on why the author can do that.
+
+A Launch School student also wrote a [great article](https://medium.com/launch-school/javascript-design-patterns-building-a-mental-model-68c2d4356538) that may help solidify these concepts in your mind.
+
+End 202203011 7:47
 
 ## Assignment 5. Subtyping with Classes
 ## Assignment 6. Practice Problems: Subtyping with Classes

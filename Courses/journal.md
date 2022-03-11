@@ -6313,7 +6313,7 @@ I'm glad I have my MBP to work with right now.
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [ ] 2. Read *The Coding Career Handbook*, Chapter 6: Senior Developer
-   * [ ] 3. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 4. Subtyping with Constructors and Prototypes
+   * [x] 3. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 4. Subtyping with Constructors and Prototypes
    * [ ] 4. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 5. Subtyping with Classes
    * [ ] 5. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 6. Practice Problems: Subtyping with Classes
 
@@ -6329,3 +6329,5 @@ Powerful Reading
 06:11 In study session with Alex. Time to get started on Assignment 4. Subtyping with Constructors and Prototypes.
 
 07:22 I feel a little slow studying today, but it's okay. I'm on to the practice problems before breakfast. All is well.
+
+08:47 I'm back from dropping the kids off at school and ready to study.
