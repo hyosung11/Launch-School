@@ -6314,7 +6314,7 @@ I'm glad I have my MBP to work with right now.
    * [x] 1. Study Session with Alex
    * [ ] 2. Read *The Coding Career Handbook*, Chapter 6: Senior Developer
    * [x] 3. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 4. Subtyping with Constructors and Prototypes
-   * [ ] 4. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 5. Subtyping with Classes
+   * [x] 4. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 5. Subtyping with Classes
    * [ ] 5. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 6. Practice Problems: Subtyping with Classes
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -6341,3 +6341,5 @@ Powerful Reading
 11:15 iMac seems to be running well again. Phew!
 
 17:20 I didn't get a lot of studying done today. I feel tired now.
+
+17:25 I can't focus right now. I'm tired. Ready for dinner.
