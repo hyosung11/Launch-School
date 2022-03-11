@@ -6333,3 +6333,9 @@ Powerful Reading
 08:47 I'm back from dropping the kids off at school and ready to study.
 
 10:05 Something wrong with iMac. I have to reboot again. Ugh.
+
+10:57 I restarted the iMac and emptied both the computer's cache and the Firefox cache, so I hope it goes better.
+
+11:10 I did a quick read of [JavaScript Design Patterns: Building a Mental Model](https://medium.com/launch-school/javascript-design-patterns-building-a-mental-model-68c2d4356538) and I will read it again.
+
+11:15 iMac seems to be running well again. Phew!
