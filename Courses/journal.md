@@ -6331,3 +6331,5 @@ Powerful Reading
 07:22 I feel a little slow studying today, but it's okay. I'm on to the practice problems before breakfast. All is well.
 
 08:47 I'm back from dropping the kids off at school and ready to study.
+
+10:05 Something wrong with iMac. I have to reboot again. Ugh.

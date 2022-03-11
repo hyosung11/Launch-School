@@ -536,9 +536,64 @@ Hello.hi(); // TypeError: Hello.hi is not a function
 
 The following article summarizes the topics we've studied so far in this lesson and brings up some interesting aspects of constructors and prototypes that we haven't mentioned. (When is a cat a person?) Be sure to give it a read before you move forward:
 
-[JavaScript Constructors and Prototypes](https://tobyho.com/2010/11/22/javascript-constructors-and/)
+[JavaScript Constructors and Prototypes](https://tobyho.com/2010/11/22/javascript-constructors-and/) by [Toby Ho](https://tobyho.com/)
 
 Note that the referenced article takes advantage of JavaScript's automatic semicolon insertion mechanism. See the [On Semicolons section](https://launchschool.com/books/javascript/read/preparations#stylishjavascript) of our Introduction to Programming With JavaScript book for more information on why the author can do that.
+
+```js
+// simulate a class
+function Person(name) {
+  this.name = name;
+}
+
+// `new` statement to create a new `Person`
+let omi = new Person('Omi');
+
+// check that `Omi` is indeed a `Person`
+omi instanceof Person // true
+
+// don't call `Person` as a function without `new`
+Person('Omi') // undefined
+
+// unintentionally created a `name` global variable
+name
+// 'Omi'
+
+/* Uh… that’s not good, especially if I already had a variable called name, it would have been overwritten. The reason this happens is because when you call a function as a function(without new), this is set to the global object - in the browser, this is the window object, see: */
+
+window.name // // 'Omi'
+this === window // true
+
+/* So… if you want to write a constructor, use it like a constructor, if you want to write a function, use it like a function, don’t mix and match.
+
+Someone pointed out though, that you can prevent this polluting of the namespace(those are just big words for creating global variables) by using this trick: */
+
+function Person(name) {
+  if (!(this instanceof Person));
+    return new Person(name);
+  this.name = name;
+}
+
+/* What this does is:
+
+1. Check whether this is really a Person - which it would be if called using new.
+2. If it indeed is a Person, go on your merry way.
+3. If it is not a Person, use a new to create a Person - the correct way, and return it.
+
+This allows calling it as a function to return a `Person`, and it doesn’t pollute the namespace. */
+
+Person('Omi') // { name: 'Omi' }
+name // undefined
+
+// But what is surprising is that calling it with `new` still works too
+
+new Person('Omi'); // { name: 'Omi' }
+
+/* Why? It turns out that if you return a value in a constructor, Javascript will honor it, and return it as the newly created object when you use a `new`. But, you might be thinking, can I return a non-Person? That would be kind of like lying.
+
+... I printed this to read again and annotate
+*/
+```
 
 A Launch School student also wrote a [great article](https://medium.com/launch-school/javascript-design-patterns-building-a-mental-model-68c2d4356538) that may help solidify these concepts in your mind.
 
