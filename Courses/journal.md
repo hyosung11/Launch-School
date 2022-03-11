@@ -6288,3 +6288,7 @@ I'm glad I have my MBP to work with right now.
 19:45 After dinner and cleaning up I studied a little more and finished Practice Problems: Object Creation with Prototypes
 
 20:10 I finished the Anki cards for Practice Problems: Object Creation with Prototypes (OLOO). I'm going to the couch and my MBP now.
+
+20:39 On the couch and outlining Lesson 4: Subclassing and Code Reuse Patterns > Assignment 4: Subtyping with Constructors and Prototypes
+
+21:05 Done for tonight.
