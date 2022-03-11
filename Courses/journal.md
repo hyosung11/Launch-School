@@ -6339,3 +6339,5 @@ Powerful Reading
 11:10 I did a quick read of [JavaScript Design Patterns: Building a Mental Model](https://medium.com/launch-school/javascript-design-patterns-building-a-mental-model-68c2d4356538) and I will read it again.
 
 11:15 iMac seems to be running well again. Phew!
+
+17:20 I didn't get a lot of studying done today. I feel tired now.
