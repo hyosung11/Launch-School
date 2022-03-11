@@ -6284,3 +6284,7 @@ I'm glad I have my MBP to work with right now.
 18:11 I finished notes and Anki cards for Lesson 4: Subclassing and Code Reuse Patterns > Assignment 2. Object Creation with Prototypes (OLOO).
 
 18:17 I feel hungry and we haven't started dinner yet. I seem to outline the assignment, read the topic, transcribe the topic, make Anki cards. It seems to be working for now.
+
+19:45 After dinner and cleaning up I studied a little more and finished Practice Problems: Object Creation with Prototypes
+
+'Finish Practice Problems: Object Creation with Prototypes'
