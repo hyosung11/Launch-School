@@ -6350,7 +6350,7 @@ Powerful Reading
 
 1. What did you do yesterday?
    * [x] 1. Study Session with Alex
-   * [ ] 2. Read *The Coding Career Handbook*, Chapter 7 ~ 17
+   * [ ] 2. Read *The Coding Career Handbook*, Chapter 7 ~ 16
    * [x] 3. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 4. Subtyping with Constructors and Prototypes
    * [x] 4. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 5. Subtyping with Classes
 
@@ -6358,6 +6358,7 @@ Powerful Reading
    * [x] 1. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 6. Practice Problems: Subtyping with Classes
    * [ ] 2. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 7. Rewriting OO RPS with Constructors and Classes
    * [ ] 3. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 8. Code Reuse with Mixins
+   * [x] 4. Read *The Coding Career Handbook*, Chapter 7: First Principles Thinking
 
 3. Are there any blockers or impediments preventing you from doing your work?
    1. I am participating in the Coding Career Handbook book group this afternoon and at some point today I want to do taxes.
@@ -6366,4 +6367,4 @@ Powerful Reading
 
 11:18 I finished Assignment 6. Practice Problems: Subtyping with Classes.
 
-'Finish Assignment 6. Practice Problems: Subtyping with Classes'
+12:17 I feel tired and not able to concentrate on refactoring the RPS game from factory functions to constructors and prototypes right now. We will eat soon. I feel like I have been eating all morning. I am reading "The Quick and the Dead" by Pavel and enjoying it. Maybe I work at a sports performance company?
