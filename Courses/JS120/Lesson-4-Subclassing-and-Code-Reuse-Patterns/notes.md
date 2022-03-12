@@ -1186,8 +1186,110 @@ game.play();
 
 ### 7.2 OO RPS with Classes
 
-As we've learned, we typically initialize the state of an object in its constructor and put the instance methods in the constructor's prototype. The RPSGame object's state consists of two properties: human and computer. We'll use the constructor to create and initialize these properties for each new object:
+You've learned enough about constructors and classes and their similarities to attempt a version of OO RPS using classes. As with the conversion from factory functions to constructors and prototypes, the conversion of constructors and prototypes to classes is straightforward and mostly mechanical:
 
+1. Write a class with the same name as the original constructor function.
+2. Move the constructor function into the class and rename it as constructor.
+3. Move all the prototype functions into the class.
+
+Go ahead and try to convert the game yourself. When you've finished, compare your code with our solution:
+
+```js
+let readline = require('readline-sync');
+
+class Player {
+  constructor() {
+    this.move = null;
+  }
+}
+
+class Computer extends Player {
+  constructor() {
+    super();
+  }
+
+  choose() {
+    const choices = ['rock', 'paper', 'scissors'];
+    let randomIndex = Math.floor(Math.random() * choices.length);
+    this.move = choices[randomIndex];
+  }
+}
+
+class Human extends Player {
+  constructor() {
+    super();
+  }
+
+  choose() {
+    let choice;
+
+    while (true) {
+      console.log('Please choose rock, paper, or scissors:');
+      choice = readline.question();
+      if (['rock', 'paper', 'scissors'].includes(choice)) break;
+      console.log('Sorry, invalid choice.');
+    }
+
+    this.move = choice;
+  }
+}
+
+class RPSGame {
+  constructor() {
+    this.human = new Human();
+    this.computer = new Computer();
+  }
+
+  displayWelcomeMessage() {
+    console.log('Welcome to Rock, Paper, Scissors!');
+  }
+
+  displayGoodbyeMessage() {
+    console.log('Thanks for playing Rock, Paper, Scissors. Goodbye!');
+  }
+
+  displayWinner() {
+    console.log(`You chose: ${this.human.move}`);
+    console.log(`The computer chose: ${this.computer.move}`);
+
+    let humanMove = this.human.move;
+    let computerMove = this.computer.move;
+
+    if ((humanMove === 'rock' && computerMove === 'scissors') ||
+        (humanMove === 'paper' && computerMove === 'rock') ||
+        (humanMove === 'scissors' && computerMove === 'paper')) {
+      console.log('You win!');
+    } else if ((humanMove === 'rock' && computerMove === 'paper') ||
+               (humanMove === 'paper' && computerMove === 'scissors') ||
+               (humanMove === 'scissors' && computerMove === 'rock')) {
+      console.log('Computer wins!');
+    } else {
+      console.log("It's a tie");
+    }
+  }
+
+  playAgain() {
+    console.log('Would you like to play again? (y/n)');
+    let answer = readline.question();
+    return answer.toLowerCase()[0] === 'y';
+  }
+
+  play() {
+    this.displayWelcomeMessage();
+    while (true) {
+      this.human.choose();
+      this.computer.choose();
+      this.displayWinner();
+      if (!this.playAgain()) break;
+    }
+
+    this.displayGoodbyeMessage();
+  }
+}
+
+let game = new RPSGame();
+game.play();
+```
 ## Assignment 8. Code Reuse with Mixins
 ## Assignment 9. Polymorphism
 ## Assignment 10. Summary
