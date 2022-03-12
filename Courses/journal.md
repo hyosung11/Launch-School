@@ -6368,3 +6368,7 @@ Powerful Reading
 11:18 I finished Assignment 6. Practice Problems: Subtyping with Classes.
 
 12:17 I feel tired and not able to concentrate on refactoring the RPS game from factory functions to constructors and prototypes right now. We will eat soon. I feel like I have been eating all morning. I am reading "The Quick and the Dead" by Pavel and enjoying it. Maybe I work at a sports performance company?
+
+16:24 Attended the Coding Career Session and it was good.
+
+16:39 Working on converting the RPS from factory functions to constructors and prototypes.

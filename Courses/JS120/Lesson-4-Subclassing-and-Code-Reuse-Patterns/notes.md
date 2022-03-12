@@ -1022,7 +1022,167 @@ That's all there is to the `RPSGame` conversion.
 
 #### 7.1.2 Converting the Player Creation Factories
 
-RR
+Let's now turn our attention to the simplest factory function in the program, `createPlayer`. There's not much to this function, and the corresponding constructor is even simpler:
+
+```js
+function Player() {
+  this.move = null;
+}
+```
+
+That's it. We don't need to add any methods to the `Player` constructor's prototype.
+
+Next, we'll convert the `createHuman` factory function. Recall that `createHuman` reuses the `createPlayer` factory to create a human object. In terms of constructors, that means that the `Human` constructor must inherit from `Player`. We can do that by using `call` to invoke `Player`'s constructor with the `Human` object as context:
+
+```js
+function Human() {
+  Player.call(this);
+}
+
+Human.prototye.choose = function() {
+  let choice;
+
+  while (true) {
+    console.log('Please choose rock, paper, or scissors:');
+    choice = readline.question();
+    if (['rock', 'paper', 'scissors'].includes(choice)) break;
+    console.log('Sorry, invalid choice.');
+  }
+
+  this.move = choice;
+};
+```
+
+Since `Player.prototype` doesn't have any methods, `Human.prototype` doesn't need to inherit from it. We only need to reuse the `Player` constructor in our `Human` constructor. We'll give the same treatment to the `createComputer` factory function:
+
+```js
+function Computer() {
+  Player.call(this);
+}
+
+Computer.prototype.choose = function() {
+  const choices = ['rock', 'paper', 'scissors'];
+  let randomIndex = Math.floor(Math.random() * choices.length);
+  this.move = choices[randomIndex];
+}
+```
+
+If you later add methods to `Player.prototype`, you must remember to inherit from it:
+
+```js
+Player.prototype.doSomething = function() { /* omitted code */ };
+
+Human.prototype = Object.create(Player.prototype);
+Human.prototype.constructor = Human;
+Human.prototype.choose = { /* omitted code */ };
+
+Computer.prototype = Object.create(Player.prototype);
+Computer.prototype.constructor = Computer;
+Computer.prototype.choose = { /* omitted code */ };
+```
+
+The transformation is almost complete. The final task is to change the `RPSGame` constructor to use the `Human` and `Computer` constructors instead of the factory functions.
+
+```js
+function RPSGame() {
+  this.human = new Human();
+  this.computer = new Computer();
+}
+```
+
+We now have a working RPS game created using constructors and prototypes. Make sure you run the new code and verify that it works as expected.
+
+```js
+let readline = require('readline-sync');
+
+function Player() {
+  this.move = null;
+}
+
+function Computer() {
+  Player.call(this);
+}
+
+Computer.prototype.choose = function() {
+  const choices = ['rock', 'paper', 'scissors'];
+  let randomIndex = Math.floor(Math.random() * choices.length);
+  this.move = choices[randomIndex];
+};
+
+function Human() {
+  Player.call(this);
+}
+
+Human.prototype.choose = function () {
+  let choice;
+
+  while (true) {
+    console.log('Please choose rock, paper, or scissors:');
+    choice = readline.question();
+    if (['rock', 'paper', 'scissors'].includes(choice)) break;
+    console.log('Sorry, invalid choice.');
+  }
+
+  this.move = choice;
+};
+
+function RPSGame() {
+  this.human = new Human();
+  this.computer = new Computer();
+}
+
+RPSGame.prototype = {
+  displayWelcomeMessage() {
+    console.log('Welcome to Rock, Paper, Scissors!');
+  },
+
+  displayGoodbyeMessage() {
+    console.log('Thanks for playing Rock, Paper, Scissors. Goodbye!');
+  },
+
+  displayWinner() {
+    console.log(`You chose: ${this.human.move}`);
+    console.log(`The computer chose: ${this.computer.move}`);
+
+    let humanMove = this.human.move;
+    let computerMove = this.computer.move;
+
+    if ((humanMove === 'rock' && computerMove === 'scissors') ||
+        (humanMove === 'paper' && computerMove === 'rock') ||
+        (humanMove === 'scissors' && computerMove === 'paper')) {
+      console.log('You win!');
+    } else if ((humanMove === 'rock' && computerMove === 'paper') ||
+               (humanMove === 'paper' && computerMove === 'scissors') ||
+               (humanMove === 'scissors' && computerMove === 'rock')) {
+      console.log('Computer wins!');
+    } else {
+      console.log("It's a tie");
+    }
+  },
+
+  playAgain() {
+    console.log('Would you like to play again? (y/n)');
+    let answer = readline.question();
+    return answer.toLowerCase()[0] === 'y';
+  },
+
+  play() {
+    this.displayWelcomeMessage();
+    while (true) {
+      this.human.choose();
+      this.computer.choose();
+      this.displayWinner();
+      if (!this.playAgain()) break;
+    }
+    this.displayGoodbyeMessage();
+  }
+};
+
+RPSGame.prototype.constructor = RPSGame;
+
+let game = new RPSGame();
+game.play();
+```
 
 ### 7.2 OO RPS with Classes
 
