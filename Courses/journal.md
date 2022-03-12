@@ -6355,7 +6355,7 @@ Powerful Reading
    * [x] 4. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 5. Subtyping with Classes
 
 2. What will you do today?
-   * [ ] 1. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 6. Practice Problems: Subtyping with Classes
+   * [x] 1. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 6. Practice Problems: Subtyping with Classes
    * [ ] 2. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 7. Rewriting OO RPS with Constructors and Classes
    * [ ] 3. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 8. Code Reuse with Mixins
 
@@ -6363,3 +6363,7 @@ Powerful Reading
    1. I am participating in the Coding Career Handbook book group this afternoon and at some point today I want to do taxes.
 
 10:19 Mo pushed me back to right back at the end of the first half. It annoyed me. I'm more effective as an outside midfielder in this particular game. We ended up losing 3-2 as Mo missed a 1:1 with a hobbled Kimo in goal. We move on to studying now.
+
+11:18 I finished Assignment 6. Practice Problems: Subtyping with Classes.
+
+'Finish Assignment 6. Practice Problems: Subtyping with Classes'

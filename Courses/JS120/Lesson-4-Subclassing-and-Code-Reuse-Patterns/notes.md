@@ -721,7 +721,66 @@ After reading this Gist, you might want to review the [JavaScript OOP video](htt
 If you haven't already read it, you may also want to read [A shallow dive into the constructor property in Javascript](https://medium.com/@patel.aneeesh/a-shallow-dive-into-the-constructor-property-in-javascript-b0a89747058b) to get a better handle on the constructor property from the perspective of a student at roughly the same point in the JavaScript curriculum as you.
 
 ## Assignment 6. Practice Problems: Subtyping with Classes
+
+### 6.1 Suppose we have the following classes:
+
+```js
+class Game {
+  play() {
+    return 'Start the game!';
+  }
+}
+
+class Bingo extends Game {
+  rulesOfPlay() {
+    // rules of play
+  }
+}
+```
+
+What would happen if we added a `play` method to the `Bingo` class, keeping in mind that there is already a method of this name in the `Game` class from which the `Bingo` class inherits? Explain your answer. What do we call it when we define a method like this?
+
+**Solution**
+
+If we add a new `play` method to the `Bingo` class, objects created by `Bingo` will use that method instead of looking up the prototype chain and finding it in the `Game` class. As soon as JavaScript finds a method, it calls it. When a class redefines a method that a superclass defines, we call this "method overriding".
+
+### 6.2 Let's practice creating a class hierarchy.
+
+Create a class named `Greeting` that has a single method named `greet`. The method should take a string argument, and it should print that argument to the console.
+
+Now, create two more classes that inherit from `Greeting`: one named `Hello`, and the other `Goodbye`. The `Hello` class should have a `hi` method that takes no arguments and logs `"Hello"`. The `Goodbye` class should have a `bye` method that logs `"Goodbye"`. Use the `greet` method from the `Greeting` class when implementing `Hello` and `Goodbye`; don't call `console.log` from either `Hello` or `Goodbye`.
+
+```js
+class Greeting {
+  greet(message) {
+    console.log(message);
+  }
+}
+
+class Hello {
+  hi() {
+    this.greet('Hello');
+  }
+}
+
+
+class Goodbye {
+  bye() {
+    this.greet('Goodbye')
+  }
+}
+```
+
 ## Assignment 7. Rewriting OO RPS with Constructors and Classes
+
+### 7.1 OO RPS with Constructors and Prototypes
+
+#### 7.1.1 Converting the `RPSGame` Object
+
+#### 7.1.2 Converting the Player Creation Factories
+
+### 7.2 OO RPS with Classes
+
 ## Assignment 8. Code Reuse with Mixins
 ## Assignment 9. Polymorphism
 ## Assignment 10. Summary
