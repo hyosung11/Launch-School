@@ -6372,3 +6372,6 @@ Powerful Reading
 16:24 Attended the Coding Career Session and it was good.
 
 16:39 Working on converting the RPS from factory functions to constructors and prototypes.
+
+16:54 I completed the constructors and prototypes version of the RPS game.
+

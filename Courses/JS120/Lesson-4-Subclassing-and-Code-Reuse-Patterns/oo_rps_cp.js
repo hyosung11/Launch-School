@@ -1,3 +1,41 @@
+const readline = require('readline-sync');
+
+function Player() {
+  this.move = null;
+}
+
+function Computer() {
+  Player.call(this);
+}
+
+Computer.prototype.choose = function () {
+  const choices = ['rock', 'paper', 'scissors'];
+  let randomIndex = Math.floor(Math.random() * choices.length);
+  this.move = choices[randomIndex];
+};
+
+function Human() {
+  Player.call(this);
+}
+
+Human.prototype.choose = function() {
+  let choice;
+
+  while (true) {
+    console.log('Please choose rock, paper, or scissors:');
+    choice = readline.question();
+    if (['rock', 'paper', 'scissors'].includes(choice)) break;
+    console.log('Sorry, invalid choice.')
+  }
+
+  this.move = choice;
+};
+
+function RPSGame() {
+  this.human = new Human();
+  this.computer = new Computer();
+}
+
 RPSGame.prototype = {
   displayWelcomeMessage() {
     console.log('Welcome to Rock, Paper, Scissors!');
@@ -49,11 +87,6 @@ RPSGame.prototype = {
     this.displayGoodbyeMessage();
   },
 };
-
-function RPSGame() {
-  this.human = createHuman();
-  this.computer = createComputer();
-}
 
 RPSGame.prototype.constructor = RPSGame;
 
