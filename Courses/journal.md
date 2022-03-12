@@ -6343,3 +6343,23 @@ Powerful Reading
 17:20 I didn't get a lot of studying done today. I feel tired now.
 
 17:25 I can't focus right now. I'm tired. Ready for dinner.
+
+## 202203012 토요일
+
+10:15 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. Read *The Coding Career Handbook*, Chapter 7 ~ 17
+   * [x] 3. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 4. Subtyping with Constructors and Prototypes
+   * [x] 4. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 5. Subtyping with Classes
+
+2. What will you do today?
+   * [ ] 1. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 6. Practice Problems: Subtyping with Classes
+   * [ ] 2. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 7. Rewriting OO RPS with Constructors and Classes
+   * [ ] 3. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 8. Code Reuse with Mixins
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   1. I am participating in the Coding Career Handbook book group this afternoon and at some point today I want to do taxes.
+
+10:19 Mo pushed me back to right back at the end of the first half. It annoyed me. I'm more effective as an outside midfielder in this particular game. We ended up losing 3-2 as Mo missed a 1:1 with a hobbled Kimo in goal. We move on to studying now.
