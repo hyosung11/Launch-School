@@ -943,7 +943,86 @@ const RPSGame = {
 };
 ```
 
+As we've learned, we typically initialize the state of an object in its constructor and put the instance methods in the constructor's prototype. The `RPSGame` object's state consists of two properties: `human` and `computer`. We'll use the constructor to create and initialize these properties for each new object:
+
+```js
+function RPSGame() {
+  this.human = createHuman();
+  this.computer = createComputer();
+}
+```
+
+Pretty straightforward, isn't it?
+
+Next, we can move all of the methods from the `RPSGame` object and put them in the constructor's prototype:
+
+```js
+RPSGame.prototype = {
+  displayWelcomeMessage() {
+    console.log('Welcome to Rock, Paper, Scissors!');
+  },
+
+  displayGoodbyeMessage() {
+    console.log('Thanks for playing Rock, Paper, Scissors. Goodbye!');
+  },
+
+  displayWinner() {
+    console.log(`You chose: ${this.human.move}`);
+    console.log(`The computer chose: ${this.computer.move}`);
+
+    let humanMove = this.human.move;
+    let computerMove = this.computer.move;
+
+    if ((humanMove === 'rock' && computerMove === 'scissors') ||
+        (humanMove === 'paper' && computerMove === 'rock') ||
+        (humanMove === 'scissors' && computerMove === 'paper')) {
+      console.log('You win!');
+    } else if ((humanMove === 'rock' && computerMove === 'paper') ||
+               (humanMove === 'paper' && computerMove === 'scissors') ||
+               (humanMove === 'scissors' && computerMove === 'rock')) {
+      console.log('Computer wins!');
+    } else {
+      console.log("It's a tie");
+    }
+  },
+
+  playAgain() {
+    console.log('Would you like to play again? (y/n)');
+    let answer = readline.question();
+    return answer.toLowerCase()[0] === 'y';
+  },
+
+  play() {
+    this.displayWelcomeMessage();
+    while (true) {
+      this.human.choose();
+      this.computer.choose();
+      this.displayWinner();
+      if (!this.playAgain()) break;
+    }
+    this.displayGoodbyeMessage();
+  }
+};
+```
+
+Finally, we can make sure that the prototype points back to the constructor:
+
+```js
+RPSGame.prototype.constructor = RPSGame;
+```
+
+To start playing the game with the new `RPSGame` constructor, we need to instantiate a game object and call its `play` method:
+
+```js
+let game = new RPSGame();
+game.play();
+```
+
+That's all there is to the `RPSGame` conversion.
+
 #### 7.1.2 Converting the Player Creation Factories
+
+RR
 
 ### 7.2 OO RPS with Classes
 
