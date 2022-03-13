@@ -1483,15 +1483,266 @@ Object.assign(Goose.prototype, Swimmable, Flyable);
 
 ### 8.3 Mix-ins vs Inheritance
 
+Some JavaScript developers argue that you should use factory functions with mix-ins exclusively. They suggest that inheritance fails at modeling some scenarios, but a combination of factory functions and mix-ins can model any object relationship. Why bother with class/constructor inheritance at all? Why not just use factory functions that mix in other objects instead? If we did that, we could *rewrite our example like this*:
+
+```js
+const Swimmable = {
+  swim() {}
+}
+
+const Flyable = {
+  fly() {}
+}
+
+function createFlyingBird() {
+  return Object.assign({}, Flyable);
+}
+
+function createSwimmingBird() {
+  return Object.assign({}, Swimmable);
+}
+
+function createTalentedBird() {
+  return Object.assign({}, Swimmable, Flyable);
+}
+
+function createStork() {
+  return createFlyingBird();
+}
+
+function createParrot() {
+  return createFlyingBird();
+}
+
+function createPenguin() {
+  return createSwimmingBird();
+}
+
+function createOstrich() {
+  return createSwimmingBird();
+}
+
+function createDuck() {
+  return createTalentedBird();
+}
+
+function createGoose() {
+  return createTalentedBird();
+}
+```
+
+This approach is valid, but it suffers the downsides of all factory functions:
+
+1. Every new object receives a new copy of all of its methods, including new copies of both mix-in methods and the methods that belong more directly to the object. That can be taxing on memory resources, even more so than the memory requirements of mix-ins.
+
+2. You can't determine the type of an object created with a factory function: the `instanceof` operator only recognizes these objects as instances of the `Object` type. As far as JavaScript is concerned, a penguin and a fish and an automobile are indistinguishable. That's not as troubling as it might sound in terms of being able to solve programming problems, but it has a more significant impact on debugging.
+
+We *suggest a balance of mix-in and classical inheritance* pattern instead:
+
+1. Inheritance works well when one object type is positively a sub-type of another object. In our example, it's natural for a penguin to also be a swimming bird. These types have an **is a** relationship: a penguin *is a* swimming bird. Whenever two object types have an "is a" relationship, constructor or class inheritance makes sense.
+
+2. On the other hand, the ability to swim doesn't have that kind of relationship with storks. Swimming is a capability that penguins have. Similarly, flying is a capability that storks have. When you want to endow your objects with some capability, a mix-in may be the correct choice.
+
 ### 8.4 Practice Problems
 
-### 8.4.1
+### 8.4.1 If we have a `Car` class and a `Truck` class, how can you use the `Speed` object as a mix-in to make them `goFast`? How can you check whether your `Car` or `Truck` can now go fast?
+
+```js
+const Speed = {
+  goFast() {
+    console.log(`I'm a ${this.constructor.name} and going super fast!`);
+  }
+};
+
+class Car {
+  goSlow() {
+    console.log(`I'm safe and driving slow.`);
+  }
+}
+
+Object.assign(Car.prototype, Speed);
+
+class Truck {
+  goVerySlow() {
+    console.log(`I'm a heavy truck and like going very slow.`);
+  }
+}
+
+Object.assign(Truck.prototype.Speed);
+```
+
+**Solution**
+
+```js
+const Speed = {
+  goFast() {
+    console.log(`I'm a ${this.constructor.name} and going super fast!`);
+  }
+};
+
+class Car {
+  goSlow() {
+    console.log(`I'm safe and driving slow.`);
+  }
+}
+
+Object.assign(Car.prototype, Speed); // <--
+
+class Truck {
+  goVerySlow() {
+    console.log(`I'm a heavy truck and like going very slow.`);
+  }
+}
+
+Object.assign(Truck.prototype, Speed); // <--
+```
+
+Testing that we can make our cars and trucks go fast is simple; all we must do is call `goFast` on a car or truck object:
+
+```js
+let blueTruck = new Truck();
+blueTruck.goFast(); // => logs "I'm a Truck and going super fast!"
+
+let smallCar = new Car();
+smallCar.goFast(); // => logs "I'm a Car and going super fast!"
+```
+
+If you need to check whether an object responds to a specific method, you can use the `in` operator:
+
+```js
+'goFast' in smallCar; // => true
+'goFast' in blueTruck; // => true
+```
 
 ### 8.4.2
 
-### 8.4.3
+In the last question, we used a mix-in named `Speed` that contained a `goFast` method. We included the mix-in in the `Car` class and then called the `goFast` method from an instance of the `Car` class. You may have noticed that the string printed when we call `goFast` includes the name of the type of vehicle we are using. How is that done?
 
+**Hint**
 
+Since the `constructor` property references a function object, `constructor.name` references the `name` property on that object. Use MDN to lookup the definition of `Function.name`.
+
+`Function.name`
+
+A `Function` object's read-only `name` property indicates the function's name as specified when it was created, or it may be either `anonymous` or `''` (an empty string) for functions created anonymously.
+
+**Solution**
+
+We used `this.constructor.name` to determine the name. It works like this:
+
+1. Within `goFast`, `this` refers to the object that invoked the method. In this case, we used `Car` and `Truck` objects.
+2. The `constructor` property of an object references the class that the object belongs to, i.e., `Car` or `Truck`.
+3. Constructors have a `name` property that merely contains the name of the class as a string, and that's what we output in `goFast`.
+
+### 8.4.3 Ben and Alyssa are working on a vehicle management system. Thus far, they have created classes named `Auto` and `Motorcycle` to represent automobiles and motorcycles. After they noticed that the information and calculations performed was common to both vehicle types, they decided to break out the commonality into a separate class named `WheeledVehicle`. Their code, thus far, looks like this:
+
+```js
+class WheeledVehicle {
+  constructor(tirePressure, kmTravelledPerLiter, fuelCapInLiter) {
+    this.tires = tirePressure;
+    this.fuelEfficiency = kmTravelledPerLiter;
+    this.fuelCap = fuelCapInLiter;
+  }
+
+  tirePressure(tireIdx) {
+    return this.tires[tireIdx];
+  }
+
+  inflateTire(tireIdx, pressure) {
+    this.tires[tireIdx] = pressure;
+  }
+
+  range() {
+    return this.fuelCap *  this.fuelEfficiency;
+  }
+}
+
+class Auto extends WheeledVehicle {
+  constructor() {
+    // the array represents tire pressure for four tires
+    super([30,30,32,32], 50, 25.0);
+  }
+}
+
+class Motorcycle extends WheeledVehicle {
+  constructor() {
+    // array represents tire pressure for two tires
+    super([20,20], 80, 8.0);
+  }
+}
+```
+
+Their boss now wants them to incorporate a new type of vehicle: a `Catamaran`.
+
+```js
+class Catamaran {
+  constructor(propellerCount, hullCount, kmTravelledPerLiter, fuelCapInLiter) {
+    // catamaran specific logic
+
+    this.propellerCount = propellerCount;
+    this.hullCount = hullCount;
+  }
+}
+```
+
+This new class doesn't fit well with our existing class hierarchy: Catamarans don't have tires, and aren't wheeled vehicles. However, we still want to share the code for tracking fuel efficiency and range. Modify the class definitions and move code into a mix-in, as needed, to share code between the `Catamaran` and the wheeled vehicle classes.
+
+**Solution**
+
+```js
+const Moveable = {
+  range() {
+    return this.fuelCap * this.fuelEfficiency;
+  }
+};
+
+class WheeledVehicle {
+  constructor(tirePressure, kmTravelledPerLiter, fuelCapInLiter) {
+    this.tires = tirePressure;
+    this.fuelEfficiency = kmTravelledPerLiter;
+    this.fuelCap = fuelCapInLiter;
+  }
+
+  tirePressure(tireIdx) {
+    return this.tires[tireIdx];
+  }
+
+  inflateTire(tireIdx, pressure) {
+    this.tires[tireIdx] = pressure;
+  }
+}
+
+Object.assign(WheeledVehicle.prototype, Moveable);
+
+class Auto extends WheeledVehicle {
+  constructor() {
+    // the array represents tire pressure for four tires
+    super([30,30,32,32], 50, 25.0);
+  }
+}
+
+class Motorcycle extends WheeledVehicle {
+  constructor() {
+    // array represents tire pressure for two tires
+    super([20,20], 80, 8.0);
+  }
+}
+
+class Catamaran {
+  constructor(propellerCount, hullCount, kmTravelledPerLiter, fuelCapInLiter) {
+    // catamaran specific logic
+
+    this.propellerCount = propellerCount;
+    this.hullCount = hullCount;
+    this.fuelEfficiency = kmTravelledPerLiter;
+    this.fuelCap = fuelCapInLiter;
+  }
+}
+
+Object.assign(Catamaran.prototype, Moveable);
+```
+
+We've moved the code shared by `Catamaran` and `WheeledVehicles` to the `Moveable` mix-in. The definitions of `Auto` and `Motorcycle` remain unchanged since they both inherit from `WheeledVehicle`.
 
 ### 8.5 Code Reuse with Mixins Summary
 
