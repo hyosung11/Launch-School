@@ -6377,4 +6377,6 @@ Powerful Reading
 
 17:04 Complete the class version of RPS Game.
 
-19:15 Working on Code Reuse with Mixins
+19:15 Working on Code Reuse with Mixins.
+
+19:59 I don't remember what I was going to say. I finished first topic of mix-ins or mixins.

@@ -1293,15 +1293,193 @@ game.play();
 
 ## Assignment 8. Code Reuse with Mixins
 
+### 8.1 Introduction
+
 One problem with inheritance in JavaScript is that *objects can inherit from only one object, and classes can extend only one other class*. Ultimately, those two statements mean the same thing; an object can have only one prototype object. We call this **single inheritance**.
 
 This restriction can be limiting and sometimes makes modeling some problem domains challenging. For instance, suppose we have a `Pet` class from which several other specific classes inherit. The inheritance relationship might look like this:
 
 ![inheritance-relationship](object_hierarchy_with_mixins.png)
 
-### 8.1 Introduction
+Note that the `swim` method is in two classes: `Dog` and `Fish`. Assuming that they have the same implementation, we would like to provide that method in one place, perhaps in a class. However, where can we move it? Some programming languages allow classes to inherit from multiple classes, a functionality known as multiple inheritance. JavaScript doesn't support **multiple inheritance**, so a class can only inherit from one class.
+
+To be clear, when we say that an object can only have one prototype or that a class can only inherit from one class, we don't mean that the object or class can't inherit from an entire chain of prototypes or classes. It's perfectly acceptable for a `Whale` class to inherit from a `Mammal` class, which in turn inherits from an `Animal` class, which again inherits from the built-in `Object` type. Some students see this as multiple inheritance, but it is not: each object or class inherits directly from a single thing, so it is **single inheritance**. The chain of prototypes or superclasses merely comes along for the ride.
 
 ### 8.2 Mix-ins
+
+Enter JavaScript mix-ins – a pattern that adds methods and properties from one object to another. It's not delegation with prototypes; the mix-in pattern merely copies the properties of one object to another with `Object.assign` or some similar technique. We've already seen a mix-in at work in our first OO implementation of Rock Paper Scissors where we mixed in objects returned by `createPlayer` with `createHuman` and `createComputer`.
+
+For now, we're concerned with objects that can, in principle, belong to multiple and distinct types. For instance, in the bird world, there are birds that can swim and birds that can fly, but there are also birds that can't swim and birds that can't fly. Some birds can even do both.
+
+**Bird**  | **Swim?**  | **Fly?**
+------|--------|-----
+Stork  | no  | yes
+Parrot  | no  | yes
+Penguin  | yes  | no
+Ostrich  | yes  | no
+Duck  | yes  | yes
+Goose  | yes  | yes
+
+How would we model this in JavaScript with inheritance? We start like this:
+
+```js
+class Bird {}
+
+class Stork extends Bird {
+  fly() {}
+}
+
+class Parrot extends Bird {
+  fly() {}
+}
+
+class Penguin extends Bird {
+  swim() {}
+}
+
+class Ostrich extends Bird {
+  swim() {}
+}
+
+class Duck extends Bird {
+  fly() {}
+  swim() {}
+}
+
+class Goose extends Bird {
+  fly() {}
+  swim() {}
+}
+```
+
+That was easy enough. However, there's a lot of duplication going on here: 4 of the various bird classes each have their own copy of the `swim` method, while 4 have their own copy of the `fly` method. In all likelihood, those 4 `fly` methods are identical, as are the 4 `swim` methods.
+
+One way we can try to reduce the duplication is by using inheritance and a new class. Let's start with the `fly` method. We can define a `FlyingBird` type to handle this:
+
+```js
+class Bird {}
+
+class FlyingBird extends Bird {
+  fly() {}
+}
+
+class Stork extends FlyingBird {}
+
+class Parrot extends FlyingBird {}
+
+class Penguin extends Bird {
+  swim() {}
+}
+
+class Ostrich extends Bird {
+  swim() {}
+}
+
+class Duck extends FlyingBird {
+  swim() {}
+}
+
+class Goose extends FlyingBird {
+  swim() {}
+}
+```
+
+Great! Let's see what happens when we try to refactor the `swim` method:
+
+```js
+class Bird {}
+
+class FlyingBird extends Bird {
+  fly() {}
+}
+
+class SwimmingBird extends Bird {
+  swim() {}
+}
+
+class Stork extends FlyingBird {}
+
+class Parrot extends FlyingBird {}
+
+class Penguin extends SwimmingBird {}
+
+class Ostrich extends SwimmingBird {}
+
+// Hmmm.... we have a problem.
+// What to do with ducks and geese???
+
+class Duck extends FlyingBird {
+  swim() {}
+}
+
+class Goose extends FlyingBird {
+  swim() {}
+}
+```
+
+We've hit a roadblock. The `Duck` and `Goose` classes represent both flying birds and swimming birds, but JavaScript only allows single inheritance. The lack of support for multiple inheritance means we can't just add a new class in and inherit from it.
+
+Instead of using inheritance, we can use a **mix-in** instead. A mix-in is an object that defines one or more methods that can be "mixed-in" to a class. This grants that class access to all of the methods in the object. It's the only real workaround for the lack of multiple inheritance short of duplication. Let's see what mix-ins look like:
+
+```js
+const Swimmable = {
+  swim() {};
+}
+
+class Bird {}
+
+class FlyingBird extends Bird {
+  fly() {}
+}
+
+class Stork extends FlyingBird {}
+
+class Parrot extends FlyingBird {}
+
+class Penguin extends Bird {}
+Object.assign(Penguin.prototype, Swimmable);
+
+class Ostrich extends Bird {}
+Object.assign(Ostrich.prototype, Swimmable);
+
+class Duck extends FlyingBird {}
+Object.assign(Duck.prototype, Swimmable);
+
+class Goose extends FlyingBird {}
+Object.assign(Goose.prototype, Swimmable);
+```
+
+In this code, we've created a `Swimmable` object that has a `swim` method. To mix it into our various swimming birds, we've used `Object.assign` to add the methods from `Swimmable` to the prototype objects of those classes. It's a bit tedious, but not too difficult, and it works well.
+
+For consistency, we could even eliminate the inheritance aspect entirely:
+
+```js
+const Swimmable = {
+  swim() {}
+}
+
+const Flyable = {
+  fly() {}
+}
+
+class Stork {}
+Object.assign(Stork.prototype, Flyable);
+
+class Parrot {}
+Object.assign(Parrot.prototype, Flyable);
+
+class Penguin {}
+Object.assign(Penguin.prototype, Swimmable);
+
+class Ostrich {}
+Object.assign(Ostrich.prototype, Swimmable);
+
+class Duck {}
+Object.assign(Duck.prototype, Swimmable, Flyable);
+
+class Goose {}
+Object.assign(Goose.prototype, Swimmable, Flyable);
+```
 
 ### 8.3 Mix-ins vs Inheritance
 
