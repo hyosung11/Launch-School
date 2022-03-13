@@ -6358,7 +6358,7 @@ Powerful Reading
    * [x] 1. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 6. Practice Problems: Subtyping with Classes
    * [ ] 2. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 7. Rewriting OO RPS with Constructors and Classes
    * [ ] 3. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 8. Code Reuse with Mixins
-   * [x] 4. Read *The Coding Career Handbook*, Chapter 7: First Principles Thinking
+   * [x] 4. Read *The Coding Career Handbook*, Chapter 17: First Principles Thinking
 
 3. Are there any blockers or impediments preventing you from doing your work?
    1. I am participating in the Coding Career Handbook book group this afternoon and at some point today I want to do taxes.
@@ -6376,3 +6376,27 @@ Powerful Reading
 16:54 I completed the constructors and prototypes version of the RPS game.
 
 17:04 Complete the class version of RPS Game.
+
+19:15 Working on Code Reuse with Mixins.
+
+19:59 I don't remember what I was going to say. I finished first topic of mix-ins or mixins.
+
+## 202203013 일요일
+
+07:56 Good morning. I think I will stick with markdown in VS Code for all my notes. I guess I can use Obsidian to graph my notes. Maybe I should ask Jason Aricheta about Obsidian or watch a tutorial. I wonder if I got a different keyboard that had the keys separated a little more I would have less wrist and forearm pain and I'd stop hitting the key to change from English to Korean. I am thinking that I need to write more and share more in public. This book that Shawn Wang wrote has so many links to things that I've read and thought about. Yes, an erogonomic keyboard would be good to have. Also something with a thumb activated mouse would be good. I just use my thumb for the spacebar with my current configuration. I notice that I always hit the spacebar with my right thumb.
+
+08:01 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 6. Practice Problems: Subtyping with Classes
+   * [x] 2. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 7. Rewriting OO RPS with Constructors and Classes
+   * [x] 4. Read *The Coding Career Handbook*, Chapter 17: First Principles Thinking
+
+2. What will you do today?
+   * [ ] 1. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 8. Code Reuse with Mixins
+   * [x] 2. Read *The Coding Career Handbook*, Chapter 18: Write, A Lot
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   1. I want to meet the soccer players of Ridgewood KGV, but there's snow on the ground. I don't think there will be enough guys to play or practice. I do appreciate how well-organized Jersey United was.
+
+
