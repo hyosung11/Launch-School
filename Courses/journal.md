@@ -6402,3 +6402,5 @@ Powerful Reading
 10:18 Got kicked downstairs by SungOh to watch Chelsea vs Newcastle.
 
 11:25 Watching and coding, but not doing either well at the moment.
+
+12:32 Finish polymorphism.
