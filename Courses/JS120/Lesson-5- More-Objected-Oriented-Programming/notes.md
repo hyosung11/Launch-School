@@ -428,13 +428,379 @@ game.play();
 
 ### 4.1 Display the Board
 
+To begin, we must first decide how we want to depict the board. That's not hard: the Tic Tac Toe board is a 3x3 grid of squares, and players place their markers in the central part of each square. It's called **ASCII art**, but you don't have to be an artist to come up with something like this:
 
+```sh
+     |     |
+  O  |     |  O
+     |     |
+-----+-----+-----
+     |     |
+     |  X  |
+     |     |
+-----+-----+-----
+     |     |
+  X  |     |
+     |     |
+```
+
+We show the game board in an in-progress state after each player has made two moves.
+
+We can readily convert that diagram into a series of console.log invocations:
+
+```js
+class TTTGame {
+  displayBoard() {
+    console.log("");
+    console.log("     |     |     ");
+    console.log("  O  |     |  O  ");
+    console.log("     |     |     ");
+    console.log("-----+-----+-----");
+    console.log("     |     |     ");
+    console.log("     |  X  |     ");
+    console.log("     |     |     ");
+    console.log("-----+-----+-----");
+    console.log("     |     |     ");
+    console.log("  X  |     |     ");
+    console.log("     |     |     ");
+    console.log("");
+  }
+}
+```
+
+Let's see what happens when we run this code:
+
+```sh
+$ node ttt.js
+Welcome to Tic Tac Toe!
+
+     |     |
+  O  |     |  O
+     |     |
+-----+-----+-----
+     |     |
+     |  X  |
+     |     |
+-----+-----+-----
+     |     |
+  X  |     |
+     |     |
+
+Thanks for playing Tic Tac Toe! Goodbye!
+```
+
+That's what we expected to see.
+
+We have some extraneous spaces at the end of each line that we don't need; trailing spaces are rarely a problem, but they can be a nuisance in some circumstances. It's a common practice to remove trailing spaces when they aren't needed, so let's delete them:
+
+```js
+class TTTGame {
+  displayBoard() {
+    console.log("");
+    console.log("     |     |");
+    console.log("  O  |     |  O");
+    console.log("     |     |");
+    console.log("-----+-----+-----");
+    console.log("     |     |");
+    console.log("     |  X  |");
+    console.log("     |     |");
+    console.log("-----+-----+-----");
+    console.log("     |     |");
+    console.log("  X  |     |");
+    console.log("     |     |");
+    console.log("");
+  }
+}
+```
+
+Test your code one more time to make sure it still works.
 
 ### 4.2 Getting Started with the Board Class
 
+Wait a minute. Why isn't `displayBoard` in the `Board` class? Indeed, it should be; the board object should know everything it needs to keep track of its state and to render itself.
+
+Before we move it, though, `TTTGame` needs a board object that it can use during the game. Let's create it in the `TTTGame` constructor.
+
+```js
+class TTTGame {
+  constructor() {
+    this.board = new Board();
+  }
+}
+```
+
+Now we can move `displayBoard` to the `Board` class, and use the `board` property (`this.board`) of the `TTTGame` object to access it:
+
+```js
+class Board {
+  display() {
+    console.log("");
+    console.log("     |     |");
+    console.log("  O  |     |  O");
+    console.log("     |     |");
+    console.log("-----+-----+-----");
+    console.log("     |     |");
+    console.log("     |  X  |");
+    console.log("     |     |");
+    console.log("-----+-----+-----");
+    console.log("     |     |");
+    console.log("  X  |     |");
+    console.log("     |     |");
+    console.log("");
+  }
+}
+
+class TTTGame {
+  play() {
+    this.displayWelcomeMessage();
+
+    while (true) {
+      this.board.display();
+
+      this.firstPlayerMoves();
+      if (this.gameOver()) break;
+
+      this.secondPlayerMoves();
+      if (this.gameOver()) break;
+      break; // <= execute loop only once for now
+    }
+
+    this.displayResults();
+    this.displayGoodbyeMessage();
+  }
+
+  // Delete this method
+  // displayBoard() {
+  //   omitted code
+  // }
+}
+```
+
+Note that we changed the name of the method to `display` rather than `displayBoard`. Since we'll always use a board object to invoke the method, using the word "Board" in the name is redundant. It's not like `this.board.display` might decide to display a picture of the Mona Lisa instead.
+
+Test the code and verify that it displays the board correctly. Unfortunately, it always displays the initial board; there's no way yet for it to display the game in progress,
+
 ### 4.3 The Board's State
 
+The primary responsibility of a board object is to maintain and represent the state of the board, so it makes sense to initialize that state in the `constructor` method for the `Board` class. First, though, how should we represent the board?
+
+Let's first assume that the squares on the board are numbered from 1 through 9, like so:
+
+```sh
+ 1 | 2 | 3
+---+---+---
+ 4 | 5 | 6
+---+---+---
+ 7 | 8 | 9
+```
+
+An obvious choice is to represent the board as a 3x3 matrix. In JavaScript, we can represent a matrix as an array whose elements are nested subarrays. That means we can implement the board as a 3 element array of subarrays, each of which contains 3 squares. However, that may be messier and more complicated than you might expect. For starters:
+
+- If we ask the user to choose a square by entering a number from 1-9, we have to map that number to a specific row and column number in the matrix.
+
+- If we want to avoid the mapping, we need to ask the player to enter a row and column number instead of a single number. The user will soon go find something better to do with his time.
+
+- Nested arrays are messy in general. You must access everything with two indices; keeping the indices straight can be very confusing.
+
+Let's give that choice a pass. (You can try it for fun later on if you're feeling confident or a need to be humbled.)
+
+Another approach we might try would represent the board as an array of 9 square objects. However, array indices start at 0, and our square keys start at 1. That leads to several tradeoffs we might have to make:
+
+- Use keys 0-8 instead of 1-9 so that the keys and the array indices have a simple correspondence. However, that may confuse users of your game; most people are unaccustomed to thinking of item 0 as the first item in a list.
+
+- Use 10 elements in the array indexed 0-9, but don't use the element at index 0. That's a bit awkward, though, and may cause issues with iteration methods like `forEach` and `map`. It may also confuse programmers looking at your code.
+
+- Translate back and forth between square keys and array indices, adding or subtracting 1 when needed. That, too, can be confusing, and it complicates your logic noticeably.
+
+Hmm. Neither a matrix nor an array seems like a great choice. What can we do instead? One solution that seems a bit strange at first is to create an object that has 9 properties with the names "1", "2", "3", and so on:
+
+```js
+class Board {
+  constructor() {
+    this.squares = {
+      "1": "X",
+      "2": " ",
+      "3": " ",
+      "4": " ",
+      "5": "O",
+      "6": " ",
+      "7": " ",
+      "8": " ",
+      "9": " ",
+    };
+  }
+}
+```
+
+The value for each property is the marker associated with that square: `"X"` for player 1, `"O"` for player 2, and `" "` (space) for unmarked squares. With this structure, we can access the marker for the square with key `"5"` as `this.squares["5"]`. The one significant tradeoff is that we must remember that we're using an ordinary object, not an array. It may still confuse other programmers a bit, but any errors that arise should be easier to debug.
+
+Turning our attention back to the `display` method, it looks like we can use `this.squares` directly to retrieve the marker for each square:
+
+```js
+class Board {
+  display() {
+    console.log("");
+    console.log("     |     |");
+    console.log(`  ${this.squares["1"]}  |  ${this.squares["2"]}  |  ${this.squares["3"]}`);
+    console.log("     |     |");
+    console.log("-----+-----+-----");
+    console.log("     |     |");
+    console.log(`  ${this.squares["4"]}  |  ${this.squares["5"]}  |  ${this.squares["6"]}`);
+    console.log("     |     |");
+    console.log("-----+-----+-----");
+    console.log("     |     |");
+    console.log(`  ${this.squares["7"]}  |  ${this.squares["8"]}  |  ${this.squares["9"]}`);
+    console.log("     |     |");
+    console.log("");
+  }
+}
+```
+
+Note that we're using template literals on the lines that access `this.squares`, so we need to use backticks instead of quotes.
+
+The rest of the code is unchanged thus far, but the program now initializes and displays the board correctly.
+
 ### 4.4 The Square Class
+
+At this time, the `Board` class uses a simple string to represent the state of each of the 9 squares. Our scaffolding code suggests that we might want to use a `Square` class to represent squares instead. What are the states and behaviors we might need in a `Square` class?
+
+- State: The current marker: either `X`, `O`, or `" "` (a space).
+- Behavior: create a new square
+- Behavior: retrieve the current marker from the square
+- Behavior: test whether the square is unmarked
+
+That's not a lot, and it should be possible to write our `Board` class without a `Square` class. However, there are some pros and cons involved, as well:
+
+- Pros
+  - It makes the `Square` class available for possible reuse.
+  - Using `Square` objects instead of strings shows our intent better
+
+- Cons
+  - More code
+  - More indirection
+
+It seems that we really could go either way, without much benefit or disadvantage to either approach. Since we're learning about OOP, though, let's go ahead and use a `Square` class:
+
+```js
+class Square {
+  constructor(marker) {
+    this.marker = marker;
+  }
+}
+
+class Board {
+  constructor() {
+    this.squares = {
+      "1": new Square(" "),
+      "2": new Square(" "),
+      "3": new Square(" "),
+      "4": new Square(" "),
+      "5": new Square(" "),
+      "6": new Square(" "),
+      "7": new Square(" "),
+      "8": new Square(" "),
+      "9": new Square(" "),
+    };
+  }
+}
+```
+
+Note that we've moved the `Square` class from our scaffolding code to the top of the file to ensure that `Board`'s `constructor` method knows about the `Square` class. If we left the `Square` class where it was, the calls to `new Square` would raise an error. There are other ways to ensure that `Board` recognizes the `Square` class, but in most cases, this technique is easy to use and understand.
+
+For now, squares only need to keep track of the marker that they contain. We won't need it in our game, but for debugging purposes, we'll let the `Square` constructor set the marker's value explicitly when it creates a new square. That lets us set up and test custom board scenarios.
+
+We can take advantage of the fact that new squares are almost always unused squares. That lets us invokes the constructor without arguments to create unused squares:
+
+```js
+class Square {
+  constructor(marker = " ") {
+    this.marker = marker;
+  }
+}
+
+class Board {
+  constructor() {
+    this.squares = {
+      "1": new Square(),
+      "2": new Square(),
+      "3": new Square("X"), // testing -- remove "X" later
+      "4": new Square(),
+      "5": new Square("O"), // testing -- remove "O" later
+      "6": new Square(),
+      "7": new Square("X"), // testing -- remove "X" later
+      "8": new Square(),
+      "9": new Square(),
+    };
+  }
+}
+```
+
+Let's see what happens when we try to run this code:
+
+```sh
+$ node ttt.js
+Welcome to Tic Tac Toe!
+
+     |     |
+  [object Object]  |  [object Object]  |  [object Object]
+     |     |
+-----+-----+-----
+     |     |
+  [object Object]  |  [object Object]  |  [object Object]
+     |     |
+-----+-----+-----
+     |     |
+  [object Object]  |  [object Object]  |  [object Object]
+     |     |
+
+Thanks for playing Tic Tac Toe! Goodbye!
+```
+
+Oops! That's not what we want. Can you see where the problem lies? Try to determine what's wrong before proceeding. You don't need to fix it; identify it for now, and we'll fix it in a bit.
+
+**Answer**
+
+The problem here is that `new Square` returns a `Square` object instead of a string. Thus, `this.board` is a collection of `Square` objects, not a collection of strings. Moreover, `this.square[key]` returns a square object, not a string.
+
+How can we fix this problem? If you want to try it on your own, take a look at the [Object.prototype.toString documentation at MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString). Whether or not you try it on your own, be sure to check our solution before you continue.
+
+**Solution**
+
+At first glance, you might think that the `display` method can use the square's `marker` property directly. That would work, and it's perfectly acceptable for small classes and classes that you have no control over. The `Board` class is relatively small, so we could reasonably take that approach.
+
+However, you shouldn't generally access properties directly unless you have no choice, as with the built-in types and classes from 3rd party libraries. Since we can modify the `Square` class in this application, let's try to use a more OO approach.
+
+Perhaps we can add a getMarker method to the Square class that returns the square's marker.
+
+```js
+// Don't add this to your code!
+
+class Square {
+  getMarker() {
+    return this.marker;
+  }
+}
+```
+
+That's simple enough, and it's safer than accessing the square's marker directly from the `Board` class. However, we'll need to call `getMarker` from the `display` method instead of just accessing the square:
+
+```js
+console.log(`  ${this.squares["1"].getMarker()}  |  ${this.squares["2"].getMarker()}  |  ${this.squares["3"]}.getMarker()`);
+```
+
+That's a bit tedious and ugly.
+
+A cleaner solution leverages the `Object.prototype.toString` method. Since every object normally inherits from `Object.prototype` either directly or indirectly, every object, by default, has access to this method. JavaScript uses `toString` when it must implicitly convert something to a string representation. However, it returns the unhelpful `[object Object]` when passed an object. Fortunately, you can **override** `toString` in your classes; that is, you can define a `toString` method in your class that JavaScript should call instead. In the case of a square object, we want to return the associated marker as a string: `"X"`, `"O"`, or `" "`. Here's our code:
+
+```js
+class Square {
+  toString() {
+    return this.marker;
+  }
+}
+```
+
+That's identical to the `getMarker` method shown above, but we don't need to call it explicitly. Though we haven't changed the `display` method, the board should now display correctly.
 
 ### 4.5 Refactor: Eliminate Magic Constants
 

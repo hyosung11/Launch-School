@@ -6414,3 +6414,5 @@ Powerful Reading
 15:03 I moved over to the couch and the MBP.
 
 16:00 Cruising through Lesson 5 and onto Assignment 4.
+
+17:11 Sometimes I don't think it's clear what to do with the code and I have to guess where the code goes. I can usually figure it out.
