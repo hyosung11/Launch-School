@@ -6403,4 +6403,6 @@ Powerful Reading
 
 11:25 Watching and coding, but not doing either well at the moment.
 
-12:32 Finish polymorphism.
+12:32 Finished polymorphism.
+
+13:40 Finished Lesson 4 Quiz 1.

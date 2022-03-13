@@ -1926,4 +1926,21 @@ These classes each have a method named `draw`, and the methods take no arguments
 However, it's unlikely that this would ever make sense in real code. Unless you're actually calling the method in a polymorphic manner, you don't have polymorphism. In practice, polymorphic methods are *intentionally designed to be polymorphic*; if there's no intention, you probably shouldn't use them polymorphically.
 
 ## Assignment 10. Summary
+
+1. The **Objects Linking to Other Objects (OLOO)** pattern of object creation uses a prototype object, an initializer method, and the `Object.create` method to create objects with shared behavior. The initializer customizes the state for each object, and is usually named `init`.
+
+2. The combination of constructors and prototypes provides a way of mimicking classical inheritance with JavaScript. This lets us create **sub-type** objects, which can 'inherit' methods from a **super-type** object. This is one way of facilitating code re-use.
+
+3. There's a limitation with the inheritance pattern, which is that objects can only directly 'inherit' from one super-type object. In other words, an object can have only one prototype object. Mixins provide a way of addressing this limitation. The mix-in pattern involves creating a mix-in object containing certain methods, and using `Object.assign()` to mix that object into another object.
+
+4. Polymorphism refers to the ability of objects with different types to respond to the same method invocation. It can be implemented through inheritance by *method overriding*. It can also be implemented through **duck typing**; by ensuring that objects of different **types** use the same method name to perform different but related functions, those objects can be interacted with in a uniform way.
+
 ## Assignment 11. Lesson 4 Quiz 1
+
+Assignment: Lesson 4 Quiz 1
+Student Name: HyoSung Bidol-Lee
+Submitted at: less than a minute ago
+Time taken: 0.13 hour(s)
+Score: 5/9 (55.56%)
+
+I will make Anki cards of these questions.
