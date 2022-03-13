@@ -6398,5 +6398,3 @@ Powerful Reading
 
 3. Are there any blockers or impediments preventing you from doing your work?
    1. I want to meet the soccer players of Ridgewood KGV, but there's snow on the ground. I don't think there will be enough guys to play or practice. I do appreciate how well-organized Jersey United was.
-
-
