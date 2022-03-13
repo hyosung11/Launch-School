@@ -1,5 +1,9 @@
 class Square {
-  constructor(marker = " ") {
+  static UNUSED_SQUARE = " ";
+  static HUMAN_MARKER = "X";
+  static COMPUTER_MARKER = "O";
+
+  constructor(marker =  Square.UNUSED_SQUARE) {
     this.marker = marker;
   }
 

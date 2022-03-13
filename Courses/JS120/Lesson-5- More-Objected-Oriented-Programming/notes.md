@@ -804,6 +804,38 @@ That's identical to the `getMarker` method shown above, but we don't need to cal
 
 ### 4.5 Refactor: Eliminate Magic Constants
 
+For readability, let's create a symbolic constant for the "magic constant" we're using to represent unused squares (a space character in this case). We'll also add symbolic constants for the X and O markers that the human and computer players will use:
+
+```js
+class Square {
+  static UNUSED_SQUARE = " ";
+  static HUMAN_MARKER = "X";
+  static COMPUTER_MARKER = "O";
+
+  constructor(marker = Square.UNUSED_SQUARE) {
+    this.marker = marker;
+  }
+}
+```
+
+The `static` keyword defines a property that belongs to the class, not the individual objects created from the class. It's useful for defining **class constants** like those provided in other languages. Note that we must qualify the constant name with the class name, e.g., `Square.UNUSED_SQUARE`, even if we reference it from somewhere in the class.
+
+As of this writing, the `static` keyword for defining class-level non-method properties is still a work in progress: it hasn't been finalized in the ECMAScript standard. Most recent browsers and Node support it, but you may have some problems with older versions, and it is still subject to change. If you prefer to avoid it, you can rewrite the above code like this:
+
+```js
+class Square {
+  constructor(marker = Square.UNUSED_SQUARE) {
+    this.marker = marker;
+  }
+}
+
+Square.UNUSED_SQUARE = " ";
+Square.HUMAN_MARKER = "X";
+Square.COMPUTER_MARKER = "O";
+```
+
+RR
+
 ### 4.6 Refactor: DRY Board Initialization
 
 ### 4.7 What's Next?

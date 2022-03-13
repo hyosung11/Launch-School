@@ -6416,3 +6416,5 @@ Powerful Reading
 16:00 Cruising through Lesson 5 and onto Assignment 4.
 
 17:11 Sometimes I don't think it's clear what to do with the code and I have to guess where the code goes. I can usually figure it out.
+
+17:17 I need to pee and get ready to play indoor soccer with my new teammates at Ridgewood KGV.
