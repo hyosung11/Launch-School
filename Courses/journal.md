@@ -6394,7 +6394,7 @@ Powerful Reading
 
 2. What will you do today?
    * [x] 1. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 8. Code Reuse with Mixins
-   * [x] 2. Read *The Coding Career Handbook*, Chapter 18: Write, A Lot
+   * [x] 2. Read *The Coding Career Handbook*, Chapters 18 ~ 20
 
 3. Are there any blockers or impediments preventing you from doing your work?
    1. I want to meet the soccer players of Ridgewood KGV, but there's snow on the ground. I don't think there will be enough guys to play or practice. I do appreciate how well-organized Jersey United was.
@@ -6408,3 +6408,6 @@ Powerful Reading
 13:40 Finished Lesson 4 Quiz 1.
 
 14:22 I outlined Lesson 5 and am going to take a break. I think tomorrow would be a good day to study with Laurent at least.
+
+14:40 I do enjoy organizing and outlining. It satisfies something.
+
