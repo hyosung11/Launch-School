@@ -6376,3 +6376,5 @@ Powerful Reading
 16:54 I completed the constructors and prototypes version of the RPS game.
 
 17:04 Complete the class version of RPS Game.
+
+19:15 Working on Code Reuse with Mixins

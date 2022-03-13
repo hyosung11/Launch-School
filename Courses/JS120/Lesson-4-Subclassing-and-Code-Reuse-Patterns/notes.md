@@ -1297,7 +1297,7 @@ One problem with inheritance in JavaScript is that *objects can inherit from onl
 
 This restriction can be limiting and sometimes makes modeling some problem domains challenging. For instance, suppose we have a `Pet` class from which several other specific classes inherit. The inheritance relationship might look like this:
 
-![inheritance-relationship](/object_hierarchy_with_mixins.png)
+![inheritance-relationship](object_hierarchy_with_mixins.png)
 
 ### 8.1 Introduction
 
