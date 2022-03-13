@@ -6412,3 +6412,5 @@ Powerful Reading
 14:40 I do enjoy organizing and outlining. It satisfies something.
 
 15:03 I moved over to the couch and the MBP.
+
+16:00 Cruising through Lesson 5 and onto Assignment 4.
