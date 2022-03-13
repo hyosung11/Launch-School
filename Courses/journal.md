@@ -6358,7 +6358,7 @@ Powerful Reading
    * [x] 1. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 6. Practice Problems: Subtyping with Classes
    * [ ] 2. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 7. Rewriting OO RPS with Constructors and Classes
    * [ ] 3. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 8. Code Reuse with Mixins
-   * [x] 4. Read *The Coding Career Handbook*, Chapter 7: First Principles Thinking
+   * [x] 4. Read *The Coding Career Handbook*, Chapter 17: First Principles Thinking
 
 3. Are there any blockers or impediments preventing you from doing your work?
    1. I am participating in the Coding Career Handbook book group this afternoon and at some point today I want to do taxes.

@@ -1290,7 +1290,35 @@ class RPSGame {
 let game = new RPSGame();
 game.play();
 ```
+
 ## Assignment 8. Code Reuse with Mixins
+
+One problem with inheritance in JavaScript is that *objects can inherit from only one object, and classes can extend only one other class*. Ultimately, those two statements mean the same thing; an object can have only one prototype object. We call this **single inheritance**.
+
+This restriction can be limiting and sometimes makes modeling some problem domains challenging. For instance, suppose we have a `Pet` class from which several other specific classes inherit. The inheritance relationship might look like this:
+
+![inheritance-relationship](/object_hierarchy_with_mixins.png)
+
+### 8.1 Introduction
+
+### 8.2 Mix-ins
+
+### 8.3 Mix-ins vs Inheritance
+
+### 8.4 Practice Problems
+
+### 8.4.1
+
+### 8.4.2
+
+### 8.4.3
+
+
+
+### 8.5 Code Reuse with Mixins Summary
+
+JavaScript objects can only inherit from one other object. This limitation makes it difficult to model certain domains using class or constructor-based inheritance. You can use mix-ins to share behavior between otherwise unrelated classes.
+
 ## Assignment 9. Polymorphism
 ## Assignment 10. Summary
 ## Assignment 11. Lesson 4 Quiz 1
