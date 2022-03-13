@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Courses/JS120/Lesson-1/notes.md",
+            "file": "Courses/Writers-Bloc/20220301.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Courses/JS120/Lesson-1/notes.md",
+                "file": "Courses/Writers-Bloc/20220301.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,6 +89,12 @@
   },
   "active": "f119ab155b585730",
   "lastOpenFiles": [
+    "Courses/Writers-Bloc/20220301.md",
+    "Courses/JS101/Study-Sessions/algorithm_clinic.md",
+    "Courses/JS120/Lesson-4-Subclassing-and-Code-Reuse-Patterns/notes.md",
+    "Courses/JS120/Lesson-4-Subclassing-and-Code-Reuse-Patterns/node_modules/readline-sync/README-Deprecated.md",
+    "Courses/JS120/Lesson-4-Subclassing-and-Code-Reuse-Patterns/node_modules/readline-sync/README.md",
+    "Career/20220312_coding_career.md",
     "Courses/JS120/Lesson-1/notes.md"
   ]
 }
