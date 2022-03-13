@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "f119ab155b585730",
+        "id": "cdd0914f5e463da1",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Courses/Writers-Bloc/20220301.md",
+            "file": "Courses/JS100/Book/Arrays/NOTES.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Courses/Writers-Bloc/20220301.md",
+                "file": "Courses/JS100/Book/Arrays/NOTES.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,11 +87,12 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "f119ab155b585730",
+  "active": "cdd0914f5e463da1",
   "lastOpenFiles": [
+    "Courses/JS100/Book/Arrays/NOTES.md",
+    "Courses/JS120/Lesson-4-Subclassing-and-Code-Reuse-Patterns/notes.md",
     "Courses/Writers-Bloc/20220301.md",
     "Courses/JS101/Study-Sessions/algorithm_clinic.md",
-    "Courses/JS120/Lesson-4-Subclassing-and-Code-Reuse-Patterns/notes.md",
     "Courses/JS120/Lesson-4-Subclassing-and-Code-Reuse-Patterns/node_modules/readline-sync/README-Deprecated.md",
     "Courses/JS120/Lesson-4-Subclassing-and-Code-Reuse-Patterns/node_modules/readline-sync/README.md",
     "Career/20220312_coding_career.md",
