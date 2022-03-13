@@ -6406,3 +6406,5 @@ Powerful Reading
 12:32 Finished polymorphism.
 
 13:40 Finished Lesson 4 Quiz 1.
+
+14:22 I outlined Lesson 5 and am going to take a break. I think tomorrow would be a good day to study with Laurent at least.
