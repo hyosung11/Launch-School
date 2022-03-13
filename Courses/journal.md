@@ -6393,7 +6393,7 @@ Powerful Reading
    * [x] 4. Read *The Coding Career Handbook*, Chapter 17: First Principles Thinking
 
 2. What will you do today?
-   * [ ] 1. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 8. Code Reuse with Mixins
+   * [x] 1. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 8. Code Reuse with Mixins
    * [x] 2. Read *The Coding Career Handbook*, Chapter 18: Write, A Lot
 
 3. Are there any blockers or impediments preventing you from doing your work?
