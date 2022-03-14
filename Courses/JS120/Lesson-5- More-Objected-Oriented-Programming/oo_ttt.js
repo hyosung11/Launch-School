@@ -14,17 +14,10 @@ class Square {
 
 class Board {
   constructor() {
-    this.squares = {
-      1: new Square(),
-      2: new Square(),
-      3: new Square('X'), // testing -- remove "X" later
-      4: new Square(),
-      5: new Square('O'), // testing -- remove "O" later
-      6: new Square(),
-      7: new Square('X'), // testing -- remove "X" later
-      8: new Square(),
-      9: new Square(),
-    };
+    this.squares = {};
+    for (let counter = 1; counter <= 9; ++counter) {
+      this.squares[String(counter)] = new Square();
+    }
   }
 
   display() {
@@ -85,32 +78,33 @@ class Player {
 
 class Human extends Player {
   constructor() {
-    //STUB
+    super();
   }
 }
 
 class Computer extends Player {
   constructor() {
-    //STUB
+    super();
   }
 }
 
 class TTTGame {
   constructor() {
     this.board = new Board();
+    this.human = new Human();
+    this.computer = new Computer();
   }
 
   play() {
-    // SPIKE
     this.displayWelcomeMessage();
 
     while (true) {
       this.board.display();
 
-      this.firstPlayerMoves();
+      this.humanMoves();
       if (this.gameOver()) break;
 
-      this.secondPlayerMoves();
+      this.computerMoves();
       if (this.gameOver()) break;
       break; // <= execute loop only once for now
     }
@@ -132,14 +126,12 @@ class TTTGame {
     // show the results of this game (win, lose, tie)
   }
 
-  firstPlayerMoves() {
-    //STUB
-    // the first player makes a move
+  humanMoves() { // was firstPlayerMoves
+    console.log("human moves");
   }
 
-  secondPlayerMoves() {
-    //STUB
-    // the second player makes a move
+  computerMoves() { // was secondPlayerMoves
+    console.log("computer moves"); 
   }
 
   gameOver() {

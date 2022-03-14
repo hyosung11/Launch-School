@@ -6418,3 +6418,23 @@ Powerful Reading
 17:11 Sometimes I don't think it's clear what to do with the code and I have to guess where the code goes. I can usually figure it out.
 
 17:17 I need to pee and get ready to play indoor soccer with my new teammates at Ridgewood KGV.
+
+## 202203014 월요일
+
+06:09 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignments 8 ~ 11
+   * [x] 2. Read *The Coding Career Handbook*, Chapter 21
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. JS120 > Lesson 5: More Object Oriented Programming
+   * [ ] 3. Study Session with Laurent
+   * [ ] 4. Study Session with Michael
+   * [x] 5. Read *The Coding Career Handbook*, Chapter 22
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * All is well.
+
+06:16 In study hall with Alex and I'm going to keep going through Lesson 5.

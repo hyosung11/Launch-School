@@ -834,13 +834,264 @@ Square.HUMAN_MARKER = "X";
 Square.COMPUTER_MARKER = "O";
 ```
 
-RR
+We don't need the `HUMAN_MARKER` and `COMPUTER_MARKER` constants yet, but we're anticipating that we will. One significant advantage of setting up constants for these markers is that you can easily replace them with something else, such as ❌ and 🔵. You may need to install some Node packages to handle Unicode output with `npm` if you decide to do that, though.
+
+Note that the `Square` class probably isn't an ideal location for `HUMAN_MARKER` and `COMPUTER_MARKER`. First, these constants couple the `Square` class to the idea of a human and a computer marker. That could be useful in many games, but a more general `Square` class may not care about humans and computers, especially if there are more than 2 players in the game. Secondly, they're not used by the `Square` class at all; we won't use them in our future code either.
+
+Leaving the constants in place has benefits as well. For instance, it's easy to see what values are valid markers for the squares.
+
+Ideally, `HUMAN_MARKER` belongs in the `Human` class, and `COMPUTER_MARKER` belongs in the `Computer` class. Another approach would involve the `Marker` class, but the `Square` class, so far, seems too simple to bother with a separate `Marker` class. That may change, but for now, we'll avoid the extra complexity and leave them here.
 
 ### 4.6 Refactor: DRY Board Initialization
 
+The initialization of `this.squares` in the board object is repetitive; let's DRY up that code (Don't Repeat Yourself) with a loop:
+
+```js
+class Board {
+  constructor() {
+    this.squares = {};
+    for (let counter = 1; counter <= 9; ++counter) {
+      this.squares[String(counter)] = new Square();
+    }
+  }
+}
+```
+
+Note that using `String()` on line 5 isn't strictly necessary. JavaScript always treats object keys as strings.
+
 ### 4.7 What's Next?
 
+In the next assignment, we'll create human and computer players, then implement the code that lets them each make a move.
+
 ## Assignment 5: OO Tic Tac Toe with Classes - Part 3
+
+Currently, our game can display the playing board together with the current game state, but little else. It's time to create our players - a human and a computer. We'll also implement the code needed to let both players make one move. We'll implement turn taking and valid-move detection in the next assignment. Here's the state of our code thus far:
+
+```js
+class Square {
+  static UNUSED_SQUARE = " ";
+  static HUMAN_MARKER = "X";
+  static COMPUTER_MARKER = "O";
+
+  constructor(marker = Square.UNUSED_SQUARE) {
+    this.marker = marker;
+  }
+
+  toString() {
+    return this.marker;
+  }
+}
+
+class Board {
+  constructor() {
+    this.squares = {};
+    for (let counter = 1; counter <= 9; ++counter) {
+      this.squares[String(counter)] = new Square();
+    }
+  }
+
+  display() {
+    console.log("");
+    console.log("     |     |");
+    console.log(`  ${this.squares["1"]}  |  ${this.squares["2"]}  |  ${this.squares["3"]}`);
+    console.log("     |     |");
+    console.log("-----+-----+-----");
+    console.log("     |     |");
+    console.log(`  ${this.squares["4"]}  |  ${this.squares["5"]}  |  ${this.squares["6"]}`);
+    console.log("     |     |");
+    console.log("-----+-----+-----");
+    console.log("     |     |");
+    console.log(`  ${this.squares["7"]}  |  ${this.squares["8"]}  |  ${this.squares["9"]}`);
+    console.log("     |     |");
+    console.log("");
+  }
+}
+
+class Row {
+  constructor() {
+    // We need some way to identify a row of 3 squares
+  }
+}
+
+class Marker {
+  constructor() {
+    // A marker is something that represents a player's "piece" on the board.
+  }
+}
+
+class Player {
+  constructor() {
+    // maybe a "marker" to keep track of this player's symbol (i.e., 'X' or 'O')
+  }
+
+  mark() {
+    // We need a way to mark the board with this player's marker.
+    // How do we access the board?
+  }
+
+  play() {
+    // We need a way for each player to play the game.
+    // Do we need access to the board?
+  }
+}
+
+class Human extends Player {
+  constructor() {
+  }
+}
+
+class Computer extends Player {
+  constructor() {
+  }
+}
+
+class TTTGame {
+  constructor() {
+    this.board = new Board();
+  }
+
+  play() {
+    this.displayWelcomeMessage();
+
+    while (true) {
+      this.board.display();
+
+      this.firstPlayerMoves();
+      if (this.gameOver()) break;
+
+      this.secondPlayerMoves();
+      if (this.gameOver()) break;
+      break; // <= execute loop only once for now
+    }
+
+    this.displayResults();
+    this.displayGoodbyeMessage();
+  }
+
+  displayWelcomeMessage() {
+    console.log("Welcome to Tic Tac Toe!");
+  }
+
+  displayGoodbyeMessage() {
+    console.log("Thanks for playing Tic Tac Toe! Goodbye!");
+  }
+
+  displayResults() {
+    // show the results of this game (win, lose, tie)
+  }
+
+  firstPlayerMoves() {
+    // the first player makes a move
+  }
+
+  secondPlayerMoves() {
+    // the second player makes a move
+  }
+
+  gameOver() {
+    return false;
+  }
+}
+
+let game = new TTTGame();
+game.play();
+```
+
+### 5.1 Creating the Players
+
+For now, let's assume that the human player always plays first and that the computer plays second. We can update `TTTGame` to make this distinction clearer:
+
+```js
+class TTTGame {
+  play() {
+    this.displayWelcomeMessage();
+
+    while (true) {
+      this.board.display();
+
+      this.humanMoves();
+      if (this.gameOver()) break;
+
+      this.computerMoves();
+      if (this.gameOver()) break;
+      break; // <= execute loop only once for now
+    }
+
+    this.displayResults();
+    this.displayGoodbyeMessage();
+  }
+
+  humanMoves() { // was firstPlayerMoves
+    console.log("human moves");
+  }
+
+  computerMoves() { // was secondPlayerMoves
+    console.log("computer moves");
+  }
+
+}
+```
+
+```sh
+$ node ttt.js
+Welcome to Tic Tac Toe!
+
+     |     |
+     |     |
+     |     |
+-----+-----+-----
+     |     |
+     |     |
+     |     |
+-----+-----+-----
+     |     |
+     |     |
+     |     |
+
+human moves
+computer moves
+Thanks for playing Tic Tac Toe! Goodbye!
+```
+
+Since the human and computer are both players in this game, we should create a couple of `Player` objects (a `Human` and a `Computer`) when we start the game:
+
+```js
+class Human extends Player {
+  constructor() {
+    super();
+  }
+}
+
+class Computer extends Player {
+  constructor() {
+    super();
+  }
+}
+
+class TTTGame {
+  constructor() {
+    this.board = new Board();
+    this.human = new Human();
+    this.computer = new Computer();
+  }
+}
+```
+
+Remember: the `Human` and `Computer` classes *extend* the `Player` class.
+
+### 5.2 Get the Human's Move
+
+### 5.3 Defining a Player's Marker
+
+### 5.4 Testing the Human Player's Moves
+
+### 5.5 The Computer's Move
+
+### 5.6 Possible Refactor: Move the Move Methods?
+
+### 5.7 Refactor: Remove the Marker Class
+
+### 5.8 What's Next?
 
 ## Assignment 6: OO Tic Tac Toe with Classes - Part 4
 
