@@ -156,6 +156,16 @@ class TTTGame {
   }
 
   gameOver() {
+    return this.boardIsFull() || this.someoneWon();
+  }
+
+  boardIsFull() {
+    // STUB
+    return false;
+  }
+
+  someoneWon() {
+    // STUB
     return false;
   }
 }
