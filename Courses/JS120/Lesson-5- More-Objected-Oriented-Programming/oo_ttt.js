@@ -1,3 +1,5 @@
+const readline = require("readline-sync");
+
 class Square {
   static UNUSED_SQUARE = " ";
   static HUMAN_MARKER = "X";
@@ -9,6 +11,10 @@ class Square {
 
   toString() {
     return this.marker;
+  }
+
+  setMarker(marker) {
+    this.marker = marker;
   }
 }
 
@@ -40,6 +46,10 @@ class Board {
     );
     console.log('     |     |');
     console.log('');
+  }
+
+  markSquareAt(key, marker) {
+    this.squares[key].setMarker(marker);
   }
 }
 
@@ -127,11 +137,26 @@ class TTTGame {
   }
 
   humanMoves() { // was firstPlayerMoves
-    console.log("human moves");
+    let choice;
+
+    while (true) {
+      choice = readline.question("Choose a square between 1 and 9: ");
+
+      let integerValue = parseInt(choice, 10);
+      if (integerValue >= 1 && integerValue <= 9) {
+        break;
+      }
+
+      console.log("Sorry, that's not a valid choice.");
+      console.log("");
+    }
+
+    // mark the selected square with the human's marker
+    this.board.markSquareAt(choice, Square.HUMAN_MARKER);
   }
 
   computerMoves() { // was secondPlayerMoves
-    console.log("computer moves"); 
+    console.log("computer moves");
   }
 
   gameOver() {

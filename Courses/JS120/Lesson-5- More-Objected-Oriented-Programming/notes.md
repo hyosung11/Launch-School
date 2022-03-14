@@ -1081,15 +1081,109 @@ Remember: the `Human` and `Computer` classes *extend* the `Player` class.
 
 ### 5.2 Get the Human's Move
 
-### 5.3 Defining a Player's Marker
+Let's write some code that lets the human player pick a square, a value between 1 and 9, inclusive. The code displays a prompt, reads and validates the human's input, and then marks the selected square. If the human enters an invalid selection, we'll ask her to try again. We can use our old friend, readline-sync, to prompt her and read her choice:
 
-### 5.4 Testing the Human Player's Moves
+```js
+let readline = require("readline-sync"); // first line in ttt.js
 
-### 5.5 The Computer's Move
+class TTTGame {
+  humanMoves() {
+    let choice;
 
-### 5.6 Possible Refactor: Move the Move Methods?
+    while (true) {
+      choice = readline.question("Choose a square between 1 and 9: ");
 
-### 5.7 Refactor: Remove the Marker Class
+      let integerValue = parseInt(choice, 10);
+      if (integerValue >= 1 && integerValue <= 9) {
+        break;
+      }
+
+      console.log("Sorry, that's not a valid choice.");
+      console.log("");
+    }
+
+    // mark the selected square with the human's marker
+  }
+}
+```
+
+This code is relatively straightforward. It uses a loop to solicit the human's choice of squares, then validates it with `parseInt`. If the input is valid, the loop ends. If it isn't valid, the loop issues an error message and asks her to try again.
+
+By the way: if you think our validation is a bit too forgiving, it is. Since the code uses parseInt to validate input, it can accept invalid numbers such as `4.32`, `6b`, and `3 + 4`. We probably should reject those answers. We'll fix that later without even trying.
+
+The two argument form of `parseInt` lets you specify the **radix** or **base** that you want to use when parsing a numeric string. For instance, the decimal numbers that most people work with every day use base-10 or a radix of 10. Such numbers are comprised of one or more digits from the 10-digit range 0 through 9. In a similar vein, computers use binary numbers: base-2 or radix 2, and the digits used are 0 and 1. You can provide the base or radix as the 2nd argument to parseInt.
+
+Over the years, `parseInt` has seen several changes in its behavior depending on whether it receives a radix argument and the value of the string argument. Worse yet, the behavior is implementation-dependent, which means you might get different results in different engines:
+
+```js
+// possible result from engine 1
+parseInt('077');   // => 77
+
+// possible result from engine 2
+parseInt('077');   // => 63
+```
+
+Both results are correct! The difference is that engine 2 interprets a number that begins with `0` as an octal number (radix 8), while engine 1 interprets it as a decimal number (radix 10). The octal value `077` is equivalent to the decimal value `63`.
+
+Most contemporary JavaScript engines work like engine 1, but there may be some that work like engine 2. To avoid problems, always specify the radix argument.
+
+See [MDN's parseInt documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt) for more information on how `parseInt` works, especially with respect to the radix.
+
+### 5.3 Placing the Player's Move on the Board
+
+The `humanMoves` method is unfinished; we need to somehow mark the selected square with the human's marker (`X`). There are two main approaches that we can use depending on how we want to divide class responsibilities. One approach has the human player accept that responsibility:
+
+```js
+this.human.mark(choice, Square.HUMAN_MARKER);
+```
+
+The other approach is to have the board accept the responsibility:
+
+```js
+this.board.markSquareAt(choice, Square.HUMAN_MARKER);
+```
+
+How to choose? Either should work, but there's a minor problem with the first approach that makes it more difficult to implement -- `Player` objects don't have a board. That means that we would have to pass in a board object each time we need to mark a square:
+
+```js
+this.human.mark(choice, Square.HUMAN_MARKER, this.board);
+```
+
+That seems a bit awkward. Furthermore, we still need a `markSquareAt` method in `Board` that we can call from `mark`.
+
+The second approach is more direct since `TTTGame` already has a `Board` object that we can use to call the method. We'll take this approach:
+
+```js
+class Square {
+  setMarker(marker) {
+    this.marker = marker;
+  }
+}
+
+class Board {
+  markSquareAt(key, marker) {
+    this.squares[key].setMarker(marker);
+  }
+}
+
+class TTTGame {
+  humanMoves() {
+    // omitted code
+
+    this.board.markSquareAt(choice, Square.HUMAN_MARKER);
+  }
+}
+```
+
+### 5.4 Defining a Player's Marker
+
+### 5.5 Testing the Human Player's Moves
+
+### 5.6 The Computer's Move
+
+### 5.7 Possible Refactor: Move the Move Methods?
+
+### 5.8 Refactor: Remove the Marker Class
 
 ### 5.8 What's Next?
 
