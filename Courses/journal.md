@@ -6430,9 +6430,9 @@ Powerful Reading
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [ ] 2. JS120 > Lesson 5: More Object Oriented Programming
-   * [ ] 3. Study Session with Laurent
-   * [ ] 4. Study Session with Michael
-   * [x] 5. Read *The Coding Career Handbook*, Chapter 21: Strategy
+   * [x] 3. Study Session with Laurent
+   * [x] 4. Study Session with Michael
+   * [x] 5. Read *The Coding Career Handbook*, Chapter 21: Strategy and Chapter 22: Learning Gears
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * All is well.
@@ -6448,3 +6448,7 @@ Powerful Reading
 10:58 I took a needed break and now am ready for a study session with Michael.
 
 12:31 After the study session with Michael where we reviewed Lesson 3 Quiz 1 and then looked at some Anki cards and one that I needed to edit to make the relationship more clear.
+
+12:46 I decided to click through to JS129 and then circle back and finish JS120 Lesson 5 with the different programs.
+
+14:11 Did my first The Quick and the Dead training session with snatches and it felt good, so short and sweet. Now, I'm trying to figure out how much to dig into the programs in Lesson 5, or skip forward to JS129, but I have some reluctance to not doing the programs in Lesson 5. So there's my answer.

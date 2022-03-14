@@ -60,13 +60,6 @@ class Row {
   }
 }
 
-class Marker {
-  constructor() {
-    //STUB
-    // A marker is something that represents a player's "piece" on the board.
-  }
-}
-
 class Player {
   constructor(marker) {
     this.marker = marker;
@@ -154,7 +147,6 @@ class TTTGame {
   }
 
   gameOver() {
-    //STUB
     return false;
   }
 }

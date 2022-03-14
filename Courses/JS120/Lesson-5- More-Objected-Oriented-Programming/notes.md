@@ -1317,11 +1317,184 @@ Go ahead and "play" the game several times. Make sure you play it often enough t
 
 ### 5.7 Possible Refactor: Move the Move Methods?
 
+You may have noticed that `humanMoves` and `computerMoves` are part of `TTTGame` rather than part of the `Human` and `Computer` classes, respectively. If that seems odd, it is, but just a bit. As it happens, though, how a player moves is an aspect of the game, not the player. Though it seems like `humanMoves` and `computerMoves` should be part of the `Human` and `Computer` classes, they should instead be part of `TTTGame`.
+
+If you're confused by that, you're not alone. Our initial attempt at this program placed the player-move methods in the `Human` and `Computer` classes. However, as the game grew increasingly complex, the Human and Computer classes became ever more tightly coupled with the `Board` and `TTTGame` classes. That made the program inflexible and hard to modify. Eventually, we decided to keep the player-move methods in `TTTGame`. It's a tradeoff, and an example of how choosing the right design isn't always easy.
+
 ### 5.8 Refactor: Remove the Marker Class
+
+Our original design called for a `Marker` class: something that the `Player` class might use to represent the markers associated with each player. While our design isn't complete yet, our decision to use single-character strings to represent the markers seems like it will do the job. If we were to use something more complex as a marker -- say an image file of some kind -- then a `Marker` class might be worth the effort. For now, though, the built-in `String` class should do the trick. Go ahead and remove the `Marker` class from your code:
+
+```js
+// DELETE THIS CODE
+// class Marker {
+//   constructor() {
+//     // A marker is something that represents a player's "piece" on the board.
+//   }
+// }
+```
 
 ### 5.8 What's Next?
 
+In the next assignment, we'll implement turn taking and valid-move detection.
+
 ## Assignment 6: OO Tic Tac Toe with Classes - Part 4
+
+Our game is starting to look a bit like a complete Tic Tac Toe game. However, each player only gets one shot to play. Furthermore, both players can make invalid moves, and the game will accept them. We'll address both issues in this assignment. Here's the state of our code thus far:
+
+```js
+let readline = require("readline-sync");
+
+class Square {
+  static UNUSED_SQUARE = " ";
+  static HUMAN_MARKER = "X";
+  static COMPUTER_MARKER = "O";
+
+  constructor(marker = Square.UNUSED_SQUARE) {
+    this.marker = marker;
+  }
+
+  toString() {
+    return this.marker;
+  }
+
+  setMarker(marker) {
+    this.marker = marker;
+  }
+}
+
+class Board {
+  constructor() {
+    this.squares = {};
+    for (let counter = 1; counter <= 9; ++counter) {
+      this.squares[String(counter)] = new Square();
+    }
+  }
+
+  display() {
+    console.log("");
+    console.log("     |     |");
+    console.log(`  ${this.squares["1"]}  |  ${this.squares["2"]}  |  ${this.squares["3"]}`);
+    console.log("     |     |");
+    console.log("-----+-----+-----");
+    console.log("     |     |");
+    console.log(`  ${this.squares["4"]}  |  ${this.squares["5"]}  |  ${this.squares["6"]}`);
+    console.log("     |     |");
+    console.log("-----+-----+-----");
+    console.log("     |     |");
+    console.log(`  ${this.squares["7"]}  |  ${this.squares["8"]}  |  ${this.squares["9"]}`);
+    console.log("     |     |");
+    console.log("");
+  }
+
+  markSquareAt(key, marker) {
+    this.squares[key].setMarker(marker);
+  }
+}
+
+class Row {
+  constructor() {
+    // We need some way to identify a row of 3 squares
+  }
+}
+
+class Player {
+  constructor(marker) {
+    this.marker = marker;
+  }
+
+  getMarker() {
+    return this.marker;
+  }
+
+  play() {
+    // We need a way for each player to play the game.
+    // Do we need access to the board?
+  }
+}
+
+class Human extends Player {
+  constructor() {
+    super(Square.HUMAN_MARKER);
+  }
+}
+
+class Computer extends Player {
+  constructor() {
+    super(Square.COMPUTER_MARKER);
+  }
+}
+
+class TTTGame {
+  constructor() {
+    this.board = new Board();
+    this.human = new Human();
+    this.computer = new Computer();
+  }
+
+  play() {
+    this.displayWelcomeMessage();
+
+    while (true) {
+      this.board.display();
+
+      this.humanMoves();
+      this.board.display(); // so we can see human's move
+      if (this.gameOver()) break;
+
+      this.computerMoves();
+      this.board.display(); // so we can see the computer's move
+      if (this.gameOver()) break;
+      break; // <= execute loop only once for now
+    }
+
+    this.displayResults();
+    this.displayGoodbyeMessage();
+  }
+
+  displayWelcomeMessage() {
+    console.log("Welcome to Tic Tac Toe!");
+  }
+
+  displayGoodbyeMessage() {
+    console.log("Thanks for playing Tic Tac Toe! Goodbye!");
+  }
+
+  displayResults() {
+    // show the results of this game (win, lose, tie)
+  }
+
+  humanMoves() {
+    let choice;
+
+    while (true) {
+      choice = readline.question("Choose a square between 1 and 9: ");
+
+      let integerValue = parseInt(choice, 10);
+      if (integerValue >= 1 && integerValue <= 9) {
+        break;
+      }
+
+      console.log("Sorry, that's not a valid choice.");
+      console.log("");
+    }
+
+    this.board.markSquareAt(choice, this.human.getMarker());
+  }
+
+  computerMoves() {
+    let choice = Math.floor((9 * Math.random()) + 1);
+    this.board.markSquareAt(choice, this.computer.getMarker());
+  }
+
+  gameOver() {
+    return false;
+  }
+}
+
+let game = new TTTGame();
+game.play();
+```
 
 ## Assignment 7: OO Tic Tac Toe with Classes - Part 5
 
@@ -1338,6 +1511,15 @@ Go ahead and "play" the game several times. Make sure you play it often enough t
 ## Assignment 13: OO Twenty-One: Reference Implementation with Classes
 
 ## Assignment 14: Exercise Sets
+
+Before you begin the assessments, you should complete all of the [Object Oriented JavaScript exercise sets](https://launchschool.com/exercises#js120_object_oriented_javascript). Complete the sets in the following sequence:
+
+1. Easy
+2. Objects
+3. Function Context
+4. OO Basics: Classes
+5. OO Basics: Inheritance and Mixins
+6. Object Creation Patterns
 
 ## Assignment 15: Summary
 
