@@ -6438,3 +6438,5 @@ Powerful Reading
    * All is well.
 
 06:16 In study hall with Alex and I'm going to keep going through Lesson 5.
+
+07:52 Working through TTT. I need to make coffee and get breakfast going for the kids.
