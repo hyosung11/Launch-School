@@ -6432,7 +6432,7 @@ Powerful Reading
    * [ ] 2. JS120 > Lesson 5: More Object Oriented Programming
    * [ ] 3. Study Session with Laurent
    * [ ] 4. Study Session with Michael
-   * [x] 5. Read *The Coding Career Handbook*, Chapter 22
+   * [x] 5. Read *The Coding Career Handbook*, Chapter 21: Strategy
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * All is well.
@@ -6440,3 +6440,5 @@ Powerful Reading
 06:16 In study hall with Alex and I'm going to keep going through Lesson 5.
 
 07:52 Working through TTT. I need to make coffee and get breakfast going for the kids.
+
+08:50 I made and drank a version of bulletproof coffee this morning and my farts stink. I like Jessica Kerr of Honeycomb.io. She talked about Ensemble Programming which sounds really cool to me and something I'd love to try out in a professional work environment. It seems a lot like playing a team sport like basketball where you have everyone there in real time working towards a common goal. That's something I could write about I suppose. How well do I know OOP now that I've completed most of the lessons? I'm still working through the programs in lesson 5. Why don't I use dictation more? I have a few minutes before my study session with Laurent and I just wanna get some thoughts down in my journal of Launch School that I keep in the VS Code. I am wondering about Obsidian and other notetaking apps. I am OK at this point with using markdown files in VS Code for all of my notetaking. Something happened with my keyboard and deleting when I used dictation. Ugh.
