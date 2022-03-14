@@ -1177,9 +1177,143 @@ class TTTGame {
 
 ### 5.4 Defining a Player's Marker
 
+In the `humanMoves` method, we pass the human player's marker (`X`) to the board object. You probably realize that somewhere else in this program, we also need to pass the computer's marker (`O`) to `markSquareAt`. With that in mind, it might be wise to let each player object define its marker. Let's try it:
+
+```js
+class Player {
+  constructor(marker) {
+    this.marker = marker;
+  }
+
+  getMarker() {
+    return this.marker;
+  }
+
+  // Delete this code - `Board` provides `markSquareAt` instead
+  // mark() {
+  //   ...
+  // }
+}
+
+class Human extends Player {
+  constructor() {
+    super(Square.HUMAN_MARKER);
+  }
+}
+
+class Computer extends Player {
+  constructor() {
+    super(Square.COMPUTER_MARKER);
+  }
+}
+
+class TTTGame {
+  humanMoves() {
+    // omitted code
+
+    this.board.markSquareAt(choice, this.human.getMarker());
+  }
+}
+```
+
 ### 5.5 Testing the Human Player's Moves
 
+Let's test the program and make sure the board updates as expected. We'll add an extra call to `this.board.display` so we can see the results of the human's move.
+
+```js
+class TTTGame {
+  play() {
+    this.displayWelcomeMessage();
+
+    while (true) {
+      this.board.display();
+
+      this.humanMoves();
+      this.board.display(); // so we can see human's move
+      if (this.gameOver()) break;
+
+      this.computerMoves();
+      if (this.gameOver()) break;
+    }
+
+    this.displayResults();
+    this.displayGoodbyeMessage();
+  }
+}
+```
+
+```sh
+$ node ttt.js
+Welcome to Tic Tac Toe!
+
+     |     |
+     |     |  X
+     |     |
+-----+-----+-----
+     |     |
+     |     |
+     |     |
+-----+-----+-----
+     |     |
+  O  |     |
+     |     |
+
+Choose a square between 1 and 9: 2
+
+     |     |
+     |  X  |  X
+     |     |
+-----+-----+-----
+     |     |
+     |     |
+     |     |
+-----+-----+-----
+     |     |
+  O  |     |
+     |     |
+
+computer moves
+Thanks for playing Tic Tac Toe! Goodbye!
+```
+
+Looks good! Try some other tests on your own. Be sure to choose each possible square, and to pay attention to the buggy behavior that occurs when you enter invalid input or choose a square that already has a marker.
+
 ### 5.6 The Computer's Move
+
+We've got a pretty dumb computer, so we won't strain its processors by making it think about complicated stuff like strategy. Instead, it will pick squares at random; that should be an effective strategy. Here's our code:
+
+```js
+class TTTGame {
+  play() {
+    this.displayWelcomeMessage();
+
+    while (true) {
+      this.board.display();
+
+      this.humanMoves();
+      this.board.display(); // so we can see the human's move
+      if (this.gameOver()) break;
+
+      this.computerMoves();
+      this.board.display(); // so we can see the computer's move
+      if (this.gameOver()) break;
+      break; // <= execute loop only once for now
+    }
+
+    this.displayResults();
+    this.displayGoodbyeMessage();
+  }
+
+  computerMoves() {
+    let choice = Math.floor((9 * Math.random()) + 1);
+    this.board.markSquareAt(choice, this.computer.getMarker());
+  }
+}
+```
+
+Not much to it other than the expression that generates a random integer between 1 and 9, inclusive. The line that marks the square with the computer's marker is almost identical to the corresponding line in `humanMoves`. We also added a 3rd call to `this.board.display` so we can see the board after the computer plays.
+
+Go ahead and "play" the game several times. Make sure you play it often enough to see the bug caused by choosing a random square for the computer's move. You'll fix that bug later. (The computer's move overwrites the player's move.)
 
 ### 5.7 Possible Refactor: Move the Move Methods?
 

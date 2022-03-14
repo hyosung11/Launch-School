@@ -5,7 +5,7 @@ class Square {
   static HUMAN_MARKER = "X";
   static COMPUTER_MARKER = "O";
 
-  constructor(marker =  Square.UNUSED_SQUARE) {
+  constructor(marker = Square.UNUSED_SQUARE) {
     this.marker = marker;
   }
 
@@ -68,33 +68,24 @@ class Marker {
 }
 
 class Player {
-  constructor() {
-    //STUB
-    // maybe a "marker" to keep track of this player's symbol (i.e., 'X' or 'O')
+  constructor(marker) {
+    this.marker = marker;
   }
 
-  mark() {
-    //STUB
-    // We need a way to mark the board with this player's marker.
-    // How do we access the board?
-  }
-
-  play() {
-    //STUB
-    // We need a way for each player to play the game.
-    // Do we need access to the board?
+  getMarker() {
+    return this.marker;
   }
 }
 
 class Human extends Player {
   constructor() {
-    super();
+    super(Square.HUMAN_MARKER);
   }
 }
 
 class Computer extends Player {
   constructor() {
-    super();
+    super(Square.COMPUTER_MARKER);
   }
 }
 
@@ -112,11 +103,13 @@ class TTTGame {
       this.board.display();
 
       this.humanMoves();
+      this.board.display(); // so we can see human's move
       if (this.gameOver()) break;
 
       this.computerMoves();
+      this.board.display(); // so we can see the computer's move
       if (this.gameOver()) break;
-      break; // <= execute loop only once for now
+      break; // <-- execute loop only once for now
     }
 
     this.displayResults();
@@ -152,11 +145,12 @@ class TTTGame {
     }
 
     // mark the selected square with the human's marker
-    this.board.markSquareAt(choice, Square.HUMAN_MARKER);
+    this.board.markSquareAt(choice, this.human.getMarker());
   }
 
-  computerMoves() { // was secondPlayerMoves
-    console.log("computer moves");
+  computerMoves() {
+    let choice = Math.floor((9 * Math.random()) + 1);
+    this.board.markSquareAt(choice, this.computer.getMarker());
   }
 
   gameOver() {
