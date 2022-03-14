@@ -16,6 +16,10 @@ class Square {
   setMarker(marker) {
     this.marker = marker;
   }
+
+  isUnused() {
+    return this.marker === Square.UNUSED_SQUARE;
+  }
 }
 
 class Board {
@@ -50,6 +54,11 @@ class Board {
 
   markSquareAt(key, marker) {
     this.squares[key].setMarker(marker);
+  }
+
+  unusedSquares() {
+    let keys = Object.keys(this.squares);
+    return keys.filter(key => this.squares[key].isUnused());
   }
 }
 
@@ -96,13 +105,10 @@ class TTTGame {
       this.board.display();
 
       this.humanMoves();
-      this.board.display(); // so we can see human's move
       if (this.gameOver()) break;
 
       this.computerMoves();
-      this.board.display(); // so we can see the computer's move
       if (this.gameOver()) break;
-      break; // <-- execute loop only once for now
     }
 
     this.displayResults();
@@ -118,31 +124,34 @@ class TTTGame {
   }
 
   displayResults() {
-    //STUB
     // show the results of this game (win, lose, tie)
   }
 
-  humanMoves() { // was firstPlayerMoves
+  humanMoves() {
     let choice;
 
     while (true) {
-      choice = readline.question("Choose a square between 1 and 9: ");
+      let validChoices = this.board.unusedSquares();
+      const prompt = `Choose a square (${validChoices.join(", ")}): `;
+      choice = readline.question(prompt);
 
-      let integerValue = parseInt(choice, 10);
-      if (integerValue >= 1 && integerValue <= 9) {
-        break;
-      }
+      if (validChoices.includes(choice)) break;
 
       console.log("Sorry, that's not a valid choice.");
       console.log("");
     }
 
-    // mark the selected square with the human's marker
     this.board.markSquareAt(choice, this.human.getMarker());
   }
 
   computerMoves() {
-    let choice = Math.floor((9 * Math.random()) + 1);
+    let validChoices = this.board.unusedSquares();
+    let choice;
+
+    do {
+      choice = Math.floor((9 * Math.random()) + 1).toString();
+    } while (!validChoices.includes(choice));
+
     this.board.markSquareAt(choice, this.computer.getMarker());
   }
 

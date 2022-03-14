@@ -6452,3 +6452,5 @@ Powerful Reading
 12:46 I decided to click through to JS129 and then circle back and finish JS120 Lesson 5 with the different programs.
 
 14:11 Did my first The Quick and the Dead training session with snatches and it felt good, so short and sweet. Now, I'm trying to figure out how much to dig into the programs in Lesson 5, or skip forward to JS129, but I have some reluctance to not doing the programs in Lesson 5. So there's my answer.
+
+17:40 I want to keep making the TTT game because it's fun and I'm putting the pieces of OOP together at the same time. Time to pickup dinner.

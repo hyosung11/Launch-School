@@ -1496,7 +1496,178 @@ let game = new TTTGame();
 game.play();
 ```
 
+### 6.1 Taking Turns
+
+The human and computer should take turns playing until the game is over. Most of that is easy to do with what we have so far: remove the `break` statement from the loop in play method in `TTTGame`. We'll also remove the extraneous calls to `this.board.display` so the board only displays when the human is ready to make a move:
+
+```js
+class TTTGame {
+  play() {
+    this.displayWelcomeMessage();
+
+    while (true) {
+      this.board.display();
+
+      this.humanMoves();
+      // this.board.display(); -- Delete this line
+      if (this.gameOver()) break;
+
+      this.computerMoves();
+      // this.board.display(); -- Delete this line
+      if (this.gameOver()) break;
+      // break; -- Delete this line
+    }
+
+    this.displayResults();
+    this.displayGoodbyeMessage();
+  }
+}
+```
+
+Go ahead and play again. This time you'll find that there's no obvious way for the game to end; gameplay keeps going long after the board is full or either player gets 3 markers in a row. Furthermore, both players can choose any square at any time, including squares that already have a marker. Such great fun! (To quit the game, press Control-C at the `Choose a square` prompt.)
+
+### 6.2 Validating Moves
+
+Let's see what we can do about that bug that lets the players choose any square on the board, regardless of whether it's available.
+
+One approach that we may want to consider involves asking the board object to check whether a square is available. For instance, we may start writing code like this:
+
+```js
+// Don't add this code to your game!
+
+class Square {
+  isUnused() {
+    return this.marker === Square.UNUSED_SQUARE;
+  }
+}
+
+class Board {
+  isUnusedSquare(key) {
+    return this.squares[key].isUnused();
+  }
+}
+```
+
+This approach might work. However, if we look at humanMoves in the TTTGame class, we'll see that we tell the user to enter a value between 1 and 9. However, some squares will no longer be available; by the human player's second turn, there should be 2 squares that she can't choose. Ideally, we want to change our prompt to reflect the available choices:
+
+```sh
+Choose a square (1, 2, 4, 6, 7, 8, 9):
+```
+
+Furthermore, those items should be the only choices that the game accepts.
+
+One way to build the desired prompt is to build an array that contains the keys for all unused squares on the board. We can use that array to construct the prompt. We can also use the array to determine whether the human's move is valid and repeat the same process to determine whether the computer's move is valid. That suggests that a list of unused square's keys may be more useful than merely checking whether a single square is available.
+
+First, let's create an `unusedSquares` method on the `Board` class that returns an array of the unused squares; the array should contain the keys associated with those squares, not square objects. We could also call this method something like `keysForUnusedSquares` to be more explicit, but `unusedSquares` should be okay; mentioning keys is a bit wordy:
+
+```js
+class Square {
+  isUnused() {
+    return this.marker === Square.UNUSED_SQUARE;
+  }
+}
+
+class Board {
+  unusedSquares() {
+    let keys = Object.keys(this.squares);
+    return keys.filter(key => this.squares[key].isUnused());
+  }
+};
+```
+
+We can use the return value of `unusedSquares` to construct the prompt:
+
+```js
+class TTTGame {
+  humanMoves() {
+    let choice;
+
+    while (true) {
+      let validChoices = this.board.unusedSquares();
+      const prompt = `Choose a square (${validChoices.join(", ")}): `;
+      choice = readline.question(prompt);
+
+      let integerValue = parseInt(choice, 10);
+      if (integerValue >= 1 && integerValue <= 9) {
+        break;
+      }
+
+      console.log("Sorry, that's not a valid choice.");
+      console.log("");
+    }
+
+    this.board.markSquareAt(choice, this.human.getMarker());
+  }
+}
+```
+
+The prompt now changes based on which squares are available.
+
+We can use the same array to determine whether the human's choice is valid:
+
+```js
+class TTTGame {
+  humanMoves() {
+    let choice;
+
+    while (true) {
+      let validChoices = this.board.unusedSquares();
+      const prompt = `Choose a square (${validChoices.join(", ")}): `;
+      choice = readline.question(prompt);
+
+      if (validChoices.includes(choice)) break;
+
+      console.log("Sorry, that's not a valid choice.");
+      console.log("");
+    }
+
+    this.board.markSquareAt(choice, this.human.getMarker());
+  }
+}
+```
+
+Finally, we can use `unusedSquares` to validate the computer's choice:
+
+```js
+class TTTGame{
+  computerMoves() {
+    let validChoices = this.board.unusedSquares();
+    let choice;
+
+    do {
+      choice = Math.floor((9 * Math.random()) + 1).toString();
+    } while (!validChoices.includes(choice));
+
+    this.board.markSquareAt(choice, this.computer.getMarker());
+  }
+}
+```
+
+If you run this code now, you should find that gameplay proceeds as expected, up until the point when the computer makes its final move. At that point, it enters an infinite loop (again!); press Control-C to exit the program.
+
+The infinite loop occurs since the computer has no moves available, so the `do...while` loop never finds a valid choice. We could add some code to this method to handle that more cleanly, but this situation should never occur in the final game; the game should never call `moves` in the `Computer` or `Human` class when the board is full.
+
+### 6.3 Refactor: Remove `play` Method from `Player` Class
+
+At this point, it's clear that we don't need the play method in Player, so let's go ahead and remove it:
+
+```js
+class Player {
+  // Delete this method
+  // play() {
+  //   // We need a way for each player to play the game.
+  //   // Do we need access to the board?
+  // }
+}
+```
+
+### 6.4 What's Next?
+
+In the next assignment, we'll implement end-of-game and winner detection.
+
 ## Assignment 7: OO Tic Tac Toe with Classes - Part 5
+
+RR
 
 ## Assignment 8: OO Tic Tac Toe Code Discussion
 
