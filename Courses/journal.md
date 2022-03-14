@@ -6446,3 +6446,5 @@ Powerful Reading
 10:33 Laurent and I reviewed Lesson 2 Quiz 2 together and it definitely helped me understand some things better.
 
 10:58 I took a needed break and now am ready for a study session with Michael.
+
+12:31 After the study session with Michael where we reviewed Lesson 3 Quiz 1 and then looked at some Anki cards and one that I needed to edit to make the relationship more clear.
