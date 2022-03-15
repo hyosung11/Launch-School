@@ -1857,27 +1857,473 @@ class TTTGame {
 
 Note that we don't care yet about who won; all we need to know right now is that someone won. We also don't need to distinguish between a full-board tie and a full-board win, so the order in which we call `boardIsFull` and `someoneWon` isn't important; we could swap the order of tests in `gameOver` and get the same results.
 
+It's tempting to do something like this:
+
+```js
+// Don't add this to your code!
+
+gameOver() {
+  this.theWinner = this.whoWon();
+  return this.theWinner !== undefined || this.boardIsFull();
+}
+```
+
+That method is relatively easy to understand, but it does two separate things: it determines whether the game is over and, as a side effect, it also determines who the winner is if there is a winner. Methods that have both a side effect and a meaningful return value or that try to perform multiple actions are generally not recommended; as much as possible, a method should do one thing. It should return a useful value or have a side-effect, but not both.
+
 ### 7.1.1 Is the Board Full?
+
+Recall that unusedSquares in the Board class returns an array that contains the keys of all remaining unused squares. That provides a convenient way to determine whether the board is full -- all we have to do is check whether the return value is an empty array:
+
+```js
+class TTTGame {
+  boardIsFull() {
+    let unusedSquares = this.board.unusedSquares();
+    return unusedSquares.length === 0;
+  }
+}
+```
+
+Run the program and confirm that it quits once the board is full.
+
+Notice that the board has all the information it needs to determine whether it is full. That suggests that `boardIsFull` should be in the `Board` class instead of `TTTGame`. For instance:
+
+```js
+class Board {
+  isFull() {
+    return this.unusedSquares().length === 0;
+  }
+}
+
+class TTTGame {
+  gameOver() {
+    return this.board.isFull() || this.someoneWon();
+  }
+}
+```
+
+Whether you put `boardIsFull` in `TTTGame` or `isFull` in `Board` is a decision that can go either way. On one hand, the `Board` class has all the information it needs to determine that the board is full and it seems likely that other games that use the `Board` class will need to know whether the board is full. On the other hand, the rules of the game require that we be able to detect a full-board condition; perhaps that code belongs in the `TTTGame` class. Either choice is reasonable. We'll move the code into the `Board` class as shown above.
 
 ### 7.1.2 Did Someone Win the Game?
 
+Now comes the fun part -- how to determine whether someone won the game. In the previous step, we moved the test for a full board to the `Board` class; the board has all the information it needs to determine whether it is full. The board also has all the information it needs to determine whether someone has won the game; it just needs to detect 3 squares in a row.
+
+However, the board is just a 3x3 grid of squares and markers. It doesn't know and doesn't care about the game we're playing. It happens to be Tic Tac Toe, but, in theory, we could use this board in another game that uses a grid of 3x3 squares and markers. That strongly suggests that we should determine whether someone won elsewhere. Since the rules of the game determine the winner, the best place to determine who won is in the `TTTGame`.
+
+The question now is how to determine whether someone won. One way to accomplish that is to search all of the possible 3-in-a-row combinations for 3 squares that share the same marker. Let's look at some pseudocode:
+
+```sh
+For every possible winning combination of squares (a row):
+  If the human has marked all 3 squares or the player has marked all 3 squares:
+    Someone won! Return true.
+
+Nobody won. Return false.
+```
+
+That pseudocode provides the algorithm we need to determine whether there's been a winner, but it lacks some crucial details. How do we determine "every possible winning combination of squares"? How do we determine whether a given player has marked all 3 squares?
+
+Let's first look at how we can determine the possible winning combinations. One way to do that is to provide a nested array in which each inner array is a 3-element array that identifies the keys in a given row, and the outer array is just a list of those rows. We might define that array like this:
+
+```js
+class TTTGame {
+  static POSSIBLE_WINNING_ROWS = [
+    [ "1", "2", "3" ],   // top row of board
+    [ "4", "5", "6" ],   // center row of board
+    [ "7", "8", "9" ],   // bottom row of board
+    [ "1", "4", "7" ],   // left column of board
+    [ "2", "5", "8" ],   // middle column of board
+    [ "3", "6", "9" ],   // right column of board
+    [ "1", "5", "9" ],   // diagonal: top-left to bottom-right
+    [ "3", "5", "7" ],   // diagonal: bottom-left to top-right
+  ];
+}
+```
+
+We also need a method that counts the number of squares that contain a player's marker. The method should work for a list of specific squares, so we'll need two arguments: a player, and a list of keys for the squares we want to examine:
+
+```js
+class Square {
+  getMarker() {
+    return this.marker;
+  }
+}
+
+class Board{
+  countMarkersFor(player, keys) {
+    let markers = keys.filter(key => {
+      return this.squares[key].getMarker() === player.getMarker();
+    });
+
+    return markers.length;
+  }
+}
+```
+
+Note that the first argument to `countMarkersFor` is the player for whom we are counting squares; the second is an array of keys from the board's grid, e.g., `[1, 4, 7]`, from which we need to count the player's markers. Note that we also added a `getMarker` method to the `Square` class, despite having decided earlier that we didn't need one. We could, in theory, use `toString` as we did earlier. However, our interest here is the value of the marker, not what it looks like on the board. Using a `getMarker` method makes the intent easier to discern.
+
+We can now use that array and method to determine whether we have a winner:
+
+```js
+class TTTGame {
+  someoneWon() {
+    return TTTGame.POSSIBLE_WINNING_ROWS.some(row => {
+      return this.board.countMarkersFor(this.human, row) === 3 ||
+             this.board.countMarkersFor(this.computer, row) === 3;
+    });
+  }
+}
+```
+
+Note that the `Array.prototype.some` method returns `true` if any invocation of the callback function returns `true`, `false` if every invocation returns `false`. `some` is a great way to detect whether any element of an array meets some criterion.
+
+Our method iterates through the list of possible winning rows and checks each to see whether it contains a winning set of markers. For each row, we merely count the number of markers belonging to each player -- if either one has 3 markers, we have a winning row.
+
+We should now have a fully functioning game. It doesn't yet tell us who won or even whether someone won, but it works correctly.
+
 ### 7.1.3 Who Won the Game?
+
+Now that we know whether someone won the game, we're also going to need to know who won the game. We'll need that information in the `displayResults` method in `TTTGame`:
+
+```js
+class TTTGame {
+  displayResults() {
+    if (this.isWinner(this.human)) {
+      console.log("You won! Congratulations!");
+    } else if (this.isWinner(this.computer)) {
+      console.log("I won! I won! Take that, human!");
+    } else {
+      console.log("A tie game. How boring.");
+    }
+  }
+
+  isWinner(player) {
+    return TTTGame.POSSIBLE_WINNING_ROWS.some(row => {
+      return this.board.countMarkersFor(player, row) === 3;
+    });
+  }
+}
+```
+
+The `isWinner` method determines whether a specified player won the game. It determines whether any row contains 3 occurrences of the specified player's marker.
+
+Our game application is now almost complete. It should work as-is.
 
 ### 7.2 Refactor: Clean Up `someoneWon`
 
+Though the implementations differ, someoneWon and isWinner are also similar; in fact, we can rewrite someoneWon by using isWinner to determine the winning marker. The resulting code is much simpler:
+
+```js
+class TTTGame {
+  someoneWon() {
+    return this.isWinner(this.human) || this.isWinner(this.computer);
+  }
+}
+```
+
+Be sure to test that your game still works.
+
 ### 7.3 Refactor: Remove the Row Class
+
+We made use of the concept of a "row" in the `TTTGame.POSSIBLE_WINNING_ROWS` array of arrays and we pass each "row" of that array to `countMarkersFor` method of the board. We could, in theory, abstract the winning rows to Row class, but it hardly seems worth it. Feel free to try it if you want, but save your code; you may need to back out your changes to finish the assignment.
+
+If you don't implement a `Row` class, you can delete the skeleton class we created earlier:
+
+```js
+// DELETE THIS CODE
+// class Row {
+//   constructor() {
+//     // We need some way to identify a row of 3 squares
+//   }
+// }
+```
 
 ### 7.4 Improving the UI: Clearing the Screen
 
+The TTT game currently writes all its output to the console, one line after the other, scrolling the screen upward as it runs. The game screen tends to look cluttered, which so much going on the display that it's sometimes hard to see what's happening. Can we do something to improve the UI?
+
+Yes, we can. One solution is to clear the display each time you display the board so that it always appears at the top of the screen, with no clutter to get in the player's way. Unfortunately, clearing the screen is trickier than it sounds -- how you clear the screen depends on your computer's operating system; Macs and Windows machines, for instance, clear the screen in different ways.
+
+A simple solution to this compatibility issue is to simply call `console.clear()`:
+
+```js
+console.clear();
+```
+
+Let's implement screen clears in the TTT game. Before we do, though, try to do it yourself. When you're ready, take a look at our solution.
+
+Try to arrange things so that:
+
+- The user can see the welcome message and the board simultaneously when she starts the game.
+- Don't display the welcome message after the human's first move.
+- Try to always display the board at the same location on the screen regardless of whether the welcome message is present.
+
+```js
+let readline = require("readline-sync"); // first line in ttt.js
+
+class Board {
+  displayWithClear() {
+    console.clear();
+    console.log("");
+    console.log("");
+    this.display();
+  }
+}
+
+class TTTGame {
+  play() {
+    this.displayWelcomeMessage();
+
+    this.board.display();
+    while (true) {
+      // this.board.display(); -- Delete this line
+      this.humanMoves();
+      if (this.gameOver()) break;
+
+      this.computerMoves();
+      if (this.gameOver()) break;
+
+      this.board.displayWithClear();
+    }
+
+    this.board.displayWithClear();
+    this.displayResults();
+    this.displayGoodbyeMessage();
+  }
+
+  displayWelcomeMessage() {
+    console.clear();
+    console.log("Welcome to Tic Tac Toe!");
+    console.log("");
+  }
+}
+```
+
 ### 7.5 ESLint
 
+Now would be an excellent time to run ESLint:
+
+```sh
+npx eslint ttt.js
+```
+
+If you've followed along carefully, ESLint shouldn't detect any problems. If it does detect any problems, try to fix them before moving on.
+
 ### 7.6 The Completed Game
+
+```js
+let readline = require("readline-sync");
+
+class Square {
+  static UNUSED_SQUARE = " ";
+  static HUMAN_MARKER = "X";
+  static COMPUTER_MARKER = "O";
+
+  constructor(marker = Square.UNUSED_SQUARE) {
+    this.marker = marker;
+  }
+
+  toString() {
+    return this.marker;
+  }
+
+  setMarker(marker) {
+    this.marker = marker;
+  }
+
+  isUnused() {
+    return this.marker === Square.UNUSED_SQUARE;
+  }
+
+  getMarker() {
+    return this.marker;
+  }
+}
+
+class Board {
+  constructor() {
+    this.squares = {};
+    for (let counter = 1; counter <= 9; ++counter) {
+      this.squares[String(counter)] = new Square();
+    }
+  }
+
+  display() {
+    console.log("");
+    console.log("     |     |");
+    console.log(`  ${this.squares["1"]}  |  ${this.squares["2"]}  |  ${this.squares["3"]}`);
+    console.log("     |     |");
+    console.log("-----+-----+-----");
+    console.log("     |     |");
+    console.log(`  ${this.squares["4"]}  |  ${this.squares["5"]}  |  ${this.squares["6"]}`);
+    console.log("     |     |");
+    console.log("-----+-----+-----");
+    console.log("     |     |");
+    console.log(`  ${this.squares["7"]}  |  ${this.squares["8"]}  |  ${this.squares["9"]}`);
+    console.log("     |     |");
+    console.log("");
+  }
+
+  markSquareAt(key, marker) {
+    this.squares[key].setMarker(marker);
+  }
+
+  isFull() {
+    return this.unusedSquares().length === 0;
+  }
+
+  unusedSquares() {
+    let keys = Object.keys(this.squares);
+    return keys.filter(key => this.squares[key].isUnused());
+  }
+
+  countMarkersFor(player, keys) {
+    let markers = keys.filter(key => {
+      return this.squares[key].getMarker() === player.getMarker();
+    });
+
+    return markers.length;
+  }
+
+  displayWithClear() {
+    console.clear();
+    console.log("");
+    console.log("");
+    this.display();
+  }
+}
+
+class Player {
+  constructor(marker) {
+    this.marker = marker;
+  }
+
+  getMarker() {
+    return this.marker;
+  }
+}
+
+class Human extends Player {
+  constructor() {
+    super(Square.HUMAN_MARKER);
+  }
+}
+
+class Computer extends Player {
+  constructor() {
+    super(Square.COMPUTER_MARKER);
+  }
+}
+
+class TTTGame {
+  static POSSIBLE_WINNING_ROWS = [
+    [ "1", "2", "3" ],            // top row of board
+    [ "4", "5", "6" ],            // center row of board
+    [ "7", "8", "9" ],            // bottom row of board
+    [ "1", "4", "7" ],            // left column of board
+    [ "2", "5", "8" ],            // middle column of board
+    [ "3", "6", "9" ],            // right column of board
+    [ "1", "5", "9" ],            // diagonal: top-left to bottom-right
+    [ "3", "5", "7" ],            // diagonal: bottom-left to top-right
+  ];
+
+  constructor() {
+    this.board = new Board();
+    this.human = new Human();
+    this.computer = new Computer();
+  }
+
+  play() {
+    this.displayWelcomeMessage();
+
+    this.board.display();
+    while (true) {
+      this.humanMoves();
+      if (this.gameOver()) break;
+
+      this.computerMoves();
+      if (this.gameOver()) break;
+
+      this.board.displayWithClear();
+    }
+
+    this.board.displayWithClear();
+    this.displayResults();
+    this.displayGoodbyeMessage();
+  }
+
+  displayWelcomeMessage() {
+    console.clear();
+    console.log("Welcome to Tic Tac Toe!");
+    console.log("");
+  }
+
+  displayGoodbyeMessage() {
+    console.log("Thanks for playing Tic Tac Toe! Goodbye!");
+  }
+
+  displayResults() {
+    if (this.isWinner(this.human)) {
+      console.log("You won! Congratulations!");
+    } else if (this.isWinner(this.computer)) {
+      console.log("I won! I won! Take that, human!");
+    } else {
+      console.log("A tie game. How boring.");
+    }
+  }
+
+  humanMoves() {
+    let choice;
+
+    while (true) {
+      let validChoices = this.board.unusedSquares();
+      const prompt = `Choose a square (${validChoices.join(", ")}): `;
+      choice = readline.question(prompt);
+
+      if (validChoices.includes(choice)) break;
+
+      console.log("Sorry, that's not a valid choice.");
+      console.log("");
+    }
+
+    this.board.markSquareAt(choice, this.human.getMarker());
+  }
+
+  computerMoves() {
+    let validChoices = this.board.unusedSquares();
+    let choice;
+
+    do {
+      choice = Math.floor((9 * Math.random()) + 1).toString();
+    } while (!validChoices.includes(choice));
+
+    this.board.markSquareAt(choice, this.computer.getMarker());
+  }
+
+  gameOver() {
+    return this.board.isFull() || this.someoneWon();
+  }
+
+  someoneWon() {
+    return this.isWinner(this.human) || this.isWinner(this.computer);
+  }
+
+  isWinner(player) {
+    return TTTGame.POSSIBLE_WINNING_ROWS.some(row => {
+      return this.board.countMarkersFor(player, row) === 3;
+    });
+  }
+}
+
+let game = new TTTGame();
+game.play();
+```
 
 ### 7.7 What's Next?
 
 Congratulations! The game is now complete.
 
 ## Assignment 8: OO Tic Tac Toe Code Discussion
+
+RR
 
 ## Assignment 9: OO Tic Tac Toe with Constructors and Prototypes
 

@@ -1,9 +1,9 @@
-const readline = require("readline-sync");
+let readline = require('readline-sync');
 
 class Square {
-  static UNUSED_SQUARE = " ";
-  static HUMAN_MARKER = "X";
-  static COMPUTER_MARKER = "O";
+  static UNUSED_SQUARE = ' ';
+  static HUMAN_MARKER = 'X';
+  static COMPUTER_MARKER = 'O';
 
   constructor(marker = Square.UNUSED_SQUARE) {
     this.marker = marker;
@@ -37,15 +37,21 @@ class Board {
   display() {
     console.log('');
     console.log('     |     |');
-    console.log(`  ${this.squares['1']}  |  ${this.squares['2']}  |  ${this.squares['3']}`);
+    console.log(
+      `  ${this.squares['1']}  |  ${this.squares['2']}  |  ${this.squares['3']}`
+    );
     console.log('     |     |');
     console.log('-----+-----+-----');
     console.log('     |     |');
-    console.log(`  ${this.squares['4']}  |  ${this.squares['5']}  |  ${this.squares['6']}`);
+    console.log(
+      `  ${this.squares['4']}  |  ${this.squares['5']}  |  ${this.squares['6']}`
+    );
     console.log('     |     |');
     console.log('-----+-----+-----');
     console.log('     |     |');
-    console.log(`  ${this.squares['7']}  |  ${this.squares['8']}  |  ${this.squares['9']}`);
+    console.log(
+      `  ${this.squares['7']}  |  ${this.squares['8']}  |  ${this.squares['9']}`
+    );
     console.log('     |     |');
     console.log('');
   }
@@ -152,9 +158,9 @@ class TTTGame {
     if (this.isWinner(this.human)) {
       console.log('You won! Congratulations!');
     } else if (this.isWinner(this.computer)) {
-      console.log('Computer wins. Better luck next time.');
+      console.log('I won! I won! Take that, human!');
     } else {
-      console.log("A tie game. Let's play again!");
+      console.log('A tie game. How boring.');
     }
   }
 
@@ -180,7 +186,7 @@ class TTTGame {
     let choice;
 
     do {
-      choice = Math.floor((9 * Math.random()) + 1).toString();
+      choice = Math.floor(9 * Math.random() + 1).toString();
     } while (!validChoices.includes(choice));
 
     this.board.markSquareAt(choice, this.computer.getMarker());
@@ -195,7 +201,7 @@ class TTTGame {
   }
 
   isWinner(player) {
-    return TTTGame.POSSIBLE_WINNING_ROWS.some(row => {
+    return TTTGame.POSSIBLE_WINNING_ROWS.some((row) => {
       return this.board.countMarkersFor(player, row) === 3;
     });
   }

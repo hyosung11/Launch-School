@@ -6456,3 +6456,6 @@ Powerful Reading
 17:40 I want to keep making the TTT game because it's fun and I'm putting the pieces of OOP together at the same time. Time to pickup dinner.
 
 19:37 I took a break to make dinner, eat dinner, cleanup and do some other things. I've spent the last 30 minutes or so on completing the TTT game. It's time for the kids to go to bed. I wonder about posting in TIL every week maybe? Learning in Public is something I need to do!
+
+21:11 Finished TTT Game. Going to watch TV with Sohee before bed. I'll work on Lesson 5 > Assignment 8. OO TTT Code Discussion tomorrow.
+
