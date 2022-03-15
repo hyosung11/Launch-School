@@ -6488,8 +6488,11 @@ Powerful Reading
    * [ ] 6. Read *The Coding Career Handbook*
      * [ ]  Chapter 24: Betting on Technologies
      * [ ]  Chapter 25: Profit Centers vs Cost Centers
+   * [ ] 7. Learn in Public
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I can put in a good chunk of time today.
 
 06:40 I liked reading the code discussion of the OO TTT game. Interesting stuff to think about. What will I do to learn in public? What about a daily TIL (Today I Learned) in the Launch School Slack channel to start?
+
+07:30 I'm working on the TTT Bonus Features by walking through the curriculum. I'm ready to take a break, make some coffee, hug Sohee and think about Learning in Public.

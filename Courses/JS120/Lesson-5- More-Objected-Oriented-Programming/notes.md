@@ -2391,9 +2391,694 @@ That's **the art component of programming**. It's a small taste of software desi
 
 ## Assignment 9: OO Tic Tac Toe with Constructors and Prototypes
 
+Of course, there's more than one way to create an OO program in JavaScript. For practice, try to rewrite the TTT program using constructors and prototypes and the pseudo-classical pattern instead of classes. To get you started, here's how you would rewrite the Square class.
+
+```js
+function Square(marker) {
+  this.marker = marker || Square.UNUSED_SQUARE;
+}
+
+Square.UNUSED_SQUARE = " ";
+Square.HUMAN_MARKER = "X";
+Square.COMPUTER_MARKER = "O";
+
+Square.prototype.toString = function() {
+  return this.marker;
+};
+
+Square.prototype.setMarker = function(marker) {
+  this.marker = marker;
+};
+
+Square.prototype.isUnused = function() {
+  return this.marker === Square.UNUSED_SQUARE;
+};
+
+Square.prototype.getMarker = function() {
+  return this.marker;
+};
+```
+
+Here's a complete reference solution:
+
+```js
+let readline = require("readline-sync");
+
+function Square(marker) {
+  this.marker = marker || Square.UNUSED_SQUARE;
+}
+
+Square.UNUSED_SQUARE = " ";
+Square.HUMAN_MARKER = "X";
+Square.COMPUTER_MARKER = "O";
+
+Square.prototype.toString = function() {
+  return this.marker;
+};
+
+Square.prototype.setMarker = function(marker) {
+  this.marker = marker;
+};
+
+Square.prototype.isUnused = function() {
+  return this.marker === Square.UNUSED_SQUARE;
+};
+
+Square.prototype.getMarker = function() {
+  return this.marker;
+};
+
+function Board() {
+  this.squares = {};
+  for (let counter = 1; counter <= 9; ++counter) {
+    this.squares[String(counter)] = new Square();
+  }
+}
+
+Board.prototype.display = function() {
+  console.log("");
+  console.log("     |     |");
+  console.log(`  ${this.squares["1"]}  |  ${this.squares["2"]}  |  ${this.squares["3"]}`);
+  console.log("     |     |");
+  console.log("-----+-----+-----");
+  console.log("     |     |");
+  console.log(`  ${this.squares["4"]}  |  ${this.squares["5"]}  |  ${this.squares["6"]}`);
+  console.log("     |     |");
+  console.log("-----+-----+-----");
+  console.log("     |     |");
+  console.log(`  ${this.squares["7"]}  |  ${this.squares["8"]}  |  ${this.squares["9"]}`);
+  console.log("     |     |");
+  console.log("");
+};
+
+Board.prototype.markSquareAt = function(key, marker) {
+  this.squares[key].setMarker(marker);
+};
+
+Board.prototype.isFull = function() {
+  return this.unusedSquares().length === 0;
+};
+
+Board.prototype.unusedSquares = function() {
+  let keys = Object.keys(this.squares);
+  return keys.filter(key => this.squares[key].isUnused());
+};
+
+Board.prototype.countMarkersFor = function(player, keys) {
+  let markers = keys.filter(key => {
+    return this.squares[key].getMarker() === player.getMarker();
+  });
+
+  return markers.length;
+};
+
+Board.prototype.displayWithClear = function() {
+  console.clear();
+  console.log("");
+  console.log("");
+  this.display();
+};
+
+function Player(marker) {
+  this.marker = marker;
+}
+
+Player.prototype.getMarker = function () {
+  return this.marker;
+};
+
+function Human() {
+  Player.call(this, Square.HUMAN_MARKER);
+}
+
+Human.prototype = Object.create(Player.prototype);
+Human.prototype.constructor = Human;
+
+function Computer() {
+  Player.call(this, Square.COMPUTER_MARKER);
+}
+
+Computer.prototype = Object.create(Player.prototype);
+Computer.prototype.constructor = Computer;
+
+function TTTGame() {
+  this.board = new Board();
+  this.human = new Human();
+  this.computer = new Computer();
+}
+
+TTTGame.POSSIBLE_WINNING_ROWS = [
+  [ "1", "2", "3" ],            // top row of board
+  [ "4", "5", "6" ],            // center row of board
+  [ "7", "8", "9" ],            // bottom row of board
+  [ "1", "4", "7" ],            // left column of board
+  [ "2", "5", "8" ],            // middle column of board
+  [ "3", "6", "9" ],            // right column of board
+  [ "1", "5", "9" ],            // diagonal: top-left to bottom-right
+  [ "3", "5", "7" ],            // diagonal: bottom-left to top-right
+];
+
+TTTGame.prototype.play = function() {
+  this.displayWelcomeMessage();
+
+  this.board.display();
+  while (true) {
+    this.humanMoves();
+    if (this.gameOver()) break;
+
+    this.computerMoves();
+    if (this.gameOver()) break;
+
+    this.board.displayWithClear();
+  }
+
+  this.board.displayWithClear();
+  this.displayResults();
+  this.displayGoodbyeMessage();
+};
+
+TTTGame.prototype.displayWelcomeMessage = function() {
+  console.clear();
+  console.log("Welcome to Tic Tac Toe!");
+  console.log("");
+};
+
+TTTGame.prototype.displayGoodbyeMessage = function() {
+  console.log("Thanks for playing Tic Tac Toe! Goodbye!");
+};
+
+TTTGame.prototype.displayResults = function() {
+  if (this.isWinner(this.human)) {
+    console.log("You won! Congratulations!");
+  } else if (this.isWinner(this.computer)) {
+    console.log("I won! I won! Take that, human!");
+  } else {
+    console.log("A tie game. How boring.");
+  }
+};
+
+TTTGame.prototype.humanMoves = function() {
+  let choice;
+
+  while (true) {
+    let validChoices = this.board.unusedSquares();
+    const prompt = `Choose a square (${validChoices.join(", ")}): `;
+    choice = readline.question(prompt);
+
+    if (validChoices.includes(choice)) break;
+
+    console.log("Sorry, that's not a valid choice.");
+    console.log("");
+  }
+
+  this.board.markSquareAt(choice, this.human.getMarker());
+};
+
+TTTGame.prototype.computerMoves = function() {
+  let validChoices = this.board.unusedSquares();
+  let choice;
+
+  do {
+    choice = Math.floor((9 * Math.random()) + 1).toString();
+  } while (!validChoices.includes(choice));
+
+  this.board.markSquareAt(choice, this.computer.getMarker());
+};
+
+TTTGame.prototype.gameOver = function() {
+  return this.board.isFull() || this.someoneWon();
+};
+
+TTTGame.prototype.someoneWon = function() {
+  return this.isWinner(this.human) || this.isWinner(this.computer);
+};
+
+TTTGame.prototype.isWinner = function(player) {
+  return TTTGame.POSSIBLE_WINNING_ROWS.some(row => {
+    return this.board.countMarkersFor(player, row) === 3;
+  });
+};
+
+let game = new TTTGame();
+game.play();
+```
+
 ## Assignment 10: OO Tic Tac Toe with OLOO
 
+Now try to rewrite the TTT program using the OLOO pattern. To get you started, here's how you would rewrite the Square class.
+
+```js
+let Square = {
+  UNUSED_SQUARE:   " ",
+  HUMAN_MARKER:    "X",
+  COMPUTER_MARKER: "O",
+
+  init(marker = Square.UNUSED_SQUARE) {
+    this.marker = marker;
+    return this;
+  },
+
+  toString() {
+    return this.marker;
+  },
+
+  setMarker(marker) {
+    this.marker = marker;
+  },
+
+  isUnused() {
+    return this.marker === Square.UNUSED_SQUARE;
+  },
+
+  getMarker() {
+    return this.marker;
+  },
+};
+
+let square = Object.create(Square).init();
+```
+
+**Solution**
+
+```js
+let readline = require("readline-sync");
+
+let Square = {
+  UNUSED_SQUARE:   " ",
+  HUMAN_MARKER:    "X",
+  COMPUTER_MARKER: "O",
+
+  init(marker = Square.UNUSED_SQUARE) {
+    this.marker = marker;
+    return this;
+  },
+
+  toString() {
+    return this.marker;
+  },
+
+  setMarker(marker) {
+    this.marker = marker;
+  },
+
+  isUnused() {
+    return this.marker === Square.UNUSED_SQUARE;
+  },
+
+  getMarker() {
+    return this.marker;
+  },
+};
+
+let Board = {
+  init() {
+    this.squares = {};
+    for (let counter = 1; counter <= 9; ++counter) {
+      this.squares[String(counter)] = Object.create(Square).init();
+    }
+
+    return this;
+  },
+
+  display() {
+    console.log("");
+    console.log("     |     |");
+    console.log(`  ${this.squares["1"]}  |  ${this.squares["2"]}  |  ${this.squares["3"]}`);
+    console.log("     |     |");
+    console.log("-----+-----+-----");
+    console.log("     |     |");
+    console.log(`  ${this.squares["4"]}  |  ${this.squares["5"]}  |  ${this.squares["6"]}`);
+    console.log("     |     |");
+    console.log("-----+-----+-----");
+    console.log("     |     |");
+    console.log(`  ${this.squares["7"]}  |  ${this.squares["8"]}  |  ${this.squares["9"]}`);
+    console.log("     |     |");
+    console.log("");
+  },
+
+  markSquareAt(key, marker) {
+    this.squares[key].setMarker(marker);
+  },
+
+  isFull() {
+    return this.unusedSquares().length === 0;
+  },
+
+  unusedSquares() {
+    let keys = Object.keys(this.squares);
+    return keys.filter(key => this.squares[key].isUnused());
+  },
+
+  countMarkersFor(player, keys) {
+    let markers = keys.filter(key => {
+      return this.squares[key].getMarker() === player.getMarker();
+    });
+
+    return markers.length;
+  },
+
+  displayWithClear() {
+    console.clear();
+    console.log("");
+    console.log("");
+    this.display();
+  },
+};
+
+const PlayerPrototype = {
+  initialize(marker) {
+    this.marker = marker;
+    return this;
+  },
+
+  getMarker() {
+    return this.marker;
+  },
+};
+
+let Human = Object.create(PlayerPrototype);
+
+Human.init = function() {
+  return this.initialize(Square.HUMAN_MARKER);
+};
+
+let Computer = Object.create(PlayerPrototype);
+
+Computer.init = function() {
+  return this.initialize(Square.COMPUTER_MARKER);
+};
+
+let TTTGame = {
+  POSSIBLE_WINNING_ROWS: [
+    [ "1", "2", "3" ],            // top row of board
+    [ "4", "5", "6" ],            // center row of board
+    [ "7", "8", "9" ],            // bottom row of board
+    [ "1", "4", "7" ],            // left column of board
+    [ "2", "5", "8" ],            // middle column of board
+    [ "3", "6", "9" ],            // right column of board
+    [ "1", "5", "9" ],            // diagonal: top-left to bottom-right
+    [ "3", "5", "7" ],            // diagonal: bottom-left to top-right
+  ],
+
+  init() {
+    this.board = Object.create(Board).init();
+    this.human = Object.create(Human).init();
+    this.computer = Object.create(Computer).init();
+    return this;
+  },
+
+  play() {
+    this.displayWelcomeMessage();
+
+    this.board.display();
+    while (true) {
+      this.humanMoves();
+      if (this.gameOver()) break;
+
+      this.computerMoves();
+      if (this.gameOver()) break;
+
+      this.board.displayWithClear();
+    }
+
+    this.board.displayWithClear();
+    this.displayResults();
+    this.displayGoodbyeMessage();
+  },
+
+  displayWelcomeMessage() {
+    console.clear();
+    console.log("Welcome to Tic Tac Toe!");
+    console.log("");
+  },
+
+  displayGoodbyeMessage() {
+    console.log("Thanks for playing Tic Tac Toe! Goodbye!");
+  },
+
+  displayResults() {
+    if (this.isWinner(this.human)) {
+      console.log("You won! Congratulations!");
+    } else if (this.isWinner(this.computer)) {
+      console.log("I won! I won! Take that, human!");
+    } else {
+      console.log("A tie game. How boring.");
+    }
+  },
+
+  humanMoves() {
+    let choice;
+
+    while (true) {
+      let validChoices = this.board.unusedSquares();
+      const prompt = `Choose a square (${validChoices.join(", ")}): `;
+      choice = readline.question(prompt);
+
+      if (validChoices.includes(choice)) break;
+
+      console.log("Sorry, that's not a valid choice.");
+      console.log("");
+    }
+
+    this.board.markSquareAt(choice, this.human.getMarker());
+  },
+
+  computerMoves() {
+    let validChoices = this.board.unusedSquares();
+    let choice;
+
+    do {
+      choice = Math.floor((9 * Math.random()) + 1).toString();
+    } while (!validChoices.includes(choice));
+
+    this.board.markSquareAt(choice, this.computer.getMarker());
+  },
+
+  gameOver() {
+    return this.board.isFull() || this.someoneWon();
+  },
+
+  someoneWon() {
+    return this.isWinner(this.human) || this.isWinner(this.computer);
+  },
+
+  isWinner(player) {
+    return TTTGame.POSSIBLE_WINNING_ROWS.some(row => {
+      return this.board.countMarkersFor(player, row) === 3;
+    });
+  },
+};
+
+let game = Object.create(TTTGame).init();
+console.log(game);
+game.play();
+```
+
 ## Assignment 11: OO Tic Tac Toe with Bonus Features
+
+Let's add some additional features to our TTT game. When you've finished, consider asking for a code review. Be sure to compare your code with our solutions first to determine whether you missed anything.
+
+You should *commit your changes before starting work on each feature*. That should help you get back to a working game if you mess things up working on a feature.
+
+1. **Improved prompt**
+
+If we run the current game, we'll see the following prompt:
+
+```sh
+Choose a square (1, 2, 3, 4, 5, 6, 7, 8, 9):
+```
+
+That's okay, but this message could use a small improvement: it should include the word `or` before the final choice:
+
+```sh
+Choose a square (1, 2, 3, 4, 5, 6, 7, 8, or 9):
+```
+
+Our code currently uses `Array.prototype.join` to create the prompt, but it can't insert a different delimiter before the final choice. It isn't smart enough to do what we need. We'll write a `joinOr` method to make up for this lack. The method should work like this:
+
+```js
+// obj is the context for `joinOr`; replace it with the correct context.
+obj.joinOr([1, 2])                   # => "1 or 2"
+obj.joinOr([1, 2, 3])                # => "1, 2, or 3"
+obj.joinOr([1, 2, 3], '; ')          # => "1; 2; or 3"
+obj.joinOr([1, 2, 3], ', ', 'and')   # => "1, 2, and 3"
+```
+
+Once the method works as shown, add it to your Tic Tac Toe game and use it to format the prompt when asking the human player to mark a square.
+
+Hints
+
+- Pseudocode and other problem-solving steps may help you implement this feature.
+- Try writing the method in a separate file first so you can test it easily. Move it into the game once you know it works correctly.
+
+Possible Solution
+
+First, let's do a little design work:
+
+- Calling sequences (see above for outputs)
+  - `obj.joinOr(choices);`
+  - `obj.joinOr(choices, separator);`
+  - `obj.joinOr(choices, separator, conjunction);`
+
+- Assumptions:
+  - `obj.joinOr([1])` => "1"
+
+- Rules:
+  - Default separator is `', '`.
+  - Default conjunction is `'or'`.
+  - If only one choice, just display that element.
+  - If two choices, display them separated by the conjunction
+  - If three or more choices, insert conjunction before final choice, and use separators between all of the choices.
+
+- Pseudocode:
+
+```sh
+-   If separator not supplied, use `', '`.
+-   If conjunction not supplied, use `or`.
+-   If there is only choice:
+    -   Return the choice as a string.
+-   Else If there are exactly two choices:
+    -   Return the two choices separated by the conjunction.
+-   Else
+    -   Join all choices except the last with the separator and save as the result.
+    -   Append the separator to the result.
+    -   Append the conjunction to the result.
+    -   Append a space to the result.
+    -   Append the final choice to the result.
+    -   Return the result.
+
+```
+
+After translating the pseudocode, the code should look something like this:
+
+```js
+class TTTGame {
+  humanMoves() {
+    let choice;
+
+    while (true) {
+      let validChoices = this.board.unusedSquares();
+      const prompt = `Choose a square (${TTTGame.joinOr(validChoices)}): `;
+      choice = readline.question(prompt);
+
+      if (validChoices.includes(choice)) break;
+
+      console.log("Sorry, that's not a valid choice.");
+      console.log("");
+    }
+
+    this.board.markSquareAt(choice, this.human.getMarker());
+  }
+
+  static joinOr(choices, separator = ', ', conjunction = 'or') {
+    if (choices.length === 1) {
+      return choices[0].toString();
+    }  else if (choices.length === 2) {
+      return `${choices[0]} ${conjunction} ${choices[1]}`;
+    } else {
+      let lastChoice = choices[choices.length - 1];
+      let result = choices.slice(0, -1).join(separator);
+      return `${result}${separator} ${conjunction} ${lastChoice}`;
+    }
+  }
+}
+```
+
+We chose to put this method in the `TTTGame` class simply because that is the only class that needs it. Whether that's a good location for it is debatable -- it doesn't have anything to do with the game, but we haven't talked about any alternate approaches yet.
+
+We also made it a static method since it doesn't need access to any of `TTTGame`'s methods and properties. We could have made it an instance method, but that's slightly misleading. Don't worry about it if that's what you did.
+
+Ideally, `joinOr` should probably be a private method, but JavaScript doesn't provide any special syntax for defining private methods. That's not to say that it's impossible to create a private method, but it isn't worth the effort right now.
+
+2. **Play Again**
+
+Our game currently lets the players play one game and then it ends. Add the ability to play again:
+
+- After each game ends, the program should ask the human player whether they want to play again. If they do, then the program should start a new game of TTT. Otherwise, it should end the program.
+- The program should accept `y` or `n` (in lowercase or uppercase) as valid answers at the "play again?" prompt; all other answers are invalid.
+- The program should display the welcome message before the first game starts. It should never display the message again.
+- The program should display the results after each game ends, but before asking whether the human player wants to play again.
+- The program should display the goodbye message when the human player decides that he doesn't want to play again. It should never display the goodbye message before that.
+
+Hints
+
+- Create a separate method to play the game once.
+- Consider using a playAgain method to isolate the "play again" processing.
+
+Possible Solution
+
+```js
+class Board {
+  constructor() {
+    this.reset();
+  }
+
+  reset() {
+    this.squares = {};
+    for (let counter = 1; counter <= 9; ++counter) {
+      this.squares[counter] = new Square();
+    }
+  }
+}
+
+class TTTGame {
+  play() {
+    this.displayWelcomeMessage();
+
+    while (true) {
+      this.playOneGame();
+      if (!this.playAgain()) break;
+
+      console.log("Let's play again!");
+    }
+
+    this.displayGoodbyeMessage();
+  }
+
+  playOneGame() {
+    this.board.reset();
+    this.board.display();
+    while (true) {
+      this.humanMoves();
+      if (this.gameOver()) break;
+
+      this.computerMoves();
+      if (this.gameOver()) break;
+
+      this.board.displayWithClear();
+    }
+
+    this.board.displayWithClear();
+    this.displayResults();
+  }
+
+  playAgain() {
+    let answer;
+
+    while (true) {
+      answer = readline.question("Play again (y/n)? ").toLowerCase();
+
+      if (["y", "n"].includes(answer)) break;
+
+      console.log("Sorry, that's not a valid choice.");
+      console.log("");
+    }
+
+    console.clear();
+    return answer === "y";
+  }
+}
+```
+
+The most significant change here is that we moved the orchestration engine for a single game into a new `playOneGame` method, then reused `play` to orchestrate the overall flow of the program: welcome, play a game, do play-again processing, goodbye.
+
+We also added a `reset` method to the `Board` class to reset the state of the board. Since the code is identical to what we had in the constructor, we've moved the constructor code into the `reset` method, then called reset from inside the constructor. This pattern is useful with objects that need to be fully or partially reset during their lifetime.
+
+You may have noticed that the constructor is now redundant since we also call `reset` in `playOneGame` before we ever make use of the board object. However, it's still a good idea to initialize your objects in the constructor to ensure that they always have valid state,
+
+3. **Computer AI: Defense**
+
+RR
 
 ## Assignment 12: OO Twenty-One Overview
 
