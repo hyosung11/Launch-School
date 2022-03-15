@@ -3209,6 +3209,672 @@ class TTTGame {
 
 The code for this feature is nearly identical to that for the defensive move. In fact, it is so close that we will ask you to refactor the methods in another feature below. You may even have already done so.
 
+5. **Another Computer Move Improvement**
+
+We can make one final improvement to the computer's strategy: it should pick the center square (#5) when it's available and there are no offensive or defensive moves it can make. Pick a random square only when it can make no other move.
+
+```js
+class TTTGame {
+  computerMoves() {
+    let choice = this.offensiveComputerMove();
+    if (!choice) {
+      choice = this.defensiveComputerMove();
+    }
+
+    if (!choice) {
+      choice = this.pickCenterSquare();
+    }
+
+    if (!choice) {
+      choice = this.pickRandomSquare();
+    }
+
+    this.board.markSquareAt(choice, this.computer.getMarker());
+  }
+
+  pickCenterSquare() {
+    return this.board.isUnusedSquare("5") ? "5" : null;
+  }
+
+  pickRandomSquare() {
+    let validChoices = this.board.unusedSquares();
+    let choice;
+
+    do {
+      choice = Math.floor((9 * Math.random()) + 1).toString();
+    } while (!validChoices.includes(choice));
+
+    return choice;
+  }
+}
+```
+
+We didn't have to create separate methods to pick the center square or to pick a random square, but doing so cleans up `computerMoves` considerably.
+
+6. **Refactor the Move Methods**
+
+The `offensiveComputerMove` and `defensiveComputerMove` methods are nearly identical, as are `atRiskSquare` and `winningSquare`. Try to DRY up that code.
+
+Hint
+
+- To preserve readability, you should keep the `offensiveComputerMove` and `defensiveComputerMove` methods around for use by `computerMoves`. However, you can create a third method to handle the shared processing in one place.
+- You can combine `atRiskSquare` and `winningSquare` into a single method. The tricky part is naming the method.
+
+```js
+class TTTGame {
+  defensiveComputerMove() {
+    return this.findCriticalSquare(this.human);
+  }
+
+  offensiveComputerMove() {
+    return this.findCriticalSquare(this.computer);
+  }
+
+  findCriticalSquare(player) {
+    for (let index = 0; index < TTTGame.POSSIBLE_WINNING_ROWS.length; ++index) {
+      let row = TTTGame.POSSIBLE_WINNING_ROWS[index];
+      let key = this.criticalSquare(row, player);
+      if (key) return key;
+    }
+
+    return null;
+  }
+
+  criticalSquare(row, player) {
+    if (this.board.countMarkersFor(player, row) === 2) {
+      let index = row.findIndex(key => this.board.isUnusedSquare(key));
+      if (index >= 0) return row[index];
+    }
+
+    return null;
+  }
+
+  //Delete this code
+  // atRiskSquare(row) {
+  //   if (this.board.countMarkersFor(this.human, row) === 2) {
+  //     let index = row.findIndex(key => this.board.isUnusedSquare(key));
+  //     if (index >= 0) return row[index];
+  //   }
+  //
+  //   return null;
+  // }
+  //
+  // winningSquare(row) {
+  //   if (this.board.countMarkersFor(this.computer, row) === 2) {
+  //     let index = row.findIndex(key => this.board.isUnusedSquare(key));
+  //     if (index >= 0) return row[index];
+  //   }
+  //
+  //   return null;
+  // }
+
+}
+```
+
+The key to this refactor is passing the appropriate player object to `findCriticalSquare` and `criticalSquare`. `findCriticalSquare` combines the functionality that once belonged to `offensiveComputerMove` and `defensiveComputerMove`, while `criticalSquare` combines the functionality of `atRiskSquare` and `winningSquare`.
+
+7. **Keep Score**
+
+Keep score by tracking how many times the player and computer each win. Don't use global or static variables. The first player to reach 3 wins is the winner of the match. Be sure to report the current score after each game, and make it clear when a player wins the match.
+
+For simplicity, end the program after playing one full match. You don't need a "play again" question for the match, just the individual games. Also, don't worry about keeping the board positioned precisely on the screen as we did in the final walkthrough; it's a bit tricky to do so. You can fix that later if it bugs you.
+
+Hint
+
+Implementing match play is harder than it sounds. Try to break the problem down into methods.
+
+Possible Solution
+
+```js
+class Player {
+  constructor(marker) {
+    this.marker = marker;
+    this.score = 0;
+  }
+
+  getScore() {
+    return this.score;
+  }
+
+  incrementScore() {
+    this.score += 1;
+  }
+}
+
+class TTTGame {
+  static MATCH_GOAL = 3;
+
+  play() {
+    this.displayWelcomeMessage();
+    this.playMatch();
+    this.displayGoodbyeMessage();
+  }
+
+  playMatch() {
+    console.log(`First player to win ${TTTGame.MATCH_GOAL} games wins the match.`);
+
+    while (true) {
+      this.playOneGame();
+      this.updateMatchScore();
+      this.displayMatchScore();
+
+      if (this.matchOver()) break;
+      if (!this.playAgain()) break;
+    }
+
+    this.displayMatchResults();
+  }
+
+  matchOver() {
+    return this.isMatchWinner(this.human) || this.isMatchWinner(this.computer);
+  }
+
+  isMatchWinner(player) {
+    return player.getScore() >= TTTGame.MATCH_GOAL;
+  }
+
+  updateMatchScore() {
+    if (this.isWinner(this.human)) {
+      this.human.incrementScore();
+    } else if (this.isWinner(this.computer)) {
+      this.computer.incrementScore();
+    }
+  }
+
+  displayMatchScore() {
+    let human = this.human.getScore();
+    let computer = this.computer.getScore();
+    console.log(`Current match score: [you: ${human}] [computer: ${computer}]`);
+  }
+
+  displayMatchResults() {
+    if (this.human.getScore() > this.computer.getScore()) {
+      console.log("You won this match! Congratulations!");
+    } else if (this.human.getScore() < this.computer.getScore()) {
+      console.log("Oh, boo hoo. You lost the match!");
+    }
+  }
+}
+```
+
+Other than a few small updates to the `Player` class to support scores, almost all of our attention here is on the `TTTGame` class. There's a fair amount of new code there, but most of it bears some similarity to the original code.
+
+Why do we check for both a human match win and a computer match win in `displayMatchWinner`? Shouldn't there always be a winner? If there is, either one player wins, or the other does. However, if the human player chooses to stop playing while the score is tied, there won't be a winner. Thus, we need to check for both human and computer wins.
+
+Note our use of the static constant `MATCH_GOAL` to replace the *magic number* `3` that defines the number of game wins needed to win the match. Using a constant means that we can easily change the number of games to `5` or `9` or `37`, and have that update reflected in both methods that use it. It also helps to distinguish the `3` win goal from any other use of `3`.
+
+**Extra Bonus**: Are there other magic numbers that we can replace by static constants? Static constants should not replace all numbers in this program, but there are some that we probably should replace, if for no other reason than to provide additional clarity to our code through the use of names.
+
+8. **Take Turns Going First**
+
+Change the game so that the human and computer take turns going first during a match. When the human goes first in one game, the computer should go first in the next, and vice versa.
+
+Note that our current code locks us into a human-first/computer-second structure. If the computer can also go first, then we need to change that somehow. Can you modify the code so that the main game loop doesn't care who goes first?
+
+Don't worry about swapping the player's markers for each game: the human can always use `X` while the computer uses `O`.
+
+Hints
+
+Your main game loop may end up looking like this:
+
+```js
+let currentPlayer = this.firstPlayer;
+while (true) {
+  this.playerMoves(currentPlayer);
+  if (this.gameOver()) break;
+
+  this.board.displayWithClear();
+  currentPlayer = this.togglePlayer(currentPlayer);
+}
+```
+
+Possible Solution
+
+```js
+class TTTGame {
+  constructor() {
+    this.board = new Board();
+    this.human = new Human();
+    this.computer = new Computer();
+    this.firstPlayer = this.human;
+  }
+
+  playOneGame() {
+    let currentPlayer = this.firstPlayer;
+
+    this.board.reset();
+    this.board.display();
+
+    while (true) {
+      this.playerMoves(currentPlayer);
+      if (this.gameOver()) break;
+
+      this.board.displayWithClear();
+      currentPlayer = this.togglePlayer(currentPlayer);
+    }
+
+    this.board.displayWithClear();
+    this.displayResults();
+  }
+
+  playMatch() {
+    console.log(`First player to win ${TTTGame.MATCH_GOAL} games wins the match.`);
+
+    while (true) {
+      this.playOneGame();
+      this.updateMatchScore();
+      this.displayMatchScore();
+
+      if (this.matchOver()) break;
+      if (!this.playAgain()) break;
+      this.firstPlayer = this.togglePlayer(this.firstPlayer);
+    }
+
+    this.displayMatchResults();
+  }
+
+  togglePlayer(player) {
+    return player === this.human ? this.computer : this.human;
+  }
+
+  playerMoves(currentPlayer) {
+    if (currentPlayer === this.human) {
+      this.humanMoves();
+    } else {
+      this.computerMoves();
+    }
+  }
+}
+```
+
+Note that we need both the concept of the player to go first and a current player. We happened to implement `firstPlayer` as an instance property, and `currentPlayer` as a local variable and method parameter, but you may have chosen differently. That's okay; it's merely an implementation detail that we preferred.
+
+### Final Program
+
+```js
+let readline = require("readline-sync");
+
+class Square {
+  static UNUSED_SQUARE = " ";
+  static HUMAN_MARKER = "X";
+  static COMPUTER_MARKER = "O";
+
+  constructor(marker = Square.UNUSED_SQUARE) {
+    this.marker = marker;
+  }
+
+  getMarker() {
+    return this.marker;
+  }
+
+  setMarker(marker) {
+    this.marker = marker;
+  }
+
+  toString() {
+    return this.marker;
+  }
+
+  isUnused() {
+    return this.marker === Square.UNUSED_SQUARE;
+  }
+}
+
+class Board {
+  constructor() {
+    this.reset();
+  }
+
+  reset() {
+    this.squares = {};
+    for (let counter = 1; counter <= 9; ++counter) {
+      this.squares[counter] = new Square();
+    }
+  }
+
+  display() {
+    console.log("");
+    console.log("     |     |");
+    console.log(`  ${this.squares[1]}  |  ${this.squares[2]}  |  ${this.squares[3]}`);
+    console.log("     |     |");
+    console.log("-----+-----+-----");
+    console.log("     |     |");
+    console.log(`  ${this.squares[4]}  |  ${this.squares[5]}  |  ${this.squares[6]}`);
+    console.log("     |     |");
+    console.log("-----+-----+-----");
+    console.log("     |     |");
+    console.log(`  ${this.squares[7]}  |  ${this.squares[8]}  |  ${this.squares[9]}`);
+    console.log("     |     |");
+    console.log("");
+  }
+
+  displayWithClear() {
+    console.clear();
+    console.log("");
+    console.log("");
+    this.display();
+  }
+
+  isFull() {
+    return this.unusedSquares().length === 0;
+  }
+
+  isUnusedSquare(key) {
+    return this.squares[key].isUnused();
+  }
+
+  unusedSquares() {
+    let keys = Object.keys(this.squares);
+    return keys.filter(key => this.isUnusedSquare(key));
+  }
+
+  countMarkersFor(player, keys) {
+    let markers = keys.filter(key => {
+      return this.squares[key].getMarker() === player.getMarker();
+    });
+
+    return markers.length;
+  }
+
+  markSquareAt(key, marker) {
+    this.squares[key].setMarker(marker);
+  }
+}
+
+class Player {
+  constructor(marker) {
+    this.marker = marker;
+    this.score = 0;
+  }
+
+  getMarker() {
+    return this.marker;
+  }
+
+  getScore() {
+    return this.score;
+  }
+
+  incrementScore() {
+    this.score += 1;
+  }
+}
+
+class Human extends Player {
+  constructor() {
+    super(Square.HUMAN_MARKER);
+  }
+}
+
+class Computer extends Player {
+  constructor() {
+    super(Square.COMPUTER_MARKER);
+  }
+}
+
+class TTTGame {
+  static MATCH_GOAL = 3;
+  static POSSIBLE_WINNING_ROWS = [
+    [ "1", "2", "3" ],            // top row of board
+    [ "4", "5", "6" ],            // center row of board
+    [ "7", "8", "9" ],            // bottom row of board
+    [ "1", "4", "7" ],            // left column of board
+    [ "2", "5", "8" ],            // middle column of board
+    [ "3", "6", "9" ],            // right column of board
+    [ "1", "5", "9" ],            // diagonal: top-left to bottom-right
+    [ "3", "5", "7" ],            // diagonal: bottom-left to top-right
+  ];
+
+  constructor() {
+    this.board = new Board();
+    this.human = new Human();
+    this.computer = new Computer();
+    this.firstPlayer = this.human;
+  }
+
+  play() {
+    this.displayWelcomeMessage();
+    this.playMatch();
+    this.displayGoodbyeMessage();
+  }
+
+  playMatch() {
+    console.log(`First player to win ${TTTGame.MATCH_GOAL} games wins the match.`);
+
+    while (true) {
+      this.playOneGame();
+      this.updateMatchScore();
+      this.displayMatchScore();
+
+      if (this.matchOver()) break;
+      if (!this.playAgain()) break;
+      this.firstPlayer = this.togglePlayer(this.firstPlayer);
+    }
+
+    this.displayMatchResults();
+  }
+
+  playOneGame() {
+    let currentPlayer = this.firstPlayer;
+
+    this.board.reset();
+    this.board.display();
+
+    while (true) {
+      this.playerMoves(currentPlayer);
+      if (this.gameOver()) break;
+
+      this.board.displayWithClear();
+      currentPlayer = this.togglePlayer(currentPlayer);
+    }
+
+    this.board.displayWithClear();
+    this.displayResults();
+  }
+
+  playAgain() {
+    let answer;
+
+    while (true) {
+      answer = readline.question("Play again (y/n)? ").toLowerCase();
+
+      if (["y", "n"].includes(answer)) break;
+
+      console.log("Sorry, that's not a valid choice.");
+      console.log("");
+    }
+
+    console.clear();
+    return answer === "y";
+  }
+
+  displayWelcomeMessage() {
+    console.clear();
+    console.log("Welcome to Tic Tac Toe!");
+    console.log("");
+  }
+
+  displayGoodbyeMessage() {
+    console.log("Thanks for playing Tic Tac Toe! Goodbye!");
+  }
+
+  displayResults() {
+    if (this.isWinner(this.human)) {
+      console.log("You won! Congratulations!");
+    } else if (this.isWinner(this.computer)) {
+      console.log("I won! I won! Take that, human!");
+    } else {
+      console.log("A tie game. How boring.");
+    }
+  }
+
+  displayMatchScore() {
+    let human = this.human.getScore();
+    let computer = this.computer.getScore();
+    console.log(`Current match score: [you: ${human}] [computer: ${computer}]`);
+  }
+
+  displayMatchResults() {
+    if (this.human.getScore() > this.computer.getScore()) {
+      console.log("You won this match! Congratulations!");
+    } else if (this.human.getScore() < this.computer.getScore()) {
+      console.log("Oh, boo hoo. You lost the match!");
+    }
+  }
+
+  togglePlayer(player) {
+    return player === this.human ? this.computer : this.human;
+  }
+
+  playerMoves(currentPlayer) {
+    if (currentPlayer === this.human) {
+      this.humanMoves();
+    } else {
+      this.computerMoves();
+    }
+  }
+
+  humanMoves() {
+    let choice;
+
+    while (true) {
+      let validChoices = this.board.unusedSquares();
+      const prompt = `Choose a square (${TTTGame.joinOr(validChoices)}): `;
+      choice = readline.question(prompt);
+
+      if (validChoices.includes(choice)) break;
+
+      console.log("Sorry, that's not a valid choice.");
+      console.log("");
+    }
+
+    this.board.markSquareAt(choice, this.human.getMarker());
+  }
+
+  computerMoves() {
+    let choice = this.offensiveComputerMove();
+    if (!choice) {
+      choice = this.defensiveComputerMove();
+    }
+
+    if (!choice) {
+      choice = this.pickCenterSquare();
+    }
+
+    if (!choice) {
+      choice = this.pickRandomSquare();
+    }
+
+    this.board.markSquareAt(choice, this.computer.getMarker());
+  }
+
+  defensiveComputerMove() {
+    return this.findCriticalSquare(this.human);
+  }
+
+  offensiveComputerMove() {
+    return this.findCriticalSquare(this.computer);
+  }
+
+  findCriticalSquare(player) {
+    for (let index = 0; index < TTTGame.POSSIBLE_WINNING_ROWS.length; ++index) {
+      let row = TTTGame.POSSIBLE_WINNING_ROWS[index];
+      let key = this.criticalSquare(row, player);
+      if (key) return key;
+    }
+
+    return null;
+  }
+
+  criticalSquare(row, player) {
+    if (this.board.countMarkersFor(player, row) === 2) {
+      let index = row.findIndex(key => this.board.isUnusedSquare(key));
+      if (index >= 0) return row[index];
+    }
+
+    return null;
+  }
+
+  pickCenterSquare() {
+    return this.board.isUnusedSquare("5") ? "5" : null;
+  }
+
+  pickRandomSquare() {
+    let validChoices = this.board.unusedSquares();
+    let choice;
+
+    do {
+      choice = Math.floor((9 * Math.random()) + 1).toString();
+    } while (!validChoices.includes(choice));
+
+    return choice;
+  }
+
+  gameOver() {
+    return this.board.isFull() || this.someoneWon();
+  }
+
+  someoneWon() {
+    return this.isWinner(this.human) || this.isWinner(this.computer);
+  }
+
+  isWinner(player) {
+    return TTTGame.POSSIBLE_WINNING_ROWS.some(row => {
+      return this.board.countMarkersFor(player, row) === 3;
+    });
+  }
+
+  matchOver() {
+    return this.isMatchWinner(this.human) || this.isMatchWinner(this.computer);
+  }
+
+  isMatchWinner(player) {
+    return player.getScore() >= TTTGame.MATCH_GOAL;
+  }
+
+  updateMatchScore() {
+    if (this.isWinner(this.human)) {
+      this.human.incrementScore();
+    } else if (this.isWinner(this.computer)) {
+      this.computer.incrementScore();
+    }
+  }
+
+  static joinOr(choices, separator = ', ', conjunction = 'or') {
+    if (choices.length === 1) {
+      return choices[0].toString();
+    }  else if (choices.length === 2) {
+      return `${choices[0]} ${conjunction} ${choices[1]}`;
+    } else {
+      let lastChoice = choices[choices.length - 1];
+      let result = choices.slice(0, -1).join(separator);
+      return `${result}${separator} ${conjunction} ${lastChoice}`;
+    }
+  }
+}
+
+let game = new TTTGame();
+game.play();
+```
+
+We've rearranged the order of our methods to group them logically.
+
+### On Your Own Ideas
+
+Below are some ideas for you to explore on your own. They're too challenging and out of scope for this course. However, for adventurous developers, they're worth exploring. Please note that we can not review code for these additional features.
+
+1. Minimax algorithm
+
+  You can build an unbeatable Tic Tac Toe game by using the [minimax algorithm](https://en.wikipedia.org/wiki/Minimax).
+
+2. Bigger board
+
+  What happens if the board is 5x5 instead of 3x3? What about a 9x9 board? You'll need to figure out the rules that apply to a bigger board.
+
+3. More players
+
+  If you can have a bigger board, why not 3 or more players? Would it be interesting to play against 2 computers? What about 2 human players against a computer?
+
 ## Assignment 12: OO Twenty-One Overview
 
 ## Assignment 13: OO Twenty-One: Reference Implementation with Classes

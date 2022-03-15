@@ -6,9 +6,9 @@ So far in this course, we've discussed a number of different concepts which unde
 
 By this point you should be comfortable with the concept of using objects to *encapsulate* data and behavior in order to add structure to your code, and the importance of **function execution context** when working with objects in this way. You should have an understanding of using prototypes to delegate property and method access. You should also be familiar with using object creation patterns in order to create multiple objects of the same **type**.
 
-The advantages of using an object-oriented approach really start to become apparent when you combine some of these concepts together. In this lesson, we'll explore how you can leverage prototypal delegation to create object **subtypes**. This is one way of enabling code re-use within your programs. Another way of enabling code re-use is by using **mix-ins**, we'll look at how to do that too. Finally, we'll tie these ideas together by discussing another of the fundamental pillars of OOP: **polymorphism**.
+The advantages of using an object-oriented approach really start to become apparent when you combine some of these concepts together. In this lesson, we'll explore how you can *leverage prototypal delegation* to create object **subtypes**. This is one way of enabling code re-use within your programs. Another way of enabling code re-use is by using **mix-ins**, we'll look at how to do that too. Finally, we'll tie these ideas together by discussing another of the fundamental pillars of OOP: **polymorphism**.
 
-As well as this, we'll demonstrate the flexibility of object-orientation in JavaScript by exploring another object creation pattern, the OLOO pattern.
+As well as this, we'll demonstrate the flexibility of object-orientation in JavaScript by exploring another object creation pattern, the **OLOO pattern**.
 
 ## Assignment 2. Object Creation with Prototypes (OLOO)
 

@@ -6498,3 +6498,7 @@ Powerful Reading
 07:30 I'm working on the TTT Bonus Features by walking through the curriculum. I'm ready to take a break, make some coffee, hug Sohee and think about Learning in Public.
 
 08:52 Did some reading of the Daily Laws and of The Coding Career Handbook. Now getting ready for study session with Laurent.
+
+10:05 After study session with Laurent and I still don't understand the last two quiz questions from Lesson 4 Quiz 1. I need to read that lesson again.
+
+10:41 Tore through the TTT Bonus Features and now ready for a break.
