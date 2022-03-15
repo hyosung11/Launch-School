@@ -6481,8 +6481,9 @@ Powerful Reading
      * [x] Assignment 8. OO TTT Code Discussion
      * [x] Assignment 9. OO with Constructors and Prototypes
      * [x] Assignment 10. OO with OLOO
-     * [ ] Assignment 11. OO TTT with Bonus Features
-   * [ ] 3. Study Session with Laurent
+     * [x] Assignment 11. OO TTT with Bonus Features
+     * [x] Assignments 12 ~ 13
+   * [x] 3. Study Session with Laurent
    * [ ] 4. JS129 Study Group
    * [ ] 5. Anki Cards Review
    * [ ] 6. Read *The Coding Career Handbook*
