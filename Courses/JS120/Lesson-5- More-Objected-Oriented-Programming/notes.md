@@ -2323,7 +2323,71 @@ Congratulations! The game is now complete.
 
 ## Assignment 8: OO Tic Tac Toe Code Discussion
 
-RR
+Below are some ideas for you to ponder. You don't need to implement any solutions.
+
+1. Did you notice how tiresome it is to test for regression after every small change or refactoring? Besides being careful, what else can we do to ease this burden? If you said "tests," you are right. One of the most fundamental reasons for testing is to prevent regression. We'll talk about testing in detail in a later course.
+
+Using testing to drive design is another primary reason to use tests. However, that's an entirely different topic that we'll cover much later in the program.
+
+2. While it's usually harder to write OO code from scratch, do you think it was easier or felt safer to modify the OO TTT program than the procedural version we wrote earlier? You should have! OOP forces you to use indirection, but that indirection helps isolate concerns so that they don't ripple across an entire codebase. Changes are encapsulated in a class or object. The interface used to interact with a class or object can remain the same while the specific implementation can change. That's one of the chief benefits of object-oriented programming.
+
+**Indirection**, in the sense we're using it, refers to the ability to reference something indirectly. For instance, calling a function or a method is an example of indirection -- we're using the function name to invoke some action. If that function calls another function, then that's yet another level of indirection.
+
+Using variables to represent values is also an example of indirection. For instance:
+
+```js
+let foo = "bar";
+console.log(foo);
+```
+
+On line 2, we're using indirection to access the value of `foo`, which is `"bar"`.
+
+If you want to determine the value of an object property, there are at least two levels of indirection involved: the variable name for the object, and the name of the property:
+
+```js
+let obj = { foo: "bar" };
+console.log(obj.foo); // 2 levels of indirection
+```
+
+Indirection effectively means that you have to have to look elsewhere to determine what a name -- a variable or a function, for instance - refers to. In one sense, it makes programs a little harder to read since the actual values or behaviors are somewhere else in the code base. In practice, though, indirection makes code easier to understand, particularly if you use good variable and function names. The names tell you what you're working with without actually revealing more information than you need.
+
+3. Most of our classes have generic names, like `Player` or `Board`. Suppose we want to put our game in a library and let other developers use it. Our generic class names are now in the global namespace where they may conflict with names those other developers are using. How do we fix that? Answer: *use a module*; we'll talk about modules in another course. In the short term, we can use names that are less likely to conflict, such as `TTTPlayer` and `TTTBoard`.
+
+4. As we write programs with more classes, we start to build a **dependency graph** of the classes. In OOP, we don't want the dependency graph to look like a spider web. Put another way: classes should *collaborate with some other classes*. If all classes collaborate with each other, though, you should reconsider your OO design. For example, our dependency graph looks like this:
+
+- `TTTGame` collaborates with `Human`.
+- `TTTGame` collaborates with `Computer`.
+- `TTTGame` collaborates with `Board`.
+- `Board` collaborates with `Square`.
+
+Notice that the `Human`, `Computer`, and `Player` classes know nothing about the `Square` class, and `Board` knows nothing about `Human`, `Computer`, and `Player`. That's how we *encapsulate and mitigate the ripple effects of change*.
+
+5. Analyze the `Board` and `Square` classes. Look at methods (behaviors) in those classes:
+
+**Board**  | **Square**
+-------|-------
+`display`  | `getMarker`
+`displayWithClear`  | `setMarker`
+`markSquareAt`  | `isUnused`
+`countMarkersFor`  | `toString`
+`unusedSquares`  |
+`isFull`  |
+
+Notice how the *methods only deal with concerns related to the class*.
+
+While developing this program, we placed the `isWinner` method in `TTTGame`. It uses `Board.protoype.countMarkersFor` to determine whether a player has 3 markers in a row; we could easily create a `Board.prototype.threeInARow` method instead. The choice of where to put a particular behavior is often unclear. Sometimes, there is no advantage or disadvantage to putting it in one class instead of another.
+
+When working with classes, you must focus on the behaviors and data in that class. It's tempting to *inject* additional collaborators into a class, but keep in mind that doing so introduces additional **dependencies**. The `Board` knows about `Square`, but it doesn't know anything about `Player` or even the `TTTGame`. In that way, it tries to be a generic type.
+
+6. What we just talked about in the previous point is hard to understand without more experience. Consider our decision to put `humanMoves` and `computerMoves` in the `TTTGame` class. We could have instead put a `moves` method in the `Human` and `Computer` classes. However, if we did that, we would have to pass a `Board` object to those two methods, thus introducing dependencies between `Human` and the `Board` class, and between the `Computer` and `Board` classes.
+
+Would those dependencies be wrong? The answer is unclear; it depends on the tradeoffs you're willing to make. We opted to keep the move behavior in `TTTGame` to avoid introducing the dependencies described above.
+
+In OOP, there are poor designs, but there is *rarely one right design*. It all comes down to tradeoffs between tightly coupled dependencies or loosely coupled dependencies. Tightly coupled dependencies are easier to understand but offer less flexibility. Loosely coupled dependencies are more challenging to understand but offer more long term flexibility. Which path is right depends on your application. Most of the time, beginners tend to over-apply design patterns. Don't prematurely optimize or build for large-scale architecture when you don't need it. On the other hand, recognize when you're introducing coupling and dependency, and eliminate unnecessary coupling when you can.
+
+That's **the art component of programming**. It's a small taste of software design, patterns, and architecture. Mastering this art is a lifelong journey, and your intuition will slowly improve as you gain experience.
+
+7. Given that the general lack of behaviors or state in the `Human` and `Computer` classes, you might consider deleting them. For now, though, you can leave them in place. You may find them useful in the next assignment.
 
 ## Assignment 9: OO Tic Tac Toe with Constructors and Prototypes
 

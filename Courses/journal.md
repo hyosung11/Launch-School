@@ -6478,6 +6478,10 @@ Powerful Reading
 2. What will you do today?
    * [ ] 1. Study Session with Alex
    * [ ] 2. JS120 > Lesson 5: More Object Oriented Programming
+     * [x] Assignment 8. OO TTT Code Discussion
+     * [ ] Assignment 9. OO with Constructors and Prototypes
+     * [ ] Assignment 10. OO with OLOO
+     * [ ] Assignment 11. OO TTT with Bonus Features
    * [ ] 3. Study Session with Laurent
    * [ ] 4. JS129 Study Group
    * [ ] 5. Anki Cards Review
@@ -6488,3 +6492,4 @@ Powerful Reading
 3. Are there any blockers or impediments preventing you from doing your work?
    * I can put in a good chunk of time today.
 
+06:40 I liked reading the code discussion of the OO TTT game. Interesting stuff to think about. What will I do to learn in public? What about a daily TIL (Today I Learned) in the Launch School Slack channel to start?
