@@ -83,8 +83,65 @@ This description isn't wrong, but it's imprecise and lacks some essential detail
 
 A more precise answer says:
 
-> This code defines a `Dog` class with two methods: The `constructor` method initializes a new `Dog` object, which it does by assigning the instance property `this.name` to the dog's name specified by the argument. The `sayHello` instance method logs a message to the console that includes the dog's name in place of ${this.name}`. The instance method `sayHello` returns `undefined`.
+> This code defines a `Dog` class with two methods: The `constructor` method initializes a new `Dog` object, which it does by assigning the instance property `this.name` to the dog's name specified by the argument. The `sayHello` instance method logs a message to the console that includes the dog's name in place of `${this.name}`. The instance method `sayHello` returns `undefined`.
 
+In programming, we must always concern ourselves with **outputs**, **return value**, and **object mutations**. We must use the right terms when we speak and not use vague words like "result." Furthermore, we need to be explicit about even the smallest details.
+
+When writing answers to test questions, make sure you're as precise as possible, and that you use the proper vocabulary. Doing so will help you debug and understand more complex code later in your journey. If your definitions are imprecise, you can't use them to decompose a complicated method or program. Also, you may be unable to pass the test.
+
+### Some Specific Definitions
+
+For the purposes of this assessment, we will use some terms in very precise ways. You should be extremely precise in the language that you use as well. Doing so will prevent misunderstandings during grading. Relying on precise language will help both you and us understand each other.
+
+These areas are outlined below.
+
+#### Variables
+
+Unless mentioned specifically, we use the term **variable** in the broadest sense possible. On this exam, that means that all of the following should be treated as variables:
+
+- Variables declared with `let`, `const`
+- Function parameters
+- Function names
+- Class names
+
+*Note in particular that object property names **are not** variables.*
+
+#### Implicit vs Explicit Execution Context
+
+In earlier versions of JS120, we incorrectly stated that method invocations (e.g., `obj.foo()`) provide an **explicit execution context** for the method. On the surface, this usage makes sense since we're explicitly providing the object we want to use for the execution context. However, in practice, it's more common to say that method invocations provide an **implicit execution context** -- JavaScript determines the context by looking at the object used to call the method, and that is determined implicitly. It's a bit confusing, but you should use the term implicit execution context in this situation.
+
+In practice, you use the `call`, `apply`, and `bind` methods to set an explicit execution context. You can also set the execution context explicitly with functions that accept an argument that specifies the context for a callback function. For instance, `Array.prototype.forEach` (and several other `Array.prototype` methods) take a `thisArg` argument that lets you set the context for the callback explicitly.
+
+### The Private [[Prototype]] Property
+
+In earlier versions of this course, we miscapitalized the name of this property as `[[prototype]]`. The correct capitalization is `[[Prototype]]`.
+
+### Online Resources
+
+When an online resource conflicts with Launch School materials, **the Launch School materials should be used on the assessment**. We can't grade assessments using information that differs from what we present, especially when that information is incorrectly changed.
+
+This is especially true with semi-official sources like the Mozilla Developer Network (MDN). While many people rely on MDN, there are inaccuracies, inconsistencies, and conflicting information on the site.
+
+### Additional Tips
+
+This assessment has a different style than the JS101 written assessment, so you should expect several open-ended questions where you will need to *explain certain OOP concepts using code examples*.
+
+Some questions near the end of the exam may take longer to answer than other questions. Be sure to allow additional time for these questions.
+
+When writing code for an assessment question, run your code often to check it. Make sure that you have some way to run JavaScript code in your terminal or via an [online REPL](https://replit.com/@hyosung11) prepared beforehand.
+
+Be sure to format and syntax highlight your code with [Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) when including code and other special words that need to have a distinctive look to differentiate it from the surrounding text. Formatting and syntax highlighting your code will make it easier for us to accurately gauge your performance on the exam; if you don't, you may end up with a lower grade. In particular:
+
+- Use single backticks to format inline code and names: write ``class`` to get `class`.
+- Use triple backticks and a language name to format multi-line code:
+
+```js
+console.log("Hello");
+console.log("Goodbye");
+```
+
+- Make sure that you use backticks (`), not apostrophes ('). On most keyboards, you can find the backtick key near the top-left corner.
+- Use the Preview functionality to double-check that the output looks as you expect, especially if you use copy and paste or try to use other types of markdown formatting.
 
 ## Assignment 3: Part 1: Start the Test
 

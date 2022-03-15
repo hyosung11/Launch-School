@@ -6511,3 +6511,5 @@ Powerful Reading
 11:54 Starting the JS120 - Object Oriented Exercises, but taking a break to eat before the study session at 12:30.
 
 13:44 Got confused trying to write an example of a constructor/prototype object creation method. It's good to get that jolt of ignorance.
+
+14:53 I feel that low energy of the middle of the afternoon right now. I just finished checking email. What is my Learn in Public piece today?
