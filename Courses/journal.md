@@ -6459,3 +6459,32 @@ Powerful Reading
 
 21:11 Finished TTT Game. Going to watch TV with Sohee before bed. I'll work on Lesson 5 > Assignment 8. OO TTT Code Discussion tomorrow.
 
+## 202203015 화요일
+
+05:59 It's a minute before my study session with Alex and I am ready for another day of studying and learning.
+
+06:01 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS120 > Lesson 5: More Object Oriented Programming
+   * [x] 3. Study Session with Laurent
+   * [x] 4. Study Session with Michael
+   * [x] 5. Read *The Coding Career Handbook*
+     * [x] Chapter 21: Strategy and
+     * [x] Chapter 22: Learning Gears
+     * [x] Chapter 23: Specialist or Generalist
+
+2. What will you do today?
+   * [ ] 1. Study Session with Alex
+   * [ ] 2. JS120 > Lesson 5: More Object Oriented Programming
+   * [ ] 3. Study Session with Laurent
+   * [ ] 4. JS129 Study Group
+   * [ ] 5. Anki Cards Review
+   * [ ] 6. Read *The Coding Career Handbook*
+     * [ ]  Chapter 24: Betting on Technologies
+     * [ ]  Chapter 25: Profit Centers vs Cost Centers
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I can put in a good chunk of time today.
+
