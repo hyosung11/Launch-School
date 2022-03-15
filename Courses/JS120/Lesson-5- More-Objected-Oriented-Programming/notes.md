@@ -3877,7 +3877,680 @@ Below are some ideas for you to explore on your own. They're too challenging and
 
 ## Assignment 12: OO Twenty-One Overview
 
+This assignment doesn't change much from the [procedural Twenty-One game](https://launchschool.com/lessons/fb4809a8/assignments/62238c60). Review that first, but skip the part about implementation steps (Tips on Getting Started). We'll take a more OO approach here.
+
+We'll follow a familiar pattern to tackle the OO Twenty-One game:
+
+1. Write a textual description of the problem or exercise.
+2. Extract the significant nouns and verbs from the description.
+3. Organize and associate the verbs with the nouns.
+4. Write scaffolding and spike code.
+
+### 12.1 Description
+
+Let's begin by *writing a textual description* of the game.
+
+- Twenty-One is a card game with a dealer and a player.
+- The participants try to get as close to 21 points as possible without going over.
+- The game starts by dealing cards from a 52-card deck consisting of cards from 4 suits of 13 ranks each.
+- Both participants receive two cards.
+  - The dealer hides one of his cards (places it face-down) so that the player can't see what it is.
+  - The player can see both of her cards.
+
+- The player takes the first turn, and can *hit* or *stay*.
+  - If the player hits, she gets another card, and again has the opportunity to hit (get another card) or stay.
+  - If the player goes over 21 points, she busts.
+  - If the player stays, the dealer plays next.
+
+- If the player didn't bust, it's now the dealer's turn.
+  - The dealer reveals his face-down card.
+  - If the dealer's total points are less than 17, he must hit and receive another card.
+  - If the dealer goes over 21 points, he busts.
+  - If the dealer has 17 points or more, he must stay.
+
+- Results of the game are determined.
+
+This description provides both more and less detail than the one we used in the earlier course, but it's effectively the same. Where we provide less detail, as in determining the number of points in a hand, you can get that information from the procedural game description.
+
+As before, the player is the human running the program, while the computer plays the part of the dealer.
+
+### 12.2 Identify the Nouns and Verbs
+
+**Nouns**  | game, player, dealer, participant, turn, deck, card, suit, rank, score, points
+-------|-------------------------------------------------------------------------------
+**Verbs**  | start, deal, hit, stay, win, lose, tie, bust, hide, reveal
+
+As with the Tic Tac Toe game, some of these words aren't significant to the game design so we won't discuss them further. For instance, we probably don't need to talk about suit and rank as nouns; they are merely characteristics of a card. We can probably also ignore turn since that's merely an element of gameplay that describes the player or dealer's play.
+
+On the surface, it makes some sense to treat *bust, win, lose,* and *tie* as verbs. However, when you think about it, none of these are actions that get performed by one of our nouns. At best, they're game states: in this case, a state that defines the end state of the game from a given participant's viewpoint. For now, we'll treat *bust* as a state for each participant, and mostly ignore win, lose, and tie.
+
+### 12.3 Organize
+
+Let's organize our words a bit by writing down the significant nouns and the verbs in a way that shows some of the most likely relationships between words:
+
+- Game (n)
+  - start (v)
+
+- Deck (n)
+  - deal (v) (should this be here, or in Dealer?)
+
+- Card (n)
+- Participant (n)
+- Player (n)
+  - hit (v)
+  - stay (v)
+  - bust (state)
+  - Score (n, state)
+
+- Dealer (n)
+  - hit (v)
+  - stay (v)
+  - deal (v) (should this be here, or in Deck?)
+  - bust (state)
+  - Score (n, state)
+
+The first thing we notice is the considerable redundancy in the `Player` and `Dealer` classes. A natural place to extract that redundancy seems to be a **superclass** -- perhaps `Participant`? Our reference implementation will take that approach.
+
+None of our verbs appear to apply to the card or participant nouns, though we will use participant in our reference implementation. We had a similar issue in previous programs -- some nouns didn't have any associated verbs -- so it shouldn't surprise you here.
+
+One noun, **score**, ended up as a state for the Player and Dealer. It may still end up as a class in our final code, but, for now, it doesn't feel like we need to treat it specially.
+
+This list isn't necessarily final. It's entirely possible that we'll add additional nouns or verbs as we go along to fill in some gaps. It's also possible that some of our words may end up not being significant. Our primary purpose in writing this list is to give us a starting point for our program.
+
+Our list of nouns and verbs provides a general list of the types of objects we'll need (the nouns), and the behaviors that each object should implement (the verbs).
+
+### 12.4 Additional Requirements
+
+Welcome the player to the game, and say good bye when they quit.
+
+Each time the player has an opportunity to hit or stay:
+
+- Display the computer's hand; one card should remain hidden.
+- Display the player's hand and her point total.
+
+For the dealer's turn:
+
+- The dealer doesn't play at all if the player busts.
+- Display the dealer's hand, including the hidden card, and report his point total.
+- Redisplay the dealer's hand and point total and each time he hits.
+- Display the results when the dealer stays.
+
+After each game is over, ask the player if they want to play again. Start a new game if they say yes, else end the game.
+
+When the program starts, give the player 5 dollars with which to bet. Deduct 1 dollar each time she loses, and add 1 dollar each time she wins. The program should quit when she is broke (0 dollars) or rich (has a total of 10 dollars).
+
+Be prepared to run out of cards. You can either create a new deck for each game, or keep track of how many cards remain and create a new deck as needed.
+
+### 12. 5 Scaffolding and Spike
+
+Now that we have a general idea of the objects we'll need and their behaviors, it's time to begin coding our solution. We'll use JavaScript classes in our program, though you can also use other approaches such as the constructor/prototype approach or factory functions.
+
+We'll start by writing some scaffolding and a spike for our orchestration engine. We'll base this code on our noun/verb list:
+
+```js
+class Card {
+  constructor() {
+    //STUB
+    // What sort of state does a card need?
+    // Rank? Suit? Points?
+  }
+}
+
+class Deck {
+  constructor() {
+    //STUB
+    // What sort of state does a deck need?
+    // 52 Cards?
+    // obviously, we need some data structure to keep track of cards
+    // array, object, something else?
+  }
+
+  deal() {
+    //STUB
+    // does the dealer or the deck deal?
+  }
+}
+
+class Participant {
+  constructor() {
+    //STUB
+    // What sort of state does a participant need?
+    // Score? Hand? Amount of money available?
+    // What else goes here? all the redundant behaviors from Player and Dealer?
+  }
+}
+
+class Player extends Participant {
+  constructor() {
+    //STUB
+    // What sort of state does a player need?
+    // Score? Hand? Amount of money available?
+  }
+
+  hit() {
+    //STUB
+  }
+
+  stay() {
+    //STUB
+  }
+
+  isBusted() {
+    //STUB
+  }
+
+  score() {
+    //STUB
+  }
+}
+
+class Dealer extends Participant {
+  // Very similar to a Player; do we need this?
+
+  constructor() {
+    //STUB
+    // What sort of state does a dealer need?
+    // Score? Hand? Deck of cards? Bow tie?
+  }
+
+  hit() {
+    //STUB
+  }
+
+  stay() {
+    //STUB
+  }
+
+  isBusted() {
+    //STUB
+  }
+
+  score() {
+    //STUB
+  }
+
+  hide() {
+    //STUB
+  }
+
+  reveal() {
+    //STUB
+  }
+
+  deal() {
+    //STUB
+    // does the dealer or the deck deal?
+  }
+}
+
+class TwentyOneGame {
+  constructor() {
+    //STUB
+    // What sort of state does the game need?
+    // A deck? Two participants?
+  }
+
+  start() {
+    //SPIKE
+    this.displayWelcomeMessage();
+    this.dealCards();
+    this.showCards();
+    this.playerTurn();
+    this.dealerTurn();
+    this.displayResult();
+    this.displayGoodbyeMessage();
+  }
+
+  dealCards() {
+    //STUB
+  }
+
+  showCards() {
+    //STUB
+  }
+
+  playerTurn() {
+    //STUB
+  }
+
+  dealerTurn() {
+    //STUB
+  }
+
+  displayWelcomeMessage() {
+    //STUB
+  }
+
+  displayGoodbyeMessage() {
+    //STUB
+  }
+
+  displayResult() {
+    //STUB
+  }
+}
+
+let game = new TwentyOneGame();
+game.start();
+```
+
+Remember: this code doesn't necessarily reflect the final program's structure and code; it's just scaffolding. It leaves all kinds of details out of the picture and is certainly not a complete outline of the code that you'll write. It's likely, even, that your program won't need some of these classes and methods.
+
+We'll show our reference implementation in the next assignment. However, our solution isn't the only way to write this game. Your game may indeed be different, even with the spike we provided above.
+
+Feel free to request a code review when you've completed the game. First, though, take some time to perform a self-review: compare your code with the reference solution and the code reviews for other students. Use that self-review to help improve your program on your own. *Even good programmers look at other programmer's code to find better solutions to shared problems and to learn*.
+
+**Hint**
+
+There are several ways you can approach the problem of dealing random cards from a deck. One way is to pick a card at random, and then remove that card from the deck so it can't be picked again. You can use `Math.random` to pick random cards. Another way is to shuffle the deck when you create it. However, JavaScript doesn't provide a built-in way to shuffle values. Instead, you can install the `shuffle-array` Node module:
+
+```sh
+$ npm install shuffle-array
+```
+
+See the [shuffle-array documentation](https://www.npmjs.com/package/shuffle-array) to learn how to use it.
+
 ## Assignment 13: OO Twenty-One: Reference Implementation with Classes
+
+Here's our reference implementation. Remember, your solution doesn't have to look like this, but try to look at the tradeoffs in design.
+
+```js
+const readline = require("readline-sync");
+const shuffle = require("shuffle-array");
+
+class Card {
+  static SUITS = ["Clubs", "Diamonds", "Hearts", "Spades"];
+  static RANKS = ["2", "3", "4", "5", "6", "7", "8", "9", "10",
+                  "Jack", "Queen", "King", "Ace"];
+
+  constructor(suit, rank) {
+    this.suit = suit;
+    this.rank = rank;
+    this.hidden = false;
+  }
+
+  toString() {
+    if (this.isHidden()) return "Hidden";
+    return `${this.getRank()} of ${this.getSuit()}`;
+  }
+
+  getRank() {
+    return this.rank;
+  }
+
+  getSuit() {
+    return this.suit;
+  }
+
+  isAce() {
+    return this.getRank() === "Ace";
+  }
+
+  isKing() {
+    return this.getRank() === "King";
+  }
+
+  isQueen() {
+    return this.getRank() === "Queen";
+  }
+
+  isJack() {
+    return this.getRank() === "Jack";
+  }
+
+  isFaceCard() {
+    return this.isKing() || this.isQueen() || this.isJack();
+  }
+
+  hide() {
+    this.hidden = true;
+  }
+
+  reveal() {
+    this.hidden = false;
+  }
+
+  isHidden() {
+    return this.hidden;
+  }
+}
+
+class Deck {
+  constructor() {
+    this.cards = [];
+    Card.SUITS.forEach(suit => {
+      Card.RANKS.forEach(rank => {
+        this.cards.push(new Card(suit, rank));
+      });
+    });
+
+    this.shuffleCards();
+  }
+
+  // it may be useful to shuffle the deck at any time
+  shuffleCards() {
+    shuffle(this.cards);
+  }
+
+  dealCardFaceUp() {
+    return this.cards.pop();
+  }
+
+  dealCardFaceDown() {
+    let card = this.dealCardFaceUp();
+    card.hide();
+    return card;
+  }
+}
+
+let Hand = {
+  addToHand(newCard) {
+    this.cards.push(newCard);
+  },
+
+  resetHand() {
+    this.cards = [];
+  },
+
+  showHand(caption) {
+    console.log(caption);
+    console.log("");
+
+    this.cards.forEach(card => console.log(`  ${card}`));
+    console.log("");
+  },
+
+  getCards() {
+    return this.cards;
+  },
+
+  revealAllCards() {
+    this.cards.forEach(card => card.reveal());
+  },
+
+  numberOfCards() {
+    return this.cards.length;
+  },
+};
+
+class Player {
+  static INITIAL_PURSE = 5;
+  static WINNING_PURSE = 2 * Player.INITIAL_PURSE;
+
+  constructor() {
+    this.money = Player.INITIAL_PURSE;
+    this.resetHand();
+  }
+
+  winBet() {
+    this.money += 1;
+  }
+
+  loseBet() {
+    this.money -= 1;
+  }
+
+  isBroke() {
+    return this.money <= 0;
+  }
+
+  isRich() {
+    return this.money >= Player.WINNING_PURSE;
+  }
+
+  showPurse() {
+    console.log(`You have $${this.money}`);
+    console.log("");
+  }
+}
+
+class Dealer {
+  constructor() {
+    this.resetHand();
+  }
+}
+
+// Hand is a "mix-in"; we add its methods to the Player and Dealer classes.
+// This is an alternative to inheritance when inheritance isn't appropriate
+Object.assign(Player.prototype, Hand);
+Object.assign(Dealer.prototype, Hand);
+
+class TwentyOneGame {
+  static TARGET_SCORE = 21;
+  static DEALER_MUST_STAY_SCORE = this.TARGET_SCORE - 4;
+  static HIT = 'h';
+  static STAY = 's';
+
+  constructor() {
+    this.player = new Player();
+    this.dealer = new Dealer();
+  }
+
+  start() {
+    this.displayWelcomeMessage();
+
+    while (true) {
+      this.playOneGame();
+      if (this.player.isBroke() || this.player.isRich()) break;
+      if (!this.playAgain()) break;
+    }
+
+    if (this.player.isBroke()) {
+      console.log("You're broke!");
+    } else if (this.player.isRich()){
+      console.log("You're rich!");
+    }
+
+    this.displayGoodbyeMessage();
+  }
+
+  playOneGame() {
+    this.dealCards();
+    this.showCards();
+    this.player.showPurse();
+    this.playerTurn();
+
+    if (!this.isBusted(this.player)) {
+      this.dealerTurn();
+    }
+
+    console.clear();
+    this.showCards();
+    this.displayResult();
+
+    this.updatePurse();
+    this.player.showPurse();
+  }
+
+  playAgain() {
+    let answer;
+
+    while (true) {
+      answer = readline.question("Play again (y/n)? ").toLowerCase();
+
+      if (["y", "n"].includes(answer)) break;
+
+      console.log("Sorry, that's not a valid choice.");
+      console.log("");
+    }
+
+    console.clear();
+    return answer === "y";
+  }
+
+  hit(hand) {
+    hand.addToHand(this.deck.dealCardFaceUp());
+    if (this.isBusted(hand)) return;
+
+    console.clear();
+    this.showCards();
+  }
+
+  playerTurn() {
+    while (this.hitOrStay() === TwentyOneGame.HIT) {
+      this.hit(this.player);
+      if (this.isBusted(this.player)) break;
+    }
+  }
+
+  dealerContinue() {
+    readline.question("Press Return to continue...");
+  }
+
+  dealerTurn() {
+    this.dealer.revealAllCards();
+
+    console.clear();
+    this.showCards();
+
+    while (true) {
+      let score = this.computeScoreFor(this.dealer);
+      if (score >= TwentyOneGame.DEALER_MUST_STAY_SCORE) break;
+      this.dealerContinue();
+      this.hit(this.dealer);
+    }
+  }
+
+  dealCards() {
+    this.deck = new Deck();
+    this.player.resetHand();
+    this.dealer.resetHand();
+
+    this.player.addToHand(this.deck.dealCardFaceUp());
+    this.dealer.addToHand(this.deck.dealCardFaceUp());
+    this.player.addToHand(this.deck.dealCardFaceUp());
+    this.dealer.addToHand(this.deck.dealCardFaceDown());
+  }
+
+  showCards() {
+    this.dealer.showHand("Dealer's Cards");
+    this.showScoreFor(this.dealer);
+
+    this.player.showHand("Your Cards");
+    this.showScoreFor(this.player);
+  }
+
+  displayWelcomeMessage() {
+    console.clear();
+    console.log("Welcome to 21!");
+    console.log("");
+  }
+
+  displayGoodbyeMessage() {
+    console.log("Thanks for playing 21! Goodbye!");
+  }
+
+  whoWon() {
+    if (this.isBusted(this.player)) {
+      return this.dealer;
+    } else if (this.isBusted(this.dealer)) {
+      return this.player;
+    } else {
+      let playerScore = this.computeScoreFor(this.player);
+      let dealerScore = this.computeScoreFor(this.dealer);
+
+      if (playerScore > dealerScore) {
+        return this.player;
+      } else if (playerScore < dealerScore) {
+        return this.dealer;
+      } else {
+        return null; // tie game
+      }
+    }
+  }
+
+  displayResult() {
+    if (this.isBusted(this.player)) {
+      console.log("You busted! Dealer wins.");
+    } else if (this.isBusted(this.dealer)) {
+      console.log("Dealer busted! You win.");
+    } else {
+      let playerScore = this.computeScoreFor(this.player);
+      let dealerScore = this.computeScoreFor(this.dealer);
+
+      if (playerScore > dealerScore) {
+        console.log("You win!");
+      } else if (playerScore < dealerScore) {
+        console.log("Dealer wins!");
+      } else {
+        console.log("Tie game.");
+      }
+    }
+
+    console.log("");
+  }
+
+  hitOrStay() {
+    let answer;
+
+    while (true) {
+      answer = readline.question("Hit or Stay (h/s)? ").toLowerCase();
+
+      if ([TwentyOneGame.HIT, TwentyOneGame.STAY].includes(answer)) break;
+
+      console.log("Sorry, that's not a valid choice.");
+      console.log("");
+    }
+
+    return answer;
+  }
+
+  computeScoreFor(hand) {
+    let cards = hand.getCards();
+    let score = cards.reduce((total, card) => total + this.valueOf(card), 0);
+
+    cards.filter(card => card.isAce() && !card.isHidden())
+         .forEach(() => {
+           if (score > TwentyOneGame.TARGET_SCORE) {
+             score -= 10;
+           }
+         });
+
+    return score;
+  }
+
+  isBusted(hand) {
+    return this.computeScoreFor(hand) > TwentyOneGame.TARGET_SCORE;
+  }
+
+  updatePurse() {
+    switch (this.whoWon()) {
+      case this.player:
+        this.player.winBet();
+        break;
+      case this.dealer:
+        this.player.loseBet();
+        break;
+      default:
+        break;
+    }
+  }
+
+  valueOf(card) {
+    if (card.isHidden()) {
+      return 0;
+    } else if (card.isAce()) {
+      return 11;
+    } else if (card.isFaceCard()) {
+      return 10;
+    } else {
+      return parseInt(card.getRank(), 10);
+    }
+  }
+
+  showScoreFor(hand) {
+    console.log(`  Points: ${this.computeScoreFor(hand)}`);
+    console.log("");
+  }
+}
+
+let game = new TwentyOneGame();
+game.start();
+```
+
+Note that our solution replaced the proposed `Participant` superclass with a mix-in object called `Hand`. Here, we used `Object.assign` to mix in `Hand` with the `Player` and `Dealer` classes instead of using inheritance. You can write this program without mix-ins, but it doesn't make sense; the relationships aren't "is a" relationships, so a mix-in is a better fit.
+
+Our `Card` class doesn't try to associate specific point values with the different cards; the point values are specific to the game of 21, not to a general purpose playing card. For much the same reason, the point values aren't provided by the `Hand` mix-in either.
 
 ## Assignment 14: Exercise Sets
 
@@ -3892,4 +4565,20 @@ Before you begin the assessments, you should complete all of the [Object Oriente
 
 ## Assignment 15: Summary
 
+This lesson should have helped you solidify your object-oriented knowledge. Despite all the work you've done so far, you're still very new to the world of OOP. If you're still fuzzy on the design aspects of OOP -- how to organize your classes and objects and their behaviors -- that's natural and expected. It's normal to be a bit confused when trying to determine the best way to break down your program into its OOP components, the objects and behaviors. Even developers with years of experience can struggle with these aspects of OOP.
+
+However, there shouldn't be any confusion about how JavaScript implements OOP. You should be familiar with the topics we've covered in this course. In particular:
+
+1. You should understand the different ways to create objects in JavaScript, including object literals, object factories, constructors and prototypes (the pseudo-classical approach), the OLOO pattern (prototypal inheritance), and ES6 classes. You should be able to compare and contrast the different ways of creating objects.
+2. You should understand encapsulation, polymorphism, and inheritance in a JavaScript context. In particular, you should understand prototypal inheritance.
+3. You should understand the difference between inheritance, collaboration, and mix-ins.
+4. You should understand the execution context in JavaScript. In particular, you should be intimately familiar with how JavaScript determines execution context, how it can lose that context, and how you can prevent context loss.
+5. You should understand both the syntactical and behavioral differences between function declarations, function expressions, arrow functions, and the compact method syntax used in classes and objects.
+6. You should know how to use both instance and static properties and methods.
+
+If you're comfortable with the above, then you're ready to continue on your journey. Mastering OOP is a life-long journey that requires knowledge of design patterns, architectural tradeoffs, and best practices. Only time and experience can provide that knowledge.
+
+That concludes the instructional part of this course. Next up, the assessment!
+
 ## Assignment 16: JS120 Course Feedback
+

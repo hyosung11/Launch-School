@@ -6502,3 +6502,7 @@ Powerful Reading
 10:05 After study session with Laurent and I still don't understand the last two quiz questions from Lesson 4 Quiz 1. I need to read that lesson again.
 
 10:41 Tore through the TTT Bonus Features and now ready for a break.
+
+11:21 Tore through 21 implementation as well.
+
+11:35 Blitzed my way through the 21 Game and will review it later. I did test out the LS code and played with it. Of course, putting it into a web browser with a beautiful UI would make it great!
