@@ -6513,3 +6513,9 @@ Powerful Reading
 13:44 Got confused trying to write an example of a constructor/prototype object creation method. It's good to get that jolt of ignorance.
 
 14:53 I feel that low energy of the middle of the afternoon right now. I just finished checking email. What is my Learn in Public piece today?
+
+16:59 Watching UEFA Champions League Man U vs Atletico Madrid and Atletico has a 0-1 lead at halftime.
+
+17:04 Maybe I should do the small problems while building up my study guide.
+
+18:06 Working problems. Time for dinner.

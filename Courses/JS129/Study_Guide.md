@@ -2,6 +2,16 @@
 
 ## 1. Objects, object factories, constructors and prototypes, OLOO, and ES6 classes
 
+### 1.1 Objects
+
+### 1.2 Object Factories
+
+### 1.3 Constructors and Prototypes
+
+### 1.4 OLOO
+
+### 1.5 ES6 Classes
+
 
 
 ## 2. Methods and properties; instance and static methods and properties
