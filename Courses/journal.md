@@ -6476,17 +6476,17 @@ Powerful Reading
      * [x] Chapter 23: Specialist or Generalist
 
 2. What will you do today?
-   * [ ] 1. Study Session with Alex
+   * [x] 1. Study Session with Alex
    * [ ] 2. JS120 > Lesson 5: More Object Oriented Programming
      * [x] Assignment 8. OO TTT Code Discussion
-     * [ ] Assignment 9. OO with Constructors and Prototypes
-     * [ ] Assignment 10. OO with OLOO
+     * [x] Assignment 9. OO with Constructors and Prototypes
+     * [x] Assignment 10. OO with OLOO
      * [ ] Assignment 11. OO TTT with Bonus Features
    * [ ] 3. Study Session with Laurent
    * [ ] 4. JS129 Study Group
    * [ ] 5. Anki Cards Review
    * [ ] 6. Read *The Coding Career Handbook*
-     * [ ]  Chapter 24: Betting on Technologies
+     * [x]  Chapter 24: Betting on Technologies
      * [ ]  Chapter 25: Profit Centers vs Cost Centers
    * [ ] 7. Learn in Public
 
@@ -6496,3 +6496,5 @@ Powerful Reading
 06:40 I liked reading the code discussion of the OO TTT game. Interesting stuff to think about. What will I do to learn in public? What about a daily TIL (Today I Learned) in the Launch School Slack channel to start?
 
 07:30 I'm working on the TTT Bonus Features by walking through the curriculum. I'm ready to take a break, make some coffee, hug Sohee and think about Learning in Public.
+
+08:52 Did some reading of the Daily Laws and of The Coding Career Handbook. Now getting ready for study session with Laurent.

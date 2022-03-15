@@ -3078,7 +3078,136 @@ You may have noticed that the constructor is now redundant since we also call `r
 
 3. **Computer AI: Defense**
 
-RR
+The computer currently isn't a challenging opponent: its sole strategy is to pick a square at random. It may win a game now and then by accident, but most people can readily beat (or at least tie) it.
+
+Let's give the computer some smarts -- a touch of Artificial Intelligence if you will. We'll make the computer defensive-minded.
+
+If there's an immediate threat on the board, the computer should defend against that threat. An immediate threat is present when the human has 2 squares in a row with an unused square in the 3rd position of that row. The computer needs to defend that square; it must block that move by claiming the unused square. That is, the computer should place its marker on the unused square.
+
+The computer can continue to select random squares when there is no immediate threat.
+
+Hint: Consider using the `countMarkersFor()` method from the `Board` class.
+
+Possible Solution
+
+```js
+class Board {
+  unusedSquares() {
+    let keys = Object.keys(this.squares);
+    return keys.filter(key => this.isUnusedSquare(key));
+  }
+
+  isUnusedSquare(key) {
+    return this.squares[key].isUnused();
+  }
+}
+
+class TTTGame {
+  computerMoves() {
+    let choice = this.defensiveComputerMove();
+
+    if (!choice) {
+      let validChoices = this.board.unusedSquares();
+
+      do {
+        choice = Math.floor((9 * Math.random()) + 1).toString();
+      } while (!validChoices.includes(choice));
+    }
+
+    this.board.markSquareAt(choice, this.computer.getMarker());
+  }
+
+  defensiveComputerMove() {
+    for (let index = 0; index < TTTGame.POSSIBLE_WINNING_ROWS.length; ++index) {
+      let row = TTTGame.POSSIBLE_WINNING_ROWS[index];
+      let key = this.atRiskSquare(row);
+      if (key) return key;
+    }
+
+    return null;
+  }
+
+  atRiskSquare(row) {
+    if (this.board.countMarkersFor(this.human, row) === 2) {
+      let index = row.findIndex(key => this.board.isUnusedSquare(key));
+      if (index >= 0) return row[index];
+    }
+
+    return null;
+  }
+}
+```
+
+Here, we've defined two new methods in `TTTGame`: `defensiveComputerMove` and `atRiskSquare`.
+
+The `defensiveComputerMove` method iterates through the list of possible winning rows, and tests each row with `atRiskSquare` to see whether it contains an at-risk square; that is, a square that the human can choose to win the game. If it finds one, it returns that square's key as the required move. Otherwise, it returns `null`.
+
+The `atRiskSquare` method first checks that the row contains precisely two of the human's markers, then checks to see if the remaining square is unused. If it is, `atRiskSquare` returns the key associated with the unused square. Otherwise, it returns `null`.
+
+We modified `computerMoves` to check first whether there's an at-risk square. If there is, it places the computer's marker on that square. Otherwise, it chooses a random square.
+
+We also added an `isUnusedSquare` method to the `Board` class and modified the existing `unusedSquares` method to use `isUnusedSquare`.
+
+4. **Computer AI: Offense**
+
+The defensive-minded AI is pretty cool. It improves the computer's strategy enough that ties may occur more often. However, when there are no threatened squares, it still picks a square at random. Let's make a small improvement that has the computer look for an offensive move; one that lets it win. That makes the computer's strategy look like this:
+
+```sh
+-   If any square is a potential winner
+    -   Pick that square.
+-   Else if any square is at risk, pick that square.
+    -   Pick that square.
+-   Else:
+    -   Pick a random square.
+```
+
+Hint
+
+Examine the code you wrote for the defensive move. Can you adapt that code somehow to locate a potential winning move instead?
+
+Possible Solution
+
+```js
+class TTTGame {
+  computerMoves() {
+    let choice = this.offensiveComputerMove();
+    if (!choice) {
+      choice = this.defensiveComputerMove();
+    }
+
+    if (!choice) {
+      let validChoices = this.board.unusedSquares();
+
+      do {
+        choice = Math.floor((9 * Math.random()) + 1).toString();
+      } while (!validChoices.includes(choice));
+    }
+
+    this.board.markSquareAt(choice, this.computer.getMarker());
+  }
+
+  offensiveComputerMove() {
+    for (let index = 0; index < TTTGame.POSSIBLE_WINNING_ROWS.length; ++index) {
+      let row = TTTGame.POSSIBLE_WINNING_ROWS[index];
+      let key = this.winningSquare(row);
+      if (key) return key;
+    }
+
+    return null;
+  }
+
+  winningSquare(row) {
+    if (this.board.countMarkersFor(this.computer, row) === 2) {
+      let index = row.findIndex(key => this.board.isUnusedSquare(key));
+      if (index >= 0) return row[index];
+    }
+
+    return null;
+  }
+}
+```
+
+The code for this feature is nearly identical to that for the defensive move. In fact, it is so close that we will ask you to refactor the methods in another feature below. You may even have already done so.
 
 ## Assignment 12: OO Twenty-One Overview
 
