@@ -53,7 +53,37 @@ There is a study guide for the interview that walks you through what you need to
 
 ### 2.2 Using a REPL
 
+JavaScript REPLs (such as Node.js) that run code as you type it do not run that code the same way as when you run the code from a `.js` file. This can lead to discrepancies in the behavior of your code. That can influence your answers on the assessment.
+
+Unless otherwise stated, all assessment questions that use code examples or that expect you to write code assume that the code should be run from a `.js` file. **We strongly advise against using a REPL to test the code**.
+
 ### 2.3 Precision of Language
+
+Some questions require that you explain some code or concepts with words. It's essential that you use precise vocabulary. Be sure to *pinpoint the causal mechanism at work*. In other words, use the right words and don't be vague.
+
+For example, let's take the following code.
+
+```js
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+
+  sayHello() {
+    console.log(`Woof! My name is ${this.name}.`)
+  }
+}
+```
+
+If we ask you to describe this code, you may say that:
+
+> It defines a `Dog` class with two methods: a constructor and a method that has a message as a result.
+
+This description isn't wrong, but it's imprecise and lacks some essential details. An answer like this may receive a score of 5/10 on a 10-point question; 50% is not a passing score.
+
+A more precise answer says:
+
+> This code defines a `Dog` class with two methods: The `constructor` method initializes a new `Dog` object, which it does by assigning the instance property `this.name` to the dog's name specified by the argument. The `sayHello` instance method logs a message to the console that includes the dog's name in place of ${this.name}`. The instance method `sayHello` returns `undefined`.
 
 
 ## Assignment 3: Part 1: Start the Test
