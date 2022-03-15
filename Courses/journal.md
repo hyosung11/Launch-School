@@ -6506,3 +6506,5 @@ Powerful Reading
 11:21 Tore through 21 implementation as well.
 
 11:35 Blitzed my way through the 21 Game and will review it later. I did test out the LS code and played with it. Of course, putting it into a web browser with a beautiful UI would make it great!
+
+11:54 Starting the JS120 - Object Oriented Exercises, but taking a break to eat before the study session at 12:30
