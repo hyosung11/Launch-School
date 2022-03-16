@@ -1040,7 +1040,7 @@ Higher-order functions are functions that return another function or take anothe
 
 ## 7. The Global Object
 
-JavaScript creates a global object when it starts running. It serves as the i**mplicit execution context** for function invocations, a term that we'll study later in this lesson. For now, we'll use the term casually, but we'll learn much more later.
+JavaScript creates a global object when it starts running. It serves as the **implicit execution context** for function invocations, a term that we'll study later in this lesson. For now, we'll use the term casually, but we'll learn much more later.
 
 In Node.js, the global object is the object named `global`; in the browser, it's the `window` object. You can investigate this in the node REPL or a browser's console:
 

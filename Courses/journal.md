@@ -6541,14 +6541,14 @@ Powerful Reading
    * [ ] 7. Learn in Public
 
 2. What will you do today?
-   * [ ] 1. Study Session with Alex
+   * [x] 1. Study Session with Alex
    * [ ] 2. JS129 > Create Study Guide
    * [ ] 3. Exercises
    * [ ] 5. Anki Cards Review
-   * [ ] 6. Read *The Coding Career Handbook*, Chapter 25: Profit Centers vs Cost Centers
+   * [x] 6. Read *The Coding Career Handbook*, Chapter 25: Profit Centers vs Cost Centers
    * [ ] 7. Learn in Public
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Job search in the middle of my mind.
 
-
+09:13 What am I thinking today? I feel a little bit lost with object oriented programming concepts. I want to work on my study guide and do the exercises but I also think I want to read these extra articles that were recommended by Launch School as well as some other thing that I found in my Internet search. Dictation seems RAM intensive and slows my computer way down and makes some keys unavailable temporarily. Is there a way to fix that?

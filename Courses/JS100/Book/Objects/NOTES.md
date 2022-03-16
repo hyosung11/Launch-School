@@ -163,7 +163,7 @@ Note that variables and other identifiers have or reference objects or primitive
 
 Object prototypes and inheritance have a great deal of relevance in Object Oriented Programming (OOP). We discuss these concepts here since it is relevant to our discussion of iterating over object properties in the next section. All you need to know right now is that inheritance lets one object use the properties defined by another object and that prototypes implement inheritance in JavaScript.
 
-The static method` Object.create` provides a simple way to create a new object that inherits from an existing object:
+The static method `Object.create` provides a simple way to create a new object that inherits from an existing object:
 
 ```js
 let bob = { name: 'Bob', age: 22 };
