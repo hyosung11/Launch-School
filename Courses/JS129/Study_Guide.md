@@ -4,6 +4,36 @@
 
 ### 1.1 Objects
 
+`Object.prototype.isPrototypeOf()`
+The `isPrototypeOf(object)` method checks if an object exists in another object's prototype chain.
+
+```js
+function Foo() {}
+function Bar() {}
+function Baz() {}
+
+Bar.prototype = Object.create(Foo.prototype);
+Baz.prototype = Object.create(Bar.prototype);
+
+const foo = new Foo();
+const bar = new Bar();
+const baz = new Baz();
+
+// prototype chains:
+// foo: Foo <- Object
+// bar: Bar <- Foo <- Object
+// baz: Baz <- Bar <- Foo <- Object
+
+console.log(Baz.prototype.isPrototypeOf(baz));    // true
+console.log(Baz.prototype.isPrototypeOf(bar));    // false
+console.log(Baz.prototype.isPrototypeOf(foo));    // false
+console.log(Bar.prototype.isPrototypeOf(baz));    // true
+console.log(Bar.prototype.isPrototypeOf(foo));    // false
+console.log(Foo.prototype.isPrototypeOf(baz));    // true
+console.log(Foo.prototype.isPrototypeOf(bar));    // true
+console.log(Object.prototype.isPrototypeOf(baz)); // true
+```
+
 ### 1.2 Object Factories / Factory Functions
 
 ```js

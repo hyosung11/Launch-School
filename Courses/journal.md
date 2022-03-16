@@ -6543,7 +6543,8 @@ Powerful Reading
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [ ] 2. JS129 > Create Study Guide
-   * [ ] 3. Exercises
+   * [x] 3. Study Session with Michael
+   * [ ] 4. Exercises
    * [ ] 5. Anki Cards Review
    * [x] 6. Read *The Coding Career Handbook*, Chapter 25: Profit Centers vs Cost Centers
    * [ ] 7. Learn in Public
@@ -6554,3 +6555,5 @@ Powerful Reading
 09:13 What am I thinking today? I feel a little bit lost with object oriented programming concepts. I want to work on my study guide and do the exercises but I also think I want to read these extra articles that were recommended by Launch School as well as some other thing that I found in my Internet search. Dictation seems RAM intensive and slows my computer way down and makes some keys unavailable temporarily. Is there a way to fix that?
 
 10:02 I have to pee. I decided to annotate the article about constructors and prototypes and I think it's helping me to understand better.
+
+11:55 After study session with Michael where we practiced the 4 object creation methods: Factory Functions, Constructors and Prototypes, OLOO, and Classes.
