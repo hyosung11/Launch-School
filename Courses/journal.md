@@ -6565,3 +6565,9 @@ Powerful Reading
 14:42 I took a break for lunch and watched an episode of Billions. I like Damien Lewis as the lead more than this Corey Stoll guy playing Mike Prince.
 
 14:51 Time to get the kids from school.
+
+15:30 In the middle of the Tech Talk: Gatsby JS from a Launch School perspective.
+
+[Another REST vs GraphQL Comparison](https://world.hey.com/sammy.henningsson/another-rest-vs-graphql-comparison-8e8357bb)
+
+Becoming a domain expert.
