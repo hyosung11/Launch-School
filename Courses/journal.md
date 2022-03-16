@@ -6557,3 +6557,7 @@ Powerful Reading
 10:02 I have to pee. I decided to annotate the article about constructors and prototypes and I think it's helping me to understand better.
 
 11:55 After study session with Michael where we practiced the 4 object creation methods: Factory Functions, Constructors and Prototypes, OLOO, and Classes.
+
+12:15 Working through "JavaScript Constructors and Prototypes" article that's from 2010 but still helpful for understanding.
+
+13:28 Still going through article that mentions `apply` but not `call` or `bind`, so those must have come later. Ready to break and eat something for lunch now.

@@ -167,7 +167,7 @@ let mammal = new Mammal();
 // using the deprecated dunder proto
 // console.log(mammal.__proto__ === Mammal.prototype); // true
 
-console.log(Mammal.prototype.isPrototypeOf(mammal)); // true
+// console.log(Mammal.prototype.isPrototypeOf(mammal)); // true
 
 // Add the `breathe` function to the `prototype` of `Mammal`
 
@@ -176,7 +176,105 @@ Mammal.prototype.breathe = function() {
 }
 
 // `mammal` the instance can breathe because it inherits from `Mammal.prototype`
-
 mammal.breathe();
 
-RR
+// `Cat` constructor is created and we set `Cat.prototype` to a new instance of `Mammal`
+function Cat() {}
+Cat.prototype = new Mammal;
+
+// now any cat instance inherits from `Mammal` and will therefore be able to breathe as well
+let garfield = new Cat();
+garfield.breathe;
+
+// console.log(Cat.prototype.constructor = Cat);
+
+// // Ensure that cats know that they are cats:
+// console.log(garfield.__proto__ === Cat.prototype);
+// console.log(Cat.prototype.isPrototypeOf(garfield));
+
+// console.log(Cat.prototype.constructor === Cat);
+// console.log(garfield instanceof Cat);
+
+/* Each time you create a new instance of `Cat`, you create a two-level chain, in that `garfield` is now parented by `Cat.prototype` which, since it is an instance of `Mammal` is in turn parented by `Mammal.prototype`.
+
+Now, guess who's the parent of `Mammal.prototype`? Yeah, you guessed it, `Object.prototype`. So actually, it's a three-level chain:
+
+> `garfield` --> `Cat.prototype` --> `Mammal.prototype` --> `Object.prototype`
+
+You can add properties to any of `garfield`'s parents and `garfield` will magically gain those properties too, even after `garfield` has already been created!
+*/
+
+// console.log(Cat.prototype.isCat = true); // true
+// console.log(Mammal.prototype.isMammal = true); // true
+// console.log(Object.prototype.isObject = true); // true
+// console.log(garfield.isCat); // true
+// console.log(garfield.isMammal); // true
+// console.log(garfield.isObject); // true
+
+// As whether it has a given property
+// console.log('isMammal' in garfield); // true
+
+// own properties vs inherited properties
+// garfield.name = 'Garfield';
+// console.log(garfield.hasOwnProperty('name')); // true
+// console.log(garfield.hasOwnProperty('breathe')); // false
+
+// SETTING METHODS on the PROTOTYPE
+
+// not optimal way
+function Person(name) {
+  this.name = name;
+  this.sayHi = function() {
+    return 'Hi, I am ' + this.name;
+  }
+}
+
+// a better way that is more memory efficient
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.sayHi = function(){
+  return 'Hi, I am ' + this.name;
+}
+
+/*  In the first version, each time you create a person, a new sayHi function will be created for him, where as in the second version, only one sayHi function is ever created, and is shared amongst all persons that are created - because Person.prototype is their parent. Thus, declaring methods on the prototype is more memory efficient. */
+
+/* APPLY and CALL
+
+As you can see, functions become methods just by virtue of being attached to objects, at which point the this within that function refers to the object which it is attached to, right? Well… not exactly. Look at our previous example
+
+*/
+
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.sayHi = function () {
+  return 'Hi, I am ' + this.name;
+};
+
+// create 2 people
+var jack = new Person('Jack')
+var jill = new Person('Jill')
+jack.sayHi() // 'Hi, I am Jack' (`this` binds to `jack` the object that calls `sayHi`)
+jill.sayHi() // 'Hi, I am Jill'
+
+/* Here, `sayHi` is not attached to `jack` or `jill`, rather it's attached to their prototype: `Person.prototype`. How does the function `sayHi` know `jack` and `jill`'s names?
+
+`this` is not bound to any particular object until you call the function.
+`this` is not bound to any particular object until you call the function.
+
+When you call `jack.sayHi()`, `sayHi`'s `this` will be bound to `jack`; when you call `jill.sayHi()`, it will be bound to `jill` instead, but binding does not change anything about the function itself - it's still the same function!
+
+However, you can explicitly bind a function to an object yourself.
+*/
+
+function sing() {
+  return this.name + ' sings!';
+}
+
+console.log(sing.apply(jill)); // 'Jill sings!'
+
+/* The `apply` method belongs to `Function.prototype` (yeah, that’s right, functions are objects and have prototypes too and can also have properties!). So, you can use `apply` with any function to call it while binding it to the object of your choosing, even if the function is not attached to it. In fact, you can even `apply` the method to an object of a different type: */
+
