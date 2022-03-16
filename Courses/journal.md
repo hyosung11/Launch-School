@@ -6477,15 +6477,15 @@ Powerful Reading
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [ ] 2. JS120 > Lesson 5: More Object Oriented Programming
+   * [x] 2. JS120 > Lesson 5: More Object Oriented Programming
      * [x] Assignment 8. OO TTT Code Discussion
      * [x] Assignment 9. OO with Constructors and Prototypes
      * [x] Assignment 10. OO with OLOO
      * [x] Assignment 11. OO TTT with Bonus Features
      * [x] Assignments 12 ~ 13
    * [x] 3. Study Session with Laurent
-   * [ ] 4. JS129 Study Group
-   * [ ] 5. Anki Cards Review
+   * [x] 4. JS129 Study Group
+   * [x] 5. Anki Cards Review
    * [ ] 6. Read *The Coding Career Handbook*
      * [x]  Chapter 24: Betting on Technologies
      * [ ]  Chapter 25: Profit Centers vs Cost Centers
@@ -6519,3 +6519,36 @@ Powerful Reading
 17:04 Maybe I should do the small problems while building up my study guide.
 
 18:06 Working problems. Time for dinner.
+
+## 202203015 수요일
+
+05:52 Making Earl Grey tea this morning in the Breville Teamaker and getting ready for my study session with Alex.
+
+05:52 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS120 > Lesson 5: More Object Oriented Programming
+     * [x] Assignment 8. OO TTT Code Discussion
+     * [x] Assignment 9. OO with Constructors and Prototypes
+     * [x] Assignment 10. OO with OLOO
+     * [x] Assignment 11. OO TTT with Bonus Features
+     * [x] Assignments 12 ~ 13
+   * [x] 3. Study Session with Laurent
+   * [x] 4. JS129 Study Group
+   * [x] 5. Anki Cards Review
+   * [x] 6. Read *The Coding Career Handbook*, Chapter 24: Betting on Technologie
+   * [ ] 7. Learn in Public
+
+2. What will you do today?
+   * [ ] 1. Study Session with Alex
+   * [ ] 2. JS129 > Create Study Guide
+   * [ ] 3. Exercises
+   * [ ] 5. Anki Cards Review
+   * [ ] 6. Read *The Coding Career Handbook*, Chapter 25: Profit Centers vs Cost Centers
+   * [ ] 7. Learn in Public
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Job search in the middle of my mind.
+
+
