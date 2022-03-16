@@ -278,3 +278,30 @@ console.log(sing.apply(jill)); // 'Jill sings!'
 
 /* The `apply` method belongs to `Function.prototype` (yeah, that’s right, functions are objects and have prototypes too and can also have properties!). So, you can use `apply` with any function to call it while binding it to the object of your choosing, even if the function is not attached to it. In fact, you can even `apply` the method to an object of a different type: */
 
+function Flower(name) {
+  this.name = name;
+}
+
+let tulip = new Flower('Tulip');
+jack.sayHi.apply(tulip); // 'Hi, I am Tulip'
+
+/* You might say
+
+> Wait a minute! A tulip is not supposed to say hi!
+
+To that I would say
+
+> Everything is everybody. Everybody is everything. We all cool! Just ... chill, man!
+
+As long as the object has a `name` property, `sayHi` is happy to print it out. this is the principle of duck typing.
+
+> If it quacks like a duck and it walks like a duck - it's a duck to me.
+
+If you want to include parameters you can pass them as an array as the second parameter to `apply`. */
+
+function singTo(other){
+  return this.name + ' sings for ' + other.name;
+}
+
+// This I do not understand yet!
+console.log(singTo.apply(jack, [jill])); // 'Jack sings for Jill'
