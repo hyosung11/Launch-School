@@ -299,9 +299,20 @@ As long as the object has a `name` property, `sayHi` is happy to print it out. t
 
 If you want to include parameters you can pass them as an array as the second parameter to `apply`. */
 
-function singTo(other){
-  return this.name + ' sings for ' + other.name;
-}
+// function singTo(other){
+//   return this.name + ' sings for ' + other.name;
+// }
 
-// This I do not understand yet!
-console.log(singTo.apply(jack, [jill])); // 'Jack sings for Jill'
+// console.log(singTo.apply(jack, [jill])); // 'Jack sings for Jill'.
+
+/* `Function.prototype` also has a `call` function, which works very much like `apply`. The only difference is in that rather than passing the parameters as an array in the second parameter, you would just add them to the end: */
+
+// function singTo(other) {
+//   return this.name + ' sings for ' + other.name;
+// }
+
+// console.log(singTo.call(jack, jill)); // 'Jack sings for Jill'
+
+/* The `new` METHOD
+
+skipped because tired and didn't seem to be how JS works in 2022 */

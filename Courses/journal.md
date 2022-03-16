@@ -6571,3 +6571,5 @@ Powerful Reading
 [Another REST vs GraphQL Comparison](https://world.hey.com/sammy.henningsson/another-rest-vs-graphql-comparison-8e8357bb)
 
 Becoming a domain expert.
+
+19:08 Getting back to studying after making dinner, eating dinner, cleaning up, vacuuming, etc.
