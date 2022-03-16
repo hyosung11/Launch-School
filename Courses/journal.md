@@ -6563,3 +6563,5 @@ Powerful Reading
 13:28 Still going through article that mentions `apply` but not `call` or `bind`, so those must have come later. Ready to break and eat something for lunch now.
 
 14:42 I took a break for lunch and watched an episode of Billions. I like Damien Lewis as the lead more than this Corey Stoll guy playing Mike Prince.
+
+14:51 Time to get the kids from school.
