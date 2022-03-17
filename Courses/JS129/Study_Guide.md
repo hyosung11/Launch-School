@@ -358,7 +358,7 @@ Objects can only inherit from one object, and classes can extend only one other 
 
 ### 8.2 Mixins vs Inheritance
 
-## 9. Methods and functions; method invocation vs. function invocation
+## 9. Methods and functions; Method Invocation vs. Function Invocation
 
 ### 9.1 Method Invocation
 
@@ -371,14 +371,14 @@ Objects can only inherit from one object, and classes can extend only one other 
 `global`
 `window`
 
-## 12. Method and property lookup sequence
+## 12. Method and property Lookup Sequence
 
-## 13. Function execution context and `this`
+## 13. Function Execution Context and `this`
 
 The `this` keyword lets us refer to the properties and methods of the object.
 
 
-## 14. Implicit and explicit execution context
+## 14. Implicit and Explicit Execution Context
 
 ## 15. Dealing with context loss
 

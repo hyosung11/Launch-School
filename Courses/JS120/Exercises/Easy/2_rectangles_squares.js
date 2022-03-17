@@ -22,11 +22,11 @@ class Rectangle {
   }
 }
 
-/* Write a class called `Square` that inherits from `Rectangle`, and is used like this: */
+/* Write a class called `Square` that inherits from `Rectangle`, and is used like below: */
 
 class Square extends Rectangle {
   constructor(lengthOfSide) {
-    super(lengthOfSide, lengthOfSide)
+    super(lengthOfSide, lengthOfSide);
   }
 }
 
@@ -35,7 +35,9 @@ console.log(`area of square = ${square.getArea()}`); // area of square = 25
 
 /* Discussion
 
-The key thing to note for this problem is that we must call super in constructor method of Square class, and that Square inherits the area method from Rectangle. */
+The key thing to note for this problem is that we must call `super` in the `constructor` method of `Square` class, and that `Square` inherits the `area` method from `Rectangle`. */
+
+/* ====================================== */
 
 // Elaine Vuong
 // class - Pseudo-Classical Inheritance
@@ -105,11 +107,13 @@ function Square(side) {
   RectangleFunc.call(this, side, side);
 }
 
-Square.prototype = Object.create(RectangleFunc.prototype); 
-// Understanding How to Implement Pseudo-Classical Inheritance
-    // Re-assign Square.prototype to a reference to a new Object that INHERITS from Rectangle.prototype
+Square.prototype = Object.create(RectangleFunc.prototype);
+
+/* Understanding How to Implement Pseudo-Classical Inheritance
+
+- Reassign `Square.prototype` to a reference to a new Object that INHERITS from Rectangle.prototype
     // This means that Square.prototype's Internal [[Prototype]] Property references Rectangle.prototype
-    // This is proven in this line of code: 
+    // This is proven in this line of code:
         // Object.getPrototypeOf(Square.prototype) === RectangleFunc.prototype; // returns true
 
 // Resetting the constructor property

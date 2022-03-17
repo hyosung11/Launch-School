@@ -6520,7 +6520,7 @@ Powerful Reading
 
 18:06 Working problems. Time for dinner.
 
-## 202203015 수요일
+## 202203016 수요일
 
 05:52 Making Earl Grey tea this morning in the Breville Teamaker and getting ready for my study session with Alex.
 
@@ -6575,3 +6575,46 @@ Becoming a domain expert.
 19:08 Getting back to studying after making dinner, eating dinner, cleaning up, vacuuming, etc.
 
 20:24 Doing problems is better than reading again. Do that then!
+
+## 202203017 목요일
+
+05:50 Reading "Desirable Difficultieis: When Harder Is Better for Learning" by Scott H. Young
+
+"Psychologist Robert Bjork addresses this issue by calling for desirable difficulties: actions that appear to work worse in the short-term but work better in the long run. These include:
+
+1. **Spacing**. Imagine you have to choose between practicing something ten times in a row vs. ten times spaced out (over hours or days). The first feels easier—you will perform better immediately after practice. The second is harder but results in more permanent memory. Yet students avoid spacing, in part, because it feels like it doesn’t work as well as cramming.
+
+2. **Variability**. Say you’re learning tennis shots. Should you perfect your forehand swing before moving onto the backhand? Or mix both up at the same time? Intuition argues for mastering one thing before moving onto the next, but research suggests otherwise. Variable practice tends to result in better retention and transfer than blocked practice.
+
+3. **Testing**. Should you re-read or do practice questions? Students overwhelmingly favor re-reading as a learning strategy. However, practice testing is one of the most effective learning methods that has been systematically studied, while re-reading is one of the worst.
+
+06:02 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS129 > Create Study Guide
+   * [x] 3. Study Session with Michael
+   * [x] 4. Exercises > Easy > 1. Rectangles
+   * [x] 5. Anki Cards Review
+   * [x] 6. Read *The Coding Career Handbook*, Chapter 25: Profit Centers vs Cost Centers
+~~   * [ ] 7. Learn in Public~~
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex - he didn't show
+   * [ ] 2. JS120 - Object Oriented JavaScript > Easy > 3.
+   * [ ] 3. JS129 > Create Study Guide
+   * [ ] 4. Anki Cards Review
+   * [x] 5. Read *The Coding Career Handbook*, Chapter 26: Career Ladders
+   * [ ] 6. Learn in Public
+   * [ ] 7. Writers Bloc Meeting
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Sohee's birthday but that's all good.
+
+06:17 Alex doesn't look like he's going to show up today. I will work on the JS120 Object Oriented JavaScript exercises now.
+
+09:01 I need to burn it into my brain that practicing problems is more effective than reading the lessons again. I want to read my daily chapter of the Coding Career Handbook now before I do exercises.
+
+11:35 Breaking down Elaine's explanation of using constructors and prototypes in pseudo-classical inheritance example of Easy > 2. Rectangles and Squares.
+
+12:14 Slowly working through the exercises, but Michigan is playing right now in March Madness. Bye for now. Be back for short study session with Manny.
