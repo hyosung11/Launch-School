@@ -1,5 +1,7 @@
 # JS129 Assessment: Object Oriented Programming > Specific Topics of Interest
 
+Object Oriented Programming is a programming paradigm in which we think about problems in terms of using objects to organize our program.
+
 ## 1. Objects, Object Factories (Factory Functions), Constructors and Prototypes, OLOO, and ES6 classes
 
 ### 1.1 Objects
@@ -179,6 +181,14 @@ objects inheriting properties from other objects
 
 ## 4. Encapsulation
 
+Encapsulation describes the idea of bundling or combining data and the operations that work on that data into a single entity, e.g., an object.
+
+Encapsulation is about bundling state (data) and behavior (operations) to form an object.
+
+In JavaScript, encapsulation is the idea of bundling data and operations associated with that data in a single entity; that is, it's the grouping of related properties and methods in a single object.
+
+In most OOP languages, encapsulation has a broader purpose. It also refers to restricting access to the state and certain behaviors; an object only exposes the data and behaviors that other parts of the application need to work. In other words, objects expose a public interface for interacting with other objects and keep their implementation details hidden. Thus, other objects can't change the data of an object without going through the proper interface. Unfortunately, JavaScript doesn't support access restrictions. There are ways to achieve a degree of access restriction, but they're not perfect.
+
 ## 5. Polymorphism
 
 ### 5.1 Duck Typing
@@ -304,6 +314,34 @@ Prepare the following songs: Electric Slide,Cha-Cha Slide
 
 ## 6. Collaborator Objects
 
+Objects that *help provide state within another object* are called **collaborator objects**, or more simply **collaborators**. Collaboration is all about objects working together in some manner. A collaborator works in conjunction -- in collaboration -- with another object.
+
+```js
+let cat = {
+  name: 'Fluffy',
+
+  makeNoise() {
+    console.log('Meow! Meow!');
+  },
+
+  eat() {
+    // implementation
+  },
+};
+
+let pete = {
+  name: 'Pete',
+  pet: cat, // <-- collaborator object
+
+  printName() {
+    console.log(`My name is ${this.name}!`);
+    console.log(`My pet's name is ${this.pet.name}`);
+  },
+};
+```
+
+
+
 ## 7. Single vs Multiple Inheritance
 
 ### 7.1 Single Inheritance
@@ -336,6 +374,9 @@ Objects can only inherit from one object, and classes can extend only one other 
 ## 12. Method and property lookup sequence
 
 ## 13. Function execution context and `this`
+
+The `this` keyword lets us refer to the properties and methods of the object.
+
 
 ## 14. Implicit and explicit execution context
 

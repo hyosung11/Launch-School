@@ -6542,10 +6542,10 @@ Powerful Reading
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [ ] 2. JS129 > Create Study Guide
+   * [x] 2. JS129 > Create Study Guide
    * [x] 3. Study Session with Michael
-   * [ ] 4. Exercises
-   * [ ] 5. Anki Cards Review
+   * [x] 4. Exercises
+   * [x] 5. Anki Cards Review
    * [x] 6. Read *The Coding Career Handbook*, Chapter 25: Profit Centers vs Cost Centers
    * [ ] 7. Learn in Public
 
@@ -6573,3 +6573,5 @@ Powerful Reading
 Becoming a domain expert.
 
 19:08 Getting back to studying after making dinner, eating dinner, cleaning up, vacuuming, etc.
+
+20:24 Doing problems is better than reading again. Do that then!
