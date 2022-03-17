@@ -14,7 +14,7 @@ class Cat extends Pet {
     super(name, age)
     this.color = color;
   }
-  
+
   info() {
     return `My cat ${this.name} is ${this.age} years old and has ${this.color} fur.`
   }

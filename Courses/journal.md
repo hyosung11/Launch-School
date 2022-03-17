@@ -6621,3 +6621,8 @@ Becoming a domain expert.
 12:14 Slowly working through the exercises, but Michigan is playing right now in March Madness. Bye for now. Be back for short study session with Manny.
 
 13:47 A lot to learn in OOP after study session with Manny.
+
+15:06 Back from ping pong with Louis and ready to study some more.
+
+15:53 Breaking down JS120 - OOJS > Easy > 4. Complete the Program - Cats!
+
