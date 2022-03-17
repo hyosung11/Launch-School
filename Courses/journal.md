@@ -6603,10 +6603,10 @@ Becoming a domain expert.
    * [x] 1. Study Session with - he didn't show
    * [x] 2. JS120 - Object Oriented JavaScript > Easy > 3.
    * [ ] 3. JS129 > Create Study Guide
-   * [ ] 4. Anki Cards Review
+   * [x] 4. Anki Cards Review
    * [x] 5. Read *The Coding Career Handbook*, Chapter 26: Career Ladders
    * [ ] 6. Learn in Public
-   * [ ] 7. Writers Bloc Meeting
+   * [x] 7. Writers Bloc Meeting
    * [x] 8. Study Session with Manny
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -6626,3 +6626,4 @@ Becoming a domain expert.
 
 15:53 Breaking down JS120 - OOJS > Easy > 4. Complete the Program - Cats!
 
+18:55 After dinner for Sohee's birthday from Cheesecake Factory. I want to go to the couch before I get ready to play soccer. I want to get my ball from NJ Sports Academy.
