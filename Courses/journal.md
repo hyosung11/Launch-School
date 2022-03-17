@@ -6578,7 +6578,7 @@ Becoming a domain expert.
 
 ## 202203017 목요일
 
-05:50 Reading "Desirable Difficultieis: When Harder Is Better for Learning" by Scott H. Young
+05:50 Reading "Desirable Difficulties: When Harder Is Better for Learning" by Scott H. Young
 
 "Psychologist Robert Bjork addresses this issue by calling for desirable difficulties: actions that appear to work worse in the short-term but work better in the long run. These include:
 
@@ -6600,13 +6600,14 @@ Becoming a domain expert.
 ~~   * [ ] 7. Learn in Public~~
 
 2. What will you do today?
-   * [x] 1. Study Session with Alex - he didn't show
-   * [ ] 2. JS120 - Object Oriented JavaScript > Easy > 3.
+   * [x] 1. Study Session with - he didn't show
+   * [x] 2. JS120 - Object Oriented JavaScript > Easy > 3.
    * [ ] 3. JS129 > Create Study Guide
    * [ ] 4. Anki Cards Review
    * [x] 5. Read *The Coding Career Handbook*, Chapter 26: Career Ladders
    * [ ] 6. Learn in Public
    * [ ] 7. Writers Bloc Meeting
+   * [x] 8. Study Session with Manny
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Sohee's birthday but that's all good.
@@ -6618,3 +6619,5 @@ Becoming a domain expert.
 11:35 Breaking down Elaine's explanation of using constructors and prototypes in pseudo-classical inheritance example of Easy > 2. Rectangles and Squares.
 
 12:14 Slowly working through the exercises, but Michigan is playing right now in March Madness. Bye for now. Be back for short study session with Manny.
+
+13:47 A lot to learn in OOP after study session with Manny.
