@@ -6655,11 +6655,11 @@ Becoming a domain expert.
    * [x] 8. Study Session with Manny
 
 2. What will you do today?
-   * [ ] 1. Study Session with Alex
-   * [ ] 2. JS120 - Object Oriented JavaScript > Easy > 5. Animals
-   * [ ] 3. JS120 - Object Oriented JavaScript > Easy > 6. Refactoring the Vehicles
-   * [ ] 4. Anki Cards Review
-   * [ ] 5. Read *The Coding Career Handbook*, Chapter 27: The Business of Software
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS120 - Object Oriented JavaScript > Easy > 5. Animals
+   * [x] 3. JS120 - Object Oriented JavaScript > Easy > 6. Refactoring the Vehicles
+   * [x] 4. Anki Cards Review
+   * [x] 5. Read *The Coding Career Handbook*, Chapter 27: The Business of Software
    * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -6668,3 +6668,9 @@ Becoming a domain expert.
 06:24 Ready to go back and tackle some more exercises.
 
 08:43 My elbow hurts today from crashing into the wall yesterday playing indoor soccer. Should my monitors be even higher? Keep looking up, right? I want to finish taxes today as Sohee gave me that look, tone and words of incredulity as to why I haven't done them yet.
+
+09:18 I finished my chapter of the Coding Career Handbook and I need to pee before starting on taxes.
+
+12:52 Back from dentist visit with Dr. Do and my mouth is numb. I am feeling strange. All is well though. Do a little more studying before I go and play ping pong with Louis.
+
+13:19 Time to play ping pong. As expected, I didn't get much studying done yet today. I still need to make an Anki card for `Refactoring Vehicles`.
