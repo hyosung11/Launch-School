@@ -6674,3 +6674,5 @@ Becoming a domain expert.
 12:52 Back from dentist visit with Dr. Do and my mouth is numb. I am feeling strange. All is well though. Do a little more studying before I go and play ping pong with Louis.
 
 13:19 Time to play ping pong. As expected, I didn't get much studying done yet today. I still need to make an Anki card for `Refactoring Vehicles`.
+
+18:27 Didn't get to do too much studying this afternoon. I did read couple blog posts from Launch School students about OOP. We are watching Encanto for movie night. Bye!
