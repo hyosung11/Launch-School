@@ -6666,3 +6666,5 @@ Becoming a domain expert.
    * I have a dentist appointment with Dr. Do that could take most of the middle of the day.
 
 06:24 Ready to go back and tackle some more exercises.
+
+08:43 My elbow hurts today from crashing into the wall yesterday playing indoor soccer. Should my monitors be even higher? Keep looking up, right? I want to finish taxes today as Sohee gave me that look, tone and words of incredulity as to why I haven't done them yet.
