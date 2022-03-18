@@ -6605,7 +6605,7 @@ Becoming a domain expert.
    * [ ] 3. JS129 > Create Study Guide
    * [x] 4. Anki Cards Review
    * [x] 5. Read *The Coding Career Handbook*, Chapter 26: Career Ladders
-   * [ ] 6. Learn in Public
+   * [x] 6. Learn in Public ~ reread chapter from *The Coding Career Handbook*.
    * [x] 7. Writers Bloc Meeting
    * [x] 8. Study Session with Manny
 
@@ -6627,3 +6627,42 @@ Becoming a domain expert.
 15:53 Breaking down JS120 - OOJS > Easy > 4. Complete the Program - Cats!
 
 18:55 After dinner for Sohee's birthday from Cheesecake Factory. I want to go to the couch before I get ready to play soccer. I want to get my ball from NJ Sports Academy.
+
+## 202203018 금요일
+
+06:06 I feel a little tired. I played soccer until 21:30 last night, took a shower and got in bet at 22:00, but it definitely took me longer to fall asleep. My right elbow is injured from where I slammed into the metal wall at the end of the far side of the indoor soccer field. I think I met Dale, who seems to be in charge at the NJ Sports Academy. I played pretty poorly last night. I saw Carlos Cortez for the first time in a few years and he looked pretty good. I overheard that Carlos is Peruvian.
+
+"Psychologist Robert Bjork addresses this issue by calling for desirable difficulties: actions that appear to work worse in the short-term but work better in the long run. These include:
+
+1. **Spacing**. Imagine you have to choose between practicing something ten times in a row vs. ten times spaced out (over hours or days). The first feels easier—you will perform better immediately after practice. The second is harder but results in more permanent memory. Yet students avoid spacing, in part, because it feels like it doesn’t work as well as cramming.
+
+2. **Variability**. Say you’re learning tennis shots. Should you perfect your forehand swing before moving onto the backhand? Or mix both up at the same time? Intuition argues for mastering one thing before moving onto the next, but research suggests otherwise. Variable practice tends to result in better retention and transfer than blocked practice.
+
+3. **Testing**. Should you re-read or do practice questions? Students overwhelmingly favor re-reading as a learning strategy. However, *practice testing* is one of the most effective learning methods that has been systematically studied, while re-reading is one of the worst."
+
+06:11 Alex is late again, but I have a commitment to show up and be here at 6:00!
+
+06:10 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex - he didn't show
+   * [x] 2. JS120 - Object Oriented JavaScript > Easy > 3. Fake Cat
+   * [x] 3. JS120 - Object Oriented JavaScript > Easy > 4. Complete the Program - Cats!
+   * [x] 4. Anki Cards Review
+   * [x] 5. Read *The Coding Career Handbook*, Chapter 26: Career Ladders
+   * [x] 6. Learn in Public ~ reread chapter from *The Coding Career Handbook*.
+   * [x] 7. Writers Bloc Meeting
+   * [x] 8. Study Session with Manny
+
+2. What will you do today?
+   * [ ] 1. Study Session with Alex
+   * [ ] 2. JS120 - Object Oriented JavaScript > Easy > 5. Animals
+   * [ ] 3. JS120 - Object Oriented JavaScript > Easy > 6. Refactoring the Vehicles
+   * [ ] 4. Anki Cards Review
+   * [ ] 5. Read *The Coding Career Handbook*, Chapter 27: The Business of Software
+   * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I have a dentist appointment with Dr. Do that could take most of the middle of the day.
+
+06:24 Ready to go back and tackle some more exercises.
