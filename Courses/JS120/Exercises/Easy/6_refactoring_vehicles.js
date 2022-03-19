@@ -2,8 +2,7 @@
 
 Refactoring Vehicles
 
-Consider the following classes:
-*/
+Consider the following classes: */
 
 // class Car {
 //   constructor(make, model) {
@@ -124,3 +123,50 @@ class Human extends Mammal {}
 let me = new Human();
 me.breathe(); // exception is thrown.
 // Please implement a breathe method for the "Human" class
+
+/* Further Exploration
+
+Bob Rodes
+
+It doesn't really make sense in the first place for the getWheels method to be redundantly implemented in each subclass simply to return different literal values for each subclass. It's more efficient to have a single getWheels method in the superclass and expose a wheels property that gets set in its constructor. Then we can pass the appropriate literal value to the Vehicle object's wheels property when we call super from each subclass's constructor:
+
+*/
+
+class Vehicle {
+  constructor(make, model, wheels) {
+    this.make = make;
+    this.model = model;
+    this.wheels = wheels;
+  }
+
+  getWheels() {
+    return this.wheels;
+  }
+
+  info() {
+    return `${this.make} ${this.model}`;
+  }
+}
+
+class Car extends Vehicle {
+  constructor(make, model) {
+    super(make, model, 4)
+  }
+}
+
+class Motorcycle extends Vehicle {
+  constructor(make, model) {
+    super(make, model, 2);
+  }
+}
+
+class Truck extends Vehicle {
+  constructor(make, model, payload) {
+    super(make, model, 6);
+    this.payload = payload;
+  }
+}
+
+/*  This implements the same requirements as the original with less redundancy. The wheel count is fixed, so it's fixed here as well. There's no need to pass a wheels argument to any subclass constructor; because each subclass passes a hard-coded value for wheels when calling super. In other words, the decision about how many wheels a car, truck or motorcycle has is made at the architectural level (in the class structure itself) rather than at the consumer level (whatever instantiates the class).
+
+To answer in terms of the question asked, it makes sense to define a wheels property. It probably makes sense to do a getWheels method, although usually we would want to do this to make a read-only property and this doesn't do that. It does not make sense for all of the other methods to be overriding it, though. Better to assign the literal values to a wheels property in the superclass, and have a single getWheels method there as well. */

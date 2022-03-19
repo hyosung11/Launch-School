@@ -6675,6 +6675,8 @@ Becoming a domain expert.
 
 13:19 Time to play ping pong. As expected, I didn't get much studying done yet today. I still need to make an Anki card for `Refactoring Vehicles`.
 
+18:27 Didn't get to do too much studying this afternoon. I did read couple blog posts from Launch School students about OOP. We are watching Encanto for movie night. Bye!
+
 ## 20220319 토요일
 
 10:48 Tired after playing soccer this morning. I had trouble falling asleep last night everyone was awake at one point or another during the night. Got into a scuffle with Omar because he thought I fouled him when I crossed the ball that led to a goal. We worked it out in the end.
@@ -6690,12 +6692,16 @@ Becoming a domain expert.
 ~~   * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?~~
 
 2. What will you do today?
-   * [ ] 1. JS120 - Object Oriented JavaScript > Easy > 7. What Will This Do?
+   * [x] 1. JS120 - Object Oriented JavaScript > Easy > 7. What Will This Do?
    * [ ] 2. JS120 - Object Oriented JavaScript > Easy > 8. Shouter
-   * [ ] 3. Anki Cards Review
+   * [x] 3. Anki Cards Review
    * [ ] 4. Read *The Coding Career Handbook*, Chapter 28: The Business of Software
    * [ ] 5. Coding Career Handbook Meetup
    * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I feel tired and low energy at the moment. I am not reffing even though I thought I would today.
+
+11:20 I finished off one problem, but I am tired and want to rest for a bit or something.
+
+16:09 I attended the Coding Career meeting and I'm glad I did because I learned a bunch of stuff that will help me in the future.
