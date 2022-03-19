@@ -6674,3 +6674,28 @@ Becoming a domain expert.
 12:52 Back from dentist visit with Dr. Do and my mouth is numb. I am feeling strange. All is well though. Do a little more studying before I go and play ping pong with Louis.
 
 13:19 Time to play ping pong. As expected, I didn't get much studying done yet today. I still need to make an Anki card for `Refactoring Vehicles`.
+
+## 20220319 토요일
+
+10:48 Tired after playing soccer this morning. I had trouble falling asleep last night everyone was awake at one point or another during the night. Got into a scuffle with Omar because he thought I fouled him when I crossed the ball that led to a goal. We worked it out in the end.
+
+10:49 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS120 - Object Oriented JavaScript > Easy > 5. Animals
+   * [x] 3. JS120 - Object Oriented JavaScript > Easy > 6. Refactoring the Vehicles
+   * [x] 4. Anki Cards Review
+   * [x] 5. Read *The Coding Career Handbook*, Chapter 27: The Business of Software
+~~   * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?~~
+
+2. What will you do today?
+   * [ ] 1. JS120 - Object Oriented JavaScript > Easy > 7. What Will This Do?
+   * [ ] 2. JS120 - Object Oriented JavaScript > Easy > 8. Shouter
+   * [ ] 3. Anki Cards Review
+   * [ ] 4. Read *The Coding Career Handbook*, Chapter 28: The Business of Software
+   * [ ] 5. Coding Career Handbook Meetup
+   * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I feel tired and low energy at the moment. I am not reffing even though I thought I would today.
