@@ -6705,3 +6705,29 @@ Becoming a domain expert.
 11:20 I finished off one problem, but I am tired and want to rest for a bit or something.
 
 16:09 I attended the Coding Career meeting and I'm glad I did because I learned a bunch of stuff that will help me in the future.
+
+## 20220320 일요일
+
+10:01 Going to my first practice with Ridgewood KGV. It's exciting to join the town team and play locally with age peers. When I get back I want to work on Easy exercises. All is well.
+
+10:06 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS120 - Object Oriented JavaScript > Easy > 7. What Will This Do?
+   * [x] 2. JS120 - Object Oriented JavaScript > Easy > 8. Shouter
+   * [x] 3. Anki Cards Review
+~~   * [ ] 4. Read *The Coding Career Handbook*, Chapter 28: The Business of Software~~
+   * [x] 5. Coding Career Handbook Meetup
+~~   * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?~~
+
+2. What will you do today?
+   * [ ] 1. JS120 - Object Oriented JavaScript > Easy > 9. Moving
+   * [ ] 2. JS120 - Object Oriented JavaScript > Easy > 10. Pet Shelter
+   * [ ] 3. Anki Cards Review
+   * [ ] 4. Read *The Coding Career Handbook*, Chapter 28: The Business of Software
+   * [ ] 5. Learn in Public: Context Loss vs Context Change question on LinkedIn?~~
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I have soccer practice this morning, but I can study this afternoon. I need to review taxes again and figure out why we owe so much money now. It's just about time to go to practice.
+
+10:10 Time to get ready and go to RHS for soccer practice.
