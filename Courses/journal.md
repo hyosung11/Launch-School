@@ -6693,10 +6693,10 @@ Becoming a domain expert.
 
 2. What will you do today?
    * [x] 1. JS120 - Object Oriented JavaScript > Easy > 7. What Will This Do?
-   * [ ] 2. JS120 - Object Oriented JavaScript > Easy > 8. Shouter
+   * [x] 2. JS120 - Object Oriented JavaScript > Easy > 8. Shouter
    * [x] 3. Anki Cards Review
    * [ ] 4. Read *The Coding Career Handbook*, Chapter 28: The Business of Software
-   * [ ] 5. Coding Career Handbook Meetup
+   * [x] 5. Coding Career Handbook Meetup
    * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
 
 3. Are there any blockers or impediments preventing you from doing your work?
