@@ -6722,7 +6722,7 @@ Becoming a domain expert.
 
 2. What will you do today?
    * [x] 1. JS120 - Object Oriented JavaScript > Easy > 9. Moving
-   * [ ] 2. JS120 - Object Oriented JavaScript > Easy > 10. Pet Shelter
+   * [x] 2. JS120 - Object Oriented JavaScript > Easy > 10. Pet Shelter
    * [x] 3. Anki Cards Review
    * [ ] 4. Read *The Coding Career Handbook*, Chapter 28: The Business of Software
    * [ ] 5. Learn in Public: Context Loss vs Context Change question on LinkedIn?~~
@@ -6737,3 +6737,5 @@ Becoming a domain expert.
 14:09 I'm tired and it took me a long time to work on one problem. My right knee feels a little sore right now. I'm not sure why. I can't pinpoint when it got injured. SungOh wants to play on the trampoline in ten minutes, or less now.
 
 14:25 Got to go get ice cream. I need to finish "Pet Shelter" later.
+
+17:28 I spent a lot of time on "Pet Shelter" and I still don't fully understand it, especially the further exploration.
