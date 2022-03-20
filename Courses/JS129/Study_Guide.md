@@ -356,6 +356,10 @@ Objects can only inherit from one object, and classes can extend only one other 
 
 ### 8.1 Mixins
 
+Mixins are more appropriate in a *has-a* relationship. While it is sometimes tricky to choose one or the other, a great guideline is to decide if you want some additional functionality, or if you want to extend the abilities of the class.
+
+JS120 - Object Oriented JavaScript > Easy > 9. Moving
+
 ### 8.2 Mixins vs Inheritance
 
 ## 9. Methods and functions; Method Invocation vs. Function Invocation
