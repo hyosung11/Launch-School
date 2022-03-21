@@ -194,7 +194,7 @@ In most OOP languages, encapsulation has a broader purpose. It also refers to re
 ### 5.1 Duck Typing
 
 Synora Eusebio (JS129)
-For anyone that’s interested, I wrote out a full implementation of the Polymorphism via Duck Typing example. I had to rework the prepare method in the Wedding constructor in order to get that specific method to work.
+For anyone that’s interested, I wrote out a full implementation of the Polymorphism via Duck Typing example. I had to rework the `prepare` method in the Wedding constructor in order to get that specific method to work.
 
 ```js
 class Chef {

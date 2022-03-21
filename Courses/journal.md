@@ -6739,3 +6739,5 @@ Becoming a domain expert.
 14:25 Got to go get ice cream. I need to finish "Pet Shelter" later.
 
 17:28 I spent a lot of time on "Pet Shelter" and I still don't fully understand it, especially the further exploration.
+
+20:46 Back looking at one more problem before stopping studying this night.
