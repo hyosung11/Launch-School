@@ -6724,7 +6724,7 @@ Becoming a domain expert.
    * [x] 1. JS120 - Object Oriented JavaScript > Easy > 9. Moving
    * [x] 2. JS120 - Object Oriented JavaScript > Easy > 10. Pet Shelter
    * [x] 3. Anki Cards Review
-   * [ ] 4. Read *The Coding Career Handbook*, Chapter 28: The Business of Software
+   * [x] 4. Read *The Coding Career Handbook*, Chapter 28: The Business of Software
    * [ ] 5. Learn in Public: Context Loss vs Context Change question on LinkedIn?~~
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -6743,3 +6743,31 @@ Becoming a domain expert.
 20:46 Back looking at one more problem before stopping studying this night.
 
 21:20 These "Easy" questions are not so easy. I need to review them multiple times.
+
+## 20220321 월요일
+
+6:01 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. JS120 - Object Oriented JavaScript > Easy > 9. Moving
+   * [x] 2. JS120 - Object Oriented JavaScript > Easy > 10. Pet Shelter
+   * [x] 3. JS120 - Object Oriented JavaScript > Easy > 11. Banner Class
+   * [x] 3. Anki Cards Review
+   * [x] 4. Read *The Coding Career Handbook*, Chapter 28: The Business of Software
+   * [ ] 5. Learn in Public: Context Loss vs Context Change question on LinkedIn?
+
+2. What will you do today?
+   * [ ] 1. Study Session with Alex
+   * [ ] 2. JS120 - Object Oriented JavaScript > Objects > 1. Buggy Code 1
+   * [ ] 3. JS120 - Object Oriented JavaScript > Objects > 2. Buggy Code 2
+   * [ ] 4. JS120 - Object Oriented JavaScript > Objects > 3. Testing Object Equality
+   * [ ] 5. JS120 - Object Oriented JavaScript > Objects > 4. Student
+   * [ ] 6. JS120 - Object Oriented JavaScript > Objects > 5. School
+   * [ ] 7. Anki Cards Review
+   * [ ] 8. Read *The Coding Career Handbook*, Chapter 28: The Business of Software
+   * [ ] 9. Learn in Public: Context Loss vs Context Change question on LinkedIn?
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * It's a Monday. I need to review taxes, figure out reffing schedule and tap into my network for job leads.
+
+06:09 Alex came on to Zoom and now he's getting tea. Time to work on some problems.
