@@ -6741,3 +6741,5 @@ Becoming a domain expert.
 17:28 I spent a lot of time on "Pet Shelter" and I still don't fully understand it, especially the further exploration.
 
 20:46 Back looking at one more problem before stopping studying this night.
+
+21:20 These "Easy" questions are not so easy. I need to review them multiple times.
