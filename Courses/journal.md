@@ -6782,3 +6782,5 @@ Becoming a domain expert.
 
 14:40 It's been a slow study day. These OOP problems are challenging me in a different way. I need to get the kids soon.
 
+18:41 After dinner and I don't really understand "Scbool" and want to go over it with Laurent tomorrow. Going to the MBP on the couch now and to do the next set of problems on Function Context.
+
