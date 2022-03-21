@@ -112,7 +112,7 @@ In earlier versions of JS120, we incorrectly stated that method invocations (e.g
 
 In practice, you use the `call`, `apply`, and `bind` methods to set an explicit execution context. You can also set the execution context explicitly with functions that accept an argument that specifies the context for a callback function. For instance, `Array.prototype.forEach` (and several other `Array.prototype` methods) take a `thisArg` argument that lets you set the context for the callback explicitly.
 
-### The Private [[Prototype]] Property
+### The Private `[[Prototype]]` Property
 
 In earlier versions of this course, we miscapitalized the name of this property as `[[prototype]]`. The correct capitalization is `[[Prototype]]`.
 

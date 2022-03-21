@@ -6757,14 +6757,14 @@ Becoming a domain expert.
    * [ ] 5. Learn in Public: Context Loss vs Context Change question on LinkedIn?
 
 2. What will you do today?
-   * [ ] 1. Study Session with Alex
-   * [ ] 2. JS120 - Object Oriented JavaScript > Objects > 1. Buggy Code 1
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS120 - Object Oriented JavaScript > Objects > 1. Buggy Code 1
    * [ ] 3. JS120 - Object Oriented JavaScript > Objects > 2. Buggy Code 2
    * [ ] 4. JS120 - Object Oriented JavaScript > Objects > 3. Testing Object Equality
    * [ ] 5. JS120 - Object Oriented JavaScript > Objects > 4. Student
    * [ ] 6. JS120 - Object Oriented JavaScript > Objects > 5. School
    * [ ] 7. Anki Cards Review
-   * [ ] 8. Read *The Coding Career Handbook*, Chapter 28: The Business of Software
+   * [ ] 8. Read *The Coding Career Handbook*, Chapter 29: Megatrends
    * [ ] 9. Learn in Public: Context Loss vs Context Change question on LinkedIn?
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -6773,3 +6773,7 @@ Becoming a domain expert.
 06:09 Alex came on to Zoom and now he's getting tea. Time to work on some problems.
 
 07:50 I don't understand the Solution to "Buggy Code 2".
+
+08:48 I have Saro on my mind as a referral for a job at Stryker. I think Michael, Anna's dad said he recruits for Stryker. I should connect with him. What am I doing with the job search? Part of me wants to tell Sohee that I just want to keep studying full-time and to sell some of my stocks if we need the money, but we don't right now. Ugh.
+
+10:38 Did "Testing Object Equality" with Laurent and I like our solution better than the LS one.

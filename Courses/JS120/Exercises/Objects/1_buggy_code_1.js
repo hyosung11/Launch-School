@@ -39,6 +39,7 @@ The code below is expected to output the following when run: */
 
 /* However, it instead results in an error. What is the problem with the code? Why isn't it producing the expected results? */
 
+// corrected code
 function createGreeter(name) {
   return {
     name: name,

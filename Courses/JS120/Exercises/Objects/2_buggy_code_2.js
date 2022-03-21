@@ -29,7 +29,7 @@ A grocery store uses a JavaScript function to calculate discounts on various ite
 The problem is that the `discount` method is mutating the `item` object. Recall that objects are mutable, and as such, changes made to the property of the `item` object are compounded every time that the `discount` method is called. To resolve this, the `discount` method should be modified so that it doesn't mutate the object. Here's one approach:
 
 */
-// I don't understand how this works and where it goes?
+// I don't understand how this works and where it goes? Laurent agrees that the LS solution is confusing.
 // function discountItem(item, percent) {
 //   let discount = (item.price * percent) / 100;
 //   return item.price - discount;
