@@ -6763,7 +6763,8 @@ Becoming a domain expert.
    * [x] 4. JS120 - Object Oriented JavaScript > Objects > 3. Testing Object Equality
    * [x] 5. JS120 - Object Oriented JavaScript > Objects > 4. Student
    * [?] 6. JS120 - Object Oriented JavaScript > Objects > 5. School
-   * [ ] 7. Anki Cards Review
+   * [x] 7. JS120 - Object Oriented JavaScript > Function Context > 1. What is This?
+   * [x] 7. Anki Cards Review
    * [x] 8. Read *The Coding Career Handbook*, Chapter 29: Megatrends
    * [ ] 9. Learn in Public: Context Loss vs Context Change question on LinkedIn?
 
@@ -6784,3 +6785,6 @@ Becoming a domain expert.
 
 18:41 After dinner and I don't really understand "Scbool" and want to go over it with Laurent tomorrow. Going to the MBP on the couch now and to do the next set of problems on Function Context.
 
+19:06 Spent almost 30 minutes on email.
+
+19:46 Time to go up for kids' bedtime.
