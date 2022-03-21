@@ -6762,9 +6762,9 @@ Becoming a domain expert.
    * [x] 3. JS120 - Object Oriented JavaScript > Objects > 2. Buggy Code 2
    * [x] 4. JS120 - Object Oriented JavaScript > Objects > 3. Testing Object Equality
    * [x] 5. JS120 - Object Oriented JavaScript > Objects > 4. Student
-   * [ ] 6. JS120 - Object Oriented JavaScript > Objects > 5. School
+   * [?] 6. JS120 - Object Oriented JavaScript > Objects > 5. School
    * [ ] 7. Anki Cards Review
-   * [ ] 8. Read *The Coding Career Handbook*, Chapter 29: Megatrends
+   * [x] 8. Read *The Coding Career Handbook*, Chapter 29: Megatrends
    * [ ] 9. Learn in Public: Context Loss vs Context Change question on LinkedIn?
 
 3. Are there any blockers or impediments preventing you from doing your work?
