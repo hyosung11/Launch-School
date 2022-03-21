@@ -6771,3 +6771,5 @@ Becoming a domain expert.
    * It's a Monday. I need to review taxes, figure out reffing schedule and tap into my network for job leads.
 
 06:09 Alex came on to Zoom and now he's getting tea. Time to work on some problems.
+
+07:50 I don't understand the Solution to "Buggy Code 2".
