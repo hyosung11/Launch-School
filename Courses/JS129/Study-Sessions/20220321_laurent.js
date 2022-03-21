@@ -50,3 +50,19 @@ console.log(objectsEqual({a: 'foo', b: 1}, {c: 'foo', b: 1}));  // false
 console.log(objectsEqual({a: 'foo', b: undefined}, {a: 'foo', b: 1}));  // false
 console.log(objectsEqual({a: 'foo', b: 1}, {a: 'foo', b: 1}));  // true
 console.log(objectsEqual({b: 1, a: 'foo'}, {a: 'foo', b: 1}));  // true
+
+// {constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+//   constructor: ƒ Object()
+//   hasOwnProperty: ƒ hasOwnProperty()
+//   isPrototypeOf: ƒ isPrototypeOf()
+//   propertyIsEnumerable: ƒ propertyIsEnumerable()
+//   toLocaleString: ƒ toLocaleString()
+//   toString: ƒ toString()
+//   valueOf: ƒ valueOf()
+//   __defineGetter__: ƒ __defineGetter__()
+//   __defineSetter__: ƒ __defineSetter__()
+//   __lookupGetter__: ƒ __lookupGetter__()
+//   __lookupSetter__: ƒ __lookupSetter__()
+//   __proto__: (...)
+//   get __proto__: ƒ __proto__()
+//   set __proto__: ƒ __proto__()

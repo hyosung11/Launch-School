@@ -6759,8 +6759,8 @@ Becoming a domain expert.
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [x] 2. JS120 - Object Oriented JavaScript > Objects > 1. Buggy Code 1
-   * [ ] 3. JS120 - Object Oriented JavaScript > Objects > 2. Buggy Code 2
-   * [ ] 4. JS120 - Object Oriented JavaScript > Objects > 3. Testing Object Equality
+   * [x] 3. JS120 - Object Oriented JavaScript > Objects > 2. Buggy Code 2
+   * [x] 4. JS120 - Object Oriented JavaScript > Objects > 3. Testing Object Equality
    * [ ] 5. JS120 - Object Oriented JavaScript > Objects > 4. Student
    * [ ] 6. JS120 - Object Oriented JavaScript > Objects > 5. School
    * [ ] 7. Anki Cards Review
@@ -6777,3 +6777,5 @@ Becoming a domain expert.
 08:48 I have Saro on my mind as a referral for a job at Stryker. I think Michael, Anna's dad said he recruits for Stryker. I should connect with him. What am I doing with the job search? Part of me wants to tell Sohee that I just want to keep studying full-time and to sell some of my stocks if we need the money, but we don't right now. Ugh.
 
 10:38 Did "Testing Object Equality" with Laurent and I like our solution better than the LS one.
+
+11:01 Time to take a short break. No ping pong with Louis today as he's leaving town.
