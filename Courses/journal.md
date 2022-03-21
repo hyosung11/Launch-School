@@ -6761,7 +6761,7 @@ Becoming a domain expert.
    * [x] 2. JS120 - Object Oriented JavaScript > Objects > 1. Buggy Code 1
    * [x] 3. JS120 - Object Oriented JavaScript > Objects > 2. Buggy Code 2
    * [x] 4. JS120 - Object Oriented JavaScript > Objects > 3. Testing Object Equality
-   * [ ] 5. JS120 - Object Oriented JavaScript > Objects > 4. Student
+   * [x] 5. JS120 - Object Oriented JavaScript > Objects > 4. Student
    * [ ] 6. JS120 - Object Oriented JavaScript > Objects > 5. School
    * [ ] 7. Anki Cards Review
    * [ ] 8. Read *The Coding Career Handbook*, Chapter 29: Megatrends
@@ -6779,3 +6779,6 @@ Becoming a domain expert.
 10:38 Did "Testing Object Equality" with Laurent and I like our solution better than the LS one.
 
 11:01 Time to take a short break. No ping pong with Louis today as he's leaving town.
+
+14:40 It's been a slow study day. These OOP problems are challenging me in a different way. I need to get the kids soon.
+
