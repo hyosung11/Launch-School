@@ -6826,3 +6826,7 @@ Becoming a domain expert.
    * I do have this nagging sense that I either have to go get a job or have an uncomfortable conversation with Sohee about studying full-time and I am waffling at the moment. Could I get a junior developer position right now? I would probably need to improve my projects, or build a new project. I need to look at the Code Newbie emails and the resume guide.
 
 06:21 In the study session with Alex and just getting my daily scrum stuff completed.
+
+07:00 Started OO Basics: Classes exercises.
+
+09:03 There's going to be a merge conflict.
