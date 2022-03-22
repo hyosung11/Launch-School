@@ -6834,3 +6834,5 @@ Becoming a domain expert.
 09:03 There's going to be a merge conflict.
 
 09:05 I fixed the merge conflit. I want to check UI for a second before starting the study sesion with Laurent.
+
+10:40 Walking through "Student" with Laurent and struggling to understand what is being asked. I have to pee.
