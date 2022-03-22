@@ -6817,7 +6817,7 @@ Becoming a domain expert.
    * [x] 3. JS120 - Object Oriented JavaScript > OO Basics: Classes > 1.
    * [x] 4. JS120 - Object Oriented JavaScript > OO Basics: Classes > 2.
    * [x] 5. Study Session with Laurent
-   * [ ] 6. SPOT Study Session with Elaine
+   * [x] 6. SPOT Study Session with Elaine
    * [x] 7. Anki Cards Review
    * [x] 8. Read *The Coding Career Handbook*, Chapter 32: Learn in Private
    * [ ] 9. Learn in Public: Context Loss vs Context Change question on LinkedIn?
@@ -6846,3 +6846,5 @@ Becoming a domain expert.
 14:24 I finished the "OO Basics: Classes" exercises in one shot today.
 
 14:40 Reviewed some Anki cards and now going to take a break and perhaps go outside for a little bit.
+
+16:06 Took a break and watched Billions. Now ready to do more exercises.
