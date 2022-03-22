@@ -6813,13 +6813,13 @@ Becoming a domain expert.
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [ ] 2. JS120 - Object Oriented JavaScript > Function Context > 4. myFilter()
-   * [ ] 3. JS120 - Object Oriented JavaScript > OO Basics: Classes > 1.
-   * [ ] 4. JS120 - Object Oriented JavaScript > OO Basics: Classes > 2.
+   * [x] 2. JS120 - Object Oriented JavaScript > Function Context > 4. myFilter()
+   * [x] 3. JS120 - Object Oriented JavaScript > OO Basics: Classes > 1.
+   * [x] 4. JS120 - Object Oriented JavaScript > OO Basics: Classes > 2.
    * [ ] 5. Study Session with Laurent
    * [ ] 6. SPOT Study Session with Elaine
    * [ ] 7. Anki Cards Review
-   * [ ] 8. Read *The Coding Career Handbook*, Chapter 32: Learn in Private
+   * [x] 8. Read *The Coding Career Handbook*, Chapter 32: Learn in Private
    * [ ] 9. Learn in Public: Context Loss vs Context Change question on LinkedIn?
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -6829,4 +6829,8 @@ Becoming a domain expert.
 
 07:00 Started OO Basics: Classes exercises.
 
+08:37 I think missed a commit on the iMac. I finished reading Chapter 22: Learn in Private and am going back to the exercises soon.
+
 09:03 There's going to be a merge conflict.
+
+09:05 I fixed the merge conflit. I want to check UI for a second before starting the study sesion with Laurent.
