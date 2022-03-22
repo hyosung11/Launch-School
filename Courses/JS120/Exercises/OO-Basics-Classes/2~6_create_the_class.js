@@ -86,11 +86,56 @@ The `Cat` constructor expects one parameter: `name`. When it is called with the 
 
 To appease the exercise requirements, we only need to reference property `name` immediately following  its initialization. We use `console.log()` to log `Hello! My name is Sophie!` to the console. In this object, `Sophie` is dynamic, which means we used the property `name` to print the value. `Sophie` could just as easily be `Oliver` if that string was passed instead of `Sophie`, like this: */
 
+// class Cat {
+//   constructor(name) {
+//     this.name = name; // => Oliver
+//     console.log(`Hello! My name is ${this.name}!`);
+//   }
+// }
+
+// let kitty = new Cat('Oliver');
+
+/* JS120 - Object Oriented JavaScript > OO Basics: Classes > 6. Hello, Sophie! (part 2)
+
+Hello, Sophie! (part 2)
+
+Using the code from the previous exercise, move the greeting from the constructor method to an instance method named greet that logs a greeting to the console when invoked.
+
+Code: */
+
+// class Cat {
+//   constructor(name) {
+//     this.name = name;
+//     console.log(`Hello! My name is ${this.name}!`);
+//   }
+// }
+
+// let kitty = new Cat('Sophie');
+// kitty.greet();
+
+// Expected output:
+
+// Hello! My name is Sophie!
+
+// Solution
 class Cat {
   constructor(name) {
-    this.name = name; // => Oliver
+    this.name = name;
+  }
+
+  greet() {
     console.log(`Hello! My name is ${this.name}!`);
   }
 }
 
-let kitty = new Cat('Oliver');
+let kitty = new Cat('Sophie');
+kitty.greet(); // => Hello! My name is Sophie!
+
+/* Discussion
+
+Instance methods are only available when there's an instance of the class. For example, kitty is an instance of the Cat class. This means, if we add the `greet` method, we're able to invoke it, like this: */
+
+// let kitty = new Cat('Sophie');
+// kitty.greet(); // => Hello! My name is Sophie!
+
+/* As mentioned in the previous exercise, the property `name` can be accessed anywhere within the class using `this` keyword. This lets us print `Hello! My name is Sophie!` from `greet` simply by moving the statement from `constructor` to `greet`. */

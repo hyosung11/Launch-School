@@ -6816,9 +6816,9 @@ Becoming a domain expert.
    * [x] 2. JS120 - Object Oriented JavaScript > Function Context > 4. myFilter()
    * [x] 3. JS120 - Object Oriented JavaScript > OO Basics: Classes > 1.
    * [x] 4. JS120 - Object Oriented JavaScript > OO Basics: Classes > 2.
-   * [ ] 5. Study Session with Laurent
+   * [x] 5. Study Session with Laurent
    * [ ] 6. SPOT Study Session with Elaine
-   * [ ] 7. Anki Cards Review
+   * [x] 7. Anki Cards Review
    * [x] 8. Read *The Coding Career Handbook*, Chapter 32: Learn in Private
    * [ ] 9. Learn in Public: Context Loss vs Context Change question on LinkedIn?
 
@@ -6836,3 +6836,11 @@ Becoming a domain expert.
 09:05 I fixed the merge conflit. I want to check UI for a second before starting the study sesion with Laurent.
 
 10:40 Walking through "Student" with Laurent and struggling to understand what is being asked. I have to pee.
+
+11:56 After talking to Sohee and getting a snack, I am back for the SPOT study session.
+
+13:34 That was a good SPOT study session with Elaine and then I took a break to eat lunch. Now I'm back to do some more problems.
+
+14:16 I'm almost done with the "OO Basics: Classes" exercises.
+
+14:24 I finished the "OO Basics: Classes" exercises in one shot today.
