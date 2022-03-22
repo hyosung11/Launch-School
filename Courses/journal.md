@@ -6790,3 +6790,39 @@ Becoming a domain expert.
 19:46 Time to go up for kids' bedtime.
 
 20:41 Burning out. I'm tired and I don't even understand what the questions want answered. Done for today.
+
+## 20220322 화요일
+
+05:57 It felt harder to wake up this morning as it felt harder to fall asleep last night. I need and want a job is becoming the refrain rather than continuing to study all the time. So then what's the angle I need to take to get a tech job? I don't know? Do I go for a software engineering position or a tech-adjacent position like solutions engineer which I think I could like?
+
+06:02 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS120 - Object Oriented JavaScript > Objects > 1. Buggy Code 1
+   * [x] 3. JS120 - Object Oriented JavaScript > Objects > 2. Buggy Code 2
+   * [x] 4. JS120 - Object Oriented JavaScript > Objects > 3. Testing Object Equality
+   * [x] 5. JS120 - Object Oriented JavaScript > Objects > 4. Student
+   * [?] 6. JS120 - Object Oriented JavaScript > Objects > 5. School
+   * [x] 7. JS120 - Object Oriented JavaScript > Function Context > 1. What is This?
+   * [x] 8. JS120 - Object Oriented JavaScript > Function Context > 2. The Franchise
+   * [x] 9. JS120 - Object Oriented JavaScript > Function Context > 3. The Franchise - Solution 2
+   * [x] 10. Anki Cards Review
+   * [x] 11. Read *The Coding Career Handbook*, Chapter 29 ~ 31: Megatrends, Part IV: Tactics, Negotiating
+~~   * [ ] 12. Learn in Public: Context Loss vs Context Change question on LinkedIn?~~
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. JS120 - Object Oriented JavaScript > Function Context > 4. myFilter()
+   * [ ] 3. JS120 - Object Oriented JavaScript > OO Basics: Classes > 1.
+   * [ ] 4. JS120 - Object Oriented JavaScript > OO Basics: Classes > 2.
+   * [ ] 5. Study Session with Laurent
+   * [ ] 6. SPOT Study Session with Elaine
+   * [ ] 7. Anki Cards Review
+   * [ ] 8. Read *The Coding Career Handbook*, Chapter 32: Learn in Private
+   * [ ] 9. Learn in Public: Context Loss vs Context Change question on LinkedIn?
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I do have this nagging sense that I either have to go get a job or have an uncomfortable conversation with Sohee about studying full-time and I am waffling at the moment. Could I get a junior developer position right now? I would probably need to improve my projects, or build a new project. I need to look at the Code Newbie emails and the resume guide.
+
+06:21 In the study session with Alex and just getting my daily scrum stuff completed.
