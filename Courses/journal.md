@@ -6844,3 +6844,5 @@ Becoming a domain expert.
 14:16 I'm almost done with the "OO Basics: Classes" exercises.
 
 14:24 I finished the "OO Basics: Classes" exercises in one shot today.
+
+14:40 Reviewed some Anki cards and now going to take a break and perhaps go outside for a little bit.
