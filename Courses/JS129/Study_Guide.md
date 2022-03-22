@@ -7,6 +7,7 @@ Object Oriented Programming is a programming paradigm in which we think about pr
 ### 1.1 Objects
 
 `Object.prototype.isPrototypeOf()`
+
 The `isPrototypeOf(object)` method checks if an object exists in another object's prototype chain.
 
 ```js
