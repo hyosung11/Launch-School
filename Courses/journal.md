@@ -6813,16 +6813,18 @@ Becoming a domain expert.
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [ ] 2. JS120 - Object Oriented JavaScript > Function Context > 4. myFilter()
-   * [ ] 3. JS120 - Object Oriented JavaScript > OO Basics: Classes > 1.
-   * [ ] 4. JS120 - Object Oriented JavaScript > OO Basics: Classes > 2.
+   * [x] 2. JS120 - Object Oriented JavaScript > Function Context > 4. myFilter()
+   * [x] 3. JS120 - Object Oriented JavaScript > OO Basics: Classes > 1.
+   * [x] 4. JS120 - Object Oriented JavaScript > OO Basics: Classes > 2.
    * [ ] 5. Study Session with Laurent
    * [ ] 6. SPOT Study Session with Elaine
    * [ ] 7. Anki Cards Review
-   * [ ] 8. Read *The Coding Career Handbook*, Chapter 32: Learn in Private
+   * [x] 8. Read *The Coding Career Handbook*, Chapter 32: Learn in Private
    * [ ] 9. Learn in Public: Context Loss vs Context Change question on LinkedIn?
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I do have this nagging sense that I either have to go get a job or have an uncomfortable conversation with Sohee about studying full-time and I am waffling at the moment. Could I get a junior developer position right now? I would probably need to improve my projects, or build a new project. I need to look at the Code Newbie emails and the resume guide.
 
 06:21 In the study session with Alex and just getting my daily scrum stuff completed.
+
+08:37 I think missed a commit on the iMac. I finished reading Chapter 22: Learn in Private and am going back to the exercises soon.
