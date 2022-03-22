@@ -6814,10 +6814,10 @@ Becoming a domain expert.
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [x] 2. JS120 - Object Oriented JavaScript > Function Context > 4. myFilter()
-   * [x] 3. JS120 - Object Oriented JavaScript > OO Basics: Classes > 1.
-   * [x] 4. JS120 - Object Oriented JavaScript > OO Basics: Classes > 2.
+   * [x] 3. JS120 - Object Oriented JavaScript > OO Basics: Classes > 1 ~ 10
+   * [x] 4. JS120 - Object Oriented JavaScript > OO Basics: Inheritance and Mixins > 1 ~ 5
    * [x] 5. Study Session with Laurent
-   * [ ] 6. SPOT Study Session with Elaine
+   * [x] 6. SPOT Study Session with Elaine
    * [x] 7. Anki Cards Review
    * [x] 8. Read *The Coding Career Handbook*, Chapter 32: Learn in Private
    * [ ] 9. Learn in Public: Context Loss vs Context Change question on LinkedIn?
@@ -6847,3 +6847,38 @@ Becoming a domain expert.
 
 14:40 Reviewed some Anki cards and now going to take a break and perhaps go outside for a little bit.
 
+16:06 Took a break and watched Billions. Now ready to do more exercises.
+
+18:54 After dinner and I want to work on some more exercises even though I feel tired right now.
+
+19:12 Remember the syntax for a mixin and that it's used with `Object.assign`.
+
+`Object.assign()`
+
+The `Object.assign(target, ... sources)` method copies all enumerable own properties from one or more source objects to a target object. It returns the modified target object.
+
+```js
+const walkMixin = {
+  walk() {
+    return "Let's go for a walk";
+  }
+}
+
+class Cat {
+  constructor(name) {
+    this.name = name;
+  }
+
+  greet() {
+    return `Hello! My name is ${this.name}!`;
+  }
+}
+
+Object.assign(Cat.prototype, walkMixin);
+
+let kitty = new Cat('Sophie');
+console.log(kitty.greet());
+console.log(kitty.walk());
+```
+
+19:15 Tired and moving to the couch or a chair now.
