@@ -6788,3 +6788,5 @@ Becoming a domain expert.
 19:06 Spent almost 30 minutes on email.
 
 19:46 Time to go up for kids' bedtime.
+
+20:41 Burning out. I'm tired and I don't even understand what the questions want answered. Done for today.
