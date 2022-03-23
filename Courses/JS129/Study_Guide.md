@@ -160,6 +160,8 @@ console.log(rect.getLength()); // 5
 console.log(rect.getArea()); // 20
 ```
 
+A class is a kind of template for creating concrete objects of that type. Each concrete object is called an instance of the class. The process of creating an instance is performed by a special function called a constructor. We pass the constructor values for any internal state that we want to initialize in the new instance.
+
 Discussion
 
 The solution to the problem is straightforward. In the constructor function we are creating two properties `width` and `length` and assigning to them values of parameters with the same name.
@@ -211,6 +213,8 @@ In JavaScript, encapsulation is the idea of bundling data and operations associa
 In most OOP languages, encapsulation has a broader purpose. It also refers to restricting access to the state and certain behaviors; an object only exposes the data and behaviors that other parts of the application need to work. In other words, objects expose a public interface for interacting with other objects and keep their implementation details hidden. Thus, other objects can't change the data of an object without going through the proper interface. Unfortunately, JavaScript doesn't support access restrictions. There are ways to achieve a degree of access restriction, but they're not perfect.
 
 ## 5. Polymorphism
+
+When a method has the same name, but a different implementation in different classes it is called polymorphism. When a method in a subclass replaces the implementation of the version in the superclass, we say that the subclass overrides the version in the superclass.
 
 ### 5.1 Duck Typing
 
