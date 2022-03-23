@@ -180,6 +180,24 @@ To access the value of each property within methods, we use the `this` keyword i
 
 objects inheriting properties from other objects
 
+The prototype chain, or prototypal inheritance, is how JavaScript inherits properties from other objects.
+
+```js
+let animal = {
+  type: 'mammal',
+  breathe: function() { 
+    console.log("I'm breathing");
+  },
+}
+
+let dog = Object.create(animal);
+
+console.log(dog); // {}
+console.log(dog.type); // "mammal"
+console.log(dog.__proto__); // { type: 'mammal', breathe: ƒ }
+console.log(dog.__proto__ === animal); // true
+```
+
 ### 3.2 Pseudo-classical Inheritance
 
 ## 4. Encapsulation
