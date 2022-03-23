@@ -6905,7 +6905,7 @@ console.log(kitty.walk());
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [ ] 2. JS120 - Object Oriented JavaScript > Object Creation Patterns > 1 ~ 3
-   * [ ] 3. Study Session with Laurent
+   * [x] 3. Study Session with Laurent
    * [ ] 4. Anki Cards Review
    * [ ] 5. Read *The Coding Career Handbook*, Chapter 33: Design for Developers in a Hurry
    * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
@@ -6913,3 +6913,12 @@ console.log(kitty.walk());
 3. Are there any blockers or impediments preventing you from doing your work?
    * Today, I want to go full throttle through the curriculum and be ready to do Capstone in September. This means, I don't want to try to find a job right now. We shall see how things go during marriage counseling tomorrow.
 
+07:11 I've taken the whole study session with Alex on one problem that I don't understand yet.
+
+11:17 End of study session with Laurent where he solved the "School" problem.
+
+12:39 End study session. Here's [Elaine's JS129 Practice Questions](https://elainevuongyt.notion.site/Elaine-s-JS129-Written-Practice-Clean-28c2bd27817b415ca773427e3764a4c8#b342aa4ff7f142319840e4c7018d2c6e)
+
+14:26 I've listened to LS Season 4 podcast, did Q&D training, ate lunch and dinked around a bit.
+
+14:54 I have to go get the kids now.
