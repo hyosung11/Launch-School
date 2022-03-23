@@ -168,6 +168,8 @@ To access the value of each property within methods, we use the `this` keyword i
 
 ## 2. Methods and Properties; Instance and Static Methods and Properties
 
+[Common Object Methods](https://elainevuongyt.notion.site/Common-Object-Methods-7d3ed006cfe641508635a40c7ec6f5e4)
+
 ### 2.1 Instance Methods
 
 ### 2.2 Static Methods
