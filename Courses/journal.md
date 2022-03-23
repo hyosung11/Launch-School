@@ -6815,7 +6815,7 @@ Becoming a domain expert.
    * [x] 1. Study Session with Alex
    * [x] 2. JS120 - Object Oriented JavaScript > Function Context > 4. myFilter()
    * [x] 3. JS120 - Object Oriented JavaScript > OO Basics: Classes > 1 ~ 10
-   * [x] 4. JS120 - Object Oriented JavaScript > OO Basics: Inheritance and Mixins > 1 ~ 5
+   * [x] 4. JS120 - Object Oriented JavaScript > OO Basics: Inheritance and Mixins > 1 ~ 8
    * [x] 5. Study Session with Laurent
    * [x] 6. SPOT Study Session with Elaine
    * [x] 7. Anki Cards Review
@@ -6882,3 +6882,34 @@ console.log(kitty.walk());
 ```
 
 19:15 Tired and moving to the couch or a chair now.
+
+20:46 I finished all the OO Basics: Inheritance and Mixins exercises and just have few more problems left to finish. Ready to relax with Sohee.
+
+## 20220323 수요일
+
+06:16 I spent almost 15 minutes trying to login to the SPOT channel's Gather.Town space and I don't have the password. Then I looked at the flyer again and see that it doesn't go live until 9:00 AM EST today. Maybe Laurent and I can meet there today. It sounds like a cool idea. What about getting a job working with them? That seems like a cool piece of software.
+
+06:18 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS120 - Object Oriented JavaScript > Function Context > 4. myFilter()
+   * [x] 3. JS120 - Object Oriented JavaScript > OO Basics: Classes > 1 ~ 10
+   * [x] 4. JS120 - Object Oriented JavaScript > OO Basics: Inheritance and Mixins > 1 ~ 8
+   * [x] 5. Study Session with Laurent
+   * [x] 6. SPOT Study Session with Elaine
+   * [x] 7. Anki Cards Review
+   * [x] 8. Read *The Coding Career Handbook*, Chapter 32: Learn in Private
+~~   * [ ] 9. Learn in Public: Context Loss vs Context Change question on LinkedIn?~~
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. JS120 - Object Oriented JavaScript > Object Creation Patterns > 1 ~ 3
+   * [ ] 3. Study Session with Laurent
+   * [ ] 4. Anki Cards Review
+   * [ ] 5. Read *The Coding Career Handbook*, Chapter 33: Design for Developers in a Hurry
+   * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Today, I want to go full throttle through the curriculum and be ready to do Capstone in September. This means, I don't want to try to find a job right now. We shall see how things go during marriage counseling tomorrow.
+
