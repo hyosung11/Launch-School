@@ -6815,7 +6815,7 @@ Becoming a domain expert.
    * [x] 1. Study Session with Alex
    * [x] 2. JS120 - Object Oriented JavaScript > Function Context > 4. myFilter()
    * [x] 3. JS120 - Object Oriented JavaScript > OO Basics: Classes > 1 ~ 10
-   * [x] 4. JS120 - Object Oriented JavaScript > OO Basics: Inheritance and Mixins > 1 ~ 5
+   * [x] 4. JS120 - Object Oriented JavaScript > OO Basics: Inheritance and Mixins > 1 ~ 8
    * [x] 5. Study Session with Laurent
    * [x] 6. SPOT Study Session with Elaine
    * [x] 7. Anki Cards Review
@@ -6882,3 +6882,5 @@ console.log(kitty.walk());
 ```
 
 19:15 Tired and moving to the couch or a chair now.
+
+20:46 I finished all the OO Basics: Inheritance and Mixins exercises and just have few more problems left to finish. Ready to relax with Sohee.
