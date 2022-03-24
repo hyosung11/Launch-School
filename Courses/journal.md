@@ -6942,14 +6942,30 @@ console.log(kitty.walk());
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [ ] 2. Study Session with Laurent and Michael
-   * [ ] 3. Work on Study Guide
-   * [ ] 4. Anki Cards Review
+   * [x] 2. Study Session with Laurent and Michael
+   * [x] 3. Work on Study Guide
+   * [x] 4. Anki Cards Review
    * [ ] 5. Read *The Coding Career Handbook*, Chapter 34: Lampshading
    * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
    * [ ] 7. Writers Bloc Meeting
+   * [ ] 8. Contact Derek Barker about role at Salesforce
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I feel tired and a little confused about how best to study for the assessment right now.
 
 07:26 Time to take a break and make coffee, I think.
+
+[The JavaScript `this` Keyword](https://www.w3schools.com/js/js_this.asp#:~:text=The%20JavaScript%20this%20keyword%20refers%20to%20the%20object%20it%20belongs%20to.&text=In%20a%20function%2C%20this%20refers,element%20that%20received%20the%20event)
+
+08:57 It's almost time for marriage counseling. Let's see where things go today.
+
+13:47 Message from Derek to SEIR-Stitch on Slack:
+
+Derek  8:58 AM
+@here I hope everyone is doing great and having an outstanding week! We've begun hiring again at salesforce, for the Associate Technical Consultant, and Technical Consultant Roles. We also are no longer requiring relocating to an office as we have shifted to full work from home. Working here has been absolutely incredible and the work life balance is perfect.
+
+Also the benefits are incredible, second only to what I had in the military. If you want to see all the benefits, please check out https://www.salesforcebenefits.com/us/candidate.html. One of my favorite benefits is 6 months of paid paternity leave :open_mouth: which I was able to use to spend time with my new born in 2021, and will be forever grateful for that opportunity. If you're interested in applying or hearing more, please DM and I will put in a referral for you/glad to provide more info.
+
+Have a great day everyone!!!
+
+13:48 I went through all the old messages in the JavaScript Mafia discord server about JS120 and JS129 and linked to many different topics. I'm going to read through the links and add information to my study guide.

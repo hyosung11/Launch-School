@@ -1,10 +1,19 @@
-# JS129 Assessment: Object Oriented Programming > Specific Topics of Interest
+# JS129 Assessment: Object Oriented Programming > Specific Topics of Interest > Study Guide
+
+- [ ] Write down everything you know on every topic in this study guide.
+- [ ] Write out examples for every topic.
+- [ ] Make code snippets.
+- [ ] Write explanations for the code snippets.
 
 Object Oriented Programming is a programming paradigm in which we think about problems in terms of using objects to organize our program.
 
-## 1. Objects, Object Factories (Factory Functions), Constructors and Prototypes, OLOO, and ES6 classes
+## 1. Objects, Object Factories (Factory Functions), Constructors and Prototypes, OLOO, and ES6 Classes
 
 ### 1.1 Objects
+
+JavaScript defines undeclared variables as properties of the global object. Such properties act like global variables though -- you can access them from anywhere in your program.
+
+object property names are not variables.
 
 `Object.prototype.isPrototypeOf()`
 
@@ -95,6 +104,24 @@ console.log(rectangle1.getLength()); // 5
 console.log(rectangle1.getArea()); // 20
 ```
 
+Just checking this. The reason we get the following output is because the new operator sets the context to the new object that's created. Because of this, technically a, b, c etc. don't exist as properties on the constructor, they exist as properties in the instantiated object.
+
+```js
+function MyClass(a, b, c, d, e, f) {
+  this.a = a;
+  this.b = b;
+  this.c = c;
+  this.d = d;
+  this.e = e;
+  this.f = f;
+}
+
+let func = new MyClass(1, 2, 3, 4, 5, 6);
+
+console.log(Object.getOwnPropertyNames(func)); // [ 'a', 'b', 'c', 'd', 'e', 'f' ]
+console.log(Object.getOwnPropertyNames(MyClass)); // [ 'length', 'name', 'arguments', 'caller', 'prototype' ]
+```
+
 ### 1.4 OLOO (Objects Linking with Other Objects)
 
 - Prototypal inheritance
@@ -178,6 +205,8 @@ To access the value of each property within methods, we use the `this` keyword i
 
 ## 3. Prototypal and Pseudo-classical Inheritance
 
+As Karl said today, it's all prototypal inheritance happening in the background, but you can leverage the constructor/prototype pattern to kind of mimic how traditional OOP languages deal with inheritance. So pseudo classical means literally that, mimicking classical inheritance.
+
 ### 3.1 Prototypal Inheritance
 
 objects inheriting properties from other objects
@@ -216,9 +245,47 @@ In most OOP languages, encapsulation has a broader purpose. It also refers to re
 
 When a method has the same name, but a different implementation in different classes it is called polymorphism. When a method in a subclass replaces the implementation of the version in the superclass, we say that the subclass overrides the version in the superclass.
 
+This is one of those gems I found in the forums from Pete that really helped me to understand the idea behind Polymorphism better
+
+[str, arr].forEach(obj => console.log(obj.indexOf("c")));
+
+Notice how we're calling both str.indexOf and arr.indexOf by using obj.indexOf where obj is alternately a reference to str or arr.
+
+You can do that with a duck-typed language, but if you try it in a language like C that doesn't support duck typing, it will produce a type error. You can't call methods for 2 or more objects with the same line of code unless the objects have a common superclass. It's much more stringent than JS and Ruby. However, you can still call things that have the same method, just not through a common interface.
+
+By the way -- calling indexOf like this with a variable that can take on different types is where polymorphism really comes into play. I'm not sure if we emphasize that enough. The point behind polymorphism is that you can write code that doesn't care about types -- just that the different things respond to the same message. 
+
+
 ### 5.1 Duck Typing
 
-Synora Eusebio (JS129)
+The 'Polymorphism Through Duck Typing' section provides a definition for duck typing:
+"Duck typing occurs when objects of different unrelated types both respond to the same method name. "
+
+[Distinction between Polymorphism and Duck Typing](https://launchschool.com/posts/c6a86a52#comment-89887)
+
+Hmm, check out this comment by pete
+https://launchschool.com/posts/c6a86a52#comment-89887
+@Jack
+Duck typing is just a particular form of polymorphism -- it's the ability for objects of completely unrelated types to respond to the same method invocation. A simple example of this in JS are Strings and Arrays. These types are unrelated(*), yet they can both respond to, say, the indexOf method:
+
+The main reason why there is a distinction is that some languages -- like C++ -- only support inheritance-based polymorphism. Two objects have to be related through inheritance for polymorphism to be present. When languages were introduced that allowed unrelated objects to act polymorphically, the term duck-typing was introduced to talk about that kind of polymorphism separately.
+
+* In JS, almost all objects inherit from Object at some point in their prototype chain, so String and Array aren't completely unrelated. However, we usually ignore global supertypes (like Object) when talking about whether objects are related. It's still possible to create objects in JS that don't inherit from Object, and those objects can still use duck typing.
+
+By other languages not supporting duck typing, does that mean that if you declare a method in an object, you can't use that same name to declare a method in another object?
+
+You can use the same name, but languages that don't support duck typing don't let you call a method on unrelated objects like this:
+
+```js
+[str, arr].forEach(obj => console.log(obj.indexOf("c")));
+Notice how we're calling both str.indexOf and arr.indexOf by using obj.indexOf where obj is alternately a reference to str or arr.
+
+You can do that with a duck-typed language, but if you try it in a language like C that doesn't support duck typing, it will produce a type error. You can't call methods for 2 or more objects with the same line of code unless the objects have a common superclass. It's much more stringent than JS and Ruby. However, you can still call things that have the same method, just not through a common interface.
+```
+
+
+
+### Synora Eusebio (JS129)
 For anyone that’s interested, I wrote out a full implementation of the Polymorphism via Duck Typing example. I had to rework the `prepare` method in the Wedding constructor in order to get that specific method to work.
 
 ```js
@@ -365,8 +432,6 @@ let pete = {
 };
 ```
 
-
-
 ## 7. Single vs Multiple Inheritance
 
 ### 7.1 Single Inheritance
@@ -387,7 +452,7 @@ JS120 - Object Oriented JavaScript > Easy > 9. Moving
 
 ### 8.2 Mixins vs Inheritance
 
-## 9. Methods and functions; Method Invocation vs. Function Invocation
+## 9. Methods and Functions; Method Invocation vs. Function Invocation
 
 ### 9.1 Method Invocation
 
@@ -395,26 +460,39 @@ JS120 - Object Oriented JavaScript > Easy > 9. Moving
 
 ## 10. Higher-order functions
 
-## 11. The global object
+## 11. The Global Object
 
 `global`
 `window`
 
-## 12. Method and property Lookup Sequence
+## 12. Method and Property Lookup Sequence
 
 ## 13. Function Execution Context and `this`
 
 The `this` keyword lets us refer to the properties and methods of the object.
 
+So, the `this` keyword is basically a dynamic pointer right? whose value depends on where it's being referenced and how. I guess in classical inheritance their equivalent to the this keyword always references the object and it doesn't change. 
+
+### 13.2 What is `this`?
+
+The JavaScript `this` keyword refers to the object it belongs to. It has different values depending on where it is used:
+
+- Alone, `this` refers to the **global object**.
+- In a function, `this` refers to the **global object**.
+- In a function, in strict mode, `this` is `undefined`.
+- In a method, `this` refers to the calling object.
+- Method calls like `call()`, and `apply()` can refer `this` to any object.
+- In an event, `this` refers to the **element** that received the event.
+
 
 ## 14. Implicit and Explicit Execution Context
 
-## 15. Dealing with context loss
+## 15. Dealing with Context Loss
 
 ## 16. `call`, `apply`, and `bind`
 
 ## 17. `Object.assign` and `Object.create`
 
-## 18. Built-in constructors like `Array`, `Object`, `String` and `Number`
+## 18. Built-in Constructors like `Array`, `Object`, `String` and `Number`
 
 ## 19. Reading OO code
