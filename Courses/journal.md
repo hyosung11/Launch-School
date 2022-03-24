@@ -6972,3 +6972,5 @@ Have a great day everyone!!!
 13:48 I went through all the old messages in the JavaScript Mafia discord server about JS120 and JS129 and linked to many different topics. I'm going to read through the links and add information to my study guide.
 
 18:06 Did a good job of dumping all of my Lesson 1 notes into a new file and then extracting notes to my study guide. I'm going to continue on with Lesson 2. I just need to remember to do the quizzes again and work on the practice problems as part of my code snippets study.
+
+19:44 I finished dumping all of Lesson 2 notes into my study guide by topic. Now I want to watch the basketball game.
