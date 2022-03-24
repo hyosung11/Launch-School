@@ -6928,3 +6928,28 @@ console.log(kitty.walk());
 19:54 I'm tired. I heard an interesting conversation with Nick Caldwell of Twitter in Career Karma. Keep my notes here. Second brain stuff. Time to put the kids to bed. I'm going to look at the last question in Object Creation Patterns and then call it a day, I think.
 
 20:22 Just kind of skimmed the last exercise. I'm going to stop for today as my allergies are acting up this afternoon and evening.
+
+## 20220324 목요일
+
+07:07 I feel off today. I didn't want to get out of bed and then my computer froze and I had to restart it twice. Alex was late but we did talk about one problem. I don't think I know the material that well yet and am not sure of the best way to move forward? Research says it's better to do problems than reread the text. However, I do need to put together a study guide. That much is clear to me. Organize my brain.
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. JS120 - Object Oriented JavaScript > Object Creation Patterns > 1 ~ 3
+   * [x] 3. Study Session with Laurent and Michael
+   * [x] 4. Anki Cards Review
+   * [x] 5. Read *The Coding Career Handbook*, Chapter 33: Design for Developers in a Hurry
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. Study Session with Laurent and Michael
+   * [ ] 3. Work on Study Guide
+   * [ ] 4. Anki Cards Review
+   * [ ] 5. Read *The Coding Career Handbook*, Chapter 34: Lampshading
+   * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
+   * [ ] 7. Writers Bloc Meeting
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I feel tired and a little confused about how best to study for the assessment right now.
+
+07:26 Time to take a break and make coffee, I think.
