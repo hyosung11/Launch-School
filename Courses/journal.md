@@ -6926,3 +6926,5 @@ console.log(kitty.walk());
 15:49 Check this out [Big list of JS120 interview prep problems from Codewars](https://docs.google.com/document/d/1x4QJBgHNZYKNcVSV0PFZNYFesXk-GlhSUthfLTcmxZ4/edit)
 
 19:54 I'm tired. I heard an interesting conversation with Nick Caldwell of Twitter in Career Karma. Keep my notes here. Second brain stuff. Time to put the kids to bed. I'm going to look at the last question in Object Creation Patterns and then call it a day, I think.
+
+20:22 Just kind of skimmed the last exercise. I'm going to stop for today as my allergies are acting up this afternoon and evening.
