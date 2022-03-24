@@ -5,11 +5,74 @@
 - [ ] Make code snippets.
 - [ ] Write explanations for the code snippets.
 
-Object Oriented Programming is a programming paradigm in which we think about problems in terms of using objects to organize our program.
+## OOP Introduction
+
+Object Oriented Programming is a programming paradigm in which we think about problems in terms of using objects to organize our program. In OOP the idea is to model a program based on how objects in the real world interact. A real-world object like a car, for example, has **state** -- *properties* -- like color, number of doors and fuel-level amongst others. It also has **behavior**; it can be started, driven, steered, or parked. That's precisely how we think about problems in OOP: as a set of objects with state and behavior. OOP is about *combining data and behavior* into an object.
+
+### Advantages and Disadvantages of OOP
+
+- Advantages
+  - It lets programmers think about a problem at a higher-level of abstraction, which helps them break down and solve the problem.
+  - OOP helps programmers write programs that reduce the *dependencies* in a program, which makes maintenance easier.
+  - Done right, OOP makes code flexible, easy to understand, and easy to change.
+
+- Disadvantages
+  - OOP programs are often much larger than the equivalent procedural program.
+  - OOP may lead to less efficient code; OO programs may require more memory, disk space, and computing power.
 
 ## 1. Objects, Object Factories (Factory Functions), Constructors and Prototypes, OLOO, and ES6 Classes
 
 ### 1.1 Objects
+
+The simplest way to create a JavaScript object is to use the **object literal** syntax: a pair of opening and closing curly braces. Adding methods to an objects is as simple as adding a function as the value of a property.
+
+Encapsulating the data and functionality of a race car into an object.
+
+```js
+let raceCar = {
+
+  make: 'BMW',
+  fuelLevel: 0.5,
+  engineOn: false,
+
+  startEngine: function() {
+    raceCar.engineOn = true;
+  },
+
+  drive: function() {
+    raceCar.fuelLevel -= 0.1;
+  },
+
+  stopEngine() { // <-- compact method syntax that omits the `:` and the `function` keyword
+    raceCar.engineOn = false;
+  },
+
+  refuel: function(percent) {
+    if ((raceCar.fuelLevel + (percent / 100)) <= 1) {
+      raceCar.fuelLevel += (percent / 100);
+    } else {
+      raceCar.fuelLevel = 1;
+    }
+  },
+};
+```
+
+This code bundles the data and operations related to a car into an object. The structure of the object is essentially the same as the objects we've encountered so far. The chief difference is that *some of the property values are functions*. That shouldn't be surprising; we've seen before that JavaScript functions are first-class values, which means that we can treat them as we would any JavaScript value. That includes using them as object property values. When object properties have function values, we call them **methods**. The methods here are responsible for changing the state of the `raceCar` object.
+
+One advantage of this approach is clear to see: if we want to operate on a car, we don't have to search for both the function and the data that we need. We can see at a glance what you can do with a car merely by looking at the object.
+
+We can use dot-notation to call a method. For instance:
+
+```js
+raceCar.refuel(30);
+```
+
+Note that JavaScript won't stop you from changing the `fuelLevel` property directly instead of calling the `refuel` method. That's a limitation of JavaScript. The OO style strongly discourages changing property values directly. Instead, it encourages using methods to interface with the object. We can see why that is by looking at the implementation for `refuel`. The `fuelLevel` property should be a number that's a fraction of 1. The `refuel` method ensures that it never exceeds that value. If you only use `refuel` to increase the `fuelLevel` of the car, it'll never exceed 1. If you directly access and change `fuelLevel`, though, you may end up violating that restriction.
+
+Compact Method Syntax - omits the `:` and the `function` and uses parenthesis to denote a method.
+
+
+----
 
 JavaScript defines undeclared variables as properties of the global object. Such properties act like global variables though -- you can access them from anywhere in your program.
 
@@ -47,6 +110,56 @@ console.log(Object.prototype.isPrototypeOf(baz)); // true
 ```
 
 ### 1.2 Object Factories / Factory Functions
+
+One way to *automate the creation of objects* is to use the **factory function pattern**. A factory function returns an object with a particular set of methods and properties. The methods remain the same across the objects, while the property values can be customized by providing them as arguments.
+
+Automated object creation is an important process. While it's easy to create a single object, copying and pasting the code to create a related object that is independent of the first is both tedious and error-prone. If you need to create hundreds or thousands of similar objects, you'll soon realize why automating object creation is a vital aspect of programming.
+
+In Object Oriented Programming, we often need to create multiple objects of the same type. Object factory functions provide a straightforward abstraction for object creation. One way to automate object creation is to use **object factories**: functions that create and return objects of a particular type.
+
+One object factory can *reuse another object* factory by mixing the object returned by another factory function into itself by using `Object.assign()`.
+
+Consider the following interface:
+
+```js
+function createCar(make, fuelLevel, engineOn) {
+  return {
+    make: make,
+    fuelLevel: fuelLevel,
+    engineOn: engineOn,
+
+    startEngine() {
+      this.engineOn = true;
+    },
+
+    drive() {
+      this.fuelLevel -= 0.1;
+    },
+
+    stopEngine() {
+      this.engineOn = false;
+    },
+
+    refuel(percent) {
+      if ((this.fuelLevel + (percent / 100)) <= 1) {
+        this.fuelLevel += (percent / 100);
+      } else {
+        this.fuelLevel = 1;
+      }
+    },
+  };
+}
+
+let raceCar1 = createCar('BMW', 0.5, false);
+raceCar1.drive();
+
+let raceCar2 = createCar('Ferrari', 0.7, true);
+raceCar2.drive();
+
+let jaguar = createCar('Jaguar', 0.4, false);
+```
+
+You can see that we've moved the creation of each object into a new function, `createCar`, and that we pass the `make`, `fuelLevel`, and `engineOn` values to that function. In this case, `createCar` handles the similarities, while each invocation specifies the differences with arguments.
 
 ```js
 // Factory Function / Object Factory
@@ -233,13 +346,11 @@ console.log(dog.__proto__ === animal); // true
 
 ## 4. Encapsulation
 
-Encapsulation describes the idea of bundling or combining data and the operations that work on that data into a single entity, e.g., an object.
+**Encapsulation** is the idea of bundling data and operations related to that data in a cohesive unit called an object. In OOP, encapsulation also refers to the idea of restricting access to state and some behavior, but JavaScript objects don't support that type of encapsulation.
 
-Encapsulation is about bundling state (data) and behavior (operations) to form an object.
+In JavaScript, encapsulation is the idea of bundling state (data) and behavior (operations) associated with that data in a single entity; that is, it's the grouping of related properties and methods in a single object.
 
-In JavaScript, encapsulation is the idea of bundling data and operations associated with that data in a single entity; that is, it's the grouping of related properties and methods in a single object.
-
-In most OOP languages, encapsulation has a broader purpose. It also refers to restricting access to the state and certain behaviors; an object only exposes the data and behaviors that other parts of the application need to work. In other words, objects expose a public interface for interacting with other objects and keep their implementation details hidden. Thus, other objects can't change the data of an object without going through the proper interface. Unfortunately, JavaScript doesn't support access restrictions. There are ways to achieve a degree of access restriction, but they're not perfect.
+In most OOP languages, encapsulation has a broader purpose. It also refers to restricting access to the state and certain behaviors; an object only exposes the data and behaviors that other parts of the application need to work. In other words, objects *expose a public interface* for interacting with other objects and keep their implementation details hidden. Thus, other objects can't change the data of an object without going through the proper interface. However, JavaScript does not directly provide the means to limit exposure of properties and methods. There are ways to achieve a degree of access restriction, but they're not perfect.
 
 ## 5. Polymorphism
 
@@ -406,7 +517,9 @@ Prepare the following songs: Electric Slide,Cha-Cha Slide
 
 ## 6. Collaborator Objects
 
-Objects that *help provide state within another object* are called **collaborator objects**, or more simply **collaborators**. Collaboration is all about objects working together in some manner. A collaborator works in conjunction -- in collaboration -- with another object.
+Objects *collaborate* with other objects by using them as part of their **state**. We say that two objects have a **collaborator relationship** *if one of them is part of the state of the other*.
+
+Objects that *help provide state within another object* are called **collaborator objects**, or more simply **collaborators**. Collaboration is all about objects working together in some manner. A collaborator works in conjunction -- in collaboration -- with another object. Collaborator objects let you chop up and modularize the problem domain into cohesive pieces. They play an important role in modeling complicated problem domains in OO programming.
 
 ```js
 let cat = {
@@ -427,10 +540,52 @@ let pete = {
 
   printName() {
     console.log(`My name is ${this.name}!`);
-    console.log(`My pet's name is ${this.pet.name}`);
+    console.log(`My pet's name is ${this.pet.name}`); // line 19
   },
 };
 ```
+
+The `pete` object has a collaborator object stored in its `pet` property. The `pete` object and the object referenced by its `pet` property work together. When we need to access the `pet` object or have it perform a behavior, we can use `pete.pet` to access and use the object's properties. For instance, on line 19, the `pete` object collaborates with the `cat` object (via `this.pet`) to access the `cat`'s name.
+
+Collaborator objects play an important role in object-oriented design; they *represent the connections between the different classes* in your program. When working on an object-oriented program, be sure to consider what collaborators your objects need and whether those associations make sense, both from a technical standpoint and in terms of modeling the problem your program aims to solve.
+
+Let's now develop our program further and change the implementation to let Pete have many pets. How should we implement this? How about an array of `pet` objects?
+
+```js
+let cat = {
+  name: 'Fluffy',
+
+  makeNoise() {
+    console.log('Meow! Meow!');
+  },
+
+  eat() {
+    // implementation
+  },
+};
+
+let dog = {
+  name: 'Maxi',
+
+  makeNoise() {
+    console.log('Woof! Woof!');
+  },
+
+  eat() {
+    // implementation
+  },
+};
+
+let pete = {
+  name: 'Pete',
+  pets: [],
+};
+
+pete.pets.push(cat);
+pete.pets.push(dog);
+```
+
+We often talk of collaborators in the context of custom objects like `pet`, but collaborators don't have to be custom objects. They can be built-in objects like arrays and dates, as well.
 
 ## 7. Single vs Multiple Inheritance
 
@@ -462,6 +617,8 @@ JS120 - Object Oriented JavaScript > Easy > 9. Moving
 
 ## 11. The Global Object
 
+When JavaScript runs a program, it creates an object that is accessible throughout your entire program called the **global object**. In 
+
 `global`
 `window`
 
@@ -469,9 +626,44 @@ JS120 - Object Oriented JavaScript > Easy > 9. Moving
 
 ## 13. Function Execution Context and `this`
 
-The `this` keyword lets us refer to the properties and methods of the object.
+You can *access the properties and methods of an object from within a method* using the `this` keyword.
 
-So, the `this` keyword is basically a dynamic pointer right? whose value depends on where it's being referenced and how. I guess in classical inheritance their equivalent to the this keyword always references the object and it doesn't change. 
+The `this` keyword lets us refer to the properties and methods of the object. Inside the methods, the `this` keyword lets us refer to the properties and other methods of the object.
+
+So, the `this` keyword is basically a dynamic pointer right? whose value depends on where it's being referenced and how. I guess in classical inheritance their equivalent to the `this` keyword always references the object and it doesn't change.
+
+Thus far in our example, we refer to the object from inside the methods by directly using the variable name, `raceCar`. Suppose we change the variable name or pass the object to a function that refers to its arguments by a different name. In that case, calling a method with the original variable name will *throw a reference error*. We need some way to refer to the object that contains a method from other methods in that object. The keyword `this` provides the desired functionality:
+
+```js
+let raceCar = {
+
+  make: 'BMW',
+  fuelLevel: 0.5,
+  engineOn: false,
+
+  startEngine() {
+    this.engineOn = true;
+  },
+
+  drive() {
+    this.fuelLevel -= 0.1;
+  },
+
+  stopEngine() {
+    this.engineOn = false;
+  },
+
+  refuel(percent) {
+    if ((this.fuelLevel + (percent / 100)) <= 1) {
+      this.fuelLevel += (percent / 100);
+    } else {
+      this.fuelLevel = 1;
+    }
+  },
+};
+```
+
+The workings of `this` is one of the most difficult JavaScript concepts to grasp; it's the source of a great deal of confusion. We'll talk about it extensively in the next lesson. For now, you can assume that when you use `this` inside a method, it *refers to the object that contains the method.*
 
 ### 13.2 What is `this`?
 
@@ -492,6 +684,8 @@ The JavaScript `this` keyword refers to the object it belongs to. It has differe
 ## 16. `call`, `apply`, and `bind`
 
 ## 17. `Object.assign` and `Object.create`
+
+One object factory can *reuse another object* factory by mixing the object returned by another factory function into itself by using `Object.assign()`.
 
 ## 18. Built-in Constructors like `Array`, `Object`, `String` and `Number`
 

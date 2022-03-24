@@ -1,10 +1,8 @@
 # 1. Introduction
 
-Object-Oriented Programming (OOP) represents a significant departure from procedural programming, and requires not only an entirely new way of thinking but also requires learning a whole new set of vocabulary and concepts. If this is your first time delving into Object Oriented Programming, this is going to be a challenging course for you. The concepts themselves are relatively easy to pick up, but putting them together to construct an object-oriented program isn't easy.
+~~OOP in JavaScript is a little different than in other "classical" OOP languages, but basic concepts like inheritance and polymorphism cut across languages. Learning these concepts will come in handy when you go on to learn other Object Oriented languages.
 
-As you move forward in your programming journey, a big chunk, perhaps even the majority of the code you'll encounter, is probably written using an OO style. The procedural programming style we met in the previous course is usually used when writing smaller programs. Most larger programs, including most popular libraries and frameworks, use OOP. Building an OOP program from scratch forces that knowledge upon you. You won't be an expert OO programmer after this course, but you'll have hands-on experience with OOP and how to code OO programs in JavaScript. OOP in JavaScript is a little different than in other "classical" OOP languages, but basic concepts like inheritance and polymorphism cut across languages. Learning these concepts will come in handy when you go on to learn other Object Oriented languages.
-
-This lesson begins by guiding you through some basic OO concepts and vocabulary. You'll need this knowledge to build OO programs. Take your time here and work through the exercises.
+This lesson begins by guiding you through some basic OO concepts and vocabulary. You'll need this knowledge to build OO programs. Take your time here and work through the exercises.~~
 
 ## 2. What is OOP?
 
@@ -762,7 +760,7 @@ Nouns: player, move, rule
 Verbs: choose, compare
 ```
 
-### Step 3: Organize and associate the verbs with the nouns
+### Step 3: Organize and associate the verbs with the nouns.
 
 Once we have the nouns and verbs, we must organize them by associating each verb with the noun that performs the action represented by the verb. Since we have so few nouns and verbs, you might think that organizing them should be simple. However, it's not always easy to determine which verb goes with which noun. In our RPS game, for instance, a "Player" can "choose," but "Move" and "Rule" don't currently have any associated verbs. Furthermore, it's not clear which noun should respond to the "compare" verb.
 
