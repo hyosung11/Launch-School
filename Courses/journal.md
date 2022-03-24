@@ -6922,3 +6922,7 @@ console.log(kitty.walk());
 14:26 I've listened to LS Season 4 podcast, did Q&D training, ate lunch and dinked around a bit.
 
 14:54 I have to go get the kids now.
+
+15:49 Check this out [Big list of JS120 interview prep problems from Codewars](https://docs.google.com/document/d/1x4QJBgHNZYKNcVSV0PFZNYFesXk-GlhSUthfLTcmxZ4/edit)
+
+19:54 I'm tired. I heard an interesting conversation with Nick Caldwell of Twitter in Career Karma. Keep my notes here. Second brain stuff. Time to put the kids to bed. I'm going to look at the last question in Object Creation Patterns and then call it a day, I think.

@@ -76,7 +76,7 @@ Doctor.prototype.diagnose = function() {
 // manually reset the property to point back to the appropriate constructor
 Doctor.prototype.constructor = Doctor;
 
-function Professor(firstName, lastName, age, gender) {
+function Professor(firstName, lastName, age, gender, subject) {
   Person.call(this, firstName, lastName, age, gender);
   this.subject = subject;
 }
@@ -86,6 +86,28 @@ Professor.prototype.teach = function() {
   console.log('Teaching');
 }
 Professor.prototype.constructor = Professor;
+
+function Student(firstName, lastName, age, gender, degree) {
+  Person.call(this, firstName, lastName, age, gender);
+  this.degree = degree;
+}
+
+Student.prototype = Object.create(Person.prototype);
+Student.prototype.study = function() {
+  console.log('Studying');
+}
+Student.prototype.constructor = Student;
+
+function GraduateStudent(firstName, lastName, age, gender, degree, graduateDegree) {
+  Student.call(this, firstName, lastName, age, gender, degree);
+  this.graduateDegree = graduateDegree;
+}
+
+GraduateStudent.prototype = Object.create(Student.prototype);
+GraduateStudent.prototype.research = function() {
+  console.log('Researching');
+}
+GraduateStudent.prototype.constructor = GraduateStudent;
 
 // let person = new Person('foo', 'bar', 21, 'gender');
 // console.log(person instanceof Person);     // logs true
@@ -103,22 +125,31 @@ Professor.prototype.constructor = Professor;
 // console.log(doctor.fullName());            // logs 'foo bar'
 // doctor.diagnose();                         // logs 'Diagnosing'
 
-let professor = new Professor('foo', 'bar', 21, 'gender');
+// let professor = new Professor('foo', 'bar', 21, 'gender');
 
-// let graduateStudent = new GraduateStudent('foo', 'bar', 21, 'gender', 'BS Industrial Engineering', 'MS Industrial Engineering');
-// // logs true for next three statements
-// console.log(graduateStudent instanceof Person);
-// console.log(graduateStudent instanceof Student);
-// console.log(graduateStudent instanceof GraduateStudent);
-// graduateStudent.eat();                     // logs 'Eating'
-// graduateStudent.communicate();             // logs 'Communicating'
-// graduateStudent.sleep();                   // logs 'Sleeping'
-// console.log(graduateStudent.fullName());   // logs 'foo bar'
-// graduateStudent.study();                   // logs 'Studying'
-// graduateStudent.research();                // logs 'Researching'
+let graduateStudent = new GraduateStudent('foo', 'bar', 21, 'gender', 'BS Industrial Engineering', 'MS Industrial Engineering');
+// logs true for next three statements
+console.log(graduateStudent instanceof Person);
+console.log(graduateStudent instanceof Student);
+console.log(graduateStudent instanceof GraduateStudent);
+graduateStudent.eat();                     // logs 'Eating'
+graduateStudent.communicate();             // logs 'Communicating'
+graduateStudent.sleep();                   // logs 'Sleeping'
+console.log(graduateStudent.fullName());   // logs 'foo bar'
+graduateStudent.study();                   // logs 'Studying'
+graduateStudent.research();                // logs 'Researching'
 
+/* Discussion
 
+The solution is a bit long, but it's not complicated. The points to note are the following:
 
+- Use of `Function.prototype.call` to have the subclass "inherit" properties from the parent class.
+- Use of `Function.prototype = Object.create(obj)` to "inherit" methods from the parent class.
+- Use of `Function.prototype.constructor` to manually reset the property to point back to the appropriate constructor.
+
+Save your work from this exercise. We'll return to it in another exercise in a later course.
+
+*/
 // create Person class
 // class Person {
 //   constructor(firstName, lastName, age, gender) {
@@ -144,3 +175,71 @@ let professor = new Professor('foo', 'bar', 21, 'gender');
 //     console.log('Sleeping');
 //   }
 // }
+
+class Person {
+  constructor(firstName, lastName, age, gender) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.gender = gender;
+  }
+
+  fullName() {
+    return this.firstName + ' ' + this.lastName;
+  }
+
+  communicate() {
+    console.log('Communicating');
+  }
+
+  eat() {
+    console.log('eating');
+  }
+
+  sleep() {
+    console.log('sleep');
+  }
+}
+
+class Doctor extends Person {
+  constructor(firstName, lastName, age, gender, specialty) {
+    super(firstName, lastName, age, gender);
+    this.specialty = specialty;
+  }
+
+  diagnose() {
+    console.log('Diagnosing');
+  }
+}
+
+class Professor extends Person {
+  constructor(firstName, lastName, age, gender, subject) {
+    super(firstName, lastName, age, gender);
+    this.subject = subject;
+  }
+  teach() {
+    console.log('Teaching');
+  }
+}
+
+class Student extends Person {
+  constructor(firstName, lastName, age, gender, degree) {
+    super(firstName, lastName, age, gender);
+    this.degree = degree;
+  }
+
+  study() {
+    console.log(`I'm studying ${this.degree}`);
+  }
+}
+
+class GraduateStudent extends Student {
+  constructor(firstName, lastName, age, gender, degree, graduateDegree) {
+    super(firstName, lastName, age, gender, degree);
+    this.graduateDegree = graduateDegree;
+  }
+
+  research() {
+    console.log(`I'm researching ${this.graduateDegree}`);
+  }
+}
