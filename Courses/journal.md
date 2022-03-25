@@ -7023,3 +7023,5 @@ Have a great day everyone!!!
 12:42 I should take a break or get to work or do my The Quick and The Dead Training Session.
 
 14:15 I got into a groove revising my study guide. I haven't eaten or done Q&D yet.
+
+18:33 Did some organizing of my study guide and now it's movie night.
