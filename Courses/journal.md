@@ -7006,4 +7006,4 @@ Have a great day everyone!!!
 3. Are there any blockers or impediments preventing you from doing your work?
    * I told Sohee I would find three positions to research and apply to within the week.
 
-
+07:25 Still dumping my notes into my study guide. All is well. I'm tired but I'm okay. I will contact Derek Barker about the Salesforce position.

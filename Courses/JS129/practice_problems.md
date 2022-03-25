@@ -1,4 +1,4 @@
-# JS129 Written Examination Code Snippets
+# JS129 Written Examination Practice Problems
 
 ## 8. Practice Problems: Objects and Factories
 
@@ -951,3 +951,525 @@ Completed on 20220305 at 16:19.
 I decided not to transcribe all the quiz questions into my notes right now. Instead, I'm going to make Anki cards.
 
 End Lesson 2
+
+## Assignment 4. Practice Problems - Factory Functions
+
+### 4.1 What are two disadvantages of working with factory functions?
+
+1. Every object created with a factory function has a full copy of all the methods. That's redundant, and it can place a heavy load on system memory.
+
+2. There is no way to inspect an object and learn whether we created it with a factory function. That effectively makes it impossible to identify the specific "type" of the object; at best, you can only determine that an object has some specific characteristics.
+
+**Solution**
+
+1. Each object created by a factory function has a copy of all methods, which can be redundant and memory intensive.
+
+2. There is no way to tell which factory function created an object, so there's no way to be sure that you're working with the right kind of object.
+
+### 4.2 Rewrite the following code to use the object literal syntax to generate the returned object:
+
+```js
+function makeObj() {
+  let obj = {};
+  obj.propA = 10;
+  obj.propB = 20;
+  return obj;
+}
+```
+
+**Solution**
+
+```js
+function makeObj() {
+  return {
+    propA = 10,
+    propB = 20,
+  }
+}
+```
+
+### 4.3 In this problem and the remaining problems, we'll build a simple invoice processing program. To get you started, here's the code to process a single invoice:
+
+```js
+let invoice = {
+  phone: 3000,
+  internet: 6500
+};
+
+let payment = {
+  phone: 1300,
+  internet: 5500
+};
+
+let invoiceTotal = invoice.phone + invoice.internet;
+let paymentTotal = payment.phone + payment.internet;
+let remainingDue = invoiceTotal - paymentTotal;
+
+console.log(paymentTotal); // => 6800
+console.log(remainingDue); // => 2700
+```
+
+To process multiple invoices, we need a factory method that we can use to create invoices. The requirements for the factory function are as follows:
+
+1. It returns an invoice object, with `phone` and `internet` properties, and a `total` method.
+2. The default value for the phone service is 3000, and the internet service is 5500 (in cents, of course!).
+3. The function takes an object argument whose attributes override the default values.
+
+Your function should work with the following code:
+
+```js
+function createInvoices(services = {}) {
+  // implemented the factory function here
+  let phoneCharge = services.phone;
+  if (phoneCharge === undefined) {
+    phoneCharge = 3000;
+  }
+
+  let internetCharge = services.internet;
+  if (internetCharge === undefined) {
+    internetCharge = 5500;
+  }
+
+  return {
+    phone: phoneCharge,
+    internet: internetCharge,
+
+    total: function() {
+      return this.phone + this.internet;
+    }
+  };
+}
+
+function invoiceTotal(invoices) {
+  let total = 0;
+
+  for (let index = 0; index < invoices.length; index += 1) {
+    total += invoices[index].total();
+  }
+
+  return total;
+}
+
+let invoices =[];
+invoices.push(createInvoice());
+invoices.push(createInvoice({ internet: 6500 }));
+invoices.push(createInvoice({ phone: 2000 }));
+invoices.push(createInvoice( {
+  phone: 1000,
+  internet: 4500,
+}));
+
+console.log(invoiceTotal(invoices)); // 31000
+```
+
+### 4.4 Now we can build a factory function to create payments. The function can take an object argument in one of 3 forms:
+
+1. Payment for one service, e.g., `{ internet: 1000 }` or `{ phone: 1000 }`.
+2. Payment for both services, e.g., `{ internet: 2000, phone: 1000 }`.
+3. Payment with just an amount property, e.g., `{ amount: 2000 }`.
+
+The function should return an object that has the amount paid for each service and a `total` method that returns the payment total. If the `amount` property is not present in the argument, it should return the sum of the phone and internet service charges; if the `amount` property is present, return the value of that property.
+
+Your function should work with the following code:
+
+```js
+function createPayment(services = {}) {
+  // implemented the factory function here
+  let payment = {
+    phone: services.phone || 0,
+    internet: services.internet || 0,
+    amount: services.amount,
+  };
+
+  payment.total = function() {
+    return this.amount || (this.phone + this.internet);
+  };
+
+  return payment;
+}
+
+function paymentTotal(payments) {
+  return payments.reduce((sum, payment)  => sum + payment.total(), 0);
+}
+
+let payments = [];
+payments.push(createPayment());
+payments.push(createPayment({
+  internet: 6500,
+}));
+
+payments.push(createPayment({
+  phone: 2000,
+}));
+
+payments.push(createPayment({
+  phone: 1000,
+  internet: 4500,
+}));
+
+payments.push(createPayment({
+  amount: 10000,
+}));
+
+console.log(paymentTotal(payments)); // => 24000
+```
+
+### 4.5 Update the `createInvoice` function so that it can add payment(s) to invoices. Use the following code as a guideline:
+
+```js
+let invoice = createInvoice({
+  phone: 1200,
+  internet: 4000,
+});
+
+let payment1 = createPayment({ amount: 2000 });
+let payment2 = createPayment({
+  phone: 1000,
+  internet: 1200
+});
+
+let payment3 = createPayment({ phone: 1000 });
+
+invoice.addPayment(payment1);
+invoice.addPayments([payment2, payment3]);
+invoice.amountDue(); // this should return 0
+
+function createInvoice(services = {}) {
+  let phoneCharge = services.phone;
+  if (phoneCharge === undefined) {
+    phoneCharge = 3000;
+  }
+
+  let internetCharge = services.internet;
+  if (internetCharge === undefined) {
+    internetCharge = 5500;
+  }
+
+  return {
+    phone: phoneCharge,
+    internet: internetCharge,
+    payments: [];
+
+    total: function() {
+      return this.phone + this.internet;
+    },
+
+    addPayment: function(payment) {
+      this.payments.push(payment);
+    },
+
+    addPayments: function(payments) {
+      payments.forEach(this.addPayment, this);
+    },
+
+    paymentTotal: function() {
+      return this.payments.reduce((sum, payment) => sum + payment.total(), 0);
+    },
+
+    amountDue: function() {
+      return this.total() - this.paymentTotal();
+    },
+  }'
+}
+```
+
+### 5.7 Problems
+
+#### 5.7.1 What naming convention separates constructor functions from other functions?
+
+Constructor function names are capitalized.
+
+#### 5.7.2 What happens if you run the following code? Why?
+
+```js
+function Lizard() {
+  this.scamper = function() {
+    console.log("I'm scampering!");
+  };
+}
+
+let lizzy = Lizard();
+lizzy.scamper(); // ?
+```
+
+Solution:
+
+This code throws a `TypeError` since `scamper` is an undefined property on `lizzy`. Since `Lizard` was invoked without the `new` operator and it doesn't have an explicit return value, the return value is `undefined`. Thus, `lizzy` gets assigned to `undefined` which causes the call to `scamper` to throw an error: you can't call a method on `undefined`.
+
+#### 5.7.3 Alter the code in problem 2 so that it produces the desired output: I'm scampering!.
+
+```js
+function Lizard() {
+  this.scamper = function() {
+    console.log("I'm scampering!");
+  };
+}
+
+let lizzy = new Lizard();
+lizzy.scamper();
+```
+
+## 7. Practice Problems - Constructors and Prototypes
+
+### 7.1 What does the following code log to the console? Try to answer without running the code. Can you explain why the code produces the output it does?
+
+```js
+let RECTANGLE = {
+  area: function() {
+    return this.width * this.height;
+  },
+
+  perimeter: function() {
+    return 2 * (this.width + this.height);
+  },
+};
+
+function Rectangle (width, height) {
+  this.width = width;
+  this.height = height;
+  this.area = RECTANGLE.area();
+  this.perimeter = RECTANGLE.perimeter();
+}
+
+let rect1 = new Rectangle(2, 3);
+
+console.log(rect1.area); // => ?
+console.log(rect1.perimeter); // =?
+```
+
+**Solution:**
+
+```sh
+NaN
+NaN
+```
+
+The value of `this` within the `RECTANGLE.area` and `RECTANGLE.perimeter` methods gets set to the `RECTANGLE` object when they are called. Since `RECTANGLE` doesn't define `width` and `height` properties, the property accesses both return `undefined`. Since mathematical operations on `undefined` produce a value of `NaN`, the return value of the methods is `NaN`.
+
+### 7.2 How would you fix the problem in the code from problem 1?
+
+```js
+let RECTANGLE = {
+  area: function() {
+    return this.width * this.height;
+  },
+  perimeter: function() {
+    return 2 * (this.width + this.height);
+  }
+};
+
+function Rectangle(width, height) {
+  this.width = width;
+  this.height = height;
+  this.area = RECTANGLE.area.call(this); // <--
+  this.perimeter = RECTANGLE.perimeter.call(this); // <--
+}
+
+let rect1 = new Rectangle(2, 3);
+
+console.log(rect1.area);      // => 6
+console.log(rect1.perimeter); // => 10
+```
+
+### 7.3 Write a constructor function called `Circle` that takes a radius as an argument. You should be able to call an `area` method on any objects created by the constructor to get the circle's area. Test your implementation with the following code:
+
+```js
+// constructor function
+const Circle = function(radius) {
+  this.radius = radius;
+};
+
+// prototype
+Circle.prototype.area = function() {
+  return Math.PI * this.radius * this.radius;
+};
+
+// given code
+let a = new Circle(3);
+let b = new Circle(4);
+
+a.area().toFixed(2); // => 28.27
+b.area().toFixed(2); // => 50.27
+a.hasOwnProperty('area'); // => false
+```
+
+### 7.4 What will the following code log to the console and why?
+
+```js
+function Ninja() {
+  this.swung = true;
+}
+
+let ninja = new Ninja();
+
+Ninja.prototype.swingSword = function() {
+  return this.swung;
+};
+
+console.log(ninja.swingSword());
+```
+
+**Solution**
+
+```sh
+true
+```
+
+Even though we define the `swingSword` method on the prototype after we create the `ninja`, all objects created by the `Ninja` constructor *share the same prototype object*. Thus, when we define `swingSword`, it immediately becomes available to the `ninja` object.
+
+### 7.5 What will the following code output and why? Try to answer without running the code.
+
+```js
+function Ninja() {
+  this.swung = true;
+}
+
+let ninja = new Ninja();
+
+Ninja.prototype = {
+  swingSword: function() {
+    return this.swung;
+  },
+};
+
+console.log(ninja.swingSword());
+```
+
+**Solution**
+
+```sh
+Uncaught TypeError: ninja.swingSword is not a function
+```
+
+Despite the similarities to the code in the previous question, this code doesn't work the same way. That's because we're reassigning `Ninja.prototype` to an entirely new object instead of mutating the original prototype object. The prototype for the `ninja` object doesn't change; it's still the original prototype defined during the constructor's invocation. Thus, JavaScript can't find the `swingSword` method in the prototype chain of `ninja`.
+
+### 7.6 Implement the method described in the comments below:
+
+```js
+function Ninja() {
+  this.swung = false;
+}
+
+// Add a swing method to the Ninja prototype which
+// modifies `swung` and returns the calling object
+Ninja.prototype.swing = function() {
+  this.swung = true;
+  return this;
+}
+
+let ninjaA = new Ninja();
+let ninjaB = new Ninja();
+
+console.log(ninjaA.swing().swung);      // logs `true`
+console.log(ninjaB.swing().swung);      // logs `true`
+```
+
+This pattern of "chainable" methods invocations and property accesses on an object requires that methods defined on the prototype always return the context object (in this case, ninjaA and ninjaB).
+
+### 7.7 In this problem, we'll ask you to create a new instance of an object, without having direct access to the constructor function:
+
+```js
+let ninjaA;
+
+{
+  const Ninja = function() {
+    this.swung = false;
+  };
+
+  ninjaA = new Ninja();
+}
+
+// create a `ninjaB` object here; don't change anything else
+let ninjaB = new ninjaA.constructor(); // <-- solution
+
+
+ninjaA.constructor === ninjaB.constructor // => true
+```
+
+Hint:
+
+The value assigned to `ninjaA` is an object created by a constructor function. As such, this object has a `constructor` property that points back to its constructor. Think of a way to use this property; that should help lead you to a solution.
+
+**Solution**
+
+```js
+let ninjaB = new ninjaA.constructor();
+```
+
+Does your answer use `Object.create()` instead?
+
+```js
+let ninjaB = Object.create(ninjaA);
+```
+
+This code works as well, but there is a flaw: it puts the `swung` property in the prototype object instead of in the `ninjaB` object where it belongs. Thus, `ninjaA` and `ninjaB` are somewhat different objects:
+
+```sh
+ninjaA:
+  swung: false
+  constructor: Ninja
+  prototye: {}
+
+ninjaB:
+  constructor: Ninja
+  prototye: {
+    swung: false
+  }
+```
+
+### 7.8 Since a constructor is just a function, you can call it without the `new` operator. However, that can lead to unexpected results and errors, especially for inexperienced programmers. Write a constructor function that you can use with or without the `new` operator. The function should return the same result with either form. Use the code below to check your solution:
+
+```js
+function User(first, last) {
+  // ...
+}
+
+let name = 'Jane Doe';
+let user1 = new User('John', 'Doe');
+let user2 = User('John', 'Doe');
+
+console.log(name);         // => Jane Doe
+console.log(user1.name);   // => John Doe
+console.log(user2.name);   // => John Doe
+```
+
+Hint:
+
+In the constructor function, check the value of `this` to see whether it is an instance created by the constructor function. If it is, then the function was called with the `new` operator; otherwise, the function was called without `new`. You can use this in your code; if you determine that `new` wasn't used, then you can have the constructor call itself with the `new` keyword and use its return value.
+
+**Solution**
+
+```js
+function User(first, last){
+  if (!(this instanceof User)) {
+    return new User(first, last);
+  }
+
+  this.name = first + ' ' + last;
+}
+
+let name = 'Jane Doe';
+let user1 = new User('John', 'Doe');
+let user2 = User('John', 'Doe');
+
+console.log(name);         // => Jane Doe
+console.log(user1.name);   // => John Doe
+console.log(user2.name);   // => John Doe
+```
+
+Constructor functions built this way are called **scope-safe constructors**. Most, but not all, of JavaScript's built-in constructors, such as `Object`, `RegExp`, and `Array`, are scope-safe. `String` is not:
+
+```js
+new Object();          // Object {}
+Object();              // Object {}
+
+new Array(1, 2, 3);    // [1, 2, 3]
+Array(1, 2, 3);        // [1, 2, 3]
+
+new String("abc");     // [String: 'abc']
+String("abc");         // 'abc'
+```
+
+End 7. Practice Problems - Constructors and Prototypes 20220308 17:16
+
+I definitely need to review these practice problems again.
