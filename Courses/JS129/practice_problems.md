@@ -1523,3 +1523,397 @@ Submitted at: 2 minutes ago
 Time taken: 0.26 hour(s)
 Score: 6/13 (46.15%)
 
+## Lesson 4 > Assignment 3. Practice Problems: Object Creation with Prototypes
+
+### 3.1 Use a factory function to create pet objects. The factory should let us create and use pets like this:
+
+```js
+function createPet(animal, name) {
+  return {
+    animal: animal, // animal,
+    name: name, // name,
+
+    sleep: function() { // sleep()
+      console.log("I am sleeping");
+    },
+
+    wake: function() { // wake()
+      console.log("I am awake");
+    },
+  };
+}
+
+let pudding = createPet("Cat", "Pudding");
+console.log(`I am a ${pudding.animal}. My name is ${pudding.name}.`);
+pudding.sleep(); // I am sleeping
+pudding.wake(); // I am awake
+
+let neptune = createPet("Fish", "Neptune");
+console.log(`I am a ${neptune.animal}. My name is ${neptune.name}`);
+neptune.sleep(); // I am sleeping
+neptune.wake(); // I am awake
+```
+
+### 3.2 Use the OLOO pattern to create an object prototype that we can use to create pet objects. The prototype should let us create and use pets like this:
+
+```js
+const PetPrototype = {
+  init(animal, name) {
+    this.animal = animal;
+    this.name = name;
+    return this;
+  },
+
+  sleep: function() {
+    console.log("I am sleeping");
+  },
+
+  wake: function() {
+    console.log("I am awake");
+  },
+};
+
+let pudding = Object.create(PetPrototype).init("Cat", "Pudding");
+console.log(`I am a ${pudding.animal}. My name is ${pudding.name}`);
+pudding.sleep(); // I am sleeping
+pudding.wake(); // I am awake
+
+let neptune = Object.create(PetPrototype).init("Fish", "Neptune");
+console.log(`I am a ${neptune.animal}. My name is ${neptune.name}.`);
+neptune.sleep(); // I am sleeping
+neptune.wake();  // I am awake
+```
+
+### 3.3 Consider the objects created by the programs in problems 1 and 2. How do objects for the same animal differ from each other?
+
+Objects created with the OLOO have a prototype object that contains the methods associated with the created objects. Since all pets created from the prototype share a single prototype object, they all share the same methods. With the factory function, each object has a copy of all the methods. Thus, objects created by OLOO are more efficient in terms of memory use.
+
+Objects created with the factory function can have private state. Any state stored in the body of the factory function instead of in the returned object is private to the returned object. They can't be accessed or modified unless one of the object methods exposes the state. With OLOO, there is no way to define private state. All object state can be accessed and modified by outside code.
+
+### Lesson 4: Subclassing and Code Reuse Patterns > Practice Problems
+
+Consider the following code:
+
+```js
+function Greeting() {}
+
+Greeting.prototype.greet = function(message) {
+  console.log(message);
+};
+
+function Hello() {}
+
+Hello.prototype = Object.create(Greeting.prototype);
+
+Hello.prototype.hi = function() {
+  this.greet('Hello');
+};
+
+function Goodbye() {}
+
+Goodbye.prototype = Object.create(Greeting.prototype);
+
+Goodbye.prototype.bye = function() {
+  this.greet('Goodbye');
+};
+```
+
+What happens in each of the following cases? Try to answer without running the code.
+
+**Case 1**
+
+```js
+let hello = new Hello();
+hello.hi(); // Hello!
+```
+
+**Case 2**
+
+```js
+let hello = new Hello();
+hello.bye(); // TypeError: hello.bye is not a function
+```
+
+**Case 3**
+
+```js
+let hello = new Hello();
+hello.greet(); // undefined
+```
+
+**Case 4**
+
+```js
+let hello = new Hello();
+hello.greet('Goodbye'); // Goodbye
+```
+
+**Case 5**
+
+```js
+Hello.hi(); // TypeError: Hello.hi is not a function
+```
+
+**Solution**
+
+**Case 1** This code logs `Hello!` to the console.
+
+**Case 2** This code raises a `TypeError`. Neither `Hello.prototype` nor its prototype, `Greeting.prototype`, have a `bye` method defined.
+
+**Case 3** This code logs `undefined` to the console. Since `Hello` inherits from `Greeting`, the `hello` object has access to `greet`. However, `greet` takes an argument, which isn't supplied by this code.
+
+**Case 4** This code logs `Goodbye` to the console.
+
+**Case 5** This code also raises a `TypeError`. The `hi` method is defined on `Hello.prototype`, not on the `Hello` constructor itself. Thus, only instances of `Hello` have access to `hi`.
+
+## Lesson 4 > Assignment 6. Practice Problems: Subtyping with Classes
+
+### 6.1 Suppose we have the following classes:
+
+```js
+class Game {
+  play() {
+    return 'Start the game!';
+  }
+}
+
+class Bingo extends Game {
+  rulesOfPlay() {
+    // rules of play
+  }
+}
+```
+
+What would happen if we added a `play` method to the `Bingo` class, keeping in mind that there is already a method of this name in the `Game` class from which the `Bingo` class inherits? Explain your answer. What do we call it when we define a method like this?
+
+**Solution**
+
+If we add a new `play` method to the `Bingo` class, objects created by `Bingo` will use that method instead of looking up the prototype chain and finding it in the `Game` class. As soon as JavaScript finds a method, it calls it. When a class redefines a method that a superclass defines, we call this "method overriding".
+
+### 6.2 Let's practice creating a class hierarchy.
+
+Create a class named `Greeting` that has a single method named `greet`. The method should take a string argument, and it should print that argument to the console.
+
+Now, create two more classes that inherit from `Greeting`: one named `Hello`, and the other `Goodbye`. The `Hello` class should have a `hi` method that takes no arguments and logs `"Hello"`. The `Goodbye` class should have a `bye` method that logs `"Goodbye"`. Use the `greet` method from the `Greeting` class when implementing `Hello` and `Goodbye`; don't call `console.log` from either `Hello` or `Goodbye`.
+
+```js
+class Greeting {
+  greet(message) {
+    console.log(message);
+  }
+}
+
+class Hello {
+  hi() {
+    this.greet('Hello');
+  }
+}
+
+
+class Goodbye {
+  bye() {
+    this.greet('Goodbye')
+  }
+}
+```
+
+### Lesson 4 > Code Reuse with Mixins > Practice Problems
+
+### 8.4.1 If we have a `Car` class and a `Truck` class, how can you use the `Speed` object as a mix-in to make them `goFast`? How can you check whether your `Car` or `Truck` can now go fast?
+
+```js
+const Speed = {
+  goFast() {
+    console.log(`I'm a ${this.constructor.name} and going super fast!`);
+  }
+};
+
+class Car {
+  goSlow() {
+    console.log(`I'm safe and driving slow.`);
+  }
+}
+
+Object.assign(Car.prototype, Speed);
+
+class Truck {
+  goVerySlow() {
+    console.log(`I'm a heavy truck and like going very slow.`);
+  }
+}
+
+Object.assign(Truck.prototype.Speed);
+```
+
+**Solution**
+
+```js
+const Speed = {
+  goFast() {
+    console.log(`I'm a ${this.constructor.name} and going super fast!`);
+  }
+};
+
+class Car {
+  goSlow() {
+    console.log(`I'm safe and driving slow.`);
+  }
+}
+
+Object.assign(Car.prototype, Speed); // <--
+
+class Truck {
+  goVerySlow() {
+    console.log(`I'm a heavy truck and like going very slow.`);
+  }
+}
+
+Object.assign(Truck.prototype, Speed); // <--
+```
+
+Testing that we can make our cars and trucks go fast is simple; all we must do is call `goFast` on a car or truck object:
+
+```js
+let blueTruck = new Truck();
+blueTruck.goFast(); // => logs "I'm a Truck and going super fast!"
+
+let smallCar = new Car();
+smallCar.goFast(); // => logs "I'm a Car and going super fast!"
+```
+
+If you need to check whether an object responds to a specific method, you can use the `in` operator:
+
+```js
+'goFast' in smallCar; // => true
+'goFast' in blueTruck; // => true
+```
+
+### 8.4.2
+
+In the last question, we used a mix-in named `Speed` that contained a `goFast` method. We included the mix-in in the `Car` class and then called the `goFast` method from an instance of the `Car` class. You may have noticed that the string printed when we call `goFast` includes the name of the type of vehicle we are using. How is that done?
+
+**Hint**
+
+Since the `constructor` property references a function object, `constructor.name` references the `name` property on that object. Use MDN to lookup the definition of `Function.name`.
+
+`Function.name`
+
+A `Function` object's read-only `name` property indicates the function's name as specified when it was created, or it may be either `anonymous` or `''` (an empty string) for functions created anonymously.
+
+**Solution**
+
+We used `this.constructor.name` to determine the name. It works like this:
+
+1. Within `goFast`, `this` refers to the object that invoked the method. In this case, we used `Car` and `Truck` objects.
+2. The `constructor` property of an object references the class that the object belongs to, i.e., `Car` or `Truck`.
+3. Constructors have a `name` property that merely contains the name of the class as a string, and that's what we output in `goFast`.
+
+### 8.4.3 Ben and Alyssa are working on a vehicle management system. Thus far, they have created classes named `Auto` and `Motorcycle` to represent automobiles and motorcycles. After they noticed that the information and calculations performed was common to both vehicle types, they decided to break out the commonality into a separate class named `WheeledVehicle`. Their code, thus far, looks like this:
+
+```js
+class WheeledVehicle {
+  constructor(tirePressure, kmTravelledPerLiter, fuelCapInLiter) {
+    this.tires = tirePressure;
+    this.fuelEfficiency = kmTravelledPerLiter;
+    this.fuelCap = fuelCapInLiter;
+  }
+
+  tirePressure(tireIdx) {
+    return this.tires[tireIdx];
+  }
+
+  inflateTire(tireIdx, pressure) {
+    this.tires[tireIdx] = pressure;
+  }
+
+  range() {
+    return this.fuelCap *  this.fuelEfficiency;
+  }
+}
+
+class Auto extends WheeledVehicle {
+  constructor() {
+    // the array represents tire pressure for four tires
+    super([30,30,32,32], 50, 25.0);
+  }
+}
+
+class Motorcycle extends WheeledVehicle {
+  constructor() {
+    // array represents tire pressure for two tires
+    super([20,20], 80, 8.0);
+  }
+}
+```
+
+Their boss now wants them to incorporate a new type of vehicle: a `Catamaran`.
+
+```js
+class Catamaran {
+  constructor(propellerCount, hullCount, kmTravelledPerLiter, fuelCapInLiter) {
+    // catamaran specific logic
+
+    this.propellerCount = propellerCount;
+    this.hullCount = hullCount;
+  }
+}
+```
+
+This new class doesn't fit well with our existing class hierarchy: Catamarans don't have tires, and aren't wheeled vehicles. However, we still want to share the code for tracking fuel efficiency and range. Modify the class definitions and move code into a mix-in, as needed, to share code between the `Catamaran` and the wheeled vehicle classes.
+
+**Solution**
+
+```js
+const Moveable = {
+  range() {
+    return this.fuelCap * this.fuelEfficiency;
+  }
+};
+
+class WheeledVehicle {
+  constructor(tirePressure, kmTravelledPerLiter, fuelCapInLiter) {
+    this.tires = tirePressure;
+    this.fuelEfficiency = kmTravelledPerLiter;
+    this.fuelCap = fuelCapInLiter;
+  }
+
+  tirePressure(tireIdx) {
+    return this.tires[tireIdx];
+  }
+
+  inflateTire(tireIdx, pressure) {
+    this.tires[tireIdx] = pressure;
+  }
+}
+
+Object.assign(WheeledVehicle.prototype, Moveable);
+
+class Auto extends WheeledVehicle {
+  constructor() {
+    // the array represents tire pressure for four tires
+    super([30,30,32,32], 50, 25.0);
+  }
+}
+
+class Motorcycle extends WheeledVehicle {
+  constructor() {
+    // array represents tire pressure for two tires
+    super([20,20], 80, 8.0);
+  }
+}
+
+class Catamaran {
+  constructor(propellerCount, hullCount, kmTravelledPerLiter, fuelCapInLiter) {
+    // catamaran specific logic
+
+    this.propellerCount = propellerCount;
+    this.hullCount = hullCount;
+    this.fuelEfficiency = kmTravelledPerLiter;
+    this.fuelCap = fuelCapInLiter;
+  }
+}
+
+Object.assign(Catamaran.prototype, Moveable);
+```
+
+We've moved the code shared by `Catamaran` and `WheeledVehicles` to the `Moveable` mix-in. The definitions of `Auto` and `Motorcycle` remain unchanged since they both inherit from `WheeledVehicle`.

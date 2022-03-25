@@ -7013,3 +7013,11 @@ Have a great day everyone!!!
 08:50 Stay focused and finish my notes dump into my study guide.
 
 10:49 I needed to take a break and left the study session with Laurent and Michael. I like open book and open mind.
+
+10:59 Time to dump my Lesson 4 notes into my study guide.
+
+11:34 I finished my notes dump and now I need to edit my study guide.
+
+11:45 Time to organize my study guide.
+
+12:42 I should take a break or get to work or do my The Quick and The Dead Training Session.
