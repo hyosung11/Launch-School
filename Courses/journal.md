@@ -7007,3 +7007,5 @@ Have a great day everyone!!!
    * I told Sohee I would find three positions to research and apply to within the week.
 
 07:25 Still dumping my notes into my study guide. All is well. I'm tired but I'm okay. I will contact Derek Barker about the Salesforce position.
+
+08:03 Finished dumping Lesson 3 notes into my study guide. Now time for breakfast with the kids.

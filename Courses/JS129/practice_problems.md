@@ -1473,3 +1473,53 @@ String("abc");         // 'abc'
 End 7. Practice Problems - Constructors and Prototypes 20220308 17:16
 
 I definitely need to review these practice problems again.
+
+## Assignment 11. Practice Problems - Classes
+
+### 11.1 What do we mean when we say that classes are first-class values?
+
+**Solution**
+
+We can treat JavaScript classes like any other JavaScript value. They can be passed around to functions, returned from functions, assigned to variables, and used anywhere a value is expected.
+
+### 11.2 Consider the following class declaration:
+
+```js
+class Television {
+  static manufacturer() {
+    // omitted code
+  }
+
+  model() {
+    // method logic
+  }
+}
+```
+
+What does the `static` modifier do? How would we call the method `manufacturer`?
+
+**Solution**
+
+The `static` modifier, when used with a method declaration, marks the method as static. That is, the method is defined directly on the class, not on the objects the class creates. We use it like this:
+
+```js
+Television.manufacturer();
+```
+
+The `model` method, on the other hand, is an instance method and must be called by an instance object:
+
+```js
+let tv = new Television();
+tv.model();
+```
+
+
+
+## Assignment 13 Quiz 1
+
+Assignment:Lesson 3 Quiz 1
+Student Name: HyoSung Bidol-Lee
+Submitted at: 2 minutes ago
+Time taken: 0.26 hour(s)
+Score: 6/13 (46.15%)
+
