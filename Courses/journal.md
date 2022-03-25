@@ -6997,7 +6997,7 @@ Have a great day everyone!!!
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [x] 2. Study Session with Laurent and Michael
-   * [ ] 3. Work on Study Guide - Lesson 3 and 4 notes into file and annotated into study guide
+   * [x] 3. Work on Study Guide - Lesson 3 and 4 notes into file and annotated into study guide
    * [ ] 4. Anki Cards Review
    * [ ] 5. Read *The Coding Career Handbook*, Chapter 34: Lampshading
    * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
@@ -7021,3 +7021,5 @@ Have a great day everyone!!!
 11:45 Time to organize my study guide.
 
 12:42 I should take a break or get to work or do my The Quick and The Dead Training Session.
+
+14:15 I got into a groove revising my study guide. I haven't eaten or done Q&D yet.
