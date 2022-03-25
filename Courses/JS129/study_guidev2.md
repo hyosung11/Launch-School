@@ -270,11 +270,11 @@ let rectangle = createRectangle(4, 5);
 // console.log(rectangle.getArea()); // 20
 ```
 
-## 1.3 Constructors and Prototypes
+### 1.3 Constructors and Prototypes
 
-### Object Constructors / Constructors
+#### 1.3.1 Object Constructors / Constructors
 
-**Object constructors**, or **constructors** are another way to create objects in JavaScript. You can think of a constructor as a little factory that can create an endless number of objects of the same type. If that sounds a bit like a factory function, that's okay -- there are some differences, but the basic idea is the same. Superficially, a constructor looks and acts a lot like a factory function: you define a constructor once then invoke it each time you want to create an object of that type. As we'll see soon, though, there's a little extra that goes into a constructor.
+**Object constructors**, or **constructors** are another way to create objects in JavaScript.  Superficially, a constructor looks and acts a lot like a factory function: you define a constructor once then invoke it each time you want to create an object of that type. As we'll see soon, though, there's a little extra that goes into a constructor.
 
 Constructor functions are meant to be invoked with the `new` operator. They instantiate a new object behind the scenes and let the developer manipulate it through the `this` keyword. A typical constructor uses the following pattern:
 
@@ -284,17 +284,15 @@ Constructor functions are meant to be invoked with the `new` operator. They inst
 4. The code in the function body is executed.
 5. The function returns the object referenced by `this` unless the function returns an explicit object.
 
-### Prototypes
+#### 1.3.2 Prototypes
 
 Every function has a `prototype` property that points to an object that contains a `constructor` property. The `constructor` property points back to the function itself. Thus, if `Kumquat` is a construction function, then `Kumquat.prototype.constructor === Kumquat`.
 
 If the function is used as a constructor, the returned object's `[[Prototype]]` will reference the constructor's `prototype` property. That lets us set properties on the constructor's prototype object so that all objects created by the constructor will share them. We call this the **pseudo-classical** pattern of object creation.
 
-We don't just want *a* car, however. We want a mechanism that creates any car that has those properties and methods. To do that, we can use a factory function to create individual cars:
+#### 1.3.3. Example
 
-This factory function creates new cars of any make, model, or year, and ensures that the engines are initially off.
-
-Another way to accomplish the same thing is to use a constructor function and the `new` keyword:
+We don't just want *a* car, however. We want a mechanism that creates any car that has those properties and methods. To do that, we can use a factory function to create individual cars. Another way to accomplish the same thing is to use a constructor function and the `new` keyword:
 
 ```js
 function Car(make, model, year) {
@@ -320,6 +318,123 @@ let nova = new Car('Chevrolet', 'Nova', 1974);
 Defining a constructor is nearly identical to defining an ordinary function, but there are differences. For starters, notice that *we gave the constructor a name that begins with a capital letter*: `Car`. Capitalizing the name isn't a language requirement, but it is a convention employed by most JavaScript developers.
 
 The function parameters, in general, match the properties associated with each `Car` object. In this case, we supply parameters for all of the properties except `started`, which receives an initial value instead. *The initial value for such properties can come from anywhere.* For instance, we can compute the value from other properties or retrieve a value from a database.
+
+#### 1.3.4 Calling a Constructor Function
+
+The most striking features that distinguish **constructors** from ordinary functions are that:
+
+- we call it with the `new` keyword,
+- we use `this` to set the object's properties and methods, and
+- we *don't supply an explicit return value* (we can, but usually don't).
+
+By now, we know that `this` always refers to an object. Its value depends on how we call the function. Calling constructors is where you see the most significant difference between them and other functions.
+
+Let's create a `Car` object:
+
+```js
+function Car(make, model, year) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+  this.started = false;
+
+  this.start = function() {
+    this.started = true;
+  };
+
+  this.stop = function() {
+    this.started = false;
+  };
+}
+
+let corolla = new Car('Toyota', 'Corolla', 2016);
+
+corolla.make;    // => 'Toyota'
+corolla.model;   // => 'Corolla'
+corolla.year;    // => 2016
+corolla.started; // => false
+
+corolla.start();
+corolla.started; // => true
+```
+
+Notice that the `new` keyword precedes the function invocation. This combination of using `new` with a function call *treats the function as a constructor*.
+
+JavaScript takes the following steps when you invoke a function with `new`:
+
+1. It creates an entirely new object.
+2. It sets the prototype of the new object to the object that is referenced by the constructor's `prototype` property.
+3. It sets the value of `this` for use inside the function to point to the new object.
+4. It invokes the function. Since `this` refers to the new object, we use it within the function to set the object's properties and methods.
+5. Finally, once the function finishes running, `new` returns the new object even though we don't explicitly return anything.
+
+We can now use the new object in any manner appropriate for a `Car` object.
+
+**JavaScript won't complain about a missing `new` keyword.**
+
+```js
+Car(); // => undefined
+```
+
+If you don't use the `new` keyword, the constructor function won't work as intended. Instead, it acts like an ordinary function. In particular, no new objects are created, so `this` won't point to a new object.
+
+Furthermore, since functions that don't return an explicit value return `undefined`, calling a constructor without `new` also returns `undefined`. When you use `new`, however, the function doesn't have to return anything explicitly: it returns the newly created object automatically.
+
+#### 1.3.5 Who Can be a Constructor
+
+You can use `new` to call almost any JavaScript function that you create. However, *you cannot call arrow functions with `new`* since they use their surrounding context as the value of `this`:
+
+```js
+let Car = (make, model, year) => {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+}
+
+new Car(); // TypeError: Car is not a constructor
+```
+
+You *can also use* `new` on methods that you define in objects. Consider:
+
+```js
+let foo = {
+  Car: function(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
+};
+
+let car1 = new foo.Car('Toyota', 'Camry', 2019);
+car1.make; //=> 'Toyota'
+```
+
+However, *calling a method defined with concise syntax* (also called a concise method) *won't work*:
+
+```js
+let foo = {
+  Car(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
+};
+
+new foo.Car(); //=> Uncaught TypeError: foo.Car is not a constructor
+```
+
+In addition, many -- but not all -- built-in objects and methods are *incompatible* with `new`:
+
+```js
+
+new console.log(); //=> Uncaught TypeError: console.log is not a constructor
+new Math();        //=> Uncaught TypeError: Math is not a constructor
+new parseInt("3"); //=> Uncaught TypeError: parseInt is not a constructor
+
+new Date();        //=> 2019-06-26T02:50:20.191Z
+```
+
+RR
 
 ## Extracted NOTES
 

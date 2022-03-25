@@ -33,129 +33,14 @@
 ## 1. Objects, Object Factories (Factory Functions), Constructors and Prototypes, OLOO, and ES6 Classes
 
 ### 1.1 Objects
-### 1.1.2 Property Access
-
-### 1.1.3 Property Existence
 
 ### 1.2 Object Factories / Factory Function
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Factory Functions
 
 ### 1.3 Constructors and Prototypes
 
 #### 1.3.1 Calling a Constructor Function
 
-The most striking features that distinguish constructors from ordinary functions are that:
-
-- we call it with the `new` keyword,
-- we use `this` to set the object's properties and methods, and
-- we *don't supply an explicit return value* (we can, but usually don't).
-
-By now, we know that `this` always refers to an object. Which object does it refer to in this function? Of course, we already know the answer to that question: its value depends on how we call the function. Calling constructors is where you see the most significant difference between them and other functions.
-
-Let's create a `Car` object:
-
-```js
-let corolla = new Car('Toyota', 'Corolla', 2016);
-
-corolla.make;    // => 'Toyota'
-corolla.model;   // => 'Corolla'
-corolla.year;    // => 2016
-corolla.started; // => false
-
-corolla.start();
-corolla.started; // => true
-```
-
-Notice that the `new` keyword precedes the function invocation. This combination of using `new` with a function call treats the function as a constructor.
-
-How does that code work, then? What's so different about using the `new` keyword to invoke the function? JavaScript takes the following steps when you invoke a function with `new`:
-
-1. It creates an entirely new object.
-2. It sets the prototype of the new object to the object that is referenced by the constructor's `prototype` property. We'll discuss this in a later assignment. We mention it now for completeness.
-3. It sets the value of `this` for use inside the function to point to the new object.
-4. It invokes the function. Since `this` refers to the new object, we use it within the function to set the object's properties and methods.
-5. Finally, once the function finishes running, `new` returns the new object even though we don't explicitly return anything.
-
-We can now use the new object in any manner appropriate for a Car object.
-
-**JavaScript won't complain about a missing `new` keyword.**
-
-```js
-Car(); // => undefined
-```
-
-If you don't use the `new` keyword, the constructor function won't work as intended. Instead, it acts like an ordinary function. In particular, no new objects are created, so `this` won't point to a new object.
-
-Furthermore, since functions that don't return an explicit value return `undefined`, calling a constructor without `new` also returns `undefined`. When you use `new`, however, the function doesn't have to return anything explicitly: it returns the newly created object automatically.
-
 #### 1.3.2 Who Can be a Constructor
-
-You can use `new` to call almost any JavaScript function that you create. However, *you cannot call arrow functions with `new`* since they use their surrounding context as the value of `this`:
-
-```js
-let Car = (make, model, year) => {
-  this.make = make;
-  this.model = model;
-  this.year = year;
-}
-
-new Car(); // TypeError: Car is not a constructor
-```
-
-You can also use `new` on methods that you define in objects. Consider:
-
-```js
-let foo = {
-  Car: function(make, model, year) {
-    this.make = make;
-    this.model = model;
-    this.year = year;
-  }
-};
-
-let car1 = new foo.Car('Toyota', 'Camry', 2019);
-car1.make; //=> 'Toyota'
-```
-
-However, calling a method defined with concise syntax (also called a concise method) *won't work*:
-
-```js
-let foo = {
-  Car(make, model, year) {
-    this.make = make;
-    this.model = model;
-    this.year = year;
-  }
-};
-
-new foo.Car(); //=> Uncaught TypeError: foo.Car is not a constructor
-```
-
-In addition, many -- but not all -- built-in objects and methods are *incompatible* with `new`:
-
-```js
-
-new console.log(); //=> Uncaught TypeError: console.log is not a constructor
-new Math();        //=> Uncaught TypeError: Math is not a constructor
-new parseInt("3"); //=> Uncaught TypeError: parseInt is not a constructor
-
-new Date();        //=> 2019-06-26T02:50:20.191Z
-```
-
-`new` is also incompatible with special functions known as **generators** (a topic that we don't currently cover at Launch School).
 
 #### 1.3.3 Constructors with Explicit Return Values
 
