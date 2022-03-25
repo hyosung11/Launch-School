@@ -6996,12 +6996,12 @@ Have a great day everyone!!!
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [ ] 2. Study Session with Laurent and Michael
+   * [x] 2. Study Session with Laurent and Michael
    * [ ] 3. Work on Study Guide - Lesson 3 and 4 notes into file and annotated into study guide
    * [ ] 4. Anki Cards Review
    * [ ] 5. Read *The Coding Career Handbook*, Chapter 34: Lampshading
    * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
-   * [ ] 7. Contact Derek Barker about role at Salesforce
+   * [x] 7. Contact Derek Barker about role at Salesforce
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I told Sohee I would find three positions to research and apply to within the week.
@@ -7009,3 +7009,7 @@ Have a great day everyone!!!
 07:25 Still dumping my notes into my study guide. All is well. I'm tired but I'm okay. I will contact Derek Barker about the Salesforce position.
 
 08:03 Finished dumping Lesson 3 notes into my study guide. Now time for breakfast with the kids.
+
+08:50 Stay focused and finish my notes dump into my study guide.
+
+10:49 I needed to take a break and left the study session with Laurent and Michael. I like open book and open mind.

@@ -251,6 +251,7 @@ function createCar(make, model, year) {
 }
 ```
 
+The `createCar` function takes three arguments and returns a car object with four properties and two methods. We can use it like this:
 With this `createCar` **object factory**, you can create as many car objects as your program needs:
 
 ```js
@@ -928,6 +929,101 @@ console.log(Object.getOwnPropertyNames(MyClass)); // [ 'length', 'name', 'argume
 ```
 
 ### 1.4 OLOO (Objects Linking with Other Objects)
+
+#### 1.4.1 The OLOO Pattern
+
+As discussed earlier factory functions aren't the only way to create objects in bulk. Another pattern that we can use is the **OLOO** pattern: **Objects Linking to Other Objects**. It uses prototypes and involves extracting properties common to all objects of the same type (e.g., car objects) to a prototype object. All objects of the same type the inherit from the prototype.
+
+Let's do that with car objects. What properties are common to all car objects? Here, those properties are the `start` and `stop` methods. All cars have `make`, `model`, `year`, and `started` properties as well, but each object has different values for those properties. Thus, we don't count them as being common to all cars.
+
+We can extract the `start` and `stop` methods to a prototype object.
+
+```js
+let carPrototype = {
+  start: function() {
+    this.started = true;
+  },
+
+  stop: function() {
+    this.started = false;
+  },
+};
+```
+
+Now that we have a car prototype object, all car objects can inherit from it:
+
+```js
+let car1 = Object.create(carPrototype);
+car1.make = 'Toyota';
+car1.model = 'Corolla';
+car1.year = 2016;
+```
+
+We can now call `start` and `stop` on the `car1` object since both are accessible through it prototype, `carPrototype`.
+
+```js
+car1.start();
+car1.started; // => true
+
+car1.stop();
+car1.started; // => false
+```
+
+Calling `start` and `stop` on the `car1` object changes the state of `car1` even though those methods don't belong to `car1`. That shouldn't come as a surprise since we're using `car1` as the execution context for the calls. When we call these methods, `this` is set to `car1`, so the methods change the `started` property in `car1`.
+
+That's all well and good. We've set up a car prototype that all our car objects can inherit. However, we still have a small problem: *we must set the `make`, `model`, and `year` properties manually every time we create a car object*. Can we automate that? Fortunately, yes; there's more than one way. The most common technique uses an `init` method on the prototype object:
+
+```js
+let carPrototype = {
+  start: function() {
+    this.started = true;
+  },
+
+  stop: function() {
+    this.started = false;
+  },
+
+  init(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  },
+};
+```
+
+We can then use it like so:
+
+```js
+let car1 = Object.create(carPrototype);
+car1.init('Toyota', 'Corolla', 2016);
+```
+
+This code is certainly better, but we still need two lines of code to create a new car object. A small improvement to our `init` method can change that as well:
+
+```js
+let carPrototype = {
+  start: function() {
+    this.started = true;
+  },
+
+  stop: function() {
+    this.started = false;
+  },
+
+  init(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    return this; // <-- small improvement to the `init` method
+  },
+};
+```
+
+Since `init` now returns a reference to the car object it was called on, we can chain `create` and `init` and assign the result to the `car1` variable.
+
+```js
+let car1 = Object.create(carPrototype).init('Toyota', 'Corolla', 2016);
+```
 
 - Prototypal inheritance
 - uses `init` and an explicit return in the constructor

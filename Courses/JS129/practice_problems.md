@@ -1,6 +1,6 @@
 # JS129 Written Examination Practice Problems
 
-## 8. Practice Problems: Objects and Factories
+## Lesson 2 > Practice Problems: Objects and Factories
 
 In these problems, we will develop a factory function for objects that represent books.
 
@@ -238,7 +238,7 @@ On line 1, a variable qux is defined with an object { foo: 1 }.
 - On line 2, the Object.create method is invoked with the object referenced by qux.  The Object.create method returns a new object with its private [[Prototype]] property set to the prototype object passed as an argument.
 - On line 3, when the expression baz.foo + qux.foo is evaluated, qux.foo returns 1, but since baz.foo does not have properties of its own, it has to delegate access to its prototype. So, when JavaScript searches for the value of foo it will climb up baz's prototype chain and find the foo property in qux. Finally, the expression baz.foo + qux.foo will be evaluated 1 + 1 and its result will be the number 2.
 
-## 4. Practice Problems: Object Prototypes
+## Lesson 2 > 4. Practice Problems: Object Prototypes
 
 ### 1. What will the following code log to the console? Explain why it logs that value. Try to answer without running the code.
 
@@ -302,7 +302,7 @@ This code is also very similar to problem 1. This time, though, we assign the va
 
 An important consideration when dealing with prototypes is that *objects hold a reference to their prototype objects*. If the object's prototype changes in some way, the changes are observable in the inheriting object as well.
 
-### 4. As we saw in problem 2, the following code creates a new property in the baz object instead of assigning the property in the prototype object.
+### 4. As we saw in problem 2, the following code creates a new property in the `baz` object instead of assigning the property in the prototype object.
 
 ```js
 let qux = { foo: 1 };
