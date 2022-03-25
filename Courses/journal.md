@@ -6933,6 +6933,8 @@ console.log(kitty.walk());
 
 07:07 I feel off today. I didn't want to get out of bed and then my computer froze and I had to restart it twice. Alex was late but we did talk about one problem. I don't think I know the material that well yet and am not sure of the best way to move forward? Research says it's better to do problems than reread the text. However, I do need to put together a study guide. That much is clear to me. Organize my brain.
 
+07:08 Daily Scrum Questions
+
 1. What did you do yesterday?
    * [x] 1. Study Session with Alex
    * [x] 2. JS120 - Object Oriented JavaScript > Object Creation Patterns > 1 ~ 3
@@ -6949,7 +6951,6 @@ console.log(kitty.walk());
    * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
    * [x] 7. Writers Bloc Meeting
    * [ ] 8. Contact Derek Barker about role at Salesforce
-   * [ ] 9. 
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I feel tired and a little confused about how best to study for the assessment right now.
@@ -6974,3 +6975,35 @@ Have a great day everyone!!!
 18:06 Did a good job of dumping all of my Lesson 1 notes into a new file and then extracting notes to my study guide. I'm going to continue on with Lesson 2. I just need to remember to do the quizzes again and work on the practice problems as part of my code snippets study.
 
 19:44 I finished dumping all of Lesson 2 notes into my study guide by topic. Now I want to watch the basketball game.
+
+## 20220325 금요일
+
+05:50 Michigan lost to Villanova again in the NCAA tournament and I stayed up to watch Mexico vs USA tie 0-0. I'm tired right now. I want to continue my notes dump and aggregation this morning.
+
+06:16 Tired. I got stuck in the SPOT session 2 study room in Gather and couldn't get out until I respawned, like I learned from watching Omi in Roblox.
+
+6:18 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Study Session with Laurent and Michael
+   * [x] 3. Worked on Study Guide - dumped lessons 1 and 2 notes into file and annotated into study guide
+   * [x] 4. Anki Cards Review
+   * [ ] 5. Read *The Coding Career Handbook*, Chapter 34: Lampshading
+~~   * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?~~
+   * [x] 7. Writers Bloc Meeting
+~~   * [ ] 8. Contact Derek Barker about role at Salesforce~~
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. Study Session with Laurent and Michael
+   * [ ] 3. Work on Study Guide - Lesson 3 and 4 notes into file and annotated into study guide
+   * [ ] 4. Anki Cards Review
+   * [ ] 5. Read *The Coding Career Handbook*, Chapter 34: Lampshading
+   * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
+   * [ ] 7. Contact Derek Barker about role at Salesforce
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I told Sohee I would find three positions to research and apply to within the week.
+
+
