@@ -28,46 +28,6 @@
 
 ## OOP Introduction
 
-### Advantages and Disadvantages of OOP
-
-## 1. Objects, Object Factories (Factory Functions), Constructors and Prototypes, OLOO, and ES6 Classes
-
-### 1.1 Objects
-
-### 1.2 Object Factories / Factory Function
-
-### 1.3 Constructors and Prototypes
-
-### 1.4 OLOO (Objects Linking with Other Objects)
-
-#### 1.4.1 The OLOO Pattern
-
-#### 1.4.2 Advantage of OLOO over Factory Function
-
-### 1.5 ES6 Classes
-
-#### 1.5.2  A Simple Type
-
-### Class Declarations
-
-### 1.5.4 Class Expressions
-
-#### 1.5.5 Classes as First-Class Citizens
-
-## 2. Methods and Properties; Instance and Static Methods and Properties
-
-## 3. Prototypal and Pseudo-classical Inheritance
-
-### 1. Prototypes
-
-### 2. The Default Prototype
-
-### Iterating Over Objects with Prototypes
-
-### The Prototype Chain
-
-###  Prototypal Inheritance vs Pseudo-classical Inheritance
-
 RR
 
 ### 3.1 Prototypal Inheritance

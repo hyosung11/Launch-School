@@ -7060,3 +7060,5 @@ Have a great day everyone!!!
 14:15 In the Career Karma "Reframing Your Past Experiences for a New Tech Career" room listening to this guy speak. I feel like it's not that interesting at the moment.
 
 14:59 Leaving one meeting and jumping into the next one.
+
+17:10 Very long conversation with Derek Barker about working at Salesforce. I'm tired right now. Why don't I use dictation more?
