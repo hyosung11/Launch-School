@@ -7053,3 +7053,4 @@ Have a great day everyone!!!
 3. Are there any blockers or impediments preventing you from doing your work?
    * Afternoon is full of meetings and starts with watching Somerville Children's Theater at 12:00. SungOh also wants to play, so I may not get much time to study this morning.
 
+10:15 I reviewed OLOO and put it into my revised study guide. Now SungOh wants to play.

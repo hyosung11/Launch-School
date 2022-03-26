@@ -274,7 +274,7 @@ let rectangle = createRectangle(4, 5);
 
 #### 1.3.1 Object Constructors / Constructors
 
-**Object constructors**, or **constructors** are another way to create objects in JavaScript.  Superficially, a constructor looks and acts a lot like a factory function: you define a constructor once then invoke it each time you want to create an object of that type. As we'll see soon, though, there's a little extra that goes into a constructor.
+**Object constructors**, or **constructors** are another way to create objects in JavaScript.  Superficially, a constructor looks and acts a lot like a factory function: you define a constructor once then invoke it each time you want to create an object of that type.
 
 Constructor functions are meant to be invoked with the `new` operator. They instantiate a new object behind the scenes and let the developer manipulate it through the `this` keyword. A typical constructor uses the following pattern:
 
@@ -1046,8 +1046,142 @@ Square.prototype.toString = function() {
 
 The combination of constructors and prototypes provides a way of mimicking classical inheritance with JavaScript. This lets us create **subtype** objects, which can 'inherit' methods from a **supertype** object. This is one way of facilitating code re-use.
 
+### 1.4 OLOO (Objects Linking to Other Objects)
 
-RR 
+The **Objects Linking to Other Objects (OLOO)** pattern of object creation uses a prototype object, an initializer method, and the `Object.create()` method to create objects with shared behavior (e.g., car objects). The initializer customizes the state for each object, and is usually named `init`. All objects of the same type inherit from the prototype. Thus OLOO uses prototypal inheritance.
+
+What properties are common to all car objects? Here, those properties are the `start` and `stop` methods. All cars have `make`, `model`, `year`, and `started` properties as well, but each object has different values for those properties. Thus, we don't count them as being common to all cars.
+
+We can extract the `start` and `stop` methods to a prototype object.
+
+```js
+let carPrototype = {
+  start: function() {
+    this.started = true;
+  },
+
+  stop: function() {
+    this.started = false;
+  },
+};
+```
+
+Now that we have a car prototype object, all car objects can inherit from it:
+
+```js
+let car1 = Object.create(carPrototype);
+car1.make = 'Toyota';
+car1.model = 'Corolla';
+car1.year = 2016;
+```
+
+We can now call `start` and `stop` on the `car1` object since both are accessible through it prototype, `carPrototype`.
+
+```js
+car1.start();
+car1.started; // => true
+
+car1.stop();
+car1.started; // => false
+```
+
+Calling `start` and `stop` on the `car1` object changes the state of `car1` even though those methods don't belong to `car1`. That shouldn't come as a surprise since we're using `car1` as the execution context for the calls. When we call these methods, `this` is set to `car1`, so the methods change the `started` property in `car1`.
+
+That's all well and good. We've set up a car prototype that all our car objects can inherit. However, we still have a small problem: *we must set the `make`, `model`, and `year` properties manually every time we create a car object*. Can we automate that? Fortunately, yes; there's more than one way. The most common technique uses an `init` method on the prototype object:
+
+```js
+let carPrototype = {
+  start: function() {
+    this.started = true;
+  },
+
+  stop: function() {
+    this.started = false;
+  },
+
+  init(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  },
+};
+```
+
+We can then use it like so:
+
+```js
+let car1 = Object.create(carPrototype);
+car1.init('Toyota', 'Corolla', 2016);
+```
+
+This code is certainly better, but we still need two lines of code to create a new car object. A small improvement to our `init` method can change that as well:
+
+```js
+let carPrototype = {
+  start: function() {
+    this.started = true;
+  },
+
+  stop: function() {
+    this.started = false;
+  },
+
+  init(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    return this; // <-- small improvement to the `init` method
+  },
+};
+```
+
+Since `init` now returns a reference to the car object it was called on, we can chain `create` and `init` and assign the result to the `car1` variable.
+
+```js
+let car1 = Object.create(carPrototype).init('Toyota', 'Corolla', 2016);
+```
+
+### 1.4.1 Another Example of OLOO
+
+```js
+// OLOO (uses `init` and an explicit return in the constructor)
+let rectanglePrototype = {
+  init(length, width) {
+    this.width = width;
+    this.length = length;
+    return this;
+  },
+
+  getWidth() {
+    return this.width;
+  },
+
+  getLength() {
+    return this.length;
+  },
+
+  getArea() {
+    return this.width * this.length;
+  },
+};
+
+let olooRectangle = Object.create(rectanglePrototype).init(5, 4);
+
+console.log(olooRectangle.getWidth()); // 4
+console.log(olooRectangle.getLength()); // 5
+console.log(olooRectangle.getArea()); // 20
+```
+
+### 1.4.2 Advantage of OLOO over Factory Functions
+
+You can use both factory functions and the OLOO pattern to bulk create objects of the same type. Though the result is an object creation mechanism in both cases, the OLOO pattern has one significant advantage over factory functions: **memory efficiency**. Since all objects created with the OLOO pattern *inherit methods from a single prototype object*, the objects that inherit from that prototype object share the same methods. Factory functions, on the other hand, create copies of all the methods for each new object. That can have a significant performance impact, especially on smaller devices with limited memory.
+
+However, that doesn't mean that OLOO is decidedly better than the factory pattern. An advantage of the factory pattern is that it lets us *create objects with private state*. If that doesn't make sense to you yet, don't worry. We'll return to this topic in a later course when we discuss **closures**.
+
+### 1.5 ES6 Classes
+
+RR
+
 ## Extracted NOTES
 
 - pseudo-classical inheritance
