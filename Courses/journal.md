@@ -7054,3 +7054,5 @@ Have a great day everyone!!!
    * Afternoon is full of meetings and starts with watching Somerville Children's Theater at 12:00. SungOh also wants to play, so I may not get much time to study this morning.
 
 10:15 I reviewed OLOO and put it into my revised study guide. Now SungOh wants to play.
+
+13:35 Back from the Peter Pan show of the Somerville Children's Theater. I left at intermission. I need to send out an NCSA email and then do some research before talking to Derek at 16:00.
