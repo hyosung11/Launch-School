@@ -6998,8 +6998,8 @@ Have a great day everyone!!!
    * [x] 1. Study Session with Alex
    * [x] 2. Study Session with Laurent and Michael
    * [x] 3. Work on Study Guide - Lesson 3 and 4 notes into file and annotated into study guide
-   * [ ] 4. Anki Cards Review
-   * [ ] 5. Read *The Coding Career Handbook*, Chapter 34: Lampshading
+   * [x] 4. Anki Cards Review
+   * [x] 5. Read *The Coding Career Handbook*, Chapter 34: Lampshading
    * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
    * [x] 7. Contact Derek Barker about role at Salesforce
 
