@@ -7025,3 +7025,31 @@ Have a great day everyone!!!
 14:15 I got into a groove revising my study guide. I haven't eaten or done Q&D yet.
 
 18:33 Did some organizing of my study guide and now it's movie night.
+
+## 20220326 토요일
+
+09:40 Back from soccer this morning. I scored on a header from Carlos I also had a couple of opportunities where I could have scored but passed it off to Yasser once when I should have taken the shot. I'm a little tired but looking forward to studying some more. Maybe I'll watch more of the videos by Miles on OOP in JavaScript.
+
+9:42 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Study Session with Laurent and Michael
+   * [x] 3. Worked on Study Guide - Lesson 3 and 4 notes into file and annotated into study guide
+   * [x] 4. Anki Cards Review
+   * [x] 5. Read *The Coding Career Handbook*, Chapter 34: Lampshading
+~~   * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?~~
+   * [x] 7. Contact Derek Barker about role at Salesforce
+
+2. What will you do today?
+   * [ ] 1. Work on Study Guide 2.0
+   * [ ] 2. Anki Cards Review
+   * [ ] 3. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
+   * [ ] 4. Career Karma: Reframing your past experience for a new tech career
+   * [ ] 5. Coding Career Meeting
+   * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
+   * [ ] 7. Meet with Derek Barker about Salesforce position
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Afternoon is full of meetings and starts with watching Somerville Children's Theater at 12:00. SungOh also wants to play, so I may not get much time to study this morning.
+
