@@ -7042,10 +7042,10 @@ Have a great day everyone!!!
    * [x] 7. Contact Derek Barker about role at Salesforce
 
 2. What will you do today?
-   * [ ] 1. Work on Study Guide 2.0
-   * [ ] 2. Anki Cards Review
+   * [x] 1. Work on Study Guide 2.0
+   * [x] 2. Anki Cards Review
    * [ ] 3. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
-   * [ ] 4. Career Karma: Reframing your past experience for a new tech career
+   * [x] 4. Career Karma: Reframing your past experience for a new tech career
    * [ ] 5. Coding Career Meeting
    * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
    * [ ] 7. Meet with Derek Barker about Salesforce position
@@ -7056,3 +7056,7 @@ Have a great day everyone!!!
 10:15 I reviewed OLOO and put it into my revised study guide. Now SungOh wants to play.
 
 13:35 Back from the Peter Pan show of the Somerville Children's Theater. I left at intermission. I need to send out an NCSA email and then do some research before talking to Derek at 16:00.
+
+14:15 In the Career Karma "Reframing Your Past Experiences for a New Tech Career" room listening to this guy speak. I feel like it's not that interesting at the moment.
+
+14:59 Leaving one meeting and jumping into the next one.
