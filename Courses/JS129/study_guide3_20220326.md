@@ -1473,6 +1473,21 @@ In this specific example, we can call `Dog.prototype.bark()`, but that doesn't a
 
 Any method defined in any prototype in the prototype chain of an object is considered to be an instance method of the object.
 
+### Object Instance Methods
+
+#### `Object.setPrototypeOf(obj, prototype)`
+
+- **Description -** method sets the prototype (i.e., the internal `[[Prototype]]` property) of a specified object to another object or `null`
+- **Parameters**
+    - `obj` - The object which is to have its prototype set.
+    - `prototype` - The object's new prototype (an object or `null`).
+
+#### `Object.prototype.hasOwnProperty(prop)`
+
+- **Description -** method returns a boolean indicating whether the instance object has the specified property as its own property (as opposed to inheriting it). Returns `true` if the object has the specified property as own property; `false` otherwise.
+- **Parameters**
+    - `prop`  - the String name or Symbol of the property to test
+
 ### 2.3 Static Properties
 
 **Static properties** are defined and accessed directly on the constructor, not on an instance or a prototype. Typically, static properties belong to the type (e.g., `Dog`) rather than to the individual instances or the prototype object.
@@ -1517,6 +1532,67 @@ Dog.showSpecies();
 ```
 
 You've already seen examples of static methods on built-in JavaScript constructors.`Object.assign`, `Array.isArray`, and `Date.now` are all examples of static methods.
+
+### Object Static Methods
+
+#### `Object.create(proto, [propertiesObject])` - Inheritance
+
+- **Description** - returns a **new object**, using an *existing object* as the **prototype** of the newly created object.
+- **Parameters**
+    - `proto` - the object which is the prototype of the newly-created object (i.e. the newly created object will inherit from this)
+    - `[propertiesObject]` - If specified and not  `undefine`, an object whose enumerable **own** properties (that is, those properties defined upon itself and *not* enumerable properties along its prototype chain) specify property descriptors to be added to the newly-created object, with the corresponding property names. These properties correspond to the second argument of `Object.defineProperties()`
+- **Exceptions**
+    - `proto` - must be either an Object (excluding primitive wrapper objects), or `null` - otherwise a `TypeError` is thrown
+
+#### `Object.assign(target, ...sources)` - Mixins
+
+- **Description -** method **copies** all enumerable own properties from one or more `source` objects to a `target` object. It returns the modified target object. 
+Properties in the target object are overwritten by properties in the sources if they have the same key. Later sources' properties overwrite earlier ones.
+The `Object.assign()` method only copies ***enumerable* and *own*** properties from a source object to a target object. It uses `[[Get]]` on the source and `[[Set]]` on the target, so it will invoke getters/setters, and therefore it ***assigns*** properties.
+- **Parameters**
+    - `target` the target object — what to apply the sources’ properties to, which is returned after it is modified.
+    - `sources` the source object(s) — objects containing the properties you want to apply.
+
+#### `Object.getPrototypeOf(obj)`
+
+- **Description -** method returns the object prototype (i.e. the value of the internal `[[Prototype]]` property) of the specified object.
+- **Returns - t**he prototype of the given object. If there are no inherited properties, `null` is returned.
+
+#### `Object.getOwnPropertyNames(obj)` - **Own Property Names**
+
+- **Description -** method returns an **array** of all properties (**including non-enumerable properties**) found **directly in a given object.**
+- Code Example - Useful if you want to show all the Methods available to a certain Data Type
+
+    ```jsx
+    // Display All of the Properties (including non-enumerable properties) in an Object
+    console.log(Object.getOwnPropertyNames(Array.prototype));
+    /* returns
+    [
+      'length',      'constructor',    'concat',
+      'copyWithin',  'fill',           'find',
+      'findIndex',   'lastIndexOf',    'pop',
+      'push',        'reverse',        'shift',
+      'unshift',     'slice',          'sort',
+      'splice',      'includes',       'indexOf',
+      'join',        'keys',           'entries',
+      'values',      'forEach',        'filter',
+      'flat',        'flatMap',        'map',
+      'every',       'some',           'reduce',
+      'reduceRight', 'toLocaleString', 'toString',
+      'at'
+    ]
+    */
+    ```
+
+### Operators
+
+#### `instanceof`
+
+- **Description -** operator tests to see if the `prototype` property of a **constructor** appears anywhere in the prototype chain of an object. The return value is a boolean value. The left-hand side should be an `object`, and the right-hand side should be `constructor function`
+- **Syntax -** object instanceof constructor
+- **Parameters**
+    - **`object` -** The object to test.
+    - **`constructor` -** Function to test against
 
 ## 3. Prototypal and Pseudo-classical Inheritance
 
