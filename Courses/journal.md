@@ -7064,3 +7064,5 @@ Have a great day everyone!!!
 17:10 Very long conversation with Derek Barker about working at Salesforce. I'm tired right now. Why don't I use dictation more?
 
 17:58 Working through more of my study guide. I need to warm food for dinner.
+
+19:01 I finished dumping notes into my study guide and now I want to shape my notes.
