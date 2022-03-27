@@ -7106,3 +7106,5 @@ Have a great day everyone!!!
 15:37 Studying "Higher-order functions" but put a lot of other notes about functions in this section. I have to pee.
 
 16:00 Studied "method and property lookup sequence in the prototype chain".
+
+16:42 Working on Execution Context now.

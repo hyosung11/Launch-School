@@ -3195,8 +3195,7 @@ The discussion of inheriting *properties* from other objects *applies to methods
 
 ## 13. Function Execution Context and `this`
 
-You can *access the properties and methods of an object from within a method* using the `this` keyword. The `this` keyword lets us refer to the properties and methods of the object. Inside the methods, the `this` keyword lets us refer to the properties and other methods of the object.
-So, the `this` keyword is basically a dynamic pointer right? whose value depends on where it's being referenced and how. I guess in classical inheritance their equivalent to the `this` keyword always references the object and it doesn't change.
+You can *access the properties and methods of an object from within a method* using the `this` keyword. The `this` keyword lets us refer to the properties and methods of the object. Inside the methods, the `this` keyword lets us refer to the properties and other methods of the object. So, the `this` keyword is basically a dynamic pointer whose value depends on where it's being referenced and how.
 
 Thus far in our example, we refer to the object from inside the methods by directly using the variable name, `raceCar`. Suppose we change the variable name or pass the object to a function that refers to its arguments by a different name. In that case, calling a method with the original variable name will *throw a reference error*. We need some way to refer to the object that contains a method from other methods in that object. The keyword `this` provides the desired functionality:
 
@@ -3231,11 +3230,7 @@ let raceCar = {
 
 ### What is `this`?
 
-The workings of `this` is one of the most difficult JavaScript concepts to grasp; it's the source of a great deal of confusion. We'll talk about it extensively in the next lesson. For now, you can assume that when you use `this` inside a method, it *refers to the object that contains the method.*
-
-The value of `this` is the current execution context of a function or method.
-
-The value of `this` changes based on how you invoke a function, not how you define it.
+The value of `this` is the current execution context of a function or method. The value of `this` changes based on how you invoke a function, not how you define it.
 
 The JavaScript `this` keyword refers to the object it belongs to. It has different values depending on where it is used:
 
@@ -3246,16 +3241,13 @@ The JavaScript `this` keyword refers to the object it belongs to. It has differe
 - Method calls like `call()`, and `apply()` can refer `this` to any object.
 - In an event, `this` refers to the **element** that received the event.
 
-
 ## 14 Implicit and Explicit Execution Context
 
 ### 14.1 Execution Context
 
-Earlier, we met the keyword `this` when talking about object methods. At the time, we said that `this` refers to the object that contains the method. That's true, but there's a bit more nuance to how JavaScript determines the value of `this`. In this assignment, we'll discuss `this` and how JavaScript determines its value in a function or method call.
+The execution context -- or **context** -- is a concept that refers to the **environment** in which a function executes. In JavaScript, it most commonly refers to the current value of the `this` keyword. When we talk about the execution context of a function or method call, we're talking about the value of `this` when that code executes. The context depends on *how the function or method was invoked*, not on where the function was defined.
 
-If we're discussing `this`, why, then, does this section's title refer to **execution context**? The execution context -- or **context** -- is a concept that refers to the **environment** in which a function executes. In JavaScript, it most commonly refers to the current value of the `this` keyword. When we talk about the execution context of a function or method call, we're talking about the value of `this` when that code executes. The context depends on *how the function or method was invoked*, not on where the function was defined.
-
-Put another way, how you invoke a function or method determines its execution context for that invocation. It doesn't matter how you define the function or method, nor does it matter where or when you call it. The only factor that determines the context is how you call the function or method. In other words, two invocations of the same function or method can have very different contexts depending on how you make those calls. Remember this point: it's crucial to understanding JavaScript.
+The only factor that determines the context is how you call the function or method. In other words, two invocations of the same function or method can have very different contexts depending on how you make those calls.
 
 There are two basic ways to set the context when calling a function or method:
 
@@ -3263,13 +3255,14 @@ There are two basic ways to set the context when calling a function or method:
 2. **Implicit**: The execution context that JavaScript sets implicitly when your code doesn't provide an explicit context.
 
 Setting the execution context is also called **binding** this or **setting the binding**. A binding is something that ties two things together. In this case, it refers to the fact that a call binds `this` to a specific object when the function or method is called.
+
 It's crucial to understand how the execution context, i.e., the value of `this`, is determined and what it refers to in various scenarios. All JavaScript code executes within a context. The top-level context is the `window` object in browsers and the `global` object in Node. All global methods and objects, such as `parseInt` and `Math`, are properties of `window` or `global`.
 
 ### 14.2 `new` and Implicit Execution Context
 
-Function and method calls provide an implicit context. For a function call, the implicit context is the global object; for a method call, it's the object used to call the method.
+Function and method calls *provide an implicit context*. For a function call, the implicit context is the global object; for a method call, it's the object used to call the method.
 
-Now that we know about constructors, we can add a constructor call with `new` as a third way to provide an implicit execution context. When you call a function with `new`, its implicit context is the new object.
+A constructor call with `new` is a third way to *provide an implicit execution context*. When you call a function with `new`, its implicit context is the new object.
 
 ### 14.3 Function Execution Context (Implicit)
 
