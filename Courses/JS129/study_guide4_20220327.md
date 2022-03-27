@@ -1191,11 +1191,9 @@ However, that doesn't mean that OLOO is decidedly better than the factory patter
 
 The ECMAScript 6 (ES6) standard added the `class` keyword to JavaScript. In effect, classes act like **syntactic sugar** -- syntax designed to be easier to read or use -- that makes it easier for programmers to migrate to JavaScript from other OOP languages. In essence, they provide little more than a more natural and possibly familiar way to create constructors and prototypes.
 
-The syntax for defining classes is similar to that of defining functions. In particular, both functions and classes have two significant definition styles: declarations and expressions. We'll examine how classes do that in this assignment.
+The syntax for defining classes is similar to that of defining functions. In particular, both functions and classes have two significant definition styles: declarations and expressions.
 
 ES6 classes provide a cleaner, more compact alternative to constructors and prototypes. As with functions, they are first-class citizens and come in the form of declarations and expressions. Functionally, classes behave almost identically to the constructors and prototypes they aim to replace. Classes allow for static methods by using the `static` modifier.
-
-The class syntax, a relatively new addition to JavaScript, is **syntactic sugar** (cleaner syntax) for creating objects that use constructors and prototypes. JavaScript classes make it look more like a classical OO language to make the transition smoother for developers who have experience working with other OO languages.
 
 A class is a kind of template for creating concrete objects of that type. Each concrete object is called an instance of the class. The process of creating an instance is performed by a special function called a constructor. We pass the constructor values for any internal state that we want to initialize in the new instance.
 
@@ -1214,13 +1212,13 @@ Rectangle.prototype.getArea = function() {
 };
 
 let rec = new Rectangle(10, 5);
-console.log(typeof Rectangle);         // function
+console.log(typeof Rectangle); // function
 console.log(rec instanceof Rectangle); // true
-console.log(rec.constructor);          // [Function: Rectangle]
-console.log(rec.getArea());            // 50
+console.log(rec.constructor); // [Function: Rectangle]
+console.log(rec.getArea()); // 50
 ```
 
-The object created by the `Rectangle` constructor, `rec`, is an instance of the `Rectangle` type, and we can call the `getArea` method from its prototype to calculate the area.
+The object created by the `Rectangle` constructor, `rec`, is an **instance** of the `Rectangle` type, and we can call the `getArea` method from its prototype to calculate the area.
 
 It's interesting to note that you can call the `Rectangle` constructor without the `new` keyword. However, if you do, the constructor won't work properly. It's possible to write constructors that work with or without the `new` keyword, but most JavaScript developers won't bother.
 
@@ -1432,15 +1430,13 @@ In the constructor function we are creating two properties `width` and `length` 
 
 ## 2. Methods and Properties; Instance and Static Methods and Properties
 
-In OOP, we often refer to individual objects of a specific data type as **instances** of that type. For example, in the `Dog` example from the [Constructors with Prototypes assignment](https://launchschool.com/lessons/e3c64e3f/assignments/bdc27fe0), `maxi` and `dexter` are instances of the `Dog` type. An instance is just another term for the objects created using any means of defining multiple objects of the same kind (e.g., dogs). The term **object** is more general, while **instance** is more specific.
+In OOP, we often refer to individual objects of a specific data type as **instances** of that type. In the previous `Dog` example , `maxi` and `dexter` are instances of the `Dog` type. An instance is just another term for the objects created using any means of defining multiple objects of the same kind (e.g., dogs). The term **object** is more general, while **instance** is more specific.
 
 So far, we've been using constructors to create instances of the `Dog` type. We can also think of objects created by factory functions as instances. Later, we'll see even more ways to create new objects, all of which can be called instances.
 
 Hold on there. Factory functions can create instances? How can that be? There's no way to tell that the objects created by, say, a `createDog` factory are indeed dogs, so how can we have instances?
 
 That's a good point. However, in the end, we know that the `createDog` factory is going to create a bunch of objects that we know to represent dogs. We may not be able to tell whether an arbitrary object is a dog object, but all of the objects created by `createDog` should be dogs. They have a type -- dog -- even if there is no way to test that in your code. Thus, they are instances of a dog type.
-
-[Common Object Methods](https://elainevuongyt.notion.site/Common-Object-Methods-7d3ed006cfe641508635a40c7ec6f5e4)
 
 ### 2.1 Instance Properties
 
@@ -1462,7 +1458,7 @@ This code returns `undefined` since `weight` isn't a property of the constructor
 
 Since methods are also properties on an object, we can refer to methods stored directly in an object as instance properties too. More commonly, we call them **instance methods** just to distinguish them from ordinary data properties.
 
-However, methods usually aren't stored directly in instances. Instead, they are usually defined in the object's prototype object. While methods defined in the prototype object aren't stored in the instance object, they still operate on individual instances. Therefore, we usually refer to them as instance methods. In our `Dog` example, `bark` is an instance method since it's defined on the `Dog.prototype` object.
+However, methods usually aren't stored directly in instances. Instead, they are *usually defined in the object's prototype object*. While methods defined in the prototype object aren't stored in the instance object, they still operate on individual instances. Therefore, we usually refer to them as instance methods. In our `Dog` example, `bark` is an instance method since it's defined on the `Dog.prototype` object.
 
 As with `weight`, we must use an object created by the `Dog` constructor to invoke `bark`:
 
@@ -1486,14 +1482,14 @@ Any method defined in any prototype in the prototype chain of an object is consi
 
 - **Description -** method sets the prototype (i.e., the internal `[[Prototype]]` property) of a specified object to another object or `null`
 - **Parameters**
-    - `obj` - The object which is to have its prototype set.
-    - `prototype` - The object's new prototype (an object or `null`).
+  - `obj` - The object which is to have its prototype set.
+  - `prototype` - The object's new prototype (an object or `null`).
 
 #### `Object.prototype.hasOwnProperty(prop)`
 
 - **Description -** method returns a boolean indicating whether the instance object has the specified property as its own property (as opposed to inheriting it). Returns `true` if the object has the specified property as own property; `false` otherwise.
 - **Parameters**
-    - `prop`  - the String name or Symbol of the property to test
+  - `prop`  - the String name or Symbol of the property to test
 
 ### 2.3 Static Properties
 
@@ -1546,86 +1542,83 @@ You've already seen examples of static methods on built-in JavaScript constructo
 
 - **Description** - returns a **new object**, using an *existing object* as the **prototype** of the newly created object.
 - **Parameters**
-    - `proto` - the object which is the prototype of the newly-created object (i.e. the newly created object will inherit from this)
-    - `[propertiesObject]` - If specified and not  `undefine`, an object whose enumerable **own** properties (that is, those properties defined upon itself and *not* enumerable properties along its prototype chain) specify property descriptors to be added to the newly-created object, with the corresponding property names. These properties correspond to the second argument of `Object.defineProperties()`
+  - `proto` - the object which is the prototype of the newly-created object (i.e. the newly created object will inherit from this)
+  - `[propertiesObject]` - If specified and not  `undefined`, an object whose enumerable **own** properties (that is, those properties defined upon itself and *not* enumerable properties along its prototype chain) specify property descriptors to be added to the newly-created object, with the corresponding property names. These properties correspond to the second argument of `Object.defineProperties()`
 - **Exceptions**
-    - `proto` - must be either an Object (excluding primitive wrapper objects), or `null` - otherwise a `TypeError` is thrown
+  - `proto` - must be either an Object (excluding primitive wrapper objects), or `null` - otherwise a `TypeError` is thrown
 
 #### `Object.assign(target, ...sources)` - Mixins
 
-- **Description -** method **copies** all enumerable own properties from one or more `source` objects to a `target` object. It returns the modified target object. 
-Properties in the target object are overwritten by properties in the sources if they have the same key. Later sources' properties overwrite earlier ones.
+- **Description -** method **copies** all enumerable own properties from one or more `source` objects to a `target` object. It returns the modified target object. Properties in the target object are overwritten by properties in the sources if they have the same key. Later sources' properties overwrite earlier ones.
 The `Object.assign()` method only copies ***enumerable* and *own*** properties from a source object to a target object. It uses `[[Get]]` on the source and `[[Set]]` on the target, so it will invoke getters/setters, and therefore it ***assigns*** properties.
 - **Parameters**
-    - `target` the target object — what to apply the sources’ properties to, which is returned after it is modified.
-    - `sources` the source object(s) — objects containing the properties you want to apply.
+  - `target` the target object — what to apply the sources’ properties to, which is returned after it is modified.
+  - `sources` the source object(s) — objects containing the properties you want to apply.
 
 #### `Object.getPrototypeOf(obj)`
 
 - **Description -** method returns the object prototype (i.e. the value of the internal `[[Prototype]]` property) of the specified object.
-- **Returns - t**he prototype of the given object. If there are no inherited properties, `null` is returned.
+- **Returns -** the prototype of the given object. If there are no inherited properties, `null` is returned.
 
-#### `Object.getOwnPropertyNames(obj)` - **Own Property Names**
+#### `Object.getOwnPropertyNames(obj)`
 
 - **Description -** method returns an **array** of all properties (**including non-enumerable properties**) found **directly in a given object.**
-- Code Example - Useful if you want to show all the Methods available to a certain Data Type
+- Code Example - Useful if you want to show all the methods available to a certain Data Type
 
-    ```jsx
-    // Display All of the Properties (including non-enumerable properties) in an Object
-    console.log(Object.getOwnPropertyNames(Array.prototype));
-    /* returns
-    [
-      'length',      'constructor',    'concat',
-      'copyWithin',  'fill',           'find',
-      'findIndex',   'lastIndexOf',    'pop',
-      'push',        'reverse',        'shift',
-      'unshift',     'slice',          'sort',
-      'splice',      'includes',       'indexOf',
-      'join',        'keys',           'entries',
-      'values',      'forEach',        'filter',
-      'flat',        'flatMap',        'map',
-      'every',       'some',           'reduce',
-      'reduceRight', 'toLocaleString', 'toString',
-      'at'
-    ]
-    */
-    ```
+```js
+// Display All of the Properties (including non-enumerable properties) in an Object
+console.log(Object.getOwnPropertyNames(Array.prototype));
+/* returns
+[
+  'length',      'constructor',    'concat',
+  'copyWithin',  'fill',           'find',
+  'findIndex',   'lastIndexOf',    'pop',
+  'push',        'reverse',        'shift',
+  'unshift',     'slice',          'sort',
+  'splice',      'includes',       'indexOf',
+  'join',        'keys',           'entries',
+  'values',      'forEach',        'filter',
+  'flat',        'flatMap',        'map',
+  'every',       'some',           'reduce',
+  'reduceRight', 'toLocaleString', 'toString',
+  'at'
+]
+*/
+```
 
 ### Operators
 
 #### `instanceof`
 
-- **Description -** operator tests to see if the `prototype` property of a **constructor** appears anywhere in the prototype chain of an object. The return value is a boolean value. The left-hand side should be an `object`, and the right-hand side should be `constructor function`
+- tests to see if the `prototype` property of a **constructor** appears anywhere in the prototype chain of an object. The return value is a boolean value. The left-hand side should be an `object`, and the right-hand side should be `constructor function`
 - **Syntax -** object instanceof constructor
 - **Parameters**
-    - **`object` -** The object to test.
-    - **`constructor` -** Function to test against
+  - **`object` -** The object to test.
+  - **`constructor` -** Function to test against
 
 ## 3. Prototypal and Pseudo-classical Inheritance
 
 JavaScript objects can *inherit properties from other objects*. The object that another object inherits properties from is its **prototype**. In most cases, we use `Object.create` to create objects whose prototype we need to *set explicitly*. We can also use `Object.setPrototypeOf` to *set the prototype of an object that already exists*.
 
-By default, all object literals inherit from `Object.prototype`.
+The prototype chain, or prototypal inheritance, is how JavaScript inherits properties from other objects.
+
+By default, *all object literals inherit from* `Object.prototype`.
 
 When you access a property on an object, JavaScript looks for the property first in the object, then its prototype chain, all the way up to `Object.prototype`.
 
-1. Every object has an internal `[[Prototype]]` property that points to a special object, the object's prototype. It is used to look up properties that don't exist on the object itself.
+Every object has an internal `[[Prototype]]` property that points to a special object, the object's prototype. It is used to look up properties that don't exist on the object itself.
 
-  1.1 `Object.create` returns a new object with the passed-in argument as its prototype.
-  1.2 You can use `Object.getPrototypeOf` and `obj.isPrototypeOf` to check for prototype relationships between objects.
+- `Object.create` returns a new object with the passed-in argument as its prototype.
+- You can use `Object.getPrototypeOf` and `obj.isPrototypeOf` to check for prototype relationships between objects.
 
-2. Looking up a property in the prototype chain is the basis for prototypal inheritance, or property sharing through the prototype chain. Objects lower down in the chain inherit properties and behaviors from objects in the chain above. That is, downstream objects can delegate properties or behaviors to upstream objects.
+Looking up a property in the prototype chain is the basis for prototypal inheritance, or property sharing through the prototype chain. Objects lower down in the chain inherit properties and behaviors from objects in the chain above. That is, downstream objects can delegate properties or behaviors to upstream objects.
 
-  2.1 A downstream object overrides an inherited property if it has a property with the same name. (Overriding is similar to shadowing, but it doesn't completely hide the overridden properties.)
-  2.2 `Object.getOwnPropertyNames` and `obj.hasOwnProperty` can be used to test whether an object owns a given property.
+- A downstream object *overrides* an inherited property if it has a property with the same name. (Overriding is similar to shadowing, but it doesn't completely hide the overridden properties.)
+- `Object.getOwnPropertyNames` and `obj.hasOwnProperty` can be used to test whether an object owns a given property.
 
 The pseudo-classical inheritance pattern has types (e.g., classes) that inherit from other types. This way, all objects of a given type can share behaviors from the same source.
 
-As Karl said today, it's all prototypal inheritance happening in the background, but you can leverage the constructor/prototype pattern to kind of mimic how traditional OOP languages deal with inheritance. So pseudo classical means literally that, mimicking classical inheritance.
-
-objects inheriting properties from other objects
-
-The prototype chain, or prototypal inheritance, is how JavaScript inherits properties from other objects.
+It's all prototypal inheritance happening in the background, but you can leverage the constructor/prototype pattern to kind of mimic how traditional OOP languages deal with inheritance. So pseudo-classical means literally that, mimicking classical inheritance.
 
 ### 3.1 Prototypes
 
@@ -1659,7 +1652,7 @@ undefined
 {}
 ```
 
-Evaluating `b` in the node console gives us an empty object, which demonstrates that `b` doesn't have any properties of its own. We can also use the `hasOwnProperty` method to demonstrate this:
+Evaluating `b` in the node console *gives us an empty object*, which demonstrates that `b` doesn't have any properties of its own. We can also use the `hasOwnProperty` method to demonstrate this:
 
 ```js
 let a = {
@@ -1693,7 +1686,7 @@ let a = {
 },
 
 let b = {}; // line 6
-Object.setPrototypeOf(b, a);
+Object.setPrototypeOf(b, a); // line 7
 
 console.log(b.foo); // => 1
 console.log(b); // => {}
@@ -1702,7 +1695,7 @@ console.log(Object.getPrototypeOf(b)); // { foo: 1, bar: 2}
 
 The code on lines 6 and 7 is effectively identical to the code that we used on line 6 of the `Object.create` example. However, in this example, we declare and initialize `b` to an empty object rather than using `Object.create`; we then use `Object.setPrototypeOf` to set the prototype object.
 
-An important consideration when dealing with prototypes is that objects hold a reference to their prototype objects through their internal `[[Prototype]]` property. If the object's prototype changes in some way, the changes are *observable in the inheriting object as well*.
+An important consideration when dealing with prototypes is that *objects hold a reference* to their prototype objects through their internal `[[Prototype]]` property. If the object's prototype changes in some way, the changes are *observable in the inheriting object as well*.
 
 ```js
 let a = {
@@ -1724,7 +1717,7 @@ console.log(b.baz); // => 12
 
 ### 3.2 The Default Prototype
 
-As mentioned above, all JavaScript objects have access to the `hasOwnProperty()` method. Where does JavaScript get that method? When we create a new object, we don't have to add our own `hasOwnProperty()` method. Instead, JavaScript obtains the method from the object's prototype. All JavaScript objects inherit from a prototype. For instance:
+As mentioned above, all JavaScript objects have access to the `hasOwnProperty()` method. Where does JavaScript get that method? When we create a new object, we don't have to add our own `hasOwnProperty()` method. Instead, JavaScript obtains the method from the object's prototype. *All JavaScript objects inherit from a prototype*. For instance:
 
 ```sh
 > let a = {}
@@ -1734,11 +1727,9 @@ undefined
 {}
 ```
 
-Passing an empty object to `Object.getPrototypeOf()` returns a default prototype object. That object is the **prototype** for all objects created by using the object literal syntax (e.g., `{ a: 2 }`). The default prototype is the prototype object of the `Object` constructor, `Object.prototype`. We'll see what that means a little later. For now, all you need to know is that Object.prototype provides the default prototype.
+Passing an empty object to `Object.getPrototypeOf()` returns a default prototype object. That object is the **prototype** for all objects created by using the object literal syntax (e.g., `{ a: 2 }`). The default prototype is the prototype object of the `Object` constructor, `Object.prototype`. Object.prototype provides the default prototype.
 
 ### 3.3 Iterating Over Objects with Prototypes
-
-Now is an excellent time to revisit the [Iteration](https://launchschool.com/books/javascript/read/objects#iteration) section from the Objects chapter of our Introduction to Programming With JavaScript book. It discusses the impact of object prototypes on iteration. In particular:
 
 - A `for/in` loop iterates over an object's properties. The iteration includes properties from the objects in its prototype chain. Use `hasOwnProperty()` to skip the prototype properties.
 
@@ -1789,7 +1780,7 @@ console.log(c.bar); // => 2
 console.log(c.foo); // => 1
 ```
 
-In this code, object `c` inherits from object `b` which, in turn, inherits from `a`. Stated differently, `b` is the prototype of `c` and `a` is the prototype of `b`. All properties that you can access on `a` or `b` are now available on `c`. We say that objects `b` and `a` are part of the **prototype chain** of object `c`. The complete prototype chain also includes the default prototype, which is the prototype of object `a` in this case. Since the prototype of `Object.prototype` is `null`, the complete prototype chain looks like this:
+In this code, object `c` inherits from object `b` which, in turn, inherits from `a`. Stated differently, `b` is the prototype of `c` and `a` is the prototype of `b`. All properties that you can access on `a` or `b` are now available on `c`. We say that objects `b` and `a` are part of the **prototype chain** of object `c`. The complete prototype chain also *includes the default prototype*, which is the prototype of object `a` in this case. Since the prototype of `Object.prototype` is `null`, the complete prototype chain looks like this:
 
 ```sh
 c --> b --> a --> Object.prototype --> null
@@ -1839,7 +1830,7 @@ Person.prototype.toString = function() {
 
 The term "pseudo-classical" refers to the fact that *the pattern mimics classes from other OO languages but doesn't actually use classes*.
 
-This pattern forms the basis of **pseudo-classical inheritance**, also called **constructor inheritance**. When people talk about inheritance in the context of JavaScript, they often mean this kind of inheritance. In pseudo-classical inheritance, a constructor's prototype object (the object referenced by its `prototype` property) inherits from another constructor's prototype. That is, *a sub-type inherits from a super-type*.
+This pattern forms the basis of **pseudo-classical inheritance**, also called **constructor inheritance**. When people talk about inheritance in the context of JavaScript, they often mean this kind of inheritance. In pseudo-classical inheritance, a constructor's prototype object (the object referenced by its `prototype` property) inherits from another constructor's prototype. That is, *a subtype inherits from a supertype*.
 
 For instance, we can *rewrite* the **prototypal inheritance** example to use **pseudo-classical inheritance**:
 
@@ -1885,11 +1876,7 @@ Both pseudo-classical and prototypal inheritance *use prototypal delegation unde
 
 ### 3.7 Prototypal Inheritance
 
-As Karl said today, it's all prototypal inheritance happening in the background, but you can leverage the constructor/prototype pattern to kind of mimic how traditional OOP languages deal with inheritance. So pseudo classical means literally that, mimicking classical inheritance.
-
-objects inheriting properties from other objects
-
-The prototype chain, or prototypal inheritance, is how JavaScript inherits properties from other objects.
+It's all prototypal inheritance happening in the background, but you can leverage the constructor/prototype pattern to kind of mimic how traditional OOP languages deal with inheritance. So pseudo classical means literally that, mimicking classical inheritance. The prototype chain, or prototypal inheritance, is how JavaScript inherits properties from other objects.
 
 ```js
 let animal = {
@@ -2016,7 +2003,7 @@ student.enrollInCourse('JS120'); // logs 'Kim has enrolled in course JS120.'
 
 In this example, the `Student` class inherits from the `Person` class. That gives student objects access to methods of the `Person` class and extends person objects further by adding a `semester` property and an `enrollInCourse` method. Notice that we've reused `Person`'s constructor inside the `Student` constructor, and calling `super` with `name` and `age` since the `Student` constructor expects those arguments. We also assign the `semester` argument to the `semester` property after `super` returns.
 
-Note that this most recent example uses class expressions instead of class declarations.
+Note that this most recent example *uses class expressions instead of class declarations.*
 
 ## 4. Encapsulation
 
@@ -4137,6 +4124,24 @@ In this example, we bind the `greeting` function to the `spanishWords` object an
 In this assignment, we saw a third way to specify the execution context. Unlike `call` and `apply`, though, `bind` *returns a new function that is permanently bound to the context that's provided to bind as the first argument*. You cannot alter the execution context of the resulting function, even if you use `call`, `apply`, or try calling `bind` a second time.
 
 ## 17. `Object.assign` and `Object.create`
+
+#### `Object.create(proto, [propertiesObject])` - Inheritance
+
+- **Description** - returns a **new object**, using an *existing object* as the **prototype** of the newly created object.
+- **Parameters**
+  - `proto` - the object which is the prototype of the newly-created object (i.e. the newly created object will inherit from this)
+  - `[propertiesObject]` - If specified and not  `undefined`, an object whose enumerable **own** properties (that is, those properties defined upon itself and *not* enumerable properties along its prototype chain) specify property descriptors to be added to the newly-created object, with the corresponding property names. These properties correspond to the second argument of `Object.defineProperties()`
+- **Exceptions**
+  - `proto` - must be either an Object (excluding primitive wrapper objects), or `null` - otherwise a `TypeError` is thrown
+
+#### `Object.assign(target, ...sources)` - Mixins
+
+- **Description -** method **copies** all enumerable own properties from one or more `source` objects to a `target` object. It returns the modified target object. 
+Properties in the target object are overwritten by properties in the sources if they have the same key. Later sources' properties overwrite earlier ones.
+The `Object.assign()` method only copies ***enumerable* and *own*** properties from a source object to a target object. It uses `[[Get]]` on the source and `[[Set]]` on the target, so it will invoke getters/setters, and therefore it ***assigns*** properties.
+- **Parameters**
+    - `target` the target object — what to apply the sources’ properties to, which is returned after it is modified.
+    - `sources` the source object(s) — objects containing the properties you want to apply.
 
 One object factory can *reuse another object* factory by mixing the object returned by another factory function into itself by using `Object.assign()`.
 

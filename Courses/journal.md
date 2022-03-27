@@ -7100,3 +7100,5 @@ Have a great day everyone!!!
 13:10 I'm still a little shaky on all the nuances of constructors with prototypes for object creation.
 
 13:19 Studied OLOO, but I want to write out code examples to solidify my knowledge. Time to go to the couch.
+
+14:32 Studied "prototypal and pseudo-classical inheritance".
