@@ -7108,3 +7108,5 @@ Have a great day everyone!!!
 16:00 Studied "method and property lookup sequence in the prototype chain".
 
 16:42 Working on Execution Context now.
+
+17:29 Studying context loss and remedies. Our soccer practice got pushed up to 6:00 PM, so I got to get ready and go soon.

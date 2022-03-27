@@ -3266,7 +3266,7 @@ A constructor call with `new` is a third way to *provide an implicit execution c
 
 ### 14.3 Function Execution Context (Implicit)
 
-Every JavaScript function call has an execution context. In other words, the `this` keyword is available to every function in your JavaScript program. Every time you call that function, JavaScript binds some object to `this`.
+Every JavaScript function call has an execution context. In other words, the `this` keyword is available to every function in your JavaScript program. Every time you call that function, *JavaScript binds some object to `this`*.
 
 Let's define a function and use `this` within it to see what happens:
 
@@ -3290,11 +3290,11 @@ foo();
 global.bar; // 'bar'
 ```
 
-That makes sense at some level. Since all function calls have an execution context, and since a regular function call does not provide an explicit context, JavaScript supplies an implicit context: the global object. We say that this execution context is **implicit** since the function invocation doesn't supply an explicit alternative.
+That makes sense at some level. Since all function calls have an execution context, and since *a regular function call does not provide an explicit context*, JavaScript supplies an implicit context: the global object. We say that this execution context is **implicit** since the function invocation doesn't supply an explicit alternative.
 
-#### 14.4 Strict Mode and Implicit Context
+### 14.4 Strict Mode and Implicit Context
 
-We're not yet ready to learn about JavaScript's "strict mode", but there is one aspect of strict mode that you should be aware of: when strict mode is enabled, the implicit `this` is assigned to `undefined` instead of the global object:
+When strict mode is enabled, the implicit `this` is assigned to `undefined` instead of the global object:
 
 ```js
 "use strict"; // the quotes are required
@@ -3306,11 +3306,11 @@ function foo() {
 foo(); // this refers to: undefined
 ```
 
-We'll learn more in the next course. For now, just be aware of this behavioral change. You may run into strict mode without realizing it. For instance, it shows up in JavaScript classes and in Coderpad, the environment we use for assessment interviews.
+You may run into strict mode without realizing it. For instance, it shows up in JavaScript classes and in Coderpad, the environment we use for assessment interviews.
 
 ### 14.5 Method Execution Context (Implicit)
 
-We learned earlier that when you call a method that belongs to an object, the execution context inside that method call is the object used to call the method. We call that **method execution context**. Is this an implicit or explicit execution context, however? At first glance, it's easy to look at that calling object as explicitly providing the context. You're not really wrong if that's how you see it. However, method execution syntax is usually said to provide an implicit context; we're using an explicit object to call the method, but JavaScript is interpreting that object as the implicit context. For this reason, we usually say that *method calls provide an implicit execution context*.
+When you call a method that belongs to an object, the execution context inside that method call is the object used to call the method. We call that **method execution context**. Method execution syntax is usually said to provide an implicit context; we're using an explicit object to call the method, but JavaScript is interpreting that object as the implicit context. For this reason, we usually say that *method calls provide an implicit execution context*.
 
 ```js
 let foo = {
@@ -3332,17 +3332,17 @@ let baz = foo.bar;
 baz(); // Object [global] {...}
 ```
 
-In this code, we assign the `foo.bar` method to the `baz` variable. The `foo.bar` property and the `baz` variable now refer to the same function object. What should `baz()` log then? Since `baz` references a method of the `foo` object, you may think that its execution context must be `foo`. That's wrong though: as we've repeated several times, the execution context is determined entirely by how a function or method is called. Since we're calling `baz` as a standalone function, its execution context is the global object, not the `foo` object.
+In this code, we assign the `foo.bar` method to the `baz` variable. The `foo.bar` property and the `baz` variable now refer to the same function object. What should `baz()` log then? Since `baz` references a method of the `foo` object, you may think that its execution context must be `foo`. That's wrong though: as we've repeated several times, the execution context is determined entirely by how a function or method is called. Since we're *calling `baz` as a standalone function*, its execution context is the global object, not the `foo` object.
 
 ### 14.6 Explicit Function and Method Execution Context
 
 Using parenthesis after a function or method name is not the only way to invoke it. As we've seen, when you invoke a function with parentheses, JavaScript uses the global object as the implicit context; when you invoke a method, it uses the object that you used to call the method as the implicit context.
 
-There are, however, several ways to subvert this behavior. You can provide an explicit context to any function or method, and it doesn't have to be the global object or the object that contains the method. Instead, you can use any object -- or even `null` -- as the execution context for any function or method. There are two main ways to do that in JavaScript: `call` and `apply`.
+There are, however, several ways to subvert this behavior. *You can provide an explicit context to any function or method*, and it doesn't have to be the global object or the object that contains the method. Instead, you can use any object -- or even `null` -- as the execution context for any function or method. There are two main ways to do that in JavaScript: `call` and `apply`.
 
 ### 14.7 Implicit and Explicit Execution Context Summary
 
-All JavaScript functions and methods execute within an execution context, sometimes called its `this` binding. How `this` gets bound depends entirely on how the function is invoked. You can't tell a function's execution context by merely looking at how and where it's defined; y*ou must examine the invocation itself*.
+All JavaScript functions and methods execute within an execution context, sometimes called its `this` binding. How `this` gets bound depends entirely on how the function is invoked. You can't tell a function's execution context by merely looking at how and where it's defined; *you must examine the invocation itself*.
 
 Regular function calls use the global object as their execution context, while method calls use the calling object as their context. You can override this behavior by setting the execution context explicitly with either `call` or `apply`.
 
@@ -3352,11 +3352,11 @@ The execution context is determined by *how you invoke a function or method*. We
 
 ## 15. Dealing with Context Loss
 
-In the next three assignments, we'll discuss how functions and methods can "lose context." We've used quotes since functions don't lose their execution context in reality -- they always have one, but it may not be the context that you expect. If you understand how execution context is determined, you shouldn't be surprised by the value of `this` in any given scenario. That said, how a specific context is arrived at isn't always intuitive. Even when you understand the rules, the context for any given invocation may surprise you.
+Let's discuss how functions and methods can "lose context." We've used quotes since functions don't lose their execution context in reality -- they always have one, but it may not be the context that you expect. If you understand how execution context is determined, you shouldn't be surprised by the value of `this` in any given scenario. That said, how a specific context is arrived at isn't always intuitive. Even when you understand the rules, the context for any given invocation may surprise you.
 
 ### 15.1 Method Copied from Object
 
-When you take a method out of an object and execute it as a function or as a method on another object the function's context is no longer the original object. For instance:
+When you take a method out of an object and execute it as a function or as a method on another object *the function's context is no longer the original object*. For instance:
 
 ```js
 let john = {
@@ -3400,6 +3400,8 @@ foo();
 // => hello, undefined undefined
 ```
 
+### Accept the Context Object as a Second Parameter
+
 One way to solve this problem is to change `repeatThreeTimes` to accept the context object as a second parameter, then pass the context to `repeatThreeTimes` when calling it.
 
 ```js
@@ -3432,6 +3434,8 @@ Some of JavaScript's built-in methods, such as the Array abstraction methods lik
 
 However, it's not always possible to pass a context argument to a function or method; you may not even be able to change the function if, say, it belongs to a third-party library. Besides, it's generally not a good idea to pass a lot of arguments to your functions; the more arguments a function can accept, the harder the function is to use.
 
+### Hard-bind the Method's Context Using `bind`
+
 Another approach you can use is to hard-bind the method's context using `bind`:
 
 ```js
@@ -3462,11 +3466,10 @@ foo();
 
 `bind` has one significant advantage: once you bind a context to a function, that *binding is permanent* and does not need to be repeated if it gets called more than once. The disadvantage of `bind` is that it is no longer possible to determine the context by looking at the invocation of the final function.
 
-In the next assignment, we'll study how functions can lose their surrounding context. Loss of surrounding context is a common issue when dealing with functions nested within object methods.
-
 ### 15.2 Inner Function Not Using the Surrounding Context
 
-In this assignment, we'll see how **nested functions** *suffer from context loss*.
+Loss of surrounding context is a common issue when dealing with functions nested within object methods.
+Here, we'll see how **nested functions** *suffer from context loss*.
 
 Examine the following code:
 
@@ -3598,7 +3601,7 @@ One advantage of `bind` is that you can do it once and then *call it as often as
 
 ### 15.6 Solution 4: Using an Arrow Function
 
-Arrow functions have a property that comes in very handy when dealing with context loss; they inherit their execution context from the surrounding context. That means that an arrow function defined inside another function always has the same context as the outer function's context:
+Arrow functions inherit their execution context from the surrounding context. That means that an arrow function defined inside another function always has the same context as the outer function's context:
 
 ```js
 let obj = {
@@ -3648,13 +3651,11 @@ The reason that this code doesn't work is that arrow functions always get the va
 
 The surrounding context is, in fact, the `global object`. The reason for that is simple: the `let` statement in this example *is in the program's top-level code*, so its context is the global object. That means that `this` inside the object literal is also the global object, so `this` on line 5 refers to the global object, not `obj`.
 
-When using `node` to execute a file, e.g., `node somefile.js`, the surrounding context is the `module`, not the global object. This can cause a certain amount of confusion when working with node in both REPL and file modes. We'll discuss modules in a later course.
+When using `node` to execute a file, e.g., `node somefile.js`, the surrounding context is the `module`, not the global object. This can cause a certain amount of confusion when working with node in both REPL and file modes.
 
-You may have noticed that `this` in `obj.foo` is not determined by how the method is called. We call the method on line 9, and we seem to be telling JavaScript to use obj as the context. Instead, the context ends up being the global object. That seems to contradict our repeated statements that the context is determined entirely by how a function or method is invoked. That's clearly not the case here; it certainly violates the rule. However, *you won't usually see code like this in practice.*
+You may have noticed that `this` in `obj.foo` is not determined by how the method is called. We call the method on line 9, and we seem to be telling JavaScript to use `obj` as the context. Instead, the context ends up being the global object. That seems to contradict our repeated statements that the context is determined entirely by how a function or method is invoked. That's clearly not the case here; it certainly violates the rule. However, *you won't usually see code like this in practice.*
 
 In general, you should not use arrow functions to write methods. According to [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), "Arrow function expressions are ill suited as methods, and they cannot be used as constructors." The example shown here demonstrates one reason why that is so: it doesn't follow the rules. As long as you don't try to use arrow functions as methods, you can ignore this exception.
-
-In the next assignment, we'll study how functions can lose their context by being passed as arguments.
 
 ### 15.8 Function as Argument Losing Surrounding Context
 
