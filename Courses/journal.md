@@ -7098,3 +7098,5 @@ Have a great day everyone!!!
 12:41 My game this afternoon got cancelled and everyone is away so it's quiet and I can study for a little bit now.
 
 13:10 I'm still a little shaky on all the nuances of constructors with prototypes for object creation.
+
+13:19 Studied OLOO, but I want to write out code examples to solidify my knowledge. Time to go to the couch.

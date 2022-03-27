@@ -1080,7 +1080,7 @@ car1.model = 'Corolla';
 car1.year = 2016;
 ```
 
-We can now call `start` and `stop` on the `car1` object since both are accessible through it prototype, `carPrototype`.
+We can now call `start` and `stop` on the `car1` object since both are accessible through its prototype, `carPrototype`.
 
 ```js
 car1.start();
@@ -1146,7 +1146,7 @@ Since `init` now returns a reference to the car object it was called on, we can 
 let car1 = Object.create(carPrototype).init('Toyota', 'Corolla', 2016);
 ```
 
-### 1.4.1 Another Example of OLOO
+#### 1.4.1 Another Example of OLOO
 
 ```js
 // OLOO (uses `init` and an explicit return in the constructor)
@@ -1177,7 +1177,9 @@ console.log(olooRectangle.getLength()); // 5
 console.log(olooRectangle.getArea()); // 20
 ```
 
-### 1.4.2 Advantage of OLOO over Factory Functions
+#### 1.4.2 Advantage of OLOO over Factory Functions
+
+RR
 
 You can use both factory functions and the OLOO pattern to bulk create objects of the same type. Though the result is an object creation mechanism in both cases, the OLOO pattern has one significant advantage over factory functions: **memory efficiency**. Since all objects created with the OLOO pattern *inherit methods from a single prototype object*, the objects that inherit from that prototype object share the same methods. Factory functions, on the other hand, create copies of all the methods for each new object. That can have a significant performance impact, especially on smaller devices with limited memory.
 
