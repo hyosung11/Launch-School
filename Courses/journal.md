@@ -7102,3 +7102,5 @@ Have a great day everyone!!!
 13:19 Studied OLOO, but I want to write out code examples to solidify my knowledge. Time to go to the couch.
 
 14:32 Studied "prototypal and pseudo-classical inheritance".
+
+15:37 Studying "Higher-order functions" but put a lot of other notes about functions in this section. I have to pee.

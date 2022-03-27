@@ -2027,7 +2027,7 @@ function computeWage(baseSalary, overtime, rate) {
 }
 ```
 
-Up top are the data related to the employee’s wage and a function that operates on the data. The object-oriented way of solving this problem by using encapsulation is done by simply combining data and related functions into one unit like so:
+Up top are the data related to the employee’s wage and a function that operates on the data. The object-oriented way of solving this problem by using encapsulation is done by simply *combining data and related functions into one unit* like so:
 
 ```js
 let employee = {
@@ -2046,17 +2046,15 @@ We've just reviewed the concept of encapsulation and how it's relevant to object
 
 ## 5. Polymorphism
 
-Polymorphism refers to the ability of objects with different types to respond to the same method invocation. It can be implemented through inheritance by *method overriding*. It can also be implemented through **duck typing**; by ensuring that objects of different **types** use the same method name to perform different but related functions, those objects can be interacted with in a uniform way.
+Polymorphism refers to the ability of objects with different types to respond to the same method invocation. It can be implemented through inheritance by *method overriding*. It can also be implemented through **duck typing**; by ensuring that objects of different **types** *use the same method name to perform different but related functions*, those objects can be interacted with in a uniform way.
 
 **Polymorphism** refers to the ability of objects with different types to respond in different ways to the same message (or method invocation); that is, data of different types can respond to a common interface. It's a crucial concept in OO programming that can lead to more maintainable code.
 
 When two or more object types have a method with the same name, we can invoke that method with any of those objects. **When we don't care what type of object is calling the method, we're using polymorphism**. Often, polymorphism involves inheritance from a common superclass. However, inheritance isn't necessary as we'll see in this assignment.
 
-For example, assume we have a method that expects an argument that has a `move` method. We can pass it any type of argument, provided it has a compatible `move` method. The object might represent a human, a cat, a jellyfish, or, conceivably, even a car or train. That is, it lets objects of different types respond to the same method invocation.
+For example, assume we have a method that expects an argument that has a `move` method. We can pass it any type of argument, provided it has a compatible `move` method. The object might represent a human, a cat, a jellyfish, or, conceivably, even a car or train. That is, it lets *objects of different types respond to the same method invocation.*
 
-There are two chief ways to implement polymorphism.
-
-When a method has the same name, but a different implementation in different classes it is called polymorphism. When a method in a subclass replaces the implementation of the version in the superclass, we say that the subclass overrides the version in the superclass.
+There are two chief ways to implement polymorphism. When a method has the same name, but a different implementation in different classes it is called polymorphism. When a method in a subclass replaces the implementation of the version in the superclass, we say that the subclass *overrides* the version in the superclass.
 
 ### 5.1 Polymorphism through Inheritance
 
@@ -2105,16 +2103,19 @@ An example of inheritance-based polymorphism in action is the JavaScript `toStri
 'Sun Mar 13 2022 10:51:46 GMT-0400 (Eastern Daylight Time)'
 ```
 
+### 5.1.1 Example
 
-This is one of those gems I found in the forums from Pete that really helped me to understand the idea behind Polymorphism better
+This is one of those gems I found in the forums from Pete that really helped me to understand the idea behind Polymorphism better:
 
+```js
 [str, arr].forEach(obj => console.log(obj.indexOf("c")));
+```
 
-Notice how we're calling both str.indexOf and arr.indexOf by using obj.indexOf where obj is alternately a reference to str or arr.
+Notice how we're calling both `str.indexOf` and `arr.indexOf` by using `obj.indexOf` where `obj` is alternately a reference to `str` or `arr`.
 
 You can do that with a duck-typed language, but if you try it in a language like C that doesn't support duck typing, it will produce a type error. You can't call methods for 2 or more objects with the same line of code unless the objects have a common superclass. It's much more stringent than JS and Ruby. However, you can still call things that have the same method, just not through a common interface.
 
-By the way -- calling indexOf like this with a variable that can take on different types is where polymorphism really comes into play. I'm not sure if we emphasize that enough. The point behind polymorphism is that you can write code that doesn't care about types -- just that the different things respond to the same message.
+By the way -- calling `indexOf` like this with a variable that can take on different types is where polymorphism really comes into play. I'm not sure if we emphasize that enough. The point behind polymorphism is that you can write code that doesn't care about types -- just that the different things respond to the same message.
 
 ### 5.2 Polymorphism through Duck Typing
 
@@ -2126,11 +2127,12 @@ The 'Polymorphism Through Duck Typing' section provides a definition for duck ty
 Hmm, check out this comment by pete
 https://launchschool.com/posts/c6a86a52#comment-89887
 @Jack
+
 Duck typing is just a particular form of polymorphism -- it's the ability for objects of completely unrelated types to respond to the same method invocation. A simple example of this in JS are Strings and Arrays. These types are unrelated(*), yet they can both respond to, say, the indexOf method:
 
 The main reason why there is a distinction is that some languages -- like C++ -- only support inheritance-based polymorphism. Two objects have to be related through inheritance for polymorphism to be present. When languages were introduced that allowed unrelated objects to act polymorphically, the term duck-typing was introduced to talk about that kind of polymorphism separately.
 
-* In JS, almost all objects inherit from Object at some point in their prototype chain, so String and Array aren't completely unrelated. However, we usually ignore global supertypes (like Object) when talking about whether objects are related. It's still possible to create objects in JS that don't inherit from Object, and those objects can still use duck typing.
+In JS, almost all objects inherit from Object at some point in their prototype chain, so String and Array aren't completely unrelated. However, we usually ignore global supertypes (like Object) when talking about whether objects are related. It's still possible to create objects in JS that don't inherit from Object, and those objects can still use duck typing.
 
 By other languages not supporting duck typing, does that mean that if you declare a method in an object, you can't use that same name to declare a method in another object?
 
@@ -2190,7 +2192,7 @@ class Wedding {
 }
 ```
 
-The problem with this code is that the `prepare` method has too many dependencies; it relies on specific classes and their names. It also needs to know which method it should call on each type of object, as well as the arguments that each method requires. If you change the way any of those methods are used or add a new type of preparer, you must also change `Wedding.prototype.prepare`. For instance, if we need to add a dressmaker, we must add another else clause. With only 4 preparers, `prepare` is already becoming long and messy.
+The problem with this code is that *the `prepare` method has too many dependencies*; it relies on specific classes and their names. It also needs to know which method it should call on each type of object, as well as the arguments that each method requires. If you change the way any of those methods are used or add a new type of preparer, you must also change `Wedding.prototype.prepare`. For instance, if we need to add a dressmaker, we must add another else clause. With only 4 preparers, `prepare` is already becoming long and messy.
 
 The right way to implement this program is to *use duck typing to implement polymorphism*:
 
@@ -2241,26 +2243,6 @@ class Wedding {
 ```
 
 Though there is no inheritance in this example, each of the preparer-type classes provides a `prepare` method. We still have polymorphism since all of the objects respond to the `prepare` method call. If we later need to add another preparer type, we can create another class and implement the `prepare` method to perform the appropriate actions.
-
-Note that merely having two different objects that have a method with the same name and compatible arguments doesn't mean that you have polymorphism. In theory, those methods might be used polymorphically, but that doesn't always make sense. Consider the following two classes:
-
-```js
-class Circle {
-  draw() {}
-}
-
-class Blinds {
-  draw() {}
-}
-```
-
-These classes each have a method named `draw`, and the methods take no arguments. In the `Circle` class, `draw` presumably draws a circle on the screen. In the `Blinds` class, `draw` may cause the window blinds in an office building to be drawn (as in close or open). In theory, you could write some code that uses these methods polymorphically:
-
-```js
-[new Circle(), new Blinds()].forEach(obj => obj.draw());
-```
-
-However, it's unlikely that this would ever make sense in real code. Unless you're actually calling the method in a polymorphic manner, you don't have polymorphism. In practice, polymorphic methods are *intentionally designed to be polymorphic*; if there's no intention, you probably shouldn't use them polymorphically.
 
 ### Synora Eusebio (JS129)
 
@@ -2322,7 +2304,6 @@ Decorator {
 console.log(decorator.prepare(decorator.flowers)); //Where are my roses??
 console.log(decorator.decoratePlace(decorator.flowers)); //Where are my roses??
 
-
 class Musician {
   constructor(guests, flowers, songs) {
     this.guests = guests;
@@ -2382,6 +2363,26 @@ Prepare the following songs: Electric Slide,Cha-Cha Slide
 */
 ```
 
+Note that merely having two different objects that have a method with the same name and compatible arguments *doesn't mean that you have polymorphism*. In theory, those methods might be used polymorphically, but that doesn't always make sense. Consider the following two classes:
+
+```js
+class Circle {
+  draw() {}
+}
+
+class Blinds {
+  draw() {}
+}
+```
+
+These classes each have a method named `draw`, and the methods take no arguments. In the `Circle` class, `draw` presumably draws a circle on the screen. In the `Blinds` class, `draw` may cause the window blinds in an office building to be drawn (as in close or open). In theory, you could write some code that uses these methods polymorphically:
+
+```js
+[new Circle(), new Blinds()].forEach(obj => obj.draw());
+```
+
+However, it's unlikely that this would ever make sense in real code. Unless you're actually calling the method in a polymorphic manner, you don't have polymorphism. In practice, polymorphic methods are *intentionally designed to be polymorphic*; if there's no intention, you probably shouldn't use them polymorphically.
+
 ## 6. Collaborator Objects
 
 Objects *collaborate* with other objects by using them as part of their **state**. We say that two objects have a **collaborator relationship** *if one of them is part of the state of the other*.
@@ -2410,6 +2411,10 @@ let pete = {
     console.log(`My pet's name is ${this.pet.name}`); // line 19
   },
 };
+
+pete.printName();
+// => My name is Pete!
+// => My pet's name is Fluffy
 ```
 
 The `pete` object has a collaborator object stored in its `pet` property. The `pete` object and the object referenced by its `pet` property work together. When we need to access the `pet` object or have it perform a behavior, we can use `pete.pet` to access and use the object's properties. For instance, on line 19, the `pete` object collaborates with the `cat` object (via `this.pet`) to access the `cat`'s name.
@@ -2456,15 +2461,15 @@ We often talk of collaborators in the context of custom objects like `pet`, but 
 
 ## 7. Single vs Multiple Inheritance
 
-### 7.1 Single Inheritance
+In JavaScript objects can only inherit from one object, and classes can extend only one other class. In other words, an object can have only one prototype object. This is **single inheritance**.
 
-In JavaScript objects can only inherit from one object, and classes can extend only one other class. In other words, an object can have only one prototype object. This is single inheritance.
+Some programming languages allow classes to inherit from multiple classes, a functionality known as multiple inheritance. JavaScript doesn't support **multiple inheritance**, so a class can only inherit from one class.
 
-### 7.2 Multiple Inheritance
+To be clear, when we say that an object can only have one prototype or that a class can only inherit from one class, we don't mean that the object or class can't inherit from an entire chain of prototypes or classes. It's perfectly acceptable for a `Whale` class to inherit from a `Mammal` class, which in turn inherits from an `Animal` class, which again inherits from the built-in `Object` type. Some students see this as multiple inheritance, but it is not: each object or class inherits directly from a single thing, so it is **single inheritance**. The chain of prototypes or superclasses merely comes along for the ride.
 
 ## 8. Mix-ins; mix-ins vs. inheritance
 
-There's a limitation with the inheritance pattern, which is that objects can only directly 'inherit' from one super-type object. In other words, an object can have only one prototype object. Mixins provide a way of addressing this limitation. The mix-in pattern involves creating a mix-in object containing certain methods, and using `Object.assign()` to mix that object into another object. JavaScript objects can only inherit from one other object. This limitation makes it difficult to model certain domains using class or constructor-based inheritance. You can use mix-ins to share behavior between otherwise unrelated classes.
+JavaScript objects can only inherit from one other object. This limitation makes it difficult to model certain domains using class or constructor-based inheritance. You can use mix-ins to share behavior between otherwise unrelated classes. There's a limitation with the inheritance pattern, which is that objects can only directly 'inherit' from one supertype object. In other words, an object can have only one prototype object. Mixins provide a way of addressing this limitation. The mix-in pattern involves creating a mix-in object containing certain methods, and using `Object.assign()` to mix that object into another object. 
 
 ### 8.1 Introduction
 
@@ -2476,11 +2481,9 @@ This restriction can be limiting and sometimes makes modeling some problem domai
 
 Note that the `swim` method is in two classes: `Dog` and `Fish`. Assuming that they have the same implementation, we would like to provide that method in one place, perhaps in a class. However, where can we move it? Some programming languages allow classes to inherit from multiple classes, a functionality known as multiple inheritance. JavaScript doesn't support **multiple inheritance**, so a class can only inherit from one class.
 
-To be clear, when we say that an object can only have one prototype or that a class can only inherit from one class, we don't mean that the object or class can't inherit from an entire chain of prototypes or classes. It's perfectly acceptable for a `Whale` class to inherit from a `Mammal` class, which in turn inherits from an `Animal` class, which again inherits from the built-in `Object` type. Some students see this as multiple inheritance, but it is not: each object or class inherits directly from a single thing, so it is **single inheritance**. The chain of prototypes or superclasses merely comes along for the ride.
+### 8.2 Mixins
 
-### 8.2 Mix-ins
-
-Enter JavaScript mix-ins – a pattern that adds methods and properties from one object to another. It's not delegation with prototypes; the mix-in pattern merely copies the properties of one object to another with `Object.assign` or some similar technique. We've already seen a mix-in at work in our first OO implementation of Rock Paper Scissors where we mixed in objects returned by `createPlayer` with `createHuman` and `createComputer`.
+Enter JavaScript mixins – a pattern that adds methods and properties from one object to another. It's not delegation with prototypes; *the mixin pattern merely copies the properties of one object to another with `Object.assign` or some similar technique.*
 
 For now, we're concerned with objects that can, in principle, belong to multiple and distinct types. For instance, in the bird world, there are birds that can swim and birds that can fly, but there are also birds that can't swim and birds that can't fly. Some birds can even do both.
 
@@ -2525,7 +2528,7 @@ class Goose extends Bird {
 }
 ```
 
-That was easy enough. However, there's a lot of duplication going on here: 4 of the various bird classes each have their own copy of the `swim` method, while 4 have their own copy of the `fly` method. In all likelihood, those 4 `fly` methods are identical, as are the 4 `swim` methods.
+There's a lot of duplication going on here: 4 of the various bird classes each have their own copy of the `swim` method, while 4 have their own copy of the `fly` method. In all likelihood, those 4 `fly` methods are identical, as are the 4 `swim` methods.
 
 One way we can try to reduce the duplication is by using inheritance and a new class. Let's start with the `fly` method. We can define a `FlyingBird` type to handle this:
 
@@ -2592,7 +2595,7 @@ class Goose extends FlyingBird {
 
 We've hit a roadblock. The `Duck` and `Goose` classes represent both flying birds and swimming birds, but JavaScript only allows single inheritance. The lack of support for multiple inheritance means we can't just add a new class in and inherit from it.
 
-Instead of using inheritance, we can use a **mix-in** instead. A mix-in is an object that defines one or more methods that can be "mixed-in" to a class. This grants that class access to all of the methods in the object. It's the only real workaround for the lack of multiple inheritance short of duplication. Let's see what mix-ins look like:
+Instead of using inheritance, we can use a **mixin** instead. A mixin is an object that defines one or more methods that can be "mixed-in" to a class. This grants that class access to all of the methods in the object. It's the only real workaround for the lack of multiple inheritance short of duplication. Let's see what mixins look like:
 
 ```js
 const Swimmable = {
@@ -2624,7 +2627,7 @@ Object.assign(Goose.prototype, Swimmable);
 
 In this code, we've created a `Swimmable` object that has a `swim` method. To mix it into our various swimming birds, we've used `Object.assign` to add the methods from `Swimmable` to the prototype objects of those classes. It's a bit tedious, but not too difficult, and it works well.
 
-For consistency, we could even eliminate the inheritance aspect entirely:
+For consistency, we could even *eliminate the inheritance aspect entirely*:
 
 ```js
 const Swimmable = {
@@ -2654,9 +2657,9 @@ class Goose {}
 Object.assign(Goose.prototype, Swimmable, Flyable);
 ```
 
-### 8.3 Mix-ins vs Inheritance
+### 8.3 Mixins vs Inheritance
 
-Some JavaScript developers argue that you should use factory functions with mix-ins exclusively. They suggest that inheritance fails at modeling some scenarios, but a combination of factory functions and mix-ins can model any object relationship. Why bother with class/constructor inheritance at all? Why not just use factory functions that mix in other objects instead? If we did that, we could *rewrite our example like this*:
+Some JavaScript developers argue that you should use factory functions with mixins exclusively. They suggest that inheritance fails at modeling some scenarios, but a combination of factory functions and mixins can model any object relationship. Why bother with class/constructor inheritance at all? Why not just use factory functions that mix in other objects instead? If we did that, we could *rewrite our example like this*:
 
 ```js
 const Swimmable = {
@@ -2706,21 +2709,26 @@ function createGoose() {
 
 This approach is valid, but it suffers the downsides of all factory functions:
 
-1. Every new object receives a new copy of all of its methods, including new copies of both mix-in methods and the methods that belong more directly to the object. That can be taxing on memory resources, even more so than the memory requirements of mix-ins.
+1. Every new object receives a new copy of all of its methods, including new copies of both mixin methods and the methods that belong more directly to the object. That can be taxing on memory resources, even more so than the memory requirements of mixins.
 
 2. You can't determine the type of an object created with a factory function: the `instanceof` operator only recognizes these objects as instances of the `Object` type. As far as JavaScript is concerned, a penguin and a fish and an automobile are indistinguishable. That's not as troubling as it might sound in terms of being able to solve programming problems, but it has a more significant impact on debugging.
 
 We *suggest a balance of mix-in and classical inheritance* pattern instead:
 
-1. Inheritance works well when one object type is positively a sub-type of another object. In our example, it's natural for a penguin to also be a swimming bird. These types have an **is a** relationship: a penguin *is a* swimming bird. Whenever two object types have an "is a" relationship, constructor or class inheritance makes sense.
+1. Inheritance works well when one object type is positively a sub-type of another object. In our example, it's natural for a penguin to also be a swimming bird. These types have an **is a** relationship: a penguin *is a* swimming bird. *Whenever two object types have an "is a" relationship, constructor or class inheritance makes sense.*
 
-2. On the other hand, the ability to swim doesn't have that kind of relationship with storks. Swimming is a capability that penguins have. Similarly, flying is a capability that storks have. When you want to endow your objects with some capability, a mix-in may be the correct choice.
+2. On the other hand, the ability to swim doesn't have that kind of relationship with storks. Swimming is a capability that penguins have. Similarly, flying is a capability that storks have. *When you want to endow your objects with some capability, a mixin may be the correct choice.*
 
-Mixins are more appropriate in a *has-a* relationship. While it is sometimes tricky to choose one or the other, a great guideline is to decide if you want some additional functionality, or if you want to extend the abilities of the class.
+Mixins are more appropriate in a *has-a* relationship. While it is sometimes tricky to choose one or the other, *a great guideline is to decide if you want some additional functionality, or if you want to extend the abilities of the class.*
+
+Relationship | Use | Because
+---------|----------|---------
+ "is-a" | inheritance | you want to extend the abilities of a class
+ "has-a" | mixin | you want additional functionality
 
 ## 9. Methods and Functions; Method Invocation vs. Function Invocation
 
-### Methods on Object.prototype
+### 9.1 Methods on `Object.prototype`
 
 The `Object.prototype` object is at the top of all JavaScript prototype chains. Thus, its methods are available from any JavaScript object provided you don't explicitly use something like `null` as the prototype object. Here are 3 useful methods:
 
@@ -2728,11 +2736,9 @@ The `Object.prototype` object is at the top of all JavaScript prototype chains. 
 - `Object.prototype.isPrototypeOf(obj)` determines whether the object is part of another object's prototype chain.
 - Object.prototype.hasOwnProperty(prop) determines whether the object contains the property.
 
-### Objects Without Prototypes
+### 9.2 Objects Without Prototypes (bare objects)
 
-Several times we've said that JavaScript objects all have a prototype object and that the prototype chain ends with `Object.prototype`. In reality, there is a way to create objects that don't have a prototype and, hence, do not have a prototype chain that ends with `Object.prototype`. However, as you're well aware by now, JavaScript is full of surprises waiting to bite the unwary developer.
-
-It turns out that you *can* create an object that doesn't have a prototype by setting the prototype to `null`. This technique is a bit unusual and not seen very often. However, it lets you create a "clean" or "bare" object for use as a general key/value data structure. The bare object doesn't carry around a bunch of excess baggage in the form of unneeded properties and prototypes:
+There is a way to create objects that don't have a prototype and, hence, do not have a prototype chain that ends with `Object.prototype`. You *can* create an object that doesn't have a prototype by setting the prototype to `null`. This technique is a bit unusual and not seen very often. However, it lets you create a "clean" or "bare" object for use as a general key/value data structure. The bare object doesn't carry around a bunch of excess baggage in the form of unneeded properties and prototypes:
 
 ```sh
 > let a = Object.create(null)
@@ -2757,11 +2763,9 @@ If you don't first check whether `obj` has a non-`null` prototype, this code wil
 
 Library developers often write code to check for the **bare object edge cases**. Since their code will see use in many different environments, they need to be ready for such unusual objects.
 
-### 9.1 Method Invocation
+### 9.3 Method Invocation vs Function Invocation
 
-Function invocations (e.g., `parseInt(numberString)`) rely upon implicit execution context that resolves to the global object. Method invocations (e.g., `array.forEach(processElement)`) rely upon implicit context that resolves to the object that holds the method.
-
-### 9.2 Function Invocation
+**Function invocations** (e.g., `parseInt(numberString)`) rely upon implicit execution context that resolves to the global object. **Method invocations** (e.g., `array.forEach(processElement)`) rely upon implicit context that resolves to the object that holds the method.
 
 ## 10. Higher-order functions
 
@@ -2791,7 +2795,7 @@ function prompt(message) {
 }
 ```
 
-This code works since *the JavaScript engine runs our code in two passes*. During the first pass, it does some preparatory work, while the second executes the code. One action that occurs during the first pass is called **hoisting**; the engine effectively moves function declarations to the top of the program file in which they're defined, or the top of the function in which they are nested. The result is that the above code acts as though you wrote it like this:
+This code works since *the JavaScript engine runs our code in two passes*. During the first pass, it does some preparatory work, while the second executes the code. One action that occurs during the first pass is called **hoisting**; *the engine effectively moves function declarations to the top of the program file in which they're defined, or the top of the function in which they are nested.* The result is that the above code acts as though you wrote it like this:
 
 ```js
 function prompt(message) {
@@ -2802,8 +2806,6 @@ prompt('How are you today?');
 ```
 
 Note that you'll never see this hoisted code when working with JavaScript. *Hoisting is an internal step performed by the engine*; it doesn't move any code around. However, it's useful to think of hoisting in this way, so long as you understand that your code is not changed.
-
-Hoisting isn't limited to function declarations. We'll discuss it in more detail later in the curriculum.
 
 Function definitions that are the first thing on a line are known as **function declarations**. On the other hand, **function expressions** are function definitions that are part of an expression. For instance, the code in the above example shows `prompt` as a function declaration; the next example shows `foo` as a function expression: it is *not* a declaration.
 
@@ -2822,29 +2824,19 @@ bar();
 function bar() {
   console.log("this is bar");
 }
+// => 'this is bar'
 
 foo();
 const foo = function() {
   console.log("this is foo");
 };
-```
-
-```sh
-$ node functions.js
-this is bar
-/Users/foobar/projects/functions.js:6
-foo();
-^
-
-ReferenceError: Cannot access 'foo' before initialization
+// ReferenceError: Cannot access 'foo' before initialization
 ```
 
 Typically, we assign a function expression to a variable or object property, pass it to another function, or return it to a calling function. For instance:
 
 ```js
-let prompt = function() { // Assign to a variable
-
-};
+let prompt = function() {}; // Assign to a variable
 
 [1, 2, 3].forEach(function(elem) { // pass to another function
   console.log(elem);
@@ -2866,7 +2858,7 @@ let squaredNums = [1, 2, 3].map(function(num) {
 }); // => [1, 4, 9]
 ```
 
-Function expressions don't have to be anonymous. You can name a function expression:
+Function expressions don't have to be anonymous. *You can name a function expression*:
 
 ```js
 let squaredNums = [1, 2, 3].map(function squareNum(num) {
@@ -2887,8 +2879,6 @@ bar();         // This does not work (line 3)
 `foo` is a local variable that contains a reference to the function, so we can invoke the function using `foo()`. However, the function name, `bar`, is not in scope on line 3, so `bar()` does not work.
 
 The function name on a function expression is visible inside the function, which is useful when working with recursive functions. We won't trouble you with an example at this time.
-
-End 20220302 21:35
 
 ### 10.2. Arrow Functions
 
