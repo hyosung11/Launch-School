@@ -7046,9 +7046,9 @@ Have a great day everyone!!!
    * [x] 2. Anki Cards Review
    * [ ] 3. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
    * [x] 4. Career Karma: Reframing your past experience for a new tech career
-   * [ ] 5. Coding Career Meeting
+   * [x] 5. Coding Career Meeting
    * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
-   * [ ] 7. Meet with Derek Barker about Salesforce position
+   * [x] 7. Meet with Derek Barker about Salesforce position
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Afternoon is full of meetings and starts with watching Somerville Children's Theater at 12:00. SungOh also wants to play, so I may not get much time to study this morning.
@@ -7068,3 +7068,28 @@ Have a great day everyone!!!
 19:01 I finished dumping notes into my study guide and now I want to shape my notes.
 
 19:16 Interested in watching some March Madness now.
+
+## 20220327 일요일
+
+09:47 I took my time getting out of bed and started today. It's Sunday morning and missing sleep because of watching basketball and soccer caught up with me and today is the only day I can sleep in later. Not sure about this Salesforce position. I'll apply and see how it goes.
+
+9:49 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Work on Study Guide 2.0
+   * [x] 2. Anki Cards Review
+~~   * [ ] 3. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)~~
+   * [x] 4. Career Karma: Reframing your past experience for a new tech career
+   * [x] 5. Coding Career Meeting
+~~   * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?~~
+   * [x] 7. Meet with Derek Barker about Salesforce position
+
+2. What will you do today?
+   * [ ] 1. Work on Study Guide 2.0
+   * [ ] 2. Anki Cards Review
+   * [ ] 3. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
+   * [ ] 4. Learn in Public: Context Loss vs Context Change question on LinkedIn?
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I woke up late which is good for me to get rest. I have a referee assignment in the afternoon and soccer practice this evening after dinner.
+
