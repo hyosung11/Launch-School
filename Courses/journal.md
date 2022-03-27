@@ -7096,3 +7096,5 @@ Have a great day everyone!!!
 11:06 Time to play with SungOh. When I return study this: "1.3.11 The Constructor `prototype` Property"
 
 12:41 My game this afternoon got cancelled and everyone is away so it's quiet and I can study for a little bit now.
+
+13:10 I'm still a little shaky on all the nuances of constructors with prototypes for object creation.

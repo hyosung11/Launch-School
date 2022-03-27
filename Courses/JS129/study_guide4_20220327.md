@@ -739,8 +739,6 @@ Object.getPrototypeOf(biggie).bark === Dog.myPrototype.bark; // true
 
 #### 1.3.11 The Constructor `prototype` Property
 
-So far, so good. We have a constructor function and a prototype object that work together. Between them, they create dog objects for us that don't waste memory with multiple copies of methods. However, we still haven't explained why we should bother with constructors. We can pair a prototype with a factory function and get the same effect.
-
 What makes constructors special is a characteristic of all function objects in JavaScript: they all have a prototype property that we call the **function prototype** to distinguish them from the prototypes used when creating ordinary objects. The code we showed in the previous section emulates something that JavaScript bundles with constructors. Let's take a look at that property:
 
 ```sh
@@ -749,7 +747,7 @@ Dog.prototype; // => Dog {}
 
 When you call a function `Foo` with the `new` keyword, JavaScript sets the new object's prototype to the current value of `Foo`'s `prototype` property. That is, the constructor creates an object that inherits from the constructor function's prototype (`Foo.prototype`). Since inheritance in JavaScript uses prototypes, we can also say that the constructor creates an object whose prototype references `Foo.prototype`.
 
-The terminology of constructor prototypes and object prototypes is extremely confusing. Note in particular that we use the term "prototype" to refer to 2 distinct but related concepts:
+The terminology of **constructor prototypes** and **object prototypes** is extremely confusing. Note in particular that we use the term "prototype" to refer to 2 distinct but related concepts:
 
 1. If `bar` is an object, then the object from which `bar` inherits is the **object prototype**. By default, constructor functions set the object prototype for the objects they create to the constructor's prototype object.
 
@@ -757,7 +755,7 @@ The terminology of constructor prototypes and object prototypes is extremely con
 
 It's easy to get confused about the differences between these two kinds of prototypes. Be sure you understand the differences before moving on. In most cases, when we talk about a **prototype** without being more explicit, we mean an **object prototype**. We'll talk about the constructor's prototype, the function prototype, or the `prototype` property when talking about a constructor's prototype object.
 
-Note that *constructors don't inherit from the constructor's prototype object*. Instead, *the objects that the constructor creates inherit from it*
+Note that *constructors don't inherit from the constructor's prototype object*. Instead, *the objects that the constructor creates inherit from it*.
 
 As we've said before, every JavaScript function has a `prototype` property. However, JavaScript only uses it when you call that function as a constructor, that is, by using the `new` keyword. With this information, we can abandon our home-grown constructor-prototype pairing and use the one that JavaScript provides instead:
 
@@ -794,9 +792,9 @@ Note that our constructor doesn't have to explicitly set the prototype of `this`
 
 Since the `bark` method refers to `this` and `bark` belongs to the prototype object, you may think that `this` in `this.weight` refers to the prototype object rather than the object itself (e.g., `maxi` or `biggie`). However, that's not how `this` binding works. You already know those rules, so take a moment to think about what it means inside the `bark` method.
 
-When you call a method on an object, JavaScript binds `this` to the object whose method you used to call it. If it doesn't find the method in that object, but it does find it in the prototype, that doesn't change the value of `this`. `this` always refers to the original object -- that is, the object used to call the method --even if the method is in the prototype. If we find the `bark` method in the prototype, `this` references the original dog object, not the prototype.
+When you call a method on an object, JavaScript binds `this` to the object whose method you used to call it. If it doesn't find the method in that object, but it does find it in the prototype, that doesn't change the value of `this`. `this` always refers to the original object -- that is, the object used to call the method -- even if the method is in the prototype. If we find the `bark` method in the prototype, `this` references the original dog object, not the prototype.
 
-A property of interest on a prototype object is the constructor property. For instance:
+A property of interest on a prototype object is the `constructor` property. For instance:
 
 ```sh
 Dog.prototype.constructor; // [Function: Dog]
@@ -812,9 +810,11 @@ if (maxi.constructor === Dog) {
 } else {
   console.log("It's not a dog");
 }
+
+// => 'It's a dog'
 ```
 
-Be careful, however. It's possible to reassign the `constructor` property to something else. We'll learn about reassigning the `constructor` property in the next assignment. In that case, the test shown above would fail, even though the object is still a dog.
+Be careful, however. *It's possible to reassign the `constructor` property to something else*. We'll learn about reassigning the `constructor` property in the next assignment. In that case, the test shown above would fail, even though the object is still a dog.
 
 ```js
 Dog.prototype.constructor = function() {};
@@ -843,6 +843,8 @@ dexter.bark(); // WOOF!
 
 The `dexter` object now has its own `bark` method that **overrides** the `bark` method from `Dog.prototype`. Each time we call `bark` on `dexter`, JavaScript looks for it first in the `dexter` object itself. Since it finds it there, it doesn't need to check the prototype.
 
+##### 1.3.12.1 Another Constructor and Prototype Example
+
 ```js
 function Rectangle(length, width) {
   this.length = length;
@@ -866,6 +868,8 @@ console.log(rectangle1.getWidth()); // 4
 console.log(rectangle1.getLength()); // 5
 console.log(rectangle1.getArea()); // 20
 ```
+
+##### 1.3.12.2 And Another Constructor and Prototype Example
 
 The reason we get the following output is because the `new` operator sets the context to the new object that's created. Because of this, technically a, b, c etc. don't exist as properties on the constructor, they exist as properties in the instantiated object.
 
@@ -943,7 +947,7 @@ sqr.toString();    // => "[Square 5 x 5]"
 
 There's some code duplication between this code and the `Rectangle` code. In particular, `Square.prototype.getArea` and `Rectangle.prototype.getArea` are identical. That gives us a chance to reuse some code.
 
-We can *use prototypal inheritance to our advantage here*. One way to think about the relationship between `Square` and `Rectangle` is that a square is a special kind of rectangle where both the length and width are the same. We say that `Square` is a **sub-type** of `Rectangle`, or that `Rectangle` is a **super-type** of `Square`. Consider the following code:
+We can *use prototypal inheritance to our advantage here*. One way to think about the relationship between `Square` and `Rectangle` is that a square is a special kind of rectangle where both the length and width are the same. We say that `Square` is a **subtype** of `Rectangle`, or that `Rectangle` is a **supertype** of `Square`. Consider the following code:
 
 ```js
 function Square(size) {
@@ -962,13 +966,13 @@ sqr.getArea(); // => 25
 sqr.toString(); // "[Square 5 x 5]"
 ```
 
-Since a function's `prototype` property is writable -- we can change what object it references -- we can reassign `Square.prototype` to an object that inherits from `Rectangle.prototype`. The result is a prototype chain that looks like this:
+Since a function's `prototype` property is writable -- we can change what object it references -- we can reassign `Square.prototype` to an object that inherits from `Rectangle.prototype`. The result is a **prototype chain** that looks like this:
 
 ```js
 sqr ---> Square.prototype ---> Rectangle.prototype ---> Object.prototype
 ```
 
-All objects created by the `Square` constructor inherit from `Square.prototype`, which we have set up to inherit from `Rectangle.prototype`. Thus, all square objects have access to methods on `Rectangle.prototype`. Since `toString` must be different for squares, we override it in `Square.prototype`. That is, we customize `Square.prototype.toString`. Since `getArea` *requires no customization*, we can let square objects use the inherited `Rectangle.prototype.getArea`.
+All objects created by the `Square` constructor inherit from `Square.prototype`, which we have set up to inherit from `Rectangle.prototype`. Thus, all square objects have access to methods on `Rectangle.prototype`. Since `toString` must be different for squares, we *override* it in `Square.prototype`. That is, we customize `Square.prototype.toString`. Since `getArea` *requires no customization*, we can let square objects use the inherited `Rectangle.prototype.getArea`.
 
 #### 1.3.14 Restoring the `constructor` property
 
