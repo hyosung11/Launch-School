@@ -7104,3 +7104,5 @@ Have a great day everyone!!!
 14:32 Studied "prototypal and pseudo-classical inheritance".
 
 15:37 Studying "Higher-order functions" but put a lot of other notes about functions in this section. I have to pee.
+
+16:00 Studied "method and property lookup sequence in the prototype chain".

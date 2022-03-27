@@ -2882,7 +2882,7 @@ The function name on a function expression is visible inside the function, which
 
 ### 10.2. Arrow Functions
 
-There's no declaration syntax for arrow functions; arrow functions are always function expressions. That means that we often pass them around or assign them to variables or properties. Also, arrow functions are **always anonymous**: there's no way to define a named arrow function. Arrow functions are either immediately invoked, assigned to variables or properties, or passed around as arguments and return values. We'll discuss immediately invoked functions in a later course.
+There's no declaration syntax for arrow functions; arrow functions are always function expressions. That means that we often pass them around or assign them to variables or properties. Also, *arrow functions are always anonymous*: there's no way to define a named arrow function. Arrow functions are either immediately invoked, assigned to variables or properties, or passed around as arguments and return values.
 
 ### 10.3 First-Class Functions
 
@@ -2980,14 +2980,16 @@ Functions in JavaScript are first-class values, just like any other value in Jav
 
 ## 10.6 Higher Order Functions
 
-The fact that JavaScript treats functions as values means that we can have a special kind of function in our programs: a **higher-order function**. A higher-order function is a function that has at least one of the following properties:
+The fact that JavaScript treats functions as values means that we can have a special kind of function in our programs: a **higher-order function**. A higher-order function is a function that has *at least one of the following properties*:
 
 1. It takes a function as an argument.
 2. It returns a function.
 
-### 10.7 Functions that Accept Functions as Arguments
+Higher-order functions let the programmer use powerful and flexible abstractions.
 
-We've seen many examples of functions that have the first property. Specifically, array methods like `forEach`, `map`, `filter`, and `reduce` each take a function argument. As these methods show, functions that take other functions give the developer a lot of power and flexibility.
+### 10.6.1 Higher Order Functions - Functions that Accept Functions as Arguments
+
+We've seen many examples of functions that have the first property. Specifically, array methods like `forEach`, `map`, `filter`, and `reduce` each take a function argument.
 
 Let's pretend that we don't have a `map` method on JavaScript arrays. If we want to implement some code that squares all the elements of an array, we'd probably come up with something like this:
 
@@ -3026,7 +3028,7 @@ The only significant difference between these two functions is line 6 of each fu
   - Add mapped values to the result.
 - Return the result.
 
-Can we abstract away the similar structure of the two functions and leave the specific mapping operation up to the function's caller to decide? That's what `map` does for us: it abstracts away the mechanics of mapping an array and leaves the details for the developer to provide at runtime. She does that by providing a function as an argument. The result is much more powerful and versatile:
+Can we abstract away the similar structure of the two functions and leave the specific mapping operation up to the function's caller to decide? That's what `map` does for us: *it abstracts away the mechanics of mapping an array and leaves the details for the developer to provide at runtime.* She does that by providing a function as an argument. The result is much more powerful and versatile:
 
 ```js
 arrayOfNums.map(num => num * num);
@@ -3035,9 +3037,7 @@ arrayOfStrings.map(string => string.toUpperCase());
 
 The `map` method, along with several other array methods, is a higher-order function since it takes another function as an argument.
 
-### 10.8 Functions that Return a Function
-
-In the previous section, we saw an example of how a higher-order function that takes another function lets us write elegant and flexible code. Let's look at another useful application of higher-order functions by having one return another function.
+### 10.6.2 Higher Order Functions - Functions that Return a Function
 
 You can think of a function that returns another function as a function factory: it creates and returns a new function. Typically, the function factory uses the arguments you pass to it to determine the specific job performed by the function it returns.
 
@@ -3085,34 +3085,9 @@ greeterEn(); // logs 'Hello!'
 
 This code doesn't provide a significant improvement or convenience for the developer, but it does illustrate how we might use a function that returns another function in our code.
 
-### 10.9 Higher Order Functions Summary
-
-Higher-order functions are functions that return another function or take another function as an argument. Higher-order functions let the programmer use powerful and flexible abstractions.
-
 ## 11. The Global Object
 
-JavaScript creates a global object when it starts running. It serves as the **implicit execution context** for function invocations.
-
-In Node.js, the global object is the object named `global`; in the browser, it's the `window` object. You can investigate this in the node REPL or a browser's console:
-
-```sh
-> global
-<ref *1> Object [global] {
-  global: [Circular *1],
-  clearInterval: [Function: clearInterval],
-  clearTimeout: [Function: clearTimeout],
-  setInterval: [Function: setInterval],
-  setTimeout: [Function: setTimeout] {
-    [Symbol(nodejs.util.promisify.custom)]: [Getter]
-  },
-  queueMicrotask: [Function: queueMicrotask],
-  performance: [Getter/Setter],
-  clearImmediate: [Function: clearImmediate],
-  setImmediate: [Function: setImmediate] {
-    [Symbol(nodejs.util.promisify.custom)]: [Getter]
-  }
-}
-```
+JavaScript creates a **global object** when it starts running. It serves as the **implicit execution context** for function invocations. In Node.js, the global object is the object named `global`; in the browser, it's the `window` object.
 
 The global object is available everywhere in your program and houses important global properties. In the previous course, we talked about **global values** such as `Infinity` and `NaN`, and **global functions**, such as `isNaN` and `parseInt`. All these entities are properties of the global object! In your console, you can look at the global object to examine those properties.
 
@@ -3162,18 +3137,12 @@ foo; // => 'bar'
 Whenever you try to access a variable for which there are no local or global variables with the variable's name, JavaScript looks at the global object and looks for a property with that name. In this example, since there are no local or global variables named `foo`, JavaScript looks in the global object and finds the `foo` property. As a result, line `2` is identical to `global.foo`; it returns the value of the property `foo` from the global object.
 
 We discuss the global object here since you need to know where JavaScript gets all those global entities like `NaN`, `Infinity`, and `setTimeout`. It's not very often that you'll need to modify the global object, but you'll sometimes use it to set properties in Node that you need in multiple modules. We'll discuss Node modules in the next course.
-When JavaScript runs a program, it creates an object that is accessible throughout your entire program called the **global object**.
 
-`global`
-`window`
-
-## 12. Method and Property Lookup Sequence
-
-### 12.1 Property Look-Up in the Prototype Chain
+## 12. Method and Property Lookup Sequence in the Prototype Chain
 
 When you access a property on an object, JavaScript first looks for an "own" property with that name on the object. If the object does not define the specified property, JavaScript looks for it in the object's prototype. If it can't find the property there, it next looks in the prototype's prototype. This process continues until it finds the property or it reaches `Object.prototype`. If `Object.prototype` also doesn't define the property, the property access evaluates to `undefined`.
 
-The implication here is that when two objects in the same prototype chain have a property with the same name, the object that's closer to the calling object takes precedence. Let's see an example:
+The implication here is that when two objects in the same prototype chain have a property with the same name, *the object that's closer to the calling object takes precedence.* Let's see an example:
 
 ```js
 let a = {
@@ -3216,7 +3185,7 @@ console.log(c.foo); // => 42
 console.log(b.foo); // => 2
 ```
 
-Interesting! Object `b` wasn't mutated! When assigning a property on a JavaScript object, it always treats the property as an "own" property. That is, it assumes that the property belongs to the object named to the left of the property name. Even if the prototype chain already has a property with that name, it assigns the "own" property. Here, `foo` becomes an "own" property of `c`:
+Object `b` *wasn't mutated!* When assigning a property on a JavaScript object, it always treats the property as an "own" property. That is, it assumes that the property belongs to the object named to the left of the property name. Even if the prototype chain already has a property with that name, it assigns the "own" property. Here, `foo` becomes an "own" property of `c`:
 
 ```js
 console.log(c.hasOwnProperty('foo')); // => true
