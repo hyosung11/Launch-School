@@ -7093,3 +7093,4 @@ Have a great day everyone!!!
 3. Are there any blockers or impediments preventing you from doing your work?
    * I woke up late which is good for me to get rest. I have a referee assignment in the afternoon and soccer practice this evening after dinner.
 
+11:06 Time to play with SungOh. When I return study this: "1.3.11 The Constructor `prototype` Property"
