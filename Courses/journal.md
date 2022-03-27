@@ -7085,7 +7085,7 @@ Have a great day everyone!!!
    * [x] 7. Meet with Derek Barker about Salesforce position
 
 2. What will you do today?
-   * [ ] 1. Work on Study Guide 2.0
+   * [x] 1. Work on Study Guide 2.0
    * [ ] 2. Anki Cards Review
    * [ ] 3. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
    * [ ] 4. Learn in Public: Context Loss vs Context Change question on LinkedIn?
@@ -7094,3 +7094,5 @@ Have a great day everyone!!!
    * I woke up late which is good for me to get rest. I have a referee assignment in the afternoon and soccer practice this evening after dinner.
 
 11:06 Time to play with SungOh. When I return study this: "1.3.11 The Constructor `prototype` Property"
+
+12:41 My game this afternoon got cancelled and everyone is away so it's quiet and I can study for a little bit now.
