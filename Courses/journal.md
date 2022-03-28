@@ -7110,3 +7110,28 @@ Have a great day everyone!!!
 16:42 Working on Execution Context now.
 
 17:29 Studying context loss and remedies. Our soccer practice got pushed up to 6:00 PM, so I got to get ready and go soon.
+
+## 20220328 월요일
+
+06:06 I'm in Gather but Alex is not there. I think he's coming in now. We started watching Pachinko last night and it's pretty good.
+
+06:13 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Work on Study Guide 4.0
+   * [x] 2. Anki Cards Review
+~~   * [ ] 3. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
+   * [ ] 4. Learn in Public: Context Loss vs Context Change question on LinkedIn?~~
+
+2. What will you do today?
+   * [ ] 1. Work on Study Guide 5.0 during Study Session with Alex
+   * [ ] 2. Anki Cards Review
+   * [ ] 3. Study Session with Laurent and Michael
+   * [ ] 3. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
+   * [ ] 4. Learn in Public: Context Loss vs Context Change question on LinkedIn?
+   * [ ] 5. Send resume to Derek Barker for Salesforce job.
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I hope to have a good chunk of time to study and do problems while the kids are at school.
+
+07:20 Studying the context loss problem and solutions. I still don't like the term context loss. I prefer context change. It's definitely cold today.

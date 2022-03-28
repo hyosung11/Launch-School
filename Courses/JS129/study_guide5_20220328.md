@@ -1179,8 +1179,6 @@ console.log(olooRectangle.getArea()); // 20
 
 #### 1.4.2 Advantage of OLOO over Factory Functions
 
-RR
-
 You can use both factory functions and the OLOO pattern to bulk create objects of the same type. Though the result is an object creation mechanism in both cases, the OLOO pattern has one significant advantage over factory functions: **memory efficiency**. Since all objects created with the OLOO pattern *inherit methods from a single prototype object*, the objects that inherit from that prototype object share the same methods. Factory functions, on the other hand, create copies of all the methods for each new object. That can have a significant performance impact, especially on smaller devices with limited memory.
 
 However, that doesn't mean that OLOO is decidedly better than the factory pattern. An advantage of the factory pattern is that it lets us *create objects with private state*. If that doesn't make sense to you yet, don't worry. We'll return to this topic in a later course when we discuss **closures**.
@@ -2765,7 +2763,9 @@ Library developers often write code to check for the **bare object edge cases**.
 
 ### 9.3 Method Invocation vs Function Invocation
 
-**Function invocations** (e.g., `parseInt(numberString)`) rely upon implicit execution context that resolves to the global object. **Method invocations** (e.g., `array.forEach(processElement)`) rely upon implicit context that resolves to the object that holds the method.
+**Function invocations** (e.g., `parseInt(numberString)`) rely upon implicit execution context that resolves to the global object.
+
+**Method invocations** (e.g., `array.forEach(processElement)`) rely upon implicit context that resolves to the object that holds the method.
 
 ## 10. Higher-order functions
 
@@ -3354,7 +3354,7 @@ The execution context is determined by *how you invoke a function or method*. We
 
 Let's discuss how functions and methods can "lose context." We've used quotes since functions don't lose their execution context in reality -- they always have one, but it may not be the context that you expect. If you understand how execution context is determined, you shouldn't be surprised by the value of `this` in any given scenario. That said, how a specific context is arrived at isn't always intuitive. Even when you understand the rules, the context for any given invocation may surprise you.
 
-### 15.1 Method Copied from Object
+### 15.1 Problem - Method Copied from Object
 
 When you take a method out of an object and execute it as a function or as a method on another object *the function's context is no longer the original object*. For instance:
 
@@ -3400,7 +3400,7 @@ foo();
 // => hello, undefined undefined
 ```
 
-### Accept the Context Object as a Second Parameter
+### 15.1.1 Solution - Accept the Context Object as a Second Parameter
 
 One way to solve this problem is to change `repeatThreeTimes` to accept the context object as a second parameter, then pass the context to `repeatThreeTimes` when calling it.
 
@@ -3434,7 +3434,7 @@ Some of JavaScript's built-in methods, such as the Array abstraction methods lik
 
 However, it's not always possible to pass a context argument to a function or method; you may not even be able to change the function if, say, it belongs to a third-party library. Besides, it's generally not a good idea to pass a lot of arguments to your functions; the more arguments a function can accept, the harder the function is to use.
 
-### Hard-bind the Method's Context Using `bind`
+### 15.1.2 Solution - Hard-bind the Method's Context Using `bind`
 
 Another approach you can use is to hard-bind the method's context using `bind`:
 
@@ -3466,10 +3466,9 @@ foo();
 
 `bind` has one significant advantage: once you bind a context to a function, that *binding is permanent* and does not need to be repeated if it gets called more than once. The disadvantage of `bind` is that it is no longer possible to determine the context by looking at the invocation of the final function.
 
-### 15.2 Inner Function Not Using the Surrounding Context
+### 15.2 Problem - Inner Function Not Using the Surrounding Context
 
-Loss of surrounding context is a common issue when dealing with functions nested within object methods.
-Here, we'll see how **nested functions** *suffer from context loss*.
+Loss of surrounding context is a common issue when dealing with functions nested within object methods. Here, we'll see how **nested functions** *suffer from context loss*.
 
 Examine the following code:
 
@@ -3495,7 +3494,7 @@ As we've said repeatedly, a function or method's execution context depends solel
 
 Let's examine some solutions to this problem.
 
-### 15.3 Solution 1: Preserve Context with a Variable in Outer Scope
+### 15.2.1 Solution 1: Preserve Context with a Variable in Outer Scope
 
 One common way to preserve the context in this scenario is to use something like `let self = this` or `let that = this` in the outer function. If you define the `self` or `that` variable -- these names are idiomatic, and not a required name --- in the outer scope, you can use that variable and whatever value it contains inside your nested inner function(s).
 
@@ -3519,7 +3518,7 @@ obj.foo(); // => hello world
 
 In this example, line 5 assigns `this` to the local variable `self`. Since JavaScript uses lexical scoping rules for variables, `bar` can access `self` within its body; that lets us use it instead of `this` to access the correct context object.
 
-### 15.4 Solution 2: Call Inner Functions with Explicit Context
+### 15.2.2 Solution 2: Call Inner Functions with Explicit Context
 
 You can also use `call` or `apply` to explicitly provide a context when calling the inner function. For instance:
 
@@ -3541,7 +3540,7 @@ obj.foo(); // => hello world
 
 We won't show an example of `apply` since you can always use `call` in its place if you use the spread operator to expand `apply`'s array argument.
 
-### 15.5 Solution 3: Use `bind`
+### 15.2.3 Solution 3: Use `bind`
 
 A third approach is to call `bind` on the inner function and get a new function with its execution context permanently set to the object.
 
@@ -3599,7 +3598,7 @@ obj.foo();
 
 One advantage of `bind` is that you can do it once and then *call it as often as needed without an explicit context*.
 
-### 15.6 Solution 4: Using an Arrow Function
+### 15.2.4 Solution 4: Using an Arrow Function
 
 Arrow functions inherit their execution context from the surrounding context. That means that an arrow function defined inside another function always has the same context as the outer function's context:
 
@@ -3631,7 +3630,7 @@ Using arrow functions like this is similar to using bind in that you don't have 
 
 Of all the techniques we saw in this assignment, using arrow functions is the most common these days.
 
-### 15.7 Don't Use Arrow Functions as Methods on an Object
+### 15.3 Don't Use Arrow Functions as Methods on an Object
 
 Despite how useful arrow functions are for avoiding context loss, *you should not try to use them as methods on an object*. They don't work as expected.
 
@@ -3657,7 +3656,7 @@ You may have noticed that `this` in `obj.foo` is not determined by how the metho
 
 In general, you should not use arrow functions to write methods. According to [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), "Arrow function expressions are ill suited as methods, and they cannot be used as constructors." The example shown here demonstrates one reason why that is so: it doesn't follow the rules. As long as you don't try to use arrow functions as methods, you can ignore this exception.
 
-### 15.8 Function as Argument Losing Surrounding Context
+### 15.4 Problem - Function as Argument Losing Surrounding Context
 
 In this assignment, we'll see how *passing functions as arguments can strip them of their intended context objects*, and see what we can do to deal with that loss.
 
@@ -3713,7 +3712,7 @@ That code looks simple enough; it loops over an array and logs some information 
 
 This problem is easy to fix. You can use the same solutions we used to solve a similar problem in the previous assignment.
 
-### 15.9 Solution 1: Preserve the Context with a Variable in Outer Scope
+### 15.4.1 Solution 1: Preserve the Context with a Variable in Outer Scope
 
 ```js
 let obj = {
@@ -3734,7 +3733,7 @@ obj.foo();
 // => 3 hello world
 ```
 
-### 15.10 Solution 2: Use `bind`
+### 15.4.2 Solution 2: Use `bind`
 
 ```js
 let obj = {
@@ -3754,7 +3753,7 @@ obj.foo();
 // => 3 hello world
 ```
 
-### 15.11 Solution 3: Use an Arrow Function
+### 15.4.3 Solution 3: Use an Arrow Function
 
 ```js
 let obj = {
@@ -3774,7 +3773,7 @@ obj.foo();
 // => 3 hello world
 ```
 
-### 15.12 Solution 4: Use the optional `thisArg` argument
+### 15.4.4 Solution 4: Use the optional `thisArg` argument
 
 Some methods that take function arguments allow an optional argument that specifies the context to use when invoking the function. `Array.prototype.forEach`, for instance, has an optional `thisArg` argument for the context. This argument makes it easy to work around this context-loss problem.
 
@@ -3798,7 +3797,7 @@ obj.foo();
 
 The array methods `map`, `every` and `some` and others also take an optional `thisArg` argument.
 
-### 15.13 Dealing with Context Loss Summary
+### 15.5 Dealing with Context Loss Summary
 
 Passing a function as an argument to another function strips it of its execution context, which means *the function argument gets invoked with the context set to the global object*. This problem is identical to the problem with copying a method from an object and using it as a bare function. For instance, the following two code snippets do the same thing:
 
@@ -3812,8 +3811,6 @@ array.forEach(logData);
 ```
 
 In both snippets, the `obj.logData` method gets invoked by `forEach` with the global object as the context, not `obj`.
-
-
 
 ## 16. `call`, `apply`, and `bind`
 
