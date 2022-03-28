@@ -7124,9 +7124,9 @@ Have a great day everyone!!!
    * [ ] 4. Learn in Public: Context Loss vs Context Change question on LinkedIn?~~
 
 2. What will you do today?
-   * [ ] 1. Work on Study Guide 5.0 during Study Session with Alex
+   * [x] 1. Work on Study Guide 5.0 during Study Session with Alex
    * [ ] 2. Anki Cards Review
-   * [ ] 3. Study Session with Laurent and Michael
+   * [x] 3. Study Session with Michael
    * [ ] 3. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
    * [ ] 4. Learn in Public: Context Loss vs Context Change question on LinkedIn?
    * [ ] 5. Send resume to Derek Barker for Salesforce job.
@@ -7137,3 +7137,5 @@ Have a great day everyone!!!
 07:20 Studying the context loss problem and solutions. I still don't like the term context loss. I prefer context change. It's definitely cold today.
 
 08:46 What can I do to help Omi sleep better? Let's keep that in the back of my mind. I want to review my study guide and then do some problems today.
+
+10:57 End of study session with Michael. I think things are a little more clear, but I'm not ready to take the exam yet.

@@ -4131,7 +4131,7 @@ As you might suspect, calling `new Array()` creates and returns a new array. Tha
 [ 'green', 'blue', 'yellow' ]
 ```
 
-The behavior is considerably different when you *provide a single number argument*. In this case, the constructor creates an array with a length equal to the number specified by the argument, but with no actual elements:
+The behavior is considerably different when you *provide a single number argument*. In this case, *the constructor creates an array with a length equal to the number specified by the argument*, but with no actual elements:
 
 ```sh
 > new Array(3)
@@ -4140,7 +4140,7 @@ The behavior is considerably different when you *provide a single number argumen
 
 You can think of `[ <3 empty items> ]` as an array that has three empty slots. In effect, it's an empty array that happens to contain spaces for three items; alternatively, it's a non-empty array that contains no values. Call it Schrödinger's array if you wish.
 
-Note that the single-number form of the constructor does not accept non-integers or negative numbers:
+Note that the single-number form of the constructor *does not accept non-integers or negative numbers*:
 
 ```sh
 > new Array(3.1415)
@@ -4172,7 +4172,7 @@ Some other JavaScript constructors exhibit this behavior. In fact, the ECMAScrip
 
 For now, don't worry about why the specification requires this behavior or how you can do the same thing yourself. *Stay consistent and use `new` unless there's a good reason to omit it*.
 
-#### 18.1.1 `Array.prototype`
+#### 18.1.1 `Array.prototype` (Instance Methods)
 
 As with any JavaScript function, the `Array` constructor has a `prototype` property. All arrays inherit from the object referenced by this property:
 
@@ -4182,7 +4182,7 @@ As with any JavaScript function, the `Array` constructor has a `prototype` prope
 true
 ```
 
-This relationship implies that every array can use the methods defined in `Array.prototype`. In particular, that means that all arrays can use methods like `forEach`, `map`, `includes`, as well as all the other methods defined on `Array.prototype`:
+This relationship implies that *every array can use the methods defined in `Array.prototype`.* In particular, that means that all arrays can use methods like `forEach`, `map`, `includes`, as well as all the other methods defined on `Array.prototype`:
 
 ```sh
 // let numbers = [1, 2, 3] <-- from above
@@ -4193,11 +4193,11 @@ This relationship implies that every array can use the methods defined in `Array
 true
 ```
 
-If you go to the [MDN documentation page for arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), you'll see a list of all these array methods with names that follow the pattern `Array.prototype.aMethod`. These methods are the instance methods for the Array type.
+If you go to the [MDN documentation page for arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), you'll see a list of all these array methods with names that follow the pattern `Array.prototype.aMethod`. These methods are the **instance methods** for the Array type.
 
 #### 18.1.2 Static Array Methods
 
-Besides instance methods, the array type also has several static methods. We'll discuss two in this section. Remember: static methods belong directly to the constructor function; they aren't part of the prototype used to create new objects. As a result, their names don't include `.prototype`. Moreover, you usually use the constructor to invoke the static methods, not the object created by that constructor. (This definition isn't complete, but it will do for our purposes.)
+Besides instance methods, the array type also has several static methods. We'll discuss two in this section. Remember: *static methods belong directly to the constructor function*; they aren't part of the prototype used to create new objects. As a result, their names don't include `.prototype`. Moreover, you usually use the constructor to invoke the static methods, not the object created by that constructor. (This definition isn't complete, but it will do for our purposes.)
 
 **Array.isArray**
 
@@ -4214,14 +4214,14 @@ false
 false
 ```
 
-Programs often use `Array.isArray` to verify or refute that a given value is an array object. Why do we need it? Won't `typeof` tell us whether the argument is an array? Unfortunately, no. The `typeof` operator returns an unexpected and somewhat useless value when used with an array:
+Programs often use `Array.isArray` to verify or refute that a given value is an array object.  The `typeof` operator returns an unexpected and somewhat useless value when used with an array:
 
 ```sh
 > typeof []
 'object'
 ```
 
-That result may be unexpected, but it shouldn't be too surprising if you think about it. You already know that all arrays are objects. That doesn't make it any less useless, however, so we need `Array.isArray` to distinguish between arrays and other objects.
+We need `Array.isArray` to distinguish between arrays and other objects.
 
 **Array.from**
 
