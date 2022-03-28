@@ -323,6 +323,8 @@ Constructor functions are meant to be invoked with the `new` operator. They inst
 
 #### 1.3.2 Prototypes
 
+A prototype is an object from which other objects inherit properties and methods. In JavaScript this is done with the `[[Prototype]]` property ("internal prototype property").
+
 Every function has a `prototype` property that points to an object that contains a `constructor` property. The `constructor` property points back to the function itself. Thus, if `Kumquat` is a constructor function, then `Kumquat.prototype.constructor === Kumquat`.
 
 If the function is used as a constructor, the returned object's `[[Prototype]]` will reference the constructor's `prototype` property. That lets us set properties on the constructor's prototype object so that all objects created by the constructor will share them. We call this the **pseudo-classical** pattern of object creation.

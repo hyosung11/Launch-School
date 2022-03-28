@@ -7141,3 +7141,5 @@ Have a great day everyone!!!
 10:57 End of study session with Michael. I think things are a little more clear, but I'm not ready to take the exam yet.
 
 15:53 At home after walk with Louis and getting the kids. SungOh is walking on his kettlebells.
+
+16:17 I don't have deep focus right now. I'm tired.
