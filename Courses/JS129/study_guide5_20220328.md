@@ -11,7 +11,7 @@
 
 ## Checklist
 
-- [ ] Write down everything you know on every topic in this study guide.
+- [x] Write down everything you know on every topic in this study guide.
 - [ ] Write out examples for every topic.
 - [ ] Make code snippets.
 - [ ] Write explanations for the code snippets.
