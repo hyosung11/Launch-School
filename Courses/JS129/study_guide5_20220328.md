@@ -639,7 +639,7 @@ maxi.bark === biggie.bark;     // false
 dexter.bark === biggie.bark;   // false
 ```
 
-If that seems inefficient and wasteful to you, you're right! We're not repeating any code, but the runtime must create a new copy of the method every time we create an object. For small programs with few objects like this one, that may not be a problem. However, when you start getting into hundreds or thousands or even millions of objects, the multiple function objects can be hard on resources, especially on devices with little memory. Wouldn't it be nice if we could create the `bark` method just once rather than using a different copy of that method in every dog object?
+If that seems inefficient and wasteful to you, you're right! We're not repeating any code, but the runtime must create a new copy of the method every time we create an object. We can create the `bark` method just once rather than using a different copy of that method in every dog object.
 
 #### 1.3.10 Method Delegation to Prototypes
 
@@ -686,7 +686,7 @@ Object.getPrototypeOf(dexter).bark === DogPrototype.bark; // true
 Object.getPrototypeOf(biggie).bark === DogPrototype.bark; // true
 ```
 
-The `DogPrototype` object *has the only copy of the method*; all dog objects delegate `bark` to the `DogPrototype` object. If you have dozens of dog objects in your program, it's easy to see that adding prototypes into the mix can make better use of memory.
+The `DogPrototype` object *has the only copy of the method*; all dog objects delegate `bark` to the `DogPrototype` object.
 
 Okay, we now have a constructor and a related prototype object. Together, they construct objects of some type. In our code here, we can guess that the constructor and prototype are related by looking at their names. However, it would be better if we could establish that relationship more concretely. Let's assign the prototype object to a property of the `Dog` function.
 
