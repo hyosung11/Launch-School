@@ -7135,3 +7135,5 @@ Have a great day everyone!!!
    * I hope to have a good chunk of time to study and do problems while the kids are at school.
 
 07:20 Studying the context loss problem and solutions. I still don't like the term context loss. I prefer context change. It's definitely cold today.
+
+08:46 What can I do to help Omi sleep better? Let's keep that in the back of my mind. I want to review my study guide and then do some problems today.

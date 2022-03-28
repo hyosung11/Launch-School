@@ -3814,15 +3814,15 @@ In both snippets, the `obj.logData` method gets invoked by `forEach` with the gl
 
 ## 16. `call`, `apply`, and `bind`
 
-8. The `call` and `apply` methods invoke a function with an explicit execution context.
+The `call` and `apply` methods *invoke a function with an explicit execution context*.
 
-9. The `bind` method returns a new function that permanently binds a function to a context.
+The `bind` method *returns a new function that permanently binds a function to a context*.
 
-10. Arrow functions are permanently bound to the execution context of the enclosing function invocation. When defined at the top level, the context of an arrow function is the global object.
+Arrow functions are permanently bound to the execution context of the enclosing function invocation. When defined at the top level, the context of an arrow function is the global object.
 
 ### 16.1 Explicit Execution Context with `call`
 
-In previous assignments, we said that JavaScript functions are objects: they have properties and methods just like any other object. One method that all JavaScript functions have is the call method. The call method calls a function with an explicit execution context. Let's see how that works:
+In previous assignments, we said that JavaScript functions are objects: they have properties and methods just like any other object. One method that all JavaScript functions have is the `call` method. The `call` method calls a function with an explicit execution context.
 
 ```js
 function logNum() {
@@ -3836,7 +3836,7 @@ let obj = {
 logNum.call(obj); // logs 42
 ```
 
-That's interesting! We can call the `logNum` function and tell it to use `obj` as its execution context. When we use call in this manner, `this` refers to the `obj` object inside the `logNum` function. The first argument to `call` provides the explicit context for the function invocation.
+We can call the `logNum` function and tell it to use `obj` as its execution context. When we use `call` in this manner, `this` refers to the `obj` object inside the `logNum` function. The first argument to `call` provides the explicit context for the function invocation.
 
 Again, we see that a function's definition has no bearing on its execution context. The context doesn't get determined until we invoke the function; in this case, we're using `call` to invoke it and set the context.
 
@@ -3855,7 +3855,7 @@ obj.logNum = logNum;
 obj.logNum(); // logs 42
 ```
 
-Those last two code examples aren't identical, however. In the second example, we add a new property to the `obj` object; we don't mutate the object when we use `call`.
+Those last two code examples aren't identical, however. In the second example, we add a new property to the `obj` object; *we don't mutate the object when we use `call`.*
 
 You can also use `call` to explicitly set execution context on methods, not just functions:
 
@@ -3956,13 +3956,13 @@ someObject.someMethod.call(context, arg1, arg2, arg3, ...)
 
 ### 16.2 Explicit Execution Context with `apply`
 
-The apply method works in much the same way as call. The only difference is that apply uses an array to pass any arguments to the function. Here's the general syntax:
+The apply method works in much the same way as call. The only difference is that *apply uses an array* to pass any arguments to the function. Here's the general syntax:
 
 ```js
 someObject.someMethod.apply(context, [arg1, arg2, arg3, ...])
 ```
 
-`apply` is handy when you have the list of arguments in an array. With modern JavaScript (ES6 and higher), `apply` isn't needed since *you can use call in conjunction with the spread operator to accomplish the same thing*:
+`apply` is handy when you have the list of arguments in an array. With modern JavaScript (ES6 and higher), `apply` isn't needed since *you can use `call` in conjunction with the spread operator to accomplish the same thing*:
 
 ```js
 let args = [arg1, arg2, arg3];
@@ -3986,7 +3986,7 @@ let sumNum2 = sumNum.bind(obj);
 sumNum2(5); // => 47
 ```
 
-In this example, we don't call the function immediately as we do when using `call` and `apply`, Instead, bind returns a new function. The new function is **permanently** bound to the object passed as bind's first argument. You can then pass that method around and call it without worrying about losing its context since it's *permanently bound* to the provided object.
+In this example, we don't call the function immediately as we do when using `call` and `apply`, Instead, *bind returns a new function*. The new function is **permanently** bound to the object passed as bind's first argument. You can then pass that method around and call it without worrying about losing its context since it's *permanently bound* to the provided object.
 
 Let's see another example:
 
@@ -4030,11 +4030,11 @@ Function.prototype.bind = function (...args) {
 };
 ```
 
-While you've learned enough to understand most of that code, it's not really important to wrap your head around it. What's important to recognize is that `bind`'s context is the original function, and it returns a new function that calls the original function with the context supplied to bind as its first argument. This code also shows why *the binding makes permanent changes* -- no matter what you do to the returned function, you can't change the value of `context`.
+`bind`'s context is the original function, and it returns a new function that calls the original function with the context supplied to `bind` as its first argument. This code also shows why *the binding makes permanent changes* -- no matter what you do to the returned function, you can't change the value of `context`.
 
 A trap that students often fall into is the thinking that `bind` permanently alters the original function. It's important to remember that `bind` *returns a new function*, and that new function is permanently context-bound to the object provided as the first argument to `bind`. The original function isn't changed and doesn't have its context changed.
 
-It's also important to understand that bind does not contradict our repeated statement that context is determined entirely based on how you call a function or method, not where you call it or how you define it. Technically, `bind` defines a new function. However, when we call that function, its implementation -- as shown above -- calls the original function using `apply`. Thus, it's still the "how" of the call that determines the context, not the definition or location.
+It's also important to understand that `bind` does not contradict our repeated statement that context is determined entirely based on how you call a function or method, not where you call it or how you define it. Technically, `bind` defines a new function. However, when we call that function, its implementation -- as shown above -- calls the original function using `apply`. Thus, it's still the "how" of the call that determines the context, not the definition or location.
 
 Let's close this assignment with a final example:
 
@@ -4075,25 +4075,27 @@ In this assignment, we saw a third way to specify the execution context. Unlike 
 
 ## 17. `Object.assign` and `Object.create`
 
-#### `Object.create(proto, [propertiesObject])` - Inheritance
+### 17.1 `Object.assign(target, ...sources)` - Mixin
 
-- **Description** - returns a **new object**, using an *existing object* as the **prototype** of the newly created object.
+- **copies** all enumerable own properties from one or more `source` objects to a `target` object. It returns the modified target object.
+- Properties in the target object are overwritten by properties in the sources if they have the same key. Later sources' properties overwrite earlier ones.
+- The `Object.assign()` method only copies ***enumerable* and *own*** properties from a source object to a target object. It uses `[[Get]]` on the source and `[[Set]]` on the target, so it will invoke getters/setters, and therefore it ***assigns*** properties.
 - **Parameters**
-  - `proto` - the object which is the prototype of the newly-created object (i.e. the newly created object will inherit from this)
-  - `[propertiesObject]` - If specified and not  `undefined`, an object whose enumerable **own** properties (that is, those properties defined upon itself and *not* enumerable properties along its prototype chain) specify property descriptors to be added to the newly-created object, with the corresponding property names. These properties correspond to the second argument of `Object.defineProperties()`
-- **Exceptions**
-  - `proto` - must be either an Object (excluding primitive wrapper objects), or `null` - otherwise a `TypeError` is thrown
-
-#### `Object.assign(target, ...sources)` - Mixins
-
-- **Description -** method **copies** all enumerable own properties from one or more `source` objects to a `target` object. It returns the modified target object. 
-Properties in the target object are overwritten by properties in the sources if they have the same key. Later sources' properties overwrite earlier ones.
-The `Object.assign()` method only copies ***enumerable* and *own*** properties from a source object to a target object. It uses `[[Get]]` on the source and `[[Set]]` on the target, so it will invoke getters/setters, and therefore it ***assigns*** properties.
-- **Parameters**
-    - `target` the target object — what to apply the sources’ properties to, which is returned after it is modified.
-    - `sources` the source object(s) — objects containing the properties you want to apply.
+  - `target` the target object — what to apply the sources’ properties to, which is returned after it is modified.
+  - `sources` the source object(s) — objects containing the properties you want to apply.
 
 One object factory can *reuse another object* factory by mixing the object returned by another factory function into itself by using `Object.assign()`.
+
+The mixin pattern involves creating a mixin object containing certain methods, and using `Object.assign()` to mix that object into another object.
+
+### 17.2 `Object.create(proto, [propertiesObject])` - Inheritance
+
+- Returns a **new object**, using an *existing object* as the **prototype** of the newly created object.
+- **Parameters**
+  - `proto` - the object which is the prototype of the newly-created object (i.e. the newly created object will inherit from this)
+  - `[propertiesObject]` - If specified and not `undefined`, an object whose enumerable **own** properties (that is, those properties defined upon itself and *not* enumerable properties along its prototype chain) specify property descriptors to be added to the newly-created object, with the corresponding property names. These properties correspond to the second argument of `Object.defineProperties()`
+- **Exceptions**
+  - `proto` - must be either an Object (excluding primitive wrapper objects), or `null` - otherwise a `TypeError` is thrown.
 
 ## 18. Built-in Constructors like `Array`, `Object`, `String` and `Number`
 
