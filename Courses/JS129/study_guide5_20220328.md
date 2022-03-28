@@ -59,9 +59,9 @@ The Four Pillars of OOP are APIE: Abstraction, Polymorphism, Inheritance, and En
 
 ### 1.1 Objects
 
-The **`Object`** class is a JavaScript data type. This data-type is a data structure, that is a collection of key-value pairs. Objects can be created using the `Object()` constructor or object literal syntax.
+The `Object` class is a JavaScript data type. This data-type is a data structure, that is a collection of key-value pairs. Objects can be created using the `Object()` constructor or object literal syntax.
 
-#### 1.2 Encapsulating the data and functionality of a race car into an object
+### 1.1.1 Encapsulating the data and functionality of a race car into an object
 
 ```js
 let raceCar = {
@@ -279,7 +279,7 @@ let rectangle = createRectangle(4, 5);
 
 **Object constructors**, or **constructors** are another way to create objects in JavaScript.  Superficially, a constructor looks and acts a lot like a factory function: you define a constructor once then invoke it each time you want to create an object of that type.
 
-Constructor functions are meant to be invoked with the `new` operator. They instantiate a new object behind the scenes and let the developer manipulate it through the `this` keyword. A typical constructor uses the following pattern:
+Constructor functions are meant to be invoked with the `new` operator. *They instantiate a new object behind the scenes and let the developer manipulate it through the `this` keyword.* A typical constructor uses the following pattern:
 
 1. The constructor is invoked with `new`.
 2. The JS runtime *creates a new object that inherits from the constructor's prototype object*.
@@ -401,7 +401,7 @@ You *can also use* `new` on methods that you define in objects. Consider:
 
 ```js
 let foo = {
-  Car: function(make, model, year) {
+  Car: function(make, model, year) { // method
     this.make = make;
     this.model = model;
     this.year = year;
@@ -434,12 +434,13 @@ new console.log(); //=> Uncaught TypeError: console.log is not a constructor
 new Math();        //=> Uncaught TypeError: Math is not a constructor
 new parseInt("3"); //=> Uncaught TypeError: parseInt is not a constructor
 
+// This works
 new Date();        //=> 2019-06-26T02:50:20.191Z
 ```
 
 #### 1.3.6 Constructors with Explicit Return Values
 
-What happens when you use `new` to call a function that returns an explicit value?
+What happens when you use `new` to call a function that *returns an explicit value*?
 
 ```js
 function Cat(name, breed, weight) {
@@ -558,7 +559,7 @@ However, one drawback of the `Object.assign` approach is that the `args` object 
 
 #### 1.3.8 Determining an Object's Type
 
-Many object-oriented languages, like Java or C++, have a strong notion of object types. In most such languages, it's easy to determine the object's type, such as a dog or car. JavaScript, however, treats objects and their types in a looser, more dynamic way. You can't determine the specific type of arbitrary JavaScript objects; they are dynamic structures with a type of `object`, no matter what properties and methods they have. However, *we can get some useful information about an object if we know which constructor created it*.
+Many object-oriented languages, like Java or C++, have a strong notion of object types. In most such languages, it's easy to determine the object's type, such as a dog or car. *JavaScript, however, treats objects and their types in a looser, more dynamic way.* You can't determine the specific type of arbitrary JavaScript objects; they are dynamic structures with a type of `object`, no matter what properties and methods they have. However, *we can get some useful information about an object if we know which constructor created it*.
 
 Remember that the `new` operator creates a new object. Suppose that you call the `Car` constructor with `new`. Informally, we can say that the resulting object is a car. More formally, we can say that the object is an **instance** of a `Car`.
 
