@@ -1,4 +1,4 @@
-# JS129 Assessment: Object Oriented Programming > Specific Topics of Interest > Study Guide Version 2.0
+# JS129 Assessment: Object Oriented Programming > Specific Topics of Interest > Study Guide Version 6.0
 
 ## Overview
 
@@ -11,7 +11,7 @@
 
 ## Checklist
 
-- [x] Write down everything you know on every topic in this study guide.
+- [ ] Write down everything you know on every topic in this study guide.
 - [ ] Write out examples for every topic.
 - [ ] Make code snippets.
 - [ ] Write explanations for the code snippets.
@@ -59,7 +59,7 @@ The Four Pillars of OOP are APIE: Abstraction, Polymorphism, Inheritance, and En
 
 ### 1.1 Objects
 
-The **`Object`** class is a JavaScript data type. This data-type is a data structure, that is a collection of key-value pairs. Objects can be created using the `Object()` constructor or object literal syntax.
+The **`Object`** class is a JavaScript data type. This data-type is a data structure that is a collection of key-value pairs. Objects can be created using the `Object()` constructor or object literal syntax.
 
 #### 1.2 Encapsulating the data and functionality of a race car into an object
 
@@ -104,8 +104,8 @@ When dealing with objects, we are basically doing either one of two things: *set
 
 ```js
 myObject["foo"] = "bar";
-myObject.foo              // "bar"
-myObject["foo"]           // "bar"
+myObject.foo     // "bar" using dot notation
+myObject["foo"]  // "bar" using bracket notation
 ```
 
 Dot notation is also called **member access notation**, while bracket notation is called **computed member access notation**. The main difference between the two is that bracket notation can take any UTF-8-compatible string as the key, while member access notation requires valid variable names. Most importantly, computed member access notation can be computed on the fly -- *any expression between the brackets gets evaluated as a string and used to reference the property*.
@@ -157,6 +157,40 @@ Object.keys(myObject) // [ '7', 'false', '1,2,3', 'a-key', 'undefinedKey' ]
 
 // `Object.getOwnPropertyNames()` returns an array of all properties regardless if they're enumerable or not.
 Object.getOwnPropertyNames(myObject) // [ '7', 'false', '1,2,3', 'a-key', 'undefinedKey' ]
+```
+
+### 1.1.4 Property Existence Check Table
+
+Operator/Method  | Own Property  | Prototype Chain  | Enumerable  | Non-Enumerable
+-----------------|---------------|-----------------|-------------|---------------
+in  | Yes  | Yes  | Yes  | Yes
+hasOwnProperty()  | Yes  | No  | Yes  | Yes
+Object.getOwnPropertyNames()  | Yes  | No  | Yes  | Yes
+Object.keys()  | Yes  | No  | Yes  | No
+
+### 1.1.5 Examples
+
+```js
+let obj = {
+  key1: "value1",
+  key2: "value2",
+}
+// Keys is good for iterating over enumerable properties
+let keys = Object.keys(obj)
+console.log(keys) // =>  [ 'key1', 'key2' ]
+
+// getOwnPropertyNames will return non-enumerable properties too
+console.log(Object.getOwnPropertyNames(obj)); // =>  [ 'key1', 'key2' ]
+console.log(Object.getOwnPropertyNames(keys)); // =>  [ '0', '1', 'length' ]
+
+
+console.log("key1" in obj); // => true
+console.log("length" in keys); // => true
+console.log("hasOwnProperty" in obj); // => true
+
+console.log(obj.hasOwnProperty("key1")); // => true
+console.log(keys.hasOwnProperty("length")); // => true
+console.log(obj.hasOwnProperty("hasOwnProperty")); // => false
 ```
 
 ### 1.2 Object Factories / Factory Functions
@@ -288,6 +322,8 @@ Constructor functions are meant to be invoked with the `new` operator. They inst
 5. The function returns the object referenced by `this` unless the function returns an explicit object.
 
 #### 1.3.2 Prototypes
+
+A prototype is an object from which other objects inherit properties and methods. In JavaScript this is done with the `[[Prototype]]` property ("internal prototype property").
 
 Every function has a `prototype` property that points to an object that contains a `constructor` property. The `constructor` property points back to the function itself. Thus, if `Kumquat` is a constructor function, then `Kumquat.prototype.constructor === Kumquat`.
 
@@ -2040,7 +2076,7 @@ let employee = {
 
 As you can see, everything that's related to the `employee` object is bundled. This is the beauty of object-oriented programming. It organizes code into logical units.
 
-We've just reviewed the concept of encapsulation and how it's relevant to object-oriented programming. In the example given, we *instantiated an object using the object literal syntax*. There are other more sophisticated patterns of object creation that we'll cover over the remaining assignments. However keep in mind that, at the very core, we are essentially doing the same thing: *grouping data and related functions together*.
+In the example given, we *instantiated an object using the object literal syntax*. There are other more sophisticated patterns of object creation that we'll cover over the remaining assignments. However keep in mind that, at the very core, we are essentially doing the same thing: *grouping data and related functions together*.
 
 ## 5. Polymorphism
 
@@ -2447,7 +2483,7 @@ pete.printName();
 // => My pet's name is Fluffy
 ```
 
-The `pete` object has a collaborator object stored in its `pet` property. The `pete` object and the object referenced by its `pet` property work together. When we need to access the `pet` object or have it perform a behavior, we can use `pete.pet` to access and use the object's properties. For instance, on line 19, the `pete` object collaborates with the `cat` object (via `this.pet`) to access the `cat`'s name.
+The `pete` object has the collaborator object `cat` stored in its `pet` property. The `pete` object and the object referenced by its `pet` property work together. When we need to access the `pet` object or have it perform a behavior, we can use `pete.pet` to access and use the object's properties. For instance, on line 19, the `pete` object collaborates with the `cat` object (via `this.pet`) to access the `cat`'s name.
 
 Collaborator objects play an important role in object-oriented design; they *represent the connections between the different classes* in your program. When working on an object-oriented program, be sure to consider what collaborators your objects need and whether those associations make sense, both from a technical standpoint and in terms of modeling the problem your program aims to solve.
 
@@ -2751,10 +2787,10 @@ We *suggest a balance of mix-in and classical inheritance* pattern instead:
 
 Mixins are more appropriate in a *has-a* relationship. While it is sometimes tricky to choose one or the other, *a great guideline is to decide if you want some additional functionality, or if you want to extend the abilities of the class.*
 
-Relationship | Use | Because
----------|----------|---------
- "is-a" | inheritance | you want to extend the abilities of a class
- "has-a" | mixin | you want additional functionality
+Relationship | Use         | Because
+-------------|-------------|--------------------------------------------
+"is-a"       | inheritance | you want to extend the abilities of a class
+"has-a"      | mixin       | you want additional functionality
 
 ## 9. Methods and Functions; Method Invocation vs. Function Invocation
 
@@ -3151,7 +3187,7 @@ As with other JavaScript objects, you can add properties to the global object at
 
 ### 11.1 The Global Object and Undeclared Variables
 
-The global object has an interesting property: whenever you assign a value to a variable without using the `let`, `const`, or `var` keywords (we'll discuss `var` later), the variable gets added to the global object as a property. Let's see an example:
+The global object has an interesting property: whenever you assign a value to a variable without using the `let`, `const`, or `var` keywords, the variable gets added to the global object as a property. Let's see an example:
 
 ```js
 foo = 'bar';
@@ -4109,12 +4145,66 @@ In this assignment, we saw a third way to specify the execution context. Unlike 
 
 ### 17.1 `Object.assign(target, ...sources)` - Mixin
 
+Static object method which copies the properties and methods of one object to another. It does not work with classes or functions, only with an object instance.
+
 - **copies** all enumerable own properties from one or more `source` objects to a `target` object. It returns the modified target object.
 - Properties in the target object are overwritten by properties in the sources if they have the same key. Later sources' properties overwrite earlier ones.
 - The `Object.assign()` method only copies ***enumerable* and *own*** properties from a source object to a target object. It uses `[[Get]]` on the source and `[[Set]]` on the target, so it will invoke getters/setters, and therefore it ***assigns*** properties.
 - **Parameters**
   - `target` the target object — what to apply the sources’ properties to, which is returned after it is modified.
   - `sources` the source object(s) — objects containing the properties you want to apply.
+
+```js
+// Object.assign() takes a target and applies a variable number of sources to it.
+// EX: Object.assign(target, ...sources) => returns modified target
+
+let source = {
+  src: 'Source Property',
+}
+
+let target = {};
+Object.assign(target, source);
+target.trg = "Target Property";
+
+console.log(target);  // => { src: 'Source Property', trg: 'Target Property' }
+console.log(source);  // => { src: 'Source Property' }
+
+// Changing the source property after assignment does not matter for primitive types
+
+source.src = "Something Different";
+
+console.log(target);  // => { src: 'Source Property', trg: 'Target Property' }
+console.log(source);  // => { src: 'Something Different' }
+
+// Object.assign overwrites similar property names with the source's value
+
+source.src = ['Value']
+Object.assign(target, source);
+
+console.log(target);  // => { src: [ 'Value' ], trg: 'Target Property' }
+console.log(source);  // => { src: [ 'Value' ] }
+
+// Assign uses shallow copies, so references in the target still point to the source
+// Updating a non-primitive in the source will affect the target
+
+source.src[0] = "Something Different";
+
+console.log(target);  // => { src: [ 'Something Different' ], trg: 'Target Property' }
+console.log(source);  // => { src: [ 'Something Different' ] }
+
+// Assign only copies the values/refrences to the object. Source is not a prototype.
+console.log(target.__proto__ === source); // => false
+```
+
+Considerations with Object.assign():
+
+- `target` is both mutated and returned.
+- For any key on `target`, the latest source will overwrite the value.
+- Only copies *own properties* for both `target` and `source`.
+- If value is a reference, only a copy of reference is provided (Use Stringify to get deep copy).
+-Does not leverage prototyping for memory efficiency and typing.
+
+#### 17.1.1 Uses of `Object.assign()`
 
 One object factory can *reuse another object* factory by mixing the object returned by another factory function into itself by using `Object.assign()`.
 
@@ -4609,7 +4699,6 @@ let ingredients = 'olives';
 
 As useful as factory functions are, *there are other ways to extract code into one place so that multiple objects can use it*. In JavaScript, we rely heavily on **prototypes** to accomplish this.
 
-One object factory can *reuse another object* factory by mixing the object returned by another factory function into itself by using `Object.assign()`.
 
 Unlike other mainstream languages, JavaScript doesn't implement behavior sharing using class-based inheritance even though ES6 introduced the class keyword to the language. Instead, it *uses the object prototype to share properties*.
 
