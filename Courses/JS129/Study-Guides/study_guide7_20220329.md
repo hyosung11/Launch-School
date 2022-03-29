@@ -59,44 +59,21 @@ The Four Pillars of OOP are APIE: Abstraction, Polymorphism, Inheritance, and En
 
 ### 1.1 Objects
 
-The **`Object`** class is a JavaScript data type. This data-type is a data structure that is a collection of key-value pairs. Objects can be created using the `Object()` constructor or object literal syntax.
-
-#### 1.2 Encapsulating the data and functionality of a race car into an object
+Objects are one of the eight fundamental types in JavaScript (String, Number, Boolean, Null, Undefined, Object, BigInt, and Symbol). They are basically a collection of properties where each property has a key and value. While values can be any of the JavaScript types, property keys are always strings. If you define a property with a non-string key, it will first be converted to a string.
 
 ```js
-let raceCar = {
+let myObject = { };
 
-  make: 'BMW',
-  fuelLevel: 0.5, // <-- don't change property values directly
-  engineOn: false,
+myObject[false] = "one"
+myObject[7] = "two"
+myObject[[1, 2, 3]] = "three"
 
-  startEngine: function() {
-    raceCar.engineOn = true;
-  },
+Object.keys(myObject);                // ["7", "false", "1,2,3"]
 
-  drive: function() {
-    raceCar.fuelLevel -= 0.1;
-  },
-
-  stopEngine() { // <-- compact method syntax that omits the `:` and the `function` keyword
-    raceCar.engineOn = false;
-  },
-
-  refuel: function(percent) {
-    if ((raceCar.fuelLevel + (percent / 100)) <= 1) {
-      raceCar.fuelLevel += (percent / 100);
-    } else {
-      raceCar.fuelLevel = 1;
-    }
-  },
-};
-
-raceCar.refuel(30); // Use dot-notation to call a method.
+myObject["false"]                     // "one"
+myObject["7"]                         // "two"
+myObject["1,2,3"]                     // "three"
 ```
-
-This code bundles the data and operations related to a car into an object. When object properties have function values, we call them **methods**. The methods here are responsible for changing the state of the `raceCar` object.
-
-Note that JavaScript won't stop you from changing the `fuelLevel` property directly instead of calling the `refuel` method. That's a limitation of JavaScript. The OO style strongly discourages changing property values directly. Instead, it *encourages using methods to interface with the object*. We can see why that is by looking at the implementation for `refuel`. The `fuelLevel` property should be a number that's a fraction of 1. The `refuel` method ensures that it never exceeds that value. If you only use `refuel` to increase the `fuelLevel` of the car, it'll never exceed 1. If you directly access and change `fuelLevel`, though, you may end up violating that restriction.
 
 #### 1.1.2 Property Access
 
@@ -149,7 +126,7 @@ myObject.hasOwnProperty('8') // false
 
 If they both do the same thing, why the need for duplication? They are not exactly identical. There is a difference but it’s something we have to cover in future assignments. What’s important to note for now is that both `in` operator as well as `hasOwnProperty()` allows us to check for property existence in an object.
 
-Another *indirect way of checking for property existence* is to enumerate the properties of an object via `Object.keys` or `Object.getOwnPropertyNames`. Both return an array of the object’s properties. The difference is that `Object.keys` returns an array of enumerable properties while `Object.getOwnPropertyNames` returns all properties regardless if they’re enumerable or not.
+Another *indirect way of checking for property existence* is to enumerate the properties of an object via `Object.keys` or `Object.getOwnPropertyNames`. Both return an array of the object’s properties. The difference is that `Object.keys` *returns an array of enumerable properties* while `Object.getOwnPropertyNames` *returns all properties* regardless if they’re enumerable or not.
 
 ```js
 // `Object.keys()` returns an array of the object's enumerable properties.
@@ -163,10 +140,10 @@ Object.getOwnPropertyNames(myObject) // [ '7', 'false', '1,2,3', 'a-key', 'undef
 
 Operator/Method              | Own Property | Prototype Chain | Enumerable | Non-Enumerable
 -----------------------------|--------------|-----------------|------------|---------------
-in                           | Yes          | Yes             | Yes        | Yes
-hasOwnProperty()             | Yes          | No              | Yes        | Yes
-Object.getOwnPropertyNames() | Yes          | No              | Yes        | Yes
-Object.keys()                | Yes          | No              | Yes        | No
+`in`                           | Yes          | Yes             | Yes        | Yes
+`hasOwnProperty()`             | Yes          | No              | Yes        | Yes
+`Object.getOwnPropertyNames()` | Yes          | No              | Yes        | Yes
+`Object.keys()`                | Yes          | No              | Yes        | No
 
 ### 1.1.5 Examples
 
@@ -175,11 +152,11 @@ let obj = {
   key1: "value1",
   key2: "value2",
 }
-// Keys is good for iterating over enumerable properties
+// `Object.keys` is good for iterating over enumerable properties
 let keys = Object.keys(obj)
 console.log(keys) // =>  [ 'key1', 'key2' ]
 
-// getOwnPropertyNames will return non-enumerable properties too
+// `Object.getOwnPropertyNames` will return non-enumerable properties too
 console.log(Object.getOwnPropertyNames(obj)); // =>  [ 'key1', 'key2' ]
 console.log(Object.getOwnPropertyNames(keys)); // =>  [ '0', '1', 'length' ]
 
@@ -1761,15 +1738,15 @@ undefined
 {}
 ```
 
-Passing an empty object to `Object.getPrototypeOf()` returns a default prototype object. That object is the **prototype** for all objects created by using the object literal syntax (e.g., `{ a: 2 }`). The default prototype is the prototype object of the `Object` constructor, `Object.prototype`. Object.prototype provides the default prototype.
+Passing an empty object to `Object.getPrototypeOf()` *returns a default prototype object*. That object is the **prototype** for all objects created by using the object literal syntax (e.g., `{ a: 2 }`). The default prototype is the prototype object of the `Object` constructor, `Object.prototype`. Object.prototype provides the default prototype.
 
 ### 3.3 Iterating Over Objects with Prototypes
 
-- A `for/in` loop iterates over an object's properties. The iteration includes properties from the objects in its prototype chain. Use `hasOwnProperty()` to skip the prototype properties.
+- A `for/in` loop iterates over an object's properties. The iteration includes properties from the objects in its prototype chain. Use `hasOwnProperty()` *to skip the prototype properties*.
 
 - `Object.keys()` returns an object's "own" property keys -- you do not need to use `hasOwnProperty()`.
 
-Note that both `for/in` and `Object.keys()` deal with **enumerable properties**, which is merely a way of talking about properties you can iterate over. Not all properties are enumerable. In particular, most properties and methods of the built-in types are not. Usually, any properties or methods you define for an object are enumerable. You can check whether a property is enumerable with the `Object.prototype.propertyIsEnumerable()` method.
+Note that both `for/in` and `Object.keys()` deal with **enumerable properties**, which is merely a way of talking about properties you can iterate over. Not all properties are enumerable. In particular, most properties and methods of the built-in types are not. Usually, any properties or methods you define for an object are enumerable. You can check whether a property is enumerable with the `Object.prototype.propertyIsEnumerable()` method. You do not have to remember how to use `propertyIsEnumerable`.
 
 ```js
 let arr = [1, 2, 3];
@@ -1787,8 +1764,6 @@ let foo = new Foo();
 console.log(foo.propertyIsEnumerable('bar'));                        // true
 console.log(Object.getPrototypeOf(foo).propertyIsEnumerable('baz')); // true
 ```
-
-You do not have to remember how to use `propertyIsEnumerable`.
 
 ### 3.4 The Prototype Chain
 
@@ -2077,6 +2052,42 @@ let employee = {
 As you can see, everything that's related to the `employee` object is bundled. This is the beauty of object-oriented programming. It organizes code into logical units.
 
 In the example given, we *instantiated an object using the object literal syntax*. There are other more sophisticated patterns of object creation that we'll cover over the remaining assignments. However keep in mind that, at the very core, we are essentially doing the same thing: *grouping data and related functions together*.
+
+### 4.1 Encapsulating the data and functionality of a race car into an object
+
+```js
+let raceCar = {
+  make: 'BMW',
+  fuelLevel: 0.5, // <-- don't change property values directly
+  engineOn: false,
+
+  startEngine: function() {
+    raceCar.engineOn = true;
+  },
+
+  drive: function() {
+    raceCar.fuelLevel -= 0.1;
+  },
+
+  stopEngine() { // <-- compact method syntax that omits the `:` and the `function` keyword
+    raceCar.engineOn = false;
+  },
+
+  refuel: function(percent) {
+    if ((raceCar.fuelLevel + (percent / 100)) <= 1) {
+      raceCar.fuelLevel += (percent / 100);
+    } else {
+      raceCar.fuelLevel = 1;
+    }
+  },
+};
+
+raceCar.refuel(30); // Use dot-notation to call a method.
+```
+
+This code bundles the data and operations related to a car into an object. When object properties have function values, we call them **methods**. The methods here are responsible for changing the state of the `raceCar` object.
+
+Note that JavaScript won't stop you from changing the `fuelLevel` property directly instead of calling the `refuel` method. That's a limitation of JavaScript. The OO style strongly discourages changing property values directly. Instead, it *encourages using methods to interface with the object*. We can see why that is by looking at the implementation for `refuel`. The `fuelLevel` property should be a number that's a fraction of 1. The `refuel` method ensures that it never exceeds that value. If you only use `refuel` to increase the `fuelLevel` of the car, it'll never exceed 1. If you directly access and change `fuelLevel`, though, you may end up violating that restriction.
 
 ## 5. Polymorphism
 
@@ -3309,7 +3320,7 @@ The JavaScript `this` keyword refers to the object it belongs to. It has differe
 - Method calls like `call()`, and `apply()` can refer `this` to any object.
 - In an event, `this` refers to the **element** that received the event.
 
-## 14 Implicit and Explicit Execution Context
+## 14. Implicit and Explicit Execution Context
 
 ### 14.1 Execution Context
 
@@ -3322,7 +3333,7 @@ There are two basic ways to set the context when calling a function or method:
 1. **Explicit**: The execution context that you set explicitly.
 2. **Implicit**: The execution context that JavaScript sets implicitly when your code doesn't provide an explicit context.
 
-Setting the execution context is also called **binding** this or **setting the binding**. A binding is something that ties two things together. In this case, it refers to the fact that a call binds `this` to a specific object when the function or method is called.
+Setting the execution context is also called **binding** `this` or **setting the binding**. A binding is something that ties two things together. In this case, it refers to the fact that a call binds `this` to a specific object when the function or method is called.
 
 It's crucial to understand how the execution context, i.e., the value of `this`, is determined and what it refers to in various scenarios. All JavaScript code executes within a context. The top-level context is the `window` object in browsers and the `global` object in Node. All global methods and objects, such as `parseInt` and `Math`, are properties of `window` or `global`.
 
@@ -3404,7 +3415,7 @@ In this code, we assign the `foo.bar` method to the `baz` variable. The `foo.bar
 
 ### 14.6 Explicit Function and Method Execution Context
 
-Using parenthesis after a function or method name is not the only way to invoke it. As we've seen, when you invoke a function with parentheses, JavaScript uses the global object as the implicit context; when you invoke a method, it uses the object that you used to call the method as the implicit context.
+Using parenthesis after a function or method name is not the only way to invoke it. As we've seen, *when you invoke a function with parentheses, JavaScript uses the global object as the implicit context*; when you invoke a method, it uses the object that you used to call the method as the implicit context.
 
 There are, however, several ways to subvert this behavior. *You can provide an explicit context to any function or method*, and it doesn't have to be the global object or the object that contains the method. Instead, you can use any object -- or even `null` -- as the execution context for any function or method. There are two main ways to do that in JavaScript: `call` and `apply`.
 
@@ -3422,7 +3433,7 @@ The execution context is determined by *how you invoke a function or method*. We
 
 Let's discuss how functions and methods can "lose context." We've used quotes since functions don't lose their execution context in reality -- they always have one, but it may not be the context that you expect. If you understand how execution context is determined, you shouldn't be surprised by the value of `this` in any given scenario. That said, how a specific context is arrived at isn't always intuitive. Even when you understand the rules, the context for any given invocation may surprise you.
 
-### 15.1 Problem - Method Copied from Object
+### 15.1 Problem 1 - Method Copied from Object
 
 When you take a method out of an object and execute it as a function or as a method on another object *the function's context is no longer the original object*. For instance:
 
@@ -3444,7 +3455,7 @@ You could use `foo.call(john)` to restore the original context, but suppose you 
 
 ```js
 function repeatThreeTimes(func) {
-  func(); // can't use func.call(john); john is out of scope
+  func(); // can't use func.call(john); john is out of scope --> ReferencError: john is not defined
   func();
   func();
 }
@@ -3468,7 +3479,7 @@ foo();
 // => hello, undefined undefined
 ```
 
-### 15.1.1 Solution - Accept the Context Object as a Second Parameter
+### 15.1.1 Solution 1 - Accept the Context Object as a Second Parameter
 
 One way to solve this problem is to change `repeatThreeTimes` to accept the context object as a second parameter, then pass the context to `repeatThreeTimes` when calling it.
 
@@ -3502,7 +3513,7 @@ Some of JavaScript's built-in methods, such as the Array abstraction methods lik
 
 However, it's not always possible to pass a context argument to a function or method; you may not even be able to change the function if, say, it belongs to a third-party library. Besides, it's generally not a good idea to pass a lot of arguments to your functions; the more arguments a function can accept, the harder the function is to use.
 
-### 15.1.2 Solution - Hard-bind the Method's Context Using `bind`
+### 15.1.2 Solution 2 - Hard-bind the Method's Context Using `bind`
 
 Another approach you can use is to hard-bind the method's context using `bind`:
 
@@ -3534,7 +3545,7 @@ foo();
 
 `bind` has one significant advantage: once you bind a context to a function, that *binding is permanent* and does not need to be repeated if it gets called more than once. The disadvantage of `bind` is that it is no longer possible to determine the context by looking at the invocation of the final function.
 
-### 15.2 Problem - Inner Function Not Using the Surrounding Context
+### 15.2 Problem 2 - Inner/Nested Function Not Using the Surrounding Context
 
 Loss of surrounding context is a common issue when dealing with functions nested within object methods. Here, we'll see how **nested functions** *suffer from context loss*.
 
@@ -3890,7 +3901,7 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 
 ### 16.1 Explicit Execution Context with `call`
 
-In previous assignments, we said that JavaScript functions are objects: they have properties and methods just like any other object. One method that all JavaScript functions have is the `call` method. The `call` method calls a function with an explicit execution context.
+The `call` method calls a function with an explicit execution context.
 
 ```js
 function logNum() {
@@ -3904,9 +3915,7 @@ let obj = {
 logNum.call(obj); // logs 42
 ```
 
-We can call the `logNum` function and tell it to use `obj` as its execution context. When we use `call` in this manner, `this` refers to the `obj` object inside the `logNum` function. The first argument to `call` provides the explicit context for the function invocation.
-
-Again, we see that a function's definition has no bearing on its execution context. The context doesn't get determined until we invoke the function; in this case, we're using `call` to invoke it and set the context.
+We can call the `logNum` function and tell it to use `obj` as its execution context. When we use `call` in this manner, `this` refers to the `obj` object inside the `logNum` function. The first argument to `call` *provides the explicit context for the function invocation*. The context doesn't get determined until we invoke the function; in this case, we're using `call` to invoke it and set the context.
 
 The code is functionally similar to the following:
 
@@ -3956,6 +3965,9 @@ let obj2 = {
 
 obj2.logNum = obj1.logNum;
 obj2.logNum(); // logs 42
+
+// We mutate `obj2` when we give it a `logNum` property that it didn't have before.
+console.log(obj2) // => { num: 42, logNum: [ Function: logNum]}
 ```
 
 Again, there is a difference: in this case, we *mutate* `obj2` when we give it a `logNum` property that it didn't have before.
@@ -3972,7 +3984,7 @@ let obj = {
 };
 ```
 
-We want to call `sumNum` in such a way that it updates `obj.num`. Fortunately, the `call` method lets us pass arguments as a comma-separated list to our function:
+We want to call `sumNum` in such a way that it updates `obj.num`. Fortunately, the `call` method *lets us pass arguments as a comma-separated list to our function*:
 
 ```js
 obj.num = sumNum.call(obj, 5);
@@ -4037,7 +4049,7 @@ let args = [arg1, arg2, arg3];
 someObject.someMethod.call(context, ...args);
 ```
 
-## 16.3 `bind` - Hard Binding Functions with Contexts
+## 16.3 Hard Binding Functions with Contexts - `bind`
 
 In the previous two assignments, we learned about two methods on function objects that we *can use to set the execution context of function and method calls explicitly*: `call` and `apply`. JavaScript has a third way to specify the context: the `bind` method on function objects. `bind` works a little differently, however. Let's see an example:
 
@@ -4082,7 +4094,7 @@ let object2 = {
   b: 'there',
 };
 
-baz.call(object2);  // "hello world" - `this` still refers to `object`
+baz.call(object2);  // "hello world" - `this` still refers to `object` from the previous code snippet
 ```
 
 JavaScript implements the `bind` method something like this:
@@ -4098,7 +4110,7 @@ Function.prototype.bind = function (...args) {
 };
 ```
 
-`bind`'s context is the original function, and it returns a new function that calls the original function with the context supplied to `bind` as its first argument. This code also shows why *the binding makes permanent changes* -- no matter what you do to the returned function, you can't change the value of `context`.
+`bind`'s context is the original function, and it *returns a new function that calls the original function with the context supplied to `bind` as its first argument*. This code also shows why *the binding makes permanent changes* -- no matter what you do to the returned function, you can't change the value of `context`.
 
 A trap that students often fall into is the thinking that `bind` permanently alters the original function. It's important to remember that `bind` *returns a new function*, and that new function is permanently context-bound to the object provided as the first argument to `bind`. The original function isn't changed and doesn't have its context changed.
 

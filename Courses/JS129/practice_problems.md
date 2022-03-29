@@ -1,5 +1,9 @@
 # JS129 Written Examination Practice Problems
 
+## Lesson 1 > [Practice Problems: OOP and Encapsulation](https://launchschool.com/lessons/fb892747/assignments/bd81804d)
+
+## [Lesson 1 Quiz 1](https://launchschool.com/lessons/fb892747/assignments/271844ae)
+
 ## Lesson 2 > Practice Problems: Objects and Factories
 
 In these problems, we will develop a factory function for objects that represent books.
@@ -238,7 +242,7 @@ On line 1, a variable qux is defined with an object { foo: 1 }.
 - On line 2, the Object.create method is invoked with the object referenced by qux.  The Object.create method returns a new object with its private [[Prototype]] property set to the prototype object passed as an argument.
 - On line 3, when the expression baz.foo + qux.foo is evaluated, qux.foo returns 1, but since baz.foo does not have properties of its own, it has to delegate access to its prototype. So, when JavaScript searches for the value of foo it will climb up baz's prototype chain and find the foo property in qux. Finally, the expression baz.foo + qux.foo will be evaluated 1 + 1 and its result will be the number 2.
 
-## Lesson 2 > 4. Practice Problems: Object Prototypes
+## Lesson 2 > 4. [Practice Problems: Object Prototypes](https://launchschool.com/lessons/1eaf5e37/assignments/f7b8620b)
 
 ### 1. What will the following code log to the console? Explain why it logs that value. Try to answer without running the code.
 
@@ -432,7 +436,7 @@ if (Object.getPrototypeOf(obj)) {
 }
 ```
 
-## 9 Practice Problems: Implicit and Explicit Function Execution Contexts
+## 9. [Practice Problems: Implicit and Explicit Function Execution Contexts](https://launchschool.com/lessons/1eaf5e37/assignments/a6c48cbb)
 
 ### 9.1 What will the following code output? Try to determine the results without running the code.
 
@@ -552,7 +556,7 @@ bar.add.call(foo); // => 3
 
 Since we invoke `call` on `bar.add` with `foo` as the explicit context, the `add` method uses `foo.a` and `foo.b` to determine the results, not `bar.a` and `bar.b`. Thus, the return value is `3`.
 
-## 11. Practice Problems: Hard Binding Functions with Contexts
+## 11. [Practice Problems: Hard Binding Functions with Contexts](https://launchschool.com/lessons/1eaf5e37/assignments/ed3a72f0)
 
 ### 11.1 What method can we use to bind a function permanently to a particular execution context?
 

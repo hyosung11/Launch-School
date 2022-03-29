@@ -7179,3 +7179,7 @@ Have a great day everyone!!!
    * I slept in and missed my study session with Alex. I should be good for at least 6 hours of studying today though.
 
 08:44 Starting from the top again with my study guide and I want to really prune it so I can use it for the written assessment and also pick out questions to ask Karl during the study group session later this morning.
+
+10:28 Actually have gone back to the lessons and I am comparing them to my study guide notes and they're similar.
+
+11:05 It's helpful to work through the lessons again and compare to my study guide.
