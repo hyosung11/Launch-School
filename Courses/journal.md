@@ -7167,10 +7167,10 @@ Have a great day everyone!!!
    * [ ] 5. Send resume to Derek Barker for Salesforce job.~~
 
 2. What will you do today?
-   * [ ] 1. Work on Study Guide 7.0
-   * [ ] 2. Anki Cards Review
-   * [ ] 3. JS129 Study Group
-   * [ ] 4. Study Session with Double Melt in Gather at 14:00
+   * [x] 1. Work on Study Guide 7.0
+   * [x] 2. Anki Cards Review
+   * [x] 3. JS129 Study Group
+   * [x] 4. Study Session with Mel Truong in Gather at 14:15 ~ 15:30
    * [ ] 5. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
    * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
    * [ ] 7. Send resume to Derek Barker for Salesforce job.
@@ -7191,3 +7191,5 @@ Have a great day everyone!!!
 13:54 Took a break to eat and read email and watch part of the video of Felicia talking to Carolina, I think. I have a study session with "Double Melt" at 14:00.
 
 15:35 Finished study session with Mel Truong and she said she had take the JS129 written assessment twice. She's taking the interview assessment tomorrow. I'm tired and going to take a break before the Writers Bloc at 16:00.
+
+17:11 After the Writers Bloc meeting and I'm a little tired. It's good to talk with Benjamin Perrault though about stuff. I have some friends in Launch School. He's almost done with core and getting ready for capstone.
