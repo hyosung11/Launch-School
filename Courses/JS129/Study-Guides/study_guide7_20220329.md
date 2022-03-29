@@ -3571,8 +3571,6 @@ By now, you should be able to understand why this code logs `undefined undefined
 
 As we've said repeatedly, a function or method's execution context depends solely on how you invoke it, not on how and where it's defined. Here, `bar` is invoked as a standalone function on line 9. Thus, its execution context is the global object, not the `obj` object that you may have expected.
 
-Let's examine some solutions to this problem.
-
 ### 15.2.1 Solution 1: Preserve Context with a Variable in Outer Scope
 
 One common way to preserve the context in this scenario is to use something like `let self = this` or `let that = this` in the outer function. If you define the `self` or `that` variable -- these names are idiomatic, and not a required name --- in the outer scope, you can use that variable and whatever value it contains inside your nested inner function(s).
@@ -3597,7 +3595,7 @@ obj.foo(); // => hello world
 
 In this example, line 5 assigns `this` to the local variable `self`. Since JavaScript uses lexical scoping rules for variables, `bar` can access `self` within its body; that lets us use it instead of `this` to access the correct context object.
 
-### 15.2.2 Solution 2: Call Inner Functions with Explicit Context
+### 15.2.2 Solution 2: Call Inner Functions with Explicit Context (`call` or `apply`)
 
 You can also use `call` or `apply` to explicitly provide a context when calling the inner function. For instance:
 
@@ -3621,7 +3619,7 @@ We won't show an example of `apply` since you can always use `call` in its place
 
 ### 15.2.3 Solution 3: Use `bind`
 
-A third approach is to call `bind` on the inner function and get a new function with its execution context permanently set to the object.
+A third approach is to call `bind` on the inner function and *get a new function* with its execution context permanently set to the object.
 
 ```js
 let obj = {

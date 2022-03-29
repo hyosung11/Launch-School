@@ -7187,3 +7187,7 @@ Have a great day everyone!!!
 11:27 I got to play with Sohee and eat something before the study group.
 
 12:51 It was a good study group session where we focused on execution context. I think I understand it.
+
+13:54 Took a break to eat and read email and watch part of the video of Felicia talking to Carolina, I think. I have a study session with "Double Melt" at 14:00.
+
+15:35 Finished study session with Mel Truong and she said she had take the JS129 written assessment twice. She's taking the interview assessment tomorrow. I'm tired and going to take a break before the Writers Bloc at 16:00.

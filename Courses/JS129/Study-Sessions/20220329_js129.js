@@ -46,7 +46,9 @@ function whatIsThis() {
   console.log(this);
 }
 
-whatIsThis(); // what is output? => `undefined` in Coderpad's strict mode otherwise, global
+whatIsThis(); // what is output?
+
+// `undefined` in Coderpad's strict mode otherwise, global
 
 const myObj = {
   whatAmI: 'myObj',
