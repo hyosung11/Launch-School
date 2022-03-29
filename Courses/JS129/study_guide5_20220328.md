@@ -2486,7 +2486,7 @@ To be clear, when we say that an object can only have one prototype or that a cl
 
 ## 8. Mix-ins; mix-ins vs. inheritance
 
-JavaScript objects can only inherit from one other object. This limitation makes it difficult to model certain domains using class or constructor-based inheritance. You can use mix-ins to share behavior between otherwise unrelated classes. There's a limitation with the inheritance pattern, which is that objects can only directly 'inherit' from one supertype object. In other words, an object can have only one prototype object. Mixins provide a way of addressing this limitation. The mix-in pattern involves creating a mix-in object containing certain methods, and using `Object.assign()` to mix that object into another object. 
+JavaScript objects can only inherit from one other object. This limitation makes it difficult to model certain domains using class or constructor-based inheritance. You can use mixins to share behavior between otherwise unrelated classes. There's a limitation with the inheritance pattern, which is that objects can only directly 'inherit' from one supertype object. In other words, an object can have only one prototype object. Mixins provide a way of addressing this limitation. The mixin pattern involves creating a mixin object containing certain methods, and using `Object.assign()` to mix that object into another object.
 
 ### 8.1 Introduction
 
