@@ -742,7 +742,7 @@ Object.getPrototypeOf(biggie).bark === Dog.myPrototype.bark; // true
 
 What makes constructors special is a characteristic of all function objects in JavaScript: they all have a prototype property that we call the **function prototype** to distinguish them from the prototypes used when creating ordinary objects. The code we showed in the previous section emulates something that JavaScript bundles with constructors. Let's take a look at that property:
 
-```sh
+```js
 Dog.prototype; // => Dog {}
 ```
 
@@ -754,11 +754,11 @@ The terminology of **constructor prototypes** and **object prototypes** is extre
 
 2. The **constructor's prototype object**, also called the **function prototype**, is an object that the constructor uses as the object prototype for the objects it creates. In other words, each object that the constructor creates inherits from the constructor's prototype object. The constructor stores its prototype object in its `prototype` property; that is, if the constructor's name is `Foo`, then `Foo.prototype` references the constructor's prototype object.
 
-It's easy to get confused about the differences between these two kinds of prototypes. Be sure you understand the differences before moving on. In most cases, when we talk about a **prototype** without being more explicit, we mean an **object prototype**. We'll talk about the constructor's prototype, the function prototype, or the `prototype` property when talking about a constructor's prototype object.
+In most cases, when we talk about a **prototype** without being more explicit, we mean an **object prototype**. We'll talk about the constructor's prototype, the function prototype, or the `prototype` property when talking about a constructor's prototype object.
 
 Note that *constructors don't inherit from the constructor's prototype object*. Instead, *the objects that the constructor creates inherit from it*.
 
-As we've said before, every JavaScript function has a `prototype` property. However, JavaScript only uses it when you call that function as a constructor, that is, by using the `new` keyword. With this information, we can abandon our home-grown constructor-prototype pairing and use the one that JavaScript provides instead:
+As we've said before, every JavaScript function has a `prototype` property. However, JavaScript only uses it when you call that function as a constructor, that is, by using the `new` keyword. With this information, we can abandon our home-grown constructor-prototype pairing and *use the one that JavaScript provides instead*:
 
 ```js
 function Dog (name, breed, weight) {
@@ -783,6 +783,8 @@ Here's a diagram illustrating the `prototype` and `constructor` links we've disc
 
 ![constructor-prototype-map](constructor-prototype-map.png)
 
+[Constructors with Prototypes](https://launchschool.com/lessons/e3c64e3f/assignments/bdc27fe0#:~:text=Here%27s%20a%20diagram%20illustrating%20the%20prototype%20and%20constructor%20links%20we%27ve%20discussed)
+
 Note that our constructor doesn't have to explicitly set the prototype of `this` to `Dog.prototype`. JavaScript does that for us when we call the function with `new`. We left this detail out earlier, so let's restate those steps with updated information. We'll assume that the constructor function is named `Foo`:
 
 1. It creates an entirely new object.
@@ -797,7 +799,7 @@ When you call a method on an object, JavaScript binds `this` to the object whose
 
 A property of interest on a prototype object is the `constructor` property. For instance:
 
-```sh
+```js
 Dog.prototype.constructor; // [Function: Dog]
 ```
 
@@ -828,7 +830,7 @@ Note that `instanceOf` still works.
 
 #### 1.3.12 Overriding the Prototype
 
-Inheriting methods from a prototype doesn't mean that the inheriting object is stuck with those methods. *JavaScript objects are incredibly dynamic and flexible*. Two objects created with the same constructor may end up looking completely different from each other because of changes and additions made after constructing the object. For instance, suppose we have a `dexter` dog that has an unusually loud and deep bark. We want to change the `bark` method to log `WOOF!` instead of `Woof!`. We can do that easily by defining a custom `bark` method on `dexter`.
+Inheriting methods from a prototype doesn't mean that the inheriting object is stuck with those methods. *JavaScript objects are incredibly dynamic and flexible*. Two objects created with the same constructor may end up looking completely different from each other because of changes and additions made after constructing the object. For instance, suppose we have a `dexter` dog that has an unusually loud and deep bark. We want to change the `bark` method to log `WOOF!` instead of `Woof!`. We can do that easily by defining a **custom** `bark` method on `dexter`.
 
 ```js
 let maxi = new Dog('Maxi', 'German Shepherd', 32);
@@ -892,7 +894,7 @@ console.log(Object.getOwnPropertyNames(MyClass)); // [ 'length', 'name', 'argume
 
 #### 1.3.13 Subtyping with Constructors and Prototypes
 
-In an earlier lesson, we learned how to use constructors together with prototypes to create objects of the same type. The combination of constructors and prototypes gives us something that resembles a **class**, a construct used in classical OOP languages like Java, Python, and Ruby. A *class is a blueprint for creating objects*. Traditional OOP languages use classes to create distinct objects of a particular type and give those objects the behaviors and state that they need.
+The combination of constructors and prototypes gives us something that resembles a **class**, a construct used in classical OOP languages like Java, Python, and Ruby. A *class is a blueprint for creating objects*. Traditional OOP languages use classes to create distinct objects of a particular type and give those objects the behaviors and state that they need.
 
 Constructors and prototypes let us mimic classes in JavaScript. Until recently, the language had nothing that you could reasonably call a class. That made it hard for developers familiar with class-based languages to switch to JavaScript. One can even argue that constructors and prototypes are part of the language solely to make it easier for developers to switch to JavaScript.
 
@@ -1047,7 +1049,7 @@ Square.prototype.toString = function() {
   return `[Square ${this.length} x ${this.width}]`;
 }
 
-// sqr test code omittted
+// sqr test code omitted
 ```
 
 The combination of constructors and prototypes provides a way of mimicking classical inheritance with JavaScript. This lets us create **subtype** objects, which can 'inherit' methods from a **supertype** object. This is one way of facilitating code re-use.
@@ -1194,7 +1196,7 @@ The syntax for defining classes is similar to that of defining functions. In par
 
 ES6 classes provide a cleaner, more compact alternative to constructors and prototypes. As with functions, they are first-class citizens and come in the form of declarations and expressions. Functionally, classes behave almost identically to the constructors and prototypes they aim to replace. Classes allow for static methods by using the `static` modifier.
 
-A class is a kind of template for creating concrete objects of that type. Each concrete object is called an instance of the class. The process of creating an instance is performed by a special function called a constructor. We pass the constructor values for any internal state that we want to initialize in the new instance.
+A class is a kind of template for creating concrete objects of that type. Each concrete object is called an instance of the class. The process of creating an instance is performed by a special function called a constructor. *We pass the constructor values for any internal state that we want to initialize in the new instance.*
 
 #### 1.5.2 A Simple Type
 
@@ -1273,7 +1275,7 @@ One minor difference is that `rec.constructor` may produce different results in 
 
 There is one significant difference, however: you ***must*** use the `new` keyword to call the constructor when using a `class`. JavaScript raises a `TypeError` if you try to call the constructor without the `new` keyword.
 
-Using classes, *it's possible to do everything you can with the constructor and prototype pattern*. However, the class syntax is easier to read and write, and the enforced `new` keyword helps prevent bugs.
+Using classes, *it's possible to do everything you can with the constructor and prototype pattern*. Furthermore, the class syntax is easier to read and write, and the enforced `new` keyword helps prevent bugs.
 
 #### 1.5.4 Class Expressions
 
@@ -1332,7 +1334,7 @@ Array.isArray([1, 2, 3]); // => true
 
 Methods like these are defined on the constructor for the type, e.g., `Array` or `Object`. You may sometimes hear such methods described as class methods. However, in JavaScript, that's a bit of a misnomer. Instead, you should call such methods **static methods**.
 
-Ordinary methods -- those defined on a prototype object -- are sometimes called **instance methods** or **object methods** since you need an instance of (an object) the type. More commonly, they are simply called methods.
+Ordinary methods -- those defined on a prototype object -- are sometimes called **instance methods** or **object methods** since you need an instance (an object) of the type. More commonly, they are simply called methods.
 
 You can define static methods on your custom constructor methods. For instance, let's add one to the `Rectangle` type we defined earlier:
 
@@ -1342,7 +1344,7 @@ function Rectangle(length, width) {
   this.width = width;
 }
 
-Rectangle.getDescription = function() {
+Rectangle.getDescription = function() { // static method
   return 'A rectangle is a shape with 4 sides';
 }
 
@@ -1431,15 +1433,9 @@ In the constructor function we are creating two properties `width` and `length` 
 
 In OOP, we often refer to individual objects of a specific data type as **instances** of that type. In the previous `Dog` example , `maxi` and `dexter` are instances of the `Dog` type. An instance is just another term for the objects created using any means of defining multiple objects of the same kind (e.g., dogs). The term **object** is more general, while **instance** is more specific.
 
-So far, we've been using constructors to create instances of the `Dog` type. We can also think of objects created by factory functions as instances. Later, we'll see even more ways to create new objects, all of which can be called instances.
-
-Hold on there. Factory functions can create instances? How can that be? There's no way to tell that the objects created by, say, a `createDog` factory are indeed dogs, so how can we have instances?
-
-That's a good point. However, in the end, we know that the `createDog` factory is going to create a bunch of objects that we know to represent dogs. We may not be able to tell whether an arbitrary object is a dog object, but all of the objects created by `createDog` should be dogs. They have a type -- dog -- even if there is no way to test that in your code. Thus, they are instances of a dog type.
-
 ### 2.1 Instance Properties
 
-It's convenient to describe the properties of an instance as **instance properties**. These properties belong to a specific instance of some type. Thus, in our `Dog` example from the earlier assignment, we say that the `name`, `breed`, and `weight` properties are all instance properties of the various instances of the `Dog` type. If we want to access the weight for `Maxi` from the above example, we must use the `maxi` object:
+It's convenient to describe the properties of an instance as **instance properties**. These properties belong to a specific instance of some type. Thus, in our `Dog` example, we say that the `name`, `breed`, and `weight` properties are all instance properties of the various instances of the `Dog` type. If we want to access the weight for `Maxi` from the above example, we must use the `maxi` object:
 
 ```js
 maxi.weight; // 32
@@ -1479,22 +1475,24 @@ Any method defined in any prototype in the prototype chain of an object is consi
 
 #### `Object.setPrototypeOf(obj, prototype)`
 
-- **Description -** method sets the prototype (i.e., the internal `[[Prototype]]` property) of a specified object to another object or `null`
-- **Parameters**
+- sets the prototype (i.e., the internal `[[Prototype]]` property) of a specified object to another object or `null`
+
+- parameters
   - `obj` - The object which is to have its prototype set.
   - `prototype` - The object's new prototype (an object or `null`).
 
 #### `Object.prototype.hasOwnProperty(prop)`
 
-- **Description -** method returns a boolean indicating whether the instance object has the specified property as its own property (as opposed to inheriting it). Returns `true` if the object has the specified property as own property; `false` otherwise.
-- **Parameters**
-  - `prop`  - the String name or Symbol of the property to test
+- returns a boolean indicating whether the instance object has the specified property as its own property (as opposed to inheriting it). Returns `true` if the object has the specified property as own property; `false` otherwise.
+
+- parameters
+  - `prop` - the String name or Symbol of the property to test
 
 ### 2.3 Static Properties
 
-**Static properties** are defined and accessed directly on the constructor, not on an instance or a prototype. Typically, static properties belong to the type (e.g., `Dog`) rather than to the individual instances or the prototype object.
+Static properties are defined and accessed directly on the constructor, not on an instance or a prototype. Typically, static properties belong to the type (e.g., `Dog`) rather than to the individual instances or the prototype object.
 
-For instance, dogs belong to the species "Canis lupus". That property of dogs doesn't have anything to do with individual dogs; it's information that is pertinent about all dogs. Therefore, it makes sense to add this property directly to the `Dog` constructor as a static property:
+For instance, dogs belong to the species "Canis lupus". That property of dogs doesn't have anything to do with individual dogs; it's information that is *pertinent about all dogs*. Therefore, it makes sense to add this property directly to the `Dog` constructor as a static property:
 
 ```js
 Dog.species = "Canis lupus";
@@ -1506,7 +1504,7 @@ Now, when our application needs to know the species that dogs belong to, we can 
 console.log(`Dogs belong to the species ${Dog.species}`);
 ```
 
-One common use of static properties is to keep track of all of the objects created by a constructor. For instance:
+One common use of static properties is to *keep track of all of the objects created by a constructor*. For instance:
 
 ```js
 function Dog(name, breed, weight) {
@@ -1539,17 +1537,21 @@ You've already seen examples of static methods on built-in JavaScript constructo
 
 #### `Object.create(proto, [propertiesObject])` - Inheritance
 
-- **Description** - returns a **new object**, using an *existing object* as the **prototype** of the newly created object.
-- **Parameters**
+- returns a **new object**, using an *existing object* as the **prototype** of the newly created object.
+
+- parameters
   - `proto` - the object which is the prototype of the newly-created object (i.e. the newly created object will inherit from this)
   - `[propertiesObject]` - If specified and not  `undefined`, an object whose enumerable **own** properties (that is, those properties defined upon itself and *not* enumerable properties along its prototype chain) specify property descriptors to be added to the newly-created object, with the corresponding property names. These properties correspond to the second argument of `Object.defineProperties()`
-- **Exceptions**
+
+- exceptions
   - `proto` - must be either an Object (excluding primitive wrapper objects), or `null` - otherwise a `TypeError` is thrown
 
 #### `Object.assign(target, ...sources)` - Mixins
 
-- **Description -** method **copies** all enumerable own properties from one or more `source` objects to a `target` object. It returns the modified target object. Properties in the target object are overwritten by properties in the sources if they have the same key. Later sources' properties overwrite earlier ones.
-The `Object.assign()` method only copies ***enumerable* and *own*** properties from a source object to a target object. It uses `[[Get]]` on the source and `[[Set]]` on the target, so it will invoke getters/setters, and therefore it ***assigns*** properties.
+- **copies** all enumerable own properties from one or more `source` objects to a `target` object. It returns the modified target object. Properties in the target object are overwritten by properties in the sources if they have the same key. Later sources' properties overwrite earlier ones.
+
+- The `Object.assign()` method only copies ***enumerable* and *own*** properties from a source object to a target object. It uses `[[Get]]` on the source and `[[Set]]` on the target, so it will invoke getters/setters, and therefore it ***assigns*** properties.
+
 - **Parameters**
   - `target` the target object — what to apply the sources’ properties to, which is returned after it is modified.
   - `sources` the source object(s) — objects containing the properties you want to apply.
@@ -1673,7 +1675,7 @@ Note that `[[Prototype]]` is an **internal** property: you cannot access it dire
 
 ```js
 > Object.getPrototypeOf(b)
-{ foo: 1, bar: 2}
+{ foo: 1, bar: 2} // this is object `a` from above
 ```
 
 You can use `Object.setPrototypeOf()` to set the prototype object of an object:
@@ -1730,7 +1732,7 @@ Passing an empty object to `Object.getPrototypeOf()` returns a default prototype
 
 ### 3.3 Iterating Over Objects with Prototypes
 
-- A `for/in` loop iterates over an object's properties. The iteration includes properties from the objects in its prototype chain. Use `hasOwnProperty()` to skip the prototype properties.
+- A `for/in` loop iterates over an object's properties. *The iteration includes properties from the objects in its prototype chain.* Use `hasOwnProperty()` to skip the prototype properties.
 
 - `Object.keys()` returns an object's "own" property keys -- you do not need to use `hasOwnProperty()`.
 
@@ -1952,7 +1954,7 @@ class Square extends Rectangle {
 }
 ```
 
-The `extends` keyword signifies that the class named to the left of `extends` should inherit from the class specified to the right of `extends`. Note that we don't define `getArea` on the `Square` class since `Square` inherits it from `Rectangle` and doesn't need to customize or override the method.
+*The `extends` keyword signifies that the class named to the left of `extends` should inherit from the class specified to the right of `extends`.* Note that we don't define `getArea` on the `Square` class since `Square` inherits it from `Rectangle` and doesn't need to customize or override the method.
 
 #### `super`
 
@@ -2006,11 +2008,11 @@ Note that this most recent example *uses class expressions instead of class decl
 
 ## 4. Encapsulation
 
-**Encapsulation** is the idea of bundling data and operations related to that data in a cohesive unit called an object. In OOP, encapsulation also refers to the idea of restricting access to state and some behavior, but JavaScript objects don't support that type of encapsulation.
+Encapsulation is the idea of bundling data and operations related to that data in a cohesive unit called an object. In OOP, encapsulation also refers to the idea of restricting access to state and some behavior, but JavaScript objects don't support that type of encapsulation.
 
 In JavaScript, encapsulation is the idea of bundling state (data) and behavior (operations) associated with that data in a single entity; that is, it's the grouping of related properties and methods in a single object.
 
-In most OOP languages, encapsulation has a broader purpose. It also refers to restricting access to the state and certain behaviors; an object only exposes the data and behaviors that other parts of the application need to work. In other words, objects *expose a public interface* for interacting with other objects and keep their implementation details hidden. Thus, other objects can't change the data of an object without going through the proper interface. However, JavaScript does not directly provide the means to limit exposure of properties and methods. There are ways to achieve a degree of access restriction, but they're not perfect.
+In most OOP languages, encapsulation has a broader purpose. It also refers to restricting access to the state and certain behaviors; an object only exposes the data and behaviors that other parts of the application need to work. In other words, objects *expose a public interface* for interacting with other objects and keep their implementation details hidden. Thus, other objects can't change the data of an object without going through the proper interface. However, JavaScript does not directly provide the means to limit exposure of properties and methods.
 
 This grouping together of related data and functions is what’s called **encapsulation** and is one of the fundamental principles of object-oriented programming.
 
@@ -2046,7 +2048,6 @@ We've just reviewed the concept of encapsulation and how it's relevant to object
 ## 5. Polymorphism
 
 Polymorphism refers to the ability of objects with different types to respond to the same method invocation. In other words, data of different types can respond to a common interface.
-It's a crucial concept in OO programming that can lead to more maintainable code.
 
 It can be implemented through inheritance by *method overriding*. It can also be implemented through **duck typing**; by ensuring that objects of different **types** *use the same method name to perform different but related functions*, those objects can be interacted with in a uniform way.
 
@@ -2130,28 +2131,13 @@ cat.speak(); // Meow!
 fish.speak(); // (nothing happens)
 ```
 
-### 5.1.2 Example
-
-This is one of those gems I found in the forums from Pete that really helped me to understand the idea behind Polymorphism better:
-
-```js
-[str, arr].forEach(obj => console.log(obj.indexOf("c")));
-```
-
-Notice how we're calling both `str.indexOf` and `arr.indexOf` by using `obj.indexOf` where `obj` is alternately a reference to `str` or `arr`.
-
-You can do that with a duck-typed language, but if you try it in a language like C that doesn't support duck typing, it will produce a type error. You can't call methods for 2 or more objects with the same line of code unless the objects have a common superclass. It's much more stringent than JS and Ruby. However, you can still call things that have the same method, just not through a common interface.
-
-By the way -- calling `indexOf` like this with a variable that can take on different types is where polymorphism really comes into play. I'm not sure if we emphasize that enough. The point behind polymorphism is that you can write code that doesn't care about types -- just that the different things respond to the same message.
-
 ### 5.2 Polymorphism through Duck Typing
 
 **Duck typing** occurs when objects of different *unrelated* types both respond to the same method name. With duck typing, we aren't concerned with the class or type of an object, but we do care whether an object has a particular behavior. *If an object quacks like a duck, then we can treat it as a duck*. Specifically, *duck typing is a form of polymorphism*. As long as the objects involved use the same method name and take the same number of arguments, we can treat the object as belonging to a specific category of objects.
 
 For example, an application may have a variety of elements that can respond to a mouse click by calling a method named something like `handleClick`. Those elements may be completely different -- for instance, a checkbox vs. a text input field -- but they're all *clickable* objects. Duck typing is an informal way to classify or ascribe a type to objects. Classes and constructors provide a more formal way to do that.
-Duck typing occurs when objects of different unrelated types both respond to the same method name.
 
-[Distinction between Polymorphism and Duck Typing](https://launchschool.com/posts/c6a86a52#comment-89887)
+[Distinction between Polymorphism through Inheritance and Polymorphism through Duck Typing](https://launchschool.com/posts/c6a86a52#comment-89887)
 
 Duck typing is just a particular form of polymorphism -- it's the ability for objects of completely unrelated types to respond to the same method invocation. A simple example of this in JavaScript are Strings and Arrays. These types are unrelated(*), yet they can both respond to, say, the `indexOf` method:
 
@@ -2282,11 +2268,11 @@ For anyone that’s interested, I wrote out a full implementation of the Polymor
 ```js
 class Chef {
   constructor(guests, flowers, songs) {
-    this.guests = guests; 
-    this.flowers = flowers; 
+    this.guests = guests;
+    this.flowers = flowers;
     this.songs = songs;
   }
-  prepare(wedding) { 
+  prepare(wedding) {
     return this.prepareFood(wedding.guests);
   }
 
@@ -2332,8 +2318,8 @@ Decorator {
   song: [ 'Electric Slide', 'Cha-Cha Slide' ]
 }
 */
-console.log(decorator.prepare(decorator.flowers)); //Where are my roses??
-console.log(decorator.decoratePlace(decorator.flowers)); //Where are my roses??
+console.log(decorator.prepare(decorator.flowers)); // Where are my roses??
+console.log(decorator.decoratePlace(decorator.flowers)); // Where are my roses??
 
 class Musician {
   constructor(guests, flowers, songs) {
@@ -2360,8 +2346,8 @@ Musician {
 }
 */
 
-console.log(musician.prepare(musician.songs));//Prepare the following songs: Electric Slide,Cha-Cha Slide
-console.log(musician.preparePerformance(musician.songs)); //Prepare the following songs: Electric Slide,Cha-Cha Slide
+console.log(musician.prepare(musician.songs)); // Prepare the following songs: Electric Slide,Cha-Cha Slide
+console.log(musician.preparePerformance(musician.songs)); // Prepare the following songs: Electric Slide,Cha-Cha Slide
 
 class Wedding {
   constructor(guests, flowers, songs) {
@@ -2450,7 +2436,7 @@ pete.printName();
 
 The `pete` object has a collaborator object stored in its `pet` property. The `pete` object and the object referenced by its `pet` property work together. When we need to access the `pet` object or have it perform a behavior, we can use `pete.pet` to access and use the object's properties. For instance, on line 19, the `pete` object collaborates with the `cat` object (via `this.pet`) to access the `cat`'s name.
 
-Collaborator objects play an important role in object-oriented design; they *represent the connections between the different classes* in your program. When working on an object-oriented program, be sure to consider what collaborators your objects need and whether those associations make sense, both from a technical standpoint and in terms of modeling the problem your program aims to solve.
+Collaborator objects play an important role in object-oriented design; they *represent the connections between the different classes* in your program.
 
 Let's now develop our program further and change the implementation to let Pete have many pets. How should we implement this? How about an array of `pet` objects?
 
