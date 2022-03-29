@@ -7183,3 +7183,7 @@ Have a great day everyone!!!
 10:28 Actually have gone back to the lessons and I am comparing them to my study guide notes and they're similar.
 
 11:05 It's helpful to work through the lessons again and compare to my study guide.
+
+11:27 I got to play with Sohee and eat something before the study group.
+
+12:51 It was a good study group session where we focused on execution context. I think I understand it.
