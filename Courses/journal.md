@@ -7147,3 +7147,35 @@ Have a great day everyone!!!
 17:34 Reviewing my study guide some more and now need to warm food for dinner.
 
 21:46 Studying the study guide.
+
+## 20220329 화요일
+
+07:40 I slept through my alarm and missed my study sessionn with Alex. I woke up to a message from Bishop asking if I'm over 50. I guess that's a compliment.
+
+07:50 I just renewed Moana's vehicle registration. Now going to get my coffee and read a little before breakfast.
+
+08:31 I was reviewing my study guide on my MBP and I think I was looking at an older version. I need to work through the latest study guide.
+
+08:32 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Work on Study Guide 5.0 during Study Session with Alex
+   * [x] 2. Anki Cards Review
+   * [x] 3. Study Session with Michael
+~~   * [ ] 3. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
+   * [ ] 4. Learn in Public: Context Loss vs Context Change question on LinkedIn?
+   * [ ] 5. Send resume to Derek Barker for Salesforce job.~~
+
+2. What will you do today?
+   * [ ] 1. Work on Study Guide 7.0
+   * [ ] 2. Anki Cards Review
+   * [ ] 3. JS129 Study Group
+   * [ ] 4. Study Session with Double Melt in Gather at 14:00
+   * [ ] 5. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
+   * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
+   * [ ] 7. Send resume to Derek Barker for Salesforce job.
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I slept in and missed my study session with Alex. I should be good for at least 6 hours of studying today though.
+
+08:44 Starting from the top again with my study guide and I want to really prune it so I can use it for the written assessment and also pick out questions to ask Karl during the study group session later this morning.
