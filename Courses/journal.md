@@ -7193,3 +7193,5 @@ Have a great day everyone!!!
 15:35 Finished study session with Mel Truong and she said she had take the JS129 written assessment twice. She's taking the interview assessment tomorrow. I'm tired and going to take a break before the Writers Bloc at 16:00.
 
 17:11 After the Writers Bloc meeting and I'm a little tired. It's good to talk with Benjamin Perrault though about stuff. I have some friends in Launch School. He's almost done with core and getting ready for capstone.
+
+17:32 Finished reviewing Lesson 2 and on to Lesson 3 from my MBP now.

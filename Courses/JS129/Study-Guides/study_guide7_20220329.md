@@ -3677,7 +3677,7 @@ One advantage of `bind` is that you can do it once and then *call it as often as
 
 ### 15.2.4 Solution 4: Using an Arrow Function
 
-Arrow functions inherit their execution context from the surrounding context. That means that an arrow function defined inside another function always has the same context as the outer function's context:
+Arrow functions inherit their execution context from the surrounding context. That means that an arrow function *defined inside another function* always has the same context as the outer function's context:
 
 ```js
 let obj = {
@@ -3703,7 +3703,7 @@ obj.foo();
 // => hello world
 ```
 
-Using arrow functions like this is similar to using bind in that you don't have to worry about arrow functions losing their surrounding context. An arrow function, once created, always has the same context as the function that surrounded it when it was created.
+Using arrow functions like this is similar to using `bind` in that you don't have to worry about arrow functions losing their surrounding context. An arrow function, once created, *always has the same context as the function that surrounded it when it was created*.
 
 Of all the techniques we saw in this assignment, using arrow functions is the most common these days.
 
@@ -3852,7 +3852,7 @@ obj.foo();
 
 ### 15.4.4 Solution 4: Use the optional `thisArg` argument
 
-Some methods that take function arguments allow an optional argument that specifies the context to use when invoking the function. `Array.prototype.forEach`, for instance, has an optional `thisArg` argument for the context. This argument makes it easy to work around this context-loss problem.
+Some methods that take function arguments allow an optional argument that specifies the context to use when invoking the function. `Array.prototype.forEach`, for instance, has an optional `thisArg` argument for the context. This argument makes it easy to work around this context-loss problem. The array methods `map`, `every` and `some` and others also take an optional `thisArg` argument.
 
 ```js
 let obj = {
@@ -3871,8 +3871,6 @@ obj.foo();
 // => 2 hello world
 // => 3 hello world
 ```
-
-The array methods `map`, `every` and `some` and others also take an optional `thisArg` argument.
 
 ### 15.5 Dealing with Context Loss Summary
 

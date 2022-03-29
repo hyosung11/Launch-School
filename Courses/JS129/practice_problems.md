@@ -677,7 +677,7 @@ My Answer: // 'Amazebulous!`
 
 Once a function's context gets bound using `bind`, its context can't be changed, even with `call` and `apply`. In keeping with this, the last line of our code outputs "Amazebulous!", because the function `bar`'s context has been permanently bound to `obj`.
 
-## 15. Practice Problems: Dealing with Context Loss
+## Lesson 2 > 15. [Practice Problems: Dealing with Context Loss](https://launchschool.com/lessons/1eaf5e37/assignments/408c20c3)
 
 ### 15.1 The code below should output "Christopher Turk is a Surgeon". Without running the code, what will it output? If there is a difference between the actual and desired output, explain the difference.
 
