@@ -2855,7 +2855,7 @@ const foo = function() {
 Typically, we assign a function expression to a variable or object property, pass it to another function, or return it to a calling function. For instance:
 
 ```js
-let prompt = function() {}; // Assign to a variable
+let prompt = function() {}; // Assign function expression to a variable
 
 [1, 2, 3].forEach(function(elem) { // pass to another function
   console.log(elem);
@@ -3003,8 +3003,6 @@ The fact that JavaScript treats functions as values means that we can have a spe
 
 1. It takes a function as an argument.
 2. It returns a function.
-
-Higher-order functions let the programmer use powerful and flexible abstractions.
 
 ### 10.6.1 Higher Order Functions - Functions that Accept Functions as Arguments
 
