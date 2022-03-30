@@ -7172,7 +7172,7 @@ Have a great day everyone!!!
    * [x] 3. JS129 Study Group
    * [x] 4. Study Session with Mel Truong in Gather at 14:15 ~ 15:30
    * [ ] 5. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
-   * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
+   * [x] 6. Research Context Loss vs Context Change
    * [ ] 7. Send resume to Derek Barker for Salesforce job.
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -7199,3 +7199,30 @@ Have a great day everyone!!!
 18:37 Feeling full of grilled cheese after dinner. More studying now.
 
 21:00 Finished studying.
+
+## 20220330 수요일
+
+05:43 Good morning. I got up right as my alarm went off at 5:24 this morning. I woke up precisely at 2:22 because I was cold. Omi had kicked the blankets off and I had to pull them back up onto my body. I got a good jolt from my first sip of green tea. I most want to study fulltime and do capstone and be job ready to become a mid-level software engineer. That's what I want, so I need to talk with Sohee about this. That's only right.
+
+05:54 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Work on Study Guide 7.0
+   * [x] 2. Anki Cards Review
+   * [x] 3. JS129 Study Group
+   * [x] 4. Study Session with Mel Truong in Gather at 14:15 ~ 15:30
+~~   * [ ] 5. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)~~
+   * [x] 6. Research Context Loss vs Context Change
+~~   * [ ] 7. Send resume to Derek Barker for Salesforce job.
+~~
+2. What will you do today?
+   * [ ] 1. Study Session with Alex
+   * [ ] 2. Anki Cards Review
+   * [ ] 3. Practice Problems
+   * [ ] 4. Study Session with Michael?
+   * [ ] 5. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
+   * [ ] 6. Send resume to Derek Barker for Salesforce job.
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Only this nagging feeling that I need to come clean with Sohee and tell her what I want so we can talk about and figure it out.
+
