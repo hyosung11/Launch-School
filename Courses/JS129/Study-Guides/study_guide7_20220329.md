@@ -174,10 +174,7 @@ console.log(obj.hasOwnProperty("hasOwnProperty")); // => false
 
 One way to *automate the creation of objects* is to use the **factory function pattern**. A factory function returns an object with a particular set of methods and properties. The methods remain the same across the objects, while the property values can be customized by providing them as arguments. Factory functions instantiate and return a new object in the function body. They let us create new objects based on a predefined template.
 
-An object factory serves two purposes:
-
-1. It returns objects that represent data of a specific type.
-2. It reuses code.
+Factory functions provide a way to 1) reuse code and they 2) return objects that represent data of a specific type.
 
 However, they have two significant downsides:
 
@@ -396,6 +393,28 @@ If you don't use the `new` keyword, the constructor function won't work as inten
 
 Furthermore, since functions that don't return an explicit value return `undefined`, calling a constructor without `new` also returns `undefined`. When you use `new`, however, the function doesn't have to return anything explicitly: it *returns the newly created object automatically*.
 
+#### 1.3.5 Lesson 3 Quiz 1 Question 2
+
+In the following code, the `Animal` function is meant to be used as a constructor.
+
+```js
+const Animal = function(species) {
+  this.species = species;
+  return species;
+};
+
+Animal.prototype.sleep = function() {
+  console.log(`The ${this.species} is sleeping`);
+};
+
+let lion = Animal('Panthera leo');
+lion.sleep(); // TypeError
+```
+
+The constructor should return a new object that can subsequently be used to call the `Animal.prototype.sleep` method shown below. However, this program does not work as intended -- we get a `TypeError` when we try to call `sleep`.
+
+The problem here is that we did not use the `new` operator. Without the `new` operator, `Animal` isn't called as a constructor function. Thus, `this` refers to the global object instead of a new object, and the function returns a string instead of a new object.
+
 #### 1.3.5 Who Can be a Constructor
 
 You can use `new` to call almost any JavaScript function that you create. However, *you cannot call arrow functions with `new`* since they use their surrounding context as the value of `this`:
@@ -490,6 +509,39 @@ fluffy.foo; // 1
 This time the constructor returned the object `{ foo: 1 }`, not a cat object.
 
 The rule here is that *a constructor that explicitly tries to return an object returns that object instead of a new object of the desired type*. In all other situations, it returns the newly created object, provided no errors occur. In particular, *the constructor ignores primitive return values and returns the new object instead*.
+
+#### 1.3.6.1 Lesson 3 Quiz 1 Question 3
+
+Examine the following code:
+
+```js
+function Dog() {
+}
+
+function Pet(type) {
+  if (type === 'dog') {
+    return new Dog();
+  } else if (type === 'lion') {
+    return 'not a pet!';
+  }
+}
+
+let dog = new Pet('dog');
+let lion = new Pet('lion');
+let cat = new Pet('cat');
+```
+
+Without running the code, determine the type of data that the `dog`, `lion`, and `cat` variables would reference if you were to run it.
+
+- dog: a `Dog` object
+- lion: a `Pet` object
+- cat: a `Pet` object
+
+A constructor that attempts to return an object will return an object of that type. Thus, `dog` refers to a `Dog` object since that's what the constructor tried to return.
+
+A constructor that attempts to return a non-object value, such as a string, will instead return a new object of the type associated with the constructor, e.g., `Pet` in this case. Thus, `lion` refers to a `Pet` object *since the constructor attempts to return a string*.
+
+A constructor that doesn't return an explicit value will return a new object of the type associated with the constructor, e.g., `Pet`. Thus, `cat` refers to a `Pet` object since the constructor doesn't return an explicit value.
 
 #### 1.3.7 Supplying Constructor Arguments with Plain Objects
 
@@ -1469,7 +1521,7 @@ This code returns `undefined` since `weight` isn't a property of the constructor
 
 Since methods are also properties on an object, we can refer to methods stored directly in an object as instance properties too. More commonly, we call them **instance methods** just to distinguish them from ordinary data properties.
 
-However, methods usually aren't stored directly in instances. Instead, they are *usually defined in the object's prototype object*. While methods defined in the prototype object aren't stored in the instance object, they still operate on individual instances. Therefore, we usually refer to them as instance methods. In our `Dog` example, `bark` is an instance method since it's defined on the `Dog.prototype` object.
+However, methods usually aren't stored directly in instances. Instead, they are *usually defined in the object's prototype object*. While methods defined in the prototype object aren't stored in the instance object, they still operate on individual instances. Therefore, we usually refer to them as instance methods. Instance methods are stored either as part of an object or somewhere in the object's prototype chain. In our `Dog` example, `bark` is an instance method since it's defined on the `Dog.prototype` object.
 
 As with `weight`, we must use an object created by the `Dog` constructor to invoke `bark`:
 
@@ -1535,7 +1587,7 @@ In this case, the static property `allDogs` contains an array with a reference t
 
 ### 2.4 Static Methods
 
-Static properties don't have to be ordinary data properties. You can also define static methods:
+Static methods are methods that apply to the constructor or class itself, not a specific object created by that constructor or class. Static properties don't have to be ordinary data properties. You can also define static methods:
 
 ```js
 Dog.showSpecies = function() {
@@ -3324,6 +3376,12 @@ The JavaScript `this` keyword refers to the object it belongs to. It has differe
 - Method calls like `call()`, and `apply()` can refer `this` to any object.
 - In an event, `this` refers to the **element** that received the event.
 
+### When does JavaScript bind an object to `this`?
+
+- It binds the execution context when the function is executed using method call syntax, e.g., `foo.bar()`. A function that is invoked using method-call syntax receives the calling object as its execution context.
+- It binds the execution context when the function is executed by either `call` or `apply`. Both `call` and `apply` set the execution context for a function invocation.
+- It binds the execution context when the function is executed using function call syntax, eg., `bar()`. A function that is invoked using function call syntax receives the global object as its execution context.
+
 ## 14. Implicit and Explicit Execution Context
 
 ### 14.1 Execution Context
@@ -3893,7 +3951,7 @@ In both snippets, the `obj.logData` method gets invoked by `forEach` with the gl
 
 ## 16. `call`, `apply`, and `bind`
 
-The `call` and `apply` methods *invoke a function with an explicit execution context*.
+The `call` and `apply` methods *invoke a function with an explicit execution context*.  To pass arguments to a function with `call`, the arguments should be specified as separate arguments.
 
 The `bind` method *returns a new function that permanently binds a function to a context*.
 
@@ -4305,6 +4363,21 @@ The behavior of this above code is identical to the earlier example that uses `n
 Some other JavaScript constructors exhibit this behavior. In fact, the ECMAScript specification document requires it in specific cases. However, that doesn't mean that you should omit `new` routinely in your code. You might be using a constructor that doesn't implement this behavior, which can sometimes lead to different behavior when you omit `new`.
 
 For now, don't worry about why the specification requires this behavior or how you can do the same thing yourself. *Stay consistent and use `new` unless there's a good reason to omit it*.
+
+### 18.1.1 Lesson 3 Quiz 1 Question 5
+
+Examine the following code.
+
+```js
+let arr1 = new Array(1, 2, 3);
+let arr2 = Array(1, 2, 3);
+
+console.log(arr1 === arr2); // => false
+```
+
+While line 4 shows that the two arrays are different objects, it doesn't reveal whether the two arrays differ in any other way, i.e., in their type, content, or behavior. Do the arrays differ in any way other than being separate objects?
+
+Both arrays are identical: they are both objects of type Array, and they both have the same values in their elements. JavaScript does not require the `new` keyword when creating arrays; the `Array` constructor works the same regardless of whether `new` is used.
 
 #### 18.1.1 `Array.prototype` (Instance Methods)
 

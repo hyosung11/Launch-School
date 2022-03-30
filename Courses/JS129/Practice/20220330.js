@@ -274,3 +274,167 @@ Consider the following code: */
 
 // console.log(obj.foo()); // => { foo: [Function: foo] }
 
+/* Question 7 0 / 1 Points
+Incorrect
+
+When does JavaScript bind an object to this? Select all answers that apply.
+
+
+Your Answer
+A
+
+It binds the execution context when the function is executed using method-call syntax, e.g., foo.bar().
+B
+
+It binds the execution context based on where the function is defined.
+C
+
+It binds the execution context when the function is executed by either apply or call.
+D
+
+It binds the execution context based on when the function gets invoked.
+E
+
+It binds the execution context when the function is executed using function-call syntax, e.g., bar().
+Discussion
+
+Incorrect:
+
+B, D: The execution context is determined by how a function is called, not by where it is defined or when it gets invoked.
+
+Correct:
+
+A A function that is invoked using method-call syntax receives the calling object as its execution context.
+
+C Both call and apply set the execution context for a function invocation.
+
+E A function that is invoked using function-call syntax receives the global object as its execution context. */
+
+/*  Question 8
+
+What will the code below log to the console when using Node.js? Assume that the code is in a separate file, and that you would use the node command to run it. However, try to answer without running the code. */
+
+// function bar() {
+//   console.log('good morning');
+// }
+
+// global.inner = {
+//   bar() {
+//     console.log('good afternoon');
+//   },
+// };
+
+// let obj = {
+//   inner: {
+//     bar() {
+//       console.log('good night');
+//     },
+
+//     foo() {
+//       bar();
+//     },
+//   },
+
+//   bar() {
+//     console.log('wake up');
+//   },
+
+//   foo() {
+//     this.inner.bar(); // line 
+//     inner.bar();
+//     bar();
+//   },
+// };
+
+// obj.foo();
+
+// good night
+// good afternoon
+// good morning
+
+
+/* Discussion
+
+Correct:
+
+C: Line 33 uses method invocation to invoke obj.foo on line 26, which sets the context (this) for obj.foo to the obj object. Thus, line 27 invokes obj.inner.bar on line 13, which logs good night. The calls on lines 28 and 29 don't use this, so both calls look elsewhere; namely, in the global object. Thus, line 28 invokes global.inner.bar on line 6, which logs good afternoon, and line 29 invokes bar on line 1, which logs good morning. */
+
+function bar() {
+  console.log('good morning');
+}
+
+global.inner = {
+  bar() {
+    console.log('good afternoon');
+  },
+};
+
+let obj = {
+  inner: {
+    bar() {
+      console.log('good night');
+    },
+
+    foo() {
+      bar();
+    },
+  },
+
+  bar() {
+    console.log('wake up');
+  },
+
+  foo() {
+    this.inner.bar();
+    inner.bar();
+    bar();
+  },
+};
+
+let foo = function () {
+  console.log('go to sleep');
+};
+
+function go(foo) {
+  foo();
+}
+
+go(obj.foo);
+
+// good afternoon
+// good afternoon
+// good morning
+
+/* Discussion
+
+Correct:
+
+D: Line 41 passes obj.foo to the go function on line 37 which strips the method of its context (obj). Thus, when we call foo on 38, it invokes obj.foo; however, it sets the context (this) to the global object. Thus, line 27 calls global.inner.bar on line 6, which logs good afternoon. From there, the behavior is identical to that from the previous problem.
+
+*/
+
+/*  Question 12
+
+Examine the following code and its expected output: */
+
+let cats = {
+  names: [ 'Butterscotch', 'Pudding', 'Fluffy' ],
+  foo() {
+    [1, 2, 3].forEach(function(number) {
+      console.log(`${number}: ${this.names[number - 1]}`);
+    }, this);
+  },
+};
+
+cats.foo();
+// Expected output:
+// 1: Butterscotch
+// 2: Pudding
+// 3: Fluffy
+
+/* The code, as written, does not work. In each of the following code snippets, we show a replacement for the foo method that may or may not fix the problem. Which replacements will produce the correct output? Select all that apply, but try to answer without running any of this code. However, you may run the code shown above. */
+
+// self
+// arrow function
+// bind
+// thisArg

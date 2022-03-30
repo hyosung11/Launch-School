@@ -7229,3 +7229,5 @@ Have a great day everyone!!!
 08:46 Back from dropping off the kids and still thinking about how to talk with Sohee about doing Launch School through Capstone.
 
 10:34 Laurent jumped into Gather and we worked on some problems together. He's going to take a break and I am going to take one as well.
+
+14:26 Taking a break from studying. I already had lunch and read some emails.
