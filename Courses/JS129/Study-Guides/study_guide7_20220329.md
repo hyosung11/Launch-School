@@ -1738,7 +1738,7 @@ undefined
 {}
 ```
 
-Passing an empty object to `Object.getPrototypeOf()` *returns a default prototype object*. That object is the **prototype** for all objects created by using the object literal syntax (e.g., `{ a: 2 }`). The default prototype is the prototype object of the `Object` constructor, `Object.prototype`. Object.prototype provides the default prototype.
+Passing an empty object to `Object.getPrototypeOf()` *returns a default prototype object*. That object is the **prototype** for all objects created by using the object literal syntax (e.g., `{ a: 2 }`). The default prototype is the prototype object of the `Object` constructor, `Object.prototype`. `Object.prototype` provides the default prototype.
 
 ### 3.3 Iterating Over Objects with Prototypes
 
@@ -2847,6 +2847,10 @@ Library developers often write code to check for the **bare object edge cases**.
 **Method invocations** (e.g., `array.forEach(processElement)`) rely upon implicit context that resolves to the object that holds the method.
 
 ## 10. Higher-order functions
+
+Higher-order functions are also first-class values. A function that accepts one or more arguments that are themselves functions is a higher-order function. A function that returns a function is a higher-order function.
+
+All JavaScript functions are first-class values. Therefore, all higher-order functions are also first-class values.
 
 JavaScript has first-class functions that have the following characteristics:
 

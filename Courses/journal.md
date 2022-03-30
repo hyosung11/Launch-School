@@ -7216,7 +7216,7 @@ Have a great day everyone!!!
 ~~   * [ ] 7. Send resume to Derek Barker for Salesforce job.
 ~~
 2. What will you do today?
-   * [ ] 1. Study Session with Alex
+   * [x] 1. Study Session with Alex
    * [ ] 2. Anki Cards Review
    * [ ] 3. Practice Problems
    * [ ] 4. Study Session with Michael?
@@ -7226,3 +7226,6 @@ Have a great day everyone!!!
 3. Are there any blockers or impediments preventing you from doing your work?
    * Only this nagging feeling that I need to come clean with Sohee and tell her what I want so we can talk about and figure it out.
 
+08:46 Back from dropping off the kids and still thinking about how to talk with Sohee about doing Launch School through Capstone.
+
+10:34 Laurent jumped into Gather and we worked on some problems together. He's going to take a break and I am going to take one as well.
