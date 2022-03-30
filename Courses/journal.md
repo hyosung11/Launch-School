@@ -7231,3 +7231,5 @@ Have a great day everyone!!!
 10:34 Laurent jumped into Gather and we worked on some problems together. He's going to take a break and I am going to take one as well.
 
 14:26 Taking a break from studying. I already had lunch and read some emails.
+
+17:30 I got through a third run of the quizzes and I have 12 questions I want to look at again. I want to review exercises after dinner.

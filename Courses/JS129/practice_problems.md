@@ -1919,3 +1919,31 @@ Object.assign(Catamaran.prototype, Moveable);
 ```
 
 We've moved the code shared by `Catamaran` and `WheeledVehicles` to the `Moveable` mix-in. The definitions of `Auto` and `Motorcycle` remain unchanged since they both inherit from `WheeledVehicle`.
+
+### Lesson 3 Quiz 1 Question 9
+
+Your program needs to change the case of all letters in a string to the opposite case. That is, Naveed Fida should be converted to nAVEED fIDA. You already have a function called convertCase that does this for a single character. It takes a single character as an argument and returns the translated result.
+
+Given the convertCase function, which of the following code snippets can be used to convert the string contained by str? Select all answers that apply.
+
+- [ ] A. str = [1, 2, 3].map.call(str, convertCase).join("");
+
+- [ ] B. str = str.map(convertCase).join("");
+
+- [ ] C. str = Array.from(str).map(convertCase).join("");
+
+- [ ] D. str = str.split("").map(convertCase);
+
+Discussion
+
+Incorrect:
+
+B: This code attempts to call a `map` method on a string. However, strings don't have a `map` method, and they won't use `Array.prototype.map` without more specific instructions, so this code raises a `TypeError`.
+
+D: This code returns an array, not a string.
+
+Correct:
+
+A: This code uses `call` to invoke `map` with `str` as its context, a process that allows `map` to process the individual characters of `str`. Note that we use the array `[1, 2, 3]` to invoke `call`; any array will do.
+
+C: This code uses the `Array.from` static method to convert `str` to an array of characters. That lets us use `Array.prototype.map` and `Array.prototype.join` to translate the characters and recombine them as a string.

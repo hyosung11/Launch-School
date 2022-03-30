@@ -934,6 +934,22 @@ console.log(rectangle1.getLength()); // 5
 console.log(rectangle1.getArea()); // 20
 ```
 
+##### 1.3.12.2 And Another Constructor/Prototype Pattern
+
+```js
+function Book(author, title, isbn) {
+  this.author = author;
+  this.title = title;
+  this.isbn = isbn;
+}
+
+Book.prototype.describe = function() {
+  console.log(this.title + ' was written by ' + this.author + '.');
+};
+
+let book = new Book("Neal Stephenson", "Snow Crash", "0-553-08853-X");
+```
+
 ##### 1.3.12.2 And Another Constructor and Prototype Example
 
 The reason we get the following output is because the `new` operator sets the context to the new object that's created. Because of this, technically a, b, c etc. don't exist as properties on the constructor, they exist as properties in the instantiated object.
@@ -1211,7 +1227,7 @@ Since `init` now returns a reference to the car object it was called on, we can 
 let car1 = Object.create(carPrototype).init('Toyota', 'Corolla', 2016);
 ```
 
-#### 1.4.1 Another Example of OLOO
+#### 1.4.1 Examples of the OLOO Object Creation Pattern
 
 ```js
 // OLOO (uses `init` and an explicit return in the constructor)
@@ -1242,6 +1258,40 @@ console.log(olooRectangle.getLength()); // 5
 console.log(olooRectangle.getArea()); // 20
 ```
 
+```js
+let Book = {
+  init(author, title, ISBN) {
+    this.author = author;
+    this.title = title;
+    this.ISBN = ISBN;
+    return this;
+  }
+
+  describe() {
+    console.log(this.title + ' was written by ' + this.author + '.');
+  },
+}
+
+let book = Object.create(Book).init("Jame Baldwin", "Another Country", "0-679-74471-1 (pbk.)");
+```
+
+```js
+let Cat = {
+  init(name, gender) {
+    this.name = name;
+    this.gender = gender;
+    return this;
+  },
+
+  log() {
+    console.log(`Meow! My name is ${this.name}. I'm a ${this.gender} cat.`);
+  },
+}
+
+let kitty = Object.create(Cat).init("Pudding", "girl");
+kitty.log(); // => Meow! My name is Pudding. I'm a girl cat.
+```
+
 #### 1.4.2 Advantage of OLOO over Factory Functions
 
 You can use both factory functions and the OLOO pattern to bulk create objects of the same type. Though the result is an object creation mechanism in both cases, the OLOO pattern has one significant advantage over factory functions: **memory efficiency**. Since all objects created with the OLOO pattern *inherit methods from a single prototype object*, the objects that inherit from that prototype object share the same methods. Factory functions, on the other hand, create copies of all the methods for each new object. That can have a significant performance impact, especially on smaller devices with limited memory.
@@ -1252,7 +1302,7 @@ However, that doesn't mean that OLOO is decidedly better than the factory patter
 
 #### 1.5.1 [Classes Introduction](https://launchschool.com/gists/6ba85481)
 
-The ECMAScript 6 (ES6) standard added the `class` keyword to JavaScript. In effect, classes act like **syntactic sugar** -- syntax designed to be easier to read or use -- that makes it easier for programmers to migrate to JavaScript from other OOP languages. In essence, they provide little more than a more natural and possibly familiar way to create constructors and prototypes.
+The ECMAScript 6 (ES6) standard added the `class` keyword to JavaScript. In effect, classes act like **syntactic sugar** -- syntax designed to be easier to read or use -- that makes it easier for programmers to migrate to JavaScript from other OOP languages. The `class` statement gets translated behind the scenes to a constructor function and a prototype object, and the class name refers to the constructor function. In essence, they provide little more than a more natural and possibly familiar way to create constructors and prototypes.
 
 The syntax for defining classes is similar to that of defining functions. In particular, both functions and classes have two significant definition styles: declarations and expressions.
 
@@ -1289,7 +1339,7 @@ Now, let's see what this code looks like using the `class` keyword.
 
 #### 1.5.3 Class Declarations
 
-The simplest way to create classes in JavaScript is with the **class declaration**, which looks similar to classes in other languages.
+The simplest way to create classes in JavaScript is with the **class declaration**, which looks similar to classes in other languages. A class declaration always begins with the keyword `class` at the beginning of a statement.
 
 ```js
 class Rectangle {
@@ -1357,6 +1407,28 @@ let Rectangle = class { // class expression
 ```
 
 Aside from the syntax, class expressions are functionally equivalent to class declarations. Which you use is primarily a matter of style.
+
+#### Examples of Class Expression Syntax
+
+```js
+let Cat = class {
+  // omitted code
+}
+
+console.log(
+  class Cat {
+    // omitted code
+  }
+);
+
+function createClass() {
+  return (
+    class Cat {
+      // omitted code
+    }
+  );
+};
+```
 
 #### 1.5.5 Classes as First-Class Citizens
 
@@ -1658,6 +1730,8 @@ console.log(Object.getOwnPropertyNames(Array.prototype));
 - **Parameters**
   - **`object` -** The object to test.
   - **`constructor` -** Function to test against
+
+The `instanceof` operator requires the object to the right to have a `prototype` property, such as a function object. In most cases, that means the object on the right is a constructor function or class.
 
 ## 3. Prototypal and Pseudo-classical Inheritance
 
@@ -2152,7 +2226,7 @@ When two or more object types have a method with the same name, we can invoke th
 
 For example, assume we have a method that expects an argument that has a `move` method. *We can pass it any type of argument, provided it has a compatible `move` method.* The object might represent a human, a cat, a jellyfish, or, conceivably, even a car or train. That is, it lets *objects of different types respond to the same method invocation.*
 
-There are two chief ways to implement polymorphism. When a method has the same name, but a different implementation in different classes it is called polymorphism. When a method in a subclass replaces the implementation of the version in the superclass, we say that the subclass *overrides* the version in the superclass.
+Inheritance and duck-typing are the two main ways to achieve polymorphism. When a method has the same name, but a different implementation in different classes it is called polymorphism. When a method in a subclass replaces the implementation of the version in the superclass, we say that the subclass *overrides* the version in the superclass. Subclasses that override methods inherited from a superclass is one way in which we can implement polymorphism in our applications.
 
 ### 5.1 Polymorphism through Inheritance
 
@@ -2612,7 +2686,8 @@ Note that the `swim` method is in two classes: `Dog` and `Fish`. Assuming that t
 
 ### 8.2 Mixins
 
-Enter JavaScript mixins – a pattern that adds methods and properties from one object to another. It's not delegation with prototypes; *the mixin pattern merely copies the properties of one object to another with `Object.assign` or some similar technique.*
+Enter JavaScript mixins – a pattern that adds methods and properties from one object to another. It's not delegation with prototypes; *the mixin pattern merely copies the properties of one object to another with `Object.assign` or some similar technique.* The mixin pattern copies the methods and properties of one object into another. JavaScript doesn't support multiple inheritance, but the mix-in pattern helps developers overcome this limitation and get some of the benefits of multiple inheritance in an environment that only supports single inheritance.
+
 
 For now, we're concerned with objects that can, in principle, belong to multiple and distinct types. For instance, in the bird world, there are birds that can swim and birds that can fly, but there are also birds that can't swim and birds that can't fly. Some birds can even do both.
 
@@ -2849,6 +2924,8 @@ We *suggest a balance of mix-in and classical inheritance* pattern instead:
 2. On the other hand, the ability to swim doesn't have that kind of relationship with storks. Swimming is a capability that penguins have. Similarly, flying is a capability that storks have. *When you want to endow your objects with some capability, a mixin may be the correct choice.*
 
 Mixins are more appropriate in a *has-a* relationship. While it is sometimes tricky to choose one or the other, *a great guideline is to decide if you want some additional functionality, or if you want to extend the abilities of the class.*
+
+Inheritance works best when there is an "is a" relationship between two classes. The inheriting class is a type of the superclass. The mix-in pattern works best when an object has a capability that another object needs.
 
 Relationship | Use         | Because
 -------------|-------------|--------------------------------------------
@@ -4408,6 +4485,8 @@ Besides instance methods, the array type also has several static methods. We'll 
 
 **Array.isArray**
 
+The `Array.isArray` static method helps distinguish between arrays and objects. The `typeof` operator returns `object` when used with an array, so cannot be used to detect an array. `Array.isArray` helps improves readability and show intent.
+
 The `Array.isArray` method takes one argument and returns `true` if the argument is an array object, and `false` if it is not:
 
 ```sh
@@ -4432,7 +4511,7 @@ We need `Array.isArray` to distinguish between arrays and other objects.
 
 **Array.from**
 
-The `Array.from` method takes an **array-like object** as an argument and returns a new array with the equivalent element values. An array-like object is any object that has a `length` property and provides indexed access to some of its properties with the `[index]` notation. Such objects have properties whose keys are non-negative integers. In many cases, the `length` property won't self-update if you add or remove properties to or from the object.
+The `Array.from` method takes an **array-like object** as an argument and returns a new array with the equivalent element values. *An array-like object is any object that has a `length` property* and provides indexed access to some of its properties with the `[index]` notation. Such objects have properties whose keys are non-negative integers. In many cases, the `length` property won't self-update if you add or remove properties to or from the object.
 
 ```sh
 > Array.from({0: 'a', 1: 'b', 2: 'c', length: 3})
@@ -4605,7 +4684,7 @@ true
 
 Two strings with the same characters are considered equal in JavaScript. Equality for objects works by identity, however. Two objects are strictly equal only when they are the same object. Consider:
 
-```sh
+```js
 > let arr1 = [1, 2, 3];
 > let arr2 = arr1    // arr1 and arr2 both reference the same object
 > arr1 === [1, 2, 3] // false
@@ -4614,7 +4693,7 @@ Two strings with the same characters are considered equal in JavaScript. Equalit
 
 Interestingly, we can *access properties and call methods on strings*:
 
-```sh
+```js
 > 'abc'.length
 3
 
@@ -4689,6 +4768,21 @@ The `String` function takes non-string values as arguments as well. In that case
 > String(a => a * a)
 'a => a * a'
 ```
+
+#### 18.4.2 Lesson 3 Quiz 1 Question 6
+
+Examine the following code.
+
+```js
+let str1 = new String("abc");
+let str2 = String("abc");
+
+console.log(str1 === str2); // => false
+```
+
+While line 4 shows that the two strings are not identical, it doesn't reveal how the strings differ. Do the strings differ in any other way?
+
+Yes. `str1` is an object of type `String`, while `str2` is a string primitive. Functionally, the two values act like objects in that you can write `str1.toLowerCase()` or `str2.toLowerCase()`. That's because *JavaScript silently wraps string primitives in a String class when it needs to use a method or property.* In addition, `typeof str1` returns `object`, while `typeof str2` returns `string`.
 
 ### 18.5 The `Number` and `Boolean` Constructors
 
