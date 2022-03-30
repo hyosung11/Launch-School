@@ -956,7 +956,7 @@ I decided not to transcribe all the quiz questions into my notes right now. Inst
 
 End Lesson 2
 
-## Assignment 4. Practice Problems - Factory Functions
+## Lesson 3: Object Creation Patterns > Assignment 4. [Practice Problems - Factory Functions](https://launchschool.com/lessons/e3c64e3f/assignments/bf77a962)
 
 ### 4.1 What are two disadvantages of working with factory functions?
 
@@ -1177,7 +1177,7 @@ function createInvoice(services = {}) {
 }
 ```
 
-### 5.7 Problems
+### Lesson 3: Object Creation Patterns > 5. Constructors > Problems
 
 #### 5.7.1 What naming convention separates constructor functions from other functions?
 
@@ -1213,7 +1213,7 @@ let lizzy = new Lizard();
 lizzy.scamper();
 ```
 
-## 7. Practice Problems - Constructors and Prototypes
+## Lesson 3 > 7. Practice Problems - Constructors and Prototypes
 
 ### 7.1 What does the following code log to the console? Try to answer without running the code. Can you explain why the code produces the output it does?
 
@@ -1478,7 +1478,7 @@ End 7. Practice Problems - Constructors and Prototypes 20220308 17:16
 
 I definitely need to review these practice problems again.
 
-## Assignment 11. Practice Problems - Classes
+## Lesson 3 > Assignment 11. Practice Problems - Classes
 
 ### 11.1 What do we mean when we say that classes are first-class values?
 
@@ -1517,8 +1517,6 @@ let tv = new Television();
 tv.model();
 ```
 
-
-
 ## Assignment 13 Quiz 1
 
 Assignment:Lesson 3 Quiz 1
@@ -1527,7 +1525,7 @@ Submitted at: 2 minutes ago
 Time taken: 0.26 hour(s)
 Score: 6/13 (46.15%)
 
-## Lesson 4 > Assignment 3. Practice Problems: Object Creation with Prototypes
+## Lesson 4 > Assignment 3. [Practice Problems: Object Creation with Prototypes](https://launchschool.com/lessons/d5964d17/assignments/02f965cb)
 
 ### 3.1 Use a factory function to create pet objects. The factory should let us create and use pets like this:
 
@@ -1721,7 +1719,7 @@ class Goodbye {
 }
 ```
 
-### Lesson 4 > Code Reuse with Mixins > Practice Problems
+### Lesson 4 > Code Reuse with Mixins > [Practice Problems](https://launchschool.com/lessons/d5964d17/assignments/e7850b07)
 
 ### 8.4.1 If we have a `Car` class and a `Truck` class, how can you use the `Speed` object as a mix-in to make them `goFast`? How can you check whether your `Car` or `Truck` can now go fast?
 

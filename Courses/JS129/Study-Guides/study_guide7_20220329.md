@@ -62,7 +62,7 @@ The Four Pillars of OOP are APIE: Abstraction, Polymorphism, Inheritance, and En
 Objects are one of the eight fundamental types in JavaScript (String, Number, Boolean, Null, Undefined, Object, BigInt, and Symbol). They are basically a collection of properties where each property has a key and value. While values can be any of the JavaScript types, property keys are always strings. If you define a property with a non-string key, it will first be converted to a string.
 
 ```js
-let myObject = { };
+let myObject = {};
 
 myObject[false] = "one"
 myObject[7] = "two"
@@ -429,7 +429,7 @@ However, *calling a method defined with concise syntax* (also called a concise m
 
 ```js
 let foo = {
-  Car(make, model, year) { // calling with compact method syntax raises an error
+  Car(make, model, year) { // calling with concise syntax raises an error
     this.make = make;
     this.model = model;
     this.year = year;

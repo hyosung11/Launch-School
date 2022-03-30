@@ -7195,3 +7195,7 @@ Have a great day everyone!!!
 17:11 After the Writers Bloc meeting and I'm a little tired. It's good to talk with Benjamin Perrault though about stuff. I have some friends in Launch School. He's almost done with core and getting ready for capstone.
 
 17:32 Finished reviewing Lesson 2 and on to Lesson 3 from my MBP now.
+
+18:37 Feeling full of grilled cheese after dinner. More studying now.
+
+21:00 Finished studying.
