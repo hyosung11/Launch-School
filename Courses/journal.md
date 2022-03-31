@@ -7278,3 +7278,5 @@ Have a great day everyone!!!
 12:48 Working through the study guide and practicing code snippets simultaneously. I want to shorten the feedback loop.
 
 15:33 Did a good study session with Aryan where we worked on problems together. I got some good insights from him and we got to talk a bit. He's of Iranian heritage from South Africa now living in Chapel Hill, NC.
+
+16:11 Working through the study guide. I think I need to look at examples of static methods in the class syntax.
