@@ -2184,11 +2184,9 @@ Note that this most recent example *uses class expressions instead of class decl
 
 ## 4. Encapsulation
 
-**Encapsulation** is the idea of bundling data and operations related to that data in a cohesive unit called an object. In OOP, encapsulation also refers to the idea of restricting access to state and some behavior, but JavaScript objects don't support that type of encapsulation.
+**Encapsulation** is the idea of bundling data and operations related to that data in a cohesive unit called an object.
 
-In JavaScript, encapsulation is the idea of bundling state (data) and behavior (operations) associated with that data in a single entity; that is, it's the grouping of related properties and methods in a single object.
-
-In most OOP languages, encapsulation has a broader purpose. It also refers to restricting access to the state and certain behaviors; an object only exposes the data and behaviors that other parts of the application need to work. In other words, objects *expose a public interface* for interacting with other objects and keep their implementation details hidden. Thus, other objects can't change the data of an object without going through the proper interface. However, JavaScript does not directly provide the means to limit exposure of properties and methods. There are ways to achieve a degree of access restriction, but they're not perfect.
+In most OOP languages, encapsulation has a broader purpose. It also refers to restricting access to the state and certain behaviors; an object only exposes the data and behaviors that other parts of the application need to work. In other words, objects *expose a public interface* for interacting with other objects and keep their implementation details hidden. Thus, other objects can't change the data of an object without going through the proper interface. However, JavaScript does not directly provide the means to limit exposure of properties and methods.
 
 This grouping together of related data and functions is what’s called **encapsulation** and is one of the fundamental principles of object-oriented programming.
 
@@ -2255,12 +2253,11 @@ raceCar.refuel(30); // Use dot-notation to call a method.
 
 This code bundles the data and operations related to a car into an object. When object properties have function values, we call them **methods**. The methods here are responsible for changing the state of the `raceCar` object.
 
-Note that JavaScript won't stop you from changing the `fuelLevel` property directly instead of calling the `refuel` method. That's a limitation of JavaScript. The OO style strongly discourages changing property values directly. Instead, it *encourages using methods to interface with the object*. We can see why that is by looking at the implementation for `refuel`. The `fuelLevel` property should be a number that's a fraction of 1. The `refuel` method ensures that it never exceeds that value. If you only use `refuel` to increase the `fuelLevel` of the car, it'll never exceed 1. If you directly access and change `fuelLevel`, though, you may end up violating that restriction.
+JavaScript won't stop you from changing the `fuelLevel` property directly instead of calling the `refuel` method. That's a limitation of JavaScript. The OO style strongly discourages changing property values directly. Instead, it *encourages using methods to interface with the object*. We can see why that is by looking at the implementation for `refuel`. The `fuelLevel` property should be a number that's a fraction of 1. The `refuel` method ensures that it never exceeds that value. If you only use `refuel` to increase the `fuelLevel` of the car, it'll never exceed 1. If you directly access and change `fuelLevel`, though, you may end up violating that restriction.
 
 ## 5. Polymorphism
 
-Polymorphism refers to the ability of objects with different types to respond to the same method invocation. In other words, data of different types can respond to a common interface.
-It's a crucial concept in OO programming that can lead to more maintainable code.
+Polymorphism refers to the ability of objects with different types to respond to the same method invocation. In other words, *data of different types can respond to a common interface*. It's a crucial concept in OO programming that can lead to more maintainable code.
 
 It can be implemented through inheritance by *method overriding*. It can also be implemented through **duck typing**; by ensuring that objects of different **types** *use the same method name to perform different but related functions*, those objects can be interacted with in a uniform way.
 
@@ -2268,7 +2265,7 @@ When two or more object types have a method with the same name, we can invoke th
 
 For example, assume we have a method that expects an argument that has a `move` method. *We can pass it any type of argument, provided it has a compatible `move` method.* The object might represent a human, a cat, a jellyfish, or, conceivably, even a car or train. That is, it lets *objects of different types respond to the same method invocation.*
 
-Inheritance and duck-typing are the two main ways to achieve polymorphism. When a method has the same name, but a different implementation in different classes it is called polymorphism. When a method in a subclass replaces the implementation of the version in the superclass, we say that the subclass *overrides* the version in the superclass. Subclasses that override methods inherited from a superclass is one way in which we can implement polymorphism in our applications.
+**Inheritance** and **duck-typing** are the two main ways to achieve polymorphism. When a method has the same name, but a different implementation in different classes it is called polymorphism. When a method in a subclass replaces the implementation of the version in the superclass, we say that the subclass *overrides* the version in the superclass. Subclasses that override methods inherited from a superclass is one way in which we can implement polymorphism in our applications.
 
 ### 5.1 Polymorphism through Inheritance
 
@@ -2299,13 +2296,13 @@ let animals = [new Fish(), new Cat(), new Sponge(), new Coral()];
 animals.forEach(animal => animal.move());
 ```
 
-Every object in the array is a different animal, but the client code -- the code that uses those objects -- doesn't care what each object is. The only thing it cares about here is that each object in the array has a `move` method that requires no arguments. That is, every generic animal object implements some form of locomotion, though some animals don't move. The interface for this class hierarchy lets us *work with all of those types in the same way even though the implementations may be dramatically different*. That is polymorphism.
+Every object in the array is a different animal, but the client code -- the code that uses those objects -- doesn't care what each object is. The only thing it cares about here is that *each object in the array has a `move` method that requires no arguments*. That is, every generic animal object implements some form of locomotion, though some animals don't move. The interface for this class hierarchy lets us *work with all of those types in the same way even though the implementations may be dramatically different*. That is polymorphism.
 
 If we run the above code, we call the `move` method for each of 4 different kinds of animal. Let's look at them in pairs.
 
-The `Sponge` and `Coral` classes don't have a `move` method -- at least not one of their own. Instead, they both inherit it from the `Animal` class via the prototype chain. Thus, when we call `move` on a `Sponge` or `Coral` object, the `move` method in the `Animal` class gets called. That method does nothing here, so the `Sponge` or `Coral` doesn't move. This is polymorphism through inheritance -- instead of providing our own behavior for the `move` method, we're using inheritance to acquire the behavior of a supertype. In this case, that behavior does nothing, but *it could do something else*.
+The `Sponge` and `Coral` classes don't have a `move` method -- at least not one of their own. Instead, they both inherit it from the `Animal` class via the prototype chain. Thus, when we call `move` on a `Sponge` or `Coral` object, the `move` method in the `Animal` class gets called. That method does nothing here, so the `Sponge` or `Coral` doesn't move. *This is polymorphism through inheritance -- instead of providing our own behavior for the `move` method, we're using inheritance to acquire the behavior of a supertype.* In this case, that behavior does nothing, but *it could do something else*.
 
-For `Fish` objects, we call the `move` method from the `Fish` class, which enables a fish to swim. Likewise, a `Cat` object walks when we tell it to `move`. This is a simple example of polymorphism in which two different object types can respond to the same method call simply by **overriding** a method inherited from a superclass. In a sense, overriding methods like this is similar to duck-typing, a concept that we'll meet shortly. However, overriding is generally treated as an aspect of inheritance, so this is polymorphism through inheritance.
+For `Fish` objects, we call the `move` method from the `Fish` class, which enables a fish to swim. Likewise, a `Cat` object walks when we tell it to `move`. This is a simple example of polymorphism in which two different object types can respond to the same method call simply by **overriding** a method inherited from a superclass. In a sense, overriding methods like this is similar to duck-typing, a concept that we'll meet shortly. However, *overriding is generally treated as an aspect of inheritance*, so this is polymorphism through inheritance.
 
 An example of inheritance-based polymorphism in action is the JavaScript `toString` method. The `Object` type provides a default implementation of `toString()` that other types inherit. Other types can also override the method to return a customized string representation of the object. Without customization, `toString` returns the string `'[object Object]'` when called on an object. With customization, it can return something more meaningful and useful. For instance, arrays and dates are objects that have customized `toString` methods:
 
@@ -2344,25 +2341,12 @@ cat.speak(); // Meow!
 fish.speak(); // (nothing happens)
 ```
 
-### 5.1.2 Example
-
-This is one of those gems I found in the forums from Pete that really helped me to understand the idea behind Polymorphism better:
-
-```js
-[str, arr].forEach(obj => console.log(obj.indexOf("c")));
-```
-
-Notice how we're calling both `str.indexOf` and `arr.indexOf` by using `obj.indexOf` where `obj` is alternately a reference to `str` or `arr`.
-
-You can do that with a duck-typed language, but if you try it in a language like C that doesn't support duck typing, it will produce a type error. You can't call methods for 2 or more objects with the same line of code unless the objects have a common superclass. It's much more stringent than JS and Ruby. However, you can still call things that have the same method, just not through a common interface.
-
-By the way -- calling `indexOf` like this with a variable that can take on different types is where polymorphism really comes into play. I'm not sure if we emphasize that enough. The point behind polymorphism is that you can write code that doesn't care about types -- just that the different things respond to the same message.
-
 ### 5.2 Polymorphism through Duck Typing
 
 **Duck typing** occurs when objects of different *unrelated* types both respond to the same method name. With duck typing, we aren't concerned with the class or type of an object, but we do care whether an object has a particular behavior. *If an object quacks like a duck, then we can treat it as a duck*. Specifically, *duck typing is a form of polymorphism*. As long as the objects involved use the same method name and take the same number of arguments, we can treat the object as belonging to a specific category of objects.
 
 For example, an application may have a variety of elements that can respond to a mouse click by calling a method named something like `handleClick`. Those elements may be completely different -- for instance, a checkbox vs. a text input field -- but they're all *clickable* objects. Duck typing is an informal way to classify or ascribe a type to objects. Classes and constructors provide a more formal way to do that.
+
 Duck typing occurs when objects of different unrelated types both respond to the same method name.
 
 [Distinction between Polymorphism and Duck Typing](https://launchschool.com/posts/c6a86a52#comment-89887)
@@ -2496,11 +2480,11 @@ For anyone that’s interested, I wrote out a full implementation of the Polymor
 ```js
 class Chef {
   constructor(guests, flowers, songs) {
-    this.guests = guests; 
-    this.flowers = flowers; 
+    this.guests = guests;
+    this.flowers = flowers;
     this.songs = songs;
   }
-  prepare(wedding) { 
+  prepare(wedding) {
     return this.prepareFood(wedding.guests);
   }
 
@@ -2519,12 +2503,12 @@ Chef {
 }
 */
 console.log(chef.prepare(chef.guests)); // Prepare food for 200 guests!
-console.log(chef.prepareFood(chef.guests)); //Prepare food for 200 guests!
+console.log(chef.prepareFood(chef.guests)); // Prepare food for 200 guests!
 
 class Decorator {
   constructor(guests, flowers, songs){
     this.guests = guests;
-    this.flowers = flowers; 
+    this.flowers = flowers;
     this.song = songs;
   }
   prepare(wedding) {
@@ -2538,7 +2522,6 @@ class Decorator {
 
 let decorator = new Decorator(300, 'roses', ["Electric Slide", "Cha-Cha Slide"]);
 console.log(decorator);
-
 /*
 Decorator {
   guests: 300,
@@ -2573,9 +2556,8 @@ Musician {
   songs: [ 'Electric Slide', 'Cha-Cha Slide' ]
 }
 */
-
-console.log(musician.prepare(musician.songs));//Prepare the following songs: Electric Slide,Cha-Cha Slide
-console.log(musician.preparePerformance(musician.songs)); //Prepare the following songs: Electric Slide,Cha-Cha Slide
+console.log(musician.prepare(musician.songs)); // Prepare the following songs: Electric Slide,Cha-Cha Slide
+console.log(musician.preparePerformance(musician.songs)); // Prepare the following songs: Electric Slide,Cha-Cha Slide
 
 class Wedding {
   constructor(guests, flowers, songs) {
@@ -2608,6 +2590,8 @@ Prepare the following songs: Electric Slide,Cha-Cha Slide
 */
 ```
 
+### 5.5 Polymorphism Requires Intention
+
 Note that merely having two different objects that have a method with the same name and compatible arguments *doesn't mean that you have polymorphism*. In theory, those methods might be used polymorphically, but that doesn't always make sense. Consider the following two classes:
 
 ```js
@@ -2630,9 +2614,9 @@ However, it's unlikely that this would ever make sense in real code. Unless you'
 
 ## 6. Collaborator Objects
 
-Objects *collaborate* with other objects by using them as part of their **state**. We say that two objects have a **collaborator relationship** *if one of them is part of the state of the other*.
+Objects that *help provide state within another object* are called **collaborator objects**, or more simply **collaborators**. Objects *collaborate* with other objects by using them as part of their **state**. We say that two objects have a **collaborator relationship** *if one of them is part of the state of the other*.
 
-Objects that *help provide state within another object* are called **collaborator objects**, or more simply **collaborators**. Collaboration is all about objects working together in some manner. A collaborator works in conjunction -- in collaboration -- with another object. Collaborator objects let you chop up and modularize the problem domain into cohesive pieces. They play an important role in modeling complicated problem domains in OO programming.
+Collaboration is all about objects working together in some manner. A collaborator works in conjunction -- in collaboration -- with another object. Collaborator objects let you chop up and modularize the problem domain into cohesive pieces. They play an important role in modeling complicated problem domains in OO programming.
 
 ```js
 let cat = {
@@ -2649,7 +2633,7 @@ let cat = {
 
 let pete = {
   name: 'Pete',
-  pet: cat, // <-- collaborator object
+  pet: cat, // <-- `cat` collaborator object stored in the `pet` property of the `pete` object
 
   printName() {
     console.log(`My name is ${this.name}!`);
@@ -2712,15 +2696,13 @@ Some programming languages allow classes to inherit from multiple classes, a fun
 
 To be clear, when we say that an object can only have one prototype or that a class can only inherit from one class, we don't mean that the object or class can't inherit from an entire chain of prototypes or classes. It's perfectly acceptable for a `Whale` class to inherit from a `Mammal` class, which in turn inherits from an `Animal` class, which again inherits from the built-in `Object` type. Some students see this as multiple inheritance, but it is not: each object or class inherits directly from a single thing, so it is **single inheritance**. The chain of prototypes or superclasses merely comes along for the ride.
 
-## 8. Mix-ins; mix-ins vs. inheritance
-
-JavaScript objects can only inherit from one other object. This limitation makes it difficult to model certain domains using class or constructor-based inheritance. You can use mix-ins to share behavior between otherwise unrelated classes. There's a limitation with the inheritance pattern, which is that objects can only directly 'inherit' from one supertype object. In other words, an object can have only one prototype object. Mixins provide a way of addressing this limitation. The mix-in pattern involves creating a mix-in object containing certain methods, and using `Object.assign()` to mix that object into another object. 
+## 8. Mixins; mixins vs. inheritance
 
 ### 8.1 Introduction
 
-One problem with inheritance in JavaScript is that *objects can inherit from only one object, and classes can extend only one other class*. Ultimately, those two statements mean the same thing; an object can have only one prototype object. We call this **single inheritance**.
+One problem with inheritance in JavaScript is that *objects can inherit from only one object, and classes can extend only one other class*. In other words, an object can have only one prototype object. We call this **single inheritance**.
 
-This restriction can be limiting and sometimes makes modeling some problem domains challenging. For instance, suppose we have a `Pet` class from which several other specific classes inherit. The inheritance relationship might look like this:
+This limitation makes it difficult to model certain domains using class or constructor-based inheritance. For instance, suppose we have a `Pet` class from which several other specific classes inherit. The inheritance relationship might look like this:
 
 ![inheritance-relationship](object_hierarchy_with_mixins.png)
 
@@ -2728,8 +2710,9 @@ Note that the `swim` method is in two classes: `Dog` and `Fish`. Assuming that t
 
 ### 8.2 Mixins
 
-Enter JavaScript mixins – a pattern that adds methods and properties from one object to another. It's not delegation with prototypes; *the mixin pattern merely copies the properties of one object to another with `Object.assign` or some similar technique.* The mixin pattern copies the methods and properties of one object into another. JavaScript doesn't support multiple inheritance, but the mix-in pattern helps developers overcome this limitation and get some of the benefits of multiple inheritance in an environment that only supports single inheritance.
+Enter JavaScript mixins – a pattern that adds methods and properties from one object to another. It's not delegation with prototypes; *the mixin pattern merely copies the properties of one object to another with `Object.assign` or some similar technique.*
 
+JavaScript doesn't support multiple inheritance, but the mix-in pattern helps developers overcome this limitation and get some of the benefits of multiple inheritance in an environment that only supports single inheritance.
 
 For now, we're concerned with objects that can, in principle, belong to multiple and distinct types. For instance, in the bird world, there are birds that can swim and birds that can fly, but there are also birds that can't swim and birds that can't fly. Some birds can even do both.
 
@@ -2953,7 +2936,7 @@ function createGoose() {
 }
 ```
 
-This approach is valid, but it suffers the downsides of all factory functions:
+This approach is valid, but it suffers the *downsides of all factory functions*:
 
 1. Every new object receives a new copy of all of its methods, including new copies of both mixin methods and the methods that belong more directly to the object. That can be taxing on memory resources, even more so than the memory requirements of mixins.
 
@@ -2961,13 +2944,13 @@ This approach is valid, but it suffers the downsides of all factory functions:
 
 We *suggest a balance of mix-in and classical inheritance* pattern instead:
 
-1. Inheritance works well when one object type is positively a sub-type of another object. In our example, it's natural for a penguin to also be a swimming bird. These types have an **is a** relationship: a penguin *is a* swimming bird. *Whenever two object types have an "is a" relationship, constructor or class inheritance makes sense.*
+1. Inheritance works well when one object type is positively a subtype of another object. In our example, it's natural for a penguin to also be a swimming bird. These types have an **is a** relationship: a penguin *is a* swimming bird. *Whenever two object types have an "is a" relationship, constructor or class inheritance makes sense.*
 
 2. On the other hand, the ability to swim doesn't have that kind of relationship with storks. Swimming is a capability that penguins have. Similarly, flying is a capability that storks have. *When you want to endow your objects with some capability, a mixin may be the correct choice.*
 
 Mixins are more appropriate in a *has-a* relationship. While it is sometimes tricky to choose one or the other, *a great guideline is to decide if you want some additional functionality, or if you want to extend the abilities of the class.*
 
-Inheritance works best when there is an "is a" relationship between two classes. The inheriting class is a type of the superclass. The mix-in pattern works best when an object has a capability that another object needs.
+Inheritance works best when there is an "is a" relationship between two classes. The inheriting class is a type of the superclass. The mixin pattern works best when an object has a capability that another object needs.
 
 Relationship | Use         | Because
 -------------|-------------|--------------------------------------------
