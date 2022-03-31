@@ -7251,8 +7251,8 @@ Have a great day everyone!!!
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [ ] 2. Anki Cards Review
-   * [ ] 3. Practice Problems
-   * [ ] 4. Study Session with Aryan
+   * [x] 3. Practice Problems
+   * [x] 4. Study Session with Aryan
    * [x] 5. Read *The Coding Career Handbook*, Chapter 36: Mise en Place Writing
    * [x] 6. Send resume to Derek Barker for Salesforce job.
 
@@ -7276,3 +7276,5 @@ Have a great day everyone!!!
 11:42 Applying the learning principles from above as I review and revise my study guide.
 
 12:48 Working through the study guide and practicing code snippets simultaneously. I want to shorten the feedback loop.
+
+15:33 Did a good study session with Aryan where we worked on problems together. I got some good insights from him and we got to talk a bit. He's of Iranian heritage from South Africa now living in Chapel Hill, NC.

@@ -451,7 +451,7 @@ The constructor should return a new object that can subsequently be used to call
 
 The problem here is that we did not use the `new` operator. Without the `new` operator, `Animal` isn't called as a constructor function. Thus, `this` refers to the global object instead of a new object, and the function returns a string instead of a new object.
 
-#### 1.3.5 Who Can be a Constructor
+#### 1.3.6 Who Can be a Constructor
 
 You can use `new` to call almost any JavaScript function that you create. However, *you cannot call arrow functions with `new`* since they use their surrounding context as the value of `this`:
 
@@ -494,7 +494,7 @@ let foo = {
 new foo.Car(); //=> Uncaught TypeError: foo.Car is not a constructor
 ```
 
-In addition, many -- but not all -- built-in objects and methods are *incompatible* with `new`:
+In addition, many -- but not all -- **built-in objects and methods** are *incompatible* with `new`:
 
 ```js
 
@@ -502,6 +502,7 @@ new console.log(); //=> Uncaught TypeError: console.log is not a constructor
 new Math();        //=> Uncaught TypeError: Math is not a constructor
 new parseInt("3"); //=> Uncaught TypeError: parseInt is not a constructor
 
+// The `Date` constructor is compatible with `new`
 new Date();        //=> 2019-06-26T02:50:20.191Z
 ```
 
@@ -573,11 +574,11 @@ Without running the code, determine the type of data that the `dog`, `lion`, and
 - lion: a `Pet` object
 - cat: a `Pet` object
 
-A constructor that attempts to return an object will return an object of that type. Thus, `dog` refers to a `Dog` object since that's what the constructor tried to return.
+A constructor that attempts to *return an object will return an object of that type*. Thus, `dog` refers to a `Dog` object since that's what the constructor tried to return.
 
-A constructor that attempts to return a non-object value, such as a string, will instead return a new object of the type associated with the constructor, e.g., `Pet` in this case. Thus, `lion` refers to a `Pet` object *since the constructor attempts to return a string*.
+A constructor that attempts to *return a non-object value*, such as a string, will instead return a new object of the type associated with the constructor, e.g., `Pet` in this case. Thus, `lion` refers to a `Pet` object *since the constructor attempts to return a string*.
 
-A constructor that doesn't return an explicit value will return a new object of the type associated with the constructor, e.g., `Pet`. Thus, `cat` refers to a `Pet` object since the constructor doesn't return an explicit value.
+A constructor that *doesn't return an explicit value* will return a new object of the type associated with the constructor, e.g., `Pet`. Thus, `cat` refers to a `Pet` object since the constructor doesn't return an explicit value.
 
 #### 1.3.7 Supplying Constructor Arguments with Plain Objects
 
@@ -657,13 +658,13 @@ function Car(args) {
 
 However, one drawback of the `Object.assign` approach is that the `args` object may contain properties that the `Car` object doesn't need. Those additional properties will, nevertheless, get added to the `Car` object. Those properties may just be excess baggage for the objects to carry around, but they *may also cause trouble*.
 
-#### 1.3.8 Determining an Object's Type
+#### 1.3.8 Determining an Object's Type with the `instanceof` Operator
 
 Many object-oriented languages, like Java or C++, have a strong notion of object types. In most such languages, it's easy to determine the object's type, such as a dog or car. JavaScript, however, treats objects and their types in a looser, more dynamic way. You can't determine the specific type of arbitrary JavaScript objects; they are dynamic structures with a type of `object`, no matter what properties and methods they have. However, *we can get some useful information about an object if we know which constructor created it*.
 
 Remember that the `new` operator creates a new object. Suppose that you call the `Car` constructor with `new`. Informally, we can say that the resulting object is a car. More formally, we can say that the object is an **instance** of a `Car`.
 
-One effect that we didn't mention when talking about the `new` operator is that *the object it returns contains some information that ties it back to the constructor that created the object*. The `instanceof` operator uses that information to determine what constructor created the object.
+The object that the `new` operator returns *contains some information that ties it back to the constructor that created the object*. The `instanceof` operator uses that information to determine what constructor created the object.
 
 ```js
 function Car(args) {
@@ -728,7 +729,9 @@ let biggie = new Dog('Biggie', 'Whippet', 9);
 maxi.bark(); // 'Woof!'
 ```
 
-Each of these dog objects, when created, receive the `name`, `breed`, and `weight` properties as well as the `bark` method. The properties have values that differ between objects, but the `bark` method remains the same in all. However, every time we create a new dog object, we must create a new `bark` method so we can add it to the object. We can verify that each object has its own `bark` method with `hasOwnProperty`:
+Each of these dog objects, when created, receive the `name`, `breed`, and `weight` properties *as well as the `bark` method*. The properties have values that differ between objects, but the `bark` method remains the same in all. However, every time we create a new dog object, we must create a new `bark` method so we can add it to the object. This is inefficient and wasteful.
+
+We can verify that each object has its own `bark` method with `hasOwnProperty`:
 
 ```js
 maxi.hasOwnProperty('bark');   // true
@@ -739,13 +742,9 @@ maxi.bark === biggie.bark;     // false
 dexter.bark === biggie.bark;   // false
 ```
 
-If that seems inefficient and wasteful to you, you're right! We're not repeating any code, but the runtime must create a new copy of the method every time we create an object. For small programs with few objects like this one, that may not be a problem. However, when you start getting into hundreds or thousands or even millions of objects, the multiple function objects can be hard on resources, especially on devices with little memory. Wouldn't it be nice if we could create the `bark` method just once rather than using a different copy of that method in every dog object?
-
 #### 1.3.10 Method Delegation to Prototypes
 
-Earlier, we learned that we could use prototypes to share code between objects of the same type. Prototypes are especially useful for sharing methods as all objects of a particular type share the same prototype object. Furthermore, delegation means that we can share methods by putting them in the prototype object; *if an object doesn't contain a requested method, JavaScript searches the prototype chain to find the method*.
-
-Thus, we can define a method once in the prototype object, and let the inheriting objects delegate the method calls to the prototype. We can use prototypes in conjunction with constructors to achieve the same result:
+Prototypes are especially useful for sharing methods as *all objects of a particular type share the same prototype objec*t. Delegation means that we can share methods by putting them in the prototype object; *if an object doesn't contain a requested method, JavaScript searches the prototype chain to find the method*. Thus, we can define a method once in the prototype object, and let the inheriting objects delegate the method calls to the prototype. We can use prototypes in conjunction with constructors to achieve this result:
 
 ```js
 let DogPrototype = {
@@ -786,9 +785,9 @@ Object.getPrototypeOf(dexter).bark === DogPrototype.bark; // true
 Object.getPrototypeOf(biggie).bark === DogPrototype.bark; // true
 ```
 
-The `DogPrototype` object *has the only copy of the method*; all dog objects delegate `bark` to the `DogPrototype` object. If you have dozens of dog objects in your program, it's easy to see that adding prototypes into the mix can make better use of memory.
+The `DogPrototype` object *has the only copy of the method*; all dog objects delegate `bark` to the `DogPrototype` object.
 
-Okay, we now have a constructor and a related prototype object. Together, they construct objects of some type. In our code here, we can guess that the constructor and prototype are related by looking at their names. However, it would be better if we could establish that relationship more concretely. Let's assign the prototype object to a property of the `Dog` function.
+We now have a constructor and a related prototype object. Together, they construct objects of some type. In our code here, we can guess that the constructor and prototype are related by looking at their names. However, it would be better if we could establish that relationship more concretely. Let's assign the prototype object to a property of the `Dog` function.
 
 ```js
 // Delete DogPrototype
@@ -798,6 +797,7 @@ function Dog(name, breed, weight) {
   // rest of the code
 }
 
+// Assign the prototype object to a property of the `Dog` constructor function
 Dog.myPrototype = {
   bark() {
     console.log(this.weight > 20 ? 'Woof!' : 'Yip!');
@@ -807,7 +807,7 @@ Dog.myPrototype = {
 
 Since JavaScript functions are objects, we can add properties to them. Here, we assign the prototype object to a `myPrototype` property on the `Dog` function object. Thus, we clearly show our intent that all dogs inherit from the `Dog.myPrototype` object. Once we've done that, we can change our constructor function to use `Dog.myPrototype` as the prototype object.
 
-Take some time to understand why this code works. It can be confusing when you first encounter it. It's a little like working with **recursive functions** as we did in the [Introduction to Programming With JavaScript book](https://launchschool.com/books/javascript/read/loops_iterating#recursion), which is to say, it's a bit hard to wrap your head around this code. To help, here's the complete code as it now stands:
+Here's the complete code as it now stands:
 
 ```js
 function Dog(name, breed, weight) {
@@ -840,27 +840,34 @@ Object.getPrototypeOf(biggie).bark === Dog.myPrototype.bark; // true
 
 #### 1.3.11 The Constructor `prototype` Property
 
-What makes constructors special is a characteristic of all function objects in JavaScript: they all have a prototype property that we call the **function prototype** to distinguish them from the prototypes used when creating ordinary objects. The code we showed in the previous section emulates something that JavaScript bundles with constructors. Let's take a look at that property:
+What makes constructors special is a characteristic of all **function objects** in JavaScript: they all have a prototype property that we call the **function prototype** to distinguish them from the prototypes used when creating ordinary objects. The code we showed in the previous section emulates something that JavaScript bundles with constructors. Let's take a look at that property:
 
 ```sh
 Dog.prototype; // => Dog {}
 ```
 
-When you call a function `Foo` with the `new` keyword, JavaScript sets the new object's prototype to the current value of `Foo`'s `prototype` property. That is, the constructor creates an object that inherits from the constructor function's prototype (`Foo.prototype`). Since inheritance in JavaScript uses prototypes, we can also say that the constructor creates an object whose prototype references `Foo.prototype`.
+When you call a function `Foo` with the `new` keyword, JavaScript sets the new object's prototype to the current value of `Foo`'s `prototype` property. That is, the constructor creates an object that inherits from the constructor function's prototype (`Foo.prototype`). Since inheritance in JavaScript uses prototypes, we can also say that *the constructor creates an object whose prototype references `Foo.prototype`.*
 
 The terminology of **constructor prototypes** and **object prototypes** is extremely confusing. Note in particular that we use the term "prototype" to refer to 2 distinct but related concepts:
 
-1. If `bar` is an object, then the object from which `bar` inherits is the **object prototype**. By default, constructor functions set the object prototype for the objects they create to the constructor's prototype object.
+1. If `bar` is an object, then the object from which `bar` inherits is the **object prototype**. By default, *constructor functions set the object prototype for the objects they create to the constructor's prototype object.*
 
 2. The **constructor's prototype object**, also called the **function prototype**, is an object that the constructor uses as the object prototype for the objects it creates. In other words, each object that the constructor creates inherits from the constructor's prototype object. The constructor stores its prototype object in its `prototype` property; that is, if the constructor's name is `Foo`, then `Foo.prototype` references the constructor's prototype object.
 
-It's easy to get confused about the differences between these two kinds of prototypes. Be sure you understand the differences before moving on. In most cases, when we talk about a **prototype** without being more explicit, we mean an **object prototype**. We'll talk about the constructor's prototype, the function prototype, or the `prototype` property when talking about a constructor's prototype object.
+In most cases, when we talk about a **prototype** without being more explicit, we mean an **object prototype**. We'll talk about the **constructor's prototype**, the **function prototype**, or the **`prototype` property** when talking about a constructor's prototype object.
+
+- Prototype => object prototype
+
+- Constructor Prototype => Function Prototype or `prototype` property
 
 Note that *constructors don't inherit from the constructor's prototype object*. Instead, *the objects that the constructor creates inherit from it*.
 
-As we've said before, every JavaScript function has a `prototype` property. However, JavaScript only uses it when you call that function as a constructor, that is, by using the `new` keyword. With this information, we can abandon our home-grown constructor-prototype pairing and use the one that JavaScript provides instead:
+*Every JavaScript function has a `prototype` property*. However, JavaScript only uses it when you call that function as a constructor by using the `new` keyword.
+
+With this information, we can abandon our home-grown constructor-prototype pairing and use the one that JavaScript provides instead:
 
 ```js
+// JavaScript's provided constructor-prototype pairing
 function Dog (name, breed, weight) {
   // deleted Object.setPrototypeOf(this, Dog.myPrototype);
   this.name = name;
@@ -891,7 +898,7 @@ Note that our constructor doesn't have to explicitly set the prototype of `this`
 4. It invokes the function.
 5. It returns the new object *unless the function returns another object*.
 
-Since the `bark` method refers to `this` and `bark` belongs to the prototype object, you may think that `this` in `this.weight` refers to the prototype object rather than the object itself (e.g., `maxi` or `biggie`). However, that's not how `this` binding works. You already know those rules, so take a moment to think about what it means inside the `bark` method.
+Since the `bark` method refers to `this` and `bark` belongs to the prototype object, you may think that `this` in `this.weight` refers to the prototype object rather than the object itself (e.g., `maxi` or `biggie`). However, that's not how `this` binding works.
 
 When you call a method on an object, JavaScript binds `this` to the object whose method you used to call it. If it doesn't find the method in that object, but it does find it in the prototype, that doesn't change the value of `this`. `this` always refers to the original object -- that is, the object used to call the method -- even if the method is in the prototype. If we find the `bark` method in the prototype, `this` references the original dog object, not the prototype.
 
@@ -915,7 +922,7 @@ if (maxi.constructor === Dog) {
 // => 'It's a dog'
 ```
 
-Be careful, however. *It's possible to reassign the `constructor` property to something else*. We'll learn about reassigning the `constructor` property in the next assignment. In that case, the test shown above would fail, even though the object is still a dog.
+Be careful, however. *It's possible to reassign the `constructor` property to something else*. In that case, the test shown above would fail, even though the object is still a dog.
 
 ```js
 Dog.prototype.constructor = function() {};
