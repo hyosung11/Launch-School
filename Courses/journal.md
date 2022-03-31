@@ -7288,3 +7288,6 @@ Have a great day everyone!!!
 18:03 Time for dinner.
 
 18:49 Reading a blog from Cal Newport makes me wonder how much more productive can I be if I turn of Slack, WhatsApp and Messages during the day?
+
+19:07 Studying through Higher-order Functions, but need to review static and instance methods in classes. I need to get ready for soccer now or soon. Since I'm thinking about it, I will go up and change.
+

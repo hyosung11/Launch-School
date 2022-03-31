@@ -2964,7 +2964,9 @@ Relationship | Use         | Because
 The `Object.prototype` object is at the top of all JavaScript prototype chains. Thus, its methods are available from any JavaScript object provided you don't explicitly use something like `null` as the prototype object. Here are 3 useful methods:
 
 - `Object.prototype.toString()` returns a string representation of the object.
+
 - `Object.prototype.isPrototypeOf(obj)` determines whether the object is part of another object's prototype chain.
+
 - Object.prototype.hasOwnProperty(prop) determines whether the object contains the property.
 
 ### 9.2 Objects Without Prototypes (bare objects)
@@ -2979,7 +2981,7 @@ undefined
 null
 ```
 
-Note that objects created in this way do not have access to Object methods like `Object.prototype.hasOwnProperty()` or `Object.prototype.toString()`. They also don't have a prototype chain that ends with `Object.prototype` -- it ends with `null`.
+Note that objects created in this way do not have access to Object methods like `Object.prototype.hasOwnProperty()` or `Object.prototype.toString()`. They also don't have a prototype chain that ends with `Object.prototype` -- *it ends with `null`*.
 
 For the most part, you can *assume that all JavaScript objects have* `Object.prototype` at the top of their inheritance chain. You can also assume that all objects can use the usual selection of Object properties. However, be wary of situations where bare objects may be in use. If you have bare objects in your program, you must remember that the usual `Object` properties and methods don't exist on those objects. That's why you sometimes see code like this:
 
@@ -3002,7 +3004,7 @@ Library developers often write code to check for the **bare object edge cases**.
 
 ## 10. Higher-order functions
 
-Higher-order functions are also first-class values. A function that accepts one or more arguments that are themselves functions is a higher-order function. A function that returns a function is a higher-order function.
+A function that accepts one or more arguments that are themselves functions is a higher-order function. A function that returns a function is a higher-order function. Higher-order functions are also first-class values.
 
 All JavaScript functions are first-class values. Therefore, all higher-order functions are also first-class values.
 
@@ -3017,6 +3019,7 @@ JavaScript has first-class functions that have the following characteristics:
 Take a look at the following function definition.
 
 ```js
+// function declaration
 function prompt(message) {
   console.log(`=> ${message}`);
 }
@@ -3041,6 +3044,8 @@ function prompt(message) {
 
 prompt('How are you today?');
 ```
+
+### 10.1.1 Hoisting
 
 Note that you'll never see this hoisted code when working with JavaScript. *Hoisting is an internal step performed by the engine*; it doesn't move any code around. However, it's useful to think of hoisting in this way, so long as you understand that your code is not changed.
 
@@ -3087,6 +3092,8 @@ function makeIncrementer(increment) {
 }
 ```
 
+### 10.1.2 Anonymous Functions
+
 Notice that we can define function expressions without giving them a name. You may argue that `prompt` is the name of the function we defined on line 1, but that's not the case: instead, we've *assigned an unnamed function to the prompt variable*. Such unnamed functions are called **anonymous functions**. Anonymous functions are commonplace in JavaScript code, so be prepared to understand them. You've already seen examples with the callback functions for array methods like `forEach` and `map`: the callback functions for these methods are often anonymous functions.
 
 ```js
@@ -3119,7 +3126,7 @@ The function name on a function expression is visible inside the function, which
 
 ### 10.2. Arrow Functions
 
-There's no declaration syntax for arrow functions; arrow functions are always function expressions. That means that we often pass them around or assign them to variables or properties. Also, *arrow functions are always anonymous*: there's no way to define a named arrow function. Arrow functions are either immediately invoked, assigned to variables or properties, or passed around as arguments and return values.
+There's no declaration syntax for arrow functions; *arrow functions are always function expressions*. That means that we often pass them around or assign them to variables or properties. Also, *arrow functions are always anonymous*: there's no way to define a named arrow function. Arrow functions are either immediately invoked, assigned to variables or properties, or passed around as arguments and return values.
 
 ### 10.3 First-Class Functions
 
