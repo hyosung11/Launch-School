@@ -18,8 +18,8 @@
 
 ## Specific Topics of Interest
 
-- [ ] 1. Objects, object factories, constructors and prototypes, OLOO, and ES6 classes
-- [ ] 2. Methods and properties; instance and static methods and properties
+- [x] 1. Objects, object factories, constructors and prototypes, OLOO, and ES6 classes
+- [x] 2. Methods and properties; instance and static methods and properties
 - [ ] 3. Prototypal and pseudo-classical inheritance
 - [ ] 4. Encapsulation
 - [ ] 5. Polymorphism
