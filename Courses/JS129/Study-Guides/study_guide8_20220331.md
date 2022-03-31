@@ -169,14 +169,21 @@ console.log("hasOwnProperty" in obj); // => true
 
 One way to *automate the creation of objects* is to use the **factory function pattern**. A factory function returns an object with a particular set of methods and properties. The methods remain the same across the objects, while the property values can be customized by providing them as arguments. Factory functions instantiate and return a new object in the function body. They let us create new objects based on a predefined template.
 
-Factory functions provide a way to 1) reuse code and they 2) return objects that represent data of a specific type.
+#### 1.2.1 Advantages / Disadvantages of Factory Functions
 
-However, they have two significant downsides:
+- Advantages
+  1. Reuse code (reduces repetitive code)
+  2. Create objects that represent data of a specific type
+  3. Allows for self-referential methods using the `this` keyword
 
-1. There is no way to inspect an object and learn whether we created it with a factory function. That effectively *makes it impossible to identify the specific "type" of the object*; at best, you can only determine that an object has some specific characteristics.
-2. Every object created with a factory function has a full copy of all the methods. That's **redundant**, and it can place a heavy load on system memory.
+- Disadvantages
+  1. There is no way to inspect an object and learn whether we created it with a factory function.
+     - That effectively *makes it impossible to identify the specific "type" of the object*; at best, you can only determine that an object has some specific characteristics.
+     - Not compatible with the `instanceof` operator to determine type.
 
-#### 1.2.1 Factory Function Example 1 - `createCar`
+  2. Every object created with a factory function has a full copy of all the methods. That's **redundant**, and it can place a heavy load on system memory.
+
+#### 1.2.2 Factory Function Example 1 - `createCar`
 
 ```js
 function createCar(make, model, year) {
@@ -207,11 +214,12 @@ The `createCar` function takes three arguments and returns a car object with fou
 
 Factory functions give us the ability to create objects of the same type by merely calling a function. Entities that are common to multiple objects, such as the `start` and `stop` methods, get declared in one place. On the other hand, *arguments are passed to the factory function* to distinguish one object from another, such as the `make`, `model`, and `year`. Some entities, like `started`, don't fall easily into either category, but that's not important here.
 
-**Compact Method Syntax** - omits the `:` and the `function` keyword and uses parenthesis to denote a method.
+**Compact Method Syntax (concise syntax)** - omits the `:` and the `function` keyword and uses parenthesis to denote a method.
 
-#### 1.2.2 Factory Function Example 2 - `createPerson`
+#### 1.2.3 Factory Function Example 2 - `createPerson`
 
 ```js
+// longer version of creating a factory function
 function createPerson(firstName, lastName = '') {
   let person = {};
 
@@ -271,9 +279,9 @@ function createRectangle(width, length) {
 
 let rectangle = createRectangle(4, 5);
 
-// console.log(rectangle.getWidth()); // 4
-// console.log(rectangle.getLength()); // 5
-// console.log(rectangle.getArea()); // 20
+console.log(rectangle.getWidth()); // 4
+console.log(rectangle.getLength()); // 5
+console.log(rectangle.getArea()); // 20
 ```
 
 ### 1.3 Constructors and Prototypes
@@ -290,6 +298,40 @@ Constructor functions are meant to be invoked with the `new` operator. They inst
 4. The code in the function body is executed.
 5. The function returns the object referenced by `this` unless the function returns an explicit object.
 
+#### 1.3.1.1 The `new` keyword
+
+JavaScript does the following six things when a constructor function is invoked with `new`:
+
+1. Creates a new object.
+2. Sets `[[Prototype]] of the new object to the same object as the constructor's `prototype` property.
+3. Sets the `constructor` property of the new object to point to the constructor function (the function that created the new object).
+4. Sets `this` inside the function to refer to the new object.
+5. Invokes the function.
+6. Returns the new object implicitly (no `return` expression necessary; explicit return values only override the new object if the return value itself is an object).
+
+```js
+// Example where `instanceof` operator confirms if object was made by the constructor function. Using `constructor` property can be more useful.
+
+function Car(make, model) {
+  this.make = make;
+  this.model = model;
+
+  this.drive = function() {
+    this.started = true;
+  };
+
+  // rest of methods
+}
+
+let truck = new Car("Ford", "F150");
+console.log(truck) // => Car { make: 'Ford', model: 'F150', drive: [Function (anonymous)] }
+console.log(truck.__proto__ === Car.prototype) // =>  true
+console.log(Object.getPrototypeOf(truck) === Car.prototype) // => true
+console.log(truck.constructor) // => [Function: Car]
+console.log(truck.constructor === Car) // => true
+console.log(truck instanceof Car) // => true
+```
+
 #### 1.3.2 Prototypes
 
 A prototype is an object from which other objects inherit properties and methods. In JavaScript this is done with the `[[Prototype]]` property ("internal prototype property").
@@ -298,7 +340,7 @@ Every function has a `prototype` property that points to an object that contains
 
 If the function is used as a constructor, the returned object's `[[Prototype]]` will reference the constructor's `prototype` property. That lets us set properties on the constructor's prototype object so that all objects created by the constructor will share them. We call this the **pseudo-classical** pattern of object creation.
 
-#### 1.3.3. Constructor Function Example
+#### 1.3.3. Constructor Function `Car` Example
 
 We don't just want *a* car, however. We want a mechanism that creates any car that has those properties and methods. To do that, we can use a factory function to create individual cars. Another way to accomplish the same thing is to use a constructor function and the `new` keyword:
 
@@ -355,6 +397,7 @@ function Car(make, model, year) {
   };
 }
 
+// Using the `new` keyword with the function invocation treats the function as a constructor
 let corolla = new Car('Toyota', 'Corolla', 2016);
 
 corolla.make;    // => 'Toyota'
@@ -376,15 +419,13 @@ JavaScript takes the following steps when you invoke a function with `new`:
 4. It invokes the function. Since `this` refers to the new object, we use it within the function to set the object's properties and methods.
 5. Finally, once the function finishes running, `new` returns the new object even though we don't explicitly return anything.
 
-We can now use the new object in any manner appropriate for a `Car` object.
-
 **JavaScript won't complain about a missing `new` keyword.**
 
 ```js
 Car(); // => undefined
 ```
 
-If you don't use the `new` keyword, the constructor function won't work as intended. Instead, it acts like an ordinary function. In particular, no new objects are created, so `this` won't point to a new object.
+If you don't use the `new` keyword, the constructor function won't work as intended. Instead, it *acts like an ordinary function*. In particular, *no new objects are created*, so `this` won't point to a new object.
 
 Furthermore, since functions that don't return an explicit value return `undefined`, calling a constructor without `new` also returns `undefined`. When you use `new`, however, the function doesn't have to return anything explicitly: it *returns the newly created object automatically*.
 

@@ -7274,3 +7274,5 @@ Have a great day everyone!!!
 7. Overlearning
 
 11:42 Applying the learning principles from above as I review and revise my study guide.
+
+12:48 Working through the study guide and practicing code snippets simultaneously. I want to shorten the feedback loop.
