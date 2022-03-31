@@ -7273,3 +7273,4 @@ Have a great day everyone!!!
 6. Process deeply to retain more
 7. Overlearning
 
+11:42 Applying the learning principles from above as I review and revise my study guide.
