@@ -1653,24 +1653,24 @@ In this specific example, we can call `Dog.prototype.bark()`, but that doesn't a
 
 Any method defined in any prototype in the prototype chain of an object is considered to be an instance method of the object.
 
-### Object Instance Methods
+### 2.3 Object Instance Methods
 
-#### `Object.setPrototypeOf(obj, prototype)`
+#### 2.3.1 `Object.setPrototypeOf(obj, prototype)`
 
-- **Description -** method sets the prototype (i.e., the internal `[[Prototype]]` property) of a specified object to another object or `null`
+- sets the prototype (i.e., the internal `[[Prototype]]` property) of a specified object to another object or `null`
 - **Parameters**
   - `obj` - The object which is to have its prototype set.
   - `prototype` - The object's new prototype (an object or `null`).
 
-#### `Object.prototype.hasOwnProperty(prop)`
+#### 2.3.2 `Object.prototype.hasOwnProperty(prop)`
 
-- **Description -** method returns a boolean indicating whether the instance object has the specified property as its own property (as opposed to inheriting it). Returns `true` if the object has the specified property as own property; `false` otherwise.
+- returns a boolean indicating whether the instance object has the specified property as its own property (as opposed to inheriting it). Returns `true` if the object has the specified property as own property; `false` otherwise.
 - **Parameters**
   - `prop`  - the String name or Symbol of the property to test
 
-### 2.3 Static Properties
+### 2.4 Static Properties
 
-**Static properties** are defined and accessed directly on the constructor, not on an instance or a prototype. Typically, static properties belong to the type (e.g., `Dog`) rather than to the individual instances or the prototype object.
+Static properties are defined and accessed *directly on the constructor*, not on an instance or a prototype. Typically, static properties belong to the type (e.g., `Dog`) rather than to the individual instances or the prototype object.
 
 For instance, dogs belong to the species "Canis lupus". That property of dogs doesn't have anything to do with individual dogs; it's information that is pertinent about all dogs. Therefore, it makes sense to add this property directly to the `Dog` constructor as a static property:
 
@@ -1678,7 +1678,7 @@ For instance, dogs belong to the species "Canis lupus". That property of dogs do
 Dog.species = "Canis lupus";
 ```
 
-Now, when our application needs to know the species that dogs belong to, we can access it from the constructor directly:
+Now, when our application needs to know the species that dogs belong to, we can *access it from the constructor directly*:
 
 ```js
 console.log(`Dogs belong to the species ${Dog.species}`);
@@ -1691,7 +1691,7 @@ function Dog(name, breed, weight) {
   this.name = name;
   this.breed = breed;
   this.weight = weight;
-  Dog.allDogs.push(this);
+  Dog.allDogs.push(this); // static property
 }
 
 Dog.allDogs = [];
@@ -1699,7 +1699,7 @@ Dog.allDogs = [];
 
 In this case, the static property `allDogs` contains an array with a reference to every dog object created while the program is running. While `allDogs` maintains a list of all the dogs, it isn't information that is pertinent to a specific dog -- it's information about dogs in general. Therefore, it should be a static property.
 
-### 2.4 Static Methods
+### 2.5 Static Methods
 
 Static methods are methods that apply to the constructor or class itself, not a specific object created by that constructor or class. Static properties don't have to be ordinary data properties. You can also define static methods:
 
@@ -1711,33 +1711,33 @@ Dog.showSpecies = function() {
 Dog.showSpecies();
 ```
 
-You've already seen examples of static methods on built-in JavaScript constructors.`Object.assign`, `Array.isArray`, and `Date.now` are all examples of static methods.
+You've already seen examples of static methods on **built-in JavaScript constructors**.`Object.assign`, `Array.isArray`, and `Date.now` are all examples of static methods.
 
-### Object Static Methods
+### 2.6 Object Static Methods
 
-#### `Object.create(proto, [propertiesObject])` - Inheritance
+#### 2.6.1 `Object.create(proto, [propertiesObject])` - Inheritance
 
-- **Description** - returns a **new object**, using an *existing object* as the **prototype** of the newly created object.
+- returns a **new object**, using an *existing object* as the **prototype** of the newly created object.
 - **Parameters**
   - `proto` - the object which is the prototype of the newly-created object (i.e. the newly created object will inherit from this)
-  - `[propertiesObject]` - If specified and not  `undefined`, an object whose enumerable **own** properties (that is, those properties defined upon itself and *not* enumerable properties along its prototype chain) specify property descriptors to be added to the newly-created object, with the corresponding property names. These properties correspond to the second argument of `Object.defineProperties()`
+  - `[propertiesObject]` - If specified and not `undefined`, an object whose enumerable **own** properties (that is, those properties defined upon itself and *not* enumerable properties along its prototype chain) specify property descriptors to be added to the newly-created object, with the corresponding property names. These properties correspond to the second argument of `Object.defineProperties()`
 - **Exceptions**
   - `proto` - must be either an Object (excluding primitive wrapper objects), or `null` - otherwise a `TypeError` is thrown
 
-#### `Object.assign(target, ...sources)` - Mixins
+#### 2.6.2 `Object.assign(target, ...sources)` - Mixins
 
-- **Description -** method **copies** all enumerable own properties from one or more `source` objects to a `target` object. It returns the modified target object. Properties in the target object are overwritten by properties in the sources if they have the same key. Later sources' properties overwrite earlier ones.
-The `Object.assign()` method only copies ***enumerable* and *own*** properties from a source object to a target object. It uses `[[Get]]` on the source and `[[Set]]` on the target, so it will invoke getters/setters, and therefore it ***assigns*** properties.
+- method **copies** all enumerable own properties from one or more `source` objects to a `target` object. It returns the modified target object. Properties in the target object are overwritten by properties in the sources if they have the same key. Later sources' properties overwrite earlier ones.
+- The `Object.assign()` method only copies ***enumerable* and *own*** properties from a source object to a target object. It uses `[[Get]]` on the source and `[[Set]]` on the target, so it will invoke getters/setters, and therefore it ***assigns*** properties.
 - **Parameters**
   - `target` the target object — what to apply the sources’ properties to, which is returned after it is modified.
   - `sources` the source object(s) — objects containing the properties you want to apply.
 
-#### `Object.getPrototypeOf(obj)`
+#### 2.6.3 `Object.getPrototypeOf(obj)`
 
-- **Description -** method returns the object prototype (i.e. the value of the internal `[[Prototype]]` property) of the specified object.
+- returns the object prototype (i.e. the value of the internal `[[Prototype]]` property) of the specified object.
 - **Returns -** the prototype of the given object. If there are no inherited properties, `null` is returned.
 
-#### `Object.getOwnPropertyNames(obj)`
+#### 2.6.4 `Object.getOwnPropertyNames(obj)`
 
 - **Description -** method returns an **array** of all properties (**including non-enumerable properties**) found **directly in a given object.**
 - Code Example - Useful if you want to show all the methods available to a certain Data Type
@@ -1763,9 +1763,7 @@ console.log(Object.getOwnPropertyNames(Array.prototype));
 */
 ```
 
-### Operators
-
-#### `instanceof`
+### 2.7.`instanceof` Operator
 
 - tests to see if the `prototype` property of a **constructor** appears anywhere in the prototype chain of an object. The return value is a boolean value. The left-hand side should be an `object`, and the right-hand side should be `constructor function`
 - **Syntax -** object instanceof constructor
@@ -1793,7 +1791,7 @@ Every object has an internal `[[Prototype]]` property that points to a special o
 Looking up a property in the prototype chain is the basis for prototypal inheritance, or property sharing through the prototype chain. Objects lower down in the chain inherit properties and behaviors from objects in the chain above. That is, downstream objects can delegate properties or behaviors to upstream objects.
 
 - A downstream object *overrides* an inherited property if it has a property with the same name. (Overriding is similar to shadowing, but it doesn't completely hide the overridden properties.)
-- `Object.getOwnPropertyNames` and `obj.hasOwnProperty` can be used to test whether an object owns a given property.
+- `Object.getOwnPropertyNames` and `obj.hasOwnProperty` can be used to *test whether an object owns a given property*.
 
 The pseudo-classical inheritance pattern has types (e.g., classes) that inherit from other types. This way, all objects of a given type can share behaviors from the same source.
 
@@ -1831,7 +1829,7 @@ undefined
 {}
 ```
 
-Evaluating `b` in the node console *gives us an empty object*, which demonstrates that `b` doesn't have any properties of its own. We can also use the `hasOwnProperty` method to demonstrate this:
+Evaluating `b` in the node console *gives us an empty object*, which demonstrates that `b` *doesn't have any properties of its own*. We can also use the `hasOwnProperty` method to demonstrate this:
 
 ```js
 let a = {
@@ -1847,7 +1845,7 @@ console.log(b.hasOwnProperty('foo')); // => false
 
 The `hasOwnProperty` method is available on all JavaScript objects. It takes the name of a property as a string and returns `true` if the object has a property by that name, `false` if it does not.
 
-JavaScript objects use an internal `[[Prototype]]` property to keep track of their prototype. When you create an object with `Object.create()`, the new object's `[[Prototype]]` property gets assigned to the prototype object.
+JavaScript objects use an internal `[[Prototype]]` property to keep track of their prototype. When you create an object with `Object.create()`, *the new object's `[[Prototype]]` property gets assigned to the prototype object*.
 
 Note that `[[Prototype]]` is an **internal** property: you cannot access it directly in your code. However, you can access and replace its value with `Object` functions. For instance, `Object.getPrototypeOf()` takes an object as an argument and returns its prototype object:
 
@@ -1910,11 +1908,11 @@ Passing an empty object to `Object.getPrototypeOf()` *returns a default prototyp
 
 ### 3.3 Iterating Over Objects with Prototypes
 
-- A `for/in` loop iterates over an object's properties. The iteration includes properties from the objects in its prototype chain. Use `hasOwnProperty()` *to skip the prototype properties*.
+- A `for/in` loop iterates over an object's properties. The iteration *includes properties from the objects in its prototype chain*. Use `hasOwnProperty()` *to skip the prototype properties*.
 
 - `Object.keys()` returns an object's "own" property keys -- you do not need to use `hasOwnProperty()`.
 
-Note that both `for/in` and `Object.keys()` deal with **enumerable properties**, which is merely a way of talking about properties you can iterate over. Not all properties are enumerable. In particular, most properties and methods of the built-in types are not. Usually, any properties or methods you define for an object are enumerable. You can check whether a property is enumerable with the `Object.prototype.propertyIsEnumerable()` method. You do not have to remember how to use `propertyIsEnumerable`.
+Note that both `for/in` and `Object.keys()` deal with **enumerable properties**, which is merely a way of talking about properties you can iterate over. Not all properties are enumerable. In particular, most properties and methods of the *built-in types are not*. Usually, any properties or methods you define for an object are enumerable. You can check whether a property is enumerable with the `Object.prototype.propertyIsEnumerable()` method. You do not have to remember how to use `propertyIsEnumerable`.
 
 ```js
 let arr = [1, 2, 3];
@@ -1971,7 +1969,9 @@ Many older JavaScript programs use a property named `__proto__`, which is pronou
 
 As used in JavaScript, the term **inheritance** is an *overloaded word*. It describes two related but distinct forms of inheritance: **prototypal** and **pseudo-classical**.
 
-The *simpler form of inheritance* is **prototypal inheritance** or **prototypal delegation**. We sometimes call this form of inheritance **object inheritance** since it works with one object at a time. An object's internal `[[Prototype]]` property points to another object, and the object can delegate method calls to that other object. We've seen plenty of examples of prototypal inheritance in earlier assignments. For instance:
+The *simpler form of inheritance* is **prototypal inheritance** or **prototypal delegation**. We sometimes call this form of inheritance **object inheritance** since it works with one object at a time. An object's internal `[[Prototype]]` property points to another object, and the object can delegate method calls to that other object.
+
+We've seen plenty of examples of prototypal inheritance in earlier assignments. For instance:
 
 ```js
 let humanPrototype = {
@@ -2132,9 +2132,9 @@ class Square extends Rectangle {
 
 The `extends` keyword signifies that the class named to the left of `extends` should inherit from the class specified to the right of `extends`. Note that we don't define `getArea` on the `Square` class since `Square` inherits it from `Rectangle` and doesn't need to customize or override the method.
 
-#### `super`
+#### 3.8.1 `super`
 
-Note also that the `Square` constructor calls a function that is represented by the keyword `super`. When called inside the `constructor` method, the `super` keyword refers to the constructor method for the parent class (the class that we inherit from). Thus, `super(size, size)` performs the same role performed by this code from our constructor/prototype example:
+Note also that the `Square` constructor calls a function that is represented by the keyword `super`. When called inside the `constructor` method, *the `super` keyword refers to the constructor method for the parent class* (the class that we inherit from). Thus, `super(size, size)` performs the same role performed by this code from our constructor/prototype example:
 
 ```js
 function Square() {
@@ -2146,7 +2146,7 @@ You don't need to use `super` in every subclass, but in most cases you do. In pa
 
 If you do call `super` in a subclass's constructor, you must *call it before you use* `this` in that constructor.
 
-### Inheritance with Class Expressions
+### 3.9 Inheritance with Class Expressions
 
 Let's look at another example of inheritance with classes:
 

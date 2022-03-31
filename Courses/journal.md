@@ -7282,3 +7282,5 @@ Have a great day everyone!!!
 16:11 Working through the study guide. I think I need to look at examples of static methods in the class syntax.
 
 16:24 I'm on the couch now and I feel really tired at the moment. I could take a nap before dinner.
+
+17:21 I fell asleep for a few minutes. I wish I had copied those examples of static methods on classes with Aryan. I don't know if I have those in my notes.
