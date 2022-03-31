@@ -7286,3 +7286,5 @@ Have a great day everyone!!!
 17:21 I fell asleep for a few minutes. I wish I had copied those examples of static methods on classes with Aryan. I don't know if I have those in my notes.
 
 18:03 Time for dinner.
+
+18:49 Reading a blog from Cal Newport makes me wonder how much more productive can I be if I turn of Slack, WhatsApp and Messages during the day?
