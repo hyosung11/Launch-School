@@ -7262,3 +7262,14 @@ Have a great day everyone!!!
 09:37 It's been a little slow going this morning. Where do I want to keep digital notes besides here in VS Code? I have Evernote and I also think I have OneNote and Apple Notes. What about Notion or Obsidian?
 
 10:21 It's been a slog to study today, so I just sent my resume to Derek Barker for the Salesforce position and I also checked my NCSA referee assignments. I'm still tired.
+
+10:36 Learning Principles from Scott Young
+
+1. Design your project well
+2. Train focus and productivity
+3. Learn actively
+4. Quicker, deeper, more accurate feedback cycles
+5. Space your practice out
+6. Process deeply to retain more
+7. Overlearning
+
