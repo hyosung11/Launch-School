@@ -7252,9 +7252,13 @@ Have a great day everyone!!!
    * [x] 1. Study Session with Alex
    * [ ] 2. Anki Cards Review
    * [ ] 3. Practice Problems
-   * [ ] 4. Study Session with Laurent
-   * [ ] 5. Read *The Coding Career Handbook*, Chapter 36: Mise en Place Writing
-   * [ ] 6. Send resume to Derek Barker for Salesforce job.
+   * [ ] 4. Study Session with Aryan
+   * [x] 5. Read *The Coding Career Handbook*, Chapter 36: Mise en Place Writing
+   * [x] 6. Send resume to Derek Barker for Salesforce job.
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I feel tired today with low energy at the moment. Otherwise, I should get in some good studying. I do need to send out 3 targeted applications.
+
+09:37 It's been a little slow going this morning. Where do I want to keep digital notes besides here in VS Code? I have Evernote and I also think I have OneNote and Apple Notes. What about Notion or Obsidian?
+
+10:21 It's been a slog to study today, so I just sent my resume to Derek Barker for the Salesforce position and I also checked my NCSA referee assignments. I'm still tired.

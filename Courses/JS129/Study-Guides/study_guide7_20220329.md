@@ -3,7 +3,7 @@
 ## Overview
 
 1. You should understand the different ways to *create objects* in JavaScript, including object literals, object factories, constructors and prototypes (the pseudo-classical approach), the OLOO pattern (prototypal inheritance), and ES6 classes. You should be able to *compare and contrast* the different ways of creating objects.
-2. You should understand encapsulation, polymorphism, and inheritance in a JavaScript context. In particular, you should understand prototypal inheritance.
+2. You should understand encapsulation, polymorphism, and inheritance in a JavaScript context. In particular, you should understand **prototypal inheritance**.
 3. You should understand the difference between inheritance, collaboration, and mix-ins.
 4. You should understand the execution context in JavaScript. In particular, you should be intimately familiar with how JavaScript determines execution context, how it can lose that context, and how you can prevent context loss.
 5. You should understand both the syntactical and behavioral differences between function declarations, function expressions, arrow functions, and the compact method syntax used in classes and objects.

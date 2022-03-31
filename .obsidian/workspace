@@ -4,14 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "cdd0914f5e463da1",
+        "id": "36e7505c5522de0e",
         "type": "leaf",
         "state": {
-          "type": "markdown",
+          "type": "image",
           "state": {
-            "file": "Courses/JS100/Book/Arrays/NOTES.md",
-            "mode": "source",
-            "source": false
+            "file": "Courses/JS101/Study-Sessions/Screen Shot 2021-07-27 at 6.33.12 AM.png"
           }
         }
       }
@@ -69,7 +67,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Courses/JS100/Book/Arrays/NOTES.md",
+                "file": "Courses/JS101/Study-Sessions/Screen Shot 2021-07-27 at 6.33.12 AM.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,15 +85,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "cdd0914f5e463da1",
+  "active": "36e7505c5522de0e",
   "lastOpenFiles": [
-    "Courses/JS100/Book/Arrays/NOTES.md",
-    "Courses/JS120/Lesson-4-Subclassing-and-Code-Reuse-Patterns/notes.md",
-    "Courses/Writers-Bloc/20220301.md",
-    "Courses/JS101/Study-Sessions/algorithm_clinic.md",
-    "Courses/JS120/Lesson-4-Subclassing-and-Code-Reuse-Patterns/node_modules/readline-sync/README-Deprecated.md",
-    "Courses/JS120/Lesson-4-Subclassing-and-Code-Reuse-Patterns/node_modules/readline-sync/README.md",
-    "Career/20220312_coding_career.md",
-    "Courses/JS120/Lesson-1/notes.md"
+    "Courses/JS101/Study-Sessions/Screen Shot 2021-07-27 at 6.33.12 AM.png",
+    "Courses/JS101/Lesson-6-Slightly-Larger-Programs/ttt_flowchart.png",
+    "Courses/JS101/Lesson-6-Slightly-Larger-Programs/notes.md",
+    "screen_03.gif.md",
+    "Untitled.md",
+    "Courses/JS109/Written/answers.md",
+    "Courses/JS109/Written/questions.md",
+    "Courses/JS109/Written/snippets.md",
+    "Courses/JS109/Written/template.md",
+    "Courses/JS109/Written/Written Assessment Checklist.pdf"
   ]
 }

@@ -1265,8 +1265,8 @@ let RECTANGLE = {
 function Rectangle(width, height) {
   this.width = width;
   this.height = height;
-  this.area = RECTANGLE.area.call(this); // <--
-  this.perimeter = RECTANGLE.perimeter.call(this); // <--
+  this.area = RECTANGLE.area.call(this); // <-- fix
+  this.perimeter = RECTANGLE.perimeter.call(this); // <-- fix
 }
 
 let rect1 = new Rectangle(2, 3);
