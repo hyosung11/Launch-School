@@ -1200,7 +1200,7 @@ Solution:
 
 This code throws a `TypeError` since `scamper` is an undefined property on `lizzy`. Since `Lizard` was invoked without the `new` operator and it doesn't have an explicit return value, the return value is `undefined`. Thus, `lizzy` gets assigned to `undefined` which causes the call to `scamper` to throw an error: you can't call a method on `undefined`.
 
-#### 5.7.3 Alter the code in problem 2 so that it produces the desired output: I'm scampering!.
+#### 5.7.3 Alter the code in problem 2 so that it produces the desired output: I'm scampering!
 
 ```js
 function Lizard() {

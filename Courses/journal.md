@@ -7217,10 +7217,10 @@ Have a great day everyone!!!
 ~~
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [ ] 2. Anki Cards Review
-   * [ ] 3. Practice Problems
-   * [ ] 4. Study Session with Michael?
-   * [ ] 5. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
+   * [x] 2. Anki Cards Review
+   * [x] 3. Practice Problems
+   * [x] 4. Study Session with Michael
+   * [x] 5. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
    * [ ] 6. Send resume to Derek Barker for Salesforce job.
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -7233,3 +7233,28 @@ Have a great day everyone!!!
 14:26 Taking a break from studying. I already had lunch and read some emails.
 
 17:30 I got through a third run of the quizzes and I have 12 questions I want to look at again. I want to review exercises after dinner.
+
+## 20220331 목요일
+
+07:12 I feel tired this morning. I stayed up to watch the end of the Costa Rica vs USMNT in the last World Cup qualifying match. I had no brain power this morning while trying to do problems with Alex.
+
+07:14 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Anki Cards Review
+   * [x] 3. Practice Problems
+   * [x] 4. Study Session with Michael
+   * [x] 5. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
+~~   * [ ] 6. Send resume to Derek Barker for Salesforce job.~~
+~~
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. Anki Cards Review
+   * [ ] 3. Practice Problems
+   * [ ] 4. Study Session with Laurent
+   * [ ] 5. Read *The Coding Career Handbook*, Chapter 36: Mise en Place Writing
+   * [ ] 6. Send resume to Derek Barker for Salesforce job.
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I feel tired today with low energy at the moment. Otherwise, I should get in some good studying. I do need to send out 3 targeted applications.
