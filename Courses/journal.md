@@ -7316,3 +7316,5 @@ Have a great day everyone!!!
    * I want to put in at least four solid hours of study during the day and maybe a little more this afternoon.
 
 9:29 Working on the latest version of my study guide and referencing Andy Pratt's notes. I wonder what Elaine's study guide for JS129 looks like?
+
+09:41 I spent more time than warranted on fixing my inheritance table.
