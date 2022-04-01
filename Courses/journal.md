@@ -7322,3 +7322,11 @@ Have a great day everyone!!!
 11:17 In a study session with Michael.
 
 12:20 End of study session with Michael where we worked on some problems. Good stuff. The information is becoming clearer in my head.
+
+12:27 Reading email and interested in this Second Brain stuff:
+
+* C - Capture
+* O - Organize
+* D - Distill
+* E - Express
+
