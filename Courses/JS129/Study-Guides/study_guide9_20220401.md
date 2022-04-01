@@ -3640,6 +3640,19 @@ The mechanics of context binding is an essential but difficult concept. Most dif
 
 Let's discuss how functions and methods can "lose context." We've used quotes since functions don't lose their execution context in reality -- they always have one, but it may not be the context that you expect. If you understand how execution context is determined, you shouldn't be surprised by the value of `this` in any given scenario. That said, how a specific context is arrived at isn't always intuitive. Even when you understand the rules, the context for any given invocation may surprise you.
 
+Problem | Solution | Example
+---------|----------|---------
+ Method copied from object | Accept the context object as a second parameter | ?
+ " | Hard-bind the method's context using `bind` | ?
+ == | == | ==
+ Inner/nested function not using the surrounding context | Preserve context with a variable in outer scope | ?
+ " | Call inner function with explicit context (`call` or `apply`) | ?
+ " | Use `bind` | ?
+ " | Use an arrow function | ?
+ == | == | ==
+ Function as argument losing surrounding context | xxx | ?
+ " | Use an arrow function | ?
+
 ### 15.1 Problem 1 - Method Copied from Object
 
 When you take a method out of an object and execute it as a function or as a method on another object *the function's context is no longer the original object*. For instance:
@@ -3711,9 +3724,9 @@ function foo() {
 
 foo();
 
-// hello, John Doe
-// hello, John Doe
-// hello, John Doe
+// => hello, John Doe
+// => hello, John Doe
+// => hello, John Doe
 ```
 
 Some of JavaScript's built-in methods, such as the Array abstraction methods like `forEach`, `map`, and `filter`, use this technique. Such methods take a callback function as an argument and an optional `thisArg` context object that gets used as the callback's execution context.
@@ -3774,13 +3787,11 @@ let obj = {
 obj.foo();  // => undefined undefined
 ```
 
-By now, you should be able to understand why this code logs `undefined undefined` instead of `hello world`. However, the behavior is not intuitive, so don't worry if you can't see the problem just yet.
-
-As we've said repeatedly, a function or method's execution context depends solely on how you invoke it, not on how and where it's defined. Here, `bar` is invoked as a standalone function on line 9. Thus, its execution context is the global object, not the `obj` object that you may have expected.
+Function or method's execution context depends solely on how you invoke it, not on how and where it's defined. Here, `bar` is *invoked as a standalone function* on line 9. Thus, its execution context is the global object, not the `obj` object that you may have expected.
 
 ### 15.2.1 Solution 1: Preserve Context with a Variable in Outer Scope
 
-One common way to preserve the context in this scenario is to use something like `let self = this` or `let that = this` in the outer function. If you define the `self` or `that` variable -- these names are idiomatic, and not a required name --- in the outer scope, you can use that variable and whatever value it contains inside your nested inner function(s).
+Use something like `let self = this` or `let that = this` in the outer function. If you define the `self` or `that` variable -- these names are idiomatic, and not a required name --- in the outer scope, you can use that variable and whatever value it contains inside your nested inner function(s).
 
 ```js
 let obj = {
@@ -3788,7 +3799,6 @@ let obj = {
   b: 'world',
   foo: function() {
     let self = this; // line 5
-
     function bar() {
       console.log(self.a + ' ' + self.b);
     }
@@ -3910,9 +3920,7 @@ obj.foo();
 // => hello world
 ```
 
-Using arrow functions like this is similar to using `bind` in that you don't have to worry about arrow functions losing their surrounding context. An arrow function, once created, *always has the same context as the function that surrounded it when it was created*.
-
-Of all the techniques we saw in this assignment, using arrow functions is the most common these days.
+Using arrow functions like this is similar to using `bind` in that you don't have to worry about arrow functions losing their surrounding context. An arrow function, once created, *always has the same context as the function that surrounded it when it was created*. Using arrow functions is the most common these days.
 
 ### 15.3 Don't Use Arrow Functions as Methods on an Object
 
@@ -3927,10 +3935,10 @@ let obj = {
   },
 };
 
-obj.foo(); // => undefined
+obj.foo(); // line 9 => undefined
 ```
 
-The reason that this code doesn't work is that arrow functions always get the value of `this` from the surrounding context. In the code shown above, it certainly looks like the surrounding context is `obj`, so shouldn't `this` refer to `obj`? Despite appearances and what your logic tells you, that isn't the case.
+Arrow functions always get the value of `this` from the surrounding context. In the code shown above, it certainly looks like the surrounding context is `obj`, so shouldn't `this` refer to `obj`? Despite appearances and what your logic tells you, that isn't the case.
 
 The surrounding context is, in fact, the `global object`. The reason for that is simple: the `let` statement in this example *is in the program's top-level code*, so its context is the global object. That means that `this` inside the object literal is also the global object, so `this` on line 5 refers to the global object, not `obj`.
 
@@ -3940,11 +3948,9 @@ You may have noticed that `this` in `obj.foo` is not determined by how the metho
 
 In general, you should not use arrow functions to write methods. According to [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), "Arrow function expressions are ill suited as methods, and they cannot be used as constructors." The example shown here demonstrates one reason why that is so: it doesn't follow the rules. As long as you don't try to use arrow functions as methods, you can ignore this exception.
 
-### 15.4 Problem - Function as Argument Losing Surrounding Context
+### 15.4 Problem 3 - Function as Argument Losing Surrounding Context
 
-In this assignment, we'll see how *passing functions as arguments can strip them of their intended context objects*, and see what we can do to deal with that loss.
-
-This scenario is a variation of one that we dealt with in the previous assignment. Examine this code:
+In this assignment, we'll see how *passing functions as arguments can strip them of their intended context objects*, and see what we can do to deal with that loss. This scenario is a variation of one that we dealt with in the previous assignment. Examine this code:
 
 ```js
 function repeatThreeTimes(func) {
