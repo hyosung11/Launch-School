@@ -7291,3 +7291,27 @@ Have a great day everyone!!!
 
 19:07 Studying through Higher-order Functions, but need to review static and instance methods in classes. I need to get ready for soccer now or soon. Since I'm thinking about it, I will go up and change.
 
+## 20220401 금요일
+
+08:59 I played soccer until 22:00 last night and then didn't get to sleep until about 23:30, so I was unable to get out of bed at 5:24 as usual during the weekday. I feel tired today, but I'm determined to have deep focus and cut out all notifications and distractions while I am studying. Concentration is a super power for me.
+
+09:01 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Anki Cards Review
+   * [x] 3. Practice Problems
+   * [x] 4. Study Session with Aryan
+   * [x] 5. Read *The Coding Career Handbook*, Chapter 36: Mise en Place Writing
+   * [x] 6. Send resume to Derek Barker for Salesforce job.
+
+2. What will you do today?
+   * [ ] 1. Review and Revise Study Guide
+   * [ ] 2. Anki Cards Review
+   * [ ] 3. Practice Problems
+   * [ ] 4. Study Session with Michael
+   * [ ] 5. Read *The Coding Career Handbook*, Chapter 37: Side Projects
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I want to put in at least four solid hours of study during the day and maybe a little more this afternoon.
+

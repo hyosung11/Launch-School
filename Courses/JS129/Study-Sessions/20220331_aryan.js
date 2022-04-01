@@ -53,9 +53,7 @@ willyJr.fly(); //
 
 // In this problem, we'll ask you to create a new instance of an object, without having direct access to the constructor function:
 
-function Ninja() {
-  
-}
+function Ninja() {}
 
 let ninjaA = new Ninja()
 
@@ -66,9 +64,7 @@ console.log(ninjaB.constructor === ninjaA.constructor);    // should log true
 
 // In this problem, we'll ask you to create a new instance of an object, without having direct access to the constructor function:
 
-function Ninja() {
-  
-}
+function Ninja() {}
 
 let ninjaA = new Ninja()
 
@@ -79,7 +75,8 @@ console.log(ninjaB.constructor === ninjaA.constructor);    // should log true
 
 
 
-CoursesJS225 Object Oriented JavaScriptObject Creation Patterns10. Practice Problems: Constructor Functions and Prototypes (1)
+CoursesJS225 Object Oriented JavaScriptObject Creation Patterns
+10. Practice Problems: Constructor Functions and Prototypes (1)
 Practice Problems: Constructor Functions and Prototypes (1)
 What does the following code log to the console?
 
