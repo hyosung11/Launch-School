@@ -7330,3 +7330,4 @@ Have a great day everyone!!!
 * D - Distill
 * E - Express
 
+16:13 At home after a ping pong break and getting the kids. I've decided to use Evernote as my second brain repository although I also use Trello for project tracking. I wonder if I could do all of that in Evernote? Obsidian and Evernote are interesting as well. I think I have a merge conflict with my MBP that I want to fix now.
