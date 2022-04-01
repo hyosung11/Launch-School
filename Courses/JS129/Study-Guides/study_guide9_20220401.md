@@ -1994,8 +1994,8 @@ Prototypal | Pseudo-classical| Both
 ---------|----------|---------
  prototypal delegation / object inheritance | constructor/prototype pattern | forms of inheritance
  create prototype objects with `Object.create()` (OLOO) to set the `[[Prototype]] property to inherit functions | use constructor function and `prototype` object to provide inheritance | use `[[Prototype]]` under the hood
-| like classes without using a "class" |
-| Using `class` and `extends` is a form of pseudo-classical inheritance |
+ done | like classes without using a "class" |
+ done | Using `class` and `extends` is a form of pseudo-classical inheritance |
 
 As used in JavaScript, the term **inheritance** is an *overloaded word*. It describes two related but distinct forms of inheritance: **prototypal** and **pseudo-classical**.
 
