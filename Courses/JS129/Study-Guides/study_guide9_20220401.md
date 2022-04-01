@@ -28,7 +28,7 @@
 - [x] 8. Mix-ins; mix-ins vs. inheritance
 - [x] 9. Methods and functions; method invocation vs. function invocation
 - [x] 10. Higher-order functions
-- [ ] 11. The global object
+- [x] 11. The global object
 - [ ] 12. Method and property lookup sequence
 - [ ] 13. Function execution context and this
 - [ ] 14. Implicit and explicit execution context
@@ -3363,7 +3363,9 @@ This code doesn't provide a significant improvement or convenience for the devel
 
 JavaScript creates a **global object** when it starts running. It serves as the **implicit execution context** for function invocations. In Node.js, the global object is the object named `global`; in the browser, it's the `window` object.
 
-The global object is available everywhere in your program and houses important global properties. In the previous course, we talked about **global values** such as `Infinity` and `NaN`, and **global functions**, such as `isNaN` and `parseInt`. All these entities are properties of the global object! In your console, you can look at the global object to examine those properties.
+The global object is available everywhere in your program and houses important global properties. In the previous course, we talked about **global values** such as `Infinity` and `NaN`, and **global functions**, such as `isNaN` and `parseInt`. All these entities are properties of the global object.
+
+In your console, you can look at the global object to examine those properties.
 
 ```sh
 > global.isNaN      // [Function: isNaN]
@@ -3377,7 +3379,7 @@ Number.isNaN('I am not a number');   // false - this is a correct value
 isNaN('I am not a number');          // true - string gets coerced to NaN
 ```
 
-As with other JavaScript objects, you can add properties to the global object at any time:
+As with other JavaScript objects, *you can add properties to the global object at any time*:
 
 ```sh
 // in Node
@@ -3393,7 +3395,7 @@ As with other JavaScript objects, you can add properties to the global object at
 
 ### 11.1 The Global Object and Undeclared Variables
 
-The global object has an interesting property: whenever you assign a value to a variable without using the `let`, `const`, or `var` keywords, the variable gets added to the global object as a property. Let's see an example:
+The global object has an interesting property: whenever you assign a value to a variable without using the `let`, `const`, or `var` keywords, *the variable gets added to the global object as a property*. Let's see an example:
 
 ```js
 foo = 'bar';
@@ -3405,10 +3407,10 @@ Without a keyword, *the variable gets added to the global object as a property*.
 
 ```js
 foo = 'bar';
-foo; // => 'bar'
+foo; // line 2 => 'bar'
 ```
 
-Whenever you try to access a variable for which there are no local or global variables with the variable's name, JavaScript looks at the global object and looks for a property with that name. In this example, since there are no local or global variables named `foo`, JavaScript looks in the global object and finds the `foo` property. As a result, line `2` is identical to `global.foo`; it returns the value of the property `foo` from the global object.
+Whenever you try to access a variable for which there are no local or global variables with the variable's name, JavaScript looks at the global object and looks for a property with that name. In this example, since there are no local or global variables named `foo`, JavaScript looks in the global object and finds the `foo` property. As a result, line `2` is identical to `global.foo`; *it returns the value of the property `foo` from the global object*.
 
 We discuss the global object here since you need to know where JavaScript gets all those global entities like `NaN`, `Infinity`, and `setTimeout`. It's not very often that you'll need to modify the global object, but you'll sometimes use it to set properties in Node that you need in multiple modules. We'll discuss Node modules in the next course.
 
@@ -3416,7 +3418,9 @@ We discuss the global object here since you need to know where JavaScript gets a
 
 When you access a property on an object, JavaScript first looks for an "own" property with that name on the object. If the object does not define the specified property, JavaScript looks for it in the object's prototype. If it can't find the property there, it next looks in the prototype's prototype. This process continues until it finds the property or it reaches `Object.prototype`. If `Object.prototype` also doesn't define the property, the property access evaluates to `undefined`.
 
-The implication here is that when two objects in the same prototype chain have a property with the same name, *the object that's closer to the calling object takes precedence.* Let's see an example:
+The implication here is that when two objects in the same prototype chain have a property with the same name, *the object that's closer to the calling object takes precedence.*
+
+Let's see an example:
 
 ```js
 let a = {
@@ -3459,7 +3463,7 @@ console.log(c.foo); // => 42
 console.log(b.foo); // => 2
 ```
 
-Object `b` *wasn't mutated!* When assigning a property on a JavaScript object, it always treats the property as an "own" property. That is, it assumes that the property belongs to the object named to the left of the property name. Even if the prototype chain already has a property with that name, it assigns the "own" property. Here, `foo` becomes an "own" property of `c`:
+Object `b` *wasn't mutated!* When assigning a property on a JavaScript object, *it always treats the property as an "own" property*. That is, it assumes that the property belongs to the object named to the left of the property name. Even if the prototype chain already has a property with that name, it assigns the "own" property. Here, `foo` becomes an "own" property of `c`:
 
 ```js
 console.log(c.hasOwnProperty('foo')); // => true
@@ -3504,7 +3508,7 @@ let raceCar = {
 
 ### What is `this`?
 
-The value of `this` is the current execution context of a function or method. The value of `this` changes based on how you invoke a function, not how you define it.
+The value of `this` is the current execution context of a function or method. The value of `this` *changes based on how you invoke a function*, not how you define it.
 
 The JavaScript `this` keyword refers to the object it belongs to. It has different values depending on where it is used:
 
@@ -3517,9 +3521,9 @@ The JavaScript `this` keyword refers to the object it belongs to. It has differe
 
 ### When does JavaScript bind an object to `this`?
 
-- It binds the execution context when the function is executed using method call syntax, e.g., `foo.bar()`. A function that is invoked using method-call syntax receives the calling object as its execution context.
+- It binds the execution context when the function is executed using **method call syntax**, e.g., `foo.bar()`. A function that is invoked using method-call syntax receives the calling object as its execution context.
 - It binds the execution context when the function is executed by either `call` or `apply`. Both `call` and `apply` set the execution context for a function invocation.
-- It binds the execution context when the function is executed using function call syntax, eg., `bar()`. A function that is invoked using function call syntax receives the global object as its execution context.
+- It binds the execution context when the function is executed using **function call syntax**, eg., `bar()`. A function that is invoked using function call syntax receives the global object as its execution context.
 
 ## 14. Implicit and Explicit Execution Context
 
@@ -3527,7 +3531,7 @@ The JavaScript `this` keyword refers to the object it belongs to. It has differe
 
 The execution context -- or **context** -- is a concept that refers to the **environment** in which a function executes. In JavaScript, it most commonly refers to the current value of the `this` keyword. When we talk about the execution context of a function or method call, we're talking about the value of `this` when that code executes. The context depends on *how the function or method was invoked*, not on where the function was defined.
 
-The only factor that determines the context is how you call the function or method. In other words, two invocations of the same function or method can have very different contexts depending on how you make those calls.
+The only factor that determines the context is *how you call the function or method*. In other words, two invocations of the same function or method can have very different contexts depending on how you make those calls.
 
 There are two basic ways to set the context when calling a function or method:
 
@@ -3538,13 +3542,7 @@ Setting the execution context is also called **binding** `this` or **setting the
 
 It's crucial to understand how the execution context, i.e., the value of `this`, is determined and what it refers to in various scenarios. All JavaScript code executes within a context. The top-level context is the `window` object in browsers and the `global` object in Node. All global methods and objects, such as `parseInt` and `Math`, are properties of `window` or `global`.
 
-### 14.2 `new` and Implicit Execution Context
-
-Function and method calls *provide an implicit context*. For a function call, the implicit context is the global object; for a method call, it's the object used to call the method.
-
-A constructor call with `new` is a third way to *provide an implicit execution context*. When you call a function with `new`, its implicit context is the new object.
-
-### 14.3 Function Execution Context (Implicit)
+### 14.2 Function Execution Context (Implicit)
 
 Every JavaScript function call has an execution context. In other words, the `this` keyword is available to every function in your JavaScript program. Every time you call that function, *JavaScript binds some object to `this`*.
 
@@ -3586,7 +3584,7 @@ function foo() {
 foo(); // this refers to: undefined
 ```
 
-You may run into strict mode without realizing it. For instance, it shows up in JavaScript classes and in Coderpad, the environment we use for assessment interviews.
+You may run into strict mode without realizing it. For instance, it shows up in JavaScript classes and in **Coderpad**, the environment we use for assessment interviews.
 
 ### 14.5 Method Execution Context (Implicit)
 
@@ -3600,35 +3598,43 @@ let foo = {
 };
 
 foo.bar(); // `foo` is the implicit execution context for `bar`
-// { bar: [Function: bar] }
+// => returns { bar: [Function: bar] }
 ```
 
 It's easy to see that the execution context inside a method call is the object used to call the method.
 
-Be careful, however. The first-class nature of JavaScript functions has ramifications for the execution context. Remember that the context is determined solely by how you call the function or method. Here, `foo.bar()` is considered a method call since we *call it as a method*; that is, we use the method call syntax `object.method()`. Since JavaScript functions are first-class objects, `bar` can be called in other ways that change the context:
+Be careful, however. The first-class nature of JavaScript functions has ramifications for the execution context. Remember that the context is determined solely by how you call the function or method. Here, `foo.bar()` is considered a method call since we *call it as a method*; that is, we *use the method call syntax `object.method()`*. Since JavaScript functions are first-class objects, `bar` can be called in other ways that change the context:
 
 ```js
 let baz = foo.bar;
-baz(); // Object [global] {...}
+baz(); // => Object [global] {...}
 ```
 
 In this code, we assign the `foo.bar` method to the `baz` variable. The `foo.bar` property and the `baz` variable now refer to the same function object. What should `baz()` log then? Since `baz` references a method of the `foo` object, you may think that its execution context must be `foo`. That's wrong though: as we've repeated several times, the execution context is determined entirely by how a function or method is called. Since we're *calling `baz` as a standalone function*, its execution context is the global object, not the `foo` object.
 
-### 14.6 Explicit Function and Method Execution Context
+### 14.6 `new` and Implicit Execution Context
 
-Using parenthesis after a function or method name is not the only way to invoke it. As we've seen, *when you invoke a function with parentheses, JavaScript uses the global object as the implicit context*; when you invoke a method, it uses the object that you used to call the method as the implicit context.
+Function and method calls *provide an implicit context*. For a function call, the implicit context is the global object; for a method call, it's the object used to call the method.
 
-There are, however, several ways to subvert this behavior. *You can provide an explicit context to any function or method*, and it doesn't have to be the global object or the object that contains the method. Instead, you can use any object -- or even `null` -- as the execution context for any function or method. There are two main ways to do that in JavaScript: `call` and `apply`.
+A constructor call with `new` is a third way to *provide an implicit execution context*. When you call a function with `new`, its implicit context is the new object.
 
-### 14.7 Implicit and Explicit Execution Context Summary
+Call        | Where          | Example
+------------|----------------|----------------------------
+Function    | global object  | `foo()`
+Method      | calling object | `obj.foo()`
+Constructor | new object     | `let object = new Object()`
 
-All JavaScript functions and methods execute within an execution context, sometimes called its `this` binding. How `this` gets bound depends entirely on how the function is invoked. You can't tell a function's execution context by merely looking at how and where it's defined; *you must examine the invocation itself*.
+### 14.7 Explicit Function and Method Execution Context
+
+*You can provide an explicit context to any function or method*, and it doesn't have to be the global object or the object that contains the method. Instead, you can use any object -- or even `null` -- as the execution context for any function or method. There are two main ways to do that in JavaScript: `call` and `apply`.
+
+### 14.8 Implicit and Explicit Execution Context Summary
+
+All JavaScript functions and methods execute within an execution context, sometimes called its `this` binding. How `this` gets bound depends entirely on how the function is invoked. You can't tell a function's execution context by merely looking at how and where it's defined; *you must examine the invocation itself*. The execution context is determined by *how you invoke a function or method*.
 
 Regular function calls use the global object as their execution context, while method calls use the calling object as their context. You can override this behavior by setting the execution context explicitly with either `call` or `apply`.
 
 The mechanics of context binding is an essential but difficult concept. Most difficulties arise from forgetting that *JavaScript does not use lexical scoping rules to determine the binding*. For instance, if you use `this` inside a method of `obj`, you expect that `this` refers to `obj`. However, that's not always the case. It's important to remember that the rules for `this` are entirely different from the rules for variable scope. While a variable's scope is determined by where you write the code, `this` *depends on how you invoke it*.
-
-The execution context is determined by *how you invoke a function or method*. We can't emphasize this enough.
 
 ## 15. Dealing with Context Loss
 

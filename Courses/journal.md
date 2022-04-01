@@ -7306,10 +7306,10 @@ Have a great day everyone!!!
    * [x] 6. Send resume to Derek Barker for Salesforce job.
 
 2. What will you do today?
-   * [ ] 1. Review and Revise Study Guide
-   * [ ] 2. Anki Cards Review
-   * [ ] 3. Practice Problems
-   * [ ] 4. Study Session with Michael
+   * [x] 1. Review and Revise Study Guide
+   * [x] 2. Anki Cards Review
+   * [x] 3. Practice Problems
+   * [x] 4. Study Session with Michael
    * [ ] 5. Read *The Coding Career Handbook*, Chapter 37: Side Projects
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -7318,3 +7318,7 @@ Have a great day everyone!!!
 9:29 Working on the latest version of my study guide and referencing Andy Pratt's notes. I wonder what Elaine's study guide for JS129 looks like?
 
 09:41 I spent more time than warranted on fixing my inheritance table.
+
+11:17 In a study session with Michael.
+
+12:20 End of study session with Michael where we worked on some problems. Good stuff. The information is becoming clearer in my head.
