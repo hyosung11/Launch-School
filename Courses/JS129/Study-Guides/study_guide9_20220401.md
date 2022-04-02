@@ -4526,14 +4526,14 @@ Examine the following code.
 let arr1 = new Array(1, 2, 3);
 let arr2 = Array(1, 2, 3);
 
-console.log(arr1 === arr2); // => false
+console.log(arr1 === arr2); // line 4 => false
 ```
 
 While line 4 shows that the two arrays are different objects, it doesn't reveal whether the two arrays differ in any other way, i.e., in their type, content, or behavior. Do the arrays differ in any way other than being separate objects?
 
 Both arrays are identical: they are both objects of type Array, and they both have the same values in their elements. JavaScript does not require the `new` keyword when creating arrays; the `Array` constructor works the same regardless of whether `new` is used.
 
-#### 18.1.1 `Array.prototype` (Instance Methods)
+#### 18.1.2 `Array.prototype` (Instance Methods)
 
 As with any JavaScript function, the `Array` constructor has a `prototype` property. All arrays inherit from the object referenced by this property:
 
@@ -4545,7 +4545,7 @@ true
 
 This relationship implies that *every array can use the methods defined in `Array.prototype`.* In particular, that means that all arrays can use methods like `forEach`, `map`, `includes`, as well as all the other methods defined on `Array.prototype`:
 
-```sh
+```js
 // let numbers = [1, 2, 3] <-- from above
 > numbers.map(number => number * number);
 [ 1, 4, 9 ]
@@ -4556,7 +4556,7 @@ true
 
 If you go to the [MDN documentation page for arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), you'll see a list of all these array methods with names that follow the pattern `Array.prototype.aMethod`. These methods are the **instance methods** for the Array type.
 
-#### 18.1.2 Static Array Methods
+#### 18.1.3 Static Array Methods
 
 Besides instance methods, the array type also has several static methods. We'll discuss two in this section. Remember: *static methods belong directly to the constructor function*; they aren't part of the prototype used to create new objects. As a result, their names don't include `.prototype`. Moreover, you usually use the constructor to invoke the static methods, not the object created by that constructor. (This definition isn't complete, but it will do for our purposes.)
 
@@ -4954,7 +4954,6 @@ let ingredients = 'olives';
 ## Extracted NOTES
 
 As useful as factory functions are, *there are other ways to extract code into one place so that multiple objects can use it*. In JavaScript, we rely heavily on **prototypes** to accomplish this.
-
 
 Unlike other mainstream languages, JavaScript doesn't implement behavior sharing using class-based inheritance even though ES6 introduced the class keyword to the language. Instead, it *uses the object prototype to share properties*.
 
