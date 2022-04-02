@@ -7352,7 +7352,7 @@ Have a great day everyone!!!
    * [ ] 5. Read *The Coding Career Handbook*, Chapter 37: Side Projects
 
 2. What will you do today?
-   * [ ] 1. Complete on JS120 Small Problems exercise
+   * [ ] 1. Complete one JS120 Small Problems exercise
    * [ ] 2. Review OOP Anki Cards
    * [ ] 3. Study `bind` in my study guide
    * [ ] 4. Coding Career Meeting
@@ -7360,3 +7360,5 @@ Have a great day everyone!!!
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I'm tired and lots of activity with the family today, so I'm not sure how much I will be able to study today.
+
+14:23 I cannot concentrate right now. I feel tired. I think I need to take a nap or do somethig low-key for a bit. I'm not sure about attending the Coding Career community meeting either.

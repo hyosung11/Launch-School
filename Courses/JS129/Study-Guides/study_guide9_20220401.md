@@ -4090,7 +4090,7 @@ obj.foo();
 
 ### 15.5 Dealing with Context Loss Summary
 
-Passing a function as an argument to another function strips it of its execution context, which means *the function argument gets invoked with the context set to the global object*. This problem is identical to the problem with copying a method from an object and using it as a bare function. For instance, the following two code snippets do the same thing:
+Passing a function as an argument to another function *strips it of its execution context*, which means *the function argument gets invoked with the context set to the global object*. This problem is identical to the problem with copying a method from an object and using it as a bare function. For instance, the following two code snippets do the same thing:
 
 ```js
 // Snippet 1
