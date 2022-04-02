@@ -29,9 +29,9 @@
 - [x] 9. Methods and functions; method invocation vs. function invocation
 - [x] 10. Higher-order functions
 - [x] 11. The global object
-- [ ] 12. Method and property lookup sequence
-- [ ] 13. Function execution context and this
-- [ ] 14. Implicit and explicit execution context
+- [x] 12. Method and property lookup sequence
+- [x] 13. Function execution context and this
+- [x] 14. Implicit and explicit execution context
 - [ ] 15. Dealing with context loss
 - [ ] 16. `call`, `apply`, and `bind`
 - [ ] 17. `Object.assign` and `Object.create`
@@ -3651,7 +3651,10 @@ Problem | Solution | Example
  " | Use an arrow function | ?
  == | == | ==
  Function as argument losing surrounding context | xxx | ?
+ " | Preserver context with a variable in outer scope | ?
+ " | Use `bind` | ?
  " | Use an arrow function | ?
+ " | Use the optional `thisArg` argument | ?
 
 ### 15.1 Problem 1 - Method Copied from Object
 
@@ -4110,7 +4113,7 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 
 ### 16.1 Explicit Execution Context with `call`
 
-The `call` method calls a function with an explicit execution context.
+The `call` method calls a function with an**explicit execution context**.
 
 ```js
 function logNum() {
@@ -4258,7 +4261,7 @@ let args = [arg1, arg2, arg3];
 someObject.someMethod.call(context, ...args);
 ```
 
-## 16.3 Hard Binding Functions with Contexts - `bind`
+### 16.3 Hard Binding Functions with Contexts - `bind`
 
 In the previous two assignments, we learned about two methods on function objects that we *can use to set the execution context of function and method calls explicitly*: `call` and `apply`. JavaScript has a third way to specify the context: the `bind` method on function objects. `bind` works a little differently, however. Let's see an example:
 
@@ -4413,7 +4416,7 @@ source.src[0] = "Something Different";
 console.log(target);  // => { src: [ 'Something Different' ], trg: 'Target Property' }
 console.log(source);  // => { src: [ 'Something Different' ] }
 
-// Assign only copies the values/refrences to the object. Source is not a prototype.
+// Assign only copies the values/references to the object. Source is not a prototype.
 console.log(target.__proto__ === source); // => false
 ```
 
@@ -4423,7 +4426,7 @@ Considerations with Object.assign():
 - For any key on `target`, the latest source will overwrite the value.
 - Only copies *own properties* for both `target` and `source`.
 - If value is a reference, only a copy of reference is provided (Use Stringify to get deep copy).
--Does not leverage prototyping for memory efficiency and typing.
+- Does not leverage prototyping for memory efficiency and typing.
 
 #### 17.1.1 Uses of `Object.assign()`
 
@@ -4478,7 +4481,7 @@ The behavior is considerably different when you *provide a single number argumen
 
 ```sh
 > new Array(3)
-[ < 3 empty items ]
+[ <3 empty items> ]
 ```
 
 You can think of `[ <3 empty items> ]` as an array that has three empty slots. In effect, it's an empty array that happens to contain spaces for three items; alternatively, it's a non-empty array that contains no values. Call it Schrödinger's array if you wish.

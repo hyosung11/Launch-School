@@ -7335,3 +7335,5 @@ Have a great day everyone!!!
 16:39 Kind of all over the place right now. I am tired and want to get a good night's sleep tomorrow and enjoy lots of soccer over the weekend. Two games to play and three games to referee.
 
 17:46 Talked to Shane for a few minutes in Gather. Time for dinner.
+
+21:07 Reviewing the back end of my study guide and I can see that I have a block about how `bind` works.
