@@ -7337,3 +7337,26 @@ Have a great day everyone!!!
 17:46 Talked to Shane for a few minutes in Gather. Time for dinner.
 
 21:07 Reviewing the back end of my study guide and I can see that I have a block about how `bind` works.
+
+## 20220402 토요일
+
+13:04 Getting a late start on studying today. I had a good morning playing soccer and doing daddy daughter time with Omi. We also a delicious fried rice for lunch. Eduardo, the painter, is coming at 13:30 to give us an estimate for our ceiling repair. I've decided to use Evernote as my repository for my second brain outside of things I do in VS Code. I also use Trello for project management, so I guess it's three tools. What about Obsidian? I need to have more visual aids in my work too.
+
+13:07 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Review and Revise Study Guide
+   * [x] 2. Anki Cards Review
+   * [x] 3. Practice Problems
+   * [x] 4. Study Session with Michael
+   * [ ] 5. Read *The Coding Career Handbook*, Chapter 37: Side Projects
+
+2. What will you do today?
+   * [ ] 1. Complete on JS120 Small Problems exercise
+   * [ ] 2. Review OOP Anki Cards
+   * [ ] 3. Study `bind` in my study guide
+   * [ ] 4. Coding Career Meeting
+   * [ ] 5. Read *The Coding Career Handbook*, Chapter 37: Side Projects
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I'm tired and lots of activity with the family today, so I'm not sure how much I will be able to study today.
