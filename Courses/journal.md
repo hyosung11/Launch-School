@@ -7366,3 +7366,7 @@ Have a great day everyone!!!
 17:05 Tired and not able to do much today. I need to do one small problem now.
 
 18:41 Watching Villanova vs Kansas and Kansas is way ahead at the moment.
+
+## 20220403 일요일
+
+19:39 I played soccer and reffed, so I have had no time to study today. I would like to do something after putting the kids to bed. I feel tired right now though. No daily scrum today.
