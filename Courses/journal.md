@@ -7387,10 +7387,21 @@ Have a great day everyone!!!
    * [x] 1. Study Session with Alex - he didn't appear but I did work on some problems
    * [ ] 2. Review OOP Anki Cards
    * [x] 3. Practice Practice Problems
-   * [ ] 4. Study Session with Michael at 13:00
-   * [ ] 5. Complete the Salesforce Application
+   * [x] 4. Study Session with Michael at 13:45
+   * [x] 5. Complete the Salesforce Application
    * [ ] 6. Read *The Coding Career Handbook*, Chapter 37: Side Projects
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Looking at our April finances, it looks like if we go as projected by Sohee we will run a deficit. That irks me. I guess I really do need to find a job and make some money while I keep studying.
 
+09:04 I'm kind of all over the place at the moment. I need to focus on the Practice Problems now.
+
+11:06 Trying to get back into the study groove and I just got a text message from Eduardo the painter. I will check it later. Why are my results not what I expect in Coderpad?
+
+12:02 Feeling a little distracted. I'm going to play ping pong with Louis at 12:30, but I feel hungry. I want to practice at least two more problems before I leave.
+
+12:19 I finished one problem but I needed to check my answer which is fine. I'm hungry.
+
+14:47 Working on a problem with Michael and we were not getting the expected answer. Ugh.
+
+18:52 After making a good dinner, I feel tired and I don't want to review our tax return. Sohee is home and I love her very much. I want to watch the Men's Final Four Championship game and if I do, I won't be able to get up at 5:30 tomorrow.
