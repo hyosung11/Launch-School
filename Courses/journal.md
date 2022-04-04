@@ -7386,7 +7386,7 @@ Have a great day everyone!!!
 2. What will you do today?
    * [x] 1. Study Session with Alex - he didn't appear but I did work on some problems
    * [ ] 2. Review OOP Anki Cards
-   * [ ] 3. Practice Practice Problems
+   * [x] 3. Practice Practice Problems
    * [ ] 4. Study Session with Michael at 13:00
    * [ ] 5. Complete the Salesforce Application
    * [ ] 6. Read *The Coding Career Handbook*, Chapter 37: Side Projects
