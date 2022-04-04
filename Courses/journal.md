@@ -7386,8 +7386,8 @@ Have a great day everyone!!!
 2. What will you do today?
    * [x] 1. Study Session with Alex - he didn't appear but I did work on some problems
    * [ ] 2. Review OOP Anki Cards
-   * [ ] 3. Practice Practice Problems
-   * [ ] 4. Study Session with Michael at 13:00
+   * [x] 3. Practice Practice Problems
+   * [ ] 4. Study Session with Michael at 13:30
    * [ ] 5. Complete the Salesforce Application
    * [ ] 6. Read *The Coding Career Handbook*, Chapter 37: Side Projects
 
@@ -7399,3 +7399,5 @@ Have a great day everyone!!!
 11:06 Trying to get back into the study groove and I just got a text message from Eduardo the painter. I will check it later. Why are my results not what I expect in Coderpad?
 
 12:02 Feeling a little distracted. I'm going to play ping pong with Louis at 12:30, but I feel hungry. I want to practice at least two more problems before I leave.
+
+12:19 I finished one problem but I needed to check my answer which is fine. I'm hungry.
