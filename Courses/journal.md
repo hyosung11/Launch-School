@@ -7394,3 +7394,8 @@ Have a great day everyone!!!
 3. Are there any blockers or impediments preventing you from doing your work?
    * Looking at our April finances, it looks like if we go as projected by Sohee we will run a deficit. That irks me. I guess I really do need to find a job and make some money while I keep studying.
 
+09:04 I'm kind of all over the place at the moment. I need to focus on the Practice Problems now.
+
+11:06 Trying to get back into the study groove and I just got a text message from Eduardo the painter. I will check it later. Why are my results not what I expect in Coderpad?
+
+12:02 Feeling a little distracted. I'm going to play ping pong with Louis at 12:30, but I feel hungry. I want to practice at least two more problems before I leave.

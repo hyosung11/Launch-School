@@ -82,4 +82,23 @@ bar.call(otherObj);
 
 /* The code will output `'Amazebulous'`
 
-The function execution context of `bar` is explicitly and permanently bound to `obj` as the return value of `bind` invocation on line 13. Once a function's execution context gets bound using `bind`, its context cannot be changed, even with `call` or `apply`. */
+The function execution context of `bar` is explicitly and permanently bound to `obj` as the return value of the `bind` invocation on line 13. Once a function's execution context gets bound using `bind`, its context cannot be changed, even with `call` or `apply`. */
+
+function createBook(title, author) {
+  return {
+    title,
+    author,
+
+    getDescription() {
+      return `${this.title} was written by ${this.author}`
+    }
+  }
+}
+
+let book1 = createBook('Mythos', 'Stephen Fry');
+let book2 = createBook('Me Talk Pretty One Day', 'David Sedaris');
+let book3 = createBook("Aunts aren't Gentlemen", 'PG Wodehouse');
+
+console.log(book1.getDescription());  // "Mythos was written by Stephen Fry."
+console.log(book2.getDescription());  // "Me Talk Pretty One Day was written by David Sedaris."
+console.log(book3.getDescription());  // "Aunts aren't Gentlemen was written by PG Wodehouse"

@@ -38,7 +38,7 @@ Attributes
 ### 1. Create three objects that represent the three books shown above. The method for the "Get Description" behavior should return a string like the following:
 
 ```js
-"Me Talk Pretty one day was written by David Sedaris."
+"Me Talk Pretty One Day was written by David Sedaris."
 ```
 
 Solution
@@ -71,7 +71,7 @@ let book3 = {
 
 ### 2. Think about the code you wrote for problem #1. Is there any unnecessary code? Does it have duplication?
 
-Solution
+### 2.1 Solution
 
 The method `getDescription` is duplicated in each object. However, each object must hold unique values for its `title` and `author` properties.
 
@@ -119,7 +119,7 @@ function createBook(title, author) {
 
 ### 4. We now want to track which books we have and haven't read. Update the factory function so that it returns a book object that includes a property `read` that has an initial value of `false`.
 
-Solution
+### 4.1 Solution
 
 ```js
 function createBook(title, author) {
@@ -149,14 +149,14 @@ console.log(book3.read); // => false
 
 ### 5. Suppose that we want to add a book that we've already read. Modify the factory function to use an optional `read` parameter with a default value of `false`.
 
-Solution:
+### 5.1 Solution:
 
 ```js
-function createBook(title, author, read = false) {
+function createBook(title, author, read = false) { // add default parameter
   return {
     title,
     author,
-    read,
+    read, // <-- change property so it is no longer set to false
 
     getDescription: function() {
       return `${this.title} was written by ${this.author}.`;
@@ -173,9 +173,9 @@ console.log(book2.read); // => false
 console.log(book3.read); // => true
 ```
 
-### 6. Let's add a method, `readBook`, that marks a book object as read by setting the `read` property to `true`:
+### 6. Let's add a method, `readBook`, that marks a book object as read by setting the `read` property to `true`
 
-Solution:
+### 6.1 Solution:
 
 ```js
 function createBook(title, author, read = false) {
@@ -207,7 +207,7 @@ book1.readBook();
 book1.getDescription(); // Mythos was written by David Fry. I have read it.
 ```
 
-Solution:
+### 7.1 Solution:
 
 ```js
 function createBook(title, author, read = false) {
@@ -237,6 +237,8 @@ let qux = { foo: 1 };
 let baz = Object.create(qux);
 console.log(baz.foo + qux.foo);
 ```
+
+### Solution
 
 On line 1, a variable qux is defined with an object { foo: 1 }.
 - On line 2, the Object.create method is invoked with the object referenced by qux.  The Object.create method returns a new object with its private [[Prototype]] property set to the prototype object passed as an argument.
@@ -540,14 +542,6 @@ let bar = {
 };
 ```
 
-My Answer:
-
-```js
-add.call(foo); // => 3
-```
-
-Incorrect construction but right return value
-
 #### 9.5 Solution
 
 ```js
@@ -559,6 +553,8 @@ Since we invoke `call` on `bar.add` with `foo` as the explicit context, the `add
 ## 11. [Practice Problems: Hard Binding Functions with Contexts](https://launchschool.com/lessons/1eaf5e37/assignments/ed3a72f0)
 
 ### 11.1 What method can we use to bind a function permanently to a particular execution context?
+
+### 11.1 Solution
 
 My Answer: `Function.prototype.bind`
 
@@ -577,8 +573,6 @@ function foo() {
 
 foo.bind(obj);
 ```
-
-My Answer: 'JavaScript' => this is wrong
 
 ### 11.2 Solution
 
@@ -602,12 +596,12 @@ console.log(foo());
 console.log(bar());
 ```
 
+### 11.3 Solution
+
 My Answer:
 
 // ?
 // 5
-
-### 11.3 Solution
 
 ```sh
 NaN
