@@ -7401,3 +7401,5 @@ Have a great day everyone!!!
 12:02 Feeling a little distracted. I'm going to play ping pong with Louis at 12:30, but I feel hungry. I want to practice at least two more problems before I leave.
 
 12:19 I finished one problem but I needed to check my answer which is fine. I'm hungry.
+
+14:47 Working on a problem with Michael and we were not getting the expected answer. Ugh.

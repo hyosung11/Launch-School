@@ -694,9 +694,9 @@ function logReturnVal(func) { // turk.getDescription
 logReturnVal(turk.getDescription);
 ```
 
-~~My Answer: `getDescription()` is tied to the global object, so it will output: undefined~~
-
 ### 15.1.1 Solution
+
+~~My Answer: `getDescription()` is tied to the global object, so it will output: undefined~~
 
 ```sh
 undefined undefined is a undefined.
@@ -743,7 +743,7 @@ This code is slightly unclear since it implies that we want the binding to be pe
 
 ### 15.3 Suppose that we want to extract `getDescription` from `turk`, but we always want it to execute with `turk` as its execution context. How would you modify your code to do that?
 
-My Answer: Use `bind`, but I don't know how exactly yet.
+### 15.3 Solution
 
 ```js
 let turk = {
@@ -764,6 +764,7 @@ function logReturnVal(func) {
 let getTurkDescription = turk.getDescription.bind(turk);
 logReturnVal(getTurkDescription);
 ```
+
 
 ### 15.4 Consider the following code:
 
@@ -877,9 +878,11 @@ foo.incrementA();
 
 What will the value of `foo.a` be after this code runs?
 
+### 15.8 Solution
+
 My Answer: `increment()`'s context is `global` which has no `incrementA` property, so the value of `foo.a` will be '0'.
 
-### 15.8 Solution
+Solution:
 
 The value of `foo.a` will be `0`. Since `increment` gets invoked as a function, `this.a` references a property of the global object rather than a property of `foo`. Thus, the property `foo.a` isn't modified by the `increment`; its value remains 0.
 
