@@ -596,7 +596,7 @@ function foo() {
   return this.a + this.b;
 }
 
-let bar = foo.bind(obj);
+let bar = foo.bind(obj); // line 10
 
 console.log(foo());
 console.log(bar());

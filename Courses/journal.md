@@ -7370,3 +7370,27 @@ Have a great day everyone!!!
 ## 20220403 일요일
 
 19:39 I played soccer and reffed, so I have had no time to study today. I would like to do something after putting the kids to bed. I feel tired right now though. No daily scrum today.
+
+## 20220404 월요일
+
+05:57 It's a few minutes before my study session with Alex. What should we work on this morning? I'm not sure.
+
+07:06 Alex didn't show this morning, but I did work on some problems. I want to answer my daily scrum questions now.
+
+07:07 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Reviewed Study Guide
+   * [x] 2. Anki Cards Review
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex - he didn't appear but I did work on some problems
+   * [ ] 2. Review OOP Anki Cards
+   * [ ] 3. Practice Practice Problems
+   * [ ] 4. Study Session with Michael at 13:00
+   * [ ] 5. Complete the Salesforce Application
+   * [ ] 6. Read *The Coding Career Handbook*, Chapter 37: Side Projects
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Looking at our April finances, it looks like if we go as projected by Sohee we will run a deficit. That irks me. I guess I really do need to find a job and make some money while I keep studying.
+
