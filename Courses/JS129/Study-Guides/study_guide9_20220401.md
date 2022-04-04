@@ -4113,7 +4113,7 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 
 ### 16.1 Explicit Execution Context with `call`
 
-The `call` method calls a function with an**explicit execution context**.
+The `call` method calls a function with an explicit execution context.
 
 ```js
 function logNum() {
