@@ -7405,3 +7405,32 @@ Have a great day everyone!!!
 14:47 Working on a problem with Michael and we were not getting the expected answer. Ugh.
 
 18:52 After making a good dinner, I feel tired and I don't want to review our tax return. Sohee is home and I love her very much. I want to watch the Men's Final Four Championship game and if I do, I won't be able to get up at 5:30 tomorrow.
+
+## 20220405 화요일
+
+09:01 I fell asleep watching the final last night, but woke up to see that Kansas won. I think I was the last one out of bed this morning. I don't feel completely tired right now, so that's good. It's time to plan my day and complete my work.
+
+09:13 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex - he didn't appear but I did work on some problems
+   * [x] 2. Review OOP Anki Cards
+   * [x] 3. Practice Practice Problems with Laurent
+   * [x] 4. Study Session with Michael at 13:45
+   * [x] 5. Complete the Salesforce Application
+   * [ ] 6. Read *The Coding Career Handbook*, Chapter 37: Side Projects
+
+2. What will you do today?
+   * [ ] 1. Review OOP Anki Cards
+   * [ ] 2. Practice Practice Problems
+   * [ ] 3. Condense study guide even more
+     * [ ] Picture walk
+     * [ ] Read with care
+     * [ ] Active recall
+   * [x] 4. Listen to Mastery
+   * [ ] 5. Read *The Coding Career Handbook*, Chapter 37: Side Projects
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I have a dentist appointment at 12:00 that could take a couple of hours, so I won't have as much time to study. I need to get myself in the habit of working on problems with a timer. I have three hours to do about 15 problems, but Michael says the last two problems are longer and harder as they require writing code for the answer.
+
+10:28 I got some help from Aryan to figure out why I wasn't getting what I expected and it was because I was logging the wrong thing!
