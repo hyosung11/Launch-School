@@ -857,7 +857,9 @@ TESgames.listGames();
 
 **Note** that this solution *does not pass* `this` to `forEach`.
 
-### 15.8 Consider the following code:
+### 15.8 Consider the following code
+
+What will the value of `foo.a` be after this code runs?
 
 ```js
 let foo = {
@@ -876,8 +878,6 @@ foo.incrementA();
 foo.incrementA();
 ```
 
-What will the value of `foo.a` be after this code runs?
-
 ### 15.8 Solution
 
 My Answer: `increment()`'s context is `global` which has no `incrementA` property, so the value of `foo.a` will be '0'.
@@ -887,6 +887,8 @@ Solution:
 The value of `foo.a` will be `0`. Since `increment` gets invoked as a function, `this.a` references a property of the global object rather than a property of `foo`. Thus, the property `foo.a` isn't modified by the `increment`; its value remains 0.
 
 ### 15.9 Use one of the methods we learned in this lesson to invoke `increment` with an explicit context such that `foo.a` gets incremented with each invocation of `incrementA`.
+
+### 15.9 Solution
 
 ```js
 let foo = {
