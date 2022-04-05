@@ -96,3 +96,126 @@ Since `increment` gets invoked as a function, `this.a` references a property on 
 // foo.incrementA();
 
 // console.log(foo.a);
+
+/* JS120 - OOJS > Easy > 9. Moving
+
+- Declare a walkMixin variable and assign it to an object
+- define `walk` method with a return value with `this.name` and `this.gait()`
+- assign prototype to walkMixin */
+
+const walkMixin = {
+  walk() {
+    return `${this.name} ${this.gait()} forward` // invoke gait()
+  }
+}
+
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  gait() {
+    return "strolls";
+  }
+}
+
+Object.assign(Person.prototype, walkMixin);
+
+class Cat {
+  constructor(name) {
+    this.name = name;
+  }
+
+  gait() {
+    return "saunters";
+  }
+}
+
+Object.assign(Cat.prototype, walkMixin);
+
+class Cheetah {
+  constructor(name) {
+    this.name = name;
+  }
+
+  gait() {
+    return "runs";
+  }
+}
+
+Object.assign(Cheetah.prototype, walkMixin);
+
+let mike = new Person("Mike");
+console.log(mike.walk());
+// "Mike strolls forward"
+
+let kitty = new Cat("Kitty");
+console.log(kitty.walk());
+// "Kitty saunters forward"
+
+let flash = new Cheetah("Flash");
+console.log(flash.walk());
+// "Flash runs forward"
+
+/* Discussion
+
+We can use the `walkMixin` with any class that defines properties `name` and `gait`. You can also define a parent class and make the other classes inherit from that class.
+
+Mixins are more appropriate in a "has-a" relationship where we want some additional functionality. Here, we need the functionality of walking, we don't need to extend the abilities of class `Person` since that coincides with an "is-a" relationship.
+
+*/
+
+/* What is the execution context for `baz` and why? */
+
+let foo = {
+  bar: function() {
+    console.log(this);
+  }
+};
+
+let baz = foo.bar;
+baz();
+
+/* The global object because `baz` is invoked as a function. Here, we assign the `foo.bar` method to the `baz` variable. The `foo.bar` property and the `baz` variable now refer to the same function object. But because we call `baz` as a standalone function, its execution context is the global object, not the `foo` object. */
+
+/* JS120 - OOJS > Easy > 11. Banner Class
+
+Behold this incomplete class for constructing boxed banners. */
+
+class Banner {
+  constructor(message) {
+    this.message = message;
+  }
+
+  displayBanner() {
+    console.log([this.horizontalRule(), this.emptyLine(), this.messageLine(), this.emptyLine(), this.horizontalRule()].join("\n"));
+  }
+
+  horizontalRule() {
+    return `+-${'-'.repeat(this.message.length)}-+`
+  }
+
+  emptyLine() {
+    return `| ${' '.repeat(this.message.length)} |`
+  }
+
+  messageLine() {
+    return `| ${this.message} |`
+  }
+}
+
+let banner1 = new Banner('To boldly go where no one has gone before.');
+banner1.displayBanner();
+// +--------------------------------------------+
+// |                                            |
+// | To boldly go where no one has gone before. |
+// |                                            |
+// +--------------------------------------------+
+
+let banner2 = new Banner('');
+banner2.displayBanner();
+// +--+
+// |  |
+// |  |
+// |  |
+// +--+
