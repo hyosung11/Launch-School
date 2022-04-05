@@ -7421,8 +7421,8 @@ Have a great day everyone!!!
    * [ ] 6. Read *The Coding Career Handbook*, Chapter 37: Side Projects
 
 2. What will you do today?
-   * [ ] 1. Review OOP Anki Cards
-   * [ ] 2. Practice Practice Problems
+   * [x] 1. Review OOP Anki Cards
+   * [x] 2. Practice Practice Problems
    * [ ] 3. Condense study guide even more
      * [ ] Picture walk
      * [ ] Read with care
@@ -7434,3 +7434,5 @@ Have a great day everyone!!!
    * I have a dentist appointment at 12:00 that could take a couple of hours, so I won't have as much time to study. I need to get myself in the habit of working on problems with a timer. I have three hours to do about 15 problems, but Michael says the last two problems are longer and harder as they require writing code for the answer.
 
 10:28 I got some help from Aryan to figure out why I wasn't getting what I expected and it was because I was logging the wrong thing!
+
+11:44 Time to go to the dentist.
