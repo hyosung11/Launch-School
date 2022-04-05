@@ -41,7 +41,7 @@ Attributes
 "Me Talk Pretty One Day was written by David Sedaris."
 ```
 
-Solution
+### 1.1 Solution
 
 ```js
 let book1 = {
@@ -87,7 +87,7 @@ book2.getDescription();  // "Me Talk Pretty One Day was written by David Sedaris
 book3.getDescription();  // "Aunts aren't Gentlemen was written by PG Wodehouse"
 ```
 
-Solution - correctly answered!
+### 3.1 Solution
 
 ```js
 function createBook(title, author) {
@@ -207,7 +207,7 @@ book1.readBook();
 book1.getDescription(); // Mythos was written by David Fry. I have read it.
 ```
 
-### 7.1 Solution:
+### 7.1 Solution
 
 ```js
 function createBook(title, author, read = false) {
@@ -230,21 +230,7 @@ function createBook(title, author, read = false) {
 
 Note that we used the ternary conditional operator to generate the appropriate message. It's likely that you haven't seen this operator used as it is here, so some explanation is in order. The template literal lets us interpolate any expression into the string using `${}`. Here, the contents of `${}` are `this.read ? 'have' : "haven't"`; it's an expression that evaluates to either 'have' or "haven't". If the value of `this.read` is `true`, the expression evaluates to `'have'`; otherwise, it evaluates to `"haven't"`. In either case, the result gets interpolated into the output string.
 
-## 1. What does this code log and why?
-
-```js
-let qux = { foo: 1 };
-let baz = Object.create(qux);
-console.log(baz.foo + qux.foo);
-```
-
-### Solution
-
-On line 1, a variable qux is defined with an object { foo: 1 }.
-- On line 2, the Object.create method is invoked with the object referenced by qux.  The Object.create method returns a new object with its private [[Prototype]] property set to the prototype object passed as an argument.
-- On line 3, when the expression baz.foo + qux.foo is evaluated, qux.foo returns 1, but since baz.foo does not have properties of its own, it has to delegate access to its prototype. So, when JavaScript searches for the value of foo it will climb up baz's prototype chain and find the foo property in qux. Finally, the expression baz.foo + qux.foo will be evaluated 1 + 1 and its result will be the number 2.
-
-## Lesson 2 > 4. [Practice Problems: Object Prototypes](https://launchschool.com/lessons/1eaf5e37/assignments/f7b8620b)
+## Lesson 2: Functions, Objects, and Prototypes > 4. [Practice Problems: Object Prototypes](https://launchschool.com/lessons/1eaf5e37/assignments/f7b8620b)
 
 ### 1. What will the following code log to the console? Explain why it logs that value. Try to answer without running the code.
 
@@ -254,15 +240,13 @@ let baz = Object.create(qux);
 console.log(baz.foo + qux.foo);
 ```
 
-Answer: It will log `2` because it evaluates `baz.foo` to 1 + `quz.foo` to 1;
-
 ### Solution 1
 
-```sh
-2
-```
+This code logs `2`.
 
-Naturally, `qux.foo` returns `1` since `qux` has a `foo` property with that value. However, `baz` doesn't have its "own" copy of the `foo` property. Therefore, JavaScript searches the prototype chain for a `foo` property and finds the property in `qux`. Thus, `baz.foo` is also `1` and the sum of the two values is `2`.
+`qux.foo` returns `1` since `qux` has a `foo` property with that value. However, `baz` doesn't have its "own" copy of the `foo` property. So, JavaScript searches the prototype chain for a `foo` property and finds the property in `qux`. Thus, `baz.foo` is also `1`, and the sum of the two values is `2`.
+
+Answer: It will log `2` because it evaluates `baz.foo` to 1 + `quz.foo` to 1;
 
 ### 2. What will the following code log to the console? Explain why it logs that value. Try to answer without running the code.
 
