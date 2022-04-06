@@ -7477,3 +7477,5 @@ Have a great day everyone!!!
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I should have a good chunk of the day today while the kids are in school to study. The kids notice things that are on my screen.
+
+10:31 I reviewed and practiced some problems and discovered that I don't understand the difference between nested function not using the surrounding context and function as argument losing surrounding context.

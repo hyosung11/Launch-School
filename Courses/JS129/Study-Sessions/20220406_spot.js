@@ -1,0 +1,1 @@
+/* Difference between nested function not using the surrounding context and function as argument losing surrounding context */

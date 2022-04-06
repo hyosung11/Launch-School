@@ -650,15 +650,15 @@ let bar = foo.bind(obj);
 bar.call(otherObj);
 ```
 
-My Answer: // 'Amazebulous!`
-
 ### 11.5 Solution
 
 Once a function's context gets bound using `bind`, its context can't be changed, even with `call` and `apply`. In keeping with this, the last line of our code outputs "Amazebulous!", because the function `bar`'s context has been permanently bound to `obj`.
 
+My Answer: // 'Amazebulous!`
+
 ## Lesson 2 > 15. [Practice Problems: Dealing with Context Loss](https://launchschool.com/lessons/1eaf5e37/assignments/408c20c3)
 
-### 15.1 The code below should output "Christopher Turk is a Surgeon". Without running the code, what will it output? If there is a difference between the actual and desired output, explain the difference
+### 15.1 The code below should output "Christopher Turk is a Surgeon". Without running the code, what will it output? If there is a difference between the actual and desired output, explain the difference:
 
 ```js
 let turk = {
@@ -690,6 +690,8 @@ undefined undefined is a undefined.
 When we pass `turk.getDescription` as an argument to `logReturnVal`, we *remove the method from its context*. As a result, when we execute it as `func`, this points to the global object rather than `turk`. Since `global` doesn't have properties defined for `firstName`, `lastName`, or `occupation`, the output isn't what we expect.
 
 ### 15.2 Modify the program from the previous problem so that `logReturnVal` accepts an additional `context` argument. If you then run the program with `turk` as the context argument, it should produce the desired output
+
+### 15.2 Solution
 
 ```js
 let turk = {
@@ -776,8 +778,6 @@ The Elder Scrolls: Oblivion
 The Elder Scrolls: Skyrim
 ```
 
-My Answer: No because the call to `TESgames.listGames()` invokes the `listGames` method which invokes a function expression that is stripped of the TESgames context. So it references the global object which does not have the properties `titles` or `seriesTitle` and the output is  undefined repeatedly.
-
 ### 15.4 Solution
 
 ```sh
@@ -789,6 +789,8 @@ undefined: Skyrim
 ```
 
 Since functions lose their surrounding context when used as arguments to another function, the context of line 6 is not the `TESgames` object. Instead, it is the global object. Thus, `this.seriesTitle` resolves to `undefined` rather than `"The Elder Scrolls"`.
+
+My Answer: No because the call to `TESgames.listGames()` invokes the `listGames` method which invokes a function expression that is stripped of the TESgames context. So it references the global object which does not have the properties `titles` or `seriesTitle` and the output is  undefined repeatedly.
 
 ### 15.5 Use `let self = this`; to ensure that `TESgames.listGames` uses `TESGames` as its context and logs the proper output
 
