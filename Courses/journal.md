@@ -7465,9 +7465,9 @@ Have a great day everyone!!!
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [ ] 2. Review OOP Anki Cards
-   * [ ] 3. Practice Practice Problems
-   * [ ] 4. SPOT Study Session with Allison
+   * [x] 2. Review OOP Anki Cards
+   * [x] 3. Practice Practice Problems
+   * [x] 4. SPOT Study Session with Allison
    * [ ] 5. Condense study guide even more
      * [ ] Picture walk
      * [ ] Read with care
@@ -7479,3 +7479,5 @@ Have a great day everyone!!!
    * I should have a good chunk of the day today while the kids are in school to study. The kids notice things that are on my screen.
 
 10:31 I reviewed and practiced some problems and discovered that I don't understand the difference between nested function not using the surrounding context and function as argument losing surrounding context.
+
+13:16 I learned about how to use `super` inside a subtype to call the method of the parent in the study session with Allison.
