@@ -7442,3 +7442,5 @@ Have a great day everyone!!!
 17:25 It's been a distracting day and I haven't gotten much done today. I hope to study more problems today after dinner.
 
 18:48 Tired. I will do at least one problem right now before the kids' bedtimes and our stretching together.
+
+20:31 I like that the kids and I stretch together before they go to sleep. I did a few problems, but I'm done for now. Good night.

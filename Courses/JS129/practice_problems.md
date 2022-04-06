@@ -258,8 +258,6 @@ baz.foo = 2; // line 3
 console.log(baz.foo + qux.foo);
 ```
 
-Answer: 3. The value of `baz.foo` returns `2` on line 3. `qux.foo` returns `1` on line 1. The assignment of `baz.foo` on line 3 does not mutate the `qux` object because when assigning a property on an object, JavaScript always treats the property as an "own" property. That is, it assumes that the property belongs to the object named to the left of the property name. Even if the prototype chain already has a property with that name, it assigns the "own" property. Here, `foo` becomes an "own" property of `baz`. (copied from notes)
-
 ### Solution 2
 
 ```sh
@@ -269,6 +267,9 @@ Answer: 3. The value of `baz.foo` returns `2` on line 3. `qux.foo` returns `1` o
 This code is very similar to that in problem 1. However, this time, we assign `baz.foo` to a value of `2`. Property assignment doesn't use the prototype chain; instead, it creates a new property in the `baz` object named `foo`.
 
 When we add `baz.foo` and `qux.foo` together, `baz.foo` returns the value of its "own" `foo` property, while `qux.foo` returns the value of its "own" `foo` property. Thus, the result is `3`.
+
+================================
+Answer: 3. The value of `baz.foo` returns `2` on line 3. `qux.foo` returns `1` on line 1. The assignment of `baz.foo` on line 3 does not mutate the `qux` object because when assigning a property on an object, JavaScript always treats the property as an "own" property. That is, it assumes that the property belongs to the object named to the left of the property name. Even if the prototype chain already has a property with that name, it assigns the "own" property. Here, `foo` becomes an "own" property of `baz`. (copied from notes)
 
 ### 3. What will the following code log to the console? Explain why it logs that value. Try to answer without running the code.
 
@@ -280,8 +281,6 @@ qux.foo = 2;
 console.log(baz.foo + qux.foo);
 ```
 
-Answer: 4. The reassignment of `qux.foo` to `2` is inherited by the `baz` object. Thus, `baz.foo` is `2`, and the sum of the two values is `4`.
-
 ### Solution 3
 
 ```sh
@@ -291,6 +290,8 @@ Answer: 4. The reassignment of `qux.foo` to `2` is inherited by the `baz` object
 This code is also very similar to problem 1. This time, though, we assign the value `2` to `qux.foo`. Since `baz` doesn't have its "own" copy of the `foo` property, JavaScript uses the prototype chain to look up `baz.foo`, and it finds the `foo` property in `qux`. The result is equivalent to `2 + 2`, or `4`.
 
 An important consideration when dealing with prototypes is that *objects hold a reference to their prototype objects*. If the object's prototype changes in some way, the changes are observable in the inheriting object as well.
+
+My Answer: 4. The reassignment of `qux.foo` to `2` is inherited by the `baz` object. Thus, `baz.foo` is `2`, and the sum of the two values is `4`.
 
 ### 4. As we saw in problem 2, the following code creates a new property in the `baz` object instead of assigning the property in the prototype object.
 

@@ -103,58 +103,58 @@ Since `increment` gets invoked as a function, `this.a` references a property on 
 - define `walk` method with a return value with `this.name` and `this.gait()`
 - assign prototype to walkMixin */
 
-const walkMixin = {
-  walk() {
-    return `${this.name} ${this.gait()} forward` // invoke gait()
-  }
-}
+// const walkMixin = {
+//   walk() {
+//     return `${this.name} ${this.gait()} forward` // invoke gait()
+//   }
+// }
 
-class Person {
-  constructor(name) {
-    this.name = name;
-  }
+// class Person {
+//   constructor(name) {
+//     this.name = name;
+//   }
 
-  gait() {
-    return "strolls";
-  }
-}
+//   gait() {
+//     return "strolls";
+//   }
+// }
 
-Object.assign(Person.prototype, walkMixin);
+// Object.assign(Person.prototype, walkMixin);
 
-class Cat {
-  constructor(name) {
-    this.name = name;
-  }
+// class Cat {
+//   constructor(name) {
+//     this.name = name;
+//   }
 
-  gait() {
-    return "saunters";
-  }
-}
+//   gait() {
+//     return "saunters";
+//   }
+// }
 
-Object.assign(Cat.prototype, walkMixin);
+// Object.assign(Cat.prototype, walkMixin);
 
-class Cheetah {
-  constructor(name) {
-    this.name = name;
-  }
+// class Cheetah {
+//   constructor(name) {
+//     this.name = name;
+//   }
 
-  gait() {
-    return "runs";
-  }
-}
+//   gait() {
+//     return "runs";
+//   }
+// }
 
-Object.assign(Cheetah.prototype, walkMixin);
+// Object.assign(Cheetah.prototype, walkMixin);
 
-let mike = new Person("Mike");
-console.log(mike.walk());
-// "Mike strolls forward"
+// let mike = new Person("Mike");
+// console.log(mike.walk());
+// // "Mike strolls forward"
 
-let kitty = new Cat("Kitty");
-console.log(kitty.walk());
-// "Kitty saunters forward"
+// let kitty = new Cat("Kitty");
+// console.log(kitty.walk());
+// // "Kitty saunters forward"
 
-let flash = new Cheetah("Flash");
-console.log(flash.walk());
+// let flash = new Cheetah("Flash");
+// console.log(flash.walk());
 // "Flash runs forward"
 
 /* Discussion
@@ -167,14 +167,14 @@ Mixins are more appropriate in a "has-a" relationship where we want some additio
 
 /* What is the execution context for `baz` and why? */
 
-let foo = {
-  bar: function() {
-    console.log(this);
-  }
-};
+// let foo = {
+//   bar: function() {
+//     console.log(this);
+//   }
+// };
 
-let baz = foo.bar;
-baz();
+// let baz = foo.bar;
+// baz();
 
 /* The global object because `baz` is invoked as a function. Here, we assign the `foo.bar` method to the `baz` variable. The `foo.bar` property and the `baz` variable now refer to the same function object. But because we call `baz` as a standalone function, its execution context is the global object, not the `foo` object. */
 
@@ -182,40 +182,72 @@ baz();
 
 Behold this incomplete class for constructing boxed banners. */
 
-class Banner {
-  constructor(message) {
-    this.message = message;
-  }
+// class Banner {
+//   constructor(message) {
+//     this.message = message;
+//   }
 
-  displayBanner() {
-    console.log([this.horizontalRule(), this.emptyLine(), this.messageLine(), this.emptyLine(), this.horizontalRule()].join("\n"));
-  }
+//   displayBanner() {
+//     console.log([this.horizontalRule(), this.emptyLine(), this.messageLine(), this.emptyLine(), this.horizontalRule()].join("\n"));
+//   }
 
-  horizontalRule() {
-    return `+-${'-'.repeat(this.message.length)}-+`
-  }
+//   horizontalRule() {
+//     return `+-${'-'.repeat(this.message.length)}-+`
+//   }
 
-  emptyLine() {
-    return `| ${' '.repeat(this.message.length)} |`
-  }
+//   emptyLine() {
+//     return `| ${' '.repeat(this.message.length)} |`
+//   }
 
-  messageLine() {
-    return `| ${this.message} |`
-  }
-}
+//   messageLine() {
+//     return `| ${this.message} |`
+//   }
+// }
 
-let banner1 = new Banner('To boldly go where no one has gone before.');
-banner1.displayBanner();
+// let banner1 = new Banner('To boldly go where no one has gone before.');
+// banner1.displayBanner();
 // +--------------------------------------------+
 // |                                            |
 // | To boldly go where no one has gone before. |
 // |                                            |
 // +--------------------------------------------+
 
-let banner2 = new Banner('');
-banner2.displayBanner();
+// let banner2 = new Banner('');
+// banner2.displayBanner();
 // +--+
 // |  |
 // |  |
 // |  |
 // +--+
+
+/* ### 1. What will the following code log to the console? Explain why it logs that value. Try to answer without running the code. */
+
+let qux = { foo: 1 };
+let baz = Object.create(qux);
+console.log(baz.foo + qux.foo);
+
+/* The code will log `2`. 
+
+`qux.foo` returns `1` since `qux` has a `foo` property with that value. However, `baz` doesn't have its "own" copy of the `foo` property. So JavaScript searches the prototype chain for a `foo` property and finds it in `qux`. Thus, `baz.foo` is also `1`, and the sum of the two values is `2`. */
+
+/* What will the following code log to the console? Explain why it logs that value. Try to answer without running the code. */
+
+let qux = { foo: 1 };
+let baz = Object.create(qux);
+baz.foo = 2; // line 3
+
+console.log(baz.foo + qux.foo);
+
+/* The code will log `3`. Here, we assign `baz.foo` to a value of `2`. Property assignment doesn't use the prototype chain; instead, it creates a new property in the `baz` object named `foo`. 
+
+When we add `baz.foo` and `qux.foo` together, `baz.foo` returns the value of its "own" `foo` property, while `qux.foo` returns the value of its "own" `foo` property. Thus, the result is `3`.*/
+
+/* ### 3. What will the following code log to the console? Explain why it logs that value. Try to answer without running the code. */
+
+let qux = { foo: 1 };
+let baz = Object.create(qux);
+qux.foo = 2;
+
+console.log(baz.foo + qux.foo);
+
+/* The code will log `4`. Here, we assign the value `2` to `qux.foo`. Since `baz` doesn't have its "own" copy of the `foo` property, JavaScript uses the prototype chain to look up `baz.foo` and it finds the `foo` property in `qux`. The result is equivalent to `2 + 2`, or `4`. When dealing with prototypes, objects hold a reference to their prototype objects, so if the object's prototype changes in some way, the changes are observable in the inheriting object as well. */
