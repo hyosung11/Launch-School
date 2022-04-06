@@ -7450,3 +7450,30 @@ Have a great day everyone!!!
 05:58 Minutes before study session with Alex.
 
 07:09 Just a reminder that I need to use VS Code to check my code during the assessment, and not Coderpad because I'll get different results.
+
+07:17 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Review OOP Anki Cards
+   * [x] 2. Practice Practice Problems
+~~   * [ ] 3. Condense study guide even more
+     * [ ] Picture walk
+     * [ ] Read with care
+     * [ ] Active recall~~
+   * [x] 4. Listen to Mastery
+~~   * [ ] 5. Read *The Coding Career Handbook*, Chapter 37: Side Projects~~
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. Review OOP Anki Cards
+   * [ ] 3. Practice Practice Problems
+   * [ ] 4. SPOT Study Session with Allison
+   * [ ] 5. Condense study guide even more
+     * [ ] Picture walk
+     * [ ] Read with care
+     * [ ] Active recall
+   * [ ] 6. Listen to Mastery
+   * [ ] 7. Read *The Coding Career Handbook*, Chapter 37: Side Projects
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I should have a good chunk of the day today while the kids are in school to study. The kids notice things that are on my screen.
