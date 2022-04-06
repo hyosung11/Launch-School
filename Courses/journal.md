@@ -7481,3 +7481,5 @@ Have a great day everyone!!!
 10:31 I reviewed and practiced some problems and discovered that I don't understand the difference between nested function not using the surrounding context and function as argument losing surrounding context.
 
 13:16 I learned about how to use `super` inside a subtype to call the method of the parent in the study session with Allison.
+
+18:55 I have done no studying this afternoon and I feel tired right now. Ugh.
