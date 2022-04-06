@@ -7444,3 +7444,9 @@ Have a great day everyone!!!
 18:48 Tired. I will do at least one problem right now before the kids' bedtimes and our stretching together.
 
 20:31 I like that the kids and I stretch together before they go to sleep. I did a few problems, but I'm done for now. Good night.
+
+## 20220406 수요일
+
+05:58 Minutes before study session with Alex.
+
+07:09 Just a reminder that I need to use VS Code to check my code during the assessment, and not Coderpad because I'll get different results.

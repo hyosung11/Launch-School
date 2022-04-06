@@ -35,7 +35,7 @@ Attributes
    Get Description
 ```
 
-### 1. Create three objects that represent the three books shown above. The method for the "Get Description" behavior should return a string like the following:
+### 1. Create three objects that represent the three books shown above. The method for the "Get Description" behavior should return a string like the following
 
 ```js
 "Me Talk Pretty One Day was written by David Sedaris."
@@ -75,7 +75,7 @@ let book3 = {
 
 The method `getDescription` is duplicated in each object. However, each object must hold unique values for its `title` and `author` properties.
 
-### 3. Given our observations about the code so far, implement a factory function for our book objects that we can use with the following code:
+### 3. Given our observations about the code so far, implement a factory function for our book objects that we can use with the following code
 
 ```js
 let book1 = createBook('Mythos', 'Stephen Fry');
@@ -117,7 +117,7 @@ function createBook(title, author) {
 }
 ```
 
-### 4. We now want to track which books we have and haven't read. Update the factory function so that it returns a book object that includes a property `read` that has an initial value of `false`.
+### 4. We now want to track which books we have and haven't read. Update the factory function so that it returns a book object that includes a property `read` that has an initial value of `false`
 
 ### 4.1 Solution
 
@@ -147,9 +147,9 @@ console.log(book2.read); // => false
 console.log(book3.read); // => false
 ```
 
-### 5. Suppose that we want to add a book that we've already read. Modify the factory function to use an optional `read` parameter with a default value of `false`.
+### 5. Suppose that we want to add a book that we've already read. Modify the factory function to use an optional `read` parameter with a default value of `false`
 
-### 5.1 Solution:
+### 5.1 Solution
 
 ```js
 function createBook(title, author, read = false) { // add default parameter
@@ -175,7 +175,7 @@ console.log(book3.read); // => true
 
 ### 6. Let's add a method, `readBook`, that marks a book object as read by setting the `read` property to `true`
 
-### 6.1 Solution:
+### 6.1 Solution
 
 ```js
 function createBook(title, author, read = false) {
@@ -199,7 +199,7 @@ book1.readBook();
 console.log(book1.read); // => true
 ```
 
-### 7. Finally, let's update `getDescription` function to reflect the `read` state directly, For instance:
+### 7. Finally, let's update `getDescription` function to reflect the `read` state directly, For instance
 
 ```js
 book1.getDescription(); // Mythos was written by David Fry. I haven't read it.
@@ -232,7 +232,7 @@ Note that we used the ternary conditional operator to generate the appropriate m
 
 ## Lesson 2: Functions, Objects, and Prototypes > 4. [Practice Problems: Object Prototypes](https://launchschool.com/lessons/1eaf5e37/assignments/f7b8620b)
 
-### 1. What will the following code log to the console? Explain why it logs that value. Try to answer without running the code.
+### 1. What will the following code log to the console? Explain why it logs that value. Try to answer without running the code
 
 ```js
 let qux = { foo: 1 };
@@ -248,7 +248,7 @@ This code logs `2`.
 
 Answer: It will log `2` because it evaluates `baz.foo` to 1 + `quz.foo` to 1;
 
-### 2. What will the following code log to the console? Explain why it logs that value. Try to answer without running the code.
+### 2. What will the following code log to the console? Explain why it logs that value. Try to answer without running the code
 
 ```js
 let qux = { foo: 1 };
@@ -271,7 +271,7 @@ When we add `baz.foo` and `qux.foo` together, `baz.foo` returns the value of its
 ================================
 Answer: 3. The value of `baz.foo` returns `2` on line 3. `qux.foo` returns `1` on line 1. The assignment of `baz.foo` on line 3 does not mutate the `qux` object because when assigning a property on an object, JavaScript always treats the property as an "own" property. That is, it assumes that the property belongs to the object named to the left of the property name. Even if the prototype chain already has a property with that name, it assigns the "own" property. Here, `foo` becomes an "own" property of `baz`. (copied from notes)
 
-### 3. What will the following code log to the console? Explain why it logs that value. Try to answer without running the code.
+### 3. What will the following code log to the console? Explain why it logs that value. Try to answer without running the code
 
 ```js
 let qux = { foo: 1 };
@@ -293,7 +293,7 @@ An important consideration when dealing with prototypes is that *objects hold a 
 
 My Answer: 4. The reassignment of `qux.foo` to `2` is inherited by the `baz` object. Thus, `baz.foo` is `2`, and the sum of the two values is `4`.
 
-### 4. As we saw in problem 2, the following code creates a new property in the `baz` object instead of assigning the property in the prototype object.
+### 4. As we saw in problem 2, the following code creates a new property in the `baz` object instead of assigning the property in the prototype object
 
 ```js
 let qux = { foo: 1 };
@@ -350,7 +350,7 @@ function assignProperty(obj, property, value) {
 }
 ```
 
-### 5. Consider the following two loops:
+### 5. Consider the following two loops
 
 ```js
 for (let property in foo) {
@@ -372,7 +372,7 @@ Answer:
 
 `Object.keys` will log only the enumerable properties of the foo object.~~
 
-### Solution 5
+### 5.1 Solution
 
 They don't always produce the same results since the second loop only iterates over `foo`'s "own" properties, but the first loop iterates over all of the object's enumerable properties, including those inside its prototype chain. For instance, assume that the following code precedes the loops:
 
@@ -402,10 +402,10 @@ The two loops produce the same results only when the prototype chain doesn't con
 
 ### 6. How do you create an object that doesn't have a prototype? How can you determine whether an object has a prototype?
 
-Answer: set it to `null` 
+Answer: set it to `null`
 Use Object.getPrototypeOf()
 
-### Solution 6
+### 6.1 Solution
 
 You can create an object without a prototype by using `Object.create` with a `null` argument:
 
@@ -425,7 +425,7 @@ if (Object.getPrototypeOf(obj)) {
 
 ## 9. [Practice Problems: Implicit and Explicit Function Execution Contexts](https://launchschool.com/lessons/1eaf5e37/assignments/a6c48cbb)
 
-### 9.1 What will the following code output? Try to determine the results without running the code.
+### 9.1 What will the following code output? Try to determine the results without running the code
 
 ```js
 function func() {
@@ -445,7 +445,7 @@ The global object. In Node, that's `global`; in a browser, that's `window`.
 
 Since line 5 calls `func` as a function, the implicit context for `func` is the global object, so it returns the global object.
 
-### 9.2 What will the following code output? Explain the difference, if any, between this output and that of problem 1.
+### 9.2 What will the following code output? Explain the difference, if any, between this output and that of problem 1
 
 ```js
 let obj = {
@@ -658,7 +658,7 @@ Once a function's context gets bound using `bind`, its context can't be changed,
 
 ## Lesson 2 > 15. [Practice Problems: Dealing with Context Loss](https://launchschool.com/lessons/1eaf5e37/assignments/408c20c3)
 
-### 15.1 The code below should output "Christopher Turk is a Surgeon". Without running the code, what will it output? If there is a difference between the actual and desired output, explain the difference.
+### 15.1 The code below should output "Christopher Turk is a Surgeon". Without running the code, what will it output? If there is a difference between the actual and desired output, explain the difference
 
 ```js
 let turk = {
@@ -689,7 +689,7 @@ undefined undefined is a undefined.
 
 When we pass `turk.getDescription` as an argument to `logReturnVal`, we *remove the method from its context*. As a result, when we execute it as `func`, this points to the global object rather than `turk`. Since `global` doesn't have properties defined for `firstName`, `lastName`, or `occupation`, the output isn't what we expect.
 
-### 15.2 Modify the program from the previous problem so that `logReturnVal` accepts an additional `context` argument. If you then run the program with `turk` as the context argument, it should produce the desired output.
+### 15.2 Modify the program from the previous problem so that `logReturnVal` accepts an additional `context` argument. If you then run the program with `turk` as the context argument, it should produce the desired output
 
 ```js
 let turk = {
@@ -750,8 +750,7 @@ let getTurkDescription = turk.getDescription.bind(turk);
 logReturnVal(getTurkDescription);
 ```
 
-
-### 15.4 Consider the following code:
+### 15.4 Consider the following code
 
 ```js
 const TESgames = {
@@ -791,7 +790,7 @@ undefined: Skyrim
 
 Since functions lose their surrounding context when used as arguments to another function, the context of line 6 is not the `TESgames` object. Instead, it is the global object. Thus, `this.seriesTitle` resolves to `undefined` rather than `"The Elder Scrolls"`.
 
-### 15.5 Use `let self = this`; to ensure that `TESgames.listGames` uses `TESGames` as its context and logs the proper output.
+### 15.5 Use `let self = this`; to ensure that `TESgames.listGames` uses `TESGames` as its context and logs the proper output
 
 ```js
 const TESgames = {
@@ -808,7 +807,7 @@ const TESgames = {
 TESgames.listGames();
 ```
 
-### 15.6 The `forEach` method provides an alternative way to supply the execution context for the callback function. Modify the program from the previous problem to use that technique to produce the proper output:
+### 15.6 The `forEach` method provides an alternative way to supply the execution context for the callback function. Modify the program from the previous problem to use that technique to produce the proper output
 
 ```js
 const TESgames = {
@@ -824,7 +823,7 @@ const TESgames = {
 TESgames.listGames();
 ```
 
-### 15.7 Use an arrow function to achieve the same result:
+### 15.7 Use an arrow function to achieve the same result
 
 ```js
 const TESgames = {
@@ -871,7 +870,7 @@ Solution:
 
 The value of `foo.a` will be `0`. Since `increment` gets invoked as a function, `this.a` references a property of the global object rather than a property of `foo`. Thus, the property `foo.a` isn't modified by the `increment`; its value remains 0.
 
-### 15.9 Use one of the methods we learned in this lesson to invoke `increment` with an explicit context such that `foo.a` gets incremented with each invocation of `incrementA`.
+### 15.9 Use one of the methods we learned in this lesson to invoke `increment` with an explicit context such that `foo.a` gets incremented with each invocation of `incrementA`
 
 ### 15.9 Solution
 
@@ -948,13 +947,13 @@ End Lesson 2
 
 2. There is no way to inspect an object and learn whether we created it with a factory function. That effectively makes it impossible to identify the specific "type" of the object; at best, you can only determine that an object has some specific characteristics.
 
-**Solution**
+### 4.1.1 Solution
 
 1. Each object created by a factory function has a copy of all methods, which can be redundant and memory intensive.
 
 2. There is no way to tell which factory function created an object, so there's no way to be sure that you're working with the right kind of object.
 
-### 4.2 Rewrite the following code to use the object literal syntax to generate the returned object:
+### 4.2 Rewrite the following code to use the object literal syntax to generate the returned object
 
 ```js
 function makeObj() {
@@ -965,7 +964,7 @@ function makeObj() {
 }
 ```
 
-**Solution**
+### 4.2.1 Solution
 
 ```js
 function makeObj() {
@@ -976,7 +975,7 @@ function makeObj() {
 }
 ```
 
-### 4.3 In this problem and the remaining problems, we'll build a simple invoice processing program. To get you started, here's the code to process a single invoice:
+### 4.3 In this problem and the remaining problems, we'll build a simple invoice processing program. To get you started, here's the code to process a single invoice
 
 ```js
 let invoice = {
@@ -1050,7 +1049,7 @@ invoices.push(createInvoice( {
 console.log(invoiceTotal(invoices)); // 31000
 ```
 
-### 4.4 Now we can build a factory function to create payments. The function can take an object argument in one of 3 forms:
+### 4.4 Now we can build a factory function to create payments. The function can take an object argument in one of 3 forms
 
 1. Payment for one service, e.g., `{ internet: 1000 }` or `{ phone: 1000 }`.
 2. Payment for both services, e.g., `{ internet: 2000, phone: 1000 }`.
@@ -1102,7 +1101,7 @@ payments.push(createPayment({
 console.log(paymentTotal(payments)); // => 24000
 ```
 
-### 4.5 Update the `createInvoice` function so that it can add payment(s) to invoices. Use the following code as a guideline:
+### 4.5 Update the `createInvoice` function so that it can add payment(s) to invoices. Use the following code as a guideline
 
 ```js
 let invoice = createInvoice({
@@ -1184,7 +1183,7 @@ Solution:
 
 This code throws a `TypeError` since `scamper` is an undefined property on `lizzy`. Since `Lizard` was invoked without the `new` operator and it doesn't have an explicit return value, the return value is `undefined`. Thus, `lizzy` gets assigned to `undefined` which causes the call to `scamper` to throw an error: you can't call a method on `undefined`.
 
-#### 5.7.3 Alter the code in problem 2 so that it produces the desired output: I'm scampering!
+#### 5.7.3 Alter the code in problem 2 so that it produces the desired output: I'm scampering
 
 ```js
 function Lizard() {
@@ -1259,7 +1258,7 @@ console.log(rect1.area);      // => 6
 console.log(rect1.perimeter); // => 10
 ```
 
-### 7.3 Write a constructor function called `Circle` that takes a radius as an argument. You should be able to call an `area` method on any objects created by the constructor to get the circle's area. Test your implementation with the following code:
+### 7.3 Write a constructor function called `Circle` that takes a radius as an argument. You should be able to call an `area` method on any objects created by the constructor to get the circle's area. Test your implementation with the following code
 
 ```js
 // constructor function
@@ -1305,7 +1304,7 @@ true
 
 Even though we define the `swingSword` method on the prototype after we create the `ninja`, all objects created by the `Ninja` constructor *share the same prototype object*. Thus, when we define `swingSword`, it immediately becomes available to the `ninja` object.
 
-### 7.5 What will the following code output and why? Try to answer without running the code.
+### 7.5 What will the following code output and why? Try to answer without running the code
 
 ```js
 function Ninja() {
@@ -1331,7 +1330,7 @@ Uncaught TypeError: ninja.swingSword is not a function
 
 Despite the similarities to the code in the previous question, this code doesn't work the same way. That's because we're reassigning `Ninja.prototype` to an entirely new object instead of mutating the original prototype object. The prototype for the `ninja` object doesn't change; it's still the original prototype defined during the constructor's invocation. Thus, JavaScript can't find the `swingSword` method in the prototype chain of `ninja`.
 
-### 7.6 Implement the method described in the comments below:
+### 7.6 Implement the method described in the comments below
 
 ```js
 function Ninja() {
@@ -1354,7 +1353,7 @@ console.log(ninjaB.swing().swung);      // logs `true`
 
 This pattern of "chainable" methods invocations and property accesses on an object requires that methods defined on the prototype always return the context object (in this case, ninjaA and ninjaB).
 
-### 7.7 In this problem, we'll ask you to create a new instance of an object, without having direct access to the constructor function:
+### 7.7 In this problem, we'll ask you to create a new instance of an object, without having direct access to the constructor function
 
 ```js
 let ninjaA;
@@ -1405,7 +1404,7 @@ ninjaB:
   }
 ```
 
-### 7.8 Since a constructor is just a function, you can call it without the `new` operator. However, that can lead to unexpected results and errors, especially for inexperienced programmers. Write a constructor function that you can use with or without the `new` operator. The function should return the same result with either form. Use the code below to check your solution:
+### 7.8 Since a constructor is just a function, you can call it without the `new` operator. However, that can lead to unexpected results and errors, especially for inexperienced programmers. Write a constructor function that you can use with or without the `new` operator. The function should return the same result with either form. Use the code below to check your solution
 
 ```js
 function User(first, last) {
@@ -1470,7 +1469,7 @@ I definitely need to review these practice problems again.
 
 We can treat JavaScript classes like any other JavaScript value. They can be passed around to functions, returned from functions, assigned to variables, and used anywhere a value is expected.
 
-### 11.2 Consider the following class declaration:
+### 11.2 Consider the following class declaration
 
 ```js
 class Television {
@@ -1511,7 +1510,7 @@ Score: 6/13 (46.15%)
 
 ## Lesson 4 > Assignment 3. [Practice Problems: Object Creation with Prototypes](https://launchschool.com/lessons/d5964d17/assignments/02f965cb)
 
-### 3.1 Use a factory function to create pet objects. The factory should let us create and use pets like this:
+### 3.1 Use a factory function to create pet objects. The factory should let us create and use pets like this
 
 ```js
 function createPet(animal, name) {
@@ -1540,7 +1539,7 @@ neptune.sleep(); // I am sleeping
 neptune.wake(); // I am awake
 ```
 
-### 3.2 Use the OLOO pattern to create an object prototype that we can use to create pet objects. The prototype should let us create and use pets like this:
+### 3.2 Use the OLOO pattern to create an object prototype that we can use to create pet objects. The prototype should let us create and use pets like this
 
 ```js
 const PetPrototype = {
@@ -1654,7 +1653,7 @@ Hello.hi(); // TypeError: Hello.hi is not a function
 
 ## Lesson 4 > Assignment 6. Practice Problems: Subtyping with Classes
 
-### 6.1 Suppose we have the following classes:
+### 6.1 Suppose we have the following classes
 
 ```js
 class Game {
@@ -1676,7 +1675,7 @@ What would happen if we added a `play` method to the `Bingo` class, keeping in m
 
 If we add a new `play` method to the `Bingo` class, objects created by `Bingo` will use that method instead of looking up the prototype chain and finding it in the `Game` class. As soon as JavaScript finds a method, it calls it. When a class redefines a method that a superclass defines, we call this "method overriding".
 
-### 6.2 Let's practice creating a class hierarchy.
+### 6.2 Let's practice creating a class hierarchy
 
 Create a class named `Greeting` that has a single method named `greet`. The method should take a string argument, and it should print that argument to the console.
 
@@ -1794,7 +1793,7 @@ We used `this.constructor.name` to determine the name. It works like this:
 2. The `constructor` property of an object references the class that the object belongs to, i.e., `Car` or `Truck`.
 3. Constructors have a `name` property that merely contains the name of the class as a string, and that's what we output in `goFast`.
 
-### 8.4.3 Ben and Alyssa are working on a vehicle management system. Thus far, they have created classes named `Auto` and `Motorcycle` to represent automobiles and motorcycles. After they noticed that the information and calculations performed was common to both vehicle types, they decided to break out the commonality into a separate class named `WheeledVehicle`. Their code, thus far, looks like this:
+### 8.4.3 Ben and Alyssa are working on a vehicle management system. Thus far, they have created classes named `Auto` and `Motorcycle` to represent automobiles and motorcycles. After they noticed that the information and calculations performed was common to both vehicle types, they decided to break out the commonality into a separate class named `WheeledVehicle`. Their code, thus far, looks like this
 
 ```js
 class WheeledVehicle {
