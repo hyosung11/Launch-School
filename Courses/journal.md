@@ -7472,7 +7472,7 @@ Have a great day everyone!!!
      * [ ] Picture walk
      * [ ] Read with care
      * [ ] Active recall
-   * [ ] 6. Listen to Mastery
+   * [x] 6. Listen to Mastery
    * [ ] 7. Read *The Coding Career Handbook*, Chapter 37: Side Projects
 
 3. Are there any blockers or impediments preventing you from doing your work?
