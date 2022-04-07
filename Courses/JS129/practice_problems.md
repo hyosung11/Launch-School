@@ -1262,6 +1262,8 @@ console.log(rect1.perimeter); // => 10
 
 ### 7.3 Write a constructor function called `Circle` that takes a radius as an argument. You should be able to call an `area` method on any objects created by the constructor to get the circle's area. Test your implementation with the following code
 
+### 7.3 Solution
+
 ```js
 // constructor function
 const Circle = function(radius) {
@@ -1298,7 +1300,7 @@ Ninja.prototype.swingSword = function() {
 console.log(ninja.swingSword());
 ```
 
-**Solution**
+### 7.4 Solution
 
 ```sh
 true
@@ -1324,7 +1326,7 @@ Ninja.prototype = {
 console.log(ninja.swingSword());
 ```
 
-**Solution**
+### 7. 5 Solution
 
 ```sh
 Uncaught TypeError: ninja.swingSword is not a function
@@ -1375,11 +1377,11 @@ let ninjaB = new ninjaA.constructor(); // <-- solution
 ninjaA.constructor === ninjaB.constructor // => true
 ```
 
-Hint:
+### 7.7 Hint:
 
 The value assigned to `ninjaA` is an object created by a constructor function. As such, this object has a `constructor` property that points back to its constructor. Think of a way to use this property; that should help lead you to a solution.
 
-**Solution**
+### 7.7 Solution
 
 ```js
 let ninjaB = new ninjaA.constructor();

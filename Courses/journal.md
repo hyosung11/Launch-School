@@ -7508,14 +7508,23 @@ Have a great day everyone!!!
 
 2. What will you do today?
    * [x] 1. Study Session with Alex - He didn't show but I worked on some problems
-   * [ ] 2. Review OOP Anki Cards
-   * [ ] 3. Lesson 3 > 7. Practice Problems - Constructors and Prototypes
+   * [x] 2. Review OOP Anki Cards
+   * [x] 3. Lesson 3 > 7. Practice Problems - Constructors and Prototypes
    * [ ] 4. Condense study guide even more
      * [ ] Picture walk
      * [ ] Read with care
      * [ ] Active recall
-   * [ ] 6. Listen to Mastery
+   * [x] 6. Listen to Mastery
+   * [x] 7. SPOT Q&A with Juliette
    * [ ] 7. Read *The Coding Career Handbook*, Chapter 37: Side Projects
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I feel kind of tired and find it difficult to concentrate for some reason.
+
+08:42 Let's focus intently until 10:30 and get some problems solved.
+
+09:26 I need to study with more intention to get retention.
+
+13:05 SPOT Q&A with Juliette
+
+14:05 I asked my question to Juliette about the hiring process. I need to learn in public and write a blog!

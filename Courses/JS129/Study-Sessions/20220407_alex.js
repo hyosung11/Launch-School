@@ -180,3 +180,17 @@ function createPayment(services = {}) {
 
   return payment;
 }
+
+/* What happens if you run the following code? Why? */
+
+function Lizard() {
+  this.scamper = function() {
+    console.log("I'm scampering!");
+  };
+}
+
+let lizzy = new Lizard(); // add `new` operator to fix
+lizzy.scamper(); // ?
+
+/* This code throws a `TypeError` because `scamper` is an undefined property on `lizzy`. Since `Lizard` was invoked without the `new` operator and it doesn't have an explicit return value, the return value is `undefined`. Thus, `lizzy` gets assigned to `undefined` which causes the call to `scamper` to throw an error because you can't call a method on `undefined`.
+*/
