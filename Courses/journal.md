@@ -7532,3 +7532,5 @@ Have a great day everyone!!!
 15:55 Feeling frustrated after losing many games of ping pong in a row to Louis. I need to develop my backhand into a weapon and not a liability.
 
 17:29 Reviewing study guide but need to get Omi now.
+
+19:25 I don't love the way I have organized my study guide. I need to get ready to play soccer now.
