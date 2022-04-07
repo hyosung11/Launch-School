@@ -7530,3 +7530,5 @@ Have a great day everyone!!!
 14:05 I asked my question to Juliette about the hiring process. I need to learn in public and write a blog!
 
 15:55 Feeling frustrated after losing many games of ping pong in a row to Louis. I need to develop my backhand into a weapon and not a liability.
+
+17:29 Reviewing study guide but need to get Omi now.
