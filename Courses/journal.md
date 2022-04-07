@@ -7483,3 +7483,39 @@ Have a great day everyone!!!
 13:16 I learned about how to use `super` inside a subtype to call the method of the parent in the study session with Allison.
 
 18:55 I have done no studying this afternoon and I feel tired right now. Ugh.
+
+## 20220407
+
+06:07 I can't remember if I forgot to push some commit from my MBP. Alex is not in Gather and I need to keep working on problems anyway.
+
+06:52 I don't understand this set of problems: [Practice Problems - Factory Functions](https://launchschool.com/lessons/e3c64e3f/assignments/bf77a962)
+
+07:22 Time to answer my daily scrum questions.
+
+07:23 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex
+   * [x] 2. Review OOP Anki Cards
+   * [x] 3. Practice Practice Problems
+   * [x] 4. SPOT Study Session with Allison
+~~   * [ ] 5. Condense study guide even more
+     * [ ] Picture walk
+     * [ ] Read with care
+     * [ ] Active recall~~
+   * [x] 6. Listen to Mastery
+~~   * [ ] 7. Read *The Coding Career Handbook*, Chapter 37: Side Projects~~
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex - He didn't show but I worked on some problems
+   * [ ] 2. Review OOP Anki Cards
+   * [ ] 3. Lesson 3 > 7. Practice Problems - Constructors and Prototypes
+   * [ ] 4. Condense study guide even more
+     * [ ] Picture walk
+     * [ ] Read with care
+     * [ ] Active recall
+   * [ ] 6. Listen to Mastery
+   * [ ] 7. Read *The Coding Career Handbook*, Chapter 37: Side Projects
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I feel kind of tired and find it difficult to concentrate for some reason.

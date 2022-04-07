@@ -1181,9 +1181,9 @@ let lizzy = Lizard();
 lizzy.scamper(); // ?
 ```
 
-Solution:
+#### 5.7.2 Solution:
 
-This code throws a `TypeError` since `scamper` is an undefined property on `lizzy`. Since `Lizard` was invoked without the `new` operator and it doesn't have an explicit return value, the return value is `undefined`. Thus, `lizzy` gets assigned to `undefined` which causes the call to `scamper` to throw an error: you can't call a method on `undefined`.
+This code throws a `TypeError` because `scamper` is an undefined property on `lizzy`. Since `Lizard` was invoked without the `new` operator and it doesn't have an explicit return value, the return value is `undefined`. Thus, `lizzy` gets assigned to `undefined` which causes the call to `scamper` to throw an error because you can't call a method on `undefined`.
 
 #### 5.7.3 Alter the code in problem 2 so that it produces the desired output: I'm scampering
 
@@ -1194,7 +1194,7 @@ function Lizard() {
   };
 }
 
-let lizzy = new Lizard();
+let lizzy = new Lizard(); // add `new` operator
 lizzy.scamper();
 ```
 
@@ -1226,7 +1226,7 @@ console.log(rect1.area); // => ?
 console.log(rect1.perimeter); // =?
 ```
 
-**Solution:**
+### 7.1 Solution
 
 ```sh
 NaN
