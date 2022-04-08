@@ -7534,3 +7534,7 @@ Have a great day everyone!!!
 17:29 Reviewing study guide but need to get Omi now.
 
 19:25 I don't love the way I have organized my study guide. I need to get ready to play soccer now.
+
+## 20220408 금요일
+
+08:00 Time for breakfast with the kids.
