@@ -7561,7 +7561,7 @@ Have a great day everyone!!!
    * [x] 1. Study Session with Laurent
    * [x] 2. Review OOP Anki Cards
    * [ ] 3. Exercises Again
-   * [ ] 4. Condense study guide even more
+   * [x] 4. Condense study guide even more
      * [ ] Picture walk
      * [ ] Read with care
      * [ ] Active recall
@@ -7572,3 +7572,5 @@ Have a great day everyone!!!
    * I didn't wake up early and do a study session with Alex, but the one with Laurent was helpful.
 
 12:47 Revised study guide and practiced examples up to "Encapsulation" which is what I will study after a Quick and the Dead training session and lunch.
+
+14:50 Studying polymorphism and now need to get to school to pickup the kids.
