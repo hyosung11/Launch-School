@@ -7538,3 +7538,33 @@ Have a great day everyone!!!
 ## 20220408 금요일
 
 08:00 Time for breakfast with the kids.
+
+10:28 Finished study session with Laurent where we did some problems and I understand Mixins better now.
+
+10:29 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex - He didn't show but I worked on some problems
+   * [x] 2. Review OOP Anki Cards
+   * [x] 3. Lesson 3 > 7. Practice Problems - Constructors and Prototypes
+   * [x] 4. Condense study guide even more
+     * [x] Picture walk
+     * [x] Read with care
+     * [x] Active recall
+   * [x] 6. Listen to Mastery: Chapter 6: Fuse the Intuitive with the Rational
+   * [x] 7. SPOT Q&A with Juliette
+~~   * [ ] 7. Read *The Coding Career Handbook*, Chapter 37: Side Projects~~
+
+2. What will you do today?
+   * [x] 1. Study Session with Laurent
+   * [x] 2. Review OOP Anki Cards
+   * [ ] 3. Exercises Again
+   * [ ] 4. Condense study guide even more
+     * [ ] Picture walk
+     * [ ] Read with care
+     * [ ] Active recall
+   * [x] 6. Listen to Mastery: Chapter 6: Fuse the Intuitive with the Rational
+   * [ ] 7. Read *The Coding Career Handbook*, Chapter 37: Side Projects
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I didn't wake up early and do a study session with Alex, but the one with Laurent was helpful.

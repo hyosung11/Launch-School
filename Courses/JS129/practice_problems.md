@@ -1577,7 +1577,7 @@ neptune.wake();  // I am awake
 
 Objects created with the OLOO have a prototype object that contains the methods associated with the created objects. Since all pets created from the prototype share a single prototype object, they all share the same methods. With the factory function, each object has a copy of all the methods. Thus, objects created by OLOO are more efficient in terms of memory use.
 
-Objects created with the factory function can have private state. Any state stored in the body of the factory function instead of in the returned object is private to the returned object. They can't be accessed or modified unless one of the object methods exposes the state. With OLOO, there is no way to define private state. All object state can be accessed and modified by outside code.
+Objects created with the factory function can have private state. Any state stored in the body of the factory function instead of in the returned object is private to the returned object. They can't be accessed or modified unless one of the object methods exposes the state. With OLOO, there is no way to define private state. All object states can be accessed and modified by outside code.
 
 ### Lesson 4: Subclassing and Code Reuse Patterns > Practice Problems
 
@@ -1675,7 +1675,7 @@ class Bingo extends Game {
 
 What would happen if we added a `play` method to the `Bingo` class, keeping in mind that there is already a method of this name in the `Game` class from which the `Bingo` class inherits? Explain your answer. What do we call it when we define a method like this?
 
-**Solution**
+### 6.1 Solution
 
 If we add a new `play` method to the `Bingo` class, objects created by `Bingo` will use that method instead of looking up the prototype chain and finding it in the `Game` class. As soon as JavaScript finds a method, it calls it. When a class redefines a method that a superclass defines, we call this "method overriding".
 
@@ -1734,7 +1734,7 @@ class Truck {
 Object.assign(Truck.prototype.Speed);
 ```
 
-**Solution**
+### 8.4.1 Solution
 
 ```js
 const Speed = {
