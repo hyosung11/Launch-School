@@ -5857,6 +5857,7 @@ communicative more
 
 16:24 Here are some text examples for markdown
 
+```html
 <span style="color:blue">some _This is Blue italic._ text</span>
 
 <span style="color:red">some **This is Red Bold.** text</span>
@@ -5872,6 +5873,7 @@ TODOs:
 * <r>TODO:</r> Important thing to do
 * <o>TODO:</o> Less important thing to do
 * <g>DONE:</g> Breath deeply and improve karma
+```
 
 17:04 Cruising through the beginning of Object Oriented Programming.
 
