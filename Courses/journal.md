@@ -7568,3 +7568,5 @@ Have a great day everyone!!!
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I didn't wake up early and do a study session with Alex, but the one with Laurent was helpful.
+
+12:47 Revised study guide and practiced examples up to "Encapsulation" which is what I will study after a Quick and the Dead training session and lunch.
