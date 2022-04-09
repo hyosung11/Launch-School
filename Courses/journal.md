@@ -7562,11 +7562,11 @@ Have a great day everyone!!!
    * [x] 2. Review OOP Anki Cards
    * [ ] 3. Exercises Again
    * [x] 4. Condense study guide even more
-     * [ ] Picture walk
-     * [ ] Read with care
-     * [ ] Active recall
-   * [x] 6. Listen to Mastery: Chapter 6: Fuse the Intuitive with the Rational
-   * [ ] 7. Read *The Coding Career Handbook*, Chapter 37: Side Projects
+     * [x] Picture walk
+     * [x] Read with care
+     * [x] Active recall
+   * [x] 5. Listen to Mastery: Chapter 6: Fuse the Intuitive with the Rational
+   * [ ] 6. Read *The Coding Career Handbook*, Chapter 37: Side Projects
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I didn't wake up early and do a study session with Alex, but the one with Laurent was helpful.
@@ -7574,3 +7574,34 @@ Have a great day everyone!!!
 12:47 Revised study guide and practiced examples up to "Encapsulation" which is what I will study after a Quick and the Dead training session and lunch.
 
 14:50 Studying polymorphism and now need to get to school to pickup the kids.
+
+20:13 Completed another revision of the study guide. Getting closer to ready to take the written assessment.
+
+## 20220409 토요일
+
+09:47 축구를 잘 했다. I had three assists today and our team won 6-3.
+
+09:48 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Laurent
+   * [x] 2. Review OOP Anki Cards
+   * [x] 3. Exercises Again
+   * [x] 4. Condense study guide even more
+     * [x] Picture walk
+     * [x] Read with care
+     * [x] Active recall
+   * [x] 5. Listen to Mastery: Chapter 6: Fuse the Intuitive with the Rational
+~~   * [ ] 6. Read *The Coding Career Handbook*, Chapter 37: Side Projects~~
+
+2. What will you do today?
+   * [ ] 1. Exercises
+   * [ ] 2. Review OOP Anki Cards
+   * [ ] 3. Exercises Again
+   * [ ] 4. Listen to the 48 Laws of Power: Law 1: Never Outshine the Master
+   * [ ] 5. Read *The Coding Career Handbook*, Chapter 37: Side Projects
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * My days is pretty open. Not sure what I'm going to do, but I want to want Chelsea in a few minutes.
+
+
