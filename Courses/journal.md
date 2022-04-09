@@ -7561,10 +7561,10 @@ Have a great day everyone!!!
    * [x] 1. Study Session with Laurent
    * [x] 2. Review OOP Anki Cards
    * [ ] 3. Exercises Again
-   * [ ] 4. Condense study guide even more
-     * [ ] Picture walk
-     * [ ] Read with care
-     * [ ] Active recall
+   * [x] 4. Condense study guide even more
+     * [x] Picture walk
+     * [x] Read with care
+     * [x] Active recall
    * [x] 6. Listen to Mastery: Chapter 6: Fuse the Intuitive with the Rational
    * [ ] 7. Read *The Coding Career Handbook*, Chapter 37: Side Projects
 
@@ -7572,3 +7572,5 @@ Have a great day everyone!!!
    * I didn't wake up early and do a study session with Alex, but the one with Laurent was helpful.
 
 12:47 Revised study guide and practiced examples up to "Encapsulation" which is what I will study after a Quick and the Dead training session and lunch.
+
+20:13 Completed another revision of the study guide. Getting closer to ready to take the written assessment.
