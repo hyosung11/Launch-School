@@ -7603,5 +7603,3 @@ Have a great day everyone!!!
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * My days is pretty open. Not sure what I'm going to do, but I want to want Chelsea in a few minutes.
-
-
