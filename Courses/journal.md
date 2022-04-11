@@ -7610,3 +7610,20 @@ Have a great day everyone!!!
 ## 202204010 일요일
 
 20:09 Studying some Anki cards and then calling it a day because I was out all day playing soccer and then reffing soccer games.
+
+## 202204011 월요일
+
+09:31 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Review OOP Anki Cards
+   * [x] 2. Listen to the 48 Laws of Power: through Law 15
+
+2. What will you do today?
+   * [ ] 1. Skim Study Guide
+   * [ ] 2. Review OOP Anki Cards
+   * [ ] 3. Exercises Again
+   * [x] 4. Listen to the 48 Laws of Power: Law 16+
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Kids are home for spring break. So I need to make lunch for them and we will go to Sky Zone this afternoon.
