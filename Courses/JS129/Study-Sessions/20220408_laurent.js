@@ -155,7 +155,7 @@ Object.assign(Catamaran.prototype, Moveable);
 
 In JavaScript, comparing two objects either with == or === checks for object identity. In other words, the comparison evaluates as true if it's the same object on either side of == or ===. This is a limitation, in a sense, because sometimes we need to check if two objects have the same key/value pairs. JavaScript doesn't give us a way to do that.
 
-Write a function objectsEqual that accepts two object arguments and returns true or false depending on whether the objects have the same key/value pairs. 
+Write a function objectsEqual that accepts two object arguments and returns true or false depending on whether the objects have the same key/value pairs.
 
 Algorithm
 - define `objectsEqual()` with `obj1` and `obj2` parameters

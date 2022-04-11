@@ -7598,10 +7598,12 @@ Have a great day everyone!!!
    * [ ] 1. Exercises
    * [ ] 2. Review OOP Anki Cards
    * [ ] 3. Exercises Again
-   * [ ] 4. Listen to the 48 Laws of Power: Law 1: Never Outshine the Master
-   * [ ] 5. Read *The Coding Career Handbook*, Chapter 37: Side Projects
+   * [x] 4. Listen to the 48 Laws of Power: Law 1: Never Outshine the Master
+   * [x] 5. Attend Coding Career Meeting
+   * [ ] 6. Read *The Coding Career Handbook*, Chapter 37: Side Projects
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * My days is pretty open. Not sure what I'm going to do, but I want to want Chelsea in a few minutes.
 
+16:36 I haven't done any studying today, but I did attend the Coding Career meeting today.
 
