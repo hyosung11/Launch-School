@@ -7603,3 +7603,7 @@ Have a great day everyone!!!
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * My days is pretty open. Not sure what I'm going to do, but I want to want Chelsea in a few minutes.
+
+## 202204010 일요일
+
+20:09 Studying some Anki cards and then calling it a day because I was out all day playing soccer and then reffing soccer games.
