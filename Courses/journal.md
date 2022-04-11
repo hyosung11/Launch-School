@@ -7607,3 +7607,6 @@ Have a great day everyone!!!
 
 16:36 I haven't done any studying today, but I did attend the Coding Career meeting today.
 
+## 202204010 일요일
+
+20:09 Studying some Anki cards and then calling it a day because I was out all day playing soccer and then reffing soccer games.
