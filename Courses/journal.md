@@ -7620,7 +7620,7 @@ Have a great day everyone!!!
    * [x] 2. Listen to the 48 Laws of Power: through Law 15
 
 2. What will you do today?
-   * [ ] 1. Skim Study Guide
+   * [x] 1. Skim Study Guide
    * [x] 2. Review OOP Anki Cards
    * [ ] 3. Exercises Again
    * [x] 4. Listen to the 48 Laws of Power: Law 16+
@@ -7629,3 +7629,23 @@ Have a great day everyone!!!
    * Kids are home for spring break. So I need to make lunch for them and we will go to Sky Zone this afternoon.
 
 11:08 Just working through the Anki problems that come up as I review them.
+
+## 202204012 화요일
+
+08:43 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Skim Study Guide
+   * [x] 2. Review OOP Anki Cards
+~~   * [ ] 3. Exercises Again~~
+   * [x] 4. Listen to the 48 Laws of Power: through Law 21
+
+2. What will you do today?
+   * [ ] 1. Skim Study Guide
+   * [ ] 2. Review OOP Anki Cards
+   * [ ] 3. Exercises Again
+   * [ ] 4. JS129 Study Group with Karl
+   * [ ] 5. Listen to the 48 Laws of Power: Law 22+
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Kids are still on spring break this week, so I am watching them. Since SungOh has a play date this morning from 9:00 to 11:00, I will hopefully have some time to study.

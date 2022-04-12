@@ -101,4 +101,4 @@ let person = { // object literal, not a function
 
 console.log(person.fullName);
 
-/* The code logs `NaN`. Anywhere outside a function, the `this` keyword is bound to the global object. If `this` is used inside a function, its value depends on how the function is invoked. Since `global.firstName` and global.lastName` (if you're in Node) are not defined, the operation being performed here is `undefined` + `undefined` which results in `fullName` having a value of `NaN`. */
+/* The code logs `NaN`. Anywhere outside a function, the `this` keyword is bound to the global object. If `this` is used inside a function, its value depends on how the function is invoked. Since `global.firstName` and global.lastName` (if you're in Node) are not defined, the operation being performed here is `undefined` + `undefined` which results in `fullName` having a value of `NaN`. *
