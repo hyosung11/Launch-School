@@ -7641,13 +7641,17 @@ Have a great day everyone!!!
    * [x] 4. Listen to the 48 Laws of Power: through Law 21
 
 2. What will you do today?
-   * [ ] 1. Skim Study Guide
-   * [ ] 2. Review OOP Anki Cards
-   * [ ] 3. Exercises Again
-   * [ ] 4. JS129 Study Group with Karl
-   * [ ] 5. Listen to the 48 Laws of Power: Law 22+
+   * [x] 1. Skim Study Guide
+   * [x] 2. Review OOP Anki Cards
+   * [x] 3. Exercises Again
+   * [x] 4. JS129 Study Group with Karl
+   * [x] 5. Listen to the 48 Laws of Power: Law 22 ~ 23
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Kids are still on spring break this week, so I am watching them. Since SungOh has a play date this morning from 9:00 to 11:00, I will hopefully have some time to study.
 
-10:05 Trying to understand how all the pieces of the code fit together in "Pet Shelter".
+10:05 Trying to understand how all the pieces of the code fit together in "Pet Shelter". Remember that method invocation ... I don't know what I was trying to write before I was interrupted.
+
+11:48 It's a few minutes before the next JS129 Study Group.
+
+14:02 After study session with Karl and lunch. SungOh is on my case and it's warmer and sunny outside, so off we go.
