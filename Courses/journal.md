@@ -7649,3 +7649,5 @@ Have a great day everyone!!!
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Kids are still on spring break this week, so I am watching them. Since SungOh has a play date this morning from 9:00 to 11:00, I will hopefully have some time to study.
+
+10:05 Trying to understand how all the pieces of the code fit together in "Pet Shelter".
