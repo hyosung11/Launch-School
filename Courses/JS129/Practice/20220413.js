@@ -185,3 +185,45 @@ let Student = class extends Person {
 let student = new Student('Omi', 10, 'Spring');
 student.sayName();
 student.enrollInCourse('Art101');
+
+
+/* Why does line 12 log `2` instead of `1`? */
+let a = {
+  foo: 1,
+};
+
+let b = {
+  foo: 2,
+};
+
+Object.setPrototypeOf(b, a);
+
+let c = Object.create(b);
+console.log(c.foo); // line 12 => 2;
+
+/* When two objects in the same prototype chain have a property with the same name, the object that's closer to the calling object takes precedence. */
+
+function createRectangle(width, length) {
+  return {
+    width,
+    length,
+
+    getWidth() {
+      return this.width;
+    },
+
+    getLength() {
+      return this.length;
+    },
+
+    getArea() {
+      return this.width * this.length;
+    }
+  }
+}
+
+let rect = createRectangle(4, 5);
+
+console.log(rect.getWidth()); // 4
+console.log(rect.getLength()); // 5
+console.log(rect.getArea()); // 20
