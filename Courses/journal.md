@@ -7681,3 +7681,5 @@ Have a great day everyone!!!
 10:56 Going to the bookstore with SungOh to get some coffee and maybe a book.
 
 11:08 Now going to bookstore with SungOh. I need to do the practice problems again.
+
+13:23 Watching Capstone presentation of QMantis, but I don't really understand it.
