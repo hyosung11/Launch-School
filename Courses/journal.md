@@ -7675,3 +7675,7 @@ Have a great day everyone!!!
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I feel listless today. I need to find study energy. I feel fat too. I don't like it.
+
+09:49 I asked Aryan about `call` and I think because `call` invokes itself ...
+
+10:56 Going to the bookstore with SungOh to get some coffee and maybe a book.
