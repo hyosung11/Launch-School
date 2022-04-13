@@ -7655,3 +7655,23 @@ Have a great day everyone!!!
 11:48 It's a few minutes before the next JS129 Study Group.
 
 14:02 After study session with Karl and lunch. SungOh is on my case and it's warmer and sunny outside, so off we go.
+
+## 202204013 수요일
+
+09:20 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Skim Study Guide
+   * [x] 2. Review OOP Anki Cards
+   * [x] 3. Exercises Again
+   * [x] 4. JS129 Study Group with Karl
+   * [x] 5. Listen to the 48 Laws of Power: Law 22 ~ 23
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex
+   * [ ] 2. Review OOP Anki Cards
+   * [ ] 3. Exercises Again
+   * [ ] 4. Listen to the 48 Laws of Power: Law 23
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I feel listless today. I need to find study energy. I feel fat too. I don't like it.
