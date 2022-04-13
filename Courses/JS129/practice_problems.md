@@ -1399,11 +1399,11 @@ This code works as well, but there is a flaw: it puts the `swung` property in th
 ninjaA:
   swung: false
   constructor: Ninja
-  prototye: {}
+  prototype: {}
 
 ninjaB:
   constructor: Ninja
-  prototye: {
+  prototype: {
     swung: false
   }
 ```

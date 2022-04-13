@@ -377,7 +377,7 @@ Summary
 * Change a line and it goes blue.
 * Add a new line and it goes green.
 * Do either of these and your file turns yellow in the Explorer.
-* Commit and all the colours disappear again.
+* Commit and all the colors disappear again.
 
 21:00 Finished coding the `calculator.js` app again using the text instead of the video this time. Getting off now to watch TV with Sohee. Good night for now. I enjoyed today.
 
@@ -5313,7 +5313,7 @@ splice(start, deleteCount, item1, item2, itemN)
 
 13:22 After lunch and studying APIs a little bit.
 
-16:32 Back after playing pinp pong with Louis and getting crushed today. I can't figure out a way to keep the `repeatedSubstringPattern` problem in my head.
+16:32 Back after playing ping pong with Louis and getting crushed today. I can't figure out a way to keep the `repeatedSubstringPattern` problem in my head.
 
 16:47 I can't figure out this LeetCode problem, so I'm going to take a break and move to my MBP.
 
@@ -5360,7 +5360,7 @@ every(function(element, index, array) { /* ... */ }, thisArg)
 
 10:07 Using Deepak's algorithm to write code for the Typoglycemia Generator problem.
 
-`String.protype.at() => at(index)`
+`String.prototype.at() => at(index)`
 
 The at() method takes an integer value and returns a new String consisting of the single UTF-16 code unit located at the specified offset. This method allows for positive and negative integers. Negative integers count back from the last string character.
 
@@ -6130,7 +6130,7 @@ TODOs:
    * [ ] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 18. Lesson 2 Quiz 2 Anki Cards
    * [x] 3. Study Session with Laurent
    * [x] 4. Study Session with Michael
-   * [x] 5. Read *The Coding Career Handbook*, Chapters 1 ~ 4 Part I: Your Coding Career
+   * [x] 5. Read _The Coding Career Handbook_, Chapters 1 ~ 4 Part I: Your Coding Career
    * [x] 6. JS120 > Lesson 3: Object Creation Patterns: Assignment 4. Practice Problems - Factory Functions 3 ~ 5
    * [ ] 7. JS120 > Lesson 3: Object Creation Patterns: Assignment 5. Constructors
 
@@ -6164,7 +6164,7 @@ TODOs:
    * [ ] 2. JS120 > Lesson 2: Functions, Objects, and Prototypes > Assignment 18. Lesson 2 Quiz 2 Anki Cards
    * [x] 3. Study Session with Laurent
    * [x] 4. Study Session with Michael
-   * [x] 5. Read *The Coding Career Handbook*, Chapters 1 ~ 4 Part I: Your Coding Career
+   * [x] 5. Read _The Coding Career Handbook_, Chapters 1 ~ 4 Part I: Your Coding Career
    * [x] 6. JS120 > Lesson 3: Object Creation Patterns: Assignment 4. Practice Problems - Factory Functions 3 ~ 5
    * [x] 7. JS120 > Lesson 3: Object Creation Patterns: Assignment 5. Constructors started
 
@@ -6173,7 +6173,7 @@ TODOs:
    * [x] 2. JS120 > Lesson 3: Object Creation Patterns: Assignment 6. Constructors with Prototypes
    * [x] 3. JS120 > Lesson 3: Object Creation Patterns: Assignment 7. Practice Problems - Constructors and Prototypes
    * [x] 4. JS120 > Lesson 3: Object Creation Patterns: Assignment 7. Practice Problems - Constructors and Prototypes
-   * [x] 5. Read *The Coding Career Handbook*, Chapter 4: Junior Developer
+   * [x] 5. Read _The Coding Career Handbook_, Chapter 4: Junior Developer
 
 3. Are there any blockers or impediments preventing you from doing your work?
    1. I need to strength train and I still want the Treadly Pro 2.
@@ -6208,13 +6208,13 @@ TODOs:
    * [x] 3. JS120 > Lesson 3: Object Creation Patterns: Assignment 7. Practice Problems - Constructors and Prototypes
    * [x] 4. JS120 > Lesson 3: Object Creation Patterns: Assignment 7. Practice Problems - Constructors and Prototypes
    * [x] 5. JS120 > Lesson 3: Object Creation Patterns: Assignment 8. Static and Instance Properties and Methods
-   * [x] 6. Read *The Coding Career Handbook*, Chapter 4: Junior Developer
+   * [x] 6. Read _The Coding Career Handbook_, Chapter 4: Junior Developer
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [x] 2. JS120 > Lesson 3: Object Creation Patterns: Assignment 9. Built-in Constructors
    * [x] 3. JS120 > Lesson 3: Object Creation Patterns: Assignment 10. ES6 Classes
-   * [x] 4. Read *The Coding Career Handbook*, Chapter 5: From Junior to Senior
+   * [x] 4. Read _The Coding Career Handbook_, Chapter 5: From Junior to Senior
 
 3. Are there any blockers or impediments preventing you from doing your work?
    1. Nope. I have a clear lane to study from morning to afternoon after I take the kids to school until I have to pick them up in the afternoon.
@@ -6241,7 +6241,7 @@ TODOs:
    * [x] 1. Study Session with Alex
    * [x] 2. JS120 > Lesson 3: Object Creation Patterns > Assignment 9. Built-in Constructors
    * [x] 3. JS120 > Lesson 3: Object Creation Patterns > Assignment 10. ES6 Classes
-   * [x] 4. Read *The Coding Career Handbook*, Chapter 5: From Junior to Senior
+   * [x] 4. Read _The Coding Career Handbook_, Chapter 5: From Junior to Senior
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
@@ -6249,7 +6249,7 @@ TODOs:
    * [x] 3. JS120 > Lesson 3: Object Creation Patterns > Assignment 11. Practice Problems - Classes
    * [x] 4. JS120 > Lesson 3: Object Creation Patterns > Assignment 12. Summary
    * [x] 4. SPOT Study Session
-   * [x] 5. Read *The Coding Career Handbook*, Chapter 6: Senior Developer
+   * [x] 5. Read _The Coding Career Handbook_, Chapter 6: Senior Developer
    * [x] 6. JS120 > Lesson 3: Object Creation Patterns > Assignment 13. Lesson 3 Quiz 1
    * [x] 7. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 1. Introduction
    * [x] 8. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 2. Object Creation with Prototypes (OLOO)
@@ -6307,14 +6307,14 @@ I'm glad I have my MBP to work with right now.
    * [x] 3. JS120 > Lesson 3: Object Creation Patterns > Assignment 11. Practice Problems - Classes
    * [x] 4. JS120 > Lesson 3: Object Creation Patterns > Assignment 12. Summary
    * [x] 4. SPOT Study Session
-   * [x] 5. Read *The Coding Career Handbook*, Chapter 6: Senior Developer
+   * [x] 5. Read _The Coding Career Handbook_, Chapter 6: Senior Developer
    * [x] 6. JS120 > Lesson 3: Object Creation Patterns > Assignment 13. Lesson 3 Quiz 1
    * [x] 7. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 1. Introduction
    * [x] 8. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 2. Object Creation with Prototypes (OLOO)
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [ ] 2. Read *The Coding Career Handbook*, Chapter 6: Senior Developer
+   * [ ] 2. Read _The Coding Career Handbook_, Chapter 6: Senior Developer
    * [x] 3. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 4. Subtyping with Constructors and Prototypes
    * [x] 4. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 5. Subtyping with Classes
    * [ ] 5. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 6. Practice Problems: Subtyping with Classes
@@ -6352,7 +6352,7 @@ Powerful Reading
 
 1. What did you do yesterday?
    * [x] 1. Study Session with Alex
-   * [ ] 2. Read *The Coding Career Handbook*, Chapter 7 ~ 16
+   * [ ] 2. Read _The Coding Career Handbook_, Chapter 7 ~ 16
    * [x] 3. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 4. Subtyping with Constructors and Prototypes
    * [x] 4. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 5. Subtyping with Classes
 
@@ -6360,7 +6360,7 @@ Powerful Reading
    * [x] 1. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 6. Practice Problems: Subtyping with Classes
    * [ ] 2. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 7. Rewriting OO RPS with Constructors and Classes
    * [ ] 3. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 8. Code Reuse with Mixins
-   * [x] 4. Read *The Coding Career Handbook*, Chapter 17: First Principles Thinking
+   * [x] 4. Read _The Coding Career Handbook_, Chapter 17: First Principles Thinking
 
 3. Are there any blockers or impediments preventing you from doing your work?
    1. I am participating in the Coding Career Handbook book group this afternoon and at some point today I want to do taxes.
@@ -6385,18 +6385,18 @@ Powerful Reading
 
 ## 202203013 일요일
 
-07:56 Good morning. I think I will stick with markdown in VS Code for all my notes. I guess I can use Obsidian to graph my notes. Maybe I should ask Jason Aricheta about Obsidian or watch a tutorial. I wonder if I got a different keyboard that had the keys separated a little more I would have less wrist and forearm pain and I'd stop hitting the key to change from English to Korean. I am thinking that I need to write more and share more in public. This book that Shawn Wang wrote has so many links to things that I've read and thought about. Yes, an erogonomic keyboard would be good to have. Also something with a thumb activated mouse would be good. I just use my thumb for the spacebar with my current configuration. I notice that I always hit the spacebar with my right thumb.
+07:56 Good morning. I think I will stick with markdown in VS Code for all my notes. I guess I can use Obsidian to graph my notes. Maybe I should ask Jason Aricheta about Obsidian or watch a tutorial. I wonder if I got a different keyboard that had the keys separated a little more I would have less wrist and forearm pain and I'd stop hitting the key to change from English to Korean. I am thinking that I need to write more and share more in public. This book that Shawn Wang wrote has so many links to things that I've read and thought about. Yes, an ergonomic keyboard would be good to have. Also something with a thumb activated mouse would be good. I just use my thumb for the spacebar with my current configuration. I notice that I always hit the spacebar with my right thumb.
 
 08:01 Daily Scrum Questions
 
 1. What did you do yesterday?
    * [x] 1. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 6. Practice Problems: Subtyping with Classes
    * [x] 2. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 7. Rewriting OO RPS with Constructors and Classes
-   * [x] 4. Read *The Coding Career Handbook*, Chapter 17: First Principles Thinking
+   * [x] 4. Read _The Coding Career Handbook_, Chapter 17: First Principles Thinking
 
 2. What will you do today?
    * [x] 1. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignment 8. Code Reuse with Mixins
-   * [x] 2. Read *The Coding Career Handbook*, Chapters 18 ~ 20
+   * [x] 2. Read _The Coding Career Handbook_, Chapters 18 ~ 20
 
 3. Are there any blockers or impediments preventing you from doing your work?
    1. I want to meet the soccer players of Ridgewood KGV, but there's snow on the ground. I don't think there will be enough guys to play or practice. I do appreciate how well-organized Jersey United was.
@@ -6427,14 +6427,14 @@ Powerful Reading
 
 1. What did you do yesterday?
    * [x] 1. JS120 > Lesson 4: Subclassing and Code Reuse Patterns > Assignments 8 ~ 11
-   * [x] 2. Read *The Coding Career Handbook*, Chapter 21
+   * [x] 2. Read _The Coding Career Handbook_, Chapter 21
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [ ] 2. JS120 > Lesson 5: More Object Oriented Programming
    * [x] 3. Study Session with Laurent
    * [x] 4. Study Session with Michael
-   * [x] 5. Read *The Coding Career Handbook*, Chapter 21: Strategy and Chapter 22: Learning Gears
+   * [x] 5. Read _The Coding Career Handbook_, Chapter 21: Strategy and Chapter 22: Learning Gears
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * All is well.
@@ -6472,7 +6472,7 @@ Powerful Reading
    * [x] 2. JS120 > Lesson 5: More Object Oriented Programming
    * [x] 3. Study Session with Laurent
    * [x] 4. Study Session with Michael
-   * [x] 5. Read *The Coding Career Handbook*
+   * [x] 5. Read _The Coding Career Handbook_
      * [x] Chapter 21: Strategy and
      * [x] Chapter 22: Learning Gears
      * [x] Chapter 23: Specialist or Generalist
@@ -6488,7 +6488,7 @@ Powerful Reading
    * [x] 3. Study Session with Laurent
    * [x] 4. JS129 Study Group
    * [x] 5. Anki Cards Review
-   * [ ] 6. Read *The Coding Career Handbook*
+   * [ ] 6. Read _The Coding Career Handbook_
      * [x]  Chapter 24: Betting on Technologies
      * [ ]  Chapter 25: Profit Centers vs Cost Centers
    * [ ] 7. Learn in Public
@@ -6539,7 +6539,7 @@ Powerful Reading
    * [x] 3. Study Session with Laurent
    * [x] 4. JS129 Study Group
    * [x] 5. Anki Cards Review
-   * [x] 6. Read *The Coding Career Handbook*, Chapter 24: Betting on Technologie
+   * [x] 6. Read _The Coding Career Handbook_, Chapter 24: Betting on Technology
    * [ ] 7. Learn in Public
 
 2. What will you do today?
@@ -6548,7 +6548,7 @@ Powerful Reading
    * [x] 3. Study Session with Michael
    * [x] 4. Exercises
    * [x] 5. Anki Cards Review
-   * [x] 6. Read *The Coding Career Handbook*, Chapter 25: Profit Centers vs Cost Centers
+   * [x] 6. Read _The Coding Career Handbook_, Chapter 25: Profit Centers vs Cost Centers
    * [ ] 7. Learn in Public
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -6598,7 +6598,7 @@ Becoming a domain expert.
    * [x] 3. Study Session with Michael
    * [x] 4. Exercises > Easy > 1. Rectangles
    * [x] 5. Anki Cards Review
-   * [x] 6. Read *The Coding Career Handbook*, Chapter 25: Profit Centers vs Cost Centers
+   * [x] 6. Read _The Coding Career Handbook_, Chapter 25: Profit Centers vs Cost Centers
 ~~   * [ ] 7. Learn in Public~~
 
 2. What will you do today?
@@ -6606,8 +6606,8 @@ Becoming a domain expert.
    * [x] 2. JS120 - Object Oriented JavaScript > Easy > 3.
    * [ ] 3. JS129 > Create Study Guide
    * [x] 4. Anki Cards Review
-   * [x] 5. Read *The Coding Career Handbook*, Chapter 26: Career Ladders
-   * [x] 6. Learn in Public ~ reread chapter from *The Coding Career Handbook*.
+   * [x] 5. Read _The Coding Career Handbook_, Chapter 26: Career Ladders
+   * [x] 6. Learn in Public ~ reread chapter from _The Coding Career Handbook_.
    * [x] 7. Writers Bloc Meeting
    * [x] 8. Study Session with Manny
 
@@ -6640,7 +6640,7 @@ Becoming a domain expert.
 
 2. **Variability**. Say you’re learning tennis shots. Should you perfect your forehand swing before moving onto the backhand? Or mix both up at the same time? Intuition argues for mastering one thing before moving onto the next, but research suggests otherwise. Variable practice tends to result in better retention and transfer than blocked practice.
 
-3. **Testing**. Should you re-read or do practice questions? Students overwhelmingly favor re-reading as a learning strategy. However, *practice testing* is one of the most effective learning methods that has been systematically studied, while re-reading is one of the worst."
+3. **Testing**. Should you re-read or do practice questions? Students overwhelmingly favor re-reading as a learning strategy. However, _practice testing_ is one of the most effective learning methods that has been systematically studied, while re-reading is one of the worst."
 
 06:11 Alex is late again, but I have a commitment to show up and be here at 6:00!
 
@@ -6651,8 +6651,8 @@ Becoming a domain expert.
    * [x] 2. JS120 - Object Oriented JavaScript > Easy > 3. Fake Cat
    * [x] 3. JS120 - Object Oriented JavaScript > Easy > 4. Complete the Program - Cats!
    * [x] 4. Anki Cards Review
-   * [x] 5. Read *The Coding Career Handbook*, Chapter 26: Career Ladders
-   * [x] 6. Learn in Public ~ reread chapter from *The Coding Career Handbook*.
+   * [x] 5. Read _The Coding Career Handbook_, Chapter 26: Career Ladders
+   * [x] 6. Learn in Public ~ reread chapter from _The Coding Career Handbook_.
    * [x] 7. Writers Bloc Meeting
    * [x] 8. Study Session with Manny
 
@@ -6661,7 +6661,7 @@ Becoming a domain expert.
    * [x] 2. JS120 - Object Oriented JavaScript > Easy > 5. Animals
    * [x] 3. JS120 - Object Oriented JavaScript > Easy > 6. Refactoring the Vehicles
    * [x] 4. Anki Cards Review
-   * [x] 5. Read *The Coding Career Handbook*, Chapter 27: The Business of Software
+   * [x] 5. Read _The Coding Career Handbook_, Chapter 27: The Business of Software
    * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -6690,14 +6690,14 @@ Becoming a domain expert.
    * [x] 2. JS120 - Object Oriented JavaScript > Easy > 5. Animals
    * [x] 3. JS120 - Object Oriented JavaScript > Easy > 6. Refactoring the Vehicles
    * [x] 4. Anki Cards Review
-   * [x] 5. Read *The Coding Career Handbook*, Chapter 27: The Business of Software
+   * [x] 5. Read _The Coding Career Handbook_, Chapter 27: The Business of Software
 ~~   * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?~~
 
 2. What will you do today?
    * [x] 1. JS120 - Object Oriented JavaScript > Easy > 7. What Will This Do?
    * [x] 2. JS120 - Object Oriented JavaScript > Easy > 8. Shouter
    * [x] 3. Anki Cards Review
-   * [ ] 4. Read *The Coding Career Handbook*, Chapter 28: The Business of Software
+   * [ ] 4. Read _The Coding Career Handbook_, Chapter 28: The Business of Software
    * [x] 5. Coding Career Handbook Meetup
    * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
 
@@ -6718,7 +6718,7 @@ Becoming a domain expert.
    * [x] 1. JS120 - Object Oriented JavaScript > Easy > 7. What Will This Do?
    * [x] 2. JS120 - Object Oriented JavaScript > Easy > 8. Shouter
    * [x] 3. Anki Cards Review
-~~   * [ ] 4. Read *The Coding Career Handbook*, Chapter 28: The Business of Software~~
+~~   * [ ] 4. Read _The Coding Career Handbook_, Chapter 28: The Business of Software~~
    * [x] 5. Coding Career Handbook Meetup
 ~~   * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?~~
 
@@ -6726,7 +6726,7 @@ Becoming a domain expert.
    * [x] 1. JS120 - Object Oriented JavaScript > Easy > 9. Moving
    * [x] 2. JS120 - Object Oriented JavaScript > Easy > 10. Pet Shelter
    * [x] 3. Anki Cards Review
-   * [x] 4. Read *The Coding Career Handbook*, Chapter 28: The Business of Software
+   * [x] 4. Read _The Coding Career Handbook_, Chapter 28: The Business of Software
    * [ ] 5. Learn in Public: Context Loss vs Context Change question on LinkedIn?~~
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -6755,7 +6755,7 @@ Becoming a domain expert.
    * [x] 2. JS120 - Object Oriented JavaScript > Easy > 10. Pet Shelter
    * [x] 3. JS120 - Object Oriented JavaScript > Easy > 11. Banner Class
    * [x] 3. Anki Cards Review
-   * [x] 4. Read *The Coding Career Handbook*, Chapter 28: The Business of Software
+   * [x] 4. Read _The Coding Career Handbook_, Chapter 28: The Business of Software
    * [ ] 5. Learn in Public: Context Loss vs Context Change question on LinkedIn?
 
 2. What will you do today?
@@ -6767,7 +6767,7 @@ Becoming a domain expert.
    * [?] 6. JS120 - Object Oriented JavaScript > Objects > 5. School
    * [x] 7. JS120 - Object Oriented JavaScript > Function Context > 1. What is This?
    * [x] 7. Anki Cards Review
-   * [x] 8. Read *The Coding Career Handbook*, Chapter 29: Megatrends
+   * [x] 8. Read _The Coding Career Handbook_, Chapter 29: Megatrends
    * [ ] 9. Learn in Public: Context Loss vs Context Change question on LinkedIn?
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -6785,7 +6785,7 @@ Becoming a domain expert.
 
 14:40 It's been a slow study day. These OOP problems are challenging me in a different way. I need to get the kids soon.
 
-18:41 After dinner and I don't really understand "Scbool" and want to go over it with Laurent tomorrow. Going to the MBP on the couch now and to do the next set of problems on Function Context.
+18:41 After dinner and I don't really understand "School" and want to go over it with Laurent tomorrow. Going to the MBP on the couch now and to do the next set of problems on Function Context.
 
 19:06 Spent almost 30 minutes on email.
 
@@ -6810,7 +6810,7 @@ Becoming a domain expert.
    * [x] 8. JS120 - Object Oriented JavaScript > Function Context > 2. The Franchise
    * [x] 9. JS120 - Object Oriented JavaScript > Function Context > 3. The Franchise - Solution 2
    * [x] 10. Anki Cards Review
-   * [x] 11. Read *The Coding Career Handbook*, Chapter 29 ~ 31: Megatrends, Part IV: Tactics, Negotiating
+   * [x] 11. Read _The Coding Career Handbook_, Chapter 29 ~ 31: Megatrends, Part IV: Tactics, Negotiating
 ~~   * [ ] 12. Learn in Public: Context Loss vs Context Change question on LinkedIn?~~
 
 2. What will you do today?
@@ -6821,7 +6821,7 @@ Becoming a domain expert.
    * [x] 5. Study Session with Laurent
    * [x] 6. SPOT Study Session with Elaine
    * [x] 7. Anki Cards Review
-   * [x] 8. Read *The Coding Career Handbook*, Chapter 32: Learn in Private
+   * [x] 8. Read _The Coding Career Handbook_, Chapter 32: Learn in Private
    * [ ] 9. Learn in Public: Context Loss vs Context Change question on LinkedIn?
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -6835,7 +6835,7 @@ Becoming a domain expert.
 
 09:03 There's going to be a merge conflict.
 
-09:05 I fixed the merge conflit. I want to check UI for a second before starting the study sesion with Laurent.
+09:05 I fixed the merge conflict. I want to check UI for a second before starting the study session with Laurent.
 
 10:40 Walking through "Student" with Laurent and struggling to understand what is being asked. I have to pee.
 
@@ -6901,7 +6901,7 @@ console.log(kitty.walk());
    * [x] 5. Study Session with Laurent
    * [x] 6. SPOT Study Session with Elaine
    * [x] 7. Anki Cards Review
-   * [x] 8. Read *The Coding Career Handbook*, Chapter 32: Learn in Private
+   * [x] 8. Read _The Coding Career Handbook_, Chapter 32: Learn in Private
 ~~   * [ ] 9. Learn in Public: Context Loss vs Context Change question on LinkedIn?~~
 
 2. What will you do today?
@@ -6909,7 +6909,7 @@ console.log(kitty.walk());
    * [ ] 2. JS120 - Object Oriented JavaScript > Object Creation Patterns > 1 ~ 3
    * [x] 3. Study Session with Laurent
    * [ ] 4. Anki Cards Review
-   * [ ] 5. Read *The Coding Career Handbook*, Chapter 33: Design for Developers in a Hurry
+   * [ ] 5. Read _The Coding Career Handbook_, Chapter 33: Design for Developers in a Hurry
    * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -6942,14 +6942,14 @@ console.log(kitty.walk());
    * [x] 2. JS120 - Object Oriented JavaScript > Object Creation Patterns > 1 ~ 3
    * [x] 3. Study Session with Laurent and Michael
    * [x] 4. Anki Cards Review
-   * [x] 5. Read *The Coding Career Handbook*, Chapter 33: Design for Developers in a Hurry
+   * [x] 5. Read _The Coding Career Handbook_, Chapter 33: Design for Developers in a Hurry
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
    * [x] 2. Study Session with Laurent and Michael
    * [x] 3. Work on Study Guide - dumped lesson 1 notes into file and annotated into study guide
    * [x] 4. Anki Cards Review
-   * [ ] 5. Read *The Coding Career Handbook*, Chapter 34: Lampshading
+   * [ ] 5. Read _The Coding Career Handbook_, Chapter 34: Lampshading
    * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
    * [x] 7. Writers Bloc Meeting
    * [ ] 8. Contact Derek Barker about role at Salesforce
@@ -6968,7 +6968,7 @@ console.log(kitty.walk());
 Derek  8:58 AM
 @here I hope everyone is doing great and having an outstanding week! We've begun hiring again at salesforce, for the Associate Technical Consultant, and Technical Consultant Roles. We also are no longer requiring relocating to an office as we have shifted to full work from home. Working here has been absolutely incredible and the work life balance is perfect.
 
-Also the benefits are incredible, second only to what I had in the military. If you want to see all the benefits, please check out https://www.salesforcebenefits.com/us/candidate.html. One of my favorite benefits is 6 months of paid paternity leave :open_mouth: which I was able to use to spend time with my new born in 2021, and will be forever grateful for that opportunity. If you're interested in applying or hearing more, please DM and I will put in a referral for you/glad to provide more info.
+Also the benefits are incredible, second only to what I had in the military. If you want to see all the benefits, [please check out](https://www.salesforcebenefits.com/us/candidate.html). One of my favorite benefits is 6 months of paid paternity leave :open_mouth: which I was able to use to spend time with my new born in 2021, and will be forever grateful for that opportunity. If you're interested in applying or hearing more, please DM and I will put in a referral for you/glad to provide more info.
 
 Have a great day everyone!!!
 
@@ -6991,7 +6991,7 @@ Have a great day everyone!!!
    * [x] 2. Study Session with Laurent and Michael
    * [x] 3. Worked on Study Guide - dumped lessons 1 and 2 notes into file and annotated into study guide
    * [x] 4. Anki Cards Review
-   * [ ] 5. Read *The Coding Career Handbook*, Chapter 34: Lampshading
+   * [ ] 5. Read _The Coding Career Handbook_, Chapter 34: Lampshading
 ~~   * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?~~
    * [x] 7. Writers Bloc Meeting
 ~~   * [ ] 8. Contact Derek Barker about role at Salesforce~~
@@ -7001,7 +7001,7 @@ Have a great day everyone!!!
    * [x] 2. Study Session with Laurent and Michael
    * [x] 3. Work on Study Guide - Lesson 3 and 4 notes into file and annotated into study guide
    * [x] 4. Anki Cards Review
-   * [x] 5. Read *The Coding Career Handbook*, Chapter 34: Lampshading
+   * [x] 5. Read _The Coding Career Handbook_, Chapter 34: Lampshading
    * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
    * [x] 7. Contact Derek Barker about role at Salesforce
 
@@ -7039,14 +7039,14 @@ Have a great day everyone!!!
    * [x] 2. Study Session with Laurent and Michael
    * [x] 3. Worked on Study Guide - Lesson 3 and 4 notes into file and annotated into study guide
    * [x] 4. Anki Cards Review
-   * [x] 5. Read *The Coding Career Handbook*, Chapter 34: Lampshading
+   * [x] 5. Read _The Coding Career Handbook_, Chapter 34: Lampshading
 ~~   * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?~~
    * [x] 7. Contact Derek Barker about role at Salesforce
 
 2. What will you do today?
    * [x] 1. Work on Study Guide 2.0
    * [x] 2. Anki Cards Review
-   * [ ] 3. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
+   * [ ] 3. Read _The Coding Career Handbook_, Chapter 35: Conference CFPs (Call for Papers)
    * [x] 4. Career Karma: Reframing your past experience for a new tech career
    * [x] 5. Coding Career Meeting
    * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?
@@ -7080,7 +7080,7 @@ Have a great day everyone!!!
 1. What did you do yesterday?
    * [x] 1. Work on Study Guide 2.0
    * [x] 2. Anki Cards Review
-~~   * [ ] 3. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)~~
+~~   * [ ] 3. Read _The Coding Career Handbook_, Chapter 35: Conference CFPs (Call for Papers)~~
    * [x] 4. Career Karma: Reframing your past experience for a new tech career
    * [x] 5. Coding Career Meeting
 ~~   * [ ] 6. Learn in Public: Context Loss vs Context Change question on LinkedIn?~~
@@ -7089,7 +7089,7 @@ Have a great day everyone!!!
 2. What will you do today?
    * [x] 1. Work on Study Guide 2.0
    * [ ] 2. Anki Cards Review
-   * [ ] 3. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
+   * [ ] 3. Read _The Coding Career Handbook_, Chapter 35: Conference CFPs (Call for Papers)
    * [ ] 4. Learn in Public: Context Loss vs Context Change question on LinkedIn?
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -7122,14 +7122,14 @@ Have a great day everyone!!!
 1. What did you do yesterday?
    * [x] 1. Work on Study Guide 4.0
    * [x] 2. Anki Cards Review
-~~   * [ ] 3. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
+~~   * [ ] 3. Read _The Coding Career Handbook_, Chapter 35: Conference CFPs (Call for Papers)
    * [ ] 4. Learn in Public: Context Loss vs Context Change question on LinkedIn?~~
 
 2. What will you do today?
    * [x] 1. Work on Study Guide 5.0 during Study Session with Alex
    * [ ] 2. Anki Cards Review
    * [x] 3. Study Session with Michael
-   * [ ] 3. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
+   * [ ] 3. Read _The Coding Career Handbook_, Chapter 35: Conference CFPs (Call for Papers)
    * [ ] 4. Learn in Public: Context Loss vs Context Change question on LinkedIn?
    * [ ] 5. Send resume to Derek Barker for Salesforce job.
 
@@ -7152,7 +7152,7 @@ Have a great day everyone!!!
 
 ## 20220329 화요일
 
-07:40 I slept through my alarm and missed my study sessionn with Alex. I woke up to a message from Bishop asking if I'm over 50. I guess that's a compliment.
+07:40 I slept through my alarm and missed my study session with Alex. I woke up to a message from Bishop asking if I'm over 50. I guess that's a compliment.
 
 07:50 I just renewed Moana's vehicle registration. Now going to get my coffee and read a little before breakfast.
 
@@ -7164,7 +7164,7 @@ Have a great day everyone!!!
    * [x] 1. Work on Study Guide 5.0 during Study Session with Alex
    * [x] 2. Anki Cards Review
    * [x] 3. Study Session with Michael
-~~   * [ ] 3. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
+~~   * [ ] 3. Read _The Coding Career Handbook_, Chapter 35: Conference CFPs (Call for Papers)
    * [ ] 4. Learn in Public: Context Loss vs Context Change question on LinkedIn?
    * [ ] 5. Send resume to Derek Barker for Salesforce job.~~
 
@@ -7173,7 +7173,7 @@ Have a great day everyone!!!
    * [x] 2. Anki Cards Review
    * [x] 3. JS129 Study Group
    * [x] 4. Study Session with Mel Truong in Gather at 14:15 ~ 15:30
-   * [ ] 5. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
+   * [ ] 5. Read _The Coding Career Handbook_, Chapter 35: Conference CFPs (Call for Papers)
    * [x] 6. Research Context Loss vs Context Change
    * [ ] 7. Send resume to Derek Barker for Salesforce job.
 
@@ -7213,7 +7213,7 @@ Have a great day everyone!!!
    * [x] 2. Anki Cards Review
    * [x] 3. JS129 Study Group
    * [x] 4. Study Session with Mel Truong in Gather at 14:15 ~ 15:30
-~~   * [ ] 5. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)~~
+~~   * [ ] 5. Read _The Coding Career Handbook_, Chapter 35: Conference CFPs (Call for Papers)~~
    * [x] 6. Research Context Loss vs Context Change
 ~~   * [ ] 7. Send resume to Derek Barker for Salesforce job.
 ~~
@@ -7222,7 +7222,7 @@ Have a great day everyone!!!
    * [x] 2. Anki Cards Review
    * [x] 3. Practice Problems
    * [x] 4. Study Session with Michael
-   * [x] 5. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
+   * [x] 5. Read _The Coding Career Handbook_, Chapter 35: Conference CFPs (Call for Papers)
    * [ ] 6. Send resume to Derek Barker for Salesforce job.
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -7247,7 +7247,7 @@ Have a great day everyone!!!
    * [x] 2. Anki Cards Review
    * [x] 3. Practice Problems
    * [x] 4. Study Session with Michael
-   * [x] 5. Read *The Coding Career Handbook*, Chapter 35: Conference CFPs (Call for Papers)
+   * [x] 5. Read _The Coding Career Handbook_, Chapter 35: Conference CFPs (Call for Papers)
 ~~   * [ ] 6. Send resume to Derek Barker for Salesforce job.~~
 ~~
 2. What will you do today?
@@ -7255,7 +7255,7 @@ Have a great day everyone!!!
    * [ ] 2. Anki Cards Review
    * [x] 3. Practice Problems
    * [x] 4. Study Session with Aryan
-   * [x] 5. Read *The Coding Career Handbook*, Chapter 36: Mise en Place Writing
+   * [x] 5. Read _The Coding Career Handbook_, Chapter 36: Mise en Place Writing
    * [x] 6. Send resume to Derek Barker for Salesforce job.
 
 3. Are there any blockers or impediments preventing you from doing your work?
@@ -7304,7 +7304,7 @@ Have a great day everyone!!!
    * [x] 2. Anki Cards Review
    * [x] 3. Practice Problems
    * [x] 4. Study Session with Aryan
-   * [x] 5. Read *The Coding Career Handbook*, Chapter 36: Mise en Place Writing
+   * [x] 5. Read _The Coding Career Handbook_, Chapter 36: Mise en Place Writing
    * [x] 6. Send resume to Derek Barker for Salesforce job.
 
 2. What will you do today?
@@ -7312,7 +7312,7 @@ Have a great day everyone!!!
    * [x] 2. Anki Cards Review
    * [x] 3. Practice Problems
    * [x] 4. Study Session with Michael
-   * [ ] 5. Read *The Coding Career Handbook*, Chapter 37: Side Projects
+   * [ ] 5. Read _The Coding Career Handbook_, Chapter 37: Side Projects
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I want to put in at least four solid hours of study during the day and maybe a little more this afternoon.
@@ -7351,19 +7351,19 @@ Have a great day everyone!!!
    * [x] 2. Anki Cards Review
    * [x] 3. Practice Problems
    * [x] 4. Study Session with Michael
-   * [ ] 5. Read *The Coding Career Handbook*, Chapter 37: Side Projects
+   * [ ] 5. Read _The Coding Career Handbook_, Chapter 37: Side Projects
 
 2. What will you do today?
    * [x] 1. Complete one JS120 Small Problems exercise
    * [x] 2. Review OOP Anki Cards
    * [ ] 3. Study `bind` in my study guide
 ~~   * [ ] 4. Coding Career Meeting~~
-   * [ ] 5. Read *The Coding Career Handbook*, Chapter 37: Side Projects
+   * [ ] 5. Read _The Coding Career Handbook_, Chapter 37: Side Projects
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I'm tired and lots of activity with the family today, so I'm not sure how much I will be able to study today.
 
-14:23 I cannot concentrate right now. I feel tired. I think I need to take a nap or do somethig low-key for a bit. I'm not sure about attending the Coding Career community meeting either.
+14:23 I cannot concentrate right now. I feel tired. I think I need to take a nap or do something low-key for a bit. I'm not sure about attending the Coding Career community meeting either.
 
 17:05 Tired and not able to do much today. I need to do one small problem now.
 
@@ -7391,7 +7391,7 @@ Have a great day everyone!!!
    * [x] 3. Practice Practice Problems
    * [x] 4. Study Session with Michael at 13:45
    * [x] 5. Complete the Salesforce Application
-   * [ ] 6. Read *The Coding Career Handbook*, Chapter 37: Side Projects
+   * [ ] 6. Read _The Coding Career Handbook_, Chapter 37: Side Projects
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Looking at our April finances, it looks like if we go as projected by Sohee we will run a deficit. That irks me. I guess I really do need to find a job and make some money while I keep studying.
@@ -7420,7 +7420,7 @@ Have a great day everyone!!!
    * [x] 3. Practice Practice Problems with Laurent
    * [x] 4. Study Session with Michael at 13:45
    * [x] 5. Complete the Salesforce Application
-   * [ ] 6. Read *The Coding Career Handbook*, Chapter 37: Side Projects
+   * [ ] 6. Read _The Coding Career Handbook_, Chapter 37: Side Projects
 
 2. What will you do today?
    * [x] 1. Review OOP Anki Cards
@@ -7430,7 +7430,7 @@ Have a great day everyone!!!
      * [ ] Read with care
      * [ ] Active recall
    * [x] 4. Listen to Mastery
-   * [ ] 5. Read *The Coding Career Handbook*, Chapter 37: Side Projects
+   * [ ] 5. Read _The Coding Career Handbook_, Chapter 37: Side Projects
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I have a dentist appointment at 12:00 that could take a couple of hours, so I won't have as much time to study. I need to get myself in the habit of working on problems with a timer. I have three hours to do about 15 problems, but Michael says the last two problems are longer and harder as they require writing code for the answer.
@@ -7463,7 +7463,7 @@ Have a great day everyone!!!
      * [ ] Read with care
      * [ ] Active recall~~
    * [x] 4. Listen to Mastery
-~~   * [ ] 5. Read *The Coding Career Handbook*, Chapter 37: Side Projects~~
+~~   * [ ] 5. Read _The Coding Career Handbook_, Chapter 37: Side Projects~~
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
@@ -7475,7 +7475,7 @@ Have a great day everyone!!!
      * [ ] Read with care
      * [ ] Active recall
    * [x] 6. Listen to Mastery
-   * [ ] 7. Read *The Coding Career Handbook*, Chapter 37: Side Projects
+   * [ ] 7. Read _The Coding Career Handbook_, Chapter 37: Side Projects
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I should have a good chunk of the day today while the kids are in school to study. The kids notice things that are on my screen.
@@ -7506,7 +7506,7 @@ Have a great day everyone!!!
      * [ ] Read with care
      * [ ] Active recall~~
    * [x] 6. Listen to Mastery
-~~   * [ ] 7. Read *The Coding Career Handbook*, Chapter 37: Side Projects~~
+~~   * [ ] 7. Read _The Coding Career Handbook_, Chapter 37: Side Projects~~
 
 2. What will you do today?
    * [x] 1. Study Session with Alex - He didn't show but I worked on some problems
@@ -7518,7 +7518,7 @@ Have a great day everyone!!!
      * [ ] Active recall
    * [x] 6. Listen to Mastery
    * [x] 7. SPOT Q&A with Juliette
-   * [ ] 7. Read *The Coding Career Handbook*, Chapter 37: Side Projects
+   * [ ] 7. Read _The Coding Career Handbook_, Chapter 37: Side Projects
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I feel kind of tired and find it difficult to concentrate for some reason.
@@ -7555,7 +7555,7 @@ Have a great day everyone!!!
      * [x] Active recall
    * [x] 6. Listen to Mastery: Chapter 6: Fuse the Intuitive with the Rational
    * [x] 7. SPOT Q&A with Juliette
-~~   * [ ] 7. Read *The Coding Career Handbook*, Chapter 37: Side Projects~~
+~~   * [ ] 7. Read _The Coding Career Handbook_, Chapter 37: Side Projects~~
 
 2. What will you do today?
    * [x] 1. Study Session with Laurent
@@ -7566,7 +7566,7 @@ Have a great day everyone!!!
      * [x] Read with care
      * [x] Active recall
    * [x] 5. Listen to Mastery: Chapter 6: Fuse the Intuitive with the Rational
-   * [ ] 6. Read *The Coding Career Handbook*, Chapter 37: Side Projects
+   * [ ] 6. Read _The Coding Career Handbook_, Chapter 37: Side Projects
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I didn't wake up early and do a study session with Alex, but the one with Laurent was helpful.
@@ -7592,7 +7592,7 @@ Have a great day everyone!!!
      * [x] Read with care
      * [x] Active recall
    * [x] 5. Listen to Mastery: Chapter 6: Fuse the Intuitive with the Rational
-~~   * [ ] 6. Read *The Coding Career Handbook*, Chapter 37: Side Projects~~
+~~   * [ ] 6. Read _The Coding Career Handbook_, Chapter 37: Side Projects~~
 
 2. What will you do today?
    * [ ] 1. Exercises
@@ -7600,7 +7600,7 @@ Have a great day everyone!!!
    * [ ] 3. Exercises Again
    * [x] 4. Listen to the 48 Laws of Power: Law 1: Never Outshine the Master
    * [x] 5. Attend Coding Career Meeting
-   * [ ] 6. Read *The Coding Career Handbook*, Chapter 37: Side Projects
+   * [ ] 6. Read _The Coding Career Handbook_, Chapter 37: Side Projects
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * My days is pretty open. Not sure what I'm going to do, but I want to want Chelsea in a few minutes.
@@ -7683,3 +7683,5 @@ Have a great day everyone!!!
 11:08 Now going to bookstore with SungOh. I need to do the practice problems again.
 
 13:23 Watching Capstone presentation of QMantis, but I don't really understand it.
+
+14:04 I'm kind of tired. Why don't I want to strength train and get stronger and faster and fitter?
