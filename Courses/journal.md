@@ -7689,3 +7689,5 @@ Have a great day everyone!!!
 ## 20220414 목요일
 
 06:13 I feel tired and Alex didn't show up for study session. I might go back to sleep?
+
+08:34 We are going to Philly today. I'm just about done packing. I will study in the car.
