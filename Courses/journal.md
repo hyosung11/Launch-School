@@ -7685,3 +7685,7 @@ Have a great day everyone!!!
 13:23 Watching Capstone presentation of QMantis, but I don't really understand it.
 
 14:04 I'm kind of tired. Why don't I want to strength train and get stronger and faster and fitter?
+
+## 20220414 목요일
+
+06:13 I feel tired and Alex didn't show up for study session. I might go back to sleep?
