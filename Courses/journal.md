@@ -7669,9 +7669,9 @@ Have a great day everyone!!!
 
 2. What will you do today?
    * [x] 1. Study Session with Alex
-   * [ ] 2. Review OOP Anki Cards
-   * [ ] 3. Exercises Again
-   * [ ] 4. Listen to the 48 Laws of Power: Law 23
+   * [x] 2. Review OOP Anki Cards
+   * [x] 3. Exercises Again
+   * [x] 4. Listen to the 48 Laws of Power: Law 23
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I feel listless today. I need to find study energy. I feel fat too. I don't like it.
@@ -7693,3 +7693,7 @@ Have a great day everyone!!!
 08:34 We are going to Philly today. I'm just about done packing. I will study in the car.
 
 10:56 Studying in the car and I really have to pee. We are almost there thank goodness.
+
+## 20220415 금요일
+
+10:49 Back from Philly and I am tired because I stayed up until past 1:00 playing poker at the Parx Casino where I turned a $200 buy-in at $1-3 NLHE into $250 of profit. Nice work. There's a SPOT Study Session with Aryan at 11:00.
