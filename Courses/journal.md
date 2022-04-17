@@ -7703,3 +7703,7 @@ Have a great day everyone!!!
 ## 20220416 토요일
 
 16:55 Mostly I just want to make a commit today.
+
+## 20220417 일요일
+
+09:34 Happy Easter. Kids enjoyed the easter egg hunt. I have allergies.
