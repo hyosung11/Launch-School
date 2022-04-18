@@ -7707,3 +7707,22 @@ Have a great day everyone!!!
 ## 20220417 일요일
 
 09:34 Happy Easter. Kids enjoyed the easter egg hunt. I have allergies.
+
+## 202204018 월요일
+
+09:13 Back on the saddle to study. I'm feeling a little tired even though I slept a lot last night. I now feel the urge to pee badly right now.
+
+09:0 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Reviewed OOP Anki Cards
+   * [x] 2. Listened to the 48 Laws of Power: Laws up to 40 (Despise the Free Lunch)
+
+2. What will you do today?
+   * [x] 1. Watch OOP Videos by Miles
+   * [x] 2. Review OOP Anki Cards
+   * [x] 3. Exercises Again
+   * [x] 4. Listen to the 48 Laws of Power: Law 40 ~ 41
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I need and want to get back into study mode.
