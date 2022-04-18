@@ -6,7 +6,11 @@ let pipe = {
   },
 };
 
-console.log(pipe.hasOwnProperty('name'));
+// console.log(pipe.name); // 'This is not a Pipe'
+// console.log(pipe.dateCreated); // 1929
+// pipe.declareName(); // 'This is not a Pipe'
+
+// console.log(pipe.hasOwnProperty('name')); // true
 
 // let man = {
 //   name: 'The Son of Man',
@@ -14,12 +18,14 @@ console.log(pipe.hasOwnProperty('name'));
 // }
 
 // console.log(pipe.constructor); // [Function: Object]
+/* Every object in JavaScript has an internal prototype property [[Prototype]] */
 
-// console.log(pipe.__proto__ === Object.prototype); // true
-// console.log(Object.getPrototypeOf(pipe) === Object.prototype); // true
+/* Check the "hidden prototype reference" */
+console.log(pipe.__proto__ === Object.prototype); // true
+console.log(Object.getPrototypeOf(pipe) === Object.prototype); // true
 
-// console.log(pipe.hasOwnProperty('constructor')); // false
-// console.log(Object.prototype.hasOwnProperty('constructor')); // true
+console.log(pipe.hasOwnProperty('constructor')); // false
+console.log(Object.prototype.hasOwnProperty('constructor')); // true
 
 /* Focus on Object.prototype */
 
