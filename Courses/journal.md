@@ -7728,3 +7728,7 @@ Have a great day everyone!!!
    * I need and want to get back into study mode.
 
 12:19 I watched and annotated the videos from Miles on OOP and it was helpful. I'm ready to do a training session and then eat something.
+
+13:58 Before study session with Michael.
+
+14:45 Finished short study session with Michael. I'm close to ready for the written exam.
