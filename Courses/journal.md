@@ -7732,3 +7732,5 @@ Have a great day everyone!!!
 13:58 Before study session with Michael.
 
 14:45 Finished short study session with Michael. I'm close to ready for the written exam.
+
+16:44 I am forking tired right now. My eyes feel strained as well.
