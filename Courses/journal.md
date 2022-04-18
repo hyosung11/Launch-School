@@ -7720,9 +7720,11 @@ Have a great day everyone!!!
 
 2. What will you do today?
    * [x] 1. Watch OOP Videos by Miles
-   * [x] 2. Review OOP Anki Cards
-   * [x] 3. Exercises Again
-   * [x] 4. Listen to the 48 Laws of Power: Law 40 ~ 41
+   * [ ] 2. Review OOP Anki Cards
+   * [ ] 3. Exercises Again
+   * [ ] 4. Listen to the 48 Laws of Power: Law 40 ~ 41
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I need and want to get back into study mode.
+
+12:19 I watched and annotated the videos from Miles on OOP and it was helpful. I'm ready to do a training session and then eat something.
