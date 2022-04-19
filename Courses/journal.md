@@ -7720,9 +7720,9 @@ Have a great day everyone!!!
 
 2. What will you do today?
    * [x] 1. Watch OOP Videos by Miles
-   * [ ] 2. Review OOP Anki Cards
-   * [ ] 3. Exercises Again
-   * [ ] 4. Listen to the 48 Laws of Power: Law 40 ~ 41
+   * [x] 2. Review OOP Anki Cards
+   * [x] 3. Exercises Again
+   * [x] 4. Listen to the 48 Laws of Power: Law 40 ~ 41
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I need and want to get back into study mode.
@@ -7734,3 +7734,24 @@ Have a great day everyone!!!
 14:45 Finished short study session with Michael. I'm close to ready for the written exam.
 
 16:44 I am forking tired right now. My eyes feel strained as well.
+
+## 202204019 화요일
+
+09:21 Feeling funky today. My eyes itch and my nose is runny. Maybe I should take a Claritin or something for my allergies, especially if it will help me focus better.
+
+09:22 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Watched OOP Videos by Miles
+   * [x] 2. Reviewed OOP Anki Cards
+   * [x] 3. Listened to the 48 Laws of Power: Law 40 ~ 43
+
+2. What will you do today?
+   * [ ] 1. Review Study Guide
+   * [ ] 2. Review OOP Anki Cards
+   * [ ] 3. Exercises Again
+   * [ ] 4. Listen to the 48 Laws of Power: Law 44: Disarm and Infuriate with the Mirror Effect
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * Feeling funky and tired even though I've slept a lot. Ugh.
+
