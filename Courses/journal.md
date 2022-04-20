@@ -7747,10 +7747,10 @@ Have a great day everyone!!!
    * [x] 3. Listened to the 48 Laws of Power: Law 40 ~ 43
 
 2. What will you do today?
-   * [ ] 1. Review Study Guide
-   * [ ] 2. Review OOP Anki Cards
-   * [ ] 3. Exercises Again
-   * [ ] 4. Listen to the 48 Laws of Power: Law 44: Disarm and Infuriate with the Mirror Effect
+   * [x] 1. Review Study Guide
+   * [x] 2. Review OOP Anki Cards
+   * [x] 3. Exercises Again
+   * [x] 4. Listen to the 48 Laws of Power: Law 44: Disarm and Infuriate with the Mirror Effect
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * Feeling funky and tired even though I've slept a lot. Ugh.
@@ -7758,3 +7758,29 @@ Have a great day everyone!!!
 12:38 I need to strength train and eat sparingly.
 
 14:14 Back to studying after The Quick and the Dead training session, lunch of shrimp and eggs, watching poker on youtube, and listening to the 48 Laws of Power.
+
+## 20220420 수요일
+
+06:03 I'm awake and studying early again. I don't see Alex. I'm not sure if he's going to join me this morning. My hot water is boiling for tea.
+
+06:43 Alex is not joining me this morning and I am reviewing the quiz problems from a list of questions that I wanted to look at again.
+
+09:52 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Reviewed Study Guide
+   * [x] 2. Reviewed OOP Anki Cards
+   * [x] 3. Exercises Again
+   * [x] 4. Listen to the 48 Laws of Power: Law 44: Disarm and Infuriate with the Mirror Effect
+
+2. What will you do today?
+   * [x] 1. Study Session with Alex - it was just me this morning
+   * [ ] 2. Study Session with Laurent
+   * [ ] 3. Review Study Guide
+   * [ ] 4. Review OOP Anki Cards
+   * [x] 5. Review Quiz Questions from Trello list
+   * [x] 6. Listen to the 48 Laws of Power: Law 45: Preach the Need for Change But Never Reform too Much at Once
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I have some indigestion from the kefir, maybe? I feel okay now and will study with Laurent in a few minutes.
+
