@@ -7756,3 +7756,5 @@ Have a great day everyone!!!
    * Feeling funky and tired even though I've slept a lot. Ugh.
 
 12:38 I need to strength train and eat sparingly.
+
+14:14 Back to studying after The Quick and the Dead training session, lunch of shrimp and eggs, watching poker on youtube, and listening to the 48 Laws of Power.

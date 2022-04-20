@@ -186,3 +186,119 @@ B. This code works since `apply` sets the context for `report` to `cat`.
 C. This code works since it uses an arrow function to define `report`. Arrow functions pick up their context from their surrounding context, so `report` uses the `cat` object as the value for `this`.
 
 D. This code works since we saved the context in the local variable `that` before defining the `report` function. Thus, `report` can (and does) use `that` to obtain the desired context when accessing its properties. */
+
+/* L2 Q2 Q11
+
+Examine the following code and its expected output:
+
+The code, as written, does not work. In each of the following code snippets, we show replacements for the logResult and/or foo functions method that may or may not fix the problem. Which replacements will produce the correct output? Select all that apply, but try to answer without running any of this code. However, you may run the code shown above.
+
+Note: each answer uses highlighting to show the modified code. */
+
+// let logResult = function(func) {
+//   let result = func();
+//   console.log(result);
+//   return result;
+// };
+
+// let foo = function() {
+//   let sue = {
+//     name: 'Sue Perkins',
+//     age: 37,
+//     myAge() {
+//       return `${this.name} is ${this.age} years old.`;
+//     },
+//   };
+//   logResult(sue.myAge);
+// };
+
+// foo(); // Expected output: Sue Perkins is 37 years old.
+
+/* The original code doesn't work since `this` inside the `foo` function refers to the global object. That's because we invoked `foo` with an implicit context. The output of the original code is:
+
+undefined is undefined years old.
+*/
+
+// A incorrect because the execution context for `foo` is the global object
+// let logResult = function (func) {
+//   let result = func();
+//   console.log(result);
+//   return result;
+// };
+
+// let foo = function () {
+//   let self = this;
+//   let sue = {
+//     name: 'Sue Perkins',
+//     age: 37,
+//     myAge() {
+//       return `${self.name} is ${self.age} years old`;
+//     },
+//   };
+//   logResult(sue.myAge);
+// };
+
+// foo();
+
+// B This code works since we modified `logResult` to accept an optional `context` argument, then called it with the argument set to `sue`. We also used the `Function.call` method to invoke `func(sue.myAge)` with that context.
+
+// let logResult = function (func, context) {
+//   let result = func.call(context);
+//   console.log(result);
+//   return result;
+// };
+
+// let foo = function () {
+//   let sue = {
+//     name: 'Sue Perkins',
+//     age: 37,
+//     myAge() {
+//       return `${this.name} is ${this.age} years old`;
+//     },
+//   };
+//   logResult(sue.myAge, sue);
+// };
+
+// foo();
+
+// C Works because we passed `logResult` a function that invokes `sue.myAge` with `sue` a context.
+
+// let logResult = function (func) {
+//   let result = func();
+//   console.log(result);
+//   return result;
+// };
+
+// let foo = function () {
+//   let sue = {
+//     name: 'Sue Perkins',
+//     age: 37,
+//     myAge() {
+//       return `${this.name} is ${this.age} years old`;
+//     },
+//   };
+//   logResult(sue.myAge.bind(sue));
+// };
+
+// foo();
+
+// D This code doesn't work -- it raises a `TypeError` -- since `sue.myAge.call(sue)` invokes `sue.myAge`, which returns a string. That string then gets passed to `logResult` which expects to invoke it as a function, but it isn't a function.
+
+// let logResult = function (func) {
+//   let result = func();
+//   console.log(result);
+//   return result;
+// };
+
+// let foo = function () {
+//   let sue = {
+//     name: 'Sue Perkins',
+//     age: 37,
+//     myAge() {
+//       return `${this.name} is ${this.age} years old`;
+//     },
+//   };
+//   logResult(sue.myAge.call(sue));
+// };
+
+// foo();
