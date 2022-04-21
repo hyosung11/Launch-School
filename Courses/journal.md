@@ -7778,11 +7778,41 @@ Have a great day everyone!!!
    * [x] 2. Study Session with Laurent
    * [x] 3. The $10K Bootcamp
    * [ ] 4. Review Study Guide
-   * [ ] 5. Review OOP Anki Cards
+   * [x] 5. Review OOP Anki Cards
    * [x] 6. Review Quiz Questions from Trello list
-   * [x] 7. Listen to the 48 Laws of Power: Law 45: Preach the Need for Change But Never Reform too Much at Once
+   * [x] 7. Listen to the 48 Laws of Power: Law 45: Preach the Need for Change But Never Reform
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I have some indigestion from the kefir, maybe? I feel okay now and will study with Laurent in a few minutes.
 
 11:25 Finished study session with Laurent where I just gave him questions. It was useful to see him answer questions, but I need to do my own work.
+
+20:01 I feel tired right now.
+
+## 20220421 목요일
+
+08:45 I can't believe it's Thursday and I plan to take the JS129 Written Assessment tomorrow.
+
+08:46 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Alex - it was just me this morning
+   * [x] 2. Study Session with Laurent
+   * [x] 3. The $10K Bootcamp
+   * [ ] 4. Review Study Guide
+   * [x] 5. Review OOP Anki Cards
+   * [x] 6. Review Quiz Questions from Trello list
+   * [x] 7. Listen to the 48 Laws of Power: Finished the Book!
+
+2. What will you do today?
+   * [ ] 1. Study Session with Laurent
+   * [ ] 2. The $10K Bootcamp
+   * [ ] 3. SPOT Study Session
+   * [ ] 4. Review Study Guide
+   * [ ] 5. Review OOP Anki Cards
+   * [ ] 6. Review Quiz Questions from Trello list
+   * [ ] 7. Listen to the Laws of Human Nature: Introduction
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I don't feel effective in my studying lately. I can't seem to concentrate. I'm not sure that's a good formula for success on the written exam, but I can't keep delaying it as I need to focus on finding a job.
+
