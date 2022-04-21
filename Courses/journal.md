@@ -7775,12 +7775,14 @@ Have a great day everyone!!!
 
 2. What will you do today?
    * [x] 1. Study Session with Alex - it was just me this morning
-   * [ ] 2. Study Session with Laurent
-   * [ ] 3. Review Study Guide
-   * [ ] 4. Review OOP Anki Cards
-   * [x] 5. Review Quiz Questions from Trello list
-   * [x] 6. Listen to the 48 Laws of Power: Law 45: Preach the Need for Change But Never Reform too Much at Once
+   * [x] 2. Study Session with Laurent
+   * [x] 3. The $10K Bootcamp
+   * [ ] 4. Review Study Guide
+   * [ ] 5. Review OOP Anki Cards
+   * [x] 6. Review Quiz Questions from Trello list
+   * [x] 7. Listen to the 48 Laws of Power: Law 45: Preach the Need for Change But Never Reform too Much at Once
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I have some indigestion from the kefir, maybe? I feel okay now and will study with Laurent in a few minutes.
 
+11:25 Finished study session with Laurent where I just gave him questions. It was useful to see him answer questions, but I need to do my own work.
