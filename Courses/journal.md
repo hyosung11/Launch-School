@@ -7805,9 +7805,9 @@ Have a great day everyone!!!
    * [x] 7. Listen to the 48 Laws of Power: Finished the Book!
 
 2. What will you do today?
-   * [ ] 1. Study Session with Laurent
-   * [ ] 2. The $10K Bootcamp
-   * [ ] 3. SPOT Study Session
+   * [x] 1. Study Session with Laurent
+   * [x] 2. The $10K Bootcamp
+   * [x] 3. SPOT Study Session
    * [ ] 4. Review Study Guide
    * [ ] 5. Review OOP Anki Cards
    * [ ] 6. Review Quiz Questions from Trello list
@@ -7816,3 +7816,6 @@ Have a great day everyone!!!
 3. Are there any blockers or impediments preventing you from doing your work?
    * I don't feel effective in my studying lately. I can't seem to concentrate. I'm not sure that's a good formula for success on the written exam, but I can't keep delaying it as I need to focus on finding a job.
 
+09:58 Just about time for study session with Laurent.
+
+16:44 Honestly feel kind of tired. I miss ping pong. I need to do more physical activity.
