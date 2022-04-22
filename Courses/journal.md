@@ -7808,10 +7808,10 @@ Have a great day everyone!!!
    * [x] 1. Study Session with Laurent
    * [x] 2. The $10K Bootcamp
    * [x] 3. SPOT Study Session
-   * [ ] 4. Review Study Guide
-   * [ ] 5. Review OOP Anki Cards
+   * [x] 4. Review Study Guide
+   * [x] 5. Review OOP Anki Cards
    * [ ] 6. Review Quiz Questions from Trello list
-   * [ ] 7. Listen to the Laws of Human Nature: Introduction
+   * [x] 7. Listen to the Laws of Human Nature: Introduction
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I don't feel effective in my studying lately. I can't seem to concentrate. I'm not sure that's a good formula for success on the written exam, but I can't keep delaying it as I need to focus on finding a job.
@@ -7819,3 +7819,27 @@ Have a great day everyone!!!
 09:58 Just about time for study session with Laurent.
 
 16:44 Honestly feel kind of tired. I miss ping pong. I need to do more physical activity.
+
+## 20220422 금요일
+
+09:48 Daily Scrum Questions
+
+1. What did you do yesterday?
+   * [x] 1. Study Session with Laurent
+   * [x] 2. The $10K Bootcamp
+   * [x] 3. SPOT Study Session
+   * [x] 4. Review Study Guide
+   * [x] 5. Review OOP Anki Cards
+   * [ ] 6. Review Quiz Questions from Trello list
+   * [x] 7. Listen to the Laws of Human Nature: Introduction
+
+2. What will you do today?
+   * [ ] 1. Study Session with Laurent
+   * [ ] 2. Review Study Guide
+   * [ ] 3. Review OOP Anki Cards
+   * [ ] 4. Review Quiz Questions from Trello list
+   * [ ] 5. Listen to the Laws of Human Nature: The Law of Irrationality
+
+3. Are there any blockers or impediments preventing you from doing your work?
+   * I still feel low energy and lack of motivation even though Sohee and I agreed that I can focus on studying through the summer and don't have to look for a job right now! Woohoo!
+
