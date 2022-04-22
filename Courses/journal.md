@@ -7834,12 +7834,13 @@ Have a great day everyone!!!
    * [x] 7. Listen to the Laws of Human Nature: Introduction
 
 2. What will you do today?
-   * [ ] 1. Study Session with Laurent
-   * [ ] 2. Review Study Guide
-   * [ ] 3. Review OOP Anki Cards
+   * [x] 1. Study Session with Laurent
+   * [x] 2. Review Study Guide
+   * [x] 3. Review OOP Anki Cards
    * [ ] 4. Review Quiz Questions from Trello list
-   * [ ] 5. Listen to the Laws of Human Nature: The Law of Irrationality
+   * [x] 5. Listen to the Laws of Human Nature: The Law of Irrationality
 
 3. Are there any blockers or impediments preventing you from doing your work?
    * I still feel low energy and lack of motivation even though Sohee and I agreed that I can focus on studying through the summer and don't have to look for a job right now! Woohoo!
 
+17:02 Back from getting the kids and dropping Omi of for her sleep under.
