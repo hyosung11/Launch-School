@@ -7844,3 +7844,7 @@ Have a great day everyone!!!
    * I still feel low energy and lack of motivation even though Sohee and I agreed that I can focus on studying through the summer and don't have to look for a job right now! Woohoo!
 
 17:02 Back from getting the kids and dropping Omi of for her sleep under.
+
+## 20220423 토요일
+
+15:34 So tired and unmotivated right now, but I opened up VS Code and am going to study a little bit.
