@@ -7848,3 +7848,10 @@ Have a great day everyone!!!
 ## 20220423 토요일
 
 15:34 So tired and unmotivated right now, but I opened up VS Code and am going to study a little bit.
+
+## 20220425 월요일
+
+09:18 Besides looking at some Anki cards, I didn't study yesterday. My body feels tight and tired this morning and I have it in my mind to go to the gym. The painter is here this morning and started working on fixing the holes in our ceilings. Omi couldn't find her hoodie and I need to focus, so I can take and pass the JS129 Assessments. I'm confident that Laurent passed his interview assessment on Saturday.
+
+14:50 I am feeling off. What I intend and schedule to do is not getting done. Ugh. I'm tired and bored a little as well. I need to focus and pass the JS129 Assessments! Time to get the kids now.
+
