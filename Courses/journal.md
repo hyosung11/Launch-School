@@ -7855,3 +7855,15 @@ Have a great day everyone!!!
 
 14:50 I am feeling off. What I intend and schedule to do is not getting done. Ugh. I'm tired and bored a little as well. I need to focus and pass the JS129 Assessments! Time to get the kids now.
 
+```js
+class Person {
+  constructor(name = "John Doe") {
+    this.name = name;
+  }
+}
+```
+
+## 20220426 화요일
+
+09:51 I need to get it together and take the JS129 Written Assessment. Do some more practice problems today.
+
