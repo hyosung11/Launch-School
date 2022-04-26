@@ -7867,3 +7867,12 @@ class Person {
 
 09:51 I need to get it together and take the JS129 Written Assessment. Do some more practice problems today.
 
+11:06 Reviewing Quiz Questions that I marked. I realize that the painter will be here tomorrow morning again which doesn't make it ideal for taking the assessment. Ugh. I'm not feeling sharp and ready either.
+
+11:44 Going through the exercises again.
+
+13:00 Did a Q&D Session and feel better now.
+
+13:05 SPOT Study Session with Stan
+
+18:45 Brain dead lately and my right hip flexor feels tight. Ugh.
