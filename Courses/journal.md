@@ -7880,3 +7880,5 @@ class Person {
 ## 20220427 수요일
 
 09:05 I keep delaying taking the JS129 Written Assessment for good reason. I'm not ready and I don't have a good chunk of time to do it. I want to change the tire replacement appointment to later today after the painter finishes and then do the assessment on Friday morning. This means I need to go through problems today and tomorrow to prepare.
+
+09:55 Bringing Moana for the tire change and going to take the written exam Friday!

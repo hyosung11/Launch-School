@@ -13,7 +13,7 @@ Tigers, likewise, have two characteristics:
 Tigers also have certain behavior, namely they chase and say 'I am chasing the man-cub'
 
 Your task, should you chose to accept it, is to create a Liger (https://en.wikipedia.org/wiki/Liger).
-A Liger is an animal whose father is a Lion and whose mother is a Tiger. 
+A Liger is an animal whose father is a Lion and whose mother is a Tiger.
 The liger you create should inherit ALL properties and functionality from its parents, as follows:
 
 console.log(liger.roar()) // 'Hakuna Matata'
@@ -31,41 +31,41 @@ Please construct this relationship using the following patterns:
 How you set up the relationship between the child liger, and parent Lion and Tiger is up to you.
 */
 
-function Lion() {
-  this.isFriendly = true;
-  this.inLionKing = true;
-}  
+// function Lion() {
+//   this.isFriendly = true;
+//   this.inLionKing = true;
+// }
 
-Lion.prototype.roar = function() {
-  return `Hakuna Matata`;
-};
+// Lion.prototype.roar = function() {
+//   return `Hakuna Matata`;
+// };
 
-let lion = new Lion();
-console.log(lion.roar());
-console.log(lion.isFriendly);
-console.log(lion.inLionKing);
+// let lion = new Lion();
+// console.log(lion.roar());
+// console.log(lion.isFriendly);
+// console.log(lion.inLionKing);
 
-function Tiger() {
-  this.enjoysSwimming = true;
-  this.inJungleBook = true;
-}
+// function Tiger() {
+//   this.enjoysSwimming = true;
+//   this.inJungleBook = true;
+// }
 
-Tiger.prototype.chase = function() {
-  return 'I am chasing the man-cub';
-};
+// Tiger.prototype.chase = function() {
+//   return 'I am chasing the man-cub';
+// };
 
-let tiger = new Tiger();
-console.log(tiger.enjoysSwimming === true);
-console.log(tiger.inJungleBook === true);
-console.log(tiger.chase());
+// let tiger = new Tiger();
+// console.log(tiger.enjoysSwimming === true);
+// console.log(tiger.inJungleBook === true);
+// console.log(tiger.chase());
 
 
-let liger = new Lion();
+// let liger = new Lion();
 
-Object.assign(liger, new Tiger());
-Object.assign(liger, Tiger.prototype);
-console.log(Object.getOwnPropertyNames(Tiger));
-console.log(liger.enjoysSwimming);
+// Object.assign(liger, new Tiger());
+// Object.assign(liger, Tiger.prototype);
+// console.log(Object.getOwnPropertyNames(Tiger));
+// console.log(liger.enjoysSwimming);
 
 /*
 You have recently watched Lion King as well as Jungle Book and have decided to take the best
@@ -80,7 +80,7 @@ Tigers, likewise, have two characteristics:
 Tigers also have certain behavior, namely they chase and say 'I am chasing the man-cub'
 
 Your task, should you chose to accept it, is to create a Liger (https://en.wikipedia.org/wiki/Liger).
-A Liger is an animal whose father is a Lion and whose mother is a Tiger. 
+A Liger is an animal whose father is a Lion and whose mother is a Tiger.
 The liger you create should inherit ALL properties and functionality from its parents, as follows:
 
 console.log(liger.roar()) // 'Hakuna Matata'
