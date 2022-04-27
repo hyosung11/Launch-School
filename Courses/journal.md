@@ -7876,3 +7876,7 @@ class Person {
 13:05 SPOT Study Session with Stan
 
 18:45 Brain dead lately and my right hip flexor feels tight. Ugh.
+
+## 20220427 수요일
+
+09:05 I keep delaying taking the JS129 Written Assessment for good reason. I'm not ready and I don't have a good chunk of time to do it. I want to change the tire replacement appointment to later today after the painter finishes and then do the assessment on Friday morning. This means I need to go through problems today and tomorrow to prepare.
