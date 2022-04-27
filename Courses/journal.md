@@ -7882,3 +7882,7 @@ class Person {
 09:05 I keep delaying taking the JS129 Written Assessment for good reason. I'm not ready and I don't have a good chunk of time to do it. I want to change the tire replacement appointment to later today after the painter finishes and then do the assessment on Friday morning. This means I need to go through problems today and tomorrow to prepare.
 
 09:55 Bringing Moana for the tire change and going to take the written exam Friday!
+
+10:35 I dropped Moana off for new tires and came to the library to study. It's a good space to do some work.
+
+12:07 Moana's tire change is complete and I'm going to pick her up.
