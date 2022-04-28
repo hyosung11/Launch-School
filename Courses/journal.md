@@ -7886,3 +7886,7 @@ class Person {
 10:35 I dropped Moana off for new tires and came to the library to study. It's a good space to do some work.
 
 12:07 Moana's tire change is complete and I'm going to pick her up.
+
+## 20220428 목요일
+
+09:16 I'm still in a funk. I need to focus and pass the JS129 Written Assessment tomorrow.
