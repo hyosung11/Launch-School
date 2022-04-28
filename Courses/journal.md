@@ -7893,3 +7893,4 @@ class Person {
 
 09:16 I'm still in a funk. I need to focus and pass the JS129 Written Assessment tomorrow.
 
+13:08 In a funk right now. Is it time to call Urmi? I have a three-day streak of doing The Quick and the Dead. I just want to shop for new soccer cleats, or get shoe trees for my current cleats. Ugh.
