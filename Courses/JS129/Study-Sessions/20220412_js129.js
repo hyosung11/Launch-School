@@ -54,7 +54,7 @@ class Cat {
   }
 }
 
-let kitty = new Cat('Kitty');
+// let kitty = new Cat('Kitty');
 
 console.log(kitty)
 kitty.speak(); // Kitty says meow!
