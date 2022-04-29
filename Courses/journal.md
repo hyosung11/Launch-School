@@ -7900,3 +7900,5 @@ class Person {
 ## 20220429 금요일
 
 12:03 Get my shit together and study before taking the exam. Get some green tea now.
+
+14:49 Slow study day, but I did work through some problems.
