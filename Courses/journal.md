@@ -7896,3 +7896,7 @@ class Person {
 13:08 In a funk right now. Is it time to call Urmi? I have a three-day streak of doing The Quick and the Dead. I just want to shop for new soccer cleats, or get shoe trees for my current cleats. Ugh.
 
 14:36 End of JS129 Study Group. God I need to take the assessment.
+
+## 20220429 금요일
+
+12:03 Get my shit together and study before taking the exam. Get some green tea now.
