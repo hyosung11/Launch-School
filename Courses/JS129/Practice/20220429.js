@@ -123,18 +123,59 @@
 // let person = createPerson('SungOh', 'Bidol-Lee')
 // console.log(person.fullName); // NaN
 
-let franchise = {
-  name: 'How to Train Your Dragon',
-  allMovies: function () {
-    return [1, 2, 3].map(number => {
-      return this.name + ' ' + number;
-    });
-  },
-};
+// let franchise = {
+//   name: 'How to Train Your Dragon',
+//   allMovies: function () {
+//     return [1, 2, 3].map(number => {
+//       return this.name + ' ' + number;
+//     });
+//   },
+// };
 
-console.log(franchise.allMovies());
+// console.log(franchise.allMovies());
 // [
 //   'How to Train Your Dragon 1',
 //   'How to Train Your Dragon 2',
 //   'How to Train Your Dragon 3',
 // ];
+
+// function func() {
+//   return this;
+// }
+
+// let context = func();
+// console.log(context);
+
+/* The code outputs the global object, that's `global` in Node and `window` in a browser. Since line 5 calls `func` as a function, the implicit context for `func` is the global object, so it returns the global object. */
+
+// let obj = {
+//   func: function () {
+//     return this;
+//   },
+// };
+
+// let context = obj.func();
+
+// console.log(context); // { func: [Function: func] }
+// returns an object with the property `func` whose value is a function called `func`
+
+/* This code outputs the object `obj` since it invokes `func` as a method. As a method invocation, it receives an implicit execution context that refers to the object used to invoke it.  */
+
+message = 'Hello from the global scope!';
+
+function deliverMessage() {
+  console.log(this.message);
+}
+
+deliverMessage();
+
+let foo = {
+  message: 'Hello from the function scope!',
+};
+
+foo.deliverMessage = deliverMessage;
+
+foo.deliverMessage();
+// console.log(foo)
+
+/* `call` and `apply` are built-in methods that let us explicitly set the function execution context. */
