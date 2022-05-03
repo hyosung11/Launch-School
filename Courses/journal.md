@@ -7908,3 +7908,7 @@ class Person {
 ## 20220502 월요일
 
 17:03 Has it really been three days since I last studied? Yikes. I'm looking at some problems before I make dinner. The kids were off of school today and we hung out together in the morning before Omi went to Brianna's. SungOh and I hung out in the afternoon.
+
+## 20220503 화요일
+
+07:02 Finished a study session with Alex where he led us through a problem that I don't yet fully understand.
