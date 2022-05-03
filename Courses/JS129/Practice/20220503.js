@@ -337,21 +337,63 @@
 
 // console.log(foo.a);
 
-let foo = {
-  a: 0,
-  incrementA: function () {
-    function increment() {
-      this.a += 1; // line 5
-    }
+// let foo = {
+//   a: 0,
+//   incrementA: function () {
+//     function increment() {
+//       this.a += 1; // line 5
+//     }
 
-    increment.apply(this); // line 8
-  },
-};
+//     increment.apply(this); // line 8
+//   },
+// };
 
-foo.incrementA();
-foo.incrementA();
-foo.incrementA();
+// foo.incrementA();
+// foo.incrementA();
+// foo.incrementA();
 
-console.log(foo.a);
+// console.log(foo.a);
 
 /* We can use `apply` to invoke `increment` on line 8 with explicit context. We pass `this` as the context argument since inside `incrementA` but outside of `increment`, `this` references the containing object, namely `foo`. */
+
+// let foo = {
+//   bar: 42,
+//   qux() {
+//     console.log("Pudding");
+//   },
+// };
+
+// let baz = Object.create(foo);
+// console.log(baz); // {}
+// console.log(Object.getPrototypeOf(baz) === foo); // true
+// console.log(baz.hasOwnProperty("qux")); // false
+// baz.qux() // Pudding
+
+/* The `baz` object delegates the invocation of `qux` to the `foo` object.
+
+`Object.create` creates a new object whose `[[Prototype]]` property references the argument.
+
+Prototypal inheritance means that `baz` does not need a separate copy of the `qux` method. Instead it can use the prototypal chain to find the method and delegate the call. */
+
+// let abc = {
+//   foo: 1,
+//   bar: 2,
+// }
+
+// let pqr = Object.create(abc);
+
+// pqr.qux = 3;
+// pqr.bar = 4;
+
+// console.log(abc.hasOwnProperty('foo')); // true
+// console.log(abc.hasOwnProperty('bar')); // true
+
+/* `getPrototypeOf` is a static method of the `Object` type. You must call it as `Object.getPrototypeOf` */
+
+console.log(Object.getPrototypeOf({})); // [Object: null prototype] {}
+
+/* A reference to the object returned by `Object.getPrototypeOf({ a: 1, b: 2})
+
+A reference to the object returned by `Object.prototype`.
+
+A reference to the default prototype object. */
