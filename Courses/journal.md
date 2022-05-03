@@ -7917,3 +7917,27 @@ class Person {
 
 13:14 Slowly practicing problems and writing out my answers multiple times to get some procedural memory practice.
 
+14:22 Notes
+
+
+Name | Type | Object
+---------|----------|---------
+ Function Invocation | implicit | global
+ Method Invocation | implicit | object that holds the method
+
+The value of `this` is the current execution context of a function or method.
+
+The value of `this` changes based on how you invoke a function, not how you define it.
+
+First-class Functions
+
+* add them to objects and execute them in the respective object's context
+* remove them from objects, pass them around, and execute them in entirely different contexts
+* initially unbound but dynamically bound to a context object at execution time
+
+The `call` and `apply` methods invoke a function with an explicit execution context.
+
+The `bind` method returns a new function that permanently binds a function to a context.
+
+Arrow functions are permanently bound to the execution context of the enclosing function invocation. When defined at the top level, the context of an arrow function is the global object.
+

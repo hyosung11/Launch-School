@@ -266,6 +266,77 @@
 
 // TESgames.listGames();
 
+// let foo = {
+//   a: 0,
+//   incrementA: function () {
+//     function increment() {
+//       this.a += 1; // line 5
+//     }
+
+//     increment();
+//   },
+// };
+
+// foo.incrementA();
+// foo.incrementA();
+// foo.incrementA();
+
+// console.log(foo.a);
+
+/* It will be `0`. Since `increment` is invoked as a function, `this.a` on line 5 references a property on the global object rather than a property of `foo`. Thus, the property `foo.a` isn't modified by `increment` and its value remains 0. */
+
+// let foo = {
+//   a: 0,
+//   incrementA: function () {
+//     function increment() {
+//       this.a += 1; // line 5
+//     }
+
+//     increment.call(this);
+//   },
+// };
+
+// foo.incrementA();
+// foo.incrementA();
+// foo.incrementA();
+
+// console.log(foo.a);
+
+// let foo = {
+//   a: 0,
+//   incrementA: function () {
+//     let increment = () => {
+//       this.a += 1; // line 5
+//     }
+
+//     increment();
+//   },
+// };
+
+// foo.incrementA();
+// foo.incrementA();
+// foo.incrementA();
+
+// console.log(foo.a);
+
+// let foo = {
+//   a: 0,
+//   incrementA: function () {
+//     let self = this;
+//     function increment() {
+//       self.a += 1; // line 5
+//     };
+
+//     increment();
+//   },
+// };
+
+// foo.incrementA();
+// foo.incrementA();
+// foo.incrementA();
+
+// console.log(foo.a);
+
 let foo = {
   a: 0,
   incrementA: function () {
@@ -273,7 +344,7 @@ let foo = {
       this.a += 1; // line 5
     }
 
-    increment();
+    increment.apply(this); // line 8
   },
 };
 
@@ -283,4 +354,4 @@ foo.incrementA();
 
 console.log(foo.a);
 
-/* It will be `0`. Since `increment` is invoked as a function, `this.a` on line 5 references a property on the global object rather than a property of `foo`. Thus, the property `foo.a` isn't modified by `increment` and its value remains 0. */
+/* We can use `apply` to invoke `increment` on line 8 with explicit context. We pass `this` as the context argument since inside `incrementA` but outside of `increment`, `this` references the containing object, namely `foo`. */
