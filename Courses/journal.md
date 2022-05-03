@@ -7904,3 +7904,7 @@ class Person {
 14:49 Slow study day, but I did work through some problems.
 
 17:31 Studying before dinner.
+
+## 20220503 화요일
+
+07:02 Finished a study session with Alex where he led us through a problem that I don't yet fully understand. 
