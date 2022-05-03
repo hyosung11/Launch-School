@@ -7912,3 +7912,8 @@ class Person {
 ## 20220503 화요일
 
 07:02 Finished a study session with Alex where he led us through a problem that I don't yet fully understand.
+
+09:39 Finally getting around to doing a little studying. I still feel low energy though.
+
+13:14 Slowly practicing problems and writing out my answers multiple times to get some procedural memory practice.
+

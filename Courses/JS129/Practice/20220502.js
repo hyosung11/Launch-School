@@ -20,7 +20,7 @@
 
 /* The code will log `'JavaScript makes sense!'`. Since `bar` is bound to `positivity` as the return value of the `bind` invocation on line 13, `positivity`'s property `message` is logged by the function call on the last line, despite the fact that the function is invoked as a method on the `negativity` object.  */
 
-/*5. What will the code output? */
+/* 5. What will the code output? */
 
 let obj = {
   a: 'Amazebulous!',
