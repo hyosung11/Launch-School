@@ -7904,3 +7904,7 @@ class Person {
 14:49 Slow study day, but I did work through some problems.
 
 17:31 Studying before dinner.
+
+## 20220502 월요일
+
+17:03 Has it really been three days since I last studied? Yikes. I'm looking at some problems before I make dinner. The kids were off of school today and we hung out together in the morning before Omi went to Brianna's. SungOh and I hung out in the afternoon.
