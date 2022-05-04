@@ -8,7 +8,7 @@
 //call, apply, bind
 // name property added to make objects easier to identify
 
-/*Ancestors
+/* Ancestors
 Implement an ancestors method that returns the prototype chain (ancestors) of a calling object as an array of object names. Here's an example output: */
 
 Object.prototype.ancestors = function () {

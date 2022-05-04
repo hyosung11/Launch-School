@@ -7905,6 +7905,43 @@ class Person {
 
 17:31 Studying before dinner.
 
+## 20220502 월요일
+
+17:03 Has it really been three days since I last studied? Yikes. I'm looking at some problems before I make dinner. The kids were off of school today and we hung out together in the morning before Omi went to Brianna's. SungOh and I hung out in the afternoon.
+
 ## 20220503 화요일
 
 07:02 Finished a study session with Alex where he led us through a problem that I don't yet fully understand.
+
+09:39 Finally getting around to doing a little studying. I still feel low energy though.
+
+13:14 Slowly practicing problems and writing out my answers multiple times to get some procedural memory practice.
+
+14:22 Notes
+
+Name | Type | Object
+---------|----------|---------
+ Function Invocation | implicit | global
+ Method Invocation | implicit | object that holds the method
+
+The value of `this` is the current execution context of a function or method.
+
+The value of `this` changes based on how you invoke a function, not how you define it.
+
+First-class Functions
+
+* add them to objects and execute them in the respective object's context
+* remove them from objects, pass them around, and execute them in entirely different contexts
+* initially unbound but dynamically bound to a context object at execution time
+
+The `call` and `apply` methods invoke a function with an explicit execution context.
+
+The `bind` method returns a new function that permanently binds a function to a context.
+
+Arrow functions are permanently bound to the execution context of the enclosing function invocation. When defined at the top level, the context of an arrow function is the global object.
+
+19:38 Sporadic studying in the afternoon and evening.
+
+## 20220504 수요일
+
+07:04 I feel tired, but it was good to do the study session with Alex this morning.
