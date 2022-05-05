@@ -103,3 +103,70 @@
 // console.log(graduateStudent.fullName());   // logs 'foo bar'
 // graduateStudent.study();                   // logs 'Studying'
 // graduateStudent.research();                // logs 'Researching'
+
+// const OPERATIONS = {
+//   '+': (num1, num2) => num1 + num2,
+//   '-': (num1, num2) => num1 - num2,
+//   '*': (num1, num2) => num1 * num2,
+//   '/': (num1, num2) => num1 / num2,
+// };
+
+// let getOperation = (operation) => OPERATIONS[operation];
+
+// let compute = (operation, num1, num2) => {
+//   return operation(num1, num2);
+// };
+
+// console.log(compute(getOperation('/', 18, 6)) // NaN
+
+// console.log(compute('*', 2, 8) === 16); // TypeError: operation is not a function
+
+// console.log(compute(getOperation('+'), 5, 9) === 14); // true
+
+// console.log(getOperation('%'), 9, 4) === 5;
+
+// global.foo = 5;
+// if (isFinite(foo)) {
+//   let bar = 3;
+//   xyz = 5;
+//   console.log(bar);
+// }
+
+// console.log(global.hasOwnProperty('global'));
+// console.log(global.hasOwnProperty('foo'));
+// console.log(global.hasOwnProperty('isFinite'));
+// console.log(global.hasOwnProperty('bar'));
+// console.log(global.hasOwnProperty('xyz'));
+// console.log(global.hasOwnProperty('console'));
+// console.log(global.hasOwnProperty('log'));
+
+// console.log(console.hasOwnProperty('log'));
+
+// function foo() {
+//   return this;
+// }
+
+// console.log(foo());
+
+/* Since we invoke `foo` with an implicit context, JavaScript runs the code with the execution context set to the global object. Since `this` refers to the current execution context while the function is running, the function returns the global object. */
+
+// let obj = {
+//   foo() {
+//     return this;
+//   },
+// };
+
+// console.log(obj.foo()); // { foo: [Function: foo] }
+
+/* Since we invoke `foo` with an implicit context of `obj`, JavaScript runs the code with the execution context set to `obj`. Since `this` refers to the current execution context while the method is running, the method returns the `obj` object. */
+
+let obj = {
+  foo() {
+    return this;
+  },
+};
+
+let foo = obj.foo;
+console.log(foo());
+
+/* The code returns the global object. Since we invoke `foo` with an implicit context, JavaScript runs the code with the execution context set to the global object. Since `this` refers to the current execution context while `foo` is running, the return value is the global object. */
