@@ -7945,3 +7945,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 ## 20220504 수요일
 
 07:04 I feel tired, but it was good to do the study session with Alex this morning.
+
+12:35 It feels better after I did the Quick and the Dead training session. Remember to move when I feel listless and low energy.
