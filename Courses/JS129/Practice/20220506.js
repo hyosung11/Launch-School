@@ -86,8 +86,17 @@ let GraduateStudent = class extends Student {
     super(firstName, lastName, age, gender, degree);
     this.graduateDegree = graduateDegree;
   }
+
+  research() {
+    console.log('Researching');
+  }
 }
 
 let sungOh = new GraduateStudent('SungOh', 'Bidol-Lee', 6, 'male', 'Math', 'Calculus');
 
 console.log(sungOh instanceof Person);
+console.log(sungOh instanceof Student);
+console.log(sungOh instanceof GraduateStudent);
+sungOh.eat();
+sungOh.study();
+sungOh.research();
