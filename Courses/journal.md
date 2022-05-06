@@ -7954,4 +7954,9 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 
 12:57 I did do a Quick and the Dead training session and am now eating some soup.
 
-16:07 I feel a little lighter and more engaged. I think the ping pong and physical exercise helps. I know this material pretty well
+16:07 I feel a little lighter and more engaged. I think the ping pong and physical exercise helps. I know this material pretty well.
+
+## 20220506 금요일
+
+13:47 I finally put in a few minutes of studying after a training session. Hmm?
+
