@@ -7959,3 +7959,13 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 ## 20220506 금요일
 
 12:14 Physical activity makes a difference, so why not do some?
+
+13:47 I finally put in a few minutes of studying after a training session. Hmm?
+
+16:09 Played ping pong with Louis and dominated today. I serve to his backhand and then smash the return with my forehand and it works pretty well.
+
+18:32 Feel so sluggish and unable to sharpen my focus and work through problems. Ugh.
+
+## 20220507 토요일
+
+09:44 It's just going to take some time, a little bit of time to pass this assessment and move on in the curriculum. That's okay.
