@@ -7969,3 +7969,8 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 ## 20220507 토요일
 
 09:44 It's just going to take some time, a little bit of time to pass this assessment and move on in the curriculum. That's okay.
+
+## 20220508 일요일
+
+  10:36 It's Mother's Day and I can feel the buzz of too much coffee too soon on an empty stomach. I spent the morning fixing the leak of the kitchen faucet successfully. I want to study in the car to Easton, PA.
+  
