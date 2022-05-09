@@ -7973,4 +7973,9 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 ## 20220508 일요일
 
   10:36 It's Mother's Day and I can feel the buzz of too much coffee too soon on an empty stomach. I spent the morning fixing the leak of the kitchen faucet successfully. I want to study in the car to Easton, PA.
-  
+
+## 20220509 월요일
+
+09:36 I have a therapy session with Urmi at 9:45.
+
+09:41 I'm okay, but I want to feel better and do better.
