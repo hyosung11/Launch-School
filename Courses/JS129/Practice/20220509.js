@@ -283,20 +283,167 @@ To pass specific arguments with `super` we need to list the argument within pare
 
 /* In the solution we added the `constructor` method to `Truck` instead of modifying the `constructor` in `Vehicle` because we didn't want `Car` to accept the `bedType` parameter. */
 
-class Vehicle {
-  startEngine() {
-    return 'Ready to go!';
+// class Vehicle {
+//   startEngine() {
+//     return 'Ready to go!';
+//   }
+// }
+
+// class Truck extends Vehicle {
+//   startEngine(speed) {
+//     return super.startEngine() + ` Drive ${speed}, please!`;
+//   }
+// }
+
+// let truck1 = new Truck();
+// console.log(truck1.startEngine('fast'));
+
+// let truck2 = new Truck();
+// console.log(truck2.startEngine('slow'));
+
+/* Here we are using the `super` keyword to call the method on the object's parent. This way we are able to use some functionality from the parent class `Vehicle` in the `Truck` class. */
+
+// const walkMixin = {
+//   walk() {
+//     return `Let's go for a walk!`
+//   }
+// }
+
+// class Cat {
+//   constructor(name) {
+//     this.name = name;
+//   }
+
+//   greet() {
+//     return `Hello! My name is ${this.name}!`;
+//   }
+// }
+
+// Object.assign(Cat.prototype, walkMixin);
+
+// let kitty = new Cat('Sophie');
+// console.log(kitty.greet()); // Hello! My name is Sophie!
+// console.log(kitty.walk()); // Let's go for a walk!
+
+/* Mixins are typically used to contain methods that may be useful for multiple classes, but not all classes. When you mix a module into a class, you're allowing the class to invoke the contained methods.
+
+In our solution, we create a mixin named `walkMixin` that contains a method named `walk`. We give `Cat` access to this method by including the `walkMixin` in the class's prototype.
+
+This lets us invoke `walk` on any instance of `Cat`. In this case, if we invoke `kitty.walk()`, then `Let's go for a walk!` will be returned. */
+
+// const swimMixin = {
+//   swim() {
+//     return `${this.name} is swimming.`;
+//   }
+// }
+
+// class Fish {
+//   constructor(name) {
+//     this.name = name;
+//   }
+// }
+
+// class Dog {
+//   constructor(name) {
+//     this.name = name;
+//   }
+// }
+
+// class Maltese extends Dog {}
+
+// Object.assign(Fish.prototype, swimMixin);
+// Object.assign(Maltese.prototype, swimMixin);
+
+// let dog1 = new Maltese('Buddy');
+// let fish1 = new Fish('Nemo');
+
+// console.log(dog1.swim()); // Buddy is swimming.
+// console.log(fish1.swim()); // Nemo is swimming.
+
+// const towMixin = {
+//   tow() {
+//     return `I can tow a trailer!`;
+//   }
+// }
+
+// class Truck {}
+
+// Object.assign(Truck.prototype, towMixin);
+
+// class Car {}
+
+// let truck = new Truck();
+// console.log(truck.tow());
+
+// I can tow a trailer!
+
+/* Mixins are useful for organizing similar methods that my be relevant to multiple classes. For instance, the mixin `towMixin` contains the method `tow`. Typically, you use a `Truck` for towing, not a `Car`, which means `tow` is only relevant to `Truck` objects.
+
+With mixins, we have the ability to include them in specific classes. In the solution, we used `Object.assign` to include methods from `towMixin` in the `Truck.prototype` object. */
+
+// const towMixin = {
+//   tow() {
+//     return `I can tow a trailer!`;
+//   }
+// }
+
+// class Vehicle {
+//   constructor(year) {
+//     this.year = year;
+//   }
+// }
+
+// class Truck extends Vehicle {
+//   constructor(year) {
+//     super(year)
+//     Object.assign(this, towMixin);
+//   }
+// }
+
+// class Car extends Vehicle {}
+
+// let truck = new Truck(2002);
+// console.log(truck.year); // 2002
+// console.log(truck.tow()); // I can tow a trailer!
+
+// let car = new Car(2015);
+// console.log(car.year); // 2015
+
+/* Mixins are useful for containing similar methods; however, sometimes class inheritance is also needed. This exercise illustrates that it's possible to inherit from a class, and at the same time, include a mixin. In the solution, we've rewritten the `Vehicle` class used in the earlier exercises. Then, to allow `Truck` and `Car` to access `year`, we have both classes inherit from `Vehicle`. */
+
+// Object.prototype.ancestors = function() {
+//   let ancestors = [];
+//   let currentObject = this;
+
+//   while (Object.getPrototypeOf(currentObject) !== Object.prototype) {
+//     let proto = Object.getPrototypeOf(currentObject);
+//     ancestors.push(proto.name);
+//     currentObject = proto;
+//   }
+
+//   ancestors.push('Object.prototype');
+//   return ancestors;
+// }
+
+Object.prototype.ancestors = function ancestors() {
+  let ancestor = Object.getPrototypeOf(this);
+  if (ancestor === Object.prototype) {
+    return ['Object.prototype'];
+  } else {
+    return [ancestor.name, ...ancestor.ancestors()];
   }
 }
 
-class Truck extends Vehicle {
-  startEngine(speed) {
-    return `${super.startEngine()} Drive ${speed}, please!`;
-  }
-}
+// name property added to make objects easier to identify
+let foo = {name: 'foo'};
+let bar = Object.create(foo);
+bar.name = 'bar';
+let baz = Object.create(bar);
+baz.name = 'baz';
+let qux = Object.create(baz);
+qux.name = 'qux';
 
-let truck1 = new Truck();
-console.log(truck1.startEngine('fast'));
-
-let truck2 = new Truck();
-console.log(truck2.startEngine('slow'));
+console.log(qux.ancestors());  // returns ['baz', 'bar', 'foo', 'Object.prototype']
+console.log(baz.ancestors());  // returns ['bar', 'foo', 'Object.prototype']
+console.log(bar.ancestors());  // returns ['foo', 'Object.prototype']
+console.log(foo.ancestors());  // returns ['Object.prototype']
