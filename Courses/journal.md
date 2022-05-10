@@ -7989,3 +7989,9 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 16:59 Working on some more problems after picking up Omi and playing Life with her and then getting SungOh from his playdate with Braden. I'm close to taking the written assessment!
 
 18:35 After dinner and I want to update commits and do some work on the laptop.
+
+## 20220510 화요일
+
+09:06 Okay, I have my head in the game this morning. I'm going to review the notes from Alex that he got from the study session with Alison.
+
+12:32 End of JS129 Study Group and I need to take the written assessment.
