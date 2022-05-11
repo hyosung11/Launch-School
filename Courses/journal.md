@@ -7972,4 +7972,31 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 
 ## 20220508 일요일
 
-  10:36 It's Mother's Day and I can feel the buzz of too much coffee too soon on an empty stomach. I spent the morning fixing the leak of the kitchen faucet successfully. I want to study in the car to Easton, PA.
+10:36 It's Mother's Day and I can feel the buzz of too much coffee too soon on an empty stomach. I spent the morning fixing the leak of the kitchen faucet successfully. I want to study in the car to Easton, PA.
+
+## 20220509 월요일
+
+09:36 I have a therapy session with Urmi at 9:45.
+
+09:41 I'm okay, but I want to feel better and do better.
+
+11:55 Just wasted a lot of time after my therapy session. What is wrong with me right now?
+
+14:09 I took a break to do a Quick and Dead training session and have lunch. Now I want to do some more problems before going to get Omi at pickup.
+
+14:54 Time to get Omi from school. Go!
+
+16:59 Working on some more problems after picking up Omi and playing Life with her and then getting SungOh from his playdate with Braden. I'm close to taking the written assessment!
+
+18:35 After dinner and I want to update commits and do some work on the laptop.
+
+## 20220510 화요일
+
+09:06 Okay, I have my head in the game this morning. I'm going to review the notes from Alex that he got from the study session with Alison.
+
+12:32 End of JS129 Study Group and I need to take the written assessment.
+
+## 20220511 수오일
+
+19:00 I did some studying and reviewing. I will take the assessment on Friday.
+
