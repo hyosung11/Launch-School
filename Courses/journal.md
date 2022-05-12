@@ -8005,3 +8005,7 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 ## 20220512 목요일
 
 09:08 I need to review a few things and then be ready to take the written assessment tomorrow.
+
+10:05 I made a copy of the study guide that I will use tomorrow for the written assessment and I've been going through my notes and working through examples.
+
+13:35 I went for a walk around the block. I've reviewed the study guide. I will look at some problems and take the assessment tomorrow.
