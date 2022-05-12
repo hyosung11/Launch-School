@@ -7995,3 +7995,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 09:06 Okay, I have my head in the game this morning. I'm going to review the notes from Alex that he got from the study session with Alison.
 
 12:32 End of JS129 Study Group and I need to take the written assessment.
+
+13:20 I did a KSS training session and I feel better and ready to eat some protein for lunch. I want to be at 165 pounds or less on Sunday morning before the game starts.
