@@ -7997,3 +7997,11 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 12:32 End of JS129 Study Group and I need to take the written assessment.
 
 13:20 I did a KSS training session and I feel better and ready to eat some protein for lunch. I want to be at 165 pounds or less on Sunday morning before the game starts.
+
+## 20220511 수오일
+
+19:00 I did some studying and reviewing. I will take the assessment on Friday.
+
+## 20220512 목요일
+
+09:08 I need to review a few things and then be ready to take the written assessment tomorrow.
