@@ -8011,3 +8011,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 13:35 I went for a walk around the block. I've reviewed the study guide. I will look at some problems and take the assessment tomorrow.
 
 17:31 Working on some last day problems before I take the assessment tomorrow.
+
+18:01 Break for dinner.

@@ -261,16 +261,174 @@ When you take a method out of an object and execute it as a function or as a met
 
 // obj.foo(); // =
 
-let obj = {
-  a: 'hello',
-  b: 'world',
-  foo: function() {
-    let bar = () => {
-      console.log(this.a + ' ' + this.b);
-    }
+// let obj = {
+//   a: 'hello',
+//   b: 'world',
+//   foo: function() {
+//     let bar = () => {
+//       console.log(this.a + ' ' + this.b);
+//     }
 
-    bar(); // line 9 `bar` invoked as a standalone function
-  },
+//     bar(); // line 9 `bar` invoked as a standalone function
+//   },
+// };
+
+// obj.foo(); // =
+
+// let Animal = {}; // not a function
+// let Cat = Object.create(Animal);
+// let fluffy = Object.create(Cat);
+// console.log(fluffy instanceof Animal); // TypeError: Right-hand side of 'instanceof' is not callable
+
+/* The `Animal` object in this snippet does not have a `prototype` property since it isn't a constructor or class. The code raises an error. */
+
+// function Animal() {}
+// function Cat() {}
+// Cat.prototype = new Animal();
+// let fluffy = new Cat()
+// console.log(fluffy instanceof Animal); // true
+
+/* In this code, we manually add `Animal` to the prototype chain by changing `Cat.prototype` to reference `Animal`. Since `fluffy` is a `Cat` and since `Animal` is in `Cat`'s prototype chain, `fluffy` is an instance of `Animal`. */
+
+// function Animal() {}
+// function Cat() {}
+// Cat.prototype = new Animal();
+// function makeCat() {
+//   return {};
+// }
+
+/* In this code `Animal` does have prototype property, but neither `Cat` nor `Animal` is used to construct the object referenced by `fluffy`, so `fluffy` is not an instance of `Animal`. The code logs `false`. */
+
+// let fluffy = makeCat();
+// console.log(fluffy instanceof Animal); // false
+
+// class Animal {}
+// class Cat extends Animal {}
+// let fluffy = new Cat();
+// console.log(fluffy instanceof Animal); // true
+
+/* In this code, we use the ES6 class syntax to establish the prototype chain. Since `fluffy` is a `Cat` and since `Cat` extends `Animal`, `fluffy` is an instance of `Animal`. */
+
+// let Book = {
+//   init(author, title, ISBN) {
+//     this.author = author;
+//     this.title = title;
+//     this.ISBN = ISBN;
+//     return this;
+//   },
+
+//   describe() {
+//     console.log(this.title + ' was written by ' + this.author + '.');
+//   },
+// };
+
+// let book = Object.create(Book).init(
+//   'Neal Stephenson',
+//   'Snow Crash',
+//   '0-553-08853-X'
+// );
+
+// book.describe();
+
+// let Cat = {
+//   init(name, gender) {
+//     this.name = name;
+//     this.gender = gender;
+//     return this;
+//   },
+
+//   log() {
+//     console.log(`Meow! My name is ${this.name}. I'm a ${this.gender} cat.`);
+//   },
+// }
+
+// let cat1 = Object.create(Cat).init('Pudding', 'girl');
+// cat1.log();
+
+// class Critter {}
+// class Snake extends Critter {}
+// class Rattler extends Snake {}
+
+// Critter is a super type of both `Snake` and `Rattler`.
+// `Snake` is a super type of `Rattler` and a sub type of `Critter`
+// `Rattler` is a sub type of both `Snake` and `Critter`
+
+/* Mixin pattern copies the methods and properties of one object into another */
+
+// function Person(name) {
+//   this.name = name;
+//   this.school = undefined;
+// }
+
+// Person.prototype.speak = function() {
+//   return `Hello, my name is ${this.name}.`;
+// };
+
+// // missing code
+// function Child(name, school) {
+//   Person.call(this, name)
+//   this.school = school;
+// }
+
+// Child.prototype.learn = function() {
+//   return "I'm going to school!";
+// };
+
+// let child = new Child("Suzy", "PS 33");
+// console.log(child instanceof Child);                               // true
+// console.log(child instanceof Person === false);                    // true
+// console.log(Object.getPrototypeOf(child) === Child.prototype);     // true
+// console.log(Object.getPrototypeOf(child).constructor === Child);   // true
+// console.log(child.school === "PS 33");                             // true
+// console.log(child.learn() === "I'm going to school!");             // true
+// console.log();
+
+// let person = new Person("Pete");
+// console.log(person instanceof Child === false);                    // true
+// console.log(person instanceof Person);                             // true
+// console.log(Object.getPrototypeOf(person) === Person.prototype);   // true
+// console.log(Object.getPrototypeOf(person).constructor === Person); // true
+// console.log(person.school === undefined);                          // true
+// console.log(person.speak() === "Hello, my name is Pete.");         // true
+
+function Person(name) {
+  this.name = name;
+  this.school = undefined;
+}
+
+Person.prototype.speak = function() {
+  return `Hello, my name is ${this.name}.`;
 };
 
-obj.foo(); // =
+// your code from the previous question.
+function Child(name, school) {
+  Person.call(this, name);
+  this.school = school;
+}
+
+Child.prototype = Object.create(Person.prototype);
+Child.prototype.constructor = Child;
+// more missing code
+
+Child.prototype.learn = function() {
+  return "I'm going to school!";
+};
+
+let child = new Child("Suzy", "PS 33");
+console.log(child instanceof Child);                               // true
+console.log(child instanceof Person);                              // true
+console.log(Object.getPrototypeOf(child) === Child.prototype);     // true
+console.log(Object.getPrototypeOf(child).constructor === Child);   // true
+console.log(child.school === "PS 33");                             // true
+console.log(child.learn() === "I'm going to school!");             // true
+console.log(child.speak() === "Hello, my name is Suzy.");          // true
+console.log();
+
+let person = new Person("Pete");
+console.log(person instanceof Child === false);                    // true
+console.log(person instanceof Person);                             // true
+console.log(Object.getPrototypeOf(person) === Person.prototype);   // true
+console.log(Object.getPrototypeOf(person).constructor === Person); // true
+console.log(person.school === undefined);                          // true
+console.log(person.speak() === "Hello, my name is Pete.");         // true
+console.log(person.learn === undefined);                           // true
