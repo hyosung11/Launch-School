@@ -261,16 +261,44 @@ When you take a method out of an object and execute it as a function or as a met
 
 // obj.foo(); // =
 
-let obj = {
-  a: 'hello',
-  b: 'world',
-  foo: function() {
-    let bar = () => {
-      console.log(this.a + ' ' + this.b);
-    }
+// let obj = {
+//   a: 'hello',
+//   b: 'world',
+//   foo: function() {
+//     let bar = () => {
+//       console.log(this.a + ' ' + this.b);
+//     }
 
-    bar(); // line 9 `bar` invoked as a standalone function
-  },
-};
+//     bar(); // line 9 `bar` invoked as a standalone function
+//   },
+// };
 
-obj.foo(); // =
+// obj.foo(); // =
+
+class Rectangle {
+  constructor(width, length) {
+    this.width = width;
+    this.length = length;
+  }
+
+  getWidth() {
+    return this.width;
+  }
+
+  getLength() {
+    return this.length;
+  }
+
+  getArea() {
+    return this.width * this.length;
+  }
+}
+
+class Square extends Rectangle {
+  constructor(sideLength) {
+    super(sideLength, sideLength)
+  }
+}
+
+let square = new Square(5);
+console.log(`area of square = ${square.getArea()}`);
