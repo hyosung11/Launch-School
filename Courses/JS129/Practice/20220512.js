@@ -275,7 +275,6 @@ When you take a method out of an object and execute it as a function or as a met
 
 // obj.foo(); // =
 
-<<<<<<< HEAD
 class Rectangle {
   constructor(width, length) {
     this.width = width;
@@ -303,7 +302,6 @@ class Square extends Rectangle {
 
 let square = new Square(5);
 console.log(`area of square = ${square.getArea()}`);
-=======
 // let Animal = {}; // not a function
 // let Cat = Object.create(Animal);
 // let fluffy = Object.create(Cat);
@@ -461,4 +459,3 @@ console.log(Object.getPrototypeOf(person).constructor === Person); // true
 console.log(person.school === undefined); // true
 console.log(person.speak() === "Hello, my name is Pete."); // true
 console.log(person.learn === undefined); // true
->>>>>>> 6bc91773447fe648fbede469b99de380a2ecb6fb
