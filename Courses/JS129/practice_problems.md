@@ -593,7 +593,7 @@ NaN
 5
 ```
 
-The function `foo` looks for properties `a` and `b` on the global object since it is invoked as a function and `this` is bound to the global object. Both `this.a` and `this.b` evaluate to `undefined`, resulting in a `NaN` value. `bar`, however, is explicitly bound to obj on line 10, and, as a result, references that object's `a` and `b` properties when it is invoked.
+The function `foo` looks for properties `a` and `b` on the global object since it is invoked as a function and `this` is bound to the global object. Both `this.a` and `this.b` evaluate to `undefined`, resulting in a `NaN` value. `bar`, however, is explicitly bound to `obj` on line 10, and, as a result, references that object's `a` and `b` properties when it is invoked.
 
 If you use strict mode (discussed in more detail in JS130) to run the code, it will raise a `TypeError: Cannot read property 'a' of undefined` error when calling `foo()`.
 
@@ -645,7 +645,7 @@ function foo() {
   console.log(this.a);
 }
 
-let bar = foo.bind(obj);
+let bar = foo.bind(obj); // line 13
 
 bar.call(otherObj);
 ```
@@ -658,7 +658,7 @@ My Answer: // 'Amazebulous!`
 
 ## Lesson 2 > 15. [Practice Problems: Dealing with Context Loss](https://launchschool.com/lessons/1eaf5e37/assignments/408c20c3)
 
-### 15.1 The code below should output "Christopher Turk is a Surgeon". Without running the code, what will it output? If there is a difference between the actual and desired output, explain the difference:
+### 15.1 The code below should output "Christopher Turk is a Surgeon". Without running the code, what will it output? If there is a difference between the actual and desired output, explain the difference
 
 ```js
 let turk = {
@@ -1039,7 +1039,7 @@ function invoiceTotal(invoices) {
   return total;
 }
 
-let invoices =[];
+let invoices = [];
 invoices.push(createInvoice());
 invoices.push(createInvoice({ internet: 6500 }));
 invoices.push(createInvoice({ phone: 2000 }));
@@ -1306,7 +1306,7 @@ console.log(ninja.swingSword());
 true
 ```
 
-Even though we define the `swingSword` method on the prototype after we create the `ninja`, all objects created by the `Ninja` constructor *share the same prototype object*. Thus, when we define `swingSword`, it immediately becomes available to the `ninja` object.
+Even though we define the `swingSword` method on the prototype after we create `ninja`, all objects created by the `Ninja` constructor *share the same prototype object*. Thus, when we define `swingSword`, it immediately becomes available to the `ninja` object.
 
 ### 7.5 What will the following code output and why? Try to answer without running the code
 
