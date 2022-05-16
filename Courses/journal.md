@@ -8031,3 +8031,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 12:21 Can I look at the positive side of things? This is my one life. Enjoy it. I keep delaying taking the written assessment. Ugh.
 
 13:01 Reviewing practice problems and now I have to poo.
+
+17:24 Slow study day. I did review practice problems though.
