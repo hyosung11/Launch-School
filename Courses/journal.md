@@ -8043,3 +8043,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 13:22 I took the exam and ran out of time. I don't think I passed. In fact, I think I did rather poorly. Ugh.
 
 13:50 Going to play ping pong with Louis now.
+
+13:58 Trying to get .gitignore to work.
