@@ -8035,3 +8035,11 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 17:24 Slow study day. I did review practice problems though.
 
 20:02 I have to take the written assessment tomorrow and the interview assessment later this week.
+
+## 20220517 화요일
+
+08:55 Getting ready to take the JS129 Written assessment.
+
+13:22 I took the exam and ran out of time. I don't think I passed. In fact, I think I did rather poorly. Ugh.
+
+13:50 Going to play ping pong with Louis now.
