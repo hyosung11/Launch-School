@@ -8047,3 +8047,7 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 13:58 Trying to get .gitignore to work.
 
 17:27 I transcribed all the questions and my answers from the assessment. I have study sessions planned with Alex and Laurent tomorrow.
+
+## 20220518 수요일
+
+09:07 I walked one mile at the Duck Pond along the trail because we ended up driving to school this morning. I'm looking at the comments on my assessment now and I have a study session with Laurent at 10:00.
