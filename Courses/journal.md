@@ -8061,3 +8061,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 ## 20220520 금요일
 
 08:18 Just about time to take the kids to school.
+
+09:32 In the SPOT study session with Allison. All is well.
