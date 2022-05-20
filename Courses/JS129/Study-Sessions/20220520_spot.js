@@ -669,31 +669,104 @@ john.greetings();
 // let car2 = new Car('Toyota', 'Prius');
 // console.log(Car.allMakes()); // [ 'Honda', 'Toyota' ]
 
-
-let sohee = {
-  name: 'Sohee',
-  children: [],
-
-  childrenEat() {
-    return this.children.forEach(child => child.eat())
+class Car {
+  constructor(make, model) {
+    this.make = make;
+    this.model = model;
+    Car.makes.push(this.make);
   }
-};
 
-let omi = {
-  name: 'Omi',
-  eat() {
-    console.log(`Cowboy spaghetti`);
-  },
-};
+  static makes = [];
 
-let sungoh = {
-  name: 'SungOh',
-  eat() {
-    console.log(`Crunchy penne`);
-  },
-};
+  static allMakes() {
+    return Car.makes;
+  }
 
-sohee.children.push(omi);
-sohee.children.push(sungoh);
+  drive() {
+    console.log(`Driving a ${this.model}`);
+  }
+}
 
-sohee.childrenEat();
+let car1 = new Car('Honda', 'Accord');
+let car2 = new Car('Toyota', 'Prius');
+console.log(Car['allMakes']()); // [ 'Honda', 'Toyota' ]
+
+// let sohee = {
+//   name: 'Sohee',
+//   children: [],
+
+//   childrenEat() {
+//     return this.children.forEach(child => child.eat())
+//   }
+// };
+
+// let omi = {
+//   name: 'Omi',
+//   eat() {
+//     console.log(`Cowboy spaghetti`);
+//   },
+// };
+
+// let sungoh = {
+//   name: 'SungOh',
+//   eat() {
+//     console.log(`Crunchy penne`);
+//   },
+// };
+
+// sohee.children.push(omi);
+// sohee.children.push(sungoh);
+
+// sohee.childrenEat();
+
+// let omi = {
+//   game: 'Roblox',
+//   play() {
+//     console.log(`My favorite game is ${this.game}`);
+//   }
+// }
+
+// let sungoh = {
+//   game: 'Cooking Craze',
+// };
+
+// omi.play();
+
+// let omi = {
+//   game: 'Roblox',
+//   play() {
+//     console.log(`My favorite game is ${this.game}`);
+//   }
+// }
+
+// let sungoh = {
+//   game: 'Cooking Craze',
+// };
+
+// omi.play.call(sungoh); // My favorite game is Cooking Craze
+
+// let sarah = {
+//   name: 'Sarah',
+//   introduce() {
+//     console.log(`Hi, my name's ${this.name}`);
+//   },
+// };
+
+// let paul = {
+//   name: 'Paul',
+// };
+
+// sarah.introduce();
+
+// let sarah = {
+//   name: 'Sarah',
+//   introduce() {
+//     console.log(`Hi, my name's ${this.name}`);
+//   },
+// };
+
+// let paul = {
+//   name: 'Paul',
+// };
+
+// sarah.introduce.call(paul);
