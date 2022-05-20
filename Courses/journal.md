@@ -8053,3 +8053,7 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 09:07 I walked one mile at the Duck Pond along the trail because we ended up driving to school this morning. I'm looking at the comments on my assessment now and I have a study session with Laurent at 10:00.
 
 14:39 I submitted my revisions with a lot of help from Laurent.
+
+## 20220519 목요일
+
+11:29 Finished study session with Laurent. I feel better after my fever broke overnight. I still feel kind of tired. I need to get more repetitions of problems, so that I'm more fluent before I take the exam again.
