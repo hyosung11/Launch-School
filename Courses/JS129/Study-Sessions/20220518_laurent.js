@@ -227,7 +227,7 @@ Robots
   method: solve
 
 Humanoids
-  inherits froms robots
+  inherits from robots
   talk
   walk
 */
