@@ -8069,3 +8069,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 ## 20220524 화요일
 
 09:28 It's been many days since I last studied. I'm reviewing the exam questions and realizing more about what I can do to further my understanding.
+
+11:36 Chatted with Alex today via Zoom and got a message from Michael. I'm still reviewing the assessment and updating my study guide.
