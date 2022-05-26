@@ -185,3 +185,28 @@ For example 2, the execution context of `introduce` is the `paul` object. Here, 
 // let dog1 = new Dog('Lassie', 'Collie', 60);
 // let dog2 = new Dog('Rover', 'Mutt', 45);
 // console.log(Dog.allBreeds());
+
+// Question 7
+// Examine the code below:
+
+function Country(name, language) {
+  this.name = name;
+  Country.language = language;
+}
+
+Country.prototype.getName = function() {
+  return this.name;
+}
+
+Country.prototype.getLanguage = function() {
+  return this.constructor.language;
+}
+
+let france = new Country('France', 'French')
+let spain = new Country('Spain', 'Spanish')
+
+console.log(france.getName()); // France
+console.log(france.getLanguage()); // Spanish
+
+// With reference to the `name` and `language` properties, explain precisely why line 17 outputs `'France'` and line 18 outputs `'Spanish'`.
+

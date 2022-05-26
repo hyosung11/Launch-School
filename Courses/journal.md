@@ -8085,3 +8085,9 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 12:57 Getting more familiar with constructor/prototype object creation and using static methods.
 
 15:24 Back from the gym and from picking up the kids. I loved training at the gym today. It was fun and I feel fantastic now. Keep going.
+
+## 20220526 목요일
+
+09:00 Starting to study, but then going to school for Omi's spring concert. I'm thinking about what kind of training to do today.
+
+15:21 Doing another version of my study guide after going to the gym and playing ping pong with Louis. I feel a little tired right now.
