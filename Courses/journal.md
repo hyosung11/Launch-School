@@ -8075,3 +8075,19 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 15:29 I got in the gym today and did basic lifts and was okay. I then played ping pong with Louis and let him win. How do I increase my ability to remember well?
 
 16:35 It's been a pretty good day. I liked that I got to lift heavy but not hard at the gym today. I will go tomorrow. Ready to relax and study more sitting down.
+
+## 20220525 수요일
+
+10:05 It feels slow going at the moment. I'm able to but not ready to take the JS129 Written assessment again. I feel kind of tired at the moment. I did go to the gym yesterday and I want to go again today. Let's put in some study time before that though.
+
+12:17 Slow slog through the questions and updating my study guide today.
+
+12:57 Getting more familiar with constructor/prototype object creation and using static methods.
+
+15:24 Back from the gym and from picking up the kids. I loved training at the gym today. It was fun and I feel fantastic now. Keep going.
+
+## 20220526 목요일
+
+09:00 Starting to study, but then going to school for Omi's spring concert. I'm thinking about what kind of training to do today.
+
+15:21 Doing another version of my study guide after going to the gym and playing ping pong with Louis. I feel a little tired right now.
