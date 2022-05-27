@@ -8057,3 +8057,21 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 ## 20220519 목요일
 
 11:29 Finished study session with Laurent. I feel better after my fever broke overnight. I still feel kind of tired. I need to get more repetitions of problems, so that I'm more fluent before I take the exam again.
+
+## 20220520 금요일
+
+08:18 Just about time to take the kids to school.
+
+09:32 In the SPOT study session with Allison. All is well.
+
+11:30 Reverse engineering the exam questions and writing out variations of the answers into my study guide. I have to pee.
+
+## 20220524 화요일
+
+09:28 It's been many days since I last studied. I'm reviewing the exam questions and realizing more about what I can do to further my understanding.
+
+11:36 Chatted with Alex today via Zoom and got a message from Michael. I'm still reviewing the assessment and updating my study guide.
+
+15:29 I got in the gym today and did basic lifts and was okay. I then played ping pong with Louis and let him win. How do I increase my ability to remember well?
+
+16:35 It's been a pretty good day. I liked that I got to lift heavy but not hard at the gym today. I will go tomorrow. Ready to relax and study more sitting down.
