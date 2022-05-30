@@ -8091,3 +8091,7 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 09:00 Starting to study, but then going to school for Omi's spring concert. I'm thinking about what kind of training to do today.
 
 15:21 Doing another version of my study guide after going to the gym and playing ping pong with Louis. I feel a little tired right now.
+
+## 20220527 금요일
+
+08:51 The kids are off of school and we are going to Legoland in a few minutes. I will study a little in the car. I want to train at the gym today after we get back. I'm excited again about training.
