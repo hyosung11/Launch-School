@@ -1731,7 +1731,7 @@ class Truck {
   }
 }
 
-Object.assign(Truck.prototype.Speed);
+Object.assign(Truck.prototype, Speed);
 ```
 
 ### 8.4.1 Solution
