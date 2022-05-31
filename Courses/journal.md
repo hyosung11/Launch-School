@@ -8099,3 +8099,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 ## 20220531 화요일
 
 12:28 I've taken many days off from studying and am now grinding through the latest versio of my studying guide and practicing code examples in a coderpad sandbox. It's hot today and getting hotter. I want to go to the gym later and do a maximal strength lower body day.
+
+13:13 I reviewed all of the object creation patterns of the study guide. Ready to go to the gym now.
