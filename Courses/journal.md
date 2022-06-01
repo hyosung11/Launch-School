@@ -8101,3 +8101,9 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 12:28 I've taken many days off from studying and am now grinding through the latest versio of my studying guide and practicing code examples in a coderpad sandbox. It's hot today and getting hotter. I want to go to the gym later and do a maximal strength lower body day.
 
 13:13 I reviewed all of the object creation patterns of the study guide. Ready to go to the gym now.
+
+## 20220601 수요일
+
+10:12 Slow starting today, but back to reviewing my study guide with a fine-tooth comb.
+
+11:00 Finished section 2 of study guide. I realize I want to get my hernia checked as well as my lower back.
