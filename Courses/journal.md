@@ -8107,3 +8107,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 10:12 Slow starting today, but back to reviewing my study guide with a fine-tooth comb.
 
 11:00 Finished section 2 of study guide. I realize I want to get my hernia checked as well as my lower back.
+
+12:19 Took a break to eat a salad with sauerkraut and jalapeno chicken sausage that was delicious. Almost time to to go chiropractor.
