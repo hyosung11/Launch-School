@@ -8121,3 +8121,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 10:32 I don't understand how to get this problem to work.
 
 12:03 Okay, I synchronized my latest study guides and renamed the latest one to exam guide for the written exam. I think I need to go to the bathroom. When will Sohee return?
+
+13:58 Reviewed problems and proceeded through my exam guide. In the middle of mixins at the moment. Time to do some feed the cats training.
