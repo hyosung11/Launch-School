@@ -8112,3 +8112,12 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 
 12:30 Time to go to chiropractor. I'm up to Collaborator Objects in the study guide.
 
+## 20220602 목요일
+
+09:50 Another slow start to studying. I was watching French Open women's semifinal match. I turned it off, but I want to keep watching. Ugh.
+
+10:08 After homebrew update. I don't have the same terminal functionality on the iMac as I do on the MBP. I'm not sure why.
+
+10:32 I don't understand how to get this problem to work.
+
+12:03 Okay, I synchronized my latest study guides and renamed the latest one to exam guide for the written exam. I think I need to go to the bathroom. When will Sohee return?
