@@ -8111,3 +8111,7 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 12:19 Took a break to eat a salad with sauerkraut and jalapeno chicken sausage that was delicious. Almost time to to go chiropractor.
 
 12:30 Time to go to chiropractor. I'm up to Collaborator Objects in the study guide.
+
+## 20220602 목요일
+
+09:50 Another slow start to studying. I was watching French Open women's semifinal match. I turned it off, but I want to keep watching. Ugh.

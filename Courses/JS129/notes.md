@@ -147,7 +147,7 @@ console.log("Goodbye");
 
 ## Assignment 4: Afterword
 
-## Assignment 5; JS129 Test Feedback
+## Assignment 5: JS129 Test Feedback
 
 ## Assignment 6: Part 2: Study Guide for Interview
 
