@@ -8123,3 +8123,9 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 12:03 Okay, I synchronized my latest study guides and renamed the latest one to exam guide for the written exam. I think I need to go to the bathroom. When will Sohee return?
 
 13:58 Reviewed problems and proceeded through my exam guide. In the middle of mixins at the moment. Time to do some feed the cats training.
+
+## 20220606 월요일
+
+10:02 I was with SungOh all day Saturday, so I didn't study at all. Now it's Monday morning and I need to figure out what I'm doing today and when to retake the JS129 Written Assessment.
+
+11:17 Working through the latter half of my study guide today. Chatted with Alex.
