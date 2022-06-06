@@ -8129,3 +8129,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 10:02 I was with SungOh all day Saturday, so I didn't study at all. Now it's Monday morning and I need to figure out what I'm doing today and when to retake the JS129 Written Assessment.
 
 11:17 Working through the latter half of my study guide today. Chatted with Alex.
+
+11:29 Working on execution context and starting to lose my focus. Ugh.
