@@ -150,3 +150,30 @@ As mentioned in the previous exercise, the property `name` can be accessed anywh
 
 /* In the solution, `rename` accepts one argument, which represents a new name. To rename `kitty`, we just need to reassign the property `name` to the value provided by the argument. */
 
+// class Cat {
+//   static genericGreeting() {
+//     console.log(`Hello! I'm a cat!`);
+//   }
+// }
+
+// Cat.genericGreeting();
+
+/* The invocation of `genericGreeting` is on the `Cat` class, not an instance of `Cat`. This indicates that `genericGreeting` is a static method. We define static methods on classes by using the `static` keyword. To invoke static methods, they must be called on the class itself, not an instance of the class. If we invoke a static method on an instance of the class, we'll get a `TypeError`.  */
+
+class Cat {
+  constructor(name) {
+    this.name = name;
+  }
+
+  static genericGreeting() {
+    console.log(`Hello! I"m a cat!`);
+  }
+
+  personalGreeting() {
+    console.log(`Hello! My name is ${this.name}`);
+  }
+}
+
+let kitty = new Cat('Sophie');
+Cat.genericGreeting();
+kitty.personalGreeting();
