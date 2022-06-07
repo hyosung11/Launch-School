@@ -46,7 +46,7 @@ let humanLikeMethods = {
 function createHuman(name, age) {
   let human = {
     name,
-    age
+    age,
   }
 
   Object.assign(human, humanLikeMethods);
