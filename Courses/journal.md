@@ -8133,3 +8133,9 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 11:29 Working on execution context and starting to lose my focus. Ugh.
 
 12:05 Up to explicit binding with `call` and `apply` and `bind`.
+
+## 20220607 화요일
+
+06:28 Study session with Alex today.
+
+07:21 At the end of the study session with Alex.
