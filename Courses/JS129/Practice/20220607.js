@@ -276,3 +276,205 @@ As mentioned in the previous exercise, the property `name` can be accessed anywh
 // console.log(kitty.walk());
 
 /* 20220608 */
+// const swimMixin = {
+//   swim() {
+//     return `${this.name} is swimming.`;
+//   },
+// };
+
+// class Fish {
+//   constructor(name) {
+//     this.name = name;
+//   }
+// }
+
+// Object.assign(Fish.prototype, swimMixin);
+
+// class Dog {
+//   constructor(name) {
+//     this.name = name;
+//   }
+// }
+
+// class Maltese extends Dog {}
+// Object.assign(Maltese.prototype, swimMixin);
+
+// let dog1 = new Maltese('Buddy');
+// let fish1 = new Fish('Nemo');
+
+// console.log(dog1.swim());
+// console.log(fish1.swim());
+
+/* Use `Object.assign` to assign the mixin to the prototype object. */
+
+// const towMixin = {
+//   tow() {
+//     return `I can tow a trailer!`
+//   }
+// }
+
+// class Truck {}
+// Object.assign(Truck.prototype, towMixin);
+
+// class Car {}
+
+// let truck = new Truck();
+// console.log(truck.tow());
+
+/* Mixins are useful for organizing similar methods that may be relevant for multiple classes. For instance, the mixin `towMixin` contains the method `tow`. Typically, you use a `Truck` for towing, not a `Car`, which means `tow` is only relevant to `Truck` objects.
+
+With mixins, we have the ability to include them in specific classes. In the solution, we used `Object.assign` to include the method from `towMixin` in the `Truck.prototype` object. */
+
+// const towMixin = {
+//   tow() {
+//     return 'I can tow a trailer!';
+//   },
+// };
+
+// class Vehicle {
+//   constructor(year) {
+//     this.year = year;
+//   }
+// }
+
+// class Truck extends Vehicle {
+//   constructor(year) {
+//     super(year)
+//     Object.assign(this, towMixin);
+//   }
+// }
+
+// class Car extends Vehicle {}
+
+// let truck = new Truck(2002);
+// console.log(truck.year);
+// console.log(truck.tow());
+
+// let car = new Car(2015);
+// console.log(car.year);
+
+/* Mixins are useful for containing similar methods. However, sometimes class inheritance is also needed. This exercise illustrates that it's possible to inherit from a class and, at the same time, include a mixin.
+
+In the solution, we've rewritten the `Vehicle` class used in the earlier exercise. Then, to allow `Truck` and `Car` to access `year`, we have both classes inherit from `Vehicle`. */
+
+// class Rectangle {
+//   constructor(width, length) {
+//     this.width = width;
+//     this.length = length;
+//   }
+
+//   getWidth() {
+//     return this.width;
+//   }
+
+//   getLength() {
+//     return this.length;
+//   }
+
+//   getArea() {
+//     return this.width * this.length;
+//   }
+// }
+
+// let rect = new Rectangle(4, 5);
+
+// console.log(rect.getWidth()); // 4
+// console.log(rect.getLength()); // 5
+// console.log(rect.getArea()); // 20
+
+/* In the constructor function we are creating the two properties `width` and `length` and assigning to them the values of the parameters with the same name. To access the value of each property within methods, we use the `this` keyword in front of each property name. */
+
+// class Rectangle {
+//   constructor(width, length) {
+//     this.width = width;
+//     this.length = length;
+//   }
+
+//   getWidth() {
+//     return this.width;
+//   }
+
+//   getLength() {
+//     return this.length;
+//   }
+
+//   getArea() {
+//     return this.width * this.length;
+//   }
+// }
+
+// class Square extends Rectangle {
+//   constructor(side) {
+//     super(side, side);
+//   }
+// }
+
+// let square = new Square(5);
+// console.log(`area of square = ${square.getArea()}`); // area of square = 25
+
+/* We must call `super` in the `constructor` method of the `Square` class, and that `Square` inherits the `getArea` method from `Rectangle`.  */
+
+// class Cat {
+//   constructor(name) {
+//     this.name = name;
+//   }
+//   speaks() {
+//     return `${this.name} says meowwww.`;
+//   }
+// }
+
+// let fakeCat = Object.create(Cat.prototype);
+// console.log(fakeCat instanceof Cat); // logs true
+// console.log(fakeCat.name);           // logs undefined
+// console.log(fakeCat.speaks());       // logs undefined says meowwww.
+
+/* In the solution, we are using `Object.create()` to create a new object that can't be distinguished from a `Cat` instance. `Object.create()` uses an existing object as the prototype of the newly created object. */
+
+// class Pet {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//   }
+// }
+
+// class Cat extends Pet {
+//   constructor(name, age, colors) {
+//     super(name, age);
+//     this.colors = colors;
+//   }
+
+//   info() {
+//     return `My cat ${this.name} is ${this.age} years old and has ${this.colors} fur.`
+//   }
+// }
+
+// let pudding = new Cat('Pudding', 7, 'black and white');
+// let butterscotch = new Cat('Butterscotch', 10, 'tan and white');
+
+// console.log(pudding.info());
+// console.log(butterscotch.info());
+
+// My cat Pudding is 7 years old and has black and white fur.
+// My cat Butterscotch is 10 years old and has tan and white fur.
+
+/* Since the `constructor` method in the `Cat` class requires arguments that differ from the `constructor` method in the `Pet` class, we must define a `constructor` method for `Cat`, and that method must be sure to call `super`. Finally, we just need to define the `info` method on the `Cat` class that returns the required message. */
+
+function createPet(name, age) {
+  return {
+    name,
+    age,
+  };
+}
+
+function createCat(name, age, colors) {
+  let cat = createPet(name, age);
+  cat.colors = colors;
+  cat.info = function info() {
+    return `My cat ${this.name} is ${this.age} years old and has ${this.colors} fur.`
+  };
+
+  return cat;
+}
+
+let pudding = createCat('Pudding', 7, 'black and white');
+console.log(pudding.info());

@@ -8149,3 +8149,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 ## 20220608 수요일
 
 12:08 Super late start to studying. I'm more interested in sex and strength training. Ugh. Get it together buddy!
+
+13:14 Okay, once I got started, I studied for over an hour straight. I'm close to the retake! Now, off to the gym. Starting today with original strength warmup.
