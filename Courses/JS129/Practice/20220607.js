@@ -160,20 +160,119 @@ As mentioned in the previous exercise, the property `name` can be accessed anywh
 
 /* The invocation of `genericGreeting` is on the `Cat` class, not an instance of `Cat`. This indicates that `genericGreeting` is a static method. We define static methods on classes by using the `static` keyword. To invoke static methods, they must be called on the class itself, not an instance of the class. If we invoke a static method on an instance of the class, we'll get a `TypeError`.  */
 
-class Cat {
-  constructor(name) {
-    this.name = name;
-  }
+// class Cat {
+//   constructor(name) {
+//     this.name = name;
+//   }
 
-  static genericGreeting() {
-    console.log(`Hello! I"m a cat!`);
-  }
+//   static genericGreeting() {
+//     console.log(`Hello! I"m a cat!`);
+//   }
 
-  personalGreeting() {
-    console.log(`Hello! My name is ${this.name}`);
-  }
-}
+//   personalGreeting() {
+//     console.log(`Hello! My name is ${this.name}`);
+//   }
+// }
 
-let kitty = new Cat('Sophie');
-Cat.genericGreeting();
-kitty.personalGreeting();
+// let kitty = new Cat('Sophie');
+// Cat.genericGreeting();
+// kitty.personalGreeting();
+
+// class Vehicle {
+//   constructor(year) {
+//     this.year = year;
+//   }
+// }
+
+// class Truck extends Vehicle {}
+
+// class Car extends Vehicle {}
+
+// let truck = new Truck(2003);
+// console.log(truck.year); // 2003
+
+// let car = new Car(2015);
+// console.log(car.year); // 2015
+
+// class Vehicle {
+//   constructor(year) {
+//     this.year = year;
+//   }
+// }
+
+// class Truck extends Vehicle {
+//   constructor(year) {
+//     super(year);
+//     this.startEngine();
+//   }
+
+//   startEngine() {
+//     console.log('Ready to go!')
+//   }
+// }
+
+// let truck = new Truck(2003);
+// console.log(truck.year); // 2003
+
+// class Vehicle {
+//   constructor(year) {
+//     this.year = year;
+//   }
+// }
+
+// class Truck extends Vehicle {
+//   constructor(year, bedType) {
+//     super(year);
+//     this.bedType = bedType;
+//   }
+// }
+
+// class Car extends Vehicle {}
+
+// let truck1 = new Truck(2003, 'Short');
+// console.log(truck1.year);
+// console.log(truck1.bedType);
+
+// class Vehicle {
+//   startEngine() {
+//     return 'Ready to go!';
+//   }
+// }
+
+// class Truck extends Vehicle {
+//   startEngine(speed) {
+//     return `${super.startEngine()} Drive ${speed}, please!`;
+//   }
+// }
+
+// let truck1 = new Truck();
+// console.log(truck1.startEngine('fast'));
+
+// let truck2 = new Truck();
+// console.log(truck2.startEngine('slow'));
+
+/* Here we are using the `super` keyword to call the function on the object's parent. This way we are able to use some functionality from the parent class `Vehicle` in the `Truck` class. */
+
+// const walkMixin = {
+//   walk() {
+//     return `Let's go for a walk!`;
+//   },
+// };
+
+// class Cat {
+//   constructor(name) {
+//     this.name = name;
+//   }
+
+//   greet() {
+//     return `Hello! My name is ${this.name}!`;
+//   }
+// }
+
+// Object.assign(Cat.prototype, walkMixin);
+
+// let kitty = new Cat('Sophie');
+// console.log(kitty.greet());
+// console.log(kitty.walk());
+
+/* 20220608 */
