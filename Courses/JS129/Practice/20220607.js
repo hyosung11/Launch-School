@@ -459,22 +459,24 @@ In the solution, we've rewritten the `Vehicle` class used in the earlier exercis
 
 /* Since the `constructor` method in the `Cat` class requires arguments that differ from the `constructor` method in the `Pet` class, we must define a `constructor` method for `Cat`, and that method must be sure to call `super`. Finally, we just need to define the `info` method on the `Cat` class that returns the required message. */
 
-function createPet(name, age) {
-  return {
-    name,
-    age,
-  };
-}
+// function createPet(name, age) {
+//   return {
+//     name,
+//     age,
+//   };
+// }
 
-function createCat(name, age, colors) {
-  let cat = createPet(name, age);
-  cat.colors = colors;
-  cat.info = function info() {
-    return `My cat ${this.name} is ${this.age} years old and has ${this.colors} fur.`
-  };
+// function createCat(name, age, colors) {
+//   let cat = createPet(name, age);
+//   cat.colors = colors;
 
-  return cat;
-}
+//   cat.info = function info() {
+//     return `My cat ${this.name} is ${this.age} years old and has ${this.colors} fur.`
+//   };
 
-let pudding = createCat('Pudding', 7, 'black and white');
-console.log(pudding.info());
+//   return cat;
+// }
+
+// let pudding = createCat('Pudding', 7, 'black and white');
+// console.log(pudding.info());
+
