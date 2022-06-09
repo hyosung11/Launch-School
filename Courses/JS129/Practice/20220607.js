@@ -459,22 +459,217 @@ In the solution, we've rewritten the `Vehicle` class used in the earlier exercis
 
 /* Since the `constructor` method in the `Cat` class requires arguments that differ from the `constructor` method in the `Pet` class, we must define a `constructor` method for `Cat`, and that method must be sure to call `super`. Finally, we just need to define the `info` method on the `Cat` class that returns the required message. */
 
-function createPet(name, age) {
-  return {
-    name,
-    age,
-  };
+// function createPet(name, age) {
+//   return {
+//     name,
+//     age,
+//   };
+// }
+
+// function createCat(name, age, colors) {
+//   let cat = createPet(name, age);
+//   cat.colors = colors;
+//   cat.info = function info() {
+//     return `My cat ${this.name} is ${this.age} years old and has ${this.colors} fur.`
+//   };
+
+//   return cat;
+// }
+
+// let pudding = createCat('Pudding', 7, 'black and white');
+// console.log(pudding.info());
+
+// function Pet(name, age) {
+//   this.name = name;
+//   this.age = age;
+// }
+
+// function Cat(name, age, colors) {
+//   Pet.call(this, name, age);
+//   this.colors = colors;
+// }
+
+// Cat.prototype.info = function info() {
+//   return `My cat ${this.name} is ${this.age} years old and has ${this.colors} fur.`
+// }
+
+// let pudding = new Cat('Pudding', 7, 'black and white');
+
+// console.log(pudding.info());
+
+// class Pet {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//   }
+// }
+
+// class Cat extends Pet {
+//   constructor(name, age, colors) {
+//     super(name, age);
+//     this.colors = colors;
+//   }
+
+//   info() {
+//     return `My cat ${this.name} is ${this.age} years old and has ${this.colors} fur.`
+//   }
+// }
+
+// let pudding = new Cat('Pudding', 7, 'black and white');
+// let butterscotch = new Cat('Butterscotch', 10, 'tan and white');
+
+// console.log(pudding.info());
+// console.log(butterscotch.info());
+
+// My cat Pudding is 7 years old and has black and white fur.
+// My cat Butterscotch is 10 years old and has tan and white fur.
+
+// class Animal {
+//   constructor(name, age, legs, species, status) {
+//     this.name = name;
+//     this.age = age;
+//     this.legs = legs;
+//     this.species = species;
+//     this.status = status;
+//   }
+//   introduce() {
+//     return `Hello, my name is ${this.name} and I am ${this.age} years old and ${this.status}.`;
+//   }
+// }
+
+// class Cat extends Animal {
+//   constructor(name, age, status) {
+//     super(name, age, 4, 'cat', status);
+//   }
+
+//   introduce() {
+//     return super.introduce() + ' ' +  'Meow meow!';
+//   }
+// }
+
+// class Dog extends Animal {
+//   constructor(name, age, status, master) {
+//     super(name, age, 4, 'dog', status);
+//     this.master = master;
+//   }
+
+//   greetMaster() {
+//     return `Hello ${this.master}! Woof, woof!`
+//   }
+// }
+
+// let cat = new Cat("Pepe", 2, "happy");
+// console.log(cat.introduce() === "Hello, my name is Pepe and I am 2 years old and happy. Meow meow!");
+// // logs true
+
+// let rusty = new Dog('Rusty', 3, 'chill', 'Oliver');
+// console.log(rusty.greetMaster());
+
+/* In the `Cat` constructor method we are using the `super` keyword to invoke the constructor method of the parent class `Animal`. We need to pass 5 arguments to it (name, age, legs, species, and status), as this is how many arguments the `Animal` constructor method takes.
+
+Since the `introduce()` method in the `Cat` class is just a slight modification of the method with the same name from the parent class, we can again use the `super` keyword to invoke the method on the object's parent, like this `super.introduce()`. Finally, we just need to concatenate to the return value of this method string "Meow, meow!", which we did using template strings.
+
+In the `Dog` class constructor method, we are, like in the `Cat` class using the `super` keyword to invoke the constructor method from the `Animal` class. Also, within this method, we are instantiating a new property called `master`. Then, within the `greetMaster()` method, we are accessing the value of this property using the `this` keyword. */
+
+// function createAnimal(name, age, legs, species, status) {
+//   return {
+//     name,
+//     age,
+//     legs,
+//     species,
+//     status,
+
+//     introduce() {
+//       return `Hello, my name is ${this.name} and I am ${this.age} years old and ${this.status}.`
+//     },
+//   };
+// }
+
+// function createCat(name, age, status) {
+//   let cat = createAnimal(name, age, 4, 'cat', status);
+//   cat.introduce = function introduce() {
+//     return `Hello, my name is ${this.name} and I am ${this.age} years old and ${this.status}. Meow meow!`;
+//   }
+//   return cat;
+// }
+
+// function createDog(name, age, status, master) {
+//   let dog = createAnimal(name, age, 4, 'dog', status);
+//   dog.master = master;
+//   dog.greetMaster = function greetMaster() {
+//     return `Hello ${this.master}! Woof, woof!`;
+//   }
+//   return dog;
+// }
+
+// let felix = createCat('Felix', 4, 'sleepy');
+// console.log(felix);
+
+// let clifford = createDog('Clifford', 1, 'curious', 'James');
+// console.log(clifford.introduce());
+// console.log(clifford.greetMaster());
+
+// // OLOO (Prototypal)
+// let animalPrototype = {
+//   init(name, age, legs, species, status) {
+//     this.name = name;
+//     this.age = age;
+//     this.legs = legs;
+//     this.species = species;
+//     this.status = status;
+//     return this;
+//   },
+
+//   intro() {
+//     return `Hello, my name is ${this.name} and I am ${this.age} years old and ${this.status}.`;
+//   },
+// };
+
+// let catPrototype = {
+//   init(name, age, status) {
+//     animalPrototype.init.call(this, name, age, 4, 'cat', status);
+//     return this;
+//   },
+
+//   introduce() {
+//     return animalPrototype.intro.call(this) + " Meow meow!";
+//   }
+// }
+
+// let catOLOO = Object.assign(Object.create(animalPrototype), catPrototype);
+
+// let kitty = Object.create(catOLOO).init('Kitty', 3, 'lazy');
+// console.log(kitty.intro()); // Hello, my name is Kitty and I am 3 years old and lazy.
+// console.log(kitty.introduce());
+
+// let dogPrototype = {
+//   init(name, age, status, master) {
+//     animalPrototype.init.call(this, name, age, 4, 'dog', status);
+//     this.master = master;
+//     return this;
+//   },
+
+//   greetMaster() {
+//     return `Hello ${this.master}! Woof, woof!`;
+//   }
+// }
+
+// let dogOLOO = Object.assign(Object.create(animalPrototype), dogPrototype);
+
+// let buster = Object.create(dogOLOO).init('Buster', 2, 'happy', 'Omi');
+// console.log(buster.intro());
+// console.log(buster.greetMaster());
+
+// Constructors/Prototypes (Pseudo-classical)
+function Animal(name, age, legs, species, status) {
+  this.name = name;
+  this.age = age;
+  this.legs = legs;
+  this.species = species;
+  this.status = status;
 }
 
-function createCat(name, age, colors) {
-  let cat = createPet(name, age);
-  cat.colors = colors;
-  cat.info = function info() {
-    return `My cat ${this.name} is ${this.age} years old and has ${this.colors} fur.`
-  };
+Animal.prototype.introduce = function introduce() {
+  return `Hello, my name is ${this.name} and I am ${this.age} years old and ${this.status}.`
+};
 
-  return cat;
-}
-
-let pudding = createCat('Pudding', 7, 'black and white');
-console.log(pudding.info());
