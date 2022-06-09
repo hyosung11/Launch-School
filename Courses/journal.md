@@ -8157,3 +8157,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 09:37 Getting started a little earlier today which is good. I was doing JS120 Exercises yesterday and I will continue with that today.
 
 11:28 Taking a meal break. I've just been practicing different object creation patterns.
+
+13:12 I seem to understand the student submitted examples from the exercises better now. I needed the practice with object creation patterns. I'm ready to go to the gym now.

@@ -661,15 +661,301 @@ In the `Dog` class constructor method, we are, like in the `Cat` class using the
 // console.log(buster.greetMaster());
 
 // Constructors/Prototypes (Pseudo-classical)
-function Animal(name, age, legs, species, status) {
-  this.name = name;
-  this.age = age;
-  this.legs = legs;
-  this.species = species;
-  this.status = status;
+// function Animal(name, age, legs, species, status) {
+//   this.name = name;
+//   this.age = age;
+//   this.legs = legs;
+//   this.species = species;
+//   this.status = status;
+// }
+
+// Animal.prototype.introduce = function introduce() {
+//   return `Hello, my name is ${this.name} and I am ${this.age} years old and ${this.status}.`
+// };
+
+// function Cat(name, age, status) {
+//   Animal.call(this, name, age, 4, 'cat', status);
+// }
+
+// Cat.prototype = Object.create(Animal.prototype);
+// // restoring the constructor
+// Cat.prototype.constructor = Cat;
+
+// Cat.prototype.introduce = function introduce() {
+//   return `${Animal.prototype.introduce.call(this)} Meow meow!`;
+// }
+
+// function Dog(name, age, status, master) {
+//   Animal.call(this, name, age, 4, 'dog', status);
+//   this.master = master;
+// }
+
+// Dog.prototype = Object.create(Animal.prototype);
+// Dog.prototype.constructor = Dog;
+
+// Dog.prototype.greetMaster = function greetMaster() {
+//   return `Hello ${this.master}! Woof, woof!`;
+// }
+
+// let kitty = new Cat('kitty', 3, 'curious');
+// console.log(kitty.introduce());
+
+// let blackie = new Dog('Blackie', 1, 'excited', 'Sohee');
+// console.log(blackie.greetMaster());
+// console.log(blackie.introduce());
+
+// class Animal {
+//   constructor(name, age, legs, species, status) {
+//     this.name = name;
+//     this.age = age;
+//     this.legs = legs;
+//     this.species = species;
+//     this.status = status;
+//   }
+
+//   introduce() {
+//     return `Hello, my name is ${this.name} and I am ${this. age} years old and ${this.status}.`
+//   }
+// }
+
+// class Cat extends Animal {
+//   constructor(name, age, status) {
+//     super(name, age, 4, 'cat', status);
+//   }
+
+//   introduce() {
+//     return `${super.introduce()} Meow meow!`;
+//   }
+// }
+
+// class Dog extends Animal {
+//   constructor(name, age, status, master) {
+//     super(name, age, 4, 'dog', status);
+//     this.master = master;
+//   }
+
+//   greetMaster() {
+//     return `Hello ${this.master}! Woof, woof!`;
+//   }
+// }
+
+// let cat = new Cat('kitty', 3, 'creative');
+// console.log(cat.introduce());
+
+// let dog = new Dog('Dougie', 5, 'tired', 'Sam');
+// console.log(dog.introduce());
+// console.log(dog.greetMaster());
+
+// class Vehicle {
+//   constructor(make, model) {
+//     this.make = make;
+//     this.model = model;
+//   }
+
+//   info() {
+//     return `${this.make} ${this.model}`;
+//   }
+// }
+
+// class Car extends Vehicle {
+//   getWheels() {
+//     return 4;
+//   }
+// }
+
+// class Motorcycle extends Vehicle {
+//   getWheels() {
+//     return 2;
+//   }
+// }
+
+// class Truck extends Vehicle {
+//   constructor(make, model, payload) {
+//     super(make, model);
+//     this.payload = payload;
+//   }
+
+//   getWheels() {
+//     return 6;
+//   }
+// }
+
+// let truck = new Truck('Honda', 'Passport', 'medium');
+// console.log(truck.info());
+
+/* `Vehicle` is a good name for the superclass. All of our constructor methods take `make` and `model` parameters, and store them in `make` and `model` properties. We can refactor all of this commonality into `Vehicle` by moving the `constructor` from one of the classes into `Vehicle`, and deleting it from both `Car` and `Motorcycle`. However, our `Truck` class takes a third parameter `payload`, so we can't just delete the `constructor` method in the `Truck` class.
+
+Our `info` method is identical in all 3 of the original classes, so we just move that into the `Vehicle` superclass and remove it from the original classes.
+
+The `getWheels` method is different in each of the original classes, so we don't move this into `Vehicle`. */
+
+// class Vehicle {
+//   constructor(make, model, wheels = 0) {
+//     this.make = make;
+//     this.model = model;
+//     this.wheels = wheels;
+//   }
+
+//   getWheels() {
+//     return this.wheels;
+//   }
+
+//   info() {
+//     return `${this.make} ${this.model}`;
+//   }
+// }
+
+// class Car extends Vehicle {}
+
+// class Motorcycle extends Vehicle {}
+
+// class Truck extends Vehicle {
+//   constructor(make, model, wheels, payload) {
+//     super(make, model, wheels);
+//     this.payload = payload;
+//   }
+// }
+
+// let car = new Car('Tesla', 'S', 4);
+// console.log(car.getWheels());
+
+// let truck = new Truck('Ford', '150', 6, 'heavy');
+// console.log(truck.getWheels());
+
+// Factory Function
+// function createVehicle(make, model, wheels) {
+//   return {
+//     make,
+//     model,
+//     wheels,
+
+//     getWheels() {
+//       return this.wheels;
+//     },
+
+//     info() {
+//       return `${this.make} ${this.model}`;
+//     },
+//   };
+// }
+
+// function createCar(make, model) {
+//   return createVehicle(make, model, 4);
+// }
+
+// function createMotorcycle(make, model) {
+//   return createVehicle(make, model, 2);
+// }
+
+// function createTruck(make, model, payload) {
+//   let truck = createVehicle(make, model, 6);
+//   truck.payload = payload;
+//   return truck;
+// }
+
+// let car = createCar('Tesla', 'X', 4);
+// console.log(car.getWheels());
+
+// let truck = createTruck('Ford', 'Bronco', 'low');
+// console.log(truck.info());
+// console.log(truck.getWheels());
+
+// let vehiclePrototype = {
+//   init(make, model, wheels) {
+//     this.make = make;
+//     this.model = model;
+//     this.wheels = wheels;
+//     return this;
+//   },
+
+//   getWheels() {
+//     return this.wheels;
+//   },
+
+//   info() {
+//     return `${this.make} ${this.model}`;
+//   },
+// };
+
+// let carPrototype = {
+//   init(make, model) {
+//     vehiclePrototype.init.call(this, make, model, 4);
+//     return this;
+//   }
+// };
+
+// let carOLOO = Object.assign(Object.create(vehiclePrototype), carPrototype);
+
+// let moana = Object.create(carOLOO).init('Toyota', 'Prius');
+// console.log(moana.getWheels());
+// console.log(moana.info());
+
+function Vehicle(make, model, wheels) {
+  this.make = make;
+  this.model = model;
+  this.wheels = wheels;
 }
 
-Animal.prototype.introduce = function introduce() {
-  return `Hello, my name is ${this.name} and I am ${this.age} years old and ${this.status}.`
-};
+// Vehicle.prototype.getWheels = function getWheels() {
+//   return this.wheels;
+// }
 
+// Vehicle.prototype.info = function info() {
+//   return `${this.make}  ${this.model}`;
+// }
+
+// Vehicle.prototype = {
+//   getWheels() {
+//     return this.wheels;
+//   },
+
+//   info() {
+//     return `${this.make} ${this.model}`;
+//   }
+// }
+
+// function Car(make, model) {
+//   Vehicle.call(this, make, model, 4);
+// }
+
+// Car.prototype = Object.create(Vehicle.prototype);
+// Car.prototype.constructor = Car;
+
+// let moana = new Car('Toyota', 'Prius');
+// console.log(moana.getWheels());
+// console.log(moana.info());
+
+class Vehicle {
+  constructor(make, model, wheels) {
+    this.make = make;
+    this.model = model;
+    this.wheels = wheels;
+  }
+
+  getWheels() {
+    return this.wheels;
+  }
+
+  info() {
+    return `${this.make} ${this.model}`;
+  }
+}
+
+class Car extends Vehicle {
+  constructor(make, model) {
+    super(make, model, 4);
+  }
+}
+
+class Motorcycle extends Vehicle {
+  constructor(make, model) {
+    super(make, model, 2);
+  }
+}
+
+class Truck extends Vehicle {
+  constructor(make, model, payload) {
+    super(make, model, 6);
+    this.payload = payload;
+  }
+}
