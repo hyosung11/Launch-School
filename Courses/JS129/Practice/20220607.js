@@ -1020,60 +1020,150 @@ This code snippet demonstrates static methods and instance methods. Static metho
 
 // Recognize that line 12 is the `greeting()` method invocation on the object's parent. In our solution, we use the `super` keyword to invoke the method `greeting()` on the object's parent and we are passing uppercased text to it, same as in the original example.
 
-const walkMixin = {
-  walk() {
-    return `${this.name} ${this.gait()} forward`
-  }
-}
+// const walkMixin = {
+//   walk() {
+//     return `${this.name} ${this.gait()} forward`
+//   }
+// }
 
-class Person {
-  constructor(name) {
-    this.name = name;
-  }
+// class Person {
+//   constructor(name) {
+//     this.name = name;
+//   }
 
-  gait() {
-    return 'strolls';
-  }
-}
+//   gait() {
+//     return 'strolls';
+//   }
+// }
 
-Object.assign(Person.prototype, walkMixin);
+// Object.assign(Person.prototype, walkMixin);
 
-class Cat {
-  constructor(name) {
-    this.name = name;
-  }
+// class Cat {
+//   constructor(name) {
+//     this.name = name;
+//   }
 
-  gait() {
-    return 'saunters';
-  }
-}
+//   gait() {
+//     return 'saunters';
+//   }
+// }
 
-Object.assign(Cat.prototype, walkMixin);
+// Object.assign(Cat.prototype, walkMixin);
 
-class Cheetah {
-  constructor(name) {
-    this.name = name;
-  }
+// class Cheetah {
+//   constructor(name) {
+//     this.name = name;
+//   }
 
-  gait() {
-    return 'runs';
-  }
-}
+//   gait() {
+//     return 'runs';
+//   }
+// }
 
-Object.assign(Cheetah.prototype, walkMixin);
+// Object.assign(Cheetah.prototype, walkMixin);
 
-let mike = new Person("Mike");
-console.log(mike.walk());
-// "Mike strolls forward"
+// let mike = new Person("Mike");
+// console.log(mike.walk());
+// // "Mike strolls forward"
 
-let kitty = new Cat("Kitty");
-console.log(kitty.walk());
-// "Kitty saunters forward"
+// let kitty = new Cat("Kitty");
+// console.log(kitty.walk());
+// // "Kitty saunters forward"
 
-let flash = new Cheetah("Flash");
-console.log(flash.walk());
+// let flash = new Cheetah("Flash");
+// console.log(flash.walk());
 // "Flash runs forward"
 
 /* You can use the `walkMixin` with any class that defines properties `name` and `gait`. YOu can also define a parent class and make the other classes inherit from that class.
 
 Mixins are more appropriate in a has-a relationship. While it is sometimes tricky to choose one or the other, a great guideline is to decide if you want some additional functionality, or if you want to extend the abilities of the class. In this case, it is pretty clear that we need the functionality of walking; we don't need to extend the abilities of the class `Person` (extending the abilities of a class coincides with an is-a relationship, not has-a).*/
+
+class Pet {
+  constructor(animal, name) {
+    this.animal = animal;
+    this.name = name;
+  }
+
+  info() {
+    return `a ${this.animal} named ${this.name}`
+  }
+}
+
+class Owner {
+  constructor(name) {
+    this.name = name;
+    this.pets = [];
+  }
+
+  addPet(pet) {
+    this.pets.push(pet);
+  }
+
+  numberOfPets() {
+    return this.pets.length;
+  }
+
+  printPets() {
+    this.pets.forEach(pet => console.log(pet.info()));
+  }
+}
+
+class Shelter {
+  constructor() {
+    this.owners = {};
+  }
+
+  adopt(owner, pet) {
+    owner.addPet(pet);
+    if (!this.owners[owner.name]) {
+      this.owners[owner.name] = owner;
+    }
+  }
+
+  printAdoptions() {
+    for (let name in this.owners) {
+      console.log(`${name} has adopted the following pets:`);
+      this.owners[name].printPets();
+      console.log('');
+    }
+  }
+}
+
+let butterscotch = new Pet('cat', 'Butterscotch');
+// console.log(butterscotch.info());
+
+let pudding = new Pet('cat', 'Pudding');
+let darwin = new Pet('bearded dragon', 'Darwin');
+let kennedy = new Pet('dog', 'Kennedy');
+let sweetie = new Pet('parakeet', 'Sweetie Pie');
+let molly = new Pet('dog', 'Molly');
+let chester = new Pet('fish', 'Chester');
+
+let phanson = new Owner('P Hanson');
+let bholmes = new Owner('B Holmes');
+
+let shelter = new Shelter();
+shelter.adopt(phanson, butterscotch);
+shelter.adopt(phanson, pudding);
+shelter.adopt(phanson, darwin);
+shelter.adopt(bholmes, kennedy);
+shelter.adopt(bholmes, sweetie);
+shelter.adopt(bholmes, molly);
+shelter.adopt(bholmes, chester);
+shelter.printAdoptions();
+console.log(`${phanson.name} has ${phanson.numberOfPets()} adopted pets.`);
+console.log(`${bholmes.name} has ${bholmes.numberOfPets()} adopted pets.`);
+
+// P Hanson has adopted the following pets:
+// a cat named Butterscotch
+// a cat named Pudding
+// a bearded dragon named Darwin
+
+// B Holmes has adopted the following pets:
+// a dog named Molly
+// a parakeet named Sweetie Pie
+// a dog named Kennedy
+// a fish named Chester
+
+// P Hanson has 3 adopted pets.
+// B Holmes has 4 adopted pets.
