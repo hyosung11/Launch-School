@@ -960,23 +960,23 @@ function Vehicle(make, model, wheels) {
 //   }
 // }
 
-class Something {
-  constructor() {
-    this.data = 'Hello';
-  }
+// class Something {
+//   constructor() {
+//     this.data = 'Hello';
+//   }
 
-  dupData() {
-    return this.data + this.data;
-  }
+//   dupData() {
+//     return this.data + this.data;
+//   }
 
-  static dupData() {
-    return 'ByeBye';
-  }
-}
+//   static dupData() {
+//     return 'ByeBye';
+//   }
+// }
 
-let thing = new Something();
-console.log(Something.dupData()); // line 16
-console.log(thing.dupData()); // line 17
+// let thing = new Something();
+// console.log(Something.dupData()); // line 16
+// console.log(thing.dupData()); // line 17
 
 /* The code will log `'ByeBye'` and `'HelloHello'`. On line 16, the `dupData` method is called as a static method on the `Something` class, so it returns `ByeBye`. On line 17, the `dupData` method is called on the `thing` object which is an instance of the `Something` class, so it invokes the instance method `dupData` and returns `HelloHello`.
 
@@ -985,3 +985,95 @@ Here we see two methods named `dupData` in the `Something` class. However, one i
 Our code first creates a `Something` object, and then logs the result of `Something.dupData`, and then `thing.dupData`. The former invocation calls the static method `dupData` and so logs `ByeBye`. The latter invocation calls the instance method, and so prints `HelloHello`.
 
 This code snippet demonstrates static methods and instance methods. Static methods are methods defined in a class definition that begin with the `static` keyword. Instance methods are methods defined in a class without the `static` keyword. */
+
+// function Person() {
+// }
+// Person.prototype.greeting = function(text) {
+//   console.log(text);
+// }
+
+// function Shouter() {
+//   Person.call(this);
+// }
+// Shouter.prototype = Object.create(Person.prototype)
+// Shouter.prototype.greeting = function(text) {
+//   Person.prototype.greeting.call(this, text.toUpperCase());
+// }
+
+// class Person {
+//   greeting(text) {
+//     console.log(text);
+//   }
+// }
+
+// class Shouter extends Person {
+//   greeting(text) {
+//     super.greeting(text.toUpperCase())
+//   }
+// }
+
+// let person = new Person();
+// let shouter = new Shouter();
+
+// person.greeting("Hello. It's very nice to meet you."); // Hello. It's very nice to meet you
+// shouter.greeting("Hello my friend."); // HELLO MY FRIEND.
+
+// Recognize that line 12 is the `greeting()` method invocation on the object's parent. In our solution, we use the `super` keyword to invoke the method `greeting()` on the object's parent and we are passing uppercased text to it, same as in the original example.
+
+const walkMixin = {
+  walk() {
+    return `${this.name} ${this.gait()} forward`
+  }
+}
+
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  gait() {
+    return 'strolls';
+  }
+}
+
+Object.assign(Person.prototype, walkMixin);
+
+class Cat {
+  constructor(name) {
+    this.name = name;
+  }
+
+  gait() {
+    return 'saunters';
+  }
+}
+
+Object.assign(Cat.prototype, walkMixin);
+
+class Cheetah {
+  constructor(name) {
+    this.name = name;
+  }
+
+  gait() {
+    return 'runs';
+  }
+}
+
+Object.assign(Cheetah.prototype, walkMixin);
+
+let mike = new Person("Mike");
+console.log(mike.walk());
+// "Mike strolls forward"
+
+let kitty = new Cat("Kitty");
+console.log(kitty.walk());
+// "Kitty saunters forward"
+
+let flash = new Cheetah("Flash");
+console.log(flash.walk());
+// "Flash runs forward"
+
+/* You can use the `walkMixin` with any class that defines properties `name` and `gait`. YOu can also define a parent class and make the other classes inherit from that class.
+
+Mixins are more appropriate in a has-a relationship. While it is sometimes tricky to choose one or the other, a great guideline is to decide if you want some additional functionality, or if you want to extend the abilities of the class. In this case, it is pretty clear that we need the functionality of walking; we don't need to extend the abilities of the class `Person` (extending the abilities of a class coincides with an is-a relationship, not has-a).*/
