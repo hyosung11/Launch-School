@@ -925,37 +925,63 @@ function Vehicle(make, model, wheels) {
 // console.log(moana.getWheels());
 // console.log(moana.info());
 
-class Vehicle {
-  constructor(make, model, wheels) {
-    this.make = make;
-    this.model = model;
-    this.wheels = wheels;
+// class Vehicle {
+//   constructor(make, model, wheels) {
+//     this.make = make;
+//     this.model = model;
+//     this.wheels = wheels;
+//   }
+
+//   getWheels() {
+//     return this.wheels;
+//   }
+
+//   info() {
+//     return `${this.make} ${this.model}`;
+//   }
+// }
+
+// class Car extends Vehicle {
+//   constructor(make, model) {
+//     super(make, model, 4);
+//   }
+// }
+
+// class Motorcycle extends Vehicle {
+//   constructor(make, model) {
+//     super(make, model, 2);
+//   }
+// }
+
+// class Truck extends Vehicle {
+//   constructor(make, model, payload) {
+//     super(make, model, 6);
+//     this.payload = payload;
+//   }
+// }
+
+class Something {
+  constructor() {
+    this.data = 'Hello';
   }
 
-  getWheels() {
-    return this.wheels;
+  dupData() {
+    return this.data + this.data;
   }
 
-  info() {
-    return `${this.make} ${this.model}`;
+  static dupData() {
+    return 'ByeBye';
   }
 }
 
-class Car extends Vehicle {
-  constructor(make, model) {
-    super(make, model, 4);
-  }
-}
+let thing = new Something();
+console.log(Something.dupData()); // line 16
+console.log(thing.dupData()); // line 17
 
-class Motorcycle extends Vehicle {
-  constructor(make, model) {
-    super(make, model, 2);
-  }
-}
+/* The code will log `'ByeBye'` and `'HelloHello'`. On line 16, the `dupData` method is called as a static method on the `Something` class, so it returns `ByeBye`. On line 17, the `dupData` method is called on the `thing` object which is an instance of the `Something` class, so it invokes the instance method `dupData` and returns `HelloHello`.
 
-class Truck extends Vehicle {
-  constructor(make, model, payload) {
-    super(make, model, 6);
-    this.payload = payload;
-  }
-}
+Here we see two methods named `dupData` in the `Something` class. However, one is defined as `dupData`, and is thus an instance method. The other has the `static` keyword in front of its name and so it is a static method. The two methods are different, and are completely independent of each other.
+
+Our code first creates a `Something` object, and then logs the result of `Something.dupData`, and then `thing.dupData`. The former invocation calls the static method `dupData` and so logs `ByeBye`. The latter invocation calls the instance method, and so prints `HelloHello`.
+
+This code snippet demonstrates static methods and instance methods. Static methods are methods defined in a class definition that begin with the `static` keyword. Instance methods are methods defined in a class without the `static` keyword. */

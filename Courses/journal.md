@@ -8159,3 +8159,9 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 11:28 Taking a meal break. I've just been practicing different object creation patterns.
 
 13:12 I seem to understand the student submitted examples from the exercises better now. I needed the practice with object creation patterns. I'm ready to go to the gym now.
+
+## 20220610 금요일
+
+10:14 I want to be faster with more speed endurance for soccer. I have to pee right now. Will we have enough to play on Sunday. Come on guys, let's go!
+
+10:56 Going through more problems but feel hungry so making some soup to eat.
