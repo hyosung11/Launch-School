@@ -8174,3 +8174,4 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 
 10:34 Just study.
 
+10:55 All is well.

@@ -1168,19 +1168,31 @@ Mixins are more appropriate in a has-a relationship. While it is sometimes trick
 // P Hanson has 3 adopted pets.
 // B Holmes has 4 adopted pets.
 
-let item = {
-  name: 'Foo',
-  description: 'Fusce consequat dui est, semper.',
-  price: 50,
-  quantity: 100,
-  discount: function (percent) {
-    let discount = (this.price * percent) / 100;
-    this.price -= discount;
+// let item = {
+//   name: 'Foo',
+//   description: 'Fusce consequat dui est, semper.',
+//   price: 50,
+//   quantity: 100,
+//   discount: function (percent) {
+//     let discount = (this.price * percent) / 100;
+//     let salePrice = this.price - discount;
 
-    return this.price;
-  },
-};
+//     return salePrice;
+//   },
+// };
 
-console.log(item.discount(20));
-console.log(item.discount(50));
-console.log(item.discount(25));
+// console.log(item.discount(20));
+// console.log(item.discount(50));
+// console.log(item.discount(25));
+
+function objectsEqual(obj1, obj2) {
+  return (
+    Object.entries(obj1).sort().toString() ===
+    Object.entries(obj2).sort().toString()
+  );
+}
+
+console.log(objectsEqual({a: 'foo'}, {a: 'foo'}));                      // true
+console.log(objectsEqual({a: 'foo', b: 'bar'}, {a: 'foo'}));            // false
+console.log(objectsEqual({}, {}));                                      // true
+console.log(objectsEqual({a: 'foo', b: undefined}, {a: 'foo', c: 1}));  // false
