@@ -1078,81 +1078,81 @@ This code snippet demonstrates static methods and instance methods. Static metho
 
 Mixins are more appropriate in a has-a relationship. While it is sometimes tricky to choose one or the other, a great guideline is to decide if you want some additional functionality, or if you want to extend the abilities of the class. In this case, it is pretty clear that we need the functionality of walking; we don't need to extend the abilities of the class `Person` (extending the abilities of a class coincides with an is-a relationship, not has-a).*/
 
-class Pet {
-  constructor(animal, name) {
-    this.animal = animal;
-    this.name = name;
-  }
+// class Pet {
+//   constructor(animal, name) {
+//     this.animal = animal;
+//     this.name = name;
+//   }
 
-  info() {
-    return `a ${this.animal} named ${this.name}`
-  }
-}
+//   info() {
+//     return `a ${this.animal} named ${this.name}`
+//   }
+// }
 
-class Owner {
-  constructor(name) {
-    this.name = name;
-    this.pets = [];
-  }
+// class Owner {
+//   constructor(name) {
+//     this.name = name;
+//     this.pets = [];
+//   }
 
-  addPet(pet) {
-    this.pets.push(pet);
-  }
+//   addPet(pet) {
+//     this.pets.push(pet);
+//   }
 
-  numberOfPets() {
-    return this.pets.length;
-  }
+//   numberOfPets() {
+//     return this.pets.length;
+//   }
 
-  printPets() {
-    this.pets.forEach(pet => console.log(pet.info()));
-  }
-}
+//   printPets() {
+//     this.pets.forEach(pet => console.log(pet.info()));
+//   }
+// }
 
-class Shelter {
-  constructor() {
-    this.owners = {};
-  }
+// class Shelter {
+//   constructor() {
+//     this.owners = {};
+//   }
 
-  adopt(owner, pet) {
-    owner.addPet(pet);
-    if (!this.owners[owner.name]) {
-      this.owners[owner.name] = owner;
-    }
-  }
+//   adopt(owner, pet) {
+//     owner.addPet(pet);
+//     if (!this.owners[owner.name]) {
+//       this.owners[owner.name] = owner;
+//     }
+//   }
 
-  printAdoptions() {
-    for (let name in this.owners) {
-      console.log(`${name} has adopted the following pets:`);
-      this.owners[name].printPets();
-      console.log('');
-    }
-  }
-}
+//   printAdoptions() {
+//     for (let name in this.owners) {
+//       console.log(`${name} has adopted the following pets:`);
+//       this.owners[name].printPets();
+//       console.log('');
+//     }
+//   }
+// }
 
-let butterscotch = new Pet('cat', 'Butterscotch');
-// console.log(butterscotch.info());
+// let butterscotch = new Pet('cat', 'Butterscotch');
+// // console.log(butterscotch.info());
 
-let pudding = new Pet('cat', 'Pudding');
-let darwin = new Pet('bearded dragon', 'Darwin');
-let kennedy = new Pet('dog', 'Kennedy');
-let sweetie = new Pet('parakeet', 'Sweetie Pie');
-let molly = new Pet('dog', 'Molly');
-let chester = new Pet('fish', 'Chester');
+// let pudding = new Pet('cat', 'Pudding');
+// let darwin = new Pet('bearded dragon', 'Darwin');
+// let kennedy = new Pet('dog', 'Kennedy');
+// let sweetie = new Pet('parakeet', 'Sweetie Pie');
+// let molly = new Pet('dog', 'Molly');
+// let chester = new Pet('fish', 'Chester');
 
-let phanson = new Owner('P Hanson');
-let bholmes = new Owner('B Holmes');
+// let phanson = new Owner('P Hanson');
+// let bholmes = new Owner('B Holmes');
 
-let shelter = new Shelter();
-shelter.adopt(phanson, butterscotch);
-shelter.adopt(phanson, pudding);
-shelter.adopt(phanson, darwin);
-shelter.adopt(bholmes, kennedy);
-shelter.adopt(bholmes, sweetie);
-shelter.adopt(bholmes, molly);
-shelter.adopt(bholmes, chester);
-shelter.printAdoptions();
-console.log(`${phanson.name} has ${phanson.numberOfPets()} adopted pets.`);
-console.log(`${bholmes.name} has ${bholmes.numberOfPets()} adopted pets.`);
+// let shelter = new Shelter();
+// shelter.adopt(phanson, butterscotch);
+// shelter.adopt(phanson, pudding);
+// shelter.adopt(phanson, darwin);
+// shelter.adopt(bholmes, kennedy);
+// shelter.adopt(bholmes, sweetie);
+// shelter.adopt(bholmes, molly);
+// shelter.adopt(bholmes, chester);
+// shelter.printAdoptions();
+// console.log(`${phanson.name} has ${phanson.numberOfPets()} adopted pets.`);
+// console.log(`${bholmes.name} has ${bholmes.numberOfPets()} adopted pets.`);
 
 // P Hanson has adopted the following pets:
 // a cat named Butterscotch
@@ -1167,3 +1167,20 @@ console.log(`${bholmes.name} has ${bholmes.numberOfPets()} adopted pets.`);
 
 // P Hanson has 3 adopted pets.
 // B Holmes has 4 adopted pets.
+
+let item = {
+  name: 'Foo',
+  description: 'Fusce consequat dui est, semper.',
+  price: 50,
+  quantity: 100,
+  discount: function (percent) {
+    let discount = (this.price * percent) / 100;
+    this.price -= discount;
+
+    return this.price;
+  },
+};
+
+console.log(item.discount(20));
+console.log(item.discount(50));
+console.log(item.discount(25));

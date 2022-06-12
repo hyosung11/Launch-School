@@ -8169,3 +8169,8 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 12:06 Sitting too long. My feet are starting to fall asleep. I'm a little tired. Perhaps a short nap before Feed the Cats!
 
 13:19 This 'Pet Shelter' problem is still kicking my ass.
+
+## 20220612 일요일
+
+10:34 Just study.
+
