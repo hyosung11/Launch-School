@@ -1185,11 +1185,78 @@ Mixins are more appropriate in a has-a relationship. While it is sometimes trick
 // console.log(item.discount(50));
 // console.log(item.discount(25));
 
-function objectsEqual(obj1, obj2) {
-  return Object.entries(obj1).sort().toString() === Object.entries(obj2).sort().toString();
+// function objectsEqual(obj1, obj2) {
+//   return Object.entries(obj1).sort().toString() === Object.entries(obj2).sort().toString();
+// }
+
+// console.log(objectsEqual({a: 'foo'}, {a: 'foo'})); // true
+// console.log(objectsEqual({a: 'foo', b: 'bar'}, {a: 'foo'})); // false
+// console.log(objectsEqual({}, {})); // true
+// console.log(objectsEqual({a: 'foo', b: undefined}, {a: 'foo', c: 1}));  // false
+
+function createStudent(name, year) {
+  return {
+    name,
+    year,
+    courses: [],
+
+    info() {
+      console.log(`${this.name} is a ${this.year} year student`);
+    },
+
+    listCourses() {
+      return this.courses;
+    },
+
+    addCourse(course) {
+      this.courses.push(course);
+    },
+
+    // addNote: Adds a note property to a course. Takes a code and a note as an argument. If a note already exists, the note is appended to the existing one.
+    addNote(courseCode, note) {
+      let course = this.courses.filter(course => {
+        return course.code === courseCode;
+      })[0];
+
+      if (course) {
+        if (course.note) {
+          course.note = course.note + `; ${note}`;
+        } else {
+          course.note = note;
+        }
+      }
+    },
+
+    viewNotes() {
+      this.courses.forEach(course => {
+        if (course.note) {
+          console.log(`${course.name}: ${course.note}`);
+        }
+      })
+    }
+  };
 }
 
-console.log(objectsEqual({a: 'foo'}, {a: 'foo'})); // true
-console.log(objectsEqual({a: 'foo', b: 'bar'}, {a: 'foo'})); // false
-console.log(objectsEqual({}, {})); // true
-console.log(objectsEqual({a: 'foo', b: undefined}, {a: 'foo', c: 1}));  // false
+let foo = createStudent('Foo', '1st');
+foo.info();
+// "Foo is a 1st year student"
+console.log(foo.listCourses());
+// [];
+foo.addCourse({ name: 'Math', code: 101 });
+foo.addCourse({ name: 'Advanced Math', code: 102 });
+console.log(foo.listCourses());
+// [{ name: 'Math', code: 101 }, { name: 'Advanced Math', code: 102 }]
+
+foo.addNote(101, 'Fun course');
+foo.addNote(101, 'Remember to study for algebra');
+// foo.viewNotes();
+// "Math: Fun course; Remember to study for algebra"
+foo.addNote(102, 'Difficult subject');
+foo.viewNotes();
+// "Math: Fun course; Remember to study for algebra"
+// "Advance Math: Difficult subject"
+
+// foo.updateNote(101, 'Fun course');
+// foo.viewNotes();
+// // "Math: Fun course"
+// // "Advanced Math: Difficult subject"
