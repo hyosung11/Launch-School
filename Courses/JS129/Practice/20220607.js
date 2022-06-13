@@ -1196,76 +1196,206 @@ Mixins are more appropriate in a has-a relationship. While it is sometimes trick
 
 // STUDENT
 
-function createStudent(name, year) {
-  return {
-    name,
-    year,
-    courses: [],
+// function createStudent(name, year) {
+//   return {
+//     name,
+//     year,
+//     courses: [],
 
-    info() {
-      console.log(`${this.name} is a ${this.year} year student`);
-    },
+//     info() {
+//       console.log(`${this.name} is a ${this.year} year student`);
+//     },
 
-    listCourses() {
-      return this.courses;
-    },
+//     listCourses() {
+//       return this.courses;
+//     },
 
-    addCourse(course) {
-      this.courses.push(course);
-    },
+//     addCourse(course) {
+//       this.courses.push(course);
+//     },
 
-    addNote(courseCode, note) {
-      let course = this.courses.filter(course => {
-        return course.code === courseCode;
-      })[0];
+//     addNote(courseCode, note) {
+//       let course = this.courses.filter(course => {
+//         return course.code === courseCode;
+//       })[0];
 
-      if (course) {
-        if (course.note) {
-          course.note += `; ${note}`;
-        } else {
-          course.note = note;
-        }
-      }
-    },
+//       if (course) {
+//         if (course.note) {
+//           course.note += `; ${note}`;
+//         } else {
+//           course.note = note;
+//         }
+//       }
+//     },
 
-    viewNotes() {
-      this.courses.forEach(course => {
-        if (course.note) {
-          console.log(`${course.name}: ${course.note}`);
-        }
-      })
-    },
+//     viewNotes() {
+//       this.courses.forEach(course => {
+//         if (course.note) {
+//           console.log(`${course.name}: ${course.note}`);
+//         }
+//       })
+//     },
 
-    updateNote(courseCode, note) {
-      let course = this.courses.filter(course => {
-        return course.code === courseCode;
-      })[0];
+//     updateNote(courseCode, note) {
+//       let course = this.courses.filter(course => {
+//         return course.code === courseCode;
+//       })[0];
 
-      if (course) {
-        course.note = note;
-      }
-    },
-  };
+//       if (course) {
+//         course.note = note;
+//       }
+//     },
+//   };
+// }
+
+// let foo = createStudent('Foo', '1st');
+// foo.info();
+// // "Foo is a 1st year student"
+// console.log(foo.listCourses());
+// // [];
+// foo.addCourse({ name: 'Math', code: 101 });
+// foo.addCourse({ name: 'Advanced Math', code: 102 });
+// console.log(foo.listCourses());
+// // [{ name: 'Math', code: 101 }, { name: 'Advanced Math', code: 102 }]
+// foo.addNote(101, 'Fun course');
+// foo.addNote(101, 'Remember to study for algebra');
+// foo.viewNotes();
+// // // "Math: Fun course; Remember to study for algebra"
+// foo.addNote(102, 'Difficult subject');
+// foo.viewNotes();
+// // "Math: Fun course; Remember to study for algebra"
+// // "Advance Math: Difficult subject"
+// foo.updateNote(101, 'Fun course');
+// foo.viewNotes();
+// // "Math: Fun course"
+// // "Advanced Math: Difficult subject"
+
+// SCHOOL
+
+// let person = {
+//   firstName: 'Rick ',
+//   lastName: 'Sanchez',
+//   fullName: this.firstName + this.lastName,
+// };
+
+// console.log(person.fullName); // NaN
+
+/* The code logs `NaN`. Outside of a function, the `this` keyword references the global object. Here, `person` is an object literal. On the last line, `person.fullName` looks for the `fullName` property on the global object. Since the global object doesn't have the properties `firstName` and `lastName`, it resolves to `undefined` + `undefined` or `NaN`.
+
+The code logs `NaN`. Anywhere outside a function, the `this` keyword is bound to the global object. If the keyword is used inside a function, then its value depends on how the function is invoked. In Node, since `global.firstName` and `global.lastName` are not defined, the operation being performed here is `undefined + undefined` which results in `fullName` having the value `NaN`. */
+
+// let franchise = {
+//   name: 'How to Train Your Dragon',
+//   allMovies: function () {
+//     let self = this;
+//     return [1, 2, 3].map(function (number) {
+//       return self.name + ' ' + number;
+//     });
+//   },
+// };
+
+// console.log(franchise.allMovies());
+
+/* The code returns [` 'undefined 1', 'undefined 2', 'undefined 3' ]`. The `this` keyword is bound to the global object instead of to the `franchise` object when the anonymous function passed to `map` is invoked. There are many ways to solve this problem. Here, we can use the lexical scoping of JavaScript to define a variable in outer scope that is available to an inner scope. */
+
+// arrow function
+// let franchise = {
+//   name: 'How to Train Your Dragon',
+//   allMovies: function () {
+//     return [1, 2, 3].map(number => {
+//       return this.name + ' ' + number;
+//     });
+//   },
+// };
+
+// console.log(franchise.allMovies());
+
+// let franchise = {
+//   name: 'How to Train Your Dragon',
+//   allMovies: function () {
+//     return [1, 2, 3].map(function (number) {
+//       return this.name + ' ' + number;
+//     }, this);
+//   },
+// };
+
+// let franchise = {
+//   name: 'How to Train Your Dragon',
+//   allMovies: function () {
+//     return [1, 2, 3].map(function (number) {
+//       return this.name + ' ' + number;
+//     }.bind(this));
+//   },
+// };
+
+// console.log(franchise.allMovies());
+
+// function myFilter(array, func, thisArg) {
+//   let result = [];
+
+//   array.forEach(function(value) {
+//     if (func.call(thisArg, value)) {
+//       result.push(value);
+//     }
+//   });
+
+//   return result;
+// }
+
+// let filter = {
+//   allowedValues: [5, 6, 9],
+// }
+
+// console.log(myFilter([2, 1, 3, 4, 5, 6, 9, 12], function(val) {
+//   return this.allowedValues.indexOf(val) >= 0;
+// }, filter)); // returns [5, 6, 9]
+
+// function Person(firstName, lastName, age, gender) {
+//   this.firstName = firstName;
+//   this.lastName = lastName;
+//   this.age = age;
+//   this.gender = gender;
+// }
+
+// Person.prototype.fullName = function() {
+//   return `${this.firstName} ${this.lastName}`;
+// }
+
+// Person.prototype.communicate = function() {
+//   console.log(`Communicating`);
+// }
+
+// function Doctor(firstName, lastName, age, gender, specialization) {
+//   Person.call(this, firstName, lastName, age, gender);
+//   this.specialization = specialization;
+// }
+
+// Doctor.prototype = Object.create(Person.prototype);
+// Doctor.prototype.constructor = Doctor;
+// Doctor.prototype.diagnose = function() {
+//   console.log(`Diagnosing`);
+// }
+
+class Person {
+  constructor(firstName, lastName, age, gender) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.gender = gender;
+  }
+
+  fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
 }
 
-let foo = createStudent('Foo', '1st');
-foo.info();
-// "Foo is a 1st year student"
-console.log(foo.listCourses());
-// [];
-foo.addCourse({ name: 'Math', code: 101 });
-foo.addCourse({ name: 'Advanced Math', code: 102 });
-console.log(foo.listCourses());
-// [{ name: 'Math', code: 101 }, { name: 'Advanced Math', code: 102 }]
-foo.addNote(101, 'Fun course');
-foo.addNote(101, 'Remember to study for algebra');
-foo.viewNotes();
-// // "Math: Fun course; Remember to study for algebra"
-foo.addNote(102, 'Difficult subject');
-foo.viewNotes();
-// "Math: Fun course; Remember to study for algebra"
-// "Advance Math: Difficult subject"
-foo.updateNote(101, 'Fun course');
-foo.viewNotes();
-// "Math: Fun course"
-// "Advanced Math: Difficult subject"
+class Doctor extends Person {
+  constructor(firstName, lastName, age, gender, specialization) {
+    super(firstName, lastName, age, gender);
+    this.specialization = specialization;
+  }
+
+  diagnose() {
+    console.log(`Diagnosing`);
+  }
+}
