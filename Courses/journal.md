@@ -8175,3 +8175,7 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 10:34 Just study.
 
 10:55 All is well.
+
+## 20220613 월요일
+
+10:29 Get back into study mode. Just do it.
