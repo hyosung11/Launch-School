@@ -8181,3 +8181,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 10:29 Get back into study mode. Just do it.
 
 11:14 I suck at understanding factory functions still and will get better.
+
+11:53 I've been working on these problems since last week. It's okay. Just keep going.

@@ -1194,6 +1194,8 @@ Mixins are more appropriate in a has-a relationship. While it is sometimes trick
 // console.log(objectsEqual({}, {})); // true
 // console.log(objectsEqual({a: 'foo', b: undefined}, {a: 'foo', c: 1}));  // false
 
+// STUDENT
+
 function createStudent(name, year) {
   return {
     name,
@@ -1212,7 +1214,6 @@ function createStudent(name, year) {
       this.courses.push(course);
     },
 
-    // addNote: Adds a note property to a course. Takes a code and a note as an argument. If a note already exists, the note is appended to the existing one.
     addNote(courseCode, note) {
       let course = this.courses.filter(course => {
         return course.code === courseCode;
@@ -1220,7 +1221,7 @@ function createStudent(name, year) {
 
       if (course) {
         if (course.note) {
-          course.note = course.note + `; ${note}`;
+          course.note += `; ${note}`;
         } else {
           course.note = note;
         }
@@ -1233,7 +1234,17 @@ function createStudent(name, year) {
           console.log(`${course.name}: ${course.note}`);
         }
       })
-    }
+    },
+
+    updateNote(courseCode, note) {
+      let course = this.courses.filter(course => {
+        return course.code === courseCode;
+      })[0];
+
+      if (course) {
+        course.note = note;
+      }
+    },
   };
 }
 
@@ -1246,17 +1257,15 @@ foo.addCourse({ name: 'Math', code: 101 });
 foo.addCourse({ name: 'Advanced Math', code: 102 });
 console.log(foo.listCourses());
 // [{ name: 'Math', code: 101 }, { name: 'Advanced Math', code: 102 }]
-
 foo.addNote(101, 'Fun course');
 foo.addNote(101, 'Remember to study for algebra');
-// foo.viewNotes();
-// "Math: Fun course; Remember to study for algebra"
+foo.viewNotes();
+// // "Math: Fun course; Remember to study for algebra"
 foo.addNote(102, 'Difficult subject');
 foo.viewNotes();
 // "Math: Fun course; Remember to study for algebra"
 // "Advance Math: Difficult subject"
-
-// foo.updateNote(101, 'Fun course');
-// foo.viewNotes();
-// // "Math: Fun course"
-// // "Advanced Math: Difficult subject"
+foo.updateNote(101, 'Fun course');
+foo.viewNotes();
+// "Math: Fun course"
+// "Advanced Math: Difficult subject"
