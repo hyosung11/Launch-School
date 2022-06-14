@@ -8193,3 +8193,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 10:32 I've studied up to this point and I understand factory functions much better. I'm not sure that I'm ready to take the exam again tomorrow. I still feel low energy.
 
 11:50 Studying constructors/prototypes again and understanding it better and better.
+
+13:08 Reviewed through all the object creation patterns and understand it better. I'm getting ready to go to the gym now.
