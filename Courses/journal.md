@@ -8195,3 +8195,7 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 11:50 Studying constructors/prototypes again and understanding it better and better.
 
 13:08 Reviewed through all the object creation patterns and understand it better. I'm getting ready to go to the gym now.
+
+## 20220614 수요일
+
+10:54 I felt tired and I took a nap. I'm staying up too late. Time to finish going through the study guide.
