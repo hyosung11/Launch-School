@@ -8199,3 +8199,9 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 ## 20220614 수요일
 
 10:54 I felt tired and I took a nap. I'm staying up too late. Time to finish going through the study guide.
+
+12:22 Getting a good chunk of studying done this morning. I'm not as tired as I was before.
+
+12:35 Picking up more bits and pieces of knowledge as I review
+
+13:06 Studied up to Encapsulation. I'm going to the gym now.
