@@ -8205,3 +8205,11 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 12:35 Picking up more bits and pieces of knowledge as I review
 
 13:06 Studied up to Encapsulation. I'm going to the gym now.
+
+## 20220616 목요일
+
+10:10 After marriage counseling and I think I understand polymorphism a little better. Can I take the assessment tomorrow? Not if I watch the NBA Finals Game 6 tonight. I feel tired right now.
+
+11:24 Going through the study guide and I won't get the collaborator problem wrong on the retake.
+
+12:38 Eyes itch and I feel tired. I went to sleep earlier last night and woke up later. Going to the gym a little later.
