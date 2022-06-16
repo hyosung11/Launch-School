@@ -8213,3 +8213,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 11:24 Going through the study guide and I won't get the collaborator problem wrong on the retake.
 
 12:38 Eyes itch and I feel tired. I went to sleep earlier last night and woke up later. Going to the gym a little later.
+
+13:00 Getting ready to go to the gym. Reviewing execution context again.
