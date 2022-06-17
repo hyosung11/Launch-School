@@ -8221,3 +8221,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 10:55 I started working a freeCodeCamp app using OOP, but then stopped. I have to buckle down and take the retake of the JS129 Written Assessment.
 
 12:16 Been studying, but need a break.
+
+13:02 Losing focus and ready to go to the gym to train.
