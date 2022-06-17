@@ -8215,3 +8215,7 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 12:38 Eyes itch and I feel tired. I went to sleep earlier last night and woke up later. Going to the gym a little later.
 
 13:00 Getting ready to go to the gym. Reviewing execution context again.
+
+## 20220617 금요일
+
+10:55 I started working a freeCodeCamp app using OOP, but then stopped. I have to buckle down and take the retake of the JS129 Written Assessment.
