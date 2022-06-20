@@ -102,3 +102,12 @@ Snippet 2 logs a reference to the `global` object in Node. Here, assigning the `
 
 Snippet 3 logs `{ bar: 42, foo: [Function: foo] }`, a reference to the `obj2` object. On the last line, the `call` method is used to explicitly bind the `foo` method to the `obj2` object. Thus, `this` references the `obj2` object when the method is invoked.
 
+## Q6 11:10 - 11:17
+
+The code logs `'completely different'`. On line 13, the `qux` variable is assigned to the return value of using the `bind` method to explicitly and permanently bind the `foo` method to the `obj.bar` object. When `qux` is invoked as a function on the last line, the `this` keyword references the `bar` object because of the use of `bind`. Thus, `this.a` and `this.b` reference the `a` and `b` properties of the `bar` object and we get `'completely different'` as a result.
+
+## Q7 11:18 - 11:26 This question still gives me problems.
+
+On line 17, `france.getName()` is invoked using method call syntax. Since `france` doesn't have its own `getName` method, it looks up the prototype chain and delegates the call to the `Country` constructor object that has the `getName` method. `'France'` is passed as the argument for the `name` parameter and `this.name` logs `'France'`.
+
+On line 18, 

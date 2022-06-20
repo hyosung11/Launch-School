@@ -98,24 +98,24 @@
 
 // console.log(Book.allTitles()); // [ 'Tiny Habits', 'KSS' ]
 
-class Fruit {
-  constructor(name, color) {
-    this.name = name;
-    this.color = color;
-    Fruit.names.push(this.name);
-  }
+// class Fruit {
+//   constructor(name, color) {
+//     this.name = name;
+//     this.color = color;
+//     Fruit.names.push(this.name);
+//   }
 
-  static names = [];
+//   static names = [];
 
-  static allNames() {
-    return Fruit.names; // or return this.names
-  }
-}
+//   static allNames() {
+//     return Fruit.names; // or return this.names
+//   }
+// }
 
-let fruit1 = new Fruit('apple', 'red');
-let fruit2 = new Fruit('orange', 'orange');
+// let fruit1 = new Fruit('apple', 'red');
+// let fruit2 = new Fruit('orange', 'orange');
 
-console.log(Fruit.allNames()); // [ 'apple', 'orange' ]
+// console.log(Fruit.allNames()); // [ 'apple', 'orange' ]
 
 // let obj = {
 //   foo() {
@@ -134,17 +134,51 @@ console.log(Fruit.allNames()); // [ 'apple', 'orange' ]
 // let foo = obj.foo;
 // console.log(foo());
 
-let obj = {
-  foo() {
-    return this;
-  },
-};
+// let obj = {
+//   foo() {
+//     return this;
+//   },
+// };
 
-let obj2 = {
-  bar: 42,
-  foo() {
-    console.log(this.bar);
-  },
-};
+// let obj2 = {
+//   bar: 42,
+//   foo() {
+//     console.log(this.bar);
+//   },
+// };
 
-console.log(obj.foo.call(obj2));
+// console.log(obj.foo.call(obj2));
+
+// let obj = {
+//   a: 'hello',
+//   b: 'world',
+//   bar: {
+//     a: 'completely',
+//     b: 'different',
+//   },
+//   foo: function () {
+//     return `${this.a} ${this.b}`;
+//   },
+// };
+
+// let qux = obj.foo.bind(obj.bar);
+// console.log(qux()); // completely different
+
+function Country(name, language) {
+  this.name = name;
+  Country.language = language;
+}
+
+Country.prototype.getName = function() {
+  return this.name;
+}
+
+Country.prototype.getLanguage = function() {
+  return this.constructor.language;
+}
+
+let france = new Country('France', 'French')
+let spain = new Country('Spain', 'Spanish')
+
+console.log(france.getName());      // France
+console.log(france.getLanguage());  // Spanish

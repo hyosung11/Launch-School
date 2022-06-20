@@ -519,7 +519,7 @@ john.greetings();
 // obj.printObj();
 
 // SOLUTIONS
-// SOLUTION 1: Preserve context with a vriable.
+// SOLUTION 1: Preserve context with a variable.
 // function wrapFunc(func) {
 //   func();
 // }
