@@ -164,21 +164,25 @@
 // let qux = obj.foo.bind(obj.bar);
 // console.log(qux()); // completely different
 
-function Country(name, language) {
-  this.name = name;
-  Country.language = language;
+function Book(title, author) {
+  this.title = title;
+  Book.author = author;
 }
 
-Country.prototype.getName = function() {
-  return this.name;
+Book.prototype.getTitle = function() {
+  return this.title;
 }
 
-Country.prototype.getLanguage = function() {
-  return this.constructor.language;
+Book.prototype.getAuthor = function() {
+  return this.constructor.author;
 }
 
-let france = new Country('France', 'French')
-let spain = new Country('Spain', 'Spanish')
+let book1 = new Book('Tiny Habits', 'BJ Fogg');
+let book2 = new Book('Kettlebells', 'Pavel'); // (line 15)
 
-console.log(france.getName());      // France
-console.log(france.getLanguage());  // Spanish
+console.log(book1.getTitle());   // Tiny Habits (line 17)
+console.log(book1.getAuthor());  // Pavel (line 18)
+
+On line 17, `book1.getTitle()` is invoked using method call syntax. Since `book1` doesn't have its own getTitle method, it looks up the prototype chain and delegates the call to the `Book` constructor object that has the `getTitle` method. `'Tiny Habits'` is passed as the argument for the title parameter and this.title logs `'Tiny Habits'`.
+
+On line 18, when `book1.getAuthor()` is invoked, the value of `author` has been set to 'Pavel' by the `Book` constructor when the `book2` instance is created on line 15. This is because on line 3, Book.author is a static method that sets the value of author to the latest instance.
