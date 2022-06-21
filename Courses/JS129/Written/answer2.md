@@ -106,5 +106,126 @@ Snippet 3 logs `{ bar: 42, foo: [Function: foo] }`, a reference to the `obj2` ob
 
 The code logs `'completely different'`. On line 13, the `qux` variable is assigned to the return value of using the `bind` method to explicitly and permanently bind the `foo` method to the `obj.bar` object. When `qux` is invoked as a function on the last line, the `this` keyword references the `bar` object because of the use of `bind`. Thus, `this.a` and `this.b` reference the `a` and `b` properties of the `bar` object and we get `'completely different'` as a result.
 
-## Q7 11:18 - 11:26 This question still gives me problems.
+## Q7 09:10
 
+On line 17, `france.getName()` is invoked with method call syntax. Since the `france` instance object doesn't have its own `getName()` method, JavaScript looks up the prototype chain and finds the `getName()` method on the `Country` constructor's prototype object. On line 14, when the `Country` constructor is invoked with the `new` keyword, the argument `'France'` is assigned to the `name` property of the `france` instance object. Thus, when the `getName()` method is invoked, `this.name` logs `'France'`.
+
+On line 18, when `france.getLanguage()` is invoked, the value of `language` has been set to `'Spanish'` by the `Country` constructor when the `spain` instance is created on line 15. `france.getLanguage()` eventually resolves to `Country.language` on line 3 which is a static method that sets the value of `language` to the latest instance.
+
+If I were giving an assessment answer, I'd go into detail about how `book1.getAuthor()` eventually resolves to `Book.author`. I'd also be more specific about when and how each string value gets assigned to an object property (Like how 'Tiny Habits' is assigned to the title instance property for book1 because it was passed in as an argument to the Book constructor on line 14.)
+
+## Q8 9:52 - 9:57
+
+```js
+// object inheriting directly from other objects
+let a = {
+  foo: 1,
+  bar: 2,
+}
+
+let b = Object.create(a);
+console.log(b.foo) // 1
+```
+
+```js
+// classes or types inheriting from other classes or types
+class Vehicle {
+  constructor(make, model) {
+    this.make = make;
+    this.model = model;
+  }
+}
+
+class Car extends Vehicle {}
+
+let car = new Car('Tesla', 'X');
+console.log(car.make) // Tesla
+```
+
+## Q9 10:00 - 10:04
+
+String primitives are created by using quotes (single or double) or back-tick characters to define a string's value. We must use the `String` constructor to create a `String` object. A string primitive's type is `string`, but the `String` object type is `object`. When you try to access a property or invoke a method on a string primitive, JavaScript wraps the string primitive in a `String` object behind the scenes. Once JavaScript has wrapped your string primitive in a `String` object, it then uses the object to access the property or call the method. When the wrapping object has served its purpose, JavaScript discards it.
+
+## Q10 10:10 - 10:17
+
+In the first snippet on line 12, `Dog.prototype` is assigned to reference `Animal.prototype` which means they reference the same object. Therefore, if we mutate one, the change will occur in the other one. They are no longer different prototypes and do not have an inheritance relationship. If we want to create a prototypal relationship, we need to use `Object.create()` so that `Dog.prototype` inherits from `Animal.prototype` as show on the last line of the second snippet.
+
+## Q11 10:21 - 10:26
+
+```js
+function createRobot(intelligence, model) {
+  return {
+    intelligence,
+    model,
+
+    solve() {
+      console.log(`Solving`);
+    }
+  }
+}
+
+function createHumanoid(intelligence, model) {
+  let humanoid = createRobot(intelligence, model);
+  humanoid.walk = function() {
+    console.log(`Walking`);
+  };
+  humanoid.talk = function() {
+    console.log(`Talking`);
+  };
+
+  return humanoid;
+}
+
+let laurent = createHumanoid('high', 'supreme');
+laurent.solve(); // Solving
+laurent.talk(); // Talking
+```
+
+## Q12 10:29 - 10:39
+
+```js
+function createRobot(intelligence, model) {
+  return {
+    intelligence,
+    model,
+
+    solve() {
+      console.log(`Solving`);
+    }
+  }
+}
+
+const walkMixin = {
+  walk() {
+    console.log(`Walking`);
+  }
+}
+
+const talkMixin = {
+  talk() {
+    console.log(`Talking`);
+  }
+}
+
+function createHumanoid(intelligence, model) {
+  let humanoid = createRobot(intelligence, model);
+  Object.assign(humanoid, walkMixin, talkMixin);
+  return humanoid;
+}
+
+let alex = createHumanoid('high', 'supreme');
+alex.solve(); // Solving
+alex.walk(); // Walking
+
+function createHuman(name, age) {
+  let human = {
+    name,
+    age,
+  }
+  Object.assign(human, walkMixin, talkMixin);
+  return human;
+}
+
+let laurent = createHuman('Laurent', 44);
+laurent.walk() // Walking
+```

@@ -164,25 +164,185 @@
 // let qux = obj.foo.bind(obj.bar);
 // console.log(qux()); // completely different
 
-function Book(title, author) {
-  this.title = title;
-  Book.author = author;
+// function Book(title, author) {
+//   this.title = title;
+//   Book.author = author;
+// }
+
+// Book.prototype.getTitle = function() {
+//   return this.title;
+// }
+
+// Book.prototype.getAuthor = function() {
+//   return this.constructor.author;
+// }
+
+// let book1 = new Book('Tiny Habits', 'BJ Fogg');
+// let book2 = new Book('Kettlebells', 'Pavel'); // (line 15)
+
+// console.log(book1.getTitle());   // Tiny Habits (line 17)
+// console.log(book1.getAuthor());  // Pavel (line 18)
+
+// On line 17, `book1.getTitle()` is invoked using method call syntax. Since `book1` doesn't have its own getTitle method, it looks up the prototype chain and delegates the call to the `Book` constructor object that has the `getTitle` method. `'Tiny Habits'` is passed as the argument for the title parameter and this.title logs `'Tiny Habits'`.
+
+// On line 18, when `book1.getAuthor()` is invoked, the value of `author` has been set to 'Pavel' by the `Book` constructor when the `book2` instance is created on line 15. This is because on line 3, Book.author is a static method that sets the value of author to the latest instance.
+
+// function Country(name, language) {
+//   this.name = name;
+//   Country.language = language;
+// }
+
+// Country.prototype.getName = function() {
+//   return this.name;
+// }
+
+// Country.prototype.getLanguage = function() {
+//   return this.constructor.language;
+// }
+
+// let france = new Country('France', 'French')
+// let spain = new Country('Spain', 'Spanish')
+// let italy = new Country('Italy', 'Italian')
+
+// console.log(france.getName());      // France
+// console.log(france.getLanguage());  // Spanish
+
+// let a = {
+//   foo: 1,
+//   bar: 2,
+// }
+
+// let b = Object.create(a);
+// console.log(b.foo) // 1
+
+// class Vehicle {
+//   constructor(make, model) {
+//     this.make = make;
+//     this.model = model;
+//   }
+// }
+
+// class Car extends Vehicle {}
+
+// let car = new Car('Tesla', 'X');
+// console.log(car.make);
+
+// function Animal(name) {
+//   // some statements
+// }
+
+// Animal.prototype = {
+//   speak: function () {
+//     // some statements
+//   },
+// };
+
+// function Dog() {}
+// Dog.prototype = Animal.prototype;
+
+// function createRobot(intelligence, model) {
+//   return {
+//     intelligence,
+//     model,
+
+//     solve() {
+//       console.log(`Solving`);
+//     }
+//   }
+// }
+
+// function createHumanoid(intelligence, model) {
+//   let humanoid = createRobot(intelligence, model);
+//   humanoid.walk = function() {
+//     console.log(`Walking`);
+//   },
+//   humanoid.talk = function() {
+//     console.log(`Talking`);
+//   }
+
+//   return humanoid;
+// }
+
+// let laurent = createHumanoid('high', 'supreme');
+// laurent.solve(); // Solving
+// laurent.talk(); // Talking
+
+// Q11
+// function createRobot(intelligence, model) {
+//   return {
+//     intelligence,
+//     model,
+
+//     solve() {
+//       console.log(`Problem solved.`);
+//     }
+//   }
+// }
+
+// let robot = createRobot('low', 'abc');
+// robot.solve();
+// console.log(robot.intelligence);
+
+// function createHumanoid(intelligence, model) {
+//   let humanoid = createRobot(intelligence, model);
+//   humanoid.walk = function() {
+//     console.log(`Walking`);
+//   };
+//   humanoid.talk = function() {
+//     console.log(`Talking`);
+//   }
+//   return humanoid;
+// }
+
+// let einstein = createHumanoid('high', 'experimental');
+// einstein.solve();
+// einstein.walk();
+// console.log(einstein.intelligence);
+
+// Q12
+function createRobot(intelligence, model) {
+  return {
+    intelligence,
+    model,
+
+    solve() {
+      console.log(`Problem solved.`);
+    },
+  };
 }
 
-Book.prototype.getTitle = function() {
-  return this.title;
+const walk = {
+  walk() {
+    console.log(`Walking`);
+  }
 }
 
-Book.prototype.getAuthor = function() {
-  return this.constructor.author;
+const talk = {
+  talk() {
+    console.log(`Talking`);
+  }
 }
 
-let book1 = new Book('Tiny Habits', 'BJ Fogg');
-let book2 = new Book('Kettlebells', 'Pavel'); // (line 15)
+function createHumanoid(intelligence, model) {
+  let humanoid = createRobot(intelligence, model);
+  Object.assign(humanoid, walk, talk);
+  return humanoid;
+}
 
-console.log(book1.getTitle());   // Tiny Habits (line 17)
-console.log(book1.getAuthor());  // Pavel (line 18)
+let einstein = createHumanoid('high', 'experimental');
+einstein.solve();
+einstein.walk();
+console.log(einstein.intelligence);
 
-On line 17, `book1.getTitle()` is invoked using method call syntax. Since `book1` doesn't have its own getTitle method, it looks up the prototype chain and delegates the call to the `Book` constructor object that has the `getTitle` method. `'Tiny Habits'` is passed as the argument for the title parameter and this.title logs `'Tiny Habits'`.
+function createHuman(name, age) {
+  let human = {
+    name,
+    age,
+  }
+  Object.assign(human, walk, talk);
+  return human;
+}
 
-On line 18, when `book1.getAuthor()` is invoked, the value of `author` has been set to 'Pavel' by the `Book` constructor when the `book2` instance is created on line 15. This is because on line 3, Book.author is a static method that sets the value of author to the latest instance.
+let pavel = createHuman('Pavel', 55);
+pavel.walk();
+console.log(pavel.name);
