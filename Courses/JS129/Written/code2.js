@@ -300,49 +300,199 @@
 // console.log(einstein.intelligence);
 
 // Q12
-function createRobot(intelligence, model) {
-  return {
-    intelligence,
-    model,
+// function createRobot(intelligence, model) {
+//   return {
+//     intelligence,
+//     model,
 
-    solve() {
-      console.log(`Problem solved.`);
-    },
-  };
-}
+//     solve() {
+//       console.log(`Problem solved.`);
+//     },
+//   };
+// }
 
-const walk = {
-  walk() {
-    console.log(`Walking`);
-  }
-}
+// const walk = {
+//   walk() {
+//     console.log(`Walking`);
+//   }
+// }
 
-const talk = {
-  talk() {
-    console.log(`Talking`);
-  }
-}
+// const talk = {
+//   talk() {
+//     console.log(`Talking`);
+//   }
+// }
 
-function createHumanoid(intelligence, model) {
-  let humanoid = createRobot(intelligence, model);
-  Object.assign(humanoid, walk, talk);
-  return humanoid;
-}
+// function createHumanoid(intelligence, model) {
+//   let humanoid = createRobot(intelligence, model);
+//   Object.assign(humanoid, walk, talk);
+//   return humanoid;
+// }
 
-let einstein = createHumanoid('high', 'experimental');
-einstein.solve();
-einstein.walk();
-console.log(einstein.intelligence);
+// let einstein = createHumanoid('high', 'experimental');
+// einstein.solve();
+// einstein.walk();
+// console.log(einstein.intelligence);
 
-function createHuman(name, age) {
-  let human = {
-    name,
-    age,
-  }
-  Object.assign(human, walk, talk);
-  return human;
-}
+// function createHuman(name, age) {
+//   let human = {
+//     name,
+//     age,
+//   }
+//   Object.assign(human, walk, talk);
+//   return human;
+// }
 
-let pavel = createHuman('Pavel', 55);
-pavel.walk();
-console.log(pavel.name);
+// let pavel = createHuman('Pavel', 55);
+// pavel.walk();
+// console.log(pavel.name);
+
+// let greeter = {
+//   a: 'hello',
+//   b: 'world',
+//   greet() {
+//     function sayHello() {
+//       console.log(`${this.a} ${this.b}`);
+//     }
+
+//     sayHello();
+//   }
+// };
+
+// greeter.greet(); // logs 'undefined undefined'
+
+// let greeter = {
+//   a: 'hello',
+//   b: 'world',
+//   greet() {
+//     let self = this;
+//     function sayHello() {
+//       console.log(`${self.a} ${self.b}`);
+//     }
+
+//     sayHello();
+//   }
+// };
+
+// greeter.greet(); // logs 'hello world'
+
+// let greeter = {
+//   a: 'hello',
+//   b: 'world',
+//   greet() {
+//     let sayHello = () => {
+//       console.log(`${this.a} ${this.b}`);
+//     }
+
+//     sayHello();
+//   }
+// };
+
+// greeter.greet(); // logs 'hello world'
+
+// let greeter = {
+//   a: 'hello',
+//   b: 'world',
+//   greet() {
+//     function sayHello() {
+//       console.log(`${this.a} ${this.b}`);
+//     }
+
+//     sayHello.call(this);
+//   }
+// };
+
+// greeter.greet(); // logs 'hello world'
+
+// let str1 = new String('Hello, world');
+// let str2 = new String('Hello, world');
+// console.log(str1 === str2);
+
+// They all have a name, health, strength, and intelligence.
+
+// class Character {
+//   constructor(name) {
+//     this.name = name;
+//     this.health = 100;
+//     this.strength = this.rollDice();
+//     this.intelligence = this.rollDice();
+//   }
+
+//   rollDice() {
+//     return Math.floor(Math.random() * 11) + 2;
+//   }
+
+//   heal(amount) {
+//     this.health += amount;
+//   }
+
+//   hurt(amount) {
+//     this.health -= amount;
+//   }
+// }
+
+// const armor = {
+//   attachArmor() {
+//     console.log(`Armor attached.`);
+//   },
+
+//   removeArmor() {
+//     console.log(`Armor removed.`);
+//   }
+// }
+
+// const spell = {
+//   castSpell(spell) {
+//     console.log(spell);
+//   }
+// }
+
+// class Warrior extends Character {
+//   constructor(name) {
+//     super(name);
+//     this.strength = this.rollDice() + 2;
+//   }
+// }
+
+// Object.assign(Warrior.prototype, armor);
+
+// class Paladin extends Character {}
+// Object.assign(Paladin.prototype, armor, spell);
+
+// class Magician extends Character {
+//   constructor(name) {
+//     super(name);
+//     this.intelligence = this.rollDice() + 2;
+//   }
+// }
+
+// Object.assign(Magician.prototype, spell);
+
+// class Bard extends Magician {
+//   createPotion() {
+//     console.log(`Potion ready!`);
+//   }
+// }
+
+// let warrior = new Warrior('Antonio');
+// // console.log(warrior.strength);
+// // warrior.attachArmor();
+// // console.log(warrior.health);
+// // console.log(warrior.hurt(50));
+// // console.log(warrior.health);
+
+// let paladin = new Paladin('Anakin');
+// // console.log(paladin.name);
+// // paladin.attachArmor();
+// // paladin.castSpell('Yahoo!');
+
+// let magician = new Magician('Rasputin');
+// console.log(magician.intelligence);
+// magician.hurt(20);
+// console.log(magician.health);
+// magician.castSpell('Wazoo');
+
+// let bard = new Bard('Homer');
+// bard.createPotion();
+
+// Q15

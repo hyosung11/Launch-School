@@ -8237,3 +8237,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 09:05 Today, I will review the rest of the exam questions and retake the JS129 Written Assessment tomorrow.
 
 10:56 I'm still struggling with factory functions and `Object.assign(target, source).
+
+12:03 I don't feel completely ready to take the assessment tomorrow, but I feel like I can squeak by with a pass.
