@@ -108,6 +108,3 @@ The code logs `'completely different'`. On line 13, the `qux` variable is assign
 
 ## Q7 11:18 - 11:26 This question still gives me problems.
 
-On line 17, `france.getName()` is invoked using method call syntax. Since `france` doesn't have its own `getName` method, it looks up the prototype chain and delegates the call to the `Country` constructor object that has the `getName` method. `'France'` is passed as the argument for the `name` parameter and `this.name` logs `'France'`.
-
-On line 18, 
