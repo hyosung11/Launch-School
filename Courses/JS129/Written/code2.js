@@ -183,19 +183,10 @@
 // console.log(book1.getTitle());   // Tiny Habits (line 17)
 // console.log(book1.getAuthor());  // Pavel (line 18)
 
-<<<<<<< HEAD
 /* On line 17, `book1.getTitle()` is invoked using method call syntax. Since `book1` doesn't have its own `getTitle` method, it looks up the prototype chain and delegates the call to the `Book.prototype` object that has the `getTitle` method. `'Tiny Habits'` is assigned to the `title` instance property for `book1` because it was passed as the argument to the `Book` constructor on line 14. Thus, `this.title` logs `'Tiny Habits'`.
-||||||| ad7a646
-On line 17, `book1.getTitle()` is invoked using method call syntax. Since `book1` doesn't have its own getTitle method, it looks up the prototype chain and delegates the call to the `Book` constructor object that has the `getTitle` method. `'Tiny Habits'` is passed as the argument for the title parameter and this.title logs `'Tiny Habits'`.
-=======
 // On line 17, `book1.getTitle()` is invoked using method call syntax. Since `book1` doesn't have its own getTitle method, it looks up the prototype chain and delegates the call to the `Book` constructor object that has the `getTitle` method. `'Tiny Habits'` is passed as the argument for the title parameter and this.title logs `'Tiny Habits'`.
->>>>>>> 01b1341973d653afc7cfaf59ec32a68e154e8efb
 
-<<<<<<< HEAD
 On line 18, when `book1.getAuthor()` is invoked, the value of `author` has been set to 'Pavel' by the `Book` constructor when the `book2` instance is created on line 15. `book1.getAuthor()` resolves to `Book.author` because on line 3, Book.author is a static method that sets the value of `author` to the latest instance. */
-||||||| ad7a646
-On line 18, when `book1.getAuthor()` is invoked, the value of `author` has been set to 'Pavel' by the `Book` constructor when the `book2` instance is created on line 15. This is because on line 3, Book.author is a static method that sets the value of author to the latest instance.
-=======
 // On line 18, when `book1.getAuthor()` is invoked, the value of `author` has been set to 'Pavel' by the `Book` constructor when the `book2` instance is created on line 15. This is because on line 3, Book.author is a static method that sets the value of author to the latest instance.
 
 // function Country(name, language) {
@@ -507,4 +498,3 @@ On line 18, when `book1.getAuthor()` is invoked, the value of `author` has been 
 // bard.createPotion();
 
 // Q15
->>>>>>> 01b1341973d653afc7cfaf59ec32a68e154e8efb

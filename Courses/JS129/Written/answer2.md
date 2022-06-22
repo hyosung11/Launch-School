@@ -108,21 +108,12 @@ The code logs `'completely different'`. On line 13, the `qux` variable is assign
 
 ## Q7 09:10
 
-<<<<<<< HEAD
 On line 17, `france.getName()` is invoked using method call syntax. Since `france` doesn't have its own `getName` method, it looks up the prototype chain and delegates the call to the `Country` constructor's prototype object that has the `getName` method. On line 14, `'France'` is assigned to the `name` instance property for `france` because it was passed as the argument to the `Country` constructor on line 14. Thus, `this.name` logs `'France'`.
-||||||| ad7a646
-On line 17, `france.getName()` is invoked using method call syntax. Since `france` doesn't have its own `getName` method, it looks up the prototype chain and delegates the call to the `Country` constructor object that has the `getName` method. `'France'` is passed as the argument for the `name` parameter and `this.name` logs `'France'`.
-=======
 On line 17, `france.getName()` is invoked with method call syntax. Since the `france` instance object doesn't have its own `getName()` method, JavaScript looks up the prototype chain and finds the `getName()` method on the `Country` constructor's prototype object. On line 14, when the `Country` constructor is invoked with the `new` keyword, the argument `'France'` is assigned to the `name` property of the `france` instance object. Thus, when the `getName()` method is invoked, `this.name` logs `'France'`.
->>>>>>> 01b1341973d653afc7cfaf59ec32a68e154e8efb
 
-<<<<<<< HEAD
 On line 18, when `france.getLanguage()` is invoked, the value of `language` has been set to `'Spanish'` by the `Country` constructor when the `spain` instance is created on line 15. `france.getLanguage()` resolves to `Country.language` because on line 3, `Country.language` is a static method that sets the value of `language` to the latest instance.
 
 ## Q8 
-||||||| ad7a646
-On line 18, 
-=======
 On line 18, when `france.getLanguage()` is invoked, the value of `language` has been set to `'Spanish'` by the `Country` constructor when the `spain` instance is created on line 15. `france.getLanguage()` eventually resolves to `Country.language` on line 3 which is a static method that sets the value of `language` to the latest instance.
 
 If I were giving an assessment answer, I'd go into detail about how `book1.getAuthor()` eventually resolves to `Book.author`. I'd also be more specific about when and how each string value gets assigned to an object property (Like how 'Tiny Habits' is assigned to the title instance property for book1 because it was passed in as an argument to the Book constructor on line 14.)
@@ -367,4 +358,3 @@ console.log(magician.health);
 let bard = new Bard('Homer');
 bard.createPotion();
 ```
->>>>>>> 01b1341973d653afc7cfaf59ec32a68e154e8efb
