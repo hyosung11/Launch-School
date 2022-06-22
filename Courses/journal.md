@@ -8239,3 +8239,6 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 10:56 I'm still struggling with factory functions and `Object.assign(target, source).
 
 12:03 I don't feel completely ready to take the assessment tomorrow, but I feel like I can squeak by with a pass.
+
+16:52 It looks like things will be fixed for tomorrow's retake of the JS129 Written Assessment. Phew. I'm tired right now. I've felt like this every evening recently before playing soccer. I want to get to the gym tomorrow early before Sohee leaves for work and then drop the kids off at school before taking the exam again.
+
