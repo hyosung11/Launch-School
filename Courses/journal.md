@@ -8245,3 +8245,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 ## 20220622 수요일
 
 08:52 It's the last day of school for the kids and it's a half day, so it's the perfect moment for me to retake the JS129 Written Assessment.
+
+12:14 Sweating. I just submitted the retake and hope I scored enough points to pass.
