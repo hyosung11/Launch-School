@@ -8242,3 +8242,8 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 
 16:52 It looks like things will be fixed for tomorrow's retake of the JS129 Written Assessment. Phew. I'm tired right now. I've felt like this every evening recently before playing soccer. I want to get to the gym tomorrow early before Sohee leaves for work and then drop the kids off at school before taking the exam again.
 
+## 20220622 수요일
+
+08:52 It's the last day of school for the kids and it's a half day, so it's the perfect moment for me to retake the JS129 Written Assessment.
+
+12:14 Sweating. I just submitted the retake and hope I scored enough points to pass.
