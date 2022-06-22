@@ -495,4 +495,86 @@
 // let bard = new Bard('Homer');
 // bard.createPotion();
 
-// Q15
+// Q15 12:16 ~ 12:31
+class Character {
+  constructor(name) {
+    this.name = name;
+    this.health = 100;
+    this.strength = this.rollDice();
+    this.intelligence = this.rollDice();
+  }
+
+  rollDice() {
+    return Math.floor(Math.random() * 11) + 2;
+  }
+
+  heal(amount) {
+    this.health += amount;
+  }
+
+  hurt(amount) {
+    this.health -= amount;
+  }
+}
+
+const armor = {
+  attachArmor() {
+    console.log(`Armor attached.`);
+  },
+
+  removeArmor() {
+    console.log(`Armor removed.`);
+  }
+}
+
+const spell = {
+  castSpell(spell) {
+    console.log(spell);
+  }
+}
+
+class Warrior extends Character {
+  constructor(name) {
+    super(name);
+    this.strength = this.rollDice() + 2;
+  }
+}
+
+Object.assign(Warrior.prototype, armor);
+
+class Paladin extends Character {}
+Object.assign(Paladin.prototype, armor, spell);
+
+class Magician extends Character {
+  constructor(name) {
+    super(name);
+    this.intelligence = this.rollDice() + 2;
+  }
+}
+
+Object.assign(Magician.prototype, spell);
+
+class Bard extends Magician {
+  createPotion() {
+    console.log(`Potion ready!`);
+  }
+}
+
+// let warrior = new Warrior('Zeus');
+// console.log(warrior.strength);
+// warrior.hurt(25);
+// console.log(warrior.health);
+// warrior.attachArmor();
+
+// let paladin = new Paladin('Joost');
+// paladin.hurt(20);
+// console.log(paladin.health);
+// paladin.removeArmor();
+// paladin.castSpell('abracadabra');
+
+let magician = new Magician('Ron');
+console.log(magician.intelligence);
+magician.castSpell('Illuminati!')
+
+let bard = new Bard('Homer');
+bard.createPotion();
