@@ -141,20 +141,20 @@ For some additional insights and tips, check out some of the articles students w
 - [x] 18. Built-in constructors like `Array`, `Object`, `String` and `Number`
 - [x] 19. Reading OO code
 
-## OOP Introduction
+~~## OOP Introduction
 
 Object oriented programming is a programming paradigm that solves problems by organizing programs into objects that hold data as both state (properties) and behavior. The four basic principles of OOP are APIE: Abstraction, Polymorphism, Inheritance, and Encapsulation.
-
+~~
 ### Advantages and Disadvantages of OOP
 
-- Advantages
+~~- Advantages
   - It lets programmers think about a problem at a higher-level of abstraction, which helps them break down and solve the problem.
   - OOP helps programmers write programs that reduce the *dependencies* in a program, which makes maintenance easier.
   - Done right, OOP makes code flexible, easy to understand, and easy to change.
 
 - Disadvantages
   - OOP programs are often much larger than the equivalent procedural program.
-  - OOP may lead to less efficient code; OO programs may require more memory, disk space, and computing power.
+  - OOP may lead to less efficient code; OO programs may require more memory, disk space, and computing power.~~
 
 ## 1. Objects, Object Factories (Factory Functions), Constructors and Prototypes, OLOO, and ES6 Classes
 
@@ -2517,11 +2517,11 @@ student.enrollInCourse('JS120'); // => 'Kim has enrolled in course JS120.'
 
 In this example, the `Student` class inherits from the `Person` class. That gives student objects access to methods of the `Person` class and extends person objects further by adding a `semester` property and an `enrollInCourse` method. Notice that we've reused `Person`'s constructor inside the `Student` constructor, and calling `super` with `name` and `age` since the `Student` constructor expects those arguments. We also assign the `semester` argument to the `semester` property after `super` returns. Note that this most recent example *uses class expressions instead of class declarations.*
 
-## 4. Encapsulation
+~~## 4. Encapsulation
 
 **Encapsulation** is the idea of bundling data and operations related to that data in a cohesive unit called an object. This grouping together of related data and functions through encapsulation is one of the fundamental principles of object-oriented programming.
 
-In most OOP languages, encapsulation has a broader purpose. It also refers to restricting access to the state and certain behaviors. An object only exposes a **public interface** of the data and behaviors that other parts of the application need to work and keep its implementation details hidden. Thus, other objects can't change the data of an object without going through the proper interface. However, JavaScript does not directly provide the means to limit exposure of properties and methods.
+In most OOP languages, encapsulation has a broader purpose. It also refers to restricting access to the state and certain behaviors. An object only exposes a **public interface** of the data and behaviors that other parts of the application need to work and keep its implementation details hidden. Thus, other objects can't change the data of an object without going through the proper interface. However, JavaScript does not directly provide the means to limit exposure of properties and methods.~~
 
 ### 4.1 Encapsulation Example
 
