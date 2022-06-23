@@ -49,4 +49,3 @@ This course will cover some language specific aspects of the JavaScript programm
 - Study Guide
 - The Exam
 - Feedback
-

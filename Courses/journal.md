@@ -8259,3 +8259,7 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 10:37 Ready to move on to JS130, so I copied the course outline into my notes.
 
 11:58 I passed the written assessment and am now getting ready for the interview.
+
+16:06 Manny just Slack messaged me, so we can study together.
+
+17:08 Finished study session with Manny and he gave me some practice. I need to have examples ready for the different topics.

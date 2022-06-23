@@ -1181,7 +1181,7 @@ let lizzy = Lizard();
 lizzy.scamper(); // ?
 ```
 
-#### 5.7.2 Solution:
+#### 5.7.2 Solution
 
 This code throws a `TypeError` because `scamper` is an undefined property on `lizzy`. Since `Lizard` was invoked without the `new` operator and it doesn't have an explicit return value, the return value is `undefined`. Thus, `lizzy` gets assigned to `undefined` which causes the call to `scamper` to throw an error because you can't call a method on `undefined`.
 
@@ -1326,7 +1326,7 @@ Ninja.prototype = {
 console.log(ninja.swingSword());
 ```
 
-### 7. 5 Solution
+### 7.5 Solution
 
 ```sh
 Uncaught TypeError: ninja.swingSword is not a function
