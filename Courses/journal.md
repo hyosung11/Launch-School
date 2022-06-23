@@ -8247,3 +8247,11 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 08:52 It's the last day of school for the kids and it's a half day, so it's the perfect moment for me to retake the JS129 Written Assessment.
 
 12:14 Sweating. I just submitted the retake and hope I scored enough points to pass.
+
+## 20220623 목요일
+
+09:39 I passed the retake exam with a 60/62 or 96.77%. Laurent helped me with a revision and I submitted it earlier this morning. I want to take the interview assessment now.
+
+10:04 I think I'm going to condense my study guide as I wait to be passed on to the interview.
+
+10:12 Updating my `.gitignore` file.
