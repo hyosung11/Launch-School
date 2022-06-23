@@ -8257,3 +8257,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 10:12 Updating my `.gitignore` file.
 
 10:37 Ready to move on to JS130, so I copied the course outline into my notes.
+
+11:58 I passed the written assessment and am now getting ready for the interview.
