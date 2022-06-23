@@ -129,70 +129,71 @@ Explain your design decisions -- why did you choose to define each behavior the 
 // Q13 - back to this one
 // Without changing any of the existing code, add some code to this program so that it logs the "Off we go..." message when plane.fly() executes.
 
-let plane = {
-  passengers: 220,
-};
+// let plane = {
+//   passengers: 220,
+// };
 
-let flyingMachine = {
-  fly() {
-    console.log(`Off we go with ${this.passengers} passengers!`);
-  },
-};
+// let flyingMachine = {
+//   fly() {
+//     console.log(`Off we go with ${this.passengers} passengers!`);
+//   },
+// };
 
-flyingMachine.fly.call(plane);
-plane.fly();
+// plane.fly = flyingMachine.fly;
+// plane.fly();
 
 // Q14
 /* Examine the contacts object in the following snippet. Write a constructor function and any other methods required so that the methods (add, males, females, and filterByName) on the contacts object work properly. Do not modify the contacts object. */
 
-// function Contact(name, gender) {
-//   this.name = name;
-//   this.gender = gender;
-//   Contact.list.push(this);
-// }
+function Contact(name, gender) {
+  this.name = name;
+  this.gender = gender;
+}
 
-// Contact.list = [];
+Contact.prototype.hasName = function(name) {
+  return name === this.name;
+}
 
-// Contact.prototype.add = function() {
-//   return this.add();
-// }
+let contacts = {
+  list: [],
+  add(name, gender) {
+    let contact = new Contact(name, gender);
+    this.list.push(contact);
+  },
+  males() {
+    return this.list.filter(function (contact) {
+      return contact.gender === 'male';
+    });
+  },
+  females() {
+    return this.list.filter(function (contact) {
+      return contact.gender === 'female';
+    });
+  },
+  filterByName(name) {
+    return this.list.filter(function (contact) {
+      return contact.hasName(name);
+    });
+  },
+};
 
-// Contact.prototype.males = function() {
-//   return this.males()
-// }
+contacts.add('Omi', 'female');
+contacts.add('H', 'male');
+contacts.add('Lao', 'male');
+console.log(contacts.list);
+// [
+//   Contact { name: 'Omi', gender: 'female' },
+//   Contact { name: 'H', gender: 'male' },
+//   Contact { name: 'Lao', gender: 'male' }
+// ]
+console.log(contacts.males()); 
+// [
+//   Contact { name: 'H', gender: 'male' },
+//   Contact { name: 'Lao', gender: 'male' }
+// ]
+console.log(contacts.females()); // [ Contact { name: 'Omi', gender: 'female' } ]person
+console.log(contacts.filterByName('H')); // [ Contact { name: 'H', gender: 'male' } ]
 
-// Contact.prototype.females = function() {
-//   return this.females();
-// }
-
-// Contact.prototype.filterByName = function() {
-//   return this.filterByName();
-// }
-
-// let contacts = {
-//   list: [],
-//   add(name, gender) {
-//     let contact = new Contact(name, gender);
-//     this.list.push(contact);
-//   },
-//   males() {
-//     return this.list.filter(function (contact) {
-//       return contact.gender === 'male';
-//     });
-//   },
-//   females() {
-//     return this.list.filter(function (contact) {
-//       return contact.gender === 'female';
-//     });
-//   },
-//   filterByName(name) {
-//     return this.list.filter(function (contact) {
-//       return contact.hasName(name);
-//     });
-//   },
-// };
-
-// console.log(contacts.add('Omi', 'female'));
 
 // Q15
 /* This exercise asks you to come up with a skeletal OO design for a fake Employee Management Application,
