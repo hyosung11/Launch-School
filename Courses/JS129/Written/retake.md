@@ -6,7 +6,6 @@
 
 ## Q9 answered
 
-
 1. Creates a new object.
 2. Sets `[[Prototype]]` of the new object to the same object as the constructor's `prototype` property.
 3. Sets the `constructor` property of the new object to point to the constructor function (the function that created the new object).
@@ -30,11 +29,9 @@ The object creation pattern called **pseudo-classical** is also known as the **c
 
 Both pseudo-classical and prototypal inheritance *use prototypal delegation under the hood*. If the requested property isn't found, the object delegates the request to the object's prototype object. If the requested property isn't there either, the prototype object delegates the request to its own prototype object. This process follows the prototype chain until the property or method is found or the end of the prototype chain is found.
 
-## Q8 
+## Q8
 
-
-
-## Q10 
+## Q10
 
 JavaScript comes with a variety of built-in constructors and prototypes that let you *instantiate useful objects*. These constructors work like constructors for other objects; they're used with the `new` keyword to create objects. The `String` and `Number` constructors are two examples.
 
@@ -42,7 +39,6 @@ JavaScript silently wraps string primitives in a `String` class when it needs to
 
 ~~
 JavaScript silently wraps string primitives and number primitives in a String class when it needs to use a method or property.* In addition, `typeof str1` returns `object`, while `typeof str2` returns `string`.
-
 
 As with strings, numbers and booleans both have primitive and object forms, and JavaScript invisibly wraps primitives in objects to access methods and properties. You should also *avoid creating `Number` and `Boolean` objects explicitly*.~~
 
