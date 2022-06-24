@@ -734,7 +734,44 @@ Strict mode shows up in JavaScript classes and in **Coderpad**, the environment 
 
 #### 4.3 Method Execution Context (Implicit)
 
+When you call a method that belongs to an object, the execution context inside that method call is *the object used to call the method*. We call that **method execution context**. Method execution syntax is usually said to provide an implicit context; we're using an explicit object to call the method, but JavaScript is interpreting that object as the implicit context. For this reason, we usually say that *method calls provide an implicit execution context*.
 
+```js
+let foo = {
+  bar: function() {
+    console.log(this);
+  }
+};
+
+foo.bar();
+// `foo` is the implicit execution context for `bar`
+// => returns { bar: [Function: bar] }
+```
+
+Remember that the context is determined solely by how you call the function or method. Here, `foo.bar()` is considered a method call since we *call it as a method*; that is, we *use the method call syntax `object.method()`*. Since JavaScript functions are first-class objects, `bar` can be called in other ways that change the context:
+
+```js
+let baz = foo.bar;
+baz();
+// => Object [global] {...}
+// `baz` called as a standalone function
+```
+
+In this code, we assign the `foo.bar` method to the `baz` variable. The `foo.bar` property and the `baz` variable now refer to the same function object. What should `baz()` log then?
+
+Since `baz` references a method of the `foo` object, you may think that its execution context must be `foo`. That's wrong though: as we've repeated several times, the execution context is determined entirely by how a function or method is called. Since we're *calling `baz` as a standalone function*, its execution context is the global object, not the `foo` object.
+
+#### 4.4 `new` and Implicit Execution Context
+
+Function and method calls *provide an implicit context*. For a function call, the implicit context is the global object; for a method call, it's the object used to call the method.
+
+A constructor call with `new` is a third way to *provide an implicit execution context*. When you call a function with `new`, its implicit context is the **new object**.
+
+Call        | Where          | Example
+------------|----------------|----------------------------
+Function    | global object  | `foo()`
+Method      | calling object | `obj.foo()`
+Constructor | new object     | `let object = new Object()`
 
 ### 5. Hard-binding Functions with Contexts
 
