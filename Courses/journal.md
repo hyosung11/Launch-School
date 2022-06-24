@@ -8274,3 +8274,4 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 
 07:17 Alex asked some detailed and hard questions. I need to review `new` and resetting the `constructor` property.
 
+09:35 Revising and reorganizing the written study guide for the interview.
