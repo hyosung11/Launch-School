@@ -3311,15 +3311,7 @@ The JavaScript `this` keyword refers to the object it belongs to. It has differe
 
 ### 14.6 Explicit Function and Method Execution Context
 
-*You can provide an explicit context to any function or method*, and it doesn't have to be the global object or the object that contains the method. Instead, you can use any object -- or even `null` -- as the execution context for any function or method. There are two main ways to do that in JavaScript: `call` and `apply`.
-
 ### 14.7 Implicit and Explicit Execution Context Summary
-
-All JavaScript functions and methods execute within an execution context, sometimes called its `this` binding. How `this` gets bound depends entirely on how the function is invoked. You can't tell a function's execution context by merely looking at how and where it's defined; *you must examine the invocation itself*. The execution context is determined by *how you invoke a function or method*.
-
-Regular function calls use the global object as their execution context, while method calls use the calling object as their context. You can override this behavior by setting the execution context explicitly with either `call` or `apply`.
-
-The mechanics of context binding is an essential but difficult concept. Most difficulties arise from forgetting that *JavaScript does not use lexical scoping rules to determine the binding*. For instance, if you use `this` inside a method of `obj`, you expect that `this` refers to `obj`. However, that's not always the case. It's important to remember that the rules for `this` are entirely different from the rules for variable scope. While a variable's scope is determined by where you write the code, `this` *depends on how you invoke it*.
 
 ### 14.8 Example 1
 

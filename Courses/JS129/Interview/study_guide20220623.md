@@ -1,5 +1,15 @@
 # Object Oriented Programming with JavaScript (20220623 15:43 Version)
 
+## Topical Outline
+
+1. What is OOP?
+   1.1 Advantages and Disadvantages of OOP
+2. Encapsulation
+3. Creating Objects
+   3.1 Property Access
+   3.2 Property Existence
+4. 
+
 ## Object Oriented Programming
 
 ### 1. What is OOP?
@@ -676,7 +686,7 @@ We discuss the global object here since you need to know where JavaScript gets a
 
 ### 4. Implicit and Explicit Execution Context
 
-The execution context -- or **context** -- is a concept that refers to the **environment** in which a function executes. In JavaScript, it most commonly refers to the current value of the `this` keyword. When we talk about the execution context of a function or method call, we're talking about the value of `this` when that code executes. The context depends on *how the function or method was invoked*, not on where the function was defined.
+The execution context -- or **context** -- is a concept that refers to the **environment** in which a function executes. In JavaScript, it most commonly refers to the current value of the `this` keyword, sometimes called its `this` binding. When we talk about the execution context of a function or method call, we're talking about the value of `this` when that code executes. The context depends on *how the function or method was invoked*, not on where the function was defined.
 
 There are two basic ways to set the context when calling a function or method:
 
@@ -687,6 +697,10 @@ There are two basic ways to set the context when calling a function or method:
 Setting the execution context is also called **binding** `this` or **setting the binding**.
 
 All JavaScript code executes within a context. The top-level context is the `window` object in browsers and the `global` object in Node. All global methods and objects, such as `parseInt` and `Math`, are properties of `window` or `global`.
+
+Regular function calls use the global object as their execution context, while method calls use the calling object as their context. You can override this behavior by setting the execution context explicitly with either `call` or `apply`.
+
+The mechanics of context binding is an essential but difficult concept. Most difficulties arise from forgetting that *JavaScript does not use lexical scoping rules to determine the binding*. For instance, if you use `this` inside a method of `obj`, you expect that `this` refers to `obj`. However, that's not always the case. It's important to remember that the rules for `this` are entirely different from the rules for variable scope. While a variable's scope is determined by where you write the code, `this` *depends on how you invoke it*.
 
 #### 4.1 Function Execution Context (Implicit)
 
@@ -775,7 +789,16 @@ Constructor | new object     | `let object = new Object()`
 
 ### 5. Hard-binding Functions with Contexts
 
+*You can provide an explicit context to any function or method*, and it doesn't have to be the global object or the object that contains the method. Instead, you can use any object -- or even `null` -- as the execution context for any function or method. There are two main ways to do that in JavaScript: `call` and `apply`.
+
+
+
 ### 6. Dealing with Context Loss
+
+### 7. Execution Context Problems
+
+#### 7.1 Example 1
+
 
 ## Object Creation and Code Reuse Patterns
 
