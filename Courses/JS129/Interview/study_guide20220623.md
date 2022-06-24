@@ -301,19 +301,323 @@ lambo.fly(); // Flying
 
 ## Functions and Execution Context
 
-### 1. Function Expressions
+### 1. Function Declarations, Function Expressions, Hoisting, Anonymous Functions, Arrow Functions, First-Class Functions
 
+Function definitions that are the first thing on a line are known as **function declarations**. On the other hand, **function expressions** are function definitions that are part of an expression.
 
+Take a look at the following function definition.
 
-### 2. Higher Order Functions
+```js
+// function declaration
+function prompt(message) {
+  console.log(`=> ${message}`);
+}
+```
 
-A function that accepts one or more arguments that are themselves functions is a higher-order function. A function that returns a function is a higher-order function. All JavaScript functions are first-class values. Therefore, all higher-order functions are also first-class values.
+Functions defined with this syntax *can be invoked before the declaration in the program*:
+
+```js
+prompt('How are you today?');
+
+function prompt(message) {
+  console.log(`=> ${message}`);
+}
+```
+
+This code works since *the JavaScript engine runs our code in two passes*. During the first pass, it does some preparatory work, while the second executes the code. One action that occurs during the first pass is called **hoisting**; *the engine effectively moves function declarations to the top of the program file in which they're defined, or the top of the function in which they are nested.* The result is that the above code acts as though you wrote it like this:
+
+```js
+function prompt(message) {
+  console.log(`=> ${message}`);
+}
+
+prompt('How are you today?');
+```
+
+#### 1.1 Hoisting
+
+Note that you'll never see this hoisted code when working with JavaScript. *Hoisting is an internal step performed by the engine*; it doesn't move any code around. However, it's useful to think of hoisting in this way, so long as you understand that your code is not changed.
+
+ For instance, the code in the above example shows `prompt` as a function declaration; the next example shows `foo` as a function expression: it is *not* a declaration.
+
+```js
+(function foo() {
+
+})
+```
+
+You can test whether a function definition is a function declaration by trying to call it before the declaration. You can't call a function expression until after the expression is evaluated:
+
+```js
+// NOTE: Run this code from a file; don't use the REPL
+
+bar();
+function bar() {
+  console.log("this is bar");
+}
+// => 'this is bar'
+
+foo();
+const foo = function() {
+  console.log("this is foo");
+};
+// ReferenceError: Cannot access 'foo' before initialization
+```
+
+Typically, we assign a function expression to a variable or object property, pass it to another function, or return it to a calling function. For instance:
+
+```js
+let prompt = function() {}; // Assign to a variable
+
+[1, 2, 3].forEach(function(elem) { // pass to another function
+  console.log(elem);
+});
+
+function makeIncrementer(increment) {
+  return function(value) { // return to caller
+    return value + increment;
+  }
+}
+```
+
+#### 1.2 Anonymous Functions
+
+Notice that we can define function expressions without giving them a name. You may argue that `prompt` is the name of the function we defined on line 1, but that's not the case: instead, we've *assigned an unnamed function to the prompt variable*. Such unnamed functions are called **anonymous functions**. Anonymous functions are commonplace in JavaScript code. The callback functions for array methods like `forEach` and `map` are often anonymous functions.
+
+```js
+let squaredNums = [1, 2, 3].map(function(num) {
+  return num * num;
+}); // => [1, 4, 9]
+```
+
+Function expressions don't have to be anonymous. *You can name a function expression*:
+
+```js
+let squaredNums = [1, 2, 3].map(function squareNum(num) {
+  return num * num;
+}); // => [1, 4, 9]
+```
+
+The main advantage of naming a function expression occurs when the function throws an error (raises an exception). If the function has a name, the stack trace uses that name to help you determine where the error occurred. Without the name, JavaScript merely reports the location as "anonymous."
+
+The function name given to a function expression is **not visible** in the scope that includes the function expression.
+
+```js
+let foo = function bar() {};
+foo();         // This works
+bar();         // This does not work (line 3)
+```
+
+`foo` is a local variable that contains a reference to the function, so we can invoke the function using `foo()`. However, the function name, `bar`, is not in scope on line 3, so `bar()` does not work.
+
+The function name on a function expression is visible inside the function, which is useful when working with recursive functions.
+
+#### 1.3 Arrow Functions
+
+*Arrow functions are always function expressions*. We often pass them around or assign them to variables or properties. Also, *arrow functions are always anonymous*: there's no way to define a named arrow function. Arrow functions are either immediately invoked, assigned to variables or properties, or passed around as arguments and return values.
+
+#### 1.4 First-Class Functions
+
+**First-class functions** or **first-class objects** refers to the fact that functions in JavaScript are **values** that we can assign to variables and properties, pass them to other functions, or return them from another function.
 
 JavaScript has first-class functions that have the following characteristics:
 
 - You can add them to objects and execute them in the respective object's context.
 - You can remove them from their objects, pass them around, and execute them in entirely different contexts.
 - They're initially unbound but dynamically bound to a context object at execution time.
+
+Functions of all kinds, including declared functions, can be treated as values:
+
+```js
+function say(words) {
+  console.log(words);
+}
+
+let speak = say;
+
+speak('Howdy!'); // logs 'Howdy'
+```
+
+In this example, we declare a function `say()` and then assign it to the variable `speak`. We then invoke the function using `speak` as a handle. Note that we can still call the function using `say` as well -- both `say` and `speak` refer to the same function.
+
+Here's another example:
+
+```js
+function logNum(num) {
+  console.log('Number: ' + num);
+}
+
+[1, 2, 3].forEach(logNum);
+// Number: 1
+// Number: 2
+// Number: 3
+```
+
+In this case, we're passing the function `logNum()` as an argument to the `forEach` method, which calls it three times. With each invocation of `logNum`, `forEach` passes it one of the array elements as an argument.
+
+Notice that *we don't use invocation syntax*, `()`, when passing `logNum` as an argument to `forEach`. If we did, it would throw a `TypeError` exception since `forEach` expects a function; instead of passing a function, though, we would be passing `undefined`, the return value of `logNum()`.
+
+```js
+function logNum(num) {
+  console.log('Number: ' + num);
+}
+
+[1, 2, 3].forEach(logNum());
+// Uncaught TypeError: undefined is not a function
+```
+
+The takeaway is that you *should not invoke functions when you want to use them as* **values**. Use invocation only when you need to *run* the code in the function.
+
+Let's return to the following example:
+
+```js
+function logNum(num) {
+  console.log('Number: ' + num);
+}
+
+[1, 2, 3].forEach(logNum);
+// Number: 1
+// Number: 2
+// Number: 3
+```
+
+This code is functionally identical to the following code:
+
+```js
+[1, 2, 3].forEach(function logNum(num) {
+  console.log('Number: ' + num);
+});
+```
+
+The only difference is that we're *using a function expression* instead of a variable.
+
+We can also *use an arrow function* to do the same thing:
+
+```js
+[1, 2, 3].forEach(num => {
+  console.log('Number: ' + num);
+});
+```
+
+In this case, though, the function is anonymous. The results, however, are identical.
+
+The point we want you to remember is that you can *treat any function as you would any other JavaScript value: remove the invocation syntax, and you've got an expression whose value is a function*.
+
+##### 1.4.1 `typeof` Function Value
+
+Since functions are first-class values in JavaScript, and all values in JavaScript have a type, functions must also have a type. Right? That's correct! Let's use the handy `typeof` operator to determine the type of a function value:
+
+```js
+let myFunc = function() {};
+console.log(typeof myFunc); // 'function'
+```
+
+### 2. Higher Order Functions
+
+The fact that JavaScript treats functions as values means that we can have a special kind of function in our programs: a **higher-order function**. A higher-order function is a function that has *at least one of the following properties*:
+
+1. It takes a function as an argument.
+2. It returns a function.
+
+All JavaScript functions are first-class values. Therefore, all higher-order functions are also first-class values.
+
+#### 2.1 Higher Order Functions that Accept Functions as Arguments
+
+We've seen many examples of functions that have the first property. Specifically, array methods like `forEach`, `map`, `filter`, and `reduce` each take a function argument.
+
+Let's pretend that we don't have a `map` method on JavaScript arrays. If we want to implement some code that squares all the elements of an array, we'd probably come up with something like this:
+
+```js
+function mapNumsToSquares(num) {
+  let squaredArray = [];
+
+  for (let index = 0; index < nums.length; index += 1) {
+    let current = nums[index];
+    squaredArray.push(current * current); // line 6
+  }
+
+  return squaredArray;
+}
+```
+
+This approach is valid, and you'll see functions like this in languages that don't have first-class functions (nor the closely related concept of lambdas). However, squaring the numbers in an array almost certainly won't be the only type of mapping you'll need in your application. Suppose that we need another function that uppercases all the elements in an array of strings. The solution may look like this:
+
+```js
+function uppercaseStrings(strings) {
+  let capStrings = [];
+
+  for (let index = 0; index < strings.length; index++) {
+    let current = strings[index];
+    capStrings.push(current.toUpperCase()); // line 6
+  }
+
+  return capStrings;
+}
+```
+
+The only significant difference between these two functions is line 6 of each function where we either square a number or uppercase a string; everything else follows the same general structure:
+
+- Declare and initialize the result array.
+- Iterate over the input array.
+  - Add mapped values to the result.
+- Return the result.
+
+Can we abstract away the similar structure of the two functions and leave the specific mapping operation up to the function's caller to decide? That's what `map` does for us: *it abstracts away the mechanics of mapping an array and leaves the details for the developer to provide at runtime.* It does that by providing a function as an argument. The result is much more powerful and versatile:
+
+```js
+arrayOfNums.map(num => num * num);
+arrayOfStrings.map(string => string.toUpperCase());
+```
+
+The `map` method, along with several other array methods, is a higher-order function since it takes another function as an argument.
+
+#### 2.2 Higher Order Functions that Return a Function
+
+You can think of a function that returns another function as a function factory: it creates and returns a new function. Typically, the function factory uses the arguments you pass to it to determine the specific job performed by the function it returns.
+
+To truly appreciate how useful this is, you need to understand closure; we're not ready for that, though -- we'll discuss the topic later. For now, we can use a contrived example to demonstrate the mechanics of functions returning other functions. Let's use a simple `greeter` function as an example, one that can log greetings in multiple languages:
+
+```js
+function greet(language) {
+  switch (language) {
+    case 'en':
+      console.log('Hello!');
+      break;
+    case 'es':
+      console.log('Hola!');
+      break;
+    case 'fr':
+      console.log('Bonjour!');
+  }
+}
+
+greet('fr'); // logs 'Bonjour!'
+```
+
+This implementation works, but if we're using a particular language over and over, we need to provide the language string every time. Instead of a `greet` function, let's implement a greeter factory that lets us create a greeter function for a given language.
+
+```js
+function createGreeter(language) {
+  switch (language) {
+    case 'en':
+      return () => console.log('Hello!');
+    case 'es':
+      return () => console.log('Hola!');
+    case 'fr':
+      return () => console.log('Bonjour!');
+  }
+}
+
+let greeterEs = createGreeter('es');
+greeterEs(); // logs 'Hola!'
+greeterEs(); // logs 'Hola!'
+greeterEs(); // logs 'Hola!'
+
+let greeterEn = createGreeter('en');
+greeterEn(); // logs 'Hello!'
+```
+
+This code doesn't provide a significant improvement or convenience for the developer, but it does illustrate how we might use a function that returns another function in our code.
 
 ### 3. The Global Object
 
@@ -372,6 +676,66 @@ We discuss the global object here since you need to know where JavaScript gets a
 
 ### 4. Implicit and Explicit Execution Context
 
+The execution context -- or **context** -- is a concept that refers to the **environment** in which a function executes. In JavaScript, it most commonly refers to the current value of the `this` keyword. When we talk about the execution context of a function or method call, we're talking about the value of `this` when that code executes. The context depends on *how the function or method was invoked*, not on where the function was defined.
+
+There are two basic ways to set the context when calling a function or method:
+
+1. **Explicit**: The execution context that you set explicitly.
+
+2. **Implicit**: The execution context that JavaScript sets implicitly when your code doesn't provide an explicit context.
+
+Setting the execution context is also called **binding** `this` or **setting the binding**.
+
+All JavaScript code executes within a context. The top-level context is the `window` object in browsers and the `global` object in Node. All global methods and objects, such as `parseInt` and `Math`, are properties of `window` or `global`.
+
+#### 4.1 Function Execution Context (Implicit)
+
+Every JavaScript function call has an execution context. In other words, the `this` keyword is available to every function in your JavaScript program. Every time you call that function, *JavaScript binds some object to `this`*.
+
+Let's define a function and use `this` within it to see what happens:
+
+```js
+function foo() {
+  console.log("this refers to: " + this);
+}
+
+foo();
+// this refers to: [object global]
+```
+
+Within a regular function call (e.g., `foo()`), JavaScript sets the binding for `this` to the global object. (Remember: in Node, the global object is called `global`; in a browser, it is `window`.) That means that when you use `this` inside the function, it refers to the global object. If you use `this` to access or modify properties, you will access or modify properties on the global object:
+
+```js
+function foo() {
+  this.bar = 'bar';
+}
+
+foo();
+global.bar; // 'bar'
+```
+
+That makes sense at some level. Since all function calls have an execution context, and since *a regular function call does not provide an explicit context*, JavaScript supplies an implicit context: the global object. We say that this execution context is **implicit** since the function invocation doesn't supply an explicit alternative.
+
+#### 4.2 Strict Mode and Implicit Context
+
+When strict mode is enabled, the implicit `this` is assigned to `undefined` instead of the global object:
+
+```js
+"use strict"; // the quotes are required
+
+function foo() {
+  console.log("this refers to: " + this);
+}
+
+foo(); // `this` refers to: undefined
+```
+
+Strict mode shows up in JavaScript classes and in **Coderpad**, the environment we use for assessment interviews.
+
+#### 4.3 Method Execution Context (Implicit)
+
+
+
 ### 5. Hard-binding Functions with Contexts
 
 ### 6. Dealing with Context Loss
@@ -396,3 +760,4 @@ We discuss the global object here since you need to know where JavaScript gets a
 
 ### 9. Polymorphism
 
+OLOO?
