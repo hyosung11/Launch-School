@@ -8267,3 +8267,10 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 18:46 After dinner and I'm getting ready to play soccer. I feel tired, but revising my study guide is good to increase my understanding of OOP.
 
 18:56 Okay, chopping up the old study guide and inserting it in the order of the new interview study guide.
+
+## 20220624 금요일
+
+06:17 Study session with Alex.
+
+07:17 Alex asked some detailed and hard questions. I need to review `new` and resetting the `constructor` property.
+
