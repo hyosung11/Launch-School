@@ -2,15 +2,25 @@
 
 ## Topical Outline
 
+I. Object Oriented Programming
+
 1. What is OOP?
    1.1 Advantages and Disadvantages of OOP
 2. Encapsulation
 3. Creating Objects
    3.1 Property Access
    3.2 Property Existence
-4. 
+4. Factory Functions
+5. Collaborator Objects
 
-## Object Oriented Programming
+II. Functions and Execution Context
+
+1. Functions Declarations, Function Expressions, Hoisting, Anonymous Functions, Arrow Functions, First-class Functions
+2. Higher Order Functions
+3. The Global Object
+4. Execution Context
+
+## I. Object Oriented Programming
 
 ### 1. What is OOP?
 
@@ -309,7 +319,136 @@ let lambo = createCar('Lambo', 'black');
 lambo.fly(); // Flying
 ```
 
-## Functions and Execution Context
+### 5. Collaborator Objects
+
+Objects that *help provide state within another object* are called **collaborator objects**, or more simply **collaborators**. Objects *collaborate* with other objects by using them as part of their **state**. We say that two objects have a **collaborator relationship** *if one of them is part of the state of the other*. Collaborator objects let you chop up and modularize the problem domain into cohesive pieces. They play an important role in modeling complicated problem domains in OO programming.
+
+Collaborator objects play an important role in object-oriented design; they *represent the connections between the different classes* in your program. When working on an object-oriented program, be sure to consider what collaborators your objects need and whether those associations make sense, both from a technical standpoint and in terms of modeling the problem your program aims to solve.
+
+#### 5.1 Example 1
+
+```js
+let cat = {
+  name: 'Fluffy',
+
+  makeNoise() {
+    console.log('Meow! Meow!');
+  },
+
+  eat() {
+    // implementation
+  },
+};
+
+let pete = {
+  name: 'Pete',
+  pet: cat, // <-- `cat` collaborator object stored in the `pet` property of the `pete` object
+
+  printName() {
+    console.log(`My name is ${this.name}!`);
+    console.log(`My pet's name is ${this.pet.name}`); // line 19
+  },
+};
+
+pete.printName();
+// => My name is Pete!
+// => My pet's name is Fluffy
+```
+
+The `pete` object has the collaborator object `cat` stored in its `pet` property. The `pete` object and the object referenced by its `pet` property work together. When we need to access the `pet` object or have it perform a behavior, we can use `pete.pet` to access and use the object's properties. For instance, on line 19, the `pete` object collaborates with the `cat` object (via `this.pet`) to access the `cat`'s name.
+
+#### 5.2 Example 2 - Using an Array
+
+We often talk of collaborators in the context of custom objects like `pet`, but collaborators don't have to be custom objects. They can be built-in objects like arrays and dates, as well.
+
+Let's now develop our program further and change the implementation to let Pete have many pets through an array of `pet` objects.
+
+```js
+let cat = {
+  name: 'Fluffy',
+
+  makeNoise() {
+    console.log('Meow! Meow!');
+  },
+
+  eat() {
+    // implementation
+  },
+};
+
+let dog = {
+  name: 'Maxi',
+
+  makeNoise() {
+    console.log('Woof! Woof!');
+  },
+
+  eat() {
+    // implementation
+  },
+};
+
+let pete = {
+  name: 'Pete',
+  pets: [],
+};
+
+pete.pets.push(cat);
+pete.pets.push(dog);
+```
+
+#### 5.3 Example 3 - Assessment Question Variation
+
+Examine the code below:
+
+```js
+let sohee = {
+  name: 'Sohee',
+  children: [],
+};
+
+let omi = {
+  name: 'Omi',
+  eat() {
+    console.log(`Cowboy spaghetti`);
+  },
+};
+
+let sungoh = {
+  name: 'SungOh',
+  eat() {
+    console.log(`Crunchy penne`);
+  },
+};
+
+sohee.children.push(omi)
+sohee.children.push(sungoh);
+```
+
+- Describe the relationship between the `sohee` object and the `omi` and `sungoh` objects.
+  - The `omi` and `sungoh` objects are collaborators with the `sohee` object.
+
+- Implement a method `childrenEat`, in the `sohee` object. The method should invoke the `eat` method of all the children for that object.
+
+```js
+let sohee = {
+  name: 'Sohee',
+  children: [],
+
+  childrenEat() {
+    return this.children.forEach(child => child.eat());
+  }
+}
+
+sohee.children.push(omi)
+sohee.children.push(sungoh);
+
+sohee.childrenEat();
+// Cowboy spaghetti
+// Crunchy penne
+```
+
+## II. Functions and Execution Context
 
 ### 1. Function Declarations, Function Expressions, Hoisting, Anonymous Functions, Arrow Functions, First-Class Functions
 
@@ -684,9 +823,11 @@ Whenever you try to access a variable for which there are no local or global var
 
 We discuss the global object here since you need to know where JavaScript gets all those global entities like `NaN`, `Infinity`, and `setTimeout`. It's not very often that you'll need to modify the global object, but you'll sometimes use it to set properties in Node that you need in multiple modules.
 
-### 4. Implicit and Explicit Execution Context
+### 4. Execution Context
 
 The execution context -- or **context** -- is a concept that refers to the **environment** in which a function executes. In JavaScript, it most commonly refers to the current value of the `this` keyword, sometimes called its `this` binding. When we talk about the execution context of a function or method call, we're talking about the value of `this` when that code executes. The context depends on *how the function or method was invoked*, not on where the function was defined.
+
+You can *access the properties and methods of an object from within a method* using the `this` keyword. The `this` keyword lets us refer to the properties and methods of the object. Inside the methods, the `this` keyword lets us refer to the properties and other methods of the object. So, the `this` keyword is basically a dynamic pointer whose value depends on where it's being referenced and how.
 
 There are two basic ways to set the context when calling a function or method:
 
@@ -729,6 +870,63 @@ global.bar; // 'bar'
 ```
 
 That makes sense at some level. Since all function calls have an execution context, and since *a regular function call does not provide an explicit context*, JavaScript supplies an implicit context: the global object. We say that this execution context is **implicit** since the function invocation doesn't supply an explicit alternative.
+
+#### 4.2 What is `this`?
+
+The value of `this` is the current execution context of a function or method. The value of `this` *changes based on how you invoke a function*, not how you define it.
+
+The JavaScript `this` keyword refers to the object it belongs to. It has different values depending on where it is used:
+
+- Alone, `this` refers to the **global object**.
+- In a function, `this` refers to the **global object**.
+- In a function, in strict mode, `this` is `undefined`.
+- In a method, `this` refers to the calling object.
+- Method calls like `call()`, and `apply()` can refer `this` to any object.
+- In an event, `this` refers to the **element** that received the event.
+
+#### 4.3 When does JavaScript bind an object to `this`?
+
+- It binds the execution context when the function is executed using **function call syntax**, eg., `bar()`.
+  - A function that is invoked using function call syntax receives the **global** object as its execution context.
+
+- It binds the execution context when the function is executed using **method call syntax**, e.g., `foo.bar()`.
+  - A function that is invoked using method call syntax receives the **calling** object as its execution context.
+
+- It binds the execution context when the function is executed by either `call` or `apply`.
+  - Both `call` and `apply` set the execution context for a function invocation.
+
+#### 4.4 Function Execution Context and `this` Example
+
+Thus far in our example, we refer to the object from inside the methods by directly using the variable name, `raceCar`. Suppose we change the variable name or pass the object to a function that refers to its arguments by a different name. In that case, calling a method with the original variable name will *throw a reference error*. We need some way to refer to the object that contains a method from other methods in that object. The keyword `this` provides the desired functionality:
+
+```js
+let raceCar = {
+
+  make: 'BMW',
+  fuelLevel: 0.5,
+  engineOn: false,
+
+  startEngine() {
+    this.engineOn = true;
+  },
+
+  drive() {
+    this.fuelLevel -= 0.1;
+  },
+
+  stopEngine() {
+    this.engineOn = false;
+  },
+
+  refuel(percent) {
+    if ((this.fuelLevel + (percent / 100)) <= 1) {
+      this.fuelLevel += (percent / 100);
+    } else {
+      this.fuelLevel = 1;
+    }
+  },
+};
+```
 
 #### 4.2 Strict Mode and Implicit Context
 
@@ -787,11 +985,190 @@ Function    | global object  | `foo()`
 Method      | calling object | `obj.foo()`
 Constructor | new object     | `let object = new Object()`
 
+#### 4.5 Function Invocation and Method Invocation
+
+**Function invocations** (e.g., `parseInt(numberString)`) rely upon implicit execution context that resolves to the **global** object.
+
+**Method invocations** (e.g., `array.forEach(processElement)`) rely upon implicit context that resolves to the **object that holds the method**.
+
+#### 4.6 Code Snippet Example 1
+
+Examine the two code examples below:
+
+Example 1
+
+```js
+let sarah = {
+  name: 'Sarah',
+  introduce() {
+    console.log(`Hi, my name's ${this.name}`);
+  },
+};
+
+let paul = {
+  name: 'Paul',
+};
+
+sarah.introduce();
+```
+
+Example 2
+
+```js
+let sarah = {
+  name: 'Sarah',
+  introduce() {
+    console.log(`Hi, my name's ${this.name}`);
+  },
+};
+
+let paul = {
+  name: 'Paul',
+};
+
+sarah.introduce.call(paul); // line 12
+```
+
+For each example, identify the execution context of `introduce`. Explain how you determined the execution context, and outline the difference between the execution context in the two examples.
+
+#### 4.6 Example 1 Answer
+
+For example 1, the execution context of `introduce` is the `sarah` object. Here, `sarah.introduce()` uses method invocation syntax whose implicit execution context is the calling object. Thus, the `this` keyword is set to the `sarah` object.
+
+For example 2, the execution context of `introduce` is the `paul` object. Here, the `call` method is used to explicitly bind the `paul` object to the invocation on line 12. Thus, the `this` keyword references the `paul` object and not the `sarah` object.
+
+#### 4.7 Code Snippet Example 2
+
+Examine the two code examples below:
+
+Example 1
+
+```js
+let omi = {
+  game: 'Roblox',
+  play() {
+    console.log(`My favorite game is ${this.game}`);
+  }
+}
+
+let sungoh = {
+  game: 'Cooking Craze';
+};
+
+omi.play(); // My favorite game is Roblox
+```
+
+Example 2
+
+```js
+let omi = {
+  game: 'Roblox',
+  play() {
+    console.log(`My favorite game is ${this.game}`);
+  }
+}
+
+let sungoh = {
+  game: 'Cooking Craze';
+};
+
+omi.play.call(sungoh); // My favorite game is Cooking Craze
+```
+
+For each example, identify the execution context of `play`. Explain how you determined the execution context, and outline the difference between the execution context in the two examples.
+
+#### 4.7 Example 2 Answer
+
+For example 1, the execution context of the `play` method is the `omi` object. Here, `omi.play()` uses method call syntax whose implicit execution context is the calling object, `omi`. Thus, the `this` keyword references the `omi` object.
+
+For example 2, the execution context of `play` is the `sungoh` object. Here, the `call` method is used to explicitly bind the `sungoh` object to the invocation on the last line. Thus, `this` of `this.game` is assigned to the `game` property on the `sungoh` object and logs `'My favorite game is Cooking Craze'`.
+
+#### 4.8 Code Snippet Example 3
+
+Snippet 1
+
+```js
+let obj = {
+  foo() {
+    return this;
+  }
+};
+
+console.log(obj.foo());
+```
+
+Snippet 2
+
+```js
+let obj = {
+  foo() {
+    return this;
+  }
+};
+
+let foo = obj.foo;
+console.log(foo());
+```
+
+Snippet 3
+
+```js
+let obj = {
+  foo() {
+    return this;
+  }
+};
+
+let obj2 = {
+  bar: 42,
+  foo() {
+    console.log(this.bar);
+  }
+};
+
+console.log(obj.foo.call(obj2));
+```
+
+What does each snippet log, and why does it log what it does?
+
+#### 4.8 Example 3 Answer
+
+Snippet 1 logs `{ foo: [Function: foo] }`, a reference to the `obj` object. Here, `obj.foo()` uses method invocation which implicitly sets the execution context to the calling object. Thus, the `this` keyword references the `obj` object.
+
+Snippet 2 logs the global object in Node. Assigning the `foo` variable to the return value of `obj.foo` strips the `foo` method of its execution context. On the last line, `foo` is invoked using function invocation. Thus, its implicit execution context is set to the global object.
+
+Snippet 3 logs `{ bar: 42, foo: [Function: foo] }`, a reference to the `obj2` object. On the last line, the `call` method is used to explicitly bind the `foo` method to the `obj2` object.
+
+#### 4.9 Code Snippet Example 4
+
+What does the following code do? Explain why it does that.
+
+```js
+let obj = {
+  a: 'Freaky',
+  b: 'Friday',
+  bar: {
+    a: 'Totally',
+    b: 'Awesome',
+  },
+  foo: function() {
+    return `${this.a} ${this.b}`;
+  },
+};
+
+let qux = obj.foo.bind(obj.bar); // line 13
+console.log(qux());
+```
+
+#### Example 4 Answer
+
+The code logs `'Totally Awesome'`. On line 13, the `qux` variable is assigned to the return value of hard-binding the `foo` method's context using `bind` to the `obj.bar` object. Thus, when `qux` is invoked on line 14, its execution context is the `bar` object because it has been permanently bound.
+
 ### 5. Hard-binding Functions with Contexts
 
 *You can provide an explicit context to any function or method*, and it doesn't have to be the global object or the object that contains the method. Instead, you can use any object -- or even `null` -- as the execution context for any function or method. There are two main ways to do that in JavaScript: `call` and `apply`.
 
-
+#### 5.1 
 
 ### 6. Dealing with Context Loss
 
@@ -800,13 +1177,17 @@ Constructor | new object     | `let object = new Object()`
 #### 7.1 Example 1
 
 
-## Object Creation and Code Reuse Patterns
+## III. Object Creation and Code Reuse Patterns
 
 ### 1. Object Prototypes
+
+
 
 ### 2. Object Creation with Prototypes
 
 ### 3. Constructors
+
+
 
 ### 4. Constructors with Prototypes
 
