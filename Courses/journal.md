@@ -8296,3 +8296,4 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 
 12:57 Finished with context loss and am ready to move onto Part III - Object Creation and Code Reuse Patterns. I want to take short break though.
 
+16:05 I have been grinding through the study guide reorganization for hours now and it's going well. I want to take the interview assessment on Wednesday.

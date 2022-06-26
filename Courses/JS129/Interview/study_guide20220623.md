@@ -1928,21 +1928,1703 @@ array.forEach(logData);
 
 In both snippets, the `obj.logData` method gets invoked by `forEach` with the global object as the context, not `obj`.
 
-## III. Object Creation and Code Reuse Patterns
+## III. Object Creation Patterns
 
 ### 1. Object Prototypes
 
-==================================
+A prototype is an object from which other objects inherit properties and methods. In JavaScript this is done with the `[[Prototype]]` property ("internal prototype property").
 
-### 2. Object Creation with Prototypes
+Every **function** has a `prototype` property that points to an object that contains a `constructor` property. The `constructor` property points back to the function itself. Thus, if `Kumquat` is a constructor function, then `Kumquat.prototype.constructor === Kumquat`.
 
-### 3. Constructors
+If the *function is used as a constructor*, the returned object's `[[Prototype]]` will reference the constructor's `prototype` property. That lets us set properties on the constructor's prototype object so that all objects created by the constructor will share them. We call this the **pseudo-classical** pattern of object creation.
+
+### 2. Constructors
+
+**Object constructors**, or **constructors** are another way to create objects in JavaScript.  Superficially, a constructor looks and acts a lot like a factory function: you define a constructor once then invoke it each time you want to create an object of that type.
+
+Constructor functions are meant to be invoked with the `new` operator. They instantiate a new object behind the scenes and let the developer manipulate it through the `this` keyword. *A typical constructor uses the following pattern:*
+
+1. The constructor is invoked with `new`.
+2. The JS runtime *creates a new object that inherits from the constructor's prototype object*.
+3. The new object is assigned to `this` within the function body.
+4. The code in the function body is executed.
+5. The function returns the object referenced by `this` unless the function returns an explicit object.
+
+Use of a constructor function and the `new` keyword:
+
+```js
+function Car(make, model, year) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+  this.started = false;
+
+  this.start = function() {
+    this.started = true;
+  };
+
+  this.stop = function() {
+    this.started = false;
+  };
+}
+
+let corolla = new Car('Toyota', 'Corolla', 2016);
+let leaf = new Car('Nissan', 'LEAF', 2018);
+let nova = new Car('Chevrolet', 'Nova', 1974);
+```
+
+Defining a constructor is nearly identical to defining an ordinary function, but there are differences. For starters, notice that *we gave the constructor a name that begins with a capital letter*: `Car`. Capitalizing the name isn't a language requirement, but it is a convention employed by most JavaScript developers.
+
+The function parameters, in general, match the properties associated with each `Car` object. In this case, we supply parameters for all of the properties except `started`, which receives an initial value instead. *The initial value for such properties can come from anywhere.* For instance, we can compute the value from other properties or retrieve a value from a database.
+
+#### 2.1 The `new` Keyword
+
+JavaScript does the following six things when a constructor function is invoked with `new`:
+
+1. Creates a new object.
+2. Sets `[[Prototype]]` of the new object to the same object as the constructor's `prototype` property.
+3. Sets the `constructor` property of the new object to point to the constructor function (the function that created the new object).
+4. Sets `this` inside the function to refer to the new object.
+5. Invokes the function.
+6. Returns the new object implicitly (no `return` expression necessary; explicit return values only override the new object if the return value itself is an object).
+
+```js
+// Example where `instanceof` operator confirms if object was made by the constructor function. Using `constructor` property can be more useful.
+
+function Car(make, model) {
+  this.make = make;
+  this.model = model;
+
+  this.drive = function() {
+    this.started = true;
+  };
+
+  // rest of methods
+}
+
+let truck = new Car("Ford", "F150");
+console.log(truck) // => Car { make: 'Ford', model: 'F150', drive: [Function (anonymous)] }
+console.log(truck.__proto__ === Car.prototype) // =>  true
+console.log(Object.getPrototypeOf(truck) === Car.prototype) // => true
+console.log(truck.constructor) // => [Function: Car]
+console.log(truck.constructor === Car) // => true
+console.log(truck instanceof Car) // => true
+```
+
+#### 2.2 Calling a Constructor Function
+
+The most striking features that distinguish **constructors** from ordinary functions are that:
+
+- we call it with the `new` keyword,
+- we use `this` to set the object's properties and methods, and
+- we *don't supply an explicit return value* (we can, but usually don't).
+
+`this` *always refers to an object*. Its value depends on how we call the function. Calling constructors is where you see the most significant difference between them and other functions.
+
+Let's create a `Car` object:
+
+```js
+function Car(make, model, year) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+  this.started = false;
+
+  this.start = function() {
+    this.started = true;
+  };
+
+  this.stop = function() {
+    this.started = false;
+  };
+}
+
+// Using the `new` keyword with the function invocation treats the function as a constructor
+let corolla = new Car('Toyota', 'Corolla', 2016);
+
+corolla.make;    // => 'Toyota'
+corolla.model;   // => 'Corolla'
+corolla.year;    // => 2016
+corolla.started; // => false
+
+corolla.start();
+corolla.started; // => true
+```
+
+Notice that the `new` keyword precedes the function invocation. This combination of using `new` with a function call *treats the function as a constructor*.
+
+JavaScript takes the following steps when you invoke a function with `new`:
+
+1. It creates an entirely new object.
+2. It sets the prototype of the new object to the object that is referenced by the constructor's `prototype` property.
+3. It sets the value of `this` for use inside the function to point to the new object.
+4. It invokes the function. Since `this` refers to the new object, we use it within the function to set the object's properties and methods.
+5. Finally, once the function finishes running, `new` returns the new object even though we don't explicitly return anything.
+
+**JavaScript won't complain about a missing `new` keyword.**
+
+```js
+Car(); // => undefined
+```
+
+If you don't use the `new` keyword, the constructor function won't work as intended. Instead, it *acts like an ordinary function*. In particular, *no new objects are created*, so `this` won't point to a new object.
+
+Furthermore, since functions that don't return an explicit value return `undefined`, calling a constructor without `new` also returns `undefined`. When you use `new`, however, the function doesn't have to return anything explicitly: it *returns the newly created object automatically*.
+
+#### 2.3 Lesson 3 Quiz 1 Question 2
+
+In the following code, the `Animal` function is meant to be used as a constructor.
+
+```js
+const Animal = function(species) {
+  this.species = species;
+  return species;
+};
+
+Animal.prototype.sleep = function() {
+  console.log(`The ${this.species} is sleeping`);
+};
+
+let lion = Animal('Panthera leo');
+lion.sleep(); // TypeError
+```
+
+The constructor should return a new object that can subsequently be used to call the `Animal.prototype.sleep` method shown below. However, this program does not work as intended -- we get a `TypeError` when we try to call `sleep`.
+
+The problem here is that we did not use the `new` operator. Without the `new` operator, `Animal` isn't called as a constructor function. Thus, `this` refers to the global object instead of a new object, and the function returns a string instead of a new object.
+
+#### 2.4 Who Can be a Constructor
+
+You can use `new` to call almost any JavaScript function that you create. However, *you cannot call arrow functions with `new`* since they use their surrounding context as the value of `this`:
+
+```js
+let Car = (make, model, year) => {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+}
+
+new Car(); // TypeError: Car is not a constructor
+```
+
+You *can also use* `new` on methods that you define in objects. Consider:
+
+```js
+let foo = {
+  Car: function(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
+};
+
+let car1 = new foo.Car('Toyota', 'Camry', 2019);
+car1.make; //=> 'Toyota'
+```
+
+However, *calling a method defined with concise syntax* (also called a concise method) *won't work*:
+
+```js
+let foo = {
+  Car(make, model, year) { // calling with concise syntax raises an error
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
+};
+
+new foo.Car(); //=> Uncaught TypeError: foo.Car is not a constructor
+```
+
+In addition, many -- but not all -- **built-in objects and methods** are *incompatible* with `new`:
+
+```js
+new console.log(); // => Uncaught TypeError: console.log is not a constructor
+new Math();  // => Uncaught TypeError: Math is not a constructor
+new parseInt("3"); // => Uncaught TypeError: parseInt is not a constructor
+
+// The `Date` constructor is compatible with `new`
+new Date(); // => 2019-06-26T02:50:20.191Z
+```
+
+#### 2.5 Constructors with Explicit Return Values
+
+What happens when you use `new` to call a function that returns an explicit value?
+
+```js
+function Cat(name, breed, weight) {
+  this.name = name;
+  this.breed = breed;
+  this.weight = weight;
+
+  return 'a cat';
+}
+
+let fluffy = new Cat('fluffy', 'Persian', 15);
+console.log(fluffy) // Cat { name: 'fluffy', breed: 'Persian', weight: 15 }
+fluffy.weight; // 15
+```
+
+Even though we explicitly returned the string `'a cat'`, our constructor returned the `Cat` object with `name`, `breed` and `weight` as its properties.
+
+Note that `'a cat'` is a **primitive value**. Suppose we returned an object instead.
+
+```js
+function Cat(name, breed, weight) {
+  this.name = name;
+  this.breed = breed;
+  this.weight = weight;
+
+  return { foo: 1 };
+}
+
+let fluffy = new Cat('fluffy', 'Persian', 15);
+console.log(fluffy) // { foo: 1 }
+fluffy.weight; // undefined
+fluffy.foo; // 1
+```
+
+This time the constructor returned the object `{ foo: 1 }`, not a cat object.
+
+*A constructor that explicitly tries to return an object returns that object instead of a new object of the desired type*. In all other situations, it returns the newly created object, provided no errors occur. In particular, *the constructor ignores primitive return values and returns the new object instead*.
+
+#### 2.6 Constructors with Explicit Return Values Example (Lesson 3 Quiz 1 Question 3)
+
+Examine the following code:
+
+```js
+function Dog() {
+}
+
+function Pet(type) {
+  if (type === 'dog') {
+    return new Dog();
+  } else if (type === 'lion') {
+    return 'not a pet!';
+  }
+}
+
+let dog = new Pet('dog');
+let lion = new Pet('lion');
+let cat = new Pet('cat');
+```
+
+Without running the code, determine the type of data that the `dog`, `lion`, and `cat` variables would reference if you were to run it.
+
+- dog: a `Dog` object
+- lion: a `Pet` object
+- cat: a `Pet` object
+
+A constructor that attempts to *return an object will return an object of that type*. Thus, `dog` refers to a `Dog` object since that's what the constructor tried to return.
+
+A constructor that attempts to *return a non-object value*, such as a string, will instead return a new object of the type associated with the constructor, e.g., `Pet` in this case. Thus, `lion` refers to a `Pet` object *since the constructor attempts to return a string*.
+
+A constructor that *doesn't return an explicit value* will return a new object of the type associated with the constructor, e.g., `Pet`. Thus, `cat` refers to a `Pet` object since the constructor doesn't return an explicit value.
+
+#### 2.7 Supplying Constructor Arguments with Plain Objects
+
+Constructor functions sometimes have to grow with the needs of a program. That often means adding more arguments to the constructor. For instance, our `Car` constructor may one day end up looking like this:
+
+```js
+function Car(make, model, year, color, passengers, convertible, mileage) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+  this.color = color;
+  this.passengers = passengers;
+  this.convertible = convertible;
+  this.mileage = mileage;
+  this.started = false;
+
+  this.drive = function() {
+    this.started = true;
+  };
+
+  // rest of the methods
+}
+```
+
+That's quite a few parameters, with plenty of opportunities for mistakes. For instance, we may *pass the arguments in the wrong order*, and JavaScript won't complain. The more parameters a function needs, the harder it is to read the code and the more likely that problems will arise.
+
+One common technique that we can use to manage our parameters better involves *passing them to our constructor with an object argument*:
+
+```js
+let civicArgs = {
+  make: 'Honda',
+  model: 'Civic',
+  year: 2016,
+  color: 'black',
+  passengers: 5,
+  convertible: false,
+  mileage: 16000
+}
+
+let civic = new Car(civicArgs);
+```
+
+Of course, that means that we now have to rework our `Car` constructor to accept an object as an argument:
+
+```js
+function Car(args) {
+  this.make = args.make;
+  this.model = args.model;
+  this.year = args.year;
+  this.color = args.color;
+  this.passengers = args.passengers;
+  this.convertible = args.convertible;
+  this.mileage = args.mileage;
+  this.started = false;
+
+  this.drive = function() {
+    this.started = true;
+  };
+
+  // rest of methods
+}
+```
+
+With `Object.assign`, we can simplify this constructor considerably:
+
+```js
+function Car(args) {
+  Object.assign(this, args);
+
+  this.drive = function() {
+    this.started = true;
+  };
+
+  // rest of methods
+}
+```
+
+However, one drawback of the `Object.assign` approach is that the `args` object may contain properties that the `Car` object doesn't need. Those additional properties will, nevertheless, get added to the `Car` object. Those properties may just be excess baggage for the objects to carry around, but they *may also cause trouble*.
+
+#### 2.8 Determining an Object's Type with the `instanceof` Operator
+
+Many object-oriented languages, like Java or C++, have a strong notion of object types. In most such languages, it's easy to determine the object's type, such as a dog or car. JavaScript, however, treats objects and their types in a looser, more dynamic way. You can't determine the specific type of arbitrary JavaScript objects; they are dynamic structures with a type of `object`, no matter what properties and methods they have. However, *we can get some useful information about an object if we know which constructor created it*.
+
+Remember that the `new` operator creates a new object. Suppose that you call the `Car` constructor with `new`. Informally, we can say that the resulting object is a car. More formally, we can say that the object is an **instance** of a `Car`.
+
+The object that the `new` operator returns *contains some information that ties it back to the constructor that created the object*. The `instanceof` operator uses that information to determine what constructor created the object.
+
+```js
+function Car(args) {
+  this.make = args.make;
+  this.model = args.model;
+  this.year = args.year;
+  this.color = args.color;
+  this.passengers = args.passengers;
+  this.convertible = args.convertible;
+  this.mileage = args.mileage;
+  this.started = false;
+
+  this.drive = function() {
+    this.started = true;
+  };
+
+  // rest of methods
+}
+
+let civicArgs = {
+  make: 'Honda',
+  model: 'Civic',
+  year: 2016,
+  color: 'black',
+  passengers: 5,
+  convertible: false,
+  mileage: 16000
+};
+
+let civic = new Car(civicArgs);
+
+if (civic instanceof Car) { // `instanceof` operator
+  console.log("It's a car!");
+} else {
+  console.log("It's not a car.");
+}
+
+// => logs 'It's a car!'
+```
+
+### 3. Constructors with Prototypes
+
+Let's take a closer look at what happens when we create some objects with a constructor (but without a prototype):
+
+```js
+function Dog(name, breed, weight) {
+  this.name = name;
+  this.breed = breed;
+  this.weight = weight;
+
+  this.bark = function() {
+    console.log(this.weight > 20 ? 'Woof!' : 'Yip!');
+  };
+}
+
+let maxi = new Dog('Maxi', 'German Shepherd', 32);
+let dexter = new Dog('Dexter', 'Rottweiler', 50);
+let biggie = new Dog('Biggie', 'Whippet', 9);
+
+maxi.bark(); // 'Woof!'
+```
+
+Each of these dog objects, when created, receive the `name`, `breed`, and `weight` properties *as well as the `bark` method*. The properties have values that differ between objects, but the `bark` method remains the same in all. However, every time we create a new dog object, we must create a new `bark` method so we can add it to the object. This is inefficient and wasteful.
+
+We can verify that each object has its own `bark` method with `hasOwnProperty`:
+
+```js
+maxi.hasOwnProperty('bark');   // true
+dexter.hasOwnProperty('bark'); // true
+biggie.hasOwnProperty('bark'); // true
+maxi.bark === dexter.bark;     // false
+maxi.bark === biggie.bark;     // false
+dexter.bark === biggie.bark;   // false
+```
+
+#### 3.1 Method Delegation to Prototypes
+
+Prototypes are especially *useful for sharing methods* as *all objects of a particular type share the same prototype object*. Delegation means that we can share methods by putting them in the prototype object; *if an object doesn't contain a requested method, JavaScript searches the prototype chain to find the method*. Thus, we can define a method once in the prototype object, and let the inheriting objects delegate the method calls to the prototype. We can use prototypes in conjunction with constructors to achieve this result:
+
+```js
+let DogPrototype = {
+  bark() {
+    console.log(this.weight > 20 ? 'Woof!' : 'Yip!');
+  }
+};
+
+function Dog(name, breed, weight) {
+  Object.setPrototypeOf(this, DogPrototype);
+  this.name = name;
+  this.breed = breed;
+  this.weight = weight;
+  // this.bark method removed.
+}
+```
+
+In this code, we've changed our `Dog` constructor and created a `DogPrototype` object. The first thing we do inside the constructor is set `DogPrototype` as the prototype of the newly created dog object. We then assign the arguments to the properties.
+
+Note that we can continue to use our constructor without change:
+
+```js
+let maxi = new Dog('Maxi', 'German Shepherd', 32);
+let dexter = new Dog('Dexter', 'Rottweiler', 50);
+let biggie = new Dog('Biggie', 'Whippet', 9);
+
+maxi.bark(); // 'Woof!'
+```
+
+This time, however, the `bark` method isn't defined on the individual objects, but is, instead, defined on the `[[Prototype]]` property:
+
+```js
+maxi.hasOwnProperty('bark'); // false
+dexter.hasOwnProperty('bark'); // false
+biggie.hasOwnProperty('bark'); // false
+Object.getPrototypeOf(maxi).bark === DogPrototype.bark; // true
+Object.getPrototypeOf(dexter).bark === DogPrototype.bark; // true
+Object.getPrototypeOf(biggie).bark === DogPrototype.bark; // true
+```
+
+The `DogPrototype` object *has the only copy of the method*; all dog objects delegate `bark` to the `DogPrototype` object.
+
+We now have a constructor and a related prototype object. Together, they construct objects of some type. In our code here, we can guess that the constructor and prototype are related by looking at their names. However, it would be better if we could establish that relationship more concretely. Let's assign the prototype object to a property of the `Dog` function.
+
+```js
+// Delete DogPrototype
+
+function Dog(name, breed, weight) {
+  Object.setPrototypeOf(this, Dog.myPrototype);
+  // rest of the code
+}
+
+// Assign the prototype object to a property of the `Dog` constructor function
+Dog.myPrototype = {
+  bark() {
+    console.log(this.weight > 20 ? 'Woof!' : 'Yip!');
+  }
+};
+```
+
+Since JavaScript functions are objects, we can add properties to them. Here, we assign the prototype object to a `myPrototype` property on the `Dog` function object. Thus, we clearly show our intent that all dogs inherit from the `Dog.myPrototype` object. Once we've done that, we can change our constructor function to use `Dog.myPrototype` as the prototype object.
+
+Here's the complete code as it now stands:
+
+```js
+function Dog(name, breed, weight) {
+  Object.setPrototypeOf(this, Dog.myPrototype);
+  this.name = name;
+  this.breed = breed;
+  this.weight = weight;
+}
+
+Dog.myPrototype = {
+  bark() {
+    console.log(this.weight > 20 ? 'Woof!' : 'Yip!');
+  }
+};
+
+let maxi = new Dog('Maxi', 'German Shepherd', 32);
+let dexter = new Dog('Dexter', 'Rottweiler', 50);
+let biggie = new Dog('Biggie', 'Whippet', 9);
+
+maxi.bark(); // 'Woof!'
+
+maxi.hasOwnProperty('bark'); // false
+dexter.hasOwnProperty('bark'); // false
+biggie.hasOwnProperty('bark'); // false
+
+Object.getPrototypeOf(maxi).bark === Dog.myPrototype.bark; // true
+Object.getPrototypeOf(dexter).bark === Dog.myPrototype.bark; // true
+Object.getPrototypeOf(biggie).bark === Dog.myPrototype.bark; // true
+```
+
+#### 3.2 The Constructor `prototype` Property
+
+What makes constructors special is a characteristic of all **function objects** in JavaScript: they all have a prototype property that we call the **function prototype** to distinguish them from the prototypes used when creating ordinary objects. The code we showed in the previous section emulates something that *JavaScript bundles with constructors*. Let's take a look at that property:
+
+```sh
+Dog.prototype; // => Dog {}
+```
+
+When you call a function `Foo` with the `new` keyword, JavaScript sets the new object's prototype to the current value of `Foo`'s `prototype` property. That is, the constructor creates an object that inherits from the constructor function's prototype (`Foo.prototype`). Since inheritance in JavaScript uses prototypes, we can also say that *the constructor creates an object whose prototype references `Foo.prototype`.*
+
+The terminology of **constructor prototypes** and **object prototypes** is extremely confusing. Note in particular that we use the term "prototype" to refer to 2 distinct but related concepts:
+
+1. If `bar` is an object, then the object from which `bar` inherits is the **object prototype**. By default, *constructor functions set the object prototype for the objects they create to the constructor's prototype object.*
+
+2. The **constructor's prototype object**, also called the **function prototype**, is an object that the constructor uses as the object prototype for the objects it creates. In other words, each object that the constructor creates inherits from the constructor's prototype object. The constructor stores its prototype object in its `prototype` property; that is, if the constructor's name is `Foo`, then `Foo.prototype` references the constructor's prototype object.
+
+In most cases, when we talk about a **prototype** without being more explicit, we mean an **object prototype**. We'll talk about the **constructor's prototype**, the **function prototype**, or the **`prototype` property** when talking about a constructor's prototype object.
+
+- Prototype => object prototype
+
+- Constructor Prototype => Function Prototype or `prototype` property
+
+Note that *constructors don't inherit from the constructor's prototype object*. Instead, *the objects that the constructor creates inherit from it*.
+
+*Every JavaScript function has a `prototype` property*. However, JavaScript only uses it when you call that function as a constructor by using the `new` keyword.
+
+With this information, we can abandon our home-grown constructor-prototype pairing and *use the one that JavaScript provides instead:*
+
+```js
+// JavaScript's provided constructor-prototype pairing
+function Dog (name, breed, weight) {
+  // deleted Object.setPrototypeOf(this, Dog.myPrototype);
+  this.name = name;
+  this.breed = breed;
+  this.weight = weight;
+}
+
+Dog.prototype.bark = function() {
+  console.log(this.weight > 20 ? 'Woof!' : 'Yip!');
+};
+
+let maxi = new Dog('Maxi', 'German Shepherd', 32);
+maxi.bark(); // 'Woof!'
+
+let biggie = new Dog('Biggie', 'Whippet', 9);
+biggie.bark(); // 'Yip!'
+```
+
+Note that our constructor doesn't have to explicitly set the prototype of `this` to `Dog.prototype`. JavaScript does that for us when we call the function with `new`. We left this detail out earlier, so let's restate those steps with updated information. We'll assume that the constructor function is named `Foo`:
+
+1. It creates an entirely new object.
+2. It sets `Foo.prototype` as the prototype for the new object. That is, the new object inherits from the object referenced by `Foo.prototype`.
+3. It sets the execution context (`this`) for the function to point to the new object.
+4. It invokes the function.
+5. It returns the new object *unless the function returns another object*.
+
+Since the `bark` method refers to `this` and `bark` belongs to the prototype object, you may think that `this` in `this.weight` refers to the prototype object rather than the object itself (e.g., `maxi` or `biggie`). However, that's not how `this` binding works.
+
+When you call a method on an object, JavaScript binds `this` to the object whose method you used to call it. If it doesn't find the method in that object, but it does find it in the prototype, that doesn't change the value of `this`. `this` always refers to the original object -- that is, the object used to call the method -- even if the method is in the prototype. If we find the `bark` method in the prototype, `this` references the original dog object, not the prototype.
+
+A property of interest on a prototype object is the `constructor` property. For instance:
+
+```sh
+Dog.prototype.constructor; // [Function: Dog]
+```
+
+As with the `instanceof` operator, the `constructor` property lets us determine the type of an object:
+
+```js
+let maxi = new Dog('Maxi', 'German Shepherd', 32);
+
+if (maxi.constructor === Dog) {
+  console.log("It's a dog");
+} else {
+  console.log("It's not a dog");
+}
+
+// => 'It's a dog'
+```
+
+Be careful, however. *It's possible to reassign the `constructor` property to something else*. In that case, the test shown above would fail, even though the object is still a dog.
+
+```js
+Dog.prototype.constructor = function() {};
+
+maxi.constructor === Dog; // false
+maxi instanceof Dog;      // true
+```
+
+Note that `instanceof` still works.
+
+#### 3.3 Overriding the Prototype
+
+Inheriting methods from a prototype doesn't mean that the inheriting object is stuck with those methods. *JavaScript objects are incredibly dynamic and flexible*. Two objects created with the same constructor may end up looking completely different from each other because of changes and additions made after constructing the object. For instance, suppose we have a `dexter` dog that has an unusually loud and deep bark. We want to change the `bark` method to log `WOOF!` instead of `Woof!`. We can do that easily by *defining a custom* `bark` method on `dexter`.
+
+```js
+let maxi = new Dog('Maxi', 'German Shepherd', 32);
+let dexter = new Dog('Dexter', 'Rottweiler', 50);
+
+dexter.bark = function() {
+  console.log('WOOF!');
+}
+
+maxi.bark(); // Woof!
+dexter.bark(); // WOOF!
+```
+
+The `dexter` object now has its own `bark` method that **overrides** the `bark` method from `Dog.prototype`. Each time we call `bark` on `dexter`, *JavaScript looks for it first in the `dexter` object itself*. Since it finds it there, it doesn't need to check the prototype.
+
+#### 3.4 Constructor and Prototype Example 1 - `function Rectangle`
+
+```js
+function Rectangle(length, width) {
+  this.length = length;
+  this.width = width;
+}
+
+Rectangle.prototype.getWidth = function() {
+  return this.width;
+}
+
+Rectangle.prototype.getLength = function() {
+  return this.length;
+}
+
+Rectangle.prototype.getArea = function() {
+  return this.width * this.length;
+}
+
+let rectangle1 = new Rectangle(5, 4);
+console.log(rectangle1.getWidth()); // 4
+console.log(rectangle1.getLength()); // 5
+console.log(rectangle1.getArea()); // 20
+```
+
+#### 3.5 Constructor and Prototype Example 2 - `function Book`
+
+```js
+function Book(author, title, isbn) {
+  this.author = author;
+  this.title = title;
+  this.isbn = isbn;
+}
+
+Book.prototype.describe = function() {
+  console.log(this.title + ' was written by ' + this.author + '.');
+};
+
+let book = new Book("Neal Stephenson", "Snow Crash", "0-553-08853-X");
+book.describe() // Snow Crash was written by Neal Stephenson
+```
+
+#### 3.6 Constructor and Prototype Example 3 - `function MyClass`
+
+The reason we get the following output is because the `new` operator sets the context to the new object that's created. Because of this, technically a, b, c etc. don't exist as properties on the constructor, they exist as properties in the instantiated object.
+
+```js
+function MyClass(a, b, c, d, e, f) {
+  this.a = a;
+  this.b = b;
+  this.c = c;
+  this.d = d;
+  this.e = e;
+  this.f = f;
+}
+
+let func = new MyClass(1, 2, 3, 4, 5, 6);
+
+console.log(Object.getOwnPropertyNames(func)); // [ 'a', 'b', 'c', 'd', 'e', 'f' ]
+console.log(Object.getOwnPropertyNames(MyClass)); // [ 'length', 'name', 'arguments', 'caller', 'prototype' ]
+```
+
+### 4. Instance and Static Properties and Methods
+
+In OOP, we often refer to individual objects of a specific data type as **instances** of that type. In the previous `Dog` example , `maxi` and `dexter` are instances of the `Dog` type. An instance is just another term for the objects created using any means of defining multiple objects of the same kind (e.g., dogs). The term **object** is more general, while **instance** is more specific.
+
+#### 4.1 Instance Properties
+
+The properties of an instance are **instance properties**. These properties belong to a specific instance of some type. Thus, in our `Dog` example from the earlier assignment, we say that the `name`, `breed`, and `weight` properties are all instance properties of the various instances of the `Dog` type. If we want to access the weight for `Maxi` from the above example, we must use the `maxi` object:
+
+```js
+maxi.weight; // 32
+```
+
+If we try to use the constructor, instead, it won't work:
+
+```js
+Dog.weight; // undefined
+```
+
+This code returns `undefined` since `weight` isn't a property of the constructor; it's a property of the instances created by that constructor. It also doesn't make sense to define it on the constructor function: weight is a property of an individual dog, not one that is related to dogs as a type.
+
+#### 4.2 Instance Methods
+
+Since methods are also properties on an object, we can refer to methods stored directly in an object as instance properties too. More commonly, we call them **instance methods** just to distinguish them from ordinary data properties.
+
+However, methods usually aren't stored directly in instances. Instead, they are *usually defined in the object's prototype object*. While methods defined in the prototype object aren't stored in the instance object, they still operate on individual instances. Therefore, we usually refer to them as instance methods. Instance methods are stored either as part of an object or somewhere in the object's prototype chain. *In our `Dog` example, `bark` is an instance method since it's defined on the `Dog.prototype` object.*
+
+As with `weight`, we must use an object created by the `Dog` constructor to invoke `bark`:
+
+```js8
+maxi.bark(); // Woof!
+```
+
+Again, we can't use the constructor to call this method:
+
+```js
+Dog.bark(); // TypeError: Dog.bark is not a function
+```
+
+In this specific example, we can call `Dog.prototype.bark()`, but that doesn't always work well. For instance, calling `Dog.prototype.bark()` won't recognize the fact that `dexter` has a different version of `bark`.
+
+Any method defined in any prototype in the prototype chain of an object is considered to be an instance method of the object.
+
+#### 4.3 Static Properties
+
+Static properties are defined and accessed *directly on the constructor*, not on an instance or a prototype. Typically, static properties belong to the type (e.g., `Dog`) rather than to the individual instances or the prototype object.
+
+For instance, dogs belong to the species "Canis lupus". That property of dogs doesn't have anything to do with individual dogs; *it's information that is pertinent about all dogs.* Therefore, it makes sense to add this property directly to the `Dog` constructor as a static property:
+
+```js
+Dog.species = "Canis lupus";
+```
+
+Now, when our application needs to know the species that dogs belong to, we can *access it from the constructor directly*:
+
+```js
+console.log(`Dogs belong to the species ${Dog.species}`);
+```
+
+One common use of static properties is to *keep track of all of the objects created by a constructor*. For instance:
+
+```js
+function Dog(name, breed, weight) {
+  this.name = name;
+  this.breed = breed;
+  this.weight = weight;
+  Dog.allDogs.push(this); // static property
+}
+
+Dog.allDogs = [];
+```
+
+In this case, the static property `allDogs` contains an array with a reference to every dog object created while the program is running. While `allDogs` maintains a list of all the dogs, it isn't information that is pertinent to a specific dog -- it's information about dogs in general. Therefore, it should be a static property.
+
+#### 4.4 Static Methods
+
+Static methods are methods that *apply to the constructor or class itself*, not a specific object created by that constructor or class.
+
+```js
+// Example 1
+Dog.showSpecies = function() {
+  console.log(`Dogs belong to the species ${Dog.species}`);
+};
+
+Dog.showSpecies();
+```
+
+```js
+// Constructor Static and Instance Methods Example
+function Constructor() {}
+
+Constructor.staticMethod = function() {};
+
+Constructor.prototype.instanceMethod = {
+  function() {}
+}
+```
+
+```js
+// Class Static and Instance Methods Example
+class Class {
+  constructor() {}
+
+  static staticMethod() {}
+
+  instanceMethod() {}
+}
+```
+
+You've already seen examples of static methods on **built-in JavaScript constructors**.`Object.assign`, `Array.isArray`, and `Date.now` are all examples of static methods.
+
+#### 4.5 Example with Constructor/Prototype
+
+The code below defines a constructor function, `Car`, and adds a method, `drive`, to the prototype of that constructor:
+
+```js
+function Car(make, model) {
+  this.make = make;
+  this.model = model;
+}
+
+Car.prototype.drive = function() {
+  console.log(`Driving a ${this.model}`);
+}
+```
+
+Objects created by this constructor have `make` and `model` properties, as well as a `drive` method. However, we now need to add an `allMakes` method that returns an array of the makes of all the cars created by the constructor. Think about where the array and the method should live and then update the code to create the array and implement the method.
+
+```js
+function Car(make, model) {
+  this.make = make;
+  this.model = model;
+  Car.makes.push(this.make);
+}
+
+Car.prototype.drive = function() {
+  console.log(`Driving a ${this.model}`);
+};
+
+Car.allMakes = function() {
+  return Car.makes;
+}
+
+Car.makes = [];
+
+let car1 = new Car('Honda', 'Accord');
+let car2 = new Car('Toyota', 'Prius');
+console.log(Car.allMakes()); // [ 'Honda', 'Toyota' ]
+```
+
+#### 4.6 Example with Class Syntax
+
+```js
+class Car {
+  constructor(make, model) {
+    this.make = make;
+    this.model = model;
+    Car.makes.push(this.make);
+  }
+
+  static makes = [];
+
+  static allMakes() {
+    return Car.makes;
+  }
+
+  drive() {
+    console.log(`Driving a ${this.model}`);
+  }
+}
+
+let car1 = new Car('Honda', 'Accord');
+let car2 = new Car('Toyota', 'Prius');
+console.log(Car.allMakes()); // [ 'Honda', 'Toyota' ]
+```
+
+### 5. Built-in Constructors (`Array`, `Object`, `Date`, `String` and `Number`)
+
+JavaScript comes with a variety of built-in constructors and prototypes that let you *instantiate useful objects*. These constructors work like constructors for other objects; they're used with the `new` keyword to create objects. In this assignment, we will discuss some of JavaScript's built-in constructors, their prototypes, and how you can extend them.
+
+#### 5.1 The `Array` constructor
+
+The simplest way to create an array object uses the bracket syntax:
+
+```sh
+> let numbers = [1, 2, 3, 4]
+> numbers
+[ 1, 2, 3, 4 ]
+```
+
+This syntax is how you usually create arrays in JavaScript. However, you can also use the `Array` constructor:
+
+```sh
+> let emptyArray = new Array();
+> emptyArray
+[]
+```
+
+As you might suspect, calling `new Array()` creates and returns a new array. That array is empty unless you also pass some arguments to the constructor. Each argument you provide gets added to the new array as an element:
+
+```sh
+> let numbers = new Array(1, 2, 3, 4)
+> numbers
+[ 1, 2, 3, 4 ]
+
+> let colors = new Array('green', 'blue', 'yellow')
+> colors
+[ 'green', 'blue', 'yellow' ]
+```
+
+The behavior is considerably different when you *provide a single number argument*. In this case, *the constructor creates an array with a length equal to the number specified by the argument*, but with no actual elements:
+
+```sh
+> new Array(3)
+[ <3 empty items> ]
+```
+
+You can think of `[ <3 empty items> ]` as an array that has three empty slots. In effect, it's an empty array that happens to contain spaces for three items; alternatively, it's a non-empty array that contains no values.
+
+Note that the single-number form of the constructor *does not accept non-integers or negative numbers*:
+
+```sh
+> new Array(3.1415)
+=> RangeError: Invalid array length
+
+> new Array(-5)
+=> RangeError: Invalid array length
+```
+
+The single-number constructor, together with the `Array.prototype.fill` method, lets you create arrays with a value that is repeated in every element:
+
+```sh
+> (new Array(3)).fill('*');
+[ '*', '*', '*' ]
+```
+
+The `fill` method takes any value as an argument and replaces all elements of the array with that value. Note that the parentheses around `new Array(3)` aren't strictly necessary; however, you should *use them for clarity*. They show your intent to run `fill` on the new array.
+
+You may recall that the `new` keyword provides some useful behavior when creating new objects. In many cases, omitting the keyword can lead to unexpected behavior and errors. Interestingly, `Array` *lets you omit the new keyword*:
+
+```sh
+> Array(1, 2, 3)
+[ 1, 2, 3 ]
+```
+
+The behavior of this above code is identical to the earlier example that uses `new Array(1, 2, 3)`.
+
+Some other JavaScript constructors exhibit this behavior. In fact, the ECMAScript specification document requires it in specific cases. However, that doesn't mean that you should omit `new` routinely in your code. You might be using a constructor that doesn't implement this behavior, which can sometimes lead to different behavior when you omit `new`.
+
+Stay consistent and use `new` unless there's a good reason to omit it.
+
+##### 5.1.1 Example Question - Lesson 3 Quiz 1 Question 5
+
+Examine the following code.
+
+```js
+let arr1 = new Array(1, 2, 3);
+let arr2 = Array(1, 2, 3);
+
+console.log(arr1 === arr2); // line 4 => false
+```
+
+While line 4 shows that the two arrays are different objects, it doesn't reveal whether the two arrays differ in any other way, i.e., in their type, content, or behavior. Both arrays are identical: they are both objects of type Array, and they both have the same values in their elements.
+
+JavaScript *does not require* the `new` keyword when creating arrays; the `Array` constructor works the same regardless of whether `new` is used.
+
+##### 5.1.2 `Array.prototype` (Instance Methods)
+
+As with any JavaScript function, the `Array` constructor has a `prototype` property. All arrays inherit from the object referenced by this property:
+
+```sh
+> let numbers = [1, 2, 3]
+> Object.getPrototypeOf(numbers) === Array.prototype
+true
+```
+
+This relationship implies that *every array can use the methods defined in `Array.prototype`.* In particular, that means that all arrays can use methods like `forEach`, `map`, `includes`, as well as all the other methods defined on `Array.prototype`:
+
+```js
+// let numbers = [1, 2, 3] <-- from above
+> numbers.map(number => number * number);
+[ 1, 4, 9 ]
+
+> numbers.includes(3)
+true
+```
+
+All array methods with names that follow the pattern `Array.prototype.aMethod` are the **instance methods** for the Array type.
+
+##### 5.1.3 Static Array Methods
+
+Static methods belong directly to the constructor function. They aren't part of the prototype used to create new objects. Their names don't include `.prototype`. Moreover, you usually use the constructor to invoke the static methods, not the object created by that constructor.
+
+##### 5.1.3.1 `Array.isArray`
+
+The `Array.isArray` static method helps distinguish between arrays and objects. The `typeof` operator returns `object` when used with an array, so cannot be used to detect an array. `Array.isArray` helps improves readability and show intent.
+
+The `Array.isArray` method takes one argument and returns `true` if the argument is an array object, and `false` if it is not:
+
+```sh
+> Array.isArray([])
+true
+
+> Array.isArray({})
+false
+
+> Array.isArray(5)
+false
+```
+
+Programs often use `Array.isArray` to verify or refute that a given value is an array object.  The `typeof` operator returns an unexpected and somewhat useless value when used with an array:
+
+```sh
+> typeof []
+'object'
+```
+
+We need `Array.isArray` to distinguish between arrays and other objects.
+
+##### 5.1.3.2 `Array.from`
+
+The `Array.from` method takes an **array-like object** as an argument and returns a new array with the equivalent element values. *An array-like object is any object that has a `length` property* and provides indexed access to some of its properties with the `[index]` notation. Such objects have properties whose keys are non-negative integers. In many cases, the `length` property won't self-update if you add or remove properties to or from the object.
+
+```sh
+> Array.from({0: 'a', 1: 'b', 2: 'c', length: 3})
+['a', 'b', 'c']
+```
+
+The following code shows one way to implement the logic behind `Array.from`. Studying this code should help you make sense of what `Array.from` does:
+
+```js
+let arrayFrom = obj => {
+  let len = obj.length;
+  let returnArr = [];
+
+  for (let idx = 0; idx < len; idx += 1) {
+    returnArr.push(obj[idx]);
+  }
+
+  return returnArr;
+};
+
+arrayFrom({0: 'a', 1: 'b', 2: 'c', length: 3});
+// => [ 'a', 'b', 'c' ]
+```
+
+Why would somebody need to do that? It seems silly to create an object that looks like an array but isn't an array. Why bother?
+
+The use case shown isn't particularly useful, but there are other use cases for `Array.from`. In particular, some functions and methods return objects that resemble arrays in some ways but serve some other purpose. For instance, if you use JavaScript to request a list of elements from your browser, the **DOM** (more on that much later) may return an array-like object called a **node list**. Such objects can *store live data* -- dynamic data that can change without intervention by your code. A simple array wouldn't do the trick here, but a node list does. Better yet, the node list is an array-like object, so `Array.from` can create an array based on its content.
+
+In the degenerate case, all arrays are themselves array-like objects.
+
+###2 The `Object` constructor
+
+As with the `Array` constructor, the `Object` constructor creates new objects:
+
+```sh
+> new Object()
+{}
+```
+
+You can invoke `Object` without the `new` keyword, just as you can omit `new` with the `Array` constructor:
+
+```sh
+> Object()
+{}
+```
+
+Omitting `new` is probably not a good practice.
+
+#### 5.2 The `Object` Constructor
+
+All objects created by the `Object` constructor or with object literal syntax (e.g., `{ a: 1, b: 2 }`, inherit from `Object.prototype`. Thus, all such objects have access to the instance methods defined in `Object.prototype`. We've already seen some of these methods in action, such as `Object.prototype.hasOwnProperty` and `Object.prototype.isPrototypeOf`.
+
+Since arrays are a subtype of objects, it should come as no surprise that *all array objects have access to all the methods* on `Object.prototype`.
+
+```sh
+> ['a', 'b', 'c'].hasOwnProperty(1)
+true
+```
+
+You can think of the integer indices as properties of the array. In our example, `0`, `1`, `2` are the properties and `'a'`, `'b'`, `'c'` are the values. We can verify that `Array` is a subtype of `Object` by checking whether `Array.prototype` inherits from `Object.prototype`:
+
+```sh
+> Object.getPrototypeOf(Array.prototype) === Object.prototype
+true
+```
+
+**Almost all JavaScript objects, whether built-in or custom-created, inherit from `Object.prototype`, either directly or further down the prototype chain.** That includes prototype objects of constructors. Note that we said "almost all"; as discussed in an earlier lesson, it is possible to create objects that don't inherit from `Object.prototype`.
+
+Another oft-used method is `Object.prototype.toString`. It returns a string representation of the object that it's called on. Since `toString` is a method on `Object.prototype`, all JavaScript objects -- including arrays, functions, and dates -- inherit this method. However, the default behavior of `Object.prototype.toString` is not very useful; it merely returns `[object Object]` for objects that don't override this method to provide smarter behavior:
+
+```sh
+> let obj = { a: 1, b: 2 }
+> obj.toString()
+'[object Object]'   // not very helpful!
+
+> [1, 2, 3].toString()
+'1,2,3'
+
+> let func = function hello() {}
+> func.toString()
+'function hello() {}'
+```
+
+##### 5.2.1 Static `Object` Methods
+
+The list below shows some commonly used static `Object` methods. You've already seen and used several. Feel free to follow the links and read more about these methods, but you don't have to memorize them. Instead, learn what's available. You can look them up later when you need to use them:
+
+- `Object.assign()`
+- `Object.create()`
+- `Object.entries()`
+- `Object.freeze()`
+- `Object.isFrozen()`
+- `Object.keys()`
+- `Object.values()`
+
+#### 5.3 The Date Constructor
+
+The Date constructor creates objects, commonly called a **date object**, that represent a specific date and time. Calling `Date` without arguments returns a date object that represents the creation date and time of the object:
+
+```sh
+> let now = new Date()
+> now
+2022-03-09T14:57:44.473Z
+```
+
+You can create date objects that represent any given date and time by passing additional arguments to the Date constructor. For instance, to create a date object that represents "May 1, 1983", you can write:
+
+```sh
+> let birthday = new Date("May 1, 1983")
+> birthday
+1983-05-01T07:00:00.000Z
+```
+
+You can get even more specific by including the time:
+
+```sh
+> birthday = new Date("May 1, 1983 05:03 am")
+> birthday
+1983-05-01T12:03.00.000Z
+```
+
+The dates shown by the above code may appear as 1983-05-02. This issue is caused by the time zone of the environment where you run the code. Working with time zones is messy; we won't get into that in this course.
+
+There are several other ways to specify the date and time, including variations on the date strings shown above, and by providing other arguments to the `Date` constructor. Check the [MDN documentation for Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) to learn more.
+
+##### 5.3.1 `Date.prototype`
+
+The `Date` prototype object provides a variety of convenient methods for working with dates. We'll mention a few here.
+
+**`Date.prototype.toString()`**
+
+The `toString` method returns a string that represents the date (it's pretty verbose):
+
+```sh
+> let now = new Date()
+undefined
+> now.toString()
+'Wed Mar 09 2022 15:07:09 GMT+0000 (Coordinated Universal Time)'
+>
+```
+
+**`Date.prototype.getFullYear()`**
+
+The `getFullYear` method returns the year from the date as a number:
+
+```sh
+> now.getFullYear()
+2022
+```
+
+**`Date.prototype.getDay()`**
+
+The `getDay` method returns a number that represents the day of the week that corresponds to the date object. The return value is `0` for Sunday, `1` for Monday, and so on until it returns `6` for Saturday.
+
+```sh
+> now.getDay()
+3 // (represents Wednesday)
+```
+
+The `Date` prototype has a bunch of useful methods for working with dates and times. Be sure to check the [MDN documentation page for Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) and explore a few more methods.
+
+#### 5.5 The `String` Constructor
+
+Why do we need a constructor for strings? Aren't JavaScript strings a primitive type? We know they are since the strict equality operator compares strings by value rather than identity:
+
+```sh
+> 'abc' === 'abc'
+true
+```
+
+Two strings with the same characters are considered equal in JavaScript. Equality for objects works by identity, however. Two objects are strictly equal only when they are the same object. Consider:
+
+```js
+> let arr1 = [1, 2, 3];
+> let arr2 = arr1    // arr1 and arr2 both reference the same object
+> arr1 === [1, 2, 3] // false
+> arr1 === arr2      // true
+```
+
+Interestingly, we can *access properties and call methods on strings*:
+
+```js
+> 'abc'.length
+3
+
+> 'abc'.toUpperCase()
+'ABC'
+```
+
+JavaScript has two kinds of strings: **string primitives** and **`String` objects**. Thus far, all the strings we've created and used have been string primitives. We create string primitives by using quotes (single or double) or back-tick characters to define a string's value. To create a `String` object, on the other hand, we must use the `String` constructor:
+
+```sh
+> let strPrimitive = 'abc'
+> typeof strPrimitive
+'string'
+
+> let strObject = new String('xyz')
+> typeof strObject
+'object'
+```
+
+That's interesting: a string primitive's type is `'string'`, but the `String` object's type is `'object'`. It's clear that JavaScript considers the two types of string as different types. That difference has implications. Consider this code:
+
+```sh
+> 'abc' === 'abc'
+true
+
+> new String('abc') === new String('abc')
+false
+```
+
+Wow! Two string primitives that have the same value are equal, but not two `String` objects. If you're confused by that, think of poor JavaScript. What's an OOP language to do with weirdness like that? Fortunately, JavaScript is pretty good about remembering what's what.
+
+When you try to access a property or invoke a method on a string primitive, JavaScript *wraps* the string primitive in a `String` object behind the scenes.
+
+Once JavaScript has wrapped your string primitive in a `String` object, it then uses the object to access the property or call the method. When the wrapping object has served its purpose, JavaScript discards it.
+
+If a property or method returns a string, it returns a string primitive, so you also don't have to worry about converting `String` objects to primitives.
+
+As a general rule, *you should not create* `String` objects explicitly. That's where you're likely to run into problems with the distinction between string primitives and `String` objects. However, if you're writing code where you may have to operate on `String` objects, you can use `String.prototype.valueOf()` to retrieve the value of the `String` object as a primitive.
+
+##### 5.5.1 `String` Without `new`
+
+As with most constructors, with the notable exception of `Array` and `Object`, calling the constructor without the `new` keyword *does not create* an object. In the case of `String`, it simply returns a new string, not an object, when you omit the `new` keyword:
+
+```sh
+> let str = String('abc')
+> typeof str
+'string'
+
+# with `new` keyword
+> let str = new String('abc')
+> typeof str
+'object'
+>
+```
+
+The `String` function takes non-string values as arguments as well. In that case, it *converts the value to a string*:
+
+```sh
+> String(undefined)
+'undefined'
+
+> String(3.14)
+'3.14'
+
+> String([1, 2, 3])
+'1,2,3'
+
+> String(a => a * a)
+'a => a * a'
+```
+
+##### 5.5.2 Lesson 3 Quiz 1 Question 6
+
+Examine the following code.
+
+```js
+let str1 = new String("abc");
+let str2 = String("abc");
+
+console.log(str1 === str2); // => false
+```
+
+While line 4 shows that the two strings are not identical, it doesn't reveal how the strings differ. Do the strings differ in any other way?
+
+Yes. `str1` is an object of type `String`, while `str2` is a string primitive. Functionally, the two values act like objects in that you can write `str1.toLowerCase()` or `str2.toLowerCase()`. That's because *JavaScript silently wraps string primitives in a String class when it needs to use a method or property.* In addition, `typeof str1` returns `object`, while `typeof str2` returns `string`.
+
+#### 5.6 The `Number` and `Boolean` Constructors
+
+The `Number` and `Boolean` constructors work in much the same way as the `String` constructor. When called with `new`, they create `Number` and `Boolean` objects. When called without `new`, the `Number` function *converts its argument to a number*, and the `Boolean` function *converts its argument to a boolean*.
+
+```sh
+> Number('123');
+123
+
+> Boolean(0);
+false
+
+> Boolean('abc');
+true
+```
+
+As with strings, numbers and booleans both have primitive and object forms, and JavaScript invisibly wraps primitives in objects to access methods and properties. You should also *avoid creating `Number` and `Boolean` objects explicitly*.
+
+#### 5.7 Extending Built-in Prototypes
+
+Since all JavaScript objects derive their behavior from the prototype objects associated with their constructors, we can add new capabilities to our built-in objects by changing those prototypes. For example, we can add a `first` method to all arrays by adding it to `Array.prototype`:
+
+```js
+Array.prototype.first = function() {
+  return this[0];
+}
+
+[1, 2, 3].first(); // => 1
+```
+
+Since we use the array `[1, 2, 3]` to call `first`, `this` inside the function refers to `[1, 2, 3]`. Thus, the `first` method returns the first element of the array used to call it, or `undefined` if the array is empty.
+
+Extending built-in objects is interesting to study, but it's *best to avoid doing so*. Adding a method like `first` to an array object *can confuse other developers* working on your project. It can lead to errors when other developers forget or don't realize that your array has an unexpected bonus.
+
+#### 5.8 Borrowing Array Methods for Strings
+
+First-class functions in a programming language provide several benefits. One significant benefit is that methods aren't tied to a particular object type. *Using explicit context-binding techniques*, we can apply a method to a different object type than the one that defines the method. This "method borrowing," however, doesn't make sense for every object and every method. For example, it doesn't make sense to use the `getDay` date method on an array.
+
+Array methods, however, are surprisingly useful with `String` objects. We can borrow many array methods to manipulate String objects. Consider the following code:
+
+```js
+let string = 'EEE';
+Array.prototype.every.call(string, char => char === 'E'); // => true
+```
+
+JavaScript strings don't have an `every` method, but we can use `Array.prototype.every` on our string by using `call` or `apply`. Here, we use `every` to determine whether the string `EEE` contains all `E` characters.
+
+We can shorten that expression noticeably by using an empty array instead of `Array.prototype` as the calling object:
+
+```js
+[].every.call(string, char => char === 'E'); // => true
+```
+
+Why does method borrowing work? Let's look at a simplified implementation of `Array.prototype.every`:
+
+```js
+Array.prototype.every = function(callback) {
+  for (let index = 0; index < this.length; index++) {
+    if (!callback(this[index])) return false;
+  }
+
+  return true;
+};
+```
+
+Note how the method uses `this` to access the length and elements of the array that called it. Since `String` objects also have a `length` property and use index-based element access, this code works with strings as well as arrays.
+
+Let's see another example:
+
+```js
+[].filter.call('olives', val => val < 'm'); // [ 'l', 'i', 'e' ]
+```
+
+Notice that the `filter` method *returns an array, even though we called it on a string*. If you think about it, that makes sense. The `call` and `apply` functions don't change a function's logic or return values; they merely change what object the method uses for its context. Array methods that return an array will still do so even when called on a string value. If you need a string result, you can use `join` to convert the array to a string:
+
+```js
+[].filter.call('olives', val => val < 'm').join(''); // => 'lie'
+```
+
+Note that not all array methods can operate on strings. Consider the following example:
+
+```js
+let ingredients = 'olives';
+[].push.call(ingredients, ' and pepper');
+// TypeError: Cannot assign to read only property 'length' of object '[object String]'
+```
+
+*Array methods that mutate the array won't work with strings*. Again, that makes sense: strings are **immutable**.
+
+### 6. Classes
+
+The ECMAScript 6 (ES6) standard added the `class` keyword to JavaScript. In effect, classes act like **syntactic sugar** -- syntax designed to be easier to read or use -- that makes it easier for programmers to migrate to JavaScript from other OOP languages. *The `class` statement gets translated behind the scenes to a constructor function and a prototype object, and the class name refers to the constructor function.*
+
+ES6 classes provide a cleaner, more compact alternative to constructors and prototypes. As with functions, they are first-class citizens and come in the form of declarations and expressions. Functionally, classes behave almost identically to the constructors and prototypes they aim to replace. Classes allow for static methods by using the `static` modifier.
+
+A class is a kind of template for creating concrete objects of that type. Each concrete object is called an instance of the class. The process of creating an instance is performed by a special function called a **constructor**. *We pass the constructor values for any internal state that we want to initialize in the new instance.*
+
+#### 6.1 A Simple Type - Constructor and Prototype Pattern
+
+Before we get into the `class` syntax, let's first define a simple `Rectangle` type using the familiar **constructor** and **prototype** pattern:
+
+```js
+function Rectangle(length, width) {
+  this.length = length;
+  this.width = width;
+}
+
+Rectangle.prototype.getArea = function() {
+  return this.length * this.width;
+};
+
+let rec = new Rectangle(10, 5);
+console.log(typeof Rectangle); // function
+console.log(rec instanceof Rectangle); // true
+console.log(rec.constructor); // [Function: Rectangle]
+console.log(rec.getArea()); // 50
+```
+
+The object created by the `Rectangle` constructor, `rec`, is an **instance** of the `Rectangle` type, and we can call the `getArea` method from its prototype to calculate the area.
+
+If you call the `Rectangle` constructor without the `new` keyword, the constructor won't work properly.
+
+#### 6.2 Class Declarations
+
+**Class declarations** begin with the `class` keyword, followed by the name of the class. The rest of the syntax looks similar to the simplified (concise) method definition that you can use in object literals. However, there are *no commas between the properties of the class*.
+
+```js
+class Rectangle {
+  constructor(length, width) { // `constructor` is a method named constructor inside the class
+    this.length = length;
+    this.width = width;
+  } // no commas between the properties of the class
+
+  getArea() {
+    return this.length * this.width;
+  }
+}
+
+let rec = new Rectangle(10, 5);
+console.log(typeof Rectangle); // function
+console.log(rec instanceof Rectangle); // true
+console.log(rec.constructor); // [class Rectangle]
+console.log(rec.getArea()); // 50
+```
+
+The `constructor` is now a method named constructor inside our class instead of being a standalone function. Other methods have no special meaning; you can define as many as you need. In this case, we define `getArea`, and it gets placed in `Rectangle.prototype`.
+
+In most situations, instantiating a new object from a class is identical to creating one with the constructor/prototype pattern:
+
+```js
+let rec = new Rectangle(10, 5);
+```
+
+You can even call methods on `Rectangle.prototype` in the same way:
+
+```js
+console.log(rec.getArea());
+```
+
+The class code and instantiation is so similar to the constructor/prototype code that `typeof` even returns `'function'`, and the object checks out as an instance of `Rectangle`:
+
+```js
+console.log(typeof Rectangle); // "function"
+console.log(rec instanceof Rectangle); // true
+```
+
+One minor difference is that `rec.constructor` may produce different results in the two patterns. For example, in Node, logging `rec.constructor` produces `[Function: Rectangle]` for the constructor/prototype example, and `[class Rectangle]` for the class example. This difference is implementation dependent, and not considered significant.
+
+There is one significant difference, however: *you must use the `new` keyword to call the constructor* when using a `class`. JavaScript raises a `TypeError` if you try to call the constructor without the `new` keyword.
+
+Using classes, *it's possible to do everything you can with the constructor and prototype pattern*. However, the class syntax is easier to read and write, and the enforced `new` keyword helps prevent bugs.
+
+#### 6.3 Class Expressions
+
+Functions have an *expression* form that does not require a name after the function keyword. Classes have a similar expression form. Consider the following code:
+
+```js
+let Rectangle = class { // class expression
+  constructor(length, width) {
+    this.length = length;
+    this.width = width;
+  }
+
+  getArea() {
+    return this.length * this.width;
+  }
+};
+```
+
+Aside from the syntax, class expressions are functionally equivalent to class declarations. Which you use is primarily a matter of style.
+
+#### 6.4 Class Expression Syntax Examples
+
+```js
+// 1
+let Cat = class {
+  // omitted code
+}
+
+// 2
+console.log(
+  class Cat {
+    // omitted code
+  }
+);
+
+// 3
+function createClass() {
+  return (
+    class Cat {
+      // omitted code
+    }
+  );
+};
+```
+
+## IV. Subclassing and Code Reuse Patterns
+
+### 1. Object Creation with Prototypes (OLOO)
 
 
 
-### 4. Constructors with Prototypes
+### 2. Sub-typing with Constructors and Prototypes
 
-### 5. Sub-typing with Constructors and Prototypes
+The combination of constructors and prototypes gives us something that resembles a **class**, a construct used in classical OOP languages like Java, Python, and Ruby. A *class is a blueprint for creating objects*. Traditional OOP languages use classes to create distinct objects of a particular type and give those objects the behaviors and state that they need.
+
+*Constructors and prototypes let us mimic classes in JavaScript*. Until recently, the language had nothing that you could reasonably call a class. That made it hard for developers familiar with class-based languages to switch to JavaScript. One can even argue that constructors and prototypes are part of the language solely to make it easier for developers to switch to JavaScript.
+
+An essential part of the OO paradigm is the concept of inheritance. In most OOP languages, inheritance means something a bit different from the way we use it in conjunction with JavaScript. That can make JavaScript inheritance confusing if you've seen inheritance in other languages.
+
+Let's look at an example that shows why we might need **inheritance** in an application. Assume that we have a drawing application that lets the user work with shapes. In this app, the constructor/prototype combination for rectangles might look like this:
+
+```js
+function Rectangle(length, width) {
+  this.length = length;
+  this.width = width;
+}
+
+Rectangle.prototype.getArea = function() {
+  return this.length * this.width;
+};
+
+Rectangle.prototype.toString = function() {
+  return `[Rectangle ${this.length} x ${this.width}]`;
+}
+```
+
+We can create and manipulate `Rectangle` objects like so:
+
+```js
+let rect = new Rectangle(10, 5);
+rect.getArea(); // => 50
+rect.toString(); // '[Rectangle 10 x 5]'
+```
+
+Our `Rectangle` constructor creates rectangle objects that have `width` and `length` as properties and the methods `getArea` and `toString`.
+
+Suppose our application also needs squares. We can set up another constructor/prototype combination for those squares, and then follow the same pattern we used for rectangles:
+
+```js
+function Square(size) {
+  this.length = size;
+  this.width = size;
+}
+
+Square.prototype.getArea = function() {
+  return this.length * this.width;
+};
+
+Square.prototype.toString = function() {
+  return `[Square ${this.length} x ${this.width}]`;
+};
+
+let sqr = new Square(5);
+sqr.getArea();     // => 25
+sqr.toString();    // => "[Square 5 x 5]"
+```
+
+There's some code duplication between this code and the `Rectangle` code. In particular, `Square.prototype.getArea` and `Rectangle.prototype.getArea` are **identical**. That gives us a chance to *reuse some code*.
+
+We can *use prototypal inheritance to our advantage here*. One way to think about the relationship between `Square` and `Rectangle` is that a square is a special kind of rectangle where both the length and width are the same. We say that `Square` is a **subtype** of `Rectangle`, or that `Rectangle` is a **supertype** of `Square`. Consider the following code:
+
+```js
+function Square(size) {
+  this.length = size;
+  this.width = size;
+}
+
+Square.prototype = Object.create(Rectangle.prototype);
+
+Square.prototype.toString() = function() {
+  return `[Square ${this.length} x ${this.width}]`;
+};
+
+let sqr = new Square(5);
+sqr.getArea(); // => 25
+sqr.toString(); // "[Square 5 x 5]"
+```
+
+Since a function's `prototype` property is writable -- we can change what object it references -- we can reassign `Square.prototype` to an object that inherits from `Rectangle.prototype`. The result is a **prototype chain** that looks like this:
+
+```js
+sqr ---> Square.prototype ---> Rectangle.prototype ---> Object.prototype
+```
+
+All objects created by the `Square` constructor inherit from `Square.prototype`, which we have set up to inherit from `Rectangle.prototype`. Thus, all square objects have access to methods on `Rectangle.prototype`. Since `toString` must be different for squares, we *override* it in `Square.prototype`. That is, we customize `Square.prototype.toString`. Since `getArea` *requires no customization*, we can let square objects use the inherited `Rectangle.prototype.getArea`.
+
+#### 5.1 Restoring the `constructor` property
+
+One side-effect of this approach is that the `constructor` property on square objects points to `Rectangle` when it should point to `Square` instead:
+
+```js
+// omitted code
+
+sqr.constructor === Rectangle; // => true
+```
+
+Since we reassign `Square.prototype` to a new object that inherits from `Rectangle.prototype`, and the `constructor` property for `Rectangle.prototype` points back to `Rectangle`. Thus, `Square.prototype.constructor` points to `Rectangle`. To fix this situation, we merely need to reassign `Square.prototype.constructor` to `Square`:
+
+```js
+function Square(size) {
+  this.length = size;
+  this.width = size;
+}
+
+Square.prototype = Object.create(Rectangle.prototype);
+Square.prototype.constructor = Square; // <-- reassign
+
+Square.prototype.toString = function() {
+  return `[Square ${this.length} x ${this.width}]`;
+}
+
+let sqr = new Square(5);
+sqr.getArea(); // => 25
+sqr.toString(); // => '[Square 5 x 5]'
+sqr.constructor === Square; // => true
+```
+
+In most cases, failure to reassign it won't hurt anything, and it certainly doesn't in this code. However, there are [situations where the value of the `constructor` property is important](https://2ality.com/2011/06/constructor-property.html).
+
+#### 5.2 Constructor Reuse
+
+If you examine the bodies of the `Rectangle` and `Square` functions, you'll see that they're similar. That suggests that we may be able to use the `Rectangle` constructor in `Square`. To do that, we must *invoke `Rectangle` with its execution context explicitly set to the execution context of `Square`*:
+
+```js
+function Square(size) {
+  Rectangle.call(this, size, size);
+}
+```
+
+Our code now looks like this:
+
+```js
+function Rectangle(length, width) {
+  this.length = length;
+  this.width = width;
+}
+
+Rectangle.prototype.getArea = function() {
+  return this.length * this.area;
+}
+
+Rectangle.prototype.toString = function() {
+  return `[Rectangle ${this.length} x ${this.width}]`;
+}
+
+let rect = new Rectangle(10, 5);
+console.log(rect.getArea()); // => 50
+console.log(rect.toString()); // '[Rectangle 10 x 5]'
+
+
+function Square(size) {
+  Rectangle.call(this, size, size);
+}
+
+Square.prototype = Object.create(Rectangle.prototype);
+Square.prototype.constructor = Square;
+
+Square.prototype.toString = function() {
+  return `[Square ${this.length} x ${this.width}]`;
+}
+
+let sqr = new Square(5);
+console.log(sqr.getArea()); // 25
+console.log(sqr.toString()); // [Square 5 x 5]
+```
+
+The combination of constructors and prototypes provides a way of mimicking classical inheritance with JavaScript. This lets us create **subtype** objects, which can 'inherit' methods from a **supertype** object. This is one way of facilitating code re-use.
 
 ### 6. Built-in Constructors
 
