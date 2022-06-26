@@ -1457,6 +1457,10 @@ The code logs `'completely different'`. On line 13, the `qux` variable is assign
 
 ### 6. Dealing with Context Loss
 
+Let's discuss how functions and methods can "lose context." We've used quotes since functions don't lose their execution context in reality -- they always have one, but it may not be the context that you expect. If you understand how execution context is determined, you shouldn't be surprised by the value of `this` in any given scenario. That said, how a specific context is arrived at isn't always intuitive. Even when you understand the rules, the context for any given invocation may surprise you.
+
+
+
 ### 7. Execution Context Problems
 
 #### 7.1 Example 1
