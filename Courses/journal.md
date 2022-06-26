@@ -8301,3 +8301,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 17:04 Decided to follow the course outline to make the study guide and it's helping me to organize better.
 
 18:02 Time for dinner. I'm almost done with the revised study guide.
+
+18:43 Finished the revised study guide. Now I want to make code examples to prepare for the interview.

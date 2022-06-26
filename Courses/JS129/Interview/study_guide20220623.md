@@ -1,4 +1,4 @@
-# Object Oriented Programming with JavaScript (20220623 15:43 Version)
+# Object Oriented Programming with JavaScript (20220626 18:43 Version)
 
 ## Topical Outline
 
@@ -5303,9 +5303,11 @@ These classes each have a method named `draw`, and the methods take no arguments
 
 However, it's unlikely that this would ever make sense in real code. Unless you're actually calling the method in a polymorphic manner, you don't have polymorphism. In practice, polymorphic methods are *intentionally designed to be polymorphic*; if there's no intention, you probably shouldn't use them polymorphically.
 
-### 6. `Object.assign()` and `Object.create()`
+### 6. Object Methods and `instanceof` Operator
 
-#### 6.1 `Object.assign(target, ...sources)` - Mixin
+#### 6.1 `Object.assign()`
+
+`Object.assign(target, ...sources)` - Mixin
 
 Static object method which copies the properties and methods of one object to another. It does not work with classes or functions, only with an object instance.
 
@@ -5357,13 +5359,24 @@ console.log(source);  // => { src: [ 'Something Different' ] }
 console.log(target.__proto__ === source); // => false
 ```
 
-Considerations with Object.assign():
+Considerations with `Object.assign()`:
 
 - `target` is both mutated and returned.
 - For any key on `target`, the latest source will overwrite the value.
 - Only copies *own properties* for both `target` and `source`.
 - If value is a reference, only a copy of reference is provided (Use Stringify to get deep copy).
 - Does not leverage prototyping for memory efficiency and typing.
+
+```js
+const target = { a: 1, b: 2 };
+const source = { b: 4, c: 5 };
+
+const returnedTarget = Object.assign(target, source);
+
+console.log(target); // Object { a: 1, b: 4, c: 5}
+
+console.log(returnedTarget); // Object { a: 1, b: 4, c: 5}
+```
 
 ##### 6.1.1 Uses of `Object.assign()`
 
@@ -5459,3 +5472,122 @@ console.log(flash.name) // Tesla
   - `[propertiesObject]` - If specified and not `undefined`, an object whose enumerable **own** properties (that is, those properties defined upon itself and *not* enumerable properties along its prototype chain) specify property descriptors to be added to the newly-created object, with the corresponding property names. These properties correspond to the second argument of `Object.defineProperties()`
 - **Exceptions**
   - `proto` - must be either an Object (excluding primitive wrapper objects), or `null` - otherwise a `TypeError` is thrown.
+
+```js
+const person = {
+  isHuman: false,
+  printIntroduction: function() {
+    console.log(`My name is ${this.name}. Am I human? ${this.isHuman}`);
+  }
+};
+
+const me = Object.create(person);
+
+me.name = 'Matthew'; // `name` is a property set on `me`, but not on `person`
+me.isHuman = true; // inherited properties can be overwritten
+
+me.printIntroduction(); // => 'My name is Matthew. Am I human? true'
+```
+
+#### 6.3 `Object.getOwnPropertyNames(obj)`
+
+- method returns an **array** of all properties (**including non-enumerable properties**) found **directly in a given object.**
+
+```js
+const object1 = {
+  a: 1,
+  b: 2,
+  c: 3
+};
+
+console.log(Object.getOwnPropertyNames(object1)) // [ 'a', 'b', 'c' ]
+```
+
+- Code Example - Useful if you want to show all the methods available to a certain Data Type
+
+```js
+// Display All of the Properties (including non-enumerable properties) in an Object
+console.log(Object.getOwnPropertyNames(Array.prototype));
+/* returns
+[
+  'length',      'constructor',    'concat',
+  'copyWithin',  'fill',           'find',
+  'findIndex',   'lastIndexOf',    'pop',
+  'push',        'reverse',        'shift',
+  'unshift',     'slice',          'sort',
+  'splice',      'includes',       'indexOf',
+  'join',        'keys',           'entries',
+  'values',      'forEach',        'filter',
+  'flat',        'flatMap',        'map',
+  'every',       'some',           'reduce',
+  'reduceRight', 'toLocaleString', 'toString',
+  'at'
+]
+*/
+```
+
+#### 6.4 `Object.getPrototypeOf(obj)`
+
+- returns the object prototype (i.e., the value of the internal `[[Prototype]]` property) of the specified object.
+- If there are no inherited properties, `null` is returned.
+
+```js
+const prototype1 = {};
+const object1 = Object.create(prototype1);
+
+console.log(Object.getPrototypeOf(object1) === prototype1) // true
+```
+
+#### 6.5 `Object.setPrototypeOf()`
+
+`Object.setPrototypeOf(obj, prototype)`
+
+- sets the prototype (i.e., the internal `[[Prototype]]` property) of a specified object to another object or `null`
+- parameters
+  - `obj` - The object which is to have its prototype set.
+  - `prototype` - The object's new prototype (an object or `null`)
+
+#### 6.6 `Object.prototype.hasOwnProperty(prop)`
+
+- returns a boolean indicating whether the instance object has the specified property as its own property (as opposed to inheriting it). Returns `true` if the object has the specified property as own property; `false` otherwise.
+- parameters
+  - `prop`: the String name or Symbol of the **property** to test
+
+```js
+let example = {};
+example.hasOwnProperty('prop') // false
+
+example.prop = 'exists';
+example.hasOwnProperty('prop'); // true - 'prop' has been defined
+
+example.prop = null;
+example.hasOwnProperty('prop'); // true - own property exists with value of null
+
+example.prop = undefined;
+example.hasOwnProperty('prop'); // true - own property exists with value of undefined
+```
+
+#### 6.7 `instanceof` Operator
+
+- tests to see if the `prototype` property of a **constructor** appears anywhere in the prototype chain of an object. The return value is a boolean value. The left-hand side should be an `object`, and the right-hand side should be `constructor function`
+- **Syntax -** `object instanceof constructor`
+- **Parameters**
+  - **`object` -** The object to test.
+  - **`constructor` -** Function to test against
+
+The `instanceof` operator requires the object to the right to have a `prototype` property, such as a function object. In most cases, that means the object on the right is a constructor function or class.
+
+```js
+function Car(make, model, year) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+}
+
+const auto = new Car('Honda', 'Accord', 2012);
+
+console.log(auto instanceof Car) // true
+console.log(auto instanceof Object); // true
+```
+
+End 20220626 18:43
