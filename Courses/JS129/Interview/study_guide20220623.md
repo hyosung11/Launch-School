@@ -1597,7 +1597,7 @@ obj.foo();  // => undefined undefined
 
 Function or method's execution context depends solely on how you invoke it, not on how and where it's defined. Here, `bar` is *invoked as a standalone function* on line 9. Thus, its execution context is the global object, not the `obj` object that you may have expected.
 
-### 6.2 Solution 1 - Preserve Context with a Variable in Outer Scope
+#### 6.2 Solution 1 - Preserve Context with a Variable in Outer Scope
 
 Use something like `let self = this` or `let that = this` in the outer function. If you define the `self` or `that` variable in the outer scope, you can use that variable and whatever value it contains inside your nested inner function(s).
 
@@ -1642,7 +1642,7 @@ obj.foo(); // => hello world
 
 We won't show an example of `apply` since you can always use `call` in its place if you use the spread operator to expand `apply`'s array argument.
 
-#### 6.3 Solution 3 - Use `bind`
+#### 6.2 Solution 3 - Use `bind`
 
 A third approach is to call `bind` on the inner function and *get a new function* with its execution context permanently set to the object.
 
@@ -1702,7 +1702,7 @@ obj.foo();
 
 One advantage of `bind` is that you can do it once and then *call it as often as needed without an explicit context*.
 
-#### 6.3 Solution 4 - Using an Arrow Function
+#### 6.2 Solution 4 - Use an Arrow Function
 
 Arrow functions inherit their execution context from the surrounding context. That means that an arrow function *defined inside another function* always has the same context as the outer function's context:
 
@@ -1732,7 +1732,7 @@ obj.foo();
 
 Using arrow functions like this is similar to using `bind` in that you don't have to worry about arrow functions losing their surrounding context. An arrow function, once created, *always has the same context as the function that surrounded it when it was created*. Using arrow functions is the most common these days.
 
-#### 6.4 Don't Use Arrow Functions as Methods on an Object
+##### 6.2.1 Don't Use Arrow Functions as Methods on an Object
 
 Despite how useful arrow functions are for avoiding context loss, *you should not try to use them as methods on an object*. They don't work as expected.
 
@@ -1758,18 +1758,181 @@ You may have noticed that `this` in `obj.foo` is not determined by how the metho
 
 In general, you should not use arrow functions to write methods. According to [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), "Arrow function expressions are ill suited as methods, and they cannot be used as constructors." The example shown here demonstrates one reason why that is so: it doesn't follow the rules. As long as you don't try to use arrow functions as methods, you can ignore this exception.
 
-RR
+#### 6.3 Problem 3 - Functions as Arguments Losing Surrounding Context
 
-==================================
+Passing functions as arguments can strip them of their intended context object.
 
+Examine this code:
 
+```js
+function repeatThreeTimes(func) {
+  func();
+  func();
+  func();
+}
 
+let john = {
+  firstName: 'John',
+  lastName: 'Doe',
+  greetings: function() {
+    repeatThreeTimes(function() {
+      console.log('hello, ' + this.firstName + ' ' + this.lastName);
+    });
+  },
+};
+
+john.greetings();
+
+// => hello, undefined undefined
+// => hello, undefined undefined
+// => hello, undefined undefined
+```
+
+In this example, we use the `john` object to call the `greetings` method, with `john` as its context. `greetings`, in turn, calls the `repeatThreeTimes` function with a function argument whose body refers to `this`. `repeatThreeTimes` *calls its argument three times with the global object as the implicit context*. Thus, `this` inside the function passed to `repeatThreeTimes` is the **global object**, not `john`.
+
+You might look at this and think that this problem probably doesn't happen often. However, consider the following code:
+
+```js
+let obj = {
+  a: 'hello',
+  b: 'world',
+  foo: function() {
+    [1, 2, 3].forEach(function(number) {
+      console.log(String(number) + ' ' + this.a + ' ' + this.b);
+    });
+  },
+};
+
+obj.foo();
+
+// => 1 undefined undefined
+// => 2 undefined undefined
+// => 3 undefined undefined
+```
+
+The code loops over an array and logs some information to the console. The problem, though, is that `forEach` executes the function expression passed to it, so it *gets executed with the global object as context*. Once again, this has the wrong value, and the function doesn't do what we want.
+
+We can use the same solutions we used to solve a similar problem in the previous assignment.
+
+#### 6.3 Solution 1 - Preserve the Context with a Variable in Outer Scope
+
+```js
+let obj = {
+  a: 'hello',
+  b: 'world',
+  foo: function() {
+    let self = this;
+    [1, 2, 3].forEach(function(number) {
+      console.log(String(number) + ' ' + self.a + ' ' + self.b);
+    });
+  },
+};
+
+obj.foo();
+
+// => 1 hello world
+// => 2 hello world
+// => 3 hello world
+```
+
+#### 6.3 Solution 2 - Use `bind`
+
+```js
+let obj = {
+  a: 'hello',
+  b: 'world',
+  foo: function() {
+    [1, 2, 3].forEach(function(number) {
+      console.log(String(number) + ' ' + this.a + ' ' + this.b);
+    }.bind(this));
+  },
+};
+
+obj.foo();
+
+// => 1 hello world
+// => 2 hello world
+// => 3 hello world
+```
+
+#### 6.3 Solution 3 - Use an Arrow Function
+
+```js
+let obj = {
+  a: 'hello',
+  b: 'world',
+  foo() {
+    [1, 2, 3].forEach(number => {
+      console.log(String(number) + ' ' + this.a + ' ' + this.b);
+    });
+  },
+};
+
+obj.foo();
+
+// => 1 hello world
+// => 2 hello world
+// => 3 hello world
+```
+
+#### 6.4 Solution 4 - Use the optional `thisArg` argument
+
+Some methods that take function arguments allow an optional argument that specifies the context to use when invoking the function. `Array.prototype.forEach`, for instance, has an optional `thisArg` argument for the context. This argument makes it easy to work around this context-loss problem. The array methods `map`, `every` and `some` and others also take an optional `thisArg` argument.
+
+```js
+let obj = {
+  a: 'hello',
+  b: 'world',
+  foo: function() {
+    [1, 2, 3].forEach(function(number) {
+      console.log(String(number) + ' ' + this.a + ' ' + this.b);
+    }, this);
+  },
+};
+
+obj.foo();
+
+// => 1 hello world
+// => 2 hello world
+// => 3 hello world
+```
+
+#### 6.5 Dealing with Context Loss Summary
+
+- Problem 1 - Method Copied from Object
+  - Solution 1 - Accept the `context` object as a second parameter
+  - Solution 2 - Hard-bind the method's context using `bind`
+
+- Problem 2 - Inner/nested Function not Using the Surrounding Context
+  - Solution 1 - Preserve context with a variable in outer scope
+  - Solution 2 - Call inner function with explicit context (`call` or `apply`)
+  - Solution 3 - Use `bind`
+  - Solution 4 - Use an Arrow Function
+
+- Problem 3 - Functions as arguments losing surrounding context
+  - Solution 1 - Preserve context with a variable in  outer scope
+  - Solution 2 - Use `bind`
+  - Solution 3 - Use an arrow function
+  - Solution 4 - Use the optional `thisArg` argument
+
+Passing a function as an argument to another function *strips it of its execution context*, which means *the function argument gets invoked with the context set to the global object*. This problem is identical to the problem with copying a method from an object and using it as a bare function. For instance, the following two code snippets do the same thing:
+
+```js
+// Snippet 1
+array.forEach(obj.logData);
+
+// Snippet 2
+let logData = obj.logData;
+array.forEach(logData);
+```
+
+In both snippets, the `obj.logData` method gets invoked by `forEach` with the global object as the context, not `obj`.
 
 ## III. Object Creation and Code Reuse Patterns
 
 ### 1. Object Prototypes
 
-
+==================================
 
 ### 2. Object Creation with Prototypes
 
