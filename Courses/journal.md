@@ -8291,3 +8291,6 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 11:16 Starting to study today. I was looking at articles about increasing soccer stamina and can use shuttle runs and stop and gp sprinting around a soccer field as training methods.
 
 12:00 Working through context loss and solutions. Time to eat lunch.
+
+12:18 After short lunch of bagels with fixings, back to work on the study guide. I put the interview assessmen in my calendar for Wednesday.
+
