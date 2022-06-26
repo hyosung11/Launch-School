@@ -8292,8 +8292,10 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 
 12:00 Working through context loss and solutions. Time to eat lunch.
 
-12:18 After short lunch of bagels with fixings, back to work on the study guide. I put the interview assessmen in my calendar for Wednesday.
+12:18 After short lunch of bagels with fixings, back to work on the study guide. I put the interview assessment in my calendar for Wednesday.
 
 12:57 Finished with context loss and am ready to move onto Part III - Object Creation and Code Reuse Patterns. I want to take short break though.
 
 16:05 I have been grinding through the study guide reorganization for hours now and it's going well. I want to take the interview assessment on Wednesday.
+
+17:04 Decided to follow the course outline to make the study guide and it's helping me to organize better.

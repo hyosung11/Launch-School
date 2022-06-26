@@ -13,7 +13,7 @@ I. Object Oriented Programming
 4. Factory Functions
 5. Collaborator Objects
 
-II. Functions and Execution Context
+II. Functions, Objects, Prototypes, and Execution Context
 
 1. Functions Declarations, Function Expressions, Hoisting, Anonymous Functions, Arrow Functions, First-class Functions
 2. Higher Order Functions
@@ -43,7 +43,7 @@ Object oriented programming is a programming paradigm that solves problems by or
 
 In most OOP languages, encapsulation has a broader purpose. It also refers to restricting access to the state and certain behaviors. An object only exposes a **public interface** of the data and behaviors that other parts of the application need to work and keep its implementation details hidden. Thus, other objects can't change the data of an object without going through the proper interface. However, JavaScript does not directly provide the means to limit exposure of properties and methods.
 
-#### 2.1 Encapsulation Example
+#### 2.1 Encapsulation Example 1
 
 To illustrate encapsulation, let’s take the following code:
 
@@ -73,6 +73,42 @@ let employee = {
 Everything that's related to the `employee` object is bundled. Object-oriented programming organizes code into logical units.
 
 Here, we *instantiated an object using the object literal syntax*. While there are other more sophisticated patterns of object creation, at the very core, we are essentially doing the same thing: *grouping data and related functions together*.
+
+#### 2.2 Encapsulation Example 2 - `raceCar`
+
+```js
+let raceCar = {
+  make: 'BMW',
+  fuelLevel: 0.5, // <-- don't change property values directly
+  engineOn: false,
+
+  startEngine: function() {
+    raceCar.engineOn = true;
+  },
+
+  drive: function() {
+    raceCar.fuelLevel -= 0.1;
+  },
+
+  stopEngine() { // <-- compact method syntax that omits the `:` and the `function` keyword
+    raceCar.engineOn = false;
+  },
+
+  refuel: function(percent) {
+    if ((raceCar.fuelLevel + (percent / 100)) <= 1) {
+      raceCar.fuelLevel += (percent / 100);
+    } else {
+      raceCar.fuelLevel = 1;
+    }
+  },
+};
+
+raceCar.refuel(30); // Use dot-notation to call a method.
+```
+
+This code bundles the data and operations related to a car into an object. Object properties with function values are called **methods**. The methods here are responsible for changing the state of the `raceCar` object.
+
+JavaScript won't stop you from changing the `fuelLevel` property directly instead of calling the `refuel` method. That's a limitation of JavaScript. The OO style strongly discourages changing property values directly. Instead, it *encourages using methods to interface with the object*. We can see why that is by looking at the implementation for `refuel`. The `fuelLevel` property should be a number that's a fraction of 1. The `refuel` method ensures that it never exceeds that value. If you only use `refuel` to increase the `fuelLevel` of the car, it'll never exceed 1. If you directly access and change `fuelLevel`, though, you may end up violating that restriction.
 
 ### 3. Creating Objects
 
@@ -448,7 +484,7 @@ sohee.childrenEat();
 // Crunchy penne
 ```
 
-## II. Functions and Execution Context
+## II. Functions, Objects, Prototypes, and Execution Context
 
 ### 1. Function Declarations, Function Expressions, Hoisting, Anonymous Functions, Arrow Functions, First-Class Functions
 
@@ -1937,6 +1973,192 @@ A prototype is an object from which other objects inherit properties and methods
 Every **function** has a `prototype` property that points to an object that contains a `constructor` property. The `constructor` property points back to the function itself. Thus, if `Kumquat` is a constructor function, then `Kumquat.prototype.constructor === Kumquat`.
 
 If the *function is used as a constructor*, the returned object's `[[Prototype]]` will reference the constructor's `prototype` property. That lets us set properties on the constructor's prototype object so that all objects created by the constructor will share them. We call this the **pseudo-classical** pattern of object creation.
+
+JavaScript objects can *inherit properties from other objects*. The object that another object inherits properties from is its **prototype**. The prototype chain, or prototypal inheritance, is how JavaScript inherits properties from other objects.
+
+Looking up a property in the prototype chain is the basis for prototypal inheritance, or property sharing through the prototype chain. Objects lower down in the chain inherit properties and behaviors from objects in the chain above. That is, downstream objects can delegate properties or behaviors to upstream objects. When you access a property on an object, JavaScript looks for the property first in the object, then its prototype chain, all the way up to `Object.prototype`. A downstream object *overrides* an inherited property if it has a property with the same name.
+
+Every object has an internal `[[Prototype]]` property that points to a special object, the object's prototype. It is used to look up properties that don't exist on the object itself.
+
+In most cases, we use `Object.create` to create objects whose prototype we need to *set explicitly*. We can also use `Object.setPrototypeOf` to *set the prototype of an object that already exists*.
+
+By default, *all object literals inherit from* `Object.prototype`.
+
+- `Object.create` returns a new object with the passed-in argument as its prototype.
+
+- Use `Object.getPrototypeOf` and `obj.isPrototypeOf` to check for prototype relationships between objects.
+
+- `Object.getOwnPropertyNames` and `obj.hasOwnProperty` can be used to *test whether an object owns a given property*.
+
+#### 1.1 Prototypes - Prototypal Inheritance
+
+Objects can *inherit properties and behavior from other objects*. If another object, for instance, has a `language` property and a `speak` behavior, a new object can access and use `language` and `speak` without explicitly defining them in the new object.
+
+More specifically, JavaScript objects use something called **prototypal inheritance**. The object that you inherit properties and methods from is called the **prototype**.
+
+*The function `Object.create` creates a new object that inherits properties from an existing object.* It takes an object that is called the prototype object as an argument, and returns a new object that inherits properties from the prototype object. The newly created object has access to all the properties and methods that the prototype object provides.
+
+```js
+let a = {
+  foo: 1,
+  bar: 2,
+};
+
+let b = Object.create(a);
+b.foo; // => 1
+```
+
+An unusual aspect of this relationship is that the **inheriting object** (`b` above) doesn't receive any properties or methods of its own. Instead, it **delegates** property and method access to its prototype. You can see this in the node console:
+
+```sh
+> let a = { foo: 1, bar: 2 }
+undefined
+
+> let b = Object.create(a)
+undefined
+
+> b.foo
+1
+
+> b
+{}
+```
+
+Evaluating `b` in the node console *gives us an empty object*, which demonstrates that `b` *doesn't have any properties of its own*. We can also use the `hasOwnProperty` method to demonstrate this:
+
+```js
+let a = {
+  foo: 1,
+  bar: 2,
+};
+
+let b = Object.create(a);
+
+console.log(a.hasOwnProperty('foo')); // => true
+console.log(b.hasOwnProperty('foo')); // => false
+```
+
+The `hasOwnProperty` method is available on all JavaScript objects. It takes the name of a property as a string and returns `true` if the object has a property by that name, `false` if it does not.
+
+JavaScript objects use an internal `[[Prototype]]` property to keep track of their prototype. When you create an object with `Object.create()`, *the new object's `[[Prototype]]` property gets assigned to the prototype object*.
+
+Note that `[[Prototype]]` is an **internal** property: you cannot access it directly in your code. However, you can access and replace its value with `Object` functions. For instance, `Object.getPrototypeOf()` takes an object as an argument and returns its prototype object:
+
+```js
+> Object.getPrototypeOf(b)
+{ foo: 1, bar: 2}
+```
+
+You can use `Object.setPrototypeOf()` to set the prototype object of an object:
+
+```js
+let a = {
+  foo: 1,
+  bar: 2,
+},
+
+let b = {}; // line 6
+Object.setPrototypeOf(b, a); // line 7
+
+console.log(b.foo); // => 1
+console.log(b); // => {}
+console.log(Object.getPrototypeOf(b)); // { foo: 1, bar: 2}
+```
+
+The code on lines 6 and 7 is effectively identical to the code that we used on line 6 of the `Object.create` example. However, in this example, we declare and initialize `b` to an empty object rather than using `Object.create`; we then use `Object.setPrototypeOf` to set the prototype object.
+
+*Objects hold a reference* to their prototype objects through their internal `[[Prototype]]` property. If the object's prototype changes in some way, the changes are *observable in the inheriting object as well*.
+
+```js
+let a = {
+  foo: 1,
+  bar: 2,
+};
+
+let b = {};
+Object.setPrototypeOf(b, a);
+console.log(b.foo) // => 1
+
+a.foo = 42;
+console.log(b.foo); // => 42
+
+// adds key 'baz' with value 12
+a.baz = 12;
+console.log(b.baz); // => 12
+```
+
+#### 1.2 The Default Prototype
+
+All JavaScript objects have access to the `hasOwnProperty()` method. When we create a new object, we don't have to add our own `hasOwnProperty()` method. Instead, JavaScript obtains the method from the object's prototype. *All JavaScript objects inherit from a prototype*. For instance:
+
+```sh
+> let a = {}
+undefined
+
+> Object.getPrototypeOf(a)
+{}
+```
+
+Passing an empty object to `Object.getPrototypeOf()` *returns a default prototype object*. That object is the **prototype** for all objects created by using the object literal syntax (e.g., `{ a: 2 }`). The default prototype is the prototype object of the `Object` constructor, `Object.prototype`. `Object.prototype` provides the default prototype.
+
+#### 1.3 Iterating Over Objects with Prototypes
+
+- A `for/in` loop iterates over an object's properties. The iteration *includes properties from the objects in its prototype chain*. Use `hasOwnProperty()` *to skip the prototype properties*.
+
+- `Object.keys()` returns an object's "own" property keys -- you do not need to use `hasOwnProperty()`.
+
+Note that both `for/in` and `Object.keys()` deal with **enumerable properties**. Not all properties are enumerable. In particular, most properties and methods of the *built-in types are not*. Usually, any properties or methods you define for an object are enumerable. You can check whether a property is enumerable with the `Object.prototype.propertyIsEnumerable()` method. You do not have to remember how to use `propertyIsEnumerable`.
+
+```js
+let arr = [1, 2, 3];
+console.log(arr.propertyIsEnumerable('length'));  // false
+console.log(arr.propertyIsEnumerable('2')); // true
+console.log(arr.propertyIsEnumerable('forEach')); // false
+console.log(Array.prototype.propertyIsEnumerable('forEach')); // false
+
+function Foo() {
+  this.bar = "qux"
+}
+
+Foo.prototype.baz = function() {};
+let foo = new Foo();
+console.log(foo.propertyIsEnumerable('bar')); // true
+console.log(Object.getPrototypeOf(foo).propertyIsEnumerable('baz')); // true
+```
+
+#### 1.4 The Prototype Chain
+
+All JavaScript objects can inherit from another object using the prototype model. Since the prototype of an object is itself an object, the prototype can also have a prototype from which it inherits. For example:
+
+```js
+let a = { // `Object.prototype` is the prototype of `a`
+  foo: 1,
+};
+
+let b = { // `b` is the prototype of `c`
+  bar: 2,
+};
+
+let c = {
+  baz: 3,
+};
+
+Object.setPrototypeOf(c, b);
+Object.setPrototypeOf(b, a);
+
+console.log(c.bar); // => 2
+console.log(c.foo); // => 1
+```
+
+In this code, object `c` inherits from object `b` which, in turn, inherits from `a`. Stated differently, `b` is the prototype of `c` and `a` is the prototype of `b`. All properties that you can access on `a` or `b` are now available on `c`. We say that objects `b` and `a` are part of the **prototype chain** of object `c`. The complete prototype chain also *includes the default prototype*, which is the prototype of object `a` in this case. Since the prototype of `Object.prototype` is `null`, the complete prototype chain looks like this:
+
+```sh
+c --> b --> a --> Object.prototype --> null
+```
+
+#### 1.5 The `__proto__` Property
+
+Many older JavaScript programs use a property named `__proto__`, which is pronounced **dunder proto**, instead of `Object.setPrototypeOf` and `Object.getPrototypeOf`. "dunder" is a shortened version of "double underscore", which alludes to the double underscores at the beginning and end of the name. The `__proto__` property is a *deprecated*, non-hidden version of the `[[Prototype]]` property. As a rule, you should only use `__proto__` if you need to support very old browsers or old versions of Node, or as a convenient shortcut with temporary code or debugging operations. You may run into code that uses it, so you need to at least be aware of it.
 
 ### 2. Constructors
 
@@ -3453,13 +3675,359 @@ function createClass() {
 };
 ```
 
+#### 6.5 Classes as First-class Citizens
+
+In programming, a **first-class citizen** is a value that can be passed into a function, returned from a function, and assigned to a variable. Like JavaScript functions, JavaScript classes are also first-class values. For example, you can *pass classes into functions as arguments*:
+
+```js
+function createObject(classDef) {
+  return new classDef();
+}
+
+class Foo {
+  sayHi() {
+    console.log('Hi');
+  }
+}
+
+// pass the `Foo` class as an argument to the `createObject` function
+let obj = createObject(Foo);
+obj.sayHi(); // => logs 'Hi!'
+```
+
+Classes are just functions, as demonstrated with `typeof`:
+
+```js
+typeof Foo; // => "function"
+```
+
+Since functions are first-class objects, classes are also first-class objects!
+
+#### 6.6 Static Methods and Properties
+
+You may remember seeing some methods like `Array.isArray` and `Object.keys` that are invoked with Array or Object as the caller instead of an actual array or object. For instance:
+
+```js
+Array.isArray([1, 2, 3]); // => true
+[1, 2, 3].isArray();      // raises a TypeError
+```
+
+**Static Methods** like these are *defined on the constructor for the type*, e.g., `Array` or `Object`.
+
+Ordinary methods -- those defined on a prototype object -- are sometimes called **instance methods** or **object methods** since you need an instance of the type. More commonly, they are simply called methods.
+
+*You can define static methods on your custom constructor methods*. For instance, let's add one to the `Rectangle` type we defined earlier:
+
+```js
+function Rectangle(length, width) {
+  this.length = length;
+  this.width = width;
+}
+
+Rectangle.getDescription = function() {
+  return 'A rectangle is a shape with 4 sides';
+}
+
+console.log(Rectangle.getDescription()); // A rectangle is a shape with 4 sides
+```
+
+This code defines a **static method** named `getDescription` on the `Rectangle` constructor. To use this method, you invoke it with the `Rectangle` function object.
+
+It should come as no surprise that you can define static methods with the `class` keyword as well: just *use the static keyword*:
+
+```js
+class Rectangle {
+  constructor(length, width) {
+    this.length = length;
+    this.width = width;
+  }
+
+  static getDescription() {
+    return 'A rectangle is a shape with 4 sides';
+  }
+
+  getArea() {
+    return this.length * this.width;
+  }
+}
+
+console.log(Rectangle.getDescription()); // A rectangle is a shape with 4 sides
+```
+
+As before, we call the method with the name of the constructor function -- in the case of a class, *the constructor function's name is the name of the class*.
+
+Static **properties** are properties that are defined on the constructor function instead of the individual objects. *One well-known example of a static property is the `length` property used by the `String` type*. To define a static property with the constructor and prototype pattern, just add it to the constructor function object:
+
+```js
+Rectangle.description = 'A rectangle is a shape with 4 sides';
+```
+
+To do the same thing with a `class`, just use the `static` keyword inside the `class`:
+
+```js
+class Rectangle {
+  static description = 'A rectangle is a shape with 4 sides';
+}
+```
+
+As of this writing in late 2020, **static properties** are a recent addition to JavaScript. They aren't completely supported, yet. Fortunately, recent versions of Node support them, which means we can use them in our code in this course. If you want to use static properties in a browser or an older version of Node that doesn't support them, you can accomplish the same effect by adding a property directly to the class:
+
+```js
+Rectangle.description = 'A rectangle is a shape with 4 sides';
+```
+
+Yes, that code is identical to what we would write if we were using the constructor/prototype pattern.
+
+#### 6.7 ES6 Class Syntax Example (Pseudo-classical Inheritance)
+
+```js
+class Rectangle {
+  constructor(width, length) {
+    this.width = width;
+    this.length = length;
+  }
+
+  getWidth() {
+    return this.width;
+  }
+
+  getLength() {
+    return this.length;
+  }
+
+  getArea() {
+    return this.width * this.length;
+  }
+}
+
+let rect = new Rectangle(4, 5);
+
+console.log(rect.getWidth()); // 4
+console.log(rect.getLength()); // 5
+console.log(rect.getArea()); // 20
+```
+
+In the constructor function we are creating two properties `width` and `length` and assigning to them values of parameters with the same name. *To access the value of each property within methods, we use the `this` keyword in front of each property name*.
+
+#### 6.8 Class Hierarchy Example - `Greeting`, `Hello`, `Goodbye`
+
+Create a class named `Greeting` that has a single method named `greet`. The method should take a string argument, and it should print that argument to the console.
+
+Now, create two more classes that inherit from `Greeting`: one named `Hello`, and the other `Goodbye`. The `Hello` class should have a `hi` method that takes no arguments and logs `"Hello"`. The `Goodbye` class should have a `bye` method that logs `"Goodbye"`. Use the `greet` method from the `Greeting` class when implementing `Hello` and `Goodbye`; don't call `console.log` from either `Hello` or `Goodbye`.
+
+```js
+class Greeting {
+  greet(message) {
+    console.log(message)
+  }
+}
+
+class Hello extends Greeting {
+  hi() {
+    this.greet('Hello');
+  }
+}
+
+class Goodbye extends Greeting {
+  bye() {
+    this.greet('Goodbye');
+  }
+}
+
+let adios = new Goodbye();
+adios.bye() // Goodbye
+```
+
+#### 6.9 OO Design with Classes, Inheritance, & Mixins Example
+
+```js
+class Character {
+  constructor(name) {
+    this.name = name;
+    this.health = 100;
+    this.strength = this.rollDice();
+    this.intelligence = this.rollDice();
+  }
+
+  rollDice() {
+    return Math.floor(Math.random() * 11) + 2;
+  }
+
+  heal(amount) {
+    this.health += amount;
+  }
+
+  hurt(amount) {
+    this.health -= amount;
+  }
+}
+
+const armor = {
+  attachArmor() {
+    console.log(`Armor attached.`);
+  },
+
+  removeArmor() {
+    console.log(`Armor removed.`);
+  },
+}
+
+const spell = {
+  castSpell(spell) {
+    console.log(spell);
+  }
+}
+
+class Warrior extends Character {
+  constructor(name) {
+    super(name);
+    this.strength = this.rollDice() + 2;
+  }
+}
+
+Object.assign(Warrior.prototype, armor);
+
+class Paladin extends Character {}
+Object.assign(Paladin.prototype, armor, spell);
+
+class Magician extends Character {
+  constructor(name) {
+    super(name);
+    this.intelligence = this.rollDice() + 2;
+  }
+}
+
+Object.assign(Magician.prototype, spell);
+
+class Bard extends Magician {
+  createPotion() {
+    console.log(`Potion is ready!`)
+  }
+}
+
+let warrior = new Warrior('Voltaire');
+console.log(warrior.name) // Voltaire
+console.log(warrior.health) // 100
+console.log(warrior.strength) // 8
+warrior.attachArmor(); // Armor attached.
+warrior.hurt(8);
+console.log(warrior.health) // 92
+warrior.heal(4);
+console.log(warrior.health) // 96
+
+let magician = new Magician('Merlin');
+console.log(magician.intelligence); // 14
+magician.castSpell(`Cruciatus`) // Cruciatus
+
+let paladin = new Paladin('Yoda');
+paladin.removeArmor(); // Armor removed.
+
+let bard = new Bard('Homer');
+bard.castSpell('Lightning'); // Lightning
+bard.createPotion(); // Potion is ready!
+bard.hurt(2);
+console.log(bard.health); // 98
+```
+
 ## IV. Subclassing and Code Reuse Patterns
 
 ### 1. Object Creation with Prototypes (OLOO)
 
+The **Objects Linking to Other Objects (OLOO)** pattern of object creation uses a prototype object, an initializer method, and the `Object.create()` method to create objects with shared behavior (e.g., car objects). The initializer customizes the state for each object, and is usually named `init`. All objects of the same type inherit from the prototype. *Thus OLOO uses prototypal inheritance.*
 
+```js
+let carPrototype = {
+  start: function() {
+    this.started = true;
+  },
 
-### 2. Sub-typing with Constructors and Prototypes
+  stop: function() {
+    this.started = false;
+  },
+
+  init(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    return this; // <-- small improvement to the `init` method
+  },
+};
+
+let car1 = Object.create(carPrototype).init('Toyota', 'Corolla', 2016);
+```
+
+#### 1.1 Examples of the OLOO Object Creation Pattern
+
+```js
+// OLOO (uses `init` and an explicit return in the constructor)
+let rectanglePrototype = {
+  init(length, width) {
+    this.width = width;
+    this.length = length;
+    return this;
+  },
+
+  getWidth() {
+    return this.width;
+  },
+
+  getLength() {
+    return this.length;
+  },
+
+  getArea() {
+    return this.width * this.length;
+  },
+};
+
+let olooRectangle = Object.create(rectanglePrototype).init(5, 4);
+
+console.log(olooRectangle.getWidth()); // 4
+console.log(olooRectangle.getLength()); // 5
+console.log(olooRectangle.getArea()); // 20
+```
+
+```js
+let Book = {
+  init(author, title, ISBN) {
+    this.author = author;
+    this.title = title;
+    this.ISBN = ISBN;
+    return this;
+  }
+
+  describe() {
+    console.log(this.title + ' was written by ' + this.author + '.');
+  },
+}
+
+let book = Object.create(Book).init("Jame Baldwin", "Another Country", "0-679-74471-1 (pbk.)");
+```
+
+```js
+let Cat = {
+  init(name, gender) {
+    this.name = name;
+    this.gender = gender;
+    return this;
+  },
+
+  log() {
+    console.log(`Meow! My name is ${this.name}. I'm a ${this.gender} cat.`);
+  },
+}
+
+let kitty = Object.create(Cat).init("Pudding", "girl");
+kitty.log(); // => Meow! My name is Pudding. I'm a girl cat.
+```
+
+#### 1.2 Advantage of OLOO over Factory Functions
+
+The OLOO pattern has one significant advantage over factory functions: **memory efficiency**. Since all objects created with the OLOO pattern *inherit methods from a single prototype object*, the objects that inherit from that prototype object share the same methods.
+
+An advantage of the factory pattern is that it lets us *create objects with private state*.
+
+### 2. Subtyping with Constructors and Prototypes
 
 The combination of constructors and prototypes gives us something that resembles a **class**, a construct used in classical OOP languages like Java, Python, and Ruby. A *class is a blueprint for creating objects*. Traditional OOP languages use classes to create distinct objects of a particular type and give those objects the behaviors and state that they need.
 
@@ -3544,7 +4112,7 @@ sqr ---> Square.prototype ---> Rectangle.prototype ---> Object.prototype
 
 All objects created by the `Square` constructor inherit from `Square.prototype`, which we have set up to inherit from `Rectangle.prototype`. Thus, all square objects have access to methods on `Rectangle.prototype`. Since `toString` must be different for squares, we *override* it in `Square.prototype`. That is, we customize `Square.prototype.toString`. Since `getArea` *requires no customization*, we can let square objects use the inherited `Rectangle.prototype.getArea`.
 
-#### 5.1 Restoring the `constructor` property
+#### 2.1 Restoring the `constructor` property
 
 One side-effect of this approach is that the `constructor` property on square objects points to `Rectangle` when it should point to `Square` instead:
 
@@ -3577,7 +4145,7 @@ sqr.constructor === Square; // => true
 
 In most cases, failure to reassign it won't hurt anything, and it certainly doesn't in this code. However, there are [situations where the value of the `constructor` property is important](https://2ality.com/2011/06/constructor-property.html).
 
-#### 5.2 Constructor Reuse
+#### 2.2 Constructor Reuse
 
 If you examine the bodies of the `Rectangle` and `Square` functions, you'll see that they're similar. That suggests that we may be able to use the `Rectangle` constructor in `Square`. To do that, we must *invoke `Rectangle` with its execution context explicitly set to the execution context of `Square`*:
 
@@ -3626,12 +4194,239 @@ console.log(sqr.toString()); // [Square 5 x 5]
 
 The combination of constructors and prototypes provides a way of mimicking classical inheritance with JavaScript. This lets us create **subtype** objects, which can 'inherit' methods from a **supertype** object. This is one way of facilitating code re-use.
 
-### 6. Built-in Constructors
+#### 2.3 Prototypal Inheritance vs Pseudo-classical Inheritance
 
-### 7. ES6 Classes
+- Prototypal
+  - prototypal delegation / object inheritance
+  - create prototype objects with `Object.create()` (OLOO) to set the `[[Prototype]]` property to inherit functions
+    - uses `[[Prototype]]` under the hood
 
-### 8. Code Reuse with Mixins
+- Pseudo-classical
+  - constructor/prototype pattern
+  - uses constructor function and `prototype` object to provide inheritance
+    - uses `[[Prototype]]` under the hood
+  - like classes without using a "class"
+  - Using `class` and `extends` is a form of pseudo-classical inheritance
 
-### 9. Polymorphism
+As used in JavaScript, the term **inheritance** is an *overloaded word*. It describes two related but distinct forms of inheritance: **prototypal** and **pseudo-classical**.
 
-OLOO?
+##### 2.3.1 Prototypal Inheritance
+
+The *simpler form of inheritance* is **prototypal inheritance** or **prototypal delegation**. We sometimes call this form of inheritance **object inheritance** since it works with one object at a time. An object's internal `[[Prototype]]` property points to another object, and the object can delegate method calls to that other object.
+
+We've seen plenty of examples of prototypal inheritance in earlier assignments. For instance:
+
+```js
+let humanPrototype = {
+  myName() { return this.name; },
+  myAge() { return this.age; },
+};
+
+let personPrototype = Object.create(humanPrototype);
+personPrototype.toString = function() {
+  return `My name is ${this.myName()} and I'm ${this.myAge()} years old.`;
+};
+
+let will = Object.create(personPrototype);
+will.name = 'William';
+will.age = 28;
+will.toString(); // => My name is William and I'm 28 years old.
+```
+
+Here, the `will` object inherits from the `personPrototype` object which, in turn, inherits from `humanPrototype`. `will`'s `[[Prototype]]` property refers to `personPrototype`, and the `[[Prototype]]` property of `personPrototype` refers to `humanPrototype`. When we invoke `toString`, it finds the methods `myName` and `myAge` on the `humanPrototype` object.
+
+##### 2.3.2 Prototypal Inheritance Example
+
+```js
+let animal = {
+  type: 'mammal',
+  breathe: function() {
+    console.log("I'm breathing");
+  },
+}
+
+let dog = Object.create(animal);
+
+console.log(dog); // {}
+console.log(dog.type); // "mammal"
+console.log(dog.__proto__); // { type: 'mammal', breathe: ƒ }
+console.log(dog.__proto__ === animal); // true
+```
+
+##### 2.3.3 Pseudo-classical Inheritance
+
+The object creation pattern called **pseudo-classical** is also known as the **constructor/prototype pattern**. The term "pseudo-classical" refers to the fact that *the pattern mimics classes from other OO languages but doesn't actually use classes*. In this pattern, we use a **constructor function** and a **prototype object** to create objects and provide common methods for those objects. In pseudo-classical inheritance, a constructor's prototype object (the object referenced by its `prototype` property) inherits from another constructor's prototype. That is, *a subtype inherits from a supertype*. All objects of a given type can share behaviors from the same source.
+
+For instance:
+
+```js
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+Person.prototype.toString = function() {
+  return `My name is ${this.name} and I'm ${this.age} years old.`;
+}
+```
+
+##### 2.3.4 Prototypal to Pseudo-classical Example
+
+It's all prototypal inheritance happening in the background, but you can leverage the constructor/prototype pattern to kind of mimic how traditional OOP languages deal with inheritance. So pseudo-classical means literally that, mimicking classical inheritance.
+
+For instance, we can *rewrite* the **prototypal inheritance** example to use **pseudo-classical inheritance**:
+
+```js
+// pseudo-classical inheritance example
+function Human() {}
+Human.prototype.myName = function() { return this.name; };
+Human.prototype.myAge = function() { return this.age; };
+
+function Person() {}
+Person.prototype = Object.create(Human.prototype);
+Person.prototype.constructor = Person;
+Person.prototype.toString = function() {
+  return `My name is ${this.myName()} and I'm ${this.myAge()} years old.`;
+};
+
+let will = new Person();
+will.name = 'William';
+will.age = 28;
+will.toString(); // My name is William and I'm 28 years old.
+```
+
+Note that using `class` and the `extends` keyword is an alternative form of pseudo-classical inheritance. Here's what **pseudo-classical inheritance** looks like with `class` and `extends`:
+
+```js
+class Human {
+  myName() { return this.name; }
+  myAge() { return this.age; }
+}
+
+class Person extends Human {
+  toString() {
+    return `My name is ${this.myName()} and I'm ${this.myAge()} years old.`;
+  }
+}
+
+let will = new Person();
+will.name = 'William';
+will.age = 28;
+will.toString(); // => My name is William and I'm 28 years old.
+```
+
+Both pseudo-classical and prototypal inheritance *use prototypal delegation under the hood*. If the requested property isn't found, the object delegates the request to the object's prototype object. If the requested property isn't there either, the prototype object delegates the request to its own prototype object. This process follows the prototype chain until the property or method is found or the end of the prototype chain is found.
+
+### 3. Inheritance with Class Declarations
+
+In a prior assignment, we learned how one constructor's prototype can inherit from another constructor's prototype. For example:
+
+```js
+function Rectangle(length, width) {
+  this.length = length;
+  this.width = width;
+}
+
+Rectangle.prototype.getArea = function() {
+  return this.length * this.width;
+};
+
+Rectangle.prototype.toString = function() {
+  return `[Rectangle ${this.length} x ${this.width}]`;
+};
+
+function Square(size) {
+  Rectangle.call(this, size, size);
+}
+
+Square.prototype = Object.create(Rectangle.prototype);
+Square.prototype.constructor = Square;
+
+Square.prototype.toString = function() {
+  return `[Square ${this.length} x ${this.width}]`;
+};
+```
+
+Let's convert that code to use classes instead of constructors and prototypes. The `Square` constructor's prototype inherits from `Rectangle.prototype`, which gives square objects access to methods defined for rectangle objects. We can do the same thing with classes, but we now use the clean, straightforward syntax provided for JavaScript classes:
+
+```js
+class Rectangle {
+  constructor(length, width) {
+    this.length = length;
+    this.width = width;
+  }
+
+  getArea() {
+    return this.length * this.width;
+  }
+
+  toString() {
+    return `[Rectangle ${this.width * this.length}]`;
+  }
+}
+
+class Square extends Rectangle {
+  constructor(size) {
+    super(size, size);
+  }
+
+  toString() {
+    return `[Square] ${this.width * this.length}`;
+  }
+}
+```
+
+The `extends` keyword signifies that the class named to the left of `extends` should *inherit* from the class specified to the right of `extends`. Note that we don't define `getArea` on the `Square` class since `Square` inherits it from `Rectangle` and doesn't need to customize or *override* the method.
+
+#### 3.1 `super`
+
+Note also that the `Square` constructor calls a function that is represented by the keyword `super`. When called inside the `constructor` method, *the `super` keyword refers to the constructor method for the parent class* (the class that we inherit from). Thus, `super(size, size)` performs the same role performed by this code from our constructor/prototype example:
+
+```js
+function Square() {
+  Rectangle.call(this, size, size);
+}
+```
+
+You don't need to use `super` in every subclass, but in most cases you do. In particular, *if the superclass's constructor creates any object properties, you must call `super` to ensure that those properties are set properly*. For instance, in the `Rectangle` class above, we create two properties in the `Rectangle` constructor, so we must call `super` in `Square`'s constructor.
+
+If you do call `super` in a subclass's constructor, you must *call it before you use* `this` in that constructor.
+
+### 4. Inheritance with Class Expressions Example
+
+Let's look at another example of inheritance with classes:
+
+```js
+let Person = class {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  sayName() {
+    console.log(`My name is ${this.name}.`);
+  }
+};
+
+let Student = class extends Person {
+  constructor(name, age, semester) {
+    super(name, age);
+    this.semester = semester;
+  }
+
+  enrollInCourse(courseNumber) {
+    console.log(`${this.name} has enrolled in course ${courseNumber}.`);
+  }
+};
+
+let student = new Student('Kim', 22, 'Fall');
+student.sayName(); // logs 'My name is Kim.'
+student.enrollInCourse('JS120'); // => 'Kim has enrolled in course JS120.'
+```
+
+In this example, the `Student` class inherits from the `Person` class. That gives student objects access to methods of the `Person` class and extends person objects further by adding a `semester` property and an `enrollInCourse` method. Notice that we've reused `Person`'s constructor inside the `Student` constructor, and calling `super` with `name` and `age` since the `Student` constructor expects those arguments. We also assign the `semester` argument to the `semester` property after `super` returns. Note that this most recent example *uses class expressions instead of class declarations.*
+
+### 4. Code Reuse with Mixins
+
+### 5. Polymorphism
+
