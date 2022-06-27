@@ -1,0 +1,11 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#5B100F",
+    "titleBar.activeBackground": "#801715",
+    "titleBar.activeForeground": "#FEFBFB"
+  },
+  "cSpell.words": [
+    "Subclassing",
+    "Subtyping"
+  ]
+}
