@@ -188,14 +188,37 @@ A higher-order function is a function that takes a function as an argument and/o
 // logNum.call(obj); // 42
 
 // Use `call` to explicitly set execution context on the method `logNum`.
-let obj1 = {
-  logNum() {
-    console.log(this.num);
-  }
-}
+// let obj1 = {
+//   logNum() {
+//     console.log(this.num);
+//   }
+// }
 
-let obj2 = {
-  num: 42,
-}
+// let obj2 = {
+//   num: 42,
+// }
 
-obj1.logNum.call(obj2) // 42
+// obj1.logNum.call(obj2) // 42
+
+// Using `bind`
+// function sumNum(num1) {
+//   return this.num + num1;
+// }
+
+// let obj = {
+//   num: 42
+// };
+
+// let sumNum2 = sumNum.bind(obj);
+// sumNum2(5); // => 47
+
+/* In this example, we don't call the function immediately as we do when using `call` and `apply`, Instead, *bind returns a new function*. The new function is **permanently** bound to the object passed as bind's first argument. You can then pass that method around and call it without worrying about losing its context since it's *permanently bound* to the provided object. */
+
+// Object Prototype
+// let a = {
+//   foo: 1,
+//   bar: 2,
+// };
+
+// let b = Object.create(a);
+// b.foo; // => 1
