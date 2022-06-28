@@ -2681,7 +2681,7 @@ if (civic instanceof Car) { // `instanceof` operator
 
 #### 2.9 Scope-safe Constructors
 
-As we have seen, a constructor is simply a function, so it can be called without the new keyword. But, for inexperienced programmers, this can be a source of bugs. A scope-safe constructor is designed to return the same result regardless of whether it’s called with or without new, so it doesn’t suffer from those issues.
+As we have seen, a constructor is simply a function, so it can be called without the new keyword. But, for inexperienced programmers, this can be a source of bugs. A scope-safe constructor is designed to return the same result regardless of whether it’s called with or without `new`, so it doesn’t suffer from those issues.
 
 Most built-in constructors, such as `Object`, `Regex` and `Array`, are scope-safe. They use a special pattern to determine how the constructor is called. If `new` isn’t used, they return a proper instance of the object by calling the constructor again with `new`. Consider the following code:
 
@@ -2723,7 +2723,7 @@ function Dog(name, breed, weight) {
   this.breed = breed;
   this.weight = weight;
 
-  this.bark = function() {
+  this.bark = function() { // method added to every instance
     console.log(this.weight > 20 ? 'Woof!' : 'Yip!');
   };
 }
@@ -2735,7 +2735,7 @@ let biggie = new Dog('Biggie', 'Whippet', 9);
 maxi.bark(); // 'Woof!'
 ```
 
-Each of these dog objects, when created, receive the `name`, `breed`, and `weight` properties *as well as the `bark` method*. The properties have values that differ between objects, but the `bark` method remains the same in all. However, every time we create a new dog object, we must create a new `bark` method so we can add it to the object. This is inefficient and wasteful.
+Each of these dog objects, when created, receive the `name`, `breed`, and `weight` properties *as well as the `bark` method*. The properties have values that differ between objects, but the `bark` method remains the same in all. *However, every time we create a new dog object, we must create a new `bark` method so we can add it to the object.* This is inefficient and wasteful.
 
 We can verify that each object has its own `bark` method with `hasOwnProperty`:
 
@@ -2858,7 +2858,7 @@ The terminology of **constructor prototypes** and **object prototypes** is extre
 
 1. If `bar` is an object, then the object from which `bar` inherits is the **object prototype**. By default, *constructor functions set the object prototype for the objects they create to the constructor's prototype object.*
 
-2. The **constructor's prototype object**, also called the **function prototype**, is an object that the constructor uses as the object prototype for the objects it creates. In other words, each object that the constructor creates inherits from the constructor's prototype object. The constructor stores its prototype object in its `prototype` property; that is, if the constructor's name is `Foo`, then `Foo.prototype` references the constructor's prototype object.
+2. The **constructor's prototype object**, also called the **function prototype**, is an object that the constructor uses as the object prototype for the objects it creates. In other words, each object that the constructor creates inherits from the constructor's prototype object. The constructor stores its prototype object in its `prototype` property; that is, *if the constructor's name is `Foo`, then `Foo.prototype` references the constructor's prototype object.*
 
 In most cases, when we talk about a **prototype** without being more explicit, we mean an **object prototype**. We'll talk about the **constructor's prototype**, the **function prototype**, or the **`prototype` property** when talking about a constructor's prototype object.
 
@@ -2892,7 +2892,9 @@ let biggie = new Dog('Biggie', 'Whippet', 9);
 biggie.bark(); // 'Yip!'
 ```
 
-Note that our constructor doesn't have to explicitly set the prototype of `this` to `Dog.prototype`. JavaScript does that for us when we call the function with `new`. We left this detail out earlier, so let's restate those steps with updated information. We'll assume that the constructor function is named `Foo`:
+Note that our constructor doesn't have to explicitly set the prototype of `this` to `Dog.prototype`. JavaScript does that for us when we call the function with `new`.
+
+We left this detail out earlier, so let's restate those steps with updated information. We'll assume that the constructor function is named `Foo`:
 
 1. It creates an entirely new object.
 2. It sets `Foo.prototype` as the prototype for the new object. That is, the new object inherits from the object referenced by `Foo.prototype`.
@@ -2903,6 +2905,8 @@ Note that our constructor doesn't have to explicitly set the prototype of `this`
 Since the `bark` method refers to `this` and `bark` belongs to the prototype object, you may think that `this` in `this.weight` refers to the prototype object rather than the object itself (e.g., `maxi` or `biggie`). However, that's not how `this` binding works.
 
 When you call a method on an object, JavaScript binds `this` to the object whose method you used to call it. If it doesn't find the method in that object, but it does find it in the prototype, that doesn't change the value of `this`. `this` always refers to the original object -- that is, the object used to call the method -- even if the method is in the prototype. If we find the `bark` method in the prototype, `this` references the original dog object, not the prototype.
+
+##### 3.2.1 `constructor` Property
 
 A property of interest on a prototype object is the `constructor` property. For instance:
 

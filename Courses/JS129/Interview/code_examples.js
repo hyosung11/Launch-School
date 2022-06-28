@@ -222,3 +222,5 @@ A higher-order function is a function that takes a function as an argument and/o
 
 // let b = Object.create(a);
 // b.foo; // => 1
+
+// Method delegation to prototypes
