@@ -330,4 +330,59 @@ Execution Context */
 // let car2 = new Car('Toytoa', 'Prius');
 // console.log(Car.allMakes()); // [ 'Honda', 'Toyota' ]
 
-console.log(Array.from({ 0: 'a', 1: 'b', 2: 'c', 3: 'd', length: 2 }));
+// console.log(Array.from({ 0: 'a', 1: 'b', 2: 'c', 3: 'd', length: 2 }));
+
+// Class Declaration syntax
+// class Rectangle {
+//   constructor(length, width) {
+//     this.length = length;
+//     this.width = width;
+//   }
+
+//   getArea() {
+//     return this.length * this.width;
+//   }
+// }
+
+// let rectangle = new Rectangle(10, 5);
+// console.log(typeof Rectangle); // function
+// console.log(rectangle instanceof Rectangle); // true
+// console.log(rectangle.constructor); //[class Rectangle]
+// console.log(rectangle.getArea());  // 50
+
+// Class Expression Syntax
+// let Rectangle = class {
+//   constructor(length, width) {
+//     this.length = length;
+//     this.width = width;
+//   }
+
+//   getArea() {
+//     return this.length * this.width;
+//   }
+// }
+
+// Static Method Example
+function Rectangle(length, width) {
+  this.length = length;
+  this.width = width;
+}
+
+Rectangle.getDescription = function() {
+  return 'A rectangle is a shape with 4 sides';
+}
+
+console.log(Rectangle.getDescription()); // A rectangle is a shape with 4 sides
+
+class Rectangle {
+  constructor(length, width) {
+    this.length = length;
+    this.width = width;
+  }
+
+  static getDescription() {
+    return 'A rectangle is a shape with 4 sides';
+  }
+}
+
+console.log(Rectangle.getDescription()); // A rectangle is a shape with 4 sides

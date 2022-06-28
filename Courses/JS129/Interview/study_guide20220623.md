@@ -3371,7 +3371,7 @@ The use case shown isn't particularly useful, but there are other use cases for 
 
 In the degenerate case, all arrays are themselves array-like objects.
 
-###2 The `Object` constructor
+#### 5.2 The `Object` Constructor
 
 As with the `Array` constructor, the `Object` constructor creates new objects:
 
@@ -3388,8 +3388,6 @@ You can invoke `Object` without the `new` keyword, just as you can omit `new` wi
 ```
 
 Omitting `new` is probably not a good practice.
-
-#### 5.2 The `Object` Constructor
 
 All objects created by the `Object` constructor or with object literal syntax (e.g., `{ a: 1, b: 2 }`, inherit from `Object.prototype`. Thus, all such objects have access to the instance methods defined in `Object.prototype`. We've already seen some of these methods in action, such as `Object.prototype.hasOwnProperty` and `Object.prototype.isPrototypeOf`.
 

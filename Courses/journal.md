@@ -8321,3 +8321,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 10:21 Combing through the study guide. I need to work on some problems later. I'm still feeling tired. I want to watch Wimbledon tennis.
 
 11:42 Taking a break to play with SungOh.
+
+12:39 Writing out more code examples and now going to eat a little lunch.
