@@ -3026,7 +3026,7 @@ In OOP, we often refer to individual objects of a specific data type as **instan
 
 #### 4.1 Instance Properties
 
-The properties of an instance are **instance properties**. These properties belong to a specific instance of some type. Thus, in our `Dog` example from the earlier assignment, we say that the `name`, `breed`, and `weight` properties are all instance properties of the various instances of the `Dog` type. If we want to access the weight for `Maxi` from the above example, we must use the `maxi` object:
+The properties of an instance are **instance properties**. These properties belong to a specific instance of some type. Thus, in our `Dog` example from the earlier assignment, we say that the `name`, `breed`, and `weight` properties are all instance properties of the various instances of the `Dog` type. If we want to access the weight for `maxi` from the above example, we must use the `maxi` object:
 
 ```js
 maxi.weight; // 32
@@ -3048,7 +3048,7 @@ However, methods usually aren't stored directly in instances. Instead, they are 
 
 As with `weight`, we must use an object created by the `Dog` constructor to invoke `bark`:
 
-```js8
+```js
 maxi.bark(); // Woof!
 ```
 

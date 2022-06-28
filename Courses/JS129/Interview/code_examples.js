@@ -30,7 +30,7 @@
 
 // console.log(employeePay.computeWage()); // 6500
 
-/* ==============
+/* =================
  Factory Function */
 
 // function createCar(make, model, year) {
@@ -157,7 +157,8 @@ Higher Order Functions
 
 A higher-order function is a function that takes a function as an argument and/or returns a function. */
 
-// Execution Context
+/* =================
+Execution Context */
 
 // let foo = {
 //   bar: function () {
@@ -224,3 +225,109 @@ A higher-order function is a function that takes a function as an argument and/o
 // b.foo; // => 1
 
 // Method delegation to prototypes
+
+// Constructor and Prototype Example
+// function Book(author, title) {
+//   this.author = author;
+//   this.title = title;
+// }
+
+// Book.prototype.info = function() {
+//   console.log(`${this.title} was written by ${this.author}.`);
+// }
+
+// let book = new Book('Pavel', 'Deadlift Dynamite');
+// book.info(); // Deadlift Dynamite was written by Pavel.
+
+// Static property used to keep track of all objects created by a constructor
+// function Dog(name, breed, weight) {
+//   this.name = name;
+//   this.breed = breed;
+//   this.weight = weight;
+//   Dog.allDogs.push(this);
+// }
+
+// Dog.allDogs = [];
+
+// let maxi = new Dog('Maxi', 'German Shepherd', 32);
+// let dexter = new Dog('Dexter', 'Rottweiler', 50);
+
+// console.log(Dog.allDogs);
+// [
+//   Dog { name: 'Maxi', breed: 'German Shepherd', weight: 32 },
+//   Dog { name: 'Dexter', breed: 'Rottweiler', weight: 50 }
+// ]
+
+// Static methods are methods that apply to the constructor or class itself, not a specific object created by the constructor or class
+
+// function Dog (name, breed, weight) {
+//   this.name = name;
+//   this.breed = breed;
+//   this.weight = weight;
+// }
+
+// static property
+// Dog.species = 'Canis lupus';
+
+// static method
+// Dog.showSpecies = function() {
+//   console.log(`Dogs belong to the species ${Dog.species}`);
+// };
+
+// Dog.prototype.bark = function() {
+//   console.log(this.weight > 20 ? 'Woof!' : 'Yip!');
+// };
+
+// Dog.showSpecies(); // Dogs belong to the species Canis lupus
+
+// let maxi = new Dog('Maxi', 'German Shepherd', 32);
+// maxi.bark(); // 'Woof!'
+
+// let biggie = new Dog('Biggie', 'Whippet', 9);
+// biggie.bark(); // 'Yip!'
+
+// Constructor/Prototype Example with static `allMakes` method
+// function Car(make, model) {
+//   this.make = make;
+//   this.model = model;
+//   Car.makes.push(this.make);
+// }
+
+// Car.makes = [];
+
+// Car.allMakes = function() {
+//   return Car.makes;
+// }
+
+// Car.prototype.drive = function () {
+//   console.log(`Driving a ${this.model}`);
+// };
+
+// let car1 = new Car('Honda', 'Accord');
+// let car2 = new Car('Toytoa', 'Prius');
+// console.log(Car.allMakes()); // [ 'Honda', 'Toyota' ]
+
+// Class Syntax
+// class Car {
+//   constructor(make, model) {
+//     this.make = make;
+//     this.model = model;
+//     Car.makes.push(this.make);
+//   }
+
+//   static makes = [];
+
+//   static allMakes() {
+//     return Car.makes;
+//   }
+
+//   drive() {
+//     console.log(`Driving a ${this.model}.`);
+//   }
+// }
+
+// let car1 = new Car('Honda', 'Accord');
+// let car2 = new Car('Toytoa', 'Prius');
+// console.log(Car.allMakes()); // [ 'Honda', 'Toyota' ]
+
+console.log(Array.from({ 0: 'a', 1: 'b', 2: 'c', 3: 'd', length: 2 }));
