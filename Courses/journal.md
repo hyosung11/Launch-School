@@ -8313,3 +8313,7 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 11:04 Reviewing the study guide and trying to pull out some code examples and feeling a little tired at the moment.
 
 16:20 Late afternoon sluggishness. I'm tired. I did deadlift 325 pounds twice in my training session.
+
+## 20220628 화요일
+
+09:47 I scheduled the interview for Thursday at 10:00 with Victor. I feel tired today, right now. I have to pee. Ugh.
