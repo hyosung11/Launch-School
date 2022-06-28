@@ -415,26 +415,129 @@ Execution Context */
 
 /* In the constructor function, we create two properties `length` and `width` and assign to them values of parameters with the same name. To access the value of each property within methods, we use the `this` keyword in front of each property name. */
 
-class Greeting {
-  greet(message) {
-    console.log(message);
-  }
+// class Greeting {
+//   greet(message) {
+//     console.log(message);
+//   }
+// }
+
+// class Hello extends Greeting {
+//   hi() {
+//     this.greet('Hello');
+//   }
+// }
+
+// class Goodbye extends Greeting {
+//   bye() {
+//     this.greet('Goodbye')
+//   }
+// }
+
+// let hola = new Hello();
+// hola.hi() // Hello
+
+// let adios = new Goodbye();
+// adios.bye(); // Goodbye
+
+// OLOO `rectanglePrototype`
+// let rectanglePrototype = {
+//   init(length, width) {
+//     this.length = length;
+//     this.width = width;
+//     return this;
+//   },
+
+//   getArea() {
+//     return this.length * this.width;
+//   },
+// }
+
+// let rectangle = Object.create(rectanglePrototype).init(5, 4);
+// console.log(rectangle.getArea()); // 20
+
+// Subtyping with Constructors and Prototypes
+// function Rectangle(length, width) {
+//   this.length = length;
+//   this.width = width;
+// }
+
+// Rectangle.prototype.getArea = function() {
+//   return this.length * this.width;
+// }
+
+// Rectangle.prototype.toString = function() {
+//   return `[Rectangle ${this.length} x ${this.width}]`;
+// }
+
+// let rectangle = new Rectangle(5, 4);
+// console.log(rectangle.getArea()); // 20
+// console.log(rectangle.toString()); // [Rectangle 5 x 4]
+
+// function Square(size) {
+//   Rectangle.call(this, size, size);
+// }
+
+// Square.prototype = Object.create(Rectangle.prototype);
+// // Restore the `constructor` property
+// Square.prototype.constructor = Square;
+
+// Square.prototype.toString = function() {
+//   return `[Square ${this.length} x ${this.width}]`;
+// }
+
+// let square = new Square(5);
+// console.log(square.getArea()); // 25
+// console.log(square.toString()); // [Square 5 x 5]
+
+/* The combination of constructors and prototypes provides a way of mimicking classical inheritance with JavaScript. This lets us create subtypes objects which can inherit methods from a supertype object. This is one way of facilitating code reuse. */
+
+// Prototypal Inheritance Example
+
+// let humanPrototype = {
+//   myName() { return this.name; },
+//   myAge() { return this.age; },
+// };
+
+// let personPrototype = Object.create(humanPrototype);
+// personPrototype.toString = function() {
+//   return `My name is ${this.myName()} and I'm ${this.myAge()} years old.`;
+// };
+
+// let will = Object.create(personPrototype);
+// will.name = 'William';
+// will.age = 28;
+// will.toString(); // => My name is William and I'm 28 years old.
+
+/* Here, the `will` object inherits from the `personPrototype` object which, in turn, inherits from `humanPrototype`. `will`'s `[[Prototype]]` property refers to `personPrototype`, and the `[[Prototype]]` property of `personPrototype` refers to `humanPrototype`. When we invoke `toString`, it finds the methods `myName` and `myAge` on the `humanPrototype` object. */
+
+// let animal = {
+//   type: 'mammal',
+//   breathe: function() {
+//     console.log("I'm breathing");
+//   },
+// }
+
+// let dog = Object.create(animal);
+
+// console.log(dog); // {}
+// console.log(dog.type); // mammal
+// console.log(dog.__proto__); // { type: 'mammal', breathe: [Function: breathe] }
+// console.log(dog.__proto__ === animal); // true
+
+// Pseudo-classical Inheritance Example
+function Human() {}
+
+Human.prototype.myName = function() { return this.name; }
+Human.prototype.myAge = function() { return this.age; }
+
+function Person() {}
+Person.prototype = Object.create(Human.prototype);
+Person.prototype.constructor = Person;
+Person.prototype.toString = function() {
+  return `My name is ${this.myName()} and I'm ${this.myAge()} years old.`;
 }
 
-class Hello extends Greeting {
-  hi() {
-    this.greet('Hello');
-  }
-}
-
-class Goodbye extends Greeting {
-  bye() {
-    this.greet('Goodbye')
-  }
-}
-
-let hola = new Hello();
-hola.hi() // Hello
-
-let adios = new Goodbye();
-adios.bye(); // Goodbye
+let will = new Person();
+will.name = 'William';
+will.age = 28
+console.log(will.toString()); // My name is Will and I'm 28 years old.
