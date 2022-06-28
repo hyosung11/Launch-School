@@ -363,26 +363,78 @@ Execution Context */
 // }
 
 // Static Method Example
-function Rectangle(length, width) {
-  this.length = length;
-  this.width = width;
-}
+// function Rectangle(length, width) {
+//   this.length = length;
+//   this.width = width;
+// }
 
-Rectangle.getDescription = function() {
-  return 'A rectangle is a shape with 4 sides';
-}
+// Rectangle.getDescription = function() {
+//   return 'A rectangle is a shape with 4 sides';
+// }
 
-console.log(Rectangle.getDescription()); // A rectangle is a shape with 4 sides
+// console.log(Rectangle.getDescription()); // A rectangle is a shape with 4 sides
 
-class Rectangle {
-  constructor(length, width) {
-    this.length = length;
-    this.width = width;
+// class Rectangle {
+//   constructor(length, width) {
+//     this.length = length;
+//     this.width = width;
+//   }
+
+//   static getDescription() {
+//     return 'A rectangle is a shape with 4 sides';
+//   }
+// }
+
+// console.log(Rectangle.getDescription()); // A rectangle is a shape with 4 sides
+
+// ES6 Class Syntax
+// class Rectangle {
+//   constructor(length, width) {
+//     this.length = length;
+//     this.width = width;
+//   }
+
+//   getLength() {
+//     return this.length;
+//   }
+
+//   getWidth() {
+//     return this.width;
+//   }
+
+//   getArea() {
+//     return this.length * this.width;
+//   }
+// }
+
+// let rectangle = new Rectangle(5, 4);
+
+// console.log(rectangle.getLength()); // 5
+// console.log(rectangle.getWidth()); // 4
+// console.log(rectangle.getArea()); // 20
+
+/* In the constructor function, we create two properties `length` and `width` and assign to them values of parameters with the same name. To access the value of each property within methods, we use the `this` keyword in front of each property name. */
+
+class Greeting {
+  greet(message) {
+    console.log(message);
   }
+}
 
-  static getDescription() {
-    return 'A rectangle is a shape with 4 sides';
+class Hello extends Greeting {
+  hi() {
+    this.greet('Hello');
   }
 }
 
-console.log(Rectangle.getDescription()); // A rectangle is a shape with 4 sides
+class Goodbye extends Greeting {
+  bye() {
+    this.greet('Goodbye')
+  }
+}
+
+let hola = new Hello();
+hola.hi() // Hello
+
+let adios = new Goodbye();
+adios.bye(); // Goodbye
