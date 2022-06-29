@@ -616,3 +616,135 @@ Execution Context */
 // student.sayName(); // My name is Kim.
 // student.enrollInCourse('JS130'); // Kim has enrolled in course JS130.
 
+// Mixin
+// const Swimmable = {
+//   swim() { console.log(`Swimming`);},
+// };
+
+// const Flyable = {
+//   fly() { console.log(`Flying`);},
+// };
+
+// function createFlyingBird() {
+//   return Object.assign({}, Flyable);
+// }
+
+// function createSwimmingBird() {
+//   return Object.assign({}, Swimmable);
+// }
+
+// function createTalentedBird() {
+//   return Object.assign({}, Swimmable, Flyable);
+// }
+
+// function createStork() {
+//   return createFlyingBird();
+// }
+
+// function createParrot() {
+//   return createFlyingBird();
+// }
+
+// function createPenguin() {
+//   return createSwimmingBird();
+// }
+
+// function createOstrich() {
+//   return createSwimmingBird();
+// }
+
+// function createDuck() {
+//   return createTalentedBird();
+// }
+
+// function createGoose() {
+//   return createTalentedBird();
+// }
+
+// let duck = createDuck();
+// duck.swim(); // Swimming
+// duck.fly(); // Flying
+
+// console.log(duck.hasOwnProperty('swim')); // true
+// console.log(duck instanceof createDuck); // false
+
+// Mixin with Class
+// const Speed = {
+//   goFast() {
+//     console.log(`I'm a ${this.constructor.name} and going super fast!`);
+//   }
+// }
+
+// class Car {
+//   goSlow() {
+//     console.log(`I'm safe and driving slow.`);
+//   }
+// }
+
+// Object.assign(Car.prototype, Speed);
+
+// class Truck {
+//   goVerySlow() {
+//     console.log(`I'm a heavy truck and like going very slow.`);
+//   }
+// }
+
+// Object.assign(Truck.prototype, Speed);
+
+// let car = new Car();
+// car.goFast();
+
+// let truck = new Truck();
+// truck.goFast();
+
+// Use `in` operator to check whether an object responds to a specific method.
+
+// console.log(`goFast` in car); // true
+// console.log('goSlow' in truck); // false
+
+// Mixin with Factory Function
+// function createRobot(intelligence, model) {
+//   return {
+//     intelligence,
+//     model,
+
+//     solve() {
+//       console.log(`Solving`);
+//     }
+//   }
+// }
+
+// const walk = {
+//   walk() {
+//     console.log(`Walking`);
+//   }
+// }
+
+// const talk = {
+//   talk() {
+//     console.log(`Talking`);
+//   }
+// }
+
+// function createHumanoid(intelligence, model) {
+//   let humanoid = createRobot(intelligence, model);
+//   Object.assign(humanoid, walk, talk);
+//   return humanoid;
+// }
+
+// function createHuman(name, age) {
+//   let human = {
+//     name,
+//     age,
+//   }
+//   Object.assign(human, walk, talk);
+//   return human;
+// }
+
+// let mandy = createHumanoid('High', 'C3P0');
+// mandy.solve(); // Solving
+
+// let human = createHuman('SungOh', 6);
+// human.walk(); // Walking
+
+// Polymorphism

@@ -4579,7 +4579,7 @@ In this example, the `Student` class inherits from the `Person` class. That give
 
 In JavaScript *objects can only inherit from one object, and classes can extend only one other class*. In other words, an object can have only one prototype object. This is **single inheritance**.
 
-Some programming languages allow classes to inherit from multiple classes, a functionality known as multiple inheritance. JavaScript doesn't support **multiple inheritance**, so a class can only inherit from one class.
+Some programming languages allow classes to inherit from multiple classes, a functionality known as **multiple inheritance**. *JavaScript doesn't support multiple inheritance, so a class can only inherit from one class.*
 
 This limitation makes it difficult to model certain domains using class or constructor-based inheritance. For instance, suppose we have a `Pet` class from which several other specific classes inherit. The inheritance relationship might look like this:
 
@@ -4739,7 +4739,7 @@ class Goose extends FlyingBird {}
 Object.assign(Goose.prototype, Swimmable);
 ```
 
-In this code, we've created a `Swimmable` object that has a `swim` method. To mix it into our various swimming birds, we've used `Object.assign` to add the methods from `Swimmable` to the prototype objects of those classes. It's a bit tedious, but not too difficult, and it works well.
+In this code, we've created a `Swimmable` object that has a `swim` method. To mix it into our various swimming birds, we've used `Object.assign()` to add the methods from `Swimmable` to the prototype objects of those classes. It's a bit tedious, but not too difficult, and it works well.
 
 For consistency, we could even *eliminate the inheritance aspect entirely*:
 
@@ -4827,13 +4827,15 @@ This approach is valid, but it suffers the *downsides of all factory functions*:
 
 2. You can't determine the type of an object created with a factory function: the `instanceof` operator only recognizes these objects as instances of the `Object` type. As far as JavaScript is concerned, a penguin and a fish and an automobile are indistinguishable. That's not as troubling as it might sound in terms of being able to solve programming problems, but it has a more significant impact on debugging.
 
+#### 4.5.1 "is a" (inheritance) vs "has a" (mixin)
+
 We *suggest a balance of mix-in and classical inheritance* pattern instead:
 
 1. *Inheritance works well when one object type is positively a subtype of another object.* In our example, it's natural for a penguin to also be a swimming bird. These types have an **is a** relationship: a penguin *is a* swimming bird. *Whenever two object types have an "is a" relationship, constructor or class inheritance makes sense.*
 
 2. On the other hand, the ability to swim doesn't have that kind of relationship with storks. Swimming is a capability that penguins have. Similarly, flying is a capability that storks have. *When you want to endow your objects with some capability, a mixin may be the correct choice.*
 
-Mixins are more appropriate in a *has-a* relationship. While it is sometimes tricky to choose one or the other, *a great guideline is to decide if you want some additional functionality, or if you want to extend the abilities of the class.*
+Mixins are more appropriate in a **has a** relationship. While it is sometimes tricky to choose one or the other, *a great guideline is to decide if you want some additional functionality, or if you want to extend the abilities of the class.*
 
 **Inheritance** works best when there is an "is a" relationship between two classes. The inheriting class is a type of the superclass.
 
@@ -4849,7 +4851,7 @@ The **mixin** pattern works best when an object has a capability that another ob
 
 #### 4.6 Mixin with Classes Example
 
-If we have a `Car` class and a `Truck` class, how can you use the `Speed` object as a mix-in to make them `goFast`? How can you check whether your `Car` or `Truck` can now go fast?
+If we have a `Car` class and a `Truck` class, how can you use the `Speed` object as a mixin to make them `goFast`? How can you check whether your `Car` or `Truck` can now go fast?
 
 ```js
 const Speed = {
