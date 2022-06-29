@@ -8327,3 +8327,7 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 16:38 Studying more after the gym and watching some tennis. I feel tired. Do I need a testosterone supplement?
 
 17:59 Time for dinner before playing soccer.
+
+## 20220629 수요일
+
+09:54 I woke up late and my whole body feels stiff. I have a sore throat as well. I feel tired. Maybe I do have covid this time. I scheduled my interview for tomorrow, so I'm planning on that.
