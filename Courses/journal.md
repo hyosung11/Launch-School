@@ -8335,3 +8335,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 10:42 I feel tired and our house is low energy. I want to take the interview sooner than later at this point.
 
 11:32 So stiff still. I'm hesitating about training today. I'm almost through the examples from my study guide. I will keep the interview assessment as scheduled for tomorrow.
+
+12:10 Taking a break to play with SungOh.

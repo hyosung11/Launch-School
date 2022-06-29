@@ -1,4 +1,4 @@
-# Object Oriented Programming with JavaScript Interview Assessment Study Guide (20220627 09:39 Version)
+# Object Oriented Programming with JavaScript Interview Assessment Study Guide (20220629 11:35 Version)
 
 ## Topical Outline
 
@@ -5085,7 +5085,7 @@ Notice how we're calling both `str.indexOf` and `arr.indexOf` by using `obj.inde
 
 You can do that with a duck-typed language, but if you try it in a language like C that doesn't support duck typing, it will produce a type error. You can't call methods for two or more objects with the same line of code unless the objects have a common superclass. It's much more stringent than JS and Ruby. However, you can still call things that have the same method, just not through a common interface.
 
-By the way -- calling `indexOf` like this with a variable that can take on different types is where polymorphism really comes into play. *The point behind polymorphism is that you can write code that doesn't care about types -- just that the different things respond to the same message.*
+By the way -- calling `indexOf` like this with a variable that can take on different types is where polymorphism really comes into play. *The point behind polymorphism is that you can write code that doesn't care about types -- just that different things respond to the same message.*
 
 #### 5.3 Polymorphic Behavior without Duck Typing
 
@@ -5328,7 +5328,7 @@ However, it's unlikely that this would ever make sense in real code. Unless you'
 
 #### 6.1 `Object.assign()`
 
-`Object.assign(target, ...sources)` - Mixin
+`Object.assign(target, ...sources)` - Use with Mixins
 
 Static object method which copies the properties and methods of one object to another. It does not work with classes or functions, only with an object instance.
 
@@ -5336,7 +5336,7 @@ Static object method which copies the properties and methods of one object to an
 
 - Properties in the target object are overwritten by properties in the sources if they have the same key. Later sources' properties overwrite earlier ones.
 
-- The `Object.assign()` method only copies ***enumerable* and *own*** properties from a source object to a target object. It uses `[[Get]]` on the source and `[[Set]]` on the target, so it will invoke getters/setters, and therefore it ***assigns*** properties.
+- The `Object.assign()` method only copies ***enumerable* and *own*** properties from a source object to a target object. It uses `[[Get]]` on the source and `[[Set]]` on the target, so it will invoke getters/setters, and therefore it *assigns* properties.
 
 - **Parameters**
   - `target` the target object — what to apply the sources’ properties to, which is returned after it is modified.

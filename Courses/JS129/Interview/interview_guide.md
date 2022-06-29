@@ -48,7 +48,7 @@ Mistakes are normal. If you make one in the interview, we want to see how you re
 ## Areas of Focus
 
 - [x] General knowledge of OOP concepts as they pertain to JavaScript.
-- [ ] Conventional techniques for constructing objects, including the use of prototypal inheritance.
+- [x] Conventional techniques for constructing objects, including the use of prototypal inheritance.
 - [ ] The ability to come up with code examples to illustrate concepts. Be prepared! Know what examples you want to use.
 - [ ] The ability to integrate what you've learned and put it to work to understand unusual situations.
 - [ ] An ability to speak clearly and with precision.

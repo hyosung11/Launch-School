@@ -747,4 +747,63 @@ Execution Context */
 // let human = createHuman('SungOh', 6);
 // human.walk(); // Walking
 
-// Polymorphism
+// Polymorphism through Inheritance
+// class Animal {
+//   move() {}
+// }
+
+// class Fish extends Animal {
+//   move() {
+//     console.log(`Swimming`);
+//   }
+// }
+
+// class Cat extends Animal {
+//   move() {
+//     console.log(`Walking`);
+//   }
+// }
+
+// class Sponge extends Animal {}
+// class Coral extends Animal {}
+
+// let animals = [new Fish(), new Cat(), new Sponge(), new Coral()];
+
+// animals.forEach(animal => animal.move());
+// Swimming
+// Walking
+
+// Inheritance-based Polymorphism - Objects are related through inheritance
+// class Animal {
+//   speak() {}
+// }
+
+// class Dog extends Animal {
+//   speak() { console.log("Woof!"); }
+// }
+
+// class Cat extends Animal {
+//   speak() { console.log("Meow!"); }
+// }
+
+// class Fish extends Animal {}
+
+// let dog = new Dog();
+// let cat = new Cat();
+// let fish = new Fish();
+
+// dog.speak(); // Woof!
+// cat.speak(); // Meow!
+// fish.speak(); // (nothing happens)
+
+// Polymorphism through Duck Typing
+let str = 'abcde';
+let arr = ['a', 'b', 'c', 'd', 'e'];
+
+[str, arr].forEach(obj => console.log(obj.indexOf('d')));
+// 3
+// 3
+
+/* Notice how we're calling both `str.indexOf()` and `arr.indexOf()` where `obj` is alternately a reference to `str` or `arr`.
+
+Calling `indexOf` like this with a variable that can take different types is where polymorphism really comes into play. The point behind polymorphism is that you can write code that doesn't care about types -- just that different things respond to the same message. */
