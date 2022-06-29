@@ -525,19 +525,94 @@ Execution Context */
 // console.log(dog.__proto__ === animal); // true
 
 // Pseudo-classical Inheritance Example
-function Human() {}
+// function Human() {}
 
-Human.prototype.myName = function() { return this.name; }
-Human.prototype.myAge = function() { return this.age; }
+// Human.prototype.myName = function() { return this.name; }
+// Human.prototype.myAge = function() { return this.age; }
 
-function Person() {}
-Person.prototype = Object.create(Human.prototype);
-Person.prototype.constructor = Person;
-Person.prototype.toString = function() {
-  return `My name is ${this.myName()} and I'm ${this.myAge()} years old.`;
-}
+// function Person() {}
+// Person.prototype = Object.create(Human.prototype);
+// Person.prototype.constructor = Person;
+// Person.prototype.toString = function() {
+//   return `My name is ${this.myName()} and I'm ${this.myAge()} years old.`;
+// }
 
-let will = new Person();
-will.name = 'William';
-will.age = 28
-console.log(will.toString()); // My name is Will and I'm 28 years old.
+// let will = new Person();
+// will.name = 'William';
+// will.age = 28
+// console.log(will.toString()); // My name is Will and I'm 28 years old.
+
+// Class Syntax
+// class Human {
+//   myName() { return this.name; }
+//   myAge() { return this.age; }
+// }
+
+// class Person extends Human {
+//   toString() {
+//     return `My name is ${this.myName()} and I'm ${this.myAge()} years old.`;
+//   }
+// }
+
+// let will = new Person();
+// will.name = 'William';
+// will.age = 28;
+// console.log(will.toString()); // My name is William and I'm 28 years old.
+
+// Inheritance with Class Declarations
+// class Rectangle {
+//   constructor(length, width) {
+//     this.length = length;
+//     this.width = width;
+//   }
+
+//   getArea() {
+//     return this.length * this.width;
+//   }
+
+//   toString() {
+//     return `[Rectangle ${this.length} * ${this.width}]`;
+//   }
+// }
+
+// class Square extends Rectangle {
+//   constructor(size) {
+//     super(size, size);
+//   }
+
+//   toString() {
+//     return `[Square ${this.length} x ${this.width}]`;
+//   }
+// }
+
+// let square = new Square(5);
+// console.log(square.getArea()); // 25
+// console.log(square.toString()); // [Square 5 x 5]
+
+// Inheritance with class expression syntax
+// let Person = class {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//   }
+
+//   sayName() {
+//     console.log(`My name is ${this.name}.`);
+//   }
+// };
+
+// let Student = class extends Person {
+//   constructor(name, age, semester) {
+//     super(name, age);
+//     this.semester = semester;
+//   }
+
+//   enrollInCourse(courseNumber) {
+//     console.log(`${this.name} has enrolled in course ${courseNumber}.`);
+//   }
+// }
+
+// let student = new Student('Kim', 21, 'Fall');
+// student.sayName(); // My name is Kim.
+// student.enrollInCourse('JS130'); // Kim has enrolled in course JS130.
+

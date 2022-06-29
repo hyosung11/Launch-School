@@ -4462,7 +4462,7 @@ will.age = 28;
 will.toString(); // => My name is William and I'm 28 years old.
 ```
 
-Both pseudo-classical and prototypal inheritance *use prototypal delegation under the hood*. If the requested property isn't found, the object delegates the request to the object's prototype object. If the requested property isn't there either, the prototype object delegates the request to its own prototype object. This process follows the prototype chain until the property or method is found or the end of the prototype chain is found.
+Both pseudo-classical and prototypal inheritance *use prototypal delegation under the hood*. If the requested property isn't found, the object delegates the request to the object's prototype object. If the requested property isn't there either, the prototype object delegates the request to its own prototype object. This process follows the prototype chain until the property or method is found or the end of the prototype chain is reached.
 
 ### 3. Inheritance with Class Declarations
 
@@ -4527,7 +4527,7 @@ The `extends` keyword signifies that the class named to the left of `extends` sh
 
 #### 3.1 `super`
 
-Note also that the `Square` constructor calls a function that is represented by the keyword `super`. When called inside the `constructor` method, *the `super` keyword refers to the constructor method for the parent class* (the class that we inherit from). Thus, `super(size, size)` performs the same role performed by this code from our constructor/prototype example:
+Note also that the `Square` constructor calls a function that is represented by the keyword `super`. When called inside the `constructor` method, *the `super` keyword refers to the constructor method for the parent class* (the class that we inherit from). Thus, `super(size, size)` performs the same role as this code from our constructor/prototype example:
 
 ```js
 function Square() {
@@ -4571,7 +4571,7 @@ student.sayName(); // logs 'My name is Kim.'
 student.enrollInCourse('JS120'); // => 'Kim has enrolled in course JS120.'
 ```
 
-In this example, the `Student` class inherits from the `Person` class. That gives student objects access to methods of the `Person` class and extends person objects further by adding a `semester` property and an `enrollInCourse` method. Notice that we've reused `Person`'s constructor inside the `Student` constructor, and calling `super` with `name` and `age` since the `Student` constructor expects those arguments. We also assign the `semester` argument to the `semester` property after `super` returns. Note that this most recent example *uses class expressions instead of class declarations.*
+In this example, the `Student` class inherits from the `Person` class. That gives student objects access to methods of the `Person` class and *extends* person objects further by adding a `semester` property and an `enrollInCourse` method. Notice that we reuse `Person`'s constructor inside the `Student` constructor, and call `super` with `name` and `age` since the `Student` constructor expects those arguments. We also assign the `semester` argument to the `semester` property after `super` returns. Note that this most recent example *uses class expressions instead of class declarations.*
 
 ### 4. Code Reuse with Mixins
 
