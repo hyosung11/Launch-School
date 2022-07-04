@@ -8337,3 +8337,7 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 11:32 So stiff still. I'm hesitating about training today. I'm almost through the examples from my study guide. I will keep the interview assessment as scheduled for tomorrow.
 
 12:10 Taking a break to play with SungOh.
+
+## 20220704 월요일
+
+18:45 It's Independence Day and I'm finally feeling better after a household bout with covid. I want to pass the interview assessment this week.
