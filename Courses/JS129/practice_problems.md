@@ -340,7 +340,7 @@ Recursive Solution
 
 ```js
 function assignProperty(obj, property, value) {
-  if (obj === null) {// property not found
+  if (obj === null) { // property not found
     return;
   } else if (obj.hasOwnProperty(property)) {
     obj[property] = value;
