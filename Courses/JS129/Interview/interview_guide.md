@@ -32,7 +32,7 @@ foo(); // undefined
 
 ## Interview Presentation
 
-The interviewer will ask you to present or teach OOP topics. You should have a strong conceptual understanding of the core concepts in JS120. You should be able to talk about why they exist and how to use them in code and write example code to illustrate the concepts. You'll also need to use that conceptual understanding to reason with and solve various code examples and problems that the interviewer will present.
+The interviewer will ask you to present or teach OOP topics. You should have a strong conceptual understanding of the core concepts in JS120. You should be able to talk about *why they exist and how to use them in code and write example code to illustrate the concepts*. You'll also need to use that conceptual understanding to reason with and solve various code examples and problems that the interviewer will present.
 
 We'll ask you to speak and drive the conversation, so practice speaking and teaching others on technical topics. Make sure you study the following resources, perhaps going through them more than once.
 

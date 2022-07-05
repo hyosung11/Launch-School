@@ -77,13 +77,13 @@ foo(); // --> line 9
 
 because the implicit execution context is the global object.
 
-On line 18, we pass the greeting method defined on the john object into the function invocation of repeatThreeTimes and we assign the greeting method to the parameter func. Inside the body of repeatThreeTimes, we invoke func as a function which will now set the implicit execution context to be the global obect. When we invoke func as a function, the global object will look for properties firstName and lastName, which in turn will return both undefined. Thus logging, ...
+On line 18, we pass the greeting method defined on the john object into the function invocation of repeatThreeTimes and we assign the greeting method to the parameter func. Inside the body of repeatThreeTimes, we invoke func as a function which will now set the implicit execution context to be the global object. When we invoke func as a function, the global object will look for properties firstName and lastName, which in turn will return both undefined. Thus logging, ...
 
 hello, undefined undefined
 hello, undefined undefined
 hello, undefined undefined
 
-In this example, we defined a new arguemnt, `context`,  in repeatThreeTimes. When we invoke repeatThreeTimes and pass the greeting method, and the john object, both values will be assgined to `func` and `context`. We can call the method `call` on the value stored in `func` and pass in the value stored in `context` which is the object john.
+In this example, we defined a new argument, `context`,  in repeatThreeTimes. When we invoke repeatThreeTimes and pass the greeting method, and the john object, both values will be assigned to `func` and `context`. We can call the method `call` on the value stored in `func` and pass in the value stored in `context` which is the object john.
 
 */
 

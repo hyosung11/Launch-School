@@ -26,7 +26,7 @@ The code will output
 
 When we pass `turk.getDescription` as an argument to `logReturnVal`, we remove the method from its context. Then when we execute it as `func` this sets the execution context to the global object rather than the `turk` object. Since the global object doesn't have the properties `firstName`, `lastName`, or `occupation` the output isn't what we expect. 
 
-To get the desired output, we must expliclity set the execution contex to the `turk` object. 
+To get the desired output, we must explicity set the execution context to the `turk` object. 
 */
 
 // let john = {

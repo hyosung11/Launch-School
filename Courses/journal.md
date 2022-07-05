@@ -8341,3 +8341,10 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 ## 20220704 월요일
 
 18:45 It's Independence Day and I'm finally feeling better after a household bout with covid. I want to pass the interview assessment this week.
+
+## 20220705 화요일
+
+10:06 Good morning. I'm back at my standing desk after about a week. I kind of just want to take the interview and be done with it, but I scheduled it for Friday.
+
+12:24 Been studying while watching Novak Djokovic rally to win his quarterfinal. Time for lunch.
+

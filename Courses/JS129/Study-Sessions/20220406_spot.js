@@ -187,9 +187,9 @@ class Cat extends Animal {
 
 // 18. There are two types of polymorphism in JS. What are they? Choose one of them and explain how it works on an example.
 // The two types of polymorphism in JS are: 
-// - Polyymorphism through inheritance.
+// - Polymorphism through inheritance.
 // - Polymorphism through duck typing.
-// Polymorphism is when we are able to invoke a method  without caring about which object invoked it. 
+// Polymorphism is when we are able to invoke a method without caring about which object invoked it. 
 
 // Duck typing is a version of polymorphism that enables the developer to invoke a method on objects that do not share an ancestor on their prototype chain. 
 
@@ -216,7 +216,7 @@ Polymorphism requires intention.
 Note that merely having two different objects that have a method with the same name and compatible arguments *doesn't mean that you have polymorphism*.
 
   Telling two similar (conceptually) objects to do the same thing.
-  Multiple objects providing the same interface for similar behaviour.
+  Multiple objects providing the same interface for similar behavior.
 */
 
 

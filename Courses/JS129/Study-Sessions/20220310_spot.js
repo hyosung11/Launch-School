@@ -116,7 +116,7 @@ Objects Linking to Other Objects */
 
 //OLOO
 
-//Start with the grandparent, which is to be the prototype
+// Start with the grandparent, which is to be the prototype
 let human = {
   init(name, age) {
     this.name = name;
