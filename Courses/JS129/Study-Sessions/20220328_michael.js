@@ -130,5 +130,5 @@ overriding - same type different implementation of same method invocation
 
 Inheritance-based polymorphism is the other form of polymorphism. It's exactly the same, but the objects are related through inheritance:
 
-duck typing - different types responde to same method invocation
+duck typing - different types respond to same method invocation
 */
