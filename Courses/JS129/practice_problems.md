@@ -790,7 +790,7 @@ undefined: Skyrim
 
 Since functions lose their surrounding context when used as arguments to another function, the context of line 6 is not the `TESgames` object. Instead, it is the global object. Thus, `this.seriesTitle` resolves to `undefined` rather than `"The Elder Scrolls"`.
 
-My Answer: No because the call to `TESgames.listGames()` invokes the `listGames` method which invokes a function expression that is stripped of the TESgames context. So it references the global object which does not have the properties `titles` or `seriesTitle` and the output is  undefined repeatedly.
+~~My Answer: No because the call to `TESgames.listGames()` invokes the `listGames` method which invokes a function expression that is stripped of the TESgames context. So it references the global object which does not have the properties `titles` or `seriesTitle` and the output is  undefined repeatedly.~~
 
 ### 15.5 Use `let self = this`; to ensure that `TESgames.listGames` uses `TESGames` as its context and logs the proper output
 
@@ -910,7 +910,7 @@ let foo = {
 };
 
 let baz = Object.create(foo);
-baz.qux()
+baz.qux() // line 9
 ```
 
 Which of the following statements about the invocation on line 9 are true? Choose all that apply:
