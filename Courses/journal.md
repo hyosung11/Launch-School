@@ -8361,3 +8361,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 12:00 Reviewing my study guide, but not the best use of time according to research. I feel tired. Ugh.
 
 12:24 Time for lunch from Ness's.
+
+13:00 Ready to go to the gym and train but I might have to poo first.
