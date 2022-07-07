@@ -54,7 +54,7 @@ SubType.prototype.constructor = SubType;
 let instance = new SubType("st1", "st2");
 
 
-// - All function are given a `prototype` property by the JavaScript engine when they are created in case thier intended use is as a constructor. 
+// - All function are given a `prototype` property by the JavaScript engine when they are created in case their intended use is as a constructor. 
 // - The function `prototype` property created by JavaScript is given a non-enumerable property called `constructor` which is assigned to a reference of the function object. 
 // - Because we want `SubType` to inherit the methods of `SuperType`, we need to somehow connect the two constructors. 
 // - This is done through `line 48`. 

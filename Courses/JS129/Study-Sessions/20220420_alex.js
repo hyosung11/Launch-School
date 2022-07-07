@@ -61,7 +61,7 @@ A constructor that doesn't return an explicit value will return a new object of 
 /* Lesson 3 Quiz 1 Question 9 */
 
 // str = [1, 2, 3].map.call(str, convertCase).join('');
-/* This code uses `call` to invoke `map` with `str` as its context, a process that allows `map` to prcess the individual characters of `str`. Note that we use the array `[1, 2, 3]` to invoke `call`; any array will do. */
+/* This code uses `call` to invoke `map` with `str` as its context, a process that allows `map` to process the individual characters of `str`. Note that we use the array `[1, 2, 3]` to invoke `call`; any array will do. */
 
 // str = Array.from(str).map(convertCase).join('');
 /* This code uses the `Array.from` static method to convert `str` to an array of characters. That lets us use `Array.prototype.map` and `Array.prototype.join` to translate the characters and recombine them as a string. */

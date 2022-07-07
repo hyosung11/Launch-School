@@ -131,7 +131,7 @@
 // }
 
 // // Method reference be assigned to a variable or passed as an argument.
-// wrapFunc(obj.printObj); // Looses context.
+// wrapFunc(obj.printObj); // Loses context.
 // // let func = obj.printObj
 
 // const contextLoss = obj.printObj;

@@ -15,7 +15,7 @@ function Square(size) {
   Rectangle.call(this, size, size);
 }
 console.log(Square.prototype.constructor);
-// Using `Object.create` to create a new object whose ``[[Prototype]]` is set to
+// Using `Object.create` to create a new object whose `[[Prototype]]` is set to
 console.log(Object.getPrototypeOf(Square.prototype));
 Square.prototype = Object.create(Rectangle.prototype);
 //Square.prototype.constructor = Square;

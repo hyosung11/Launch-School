@@ -17,12 +17,12 @@ shirt.foo();
 
 /* Describe the following object creation pattern and give an example: Factory function / object factories */
 
-// A factory function is a function that returns a new object with a copy of all its states and behaviours.
+// A factory function is a function that returns a new object with a copy of all its states and behaviors.
 
 function createCat(name) {
   return {
     name,
-    miaouw (){ console.log("Miaouw!!")},
+    miaouw () { console.log("Miaouw!!")},
   }
 }
 
@@ -32,7 +32,7 @@ console.log(fluffy);
 
 /* Describe the following object creation pattern and give an example: Constructors with prototypes (Pseudo-classical pattern) */
 
-// The constructor pattern returns a new object using the `new` keyword; the use of the `new` keyword will set the protototype of the returned object to the constructor function prototype property. We will use this prototype property to store the object inherited methods.
+// The constructor pattern returns a new object using the `new` keyword; the use of the `new` keyword will set the prototype of the returned object to the constructor function prototype property. We will use this prototype property to store the object inherited methods.
 
 function Cat(name) {
   this.name = name;
@@ -214,7 +214,7 @@ console.log(dog.hasOwnProperty('makeSound')); // false
 
 
 ///*  What is a mixin? What would we use it for?
-// A mixin is the process of copying the methods from an object to another object. We use it because JavaScript doesn't allow multiple inheritance; objects can only inherit from one prototype. In cases where we want an object to inherit from several objects, we use mxins in JavaScript.
+// A mixin is the process of copying the methods from an object to another object. We use it because JavaScript doesn't allow multiple inheritance; objects can only inherit from one prototype. In cases where we want an object to inherit from several objects, we use mixins in JavaScript.
 
 // class of birds, most of them fly but not all. All of them inherit from a class named Animal. For each type of bird, depending on the bird subtype, we would need to copy methods for the flying birds ("flyable" object)
 
