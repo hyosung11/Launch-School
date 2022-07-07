@@ -8350,3 +8350,6 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 
 13:04 Going to the gym after lunch now.
 
+## 20220707 목요일
+
+09:35 I guess I made no notes yesterday. I didn't have much time to study.
