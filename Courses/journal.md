@@ -8359,3 +8359,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 11:51 I feel ready or more truthfully just tired of OOP at the moment and want to take and pass the interview.
 
 12:00 Reviewing my study guide, but not the best use of time according to research. I feel tired. Ugh.
+
+12:24 Time for lunch from Ness's.
