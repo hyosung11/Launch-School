@@ -797,13 +797,139 @@ Execution Context */
 // fish.speak(); // (nothing happens)
 
 // Polymorphism through Duck Typing
-let str = 'abcde';
-let arr = ['a', 'b', 'c', 'd', 'e'];
+// let str = 'abcde';
+// let arr = ['a', 'b', 'c', 'd', 'e'];
 
-[str, arr].forEach(obj => console.log(obj.indexOf('d')));
+// [str, arr].forEach(obj => console.log(obj.indexOf('d')));
 // 3
 // 3
 
 /* Notice how we're calling both `str.indexOf()` and `arr.indexOf()` where `obj` is alternately a reference to `str` or `arr`.
 
 Calling `indexOf` like this with a variable that can take different types is where polymorphism really comes into play. The point behind polymorphism is that you can write code that doesn't care about types -- just that different things respond to the same message. */
+
+/* In your own words, explain what happens when you use the new keyword in a function invocation.
+
+When you use the new keyword in a function invocation, JavaScript does the following six things:
+
+    Creates a new object.
+    Sets [[Prototype]] of the new object to the same object as the constructor's prototype property.
+    Sets the constructor property of the new object to point to the constructor function (the function that created the new object).
+    Sets this inside the function to refer to the new object.
+    Invokes the function.
+    Returns the new object implicitly (no return expression necessary; explicit return values only override the new object if the return value itself is an object).
+*/
+
+/* Question 10 3 / 3 Points
+Ok
+
+We've often said, in this course and elsewhere, that strings and numbers are primitive values. If that's the case, how is it that we can call methods like String.prototype.split on strings and Number.prototype.toFixed on numbers? Keep in mind that primitive values aren't objects, so they don't have a prototype chain.
+Your Answer
+
+JavaScript comes with a variety of built-in constructors and prototypes that let you instantiate useful objects. These constructors work like constructors for other objects; they're used with the new keyword to create objects. The String and Number constructors are two examples.
+
+JavaScript silently wraps string primitives in a String class when it needs to use a method or property, like with String.prototype.split. As with strings, number primitives are also invisibly wrapped in objects to access methods like Number.prototype.toFixed. */
+
+/*  Question 11 4 / 4 Points
+Ok
+
+Object factories, classes, and constructors with prototypes all create objects. However, the objects created by object factories differ, in some respects, to those created by classes and constructors. In what ways do they differ?
+Your Answer
+
+Object factories differ as follows:
+
+    There is no way to inspect an object and learn whether we created it with a factory function. That effectively makes it impossible to identify the specific "type" of the object; at best, you can only determine that an object has some specific characteristics. It's also not compatible with the instanceof operator to determine the type.
+
+    Every object created with a factory function has a full copy of all the methods. That's redundant, and it can place a heavy load on system memory.
+
+ */
+
+/*  Question 12 5 / 5 Points
+Ok
+
+What is polymorphism? Be sure to provide an example of polymorphism in your answer. You may use built-in JavaScript objects for your example if you want.
+Your Answer
+
+Polymorphism refers to the ability of objects with different types to respond in different ways to the same message (or method invocation); that is, data of different types can respond to a common interface.
+
+Inheritance and duck-typing are the two main ways to achieve polymorphism. When a method has the same name, but a different implementation in different classes it is called polymorphism. When a method in a subclass replaces the implementation of the version in the superclass, we say that the subclass overrides the version in the superclass. Subclasses that override methods inherited from a superclass is one way in which we can implement polymorphism in our applications. */
+
+// Inheritance-based Polymorphism  - Objects are related through inheritance
+// class Animal {
+//   speak() {}
+// }
+
+// class Dog extends Animal {
+//   speak() { console.log("Woof!"); }
+// }
+
+// class Cat extends Animal {
+//   speak() { console.log("Meow!"); }
+// }
+
+// class Fish extends Animal {
+// }
+
+// let dog = new Dog();
+// let cat = new Cat();
+// let fish = new Fish();
+
+// dog.speak(); // Woof!
+// cat.speak(); // Meow!
+// fish.speak(); // (nothing happens)
+
+// Duck-typing based Polymorphism
+// let str = "abcde";
+// let arr = ["a", "b", "c", "d", "e"];
+
+// console.log(str.indexOf("c")); // 2
+// console.log(arr.indexOf("c")); // 2
+
+// function Contact(name, gender) {
+//   this.name = name;
+//   this.gender = gender;
+// }
+
+// Contact.prototype.hasName = function(name) {
+//   return name === this.name;
+// }
+
+// let contacts = {
+//   list: [],
+//   add(name, gender) {
+//     let contact = new Contact(name, gender);
+//     this.list.push(contact);
+//   },
+//   males() {
+//     return this.list.filter(function (contact) {
+//       return contact.gender === 'male';
+//     });
+//   },
+//   females() {
+//     return this.list.filter(function (contact) {
+//       return contact.gender === 'female';
+//     });
+//   },
+//   filterByName(name) {
+//     return this.list.filter(function (contact) {
+//       return contact.hasName(name);
+//     });
+//   },
+// };
+
+// contacts.add('Omi', 'female');
+// contacts.add('H', 'male');
+// contacts.add('Lao', 'male');
+// console.log(contacts.list);
+// // [
+// //   Contact { name: 'Omi', gender: 'female' },
+// //   Contact { name: 'H', gender: 'male' },
+// //   Contact { name: 'Lao', gender: 'male' }
+// // ]
+// console.log(contacts.males());
+// // [
+// //   Contact { name: 'H', gender: 'male' },
+// //   Contact { name: 'Lao', gender: 'male' }
+// // ]
+// console.log(contacts.females()); // [ Contact { name: 'Omi', gender: 'female' } ]person
+// console.log(contacts.filterByName('H')); // [ Contact { name: 'H', gender: 'male' } ]

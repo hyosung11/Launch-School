@@ -8365,3 +8365,11 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 13:00 Ready to go to the gym and train but I might have to poo first.
 
 18:49 Passing on playing soccer to study a little more for the interview tomorrow.
+
+## 20220708 금요일
+
+09:09 I have my interview at 10:00. I will look at a few problems before and review the interview guide notes I made.
+
+09:30 I skimmed the questions from the written exam. I have blood on my finger.
+
+09:56 I feel a little hot. I put out the fan. I'm feeling a little nervous.
