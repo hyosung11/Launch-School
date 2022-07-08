@@ -8362,4 +8362,6 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 
 12:24 Time for lunch from Ness's.
 
+13:00 Ready to go to the gym and train but I might have to poo first.
+
 18:49 Passing on playing soccer to study a little more for the interview tomorrow.
