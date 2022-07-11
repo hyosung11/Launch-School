@@ -8372,4 +8372,6 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 
 09:30 I skimmed the questions from the written exam. I have blood on my finger.
 
-09:56 I feel a little hot. I put out the fan. I'm feeling a little nervous.
+09:56 I feel a little hot. I put out the fan. I'm feeling a little nervous. Treat this like an actual job interview.
+
+12:33 Pretty sure I got a "Not Yet" as I stumbled and failed to solve the last coding question for the interview. Ugh.
