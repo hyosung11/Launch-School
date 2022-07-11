@@ -1,58 +1,3 @@
-function go(klass, arg) {}
-
-console.log(something, 5); // 10 (note same as 5 + 3 + 2)
-
-// 5. Write some code to complete this problem.
-
-function go(klass, arg) {
-  let obj = new klass(arg);
-  return obj.foo + obj.bar() + klass.qux();
-}
-
-// fill in this code
-class something {
-  constructor(klass, arg) {
-    this.klass = klass;
-    this.arg = arg;
-  }
-
-  bar() {
-    this.arg - 2;
-  }
-
-  static qux() {
-    this.arg - 3;
-  }
-}
-
-console.log(go(something, 5)); // 10 (note: same as 5 + 3 + 2)
-console.log(go(something, 3)); // 8  (note: same as 3 + 3 + 2)
-
-// 5. Write some code to complete this problem.
-
-function go(klass, arg) {
-  let obj = new klass(arg);
-  return obj.foo + obj.bar() + klass.qux();
-}
-
-// fill in this code
-class something {
-  constructor(arg) {
-    this.foo = arg;
-  }
-
-  bar() {
-    return 3;
-  }
-
-  static qux() {
-    return 2;
-  }
-}
-
-console.log(go(something, 5)); // 10 (note: same as 5 + 3 + 2)
-console.log(go(something, 3)); // 8  (note: same as 3 + 3 + 2)
-
 // Assessment Overview
 // - have code to complement the statements I'm making. Have examples.
 
@@ -67,7 +12,7 @@ console.log(go(something, 3)); // 8  (note: same as 3 + 3 + 2)
 
 // console.log(b.bar); // 2
 
-// console.log(b);
+// console.log(b); // {}
 
 // 2nd Question - object can only inherit from a single parent object. Single inheritance problem solved in JavaScript using mixins.
 
@@ -96,10 +41,10 @@ console.log(go(something, 3)); // 8  (note: same as 3 + 3 + 2)
 // Object.assign(Duck.prototype, swim);
 
 // let duck = new Duck();
-// duck.fly();
-// duck.swim();
+// duck.fly(); // Flying
+// duck.swim(); // Swimming
 
-// 3. Providing some code. Rewrite the `Foo` constructor so it can be invoked with or without the `new` keyword.
+// 3. Providing some code. Rewrite the `Foo` constructor so it can be invoked with or without the `new` keyword. (Scope-safe constructor)
 
 // const Foo = function() {
 //   if (!(this instanceof Foo)) {
@@ -122,16 +67,16 @@ console.log(go(something, 3)); // 8  (note: same as 3 + 3 + 2)
 
 // const Pet = function(name) {
 //   this.name = name;
-//   return {};
+//   // return {};
 // };
 
 // Pet.prototype.myNameIs = function() {
 //   return `They call me ${this.name}`;
 // };
 
-// let fluffy = new Pet("Fluffy");
-
-// console.log(fluffy.myNameIs());
+// let fluffy = Pet("Fluffy"); // missing `new` keyword
+// console.log(fluffy); // undefined
+// console.log(fluffy.myNameIs()); // TypeError: Cannot read properties of undefined (reading 'myNameIs')
 
 // 5. Write some code to complete this problem.
 
@@ -141,13 +86,38 @@ function go(klass, arg) {
 }
 
 // fill in this code
+class something {
+  constructor(arg) {
+    this.foo = arg;
+  }
+
+  bar() {
+    return 3;
+  }
+
+  static qux() {
+    return 2;
+  }
+}
+
+console.log(go(something, 5)); // 10 (note: same as 5 + 3 + 2)
+console.log(go(something, 3)); // 8  (note: same as 3 + 3 + 2)
+
+// 5. Write some code to complete this problem.
+
+// function go(klass, arg) {
+//   let obj = new klass(arg);
+//   return obj.foo + obj.bar() + klass.qux();
+// }
+
+// // fill in this code
 // class something {
 //   constructor(arg) {
 //     this.foo = arg;
 //   }
 
 //   bar() {
-//     return 3
+//     return 3;
 //   }
 
 //   static qux() {
@@ -155,5 +125,5 @@ function go(klass, arg) {
 //   }
 // }
 
-console.log(go(something, 5)); // 10 (note: same as 5 + 3 + 2)
-console.log(go(something, 3)); // 8  (note: same as 3 + 3 + 2)
+// console.log(go(something, 5)); // 10 (note: same as 5 + 3 + 2)
+// console.log(go(something, 3)); // 8  (note: same as 3 + 3 + 2)
