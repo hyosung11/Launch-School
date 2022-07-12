@@ -54,16 +54,99 @@ To make use of this new `Cat` object, we need to assign it a variable. In the so
 
 The property `name` can be accessed anywhere within the class using the `this` keyword. This lets us print `Hello! My name is Sophie!` from `greet` simply by moving the statement from `constructor` to `greet`. */
 
-class Person {
-  constructor(name = 'John Doe') {
-    this.name = name;
+// class Person {
+//   constructor(name = 'John Doe') {
+//     this.name = name;
+//   }
+// }
+
+// let person1 = new Person();
+// let person2 = new Person("Pepe");
+
+// console.log(person1.name); // John Doe
+// console.log(person2.name); // Pepe
+
+/* In the constructor function, we have assigned the value of parameter `name` to a property `name`. */
+
+// class Cat {
+//   constructor(name) {
+//     this.name = name;
+//   }
+
+//   rename(newName) {
+//     this.name = newName;
+//   }
+// } 
+
+// let kitty = new Cat('Sophie');
+// console.log(kitty.name); // Sophie
+// kitty.rename('Chloe');
+// console.log(kitty.name); // Chloe
+
+// class Cat {
+//   static genericGreeting() {
+//     console.log(`Hello! I'm a cat!`);
+//   }
+// }
+
+// let kitty = new Cat();
+// Cat.genericGreeting();
+
+/* `genericGreeting` is being invoked on the `Cat` class, not an instance of `Cat`. This indicates that `genericGreeting` is a static method. We define static methods on classes by using the `static` keyword. To invoke static methods, they must be called on the class itself, not an instance of the class. If we invoke a static method on an instance of the class, we'll get a `TypeError`. */
+
+// class Cat {
+//   constructor(name) {
+//     this.name = name;
+//   }
+
+//   static genericGreeting() {
+//     console.log(`Hello! I'm a cat!`);
+//   }
+
+//   personalGreeting() {
+//     console.log(`Hello! My name is ${this.name}!`);
+//   }
+// }
+
+// let kitty = new Cat('Sophie');
+// Cat.genericGreeting();
+// kitty.personalGreeting();
+
+// class Vehicle {
+//   constructor(year) {
+//     this.year = year;
+//   }
+// }
+
+// class Truck extends Vehicle {}
+
+// class Car extends Vehicle {}
+
+// let truck = new Truck(2003);
+// console.log(truck.year); // 2003
+
+// let car = new Car(2015);
+// console.log(car.year); // 2015
+
+/* To reduce complexity, classes with similar behaviors can inherit from a superclass. The superclass implements the common behaviors while the inheriting classes invoke them. The `extends` keyword is used to denote inheritance between classes. */
+
+class Vehicle {
+  constructor(year) {
+    this.year = year;
   }
 }
 
-let person1 = new Person();
-let person2 = new Person("Pepe");
+class Truck extends Vehicle {
+  constructor(year) {
+    super(year);
+    this.startEngine();
+  }
+  startEngine() {
+    console.log('Ready to go!')
+  }
+}
 
-console.log(person1.name); // John Doe
-console.log(person2.name); // Pepe
+let truck = new Truck(2003);
+console.log(truck.year); // 2003
 
-/* In the constructor function, we have assigned the value of parameter `name` to a property `name`. */
+/* When we invoke `super` within the constructor, it appears alone and must be used before the `this` keyword` is used. However, the `super` keyword can be used to call function's on the object's parent. */
