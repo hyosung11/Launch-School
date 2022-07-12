@@ -190,30 +190,108 @@ The property `name` can be accessed anywhere within the class using the `this` k
 
 /* Here we are using the `super` keyword to call the function on the object's parent. This way we are able to use some functionality from the parent class `Vehicle` in the `Truck` class. */
 
-const walkMixin = {
-  walk() {
-    return `Let's go for a walk!`;
-  }
-}
+// const walkMixin = {
+//   walk() {
+//     return `Let's go for a walk!`;
+//   }
+// }
 
-class Cat {
-  constructor(name) {
-    this.name = name;
-  }
+// class Cat {
+//   constructor(name) {
+//     this.name = name;
+//   }
 
-  greet() {
-    return `Hello! My name is ${this.name}!`;
-  }
-}
+//   greet() {
+//     return `Hello! My name is ${this.name}!`;
+//   }
+// }
 
-Object.assign(Cat.prototype, walkMixin);
+// Object.assign(Cat.prototype, walkMixin);
 
-let kitty = new Cat('Sophie');
-console.log(kitty.greet());
-console.log(kitty.walk());
+// let kitty = new Cat('Sophie');
+// console.log(kitty.greet());
+// console.log(kitty.walk());
 
 /* Discussion
 
 Mixins are typically used to contain methods that may be useful for multiple classes, but not all classes. When you mix a module into a class, you're allowing the class to invoke the contained methods.
 
 In our solution, we create a mixin named walkMixin that contains a method named walk. We give Cat access to this method by including walkMixin in the class's prototype, like this: */
+
+// const swimMixin = {
+//   swim() {
+//     return `${this.name} is swimming.`;
+//   },
+// };
+
+// class Fish {
+//   constructor(name) {
+//     this.name = name;
+//   }
+// }
+
+// Object.assign(Fish.prototype, swimMixin);
+
+// class Dog {
+//   constructor(name) {
+//     this.name = name;
+//   }
+// }
+
+// class Maltese extends Dog {}
+// Object.assign(Maltese.prototype, swimMixin);
+
+// let dog1 = new Maltese('Buddy');
+// let fish1 = new Fish('Nemo');
+
+// console.log(dog1.swim());
+// console.log(fish1.swim());
+
+// const towMixin = {
+//   tow() {
+//     return `I can tow a trailer!`;
+//   }
+// }
+
+// class Truck {}
+// Object.assign(Truck.prototype, towMixin);
+
+// class Car {}
+
+// let truck = new Truck();
+// console.log(truck.tow());
+
+/* Discussion
+
+Mixins are useful for organizing similar methods that may be relevant to multiple classes. For instance, the mixin towMixin contains the method tow. Typically, you use a Truck for towing, not a Car, which means tow is only relevant to Truck objects.
+
+With mixins, we have the ability to include them in specific classes. In the solution,we used Object.assign to include methods from towMixin in the Truck.prototype object. */
+
+const towMixin = {
+  tow() {
+    return 'I can tow a trailer!';
+  },
+};
+
+class Vehicle {
+  constructor(year) {
+    this.year = year;
+  }
+}
+
+class Truck extends Vehicle {
+  // ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
+  constructor(year) {
+    super(year);
+    Object.assign(this, towMixin);
+  }
+}
+
+class Car extends Vehicle {}
+
+let truck = new Truck(2002);
+console.log(truck.year);
+console.log(truck.tow());
+
+let car = new Car(2015);
+console.log(car.year);

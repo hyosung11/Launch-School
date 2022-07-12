@@ -8391,3 +8391,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 12:25 I found a problem that confuses me still. I need to look at it some more after lunch.
 
 15:29 Back from the gym and I want to watch soccer.
+
+15:54 Time to go to the MBP.
