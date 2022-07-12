@@ -130,23 +130,90 @@ The property `name` can be accessed anywhere within the class using the `this` k
 
 /* To reduce complexity, classes with similar behaviors can inherit from a superclass. The superclass implements the common behaviors while the inheriting classes invoke them. The `extends` keyword is used to denote inheritance between classes. */
 
-class Vehicle {
-  constructor(year) {
-    this.year = year;
-  }
-}
+// class Vehicle {
+//   constructor(year) {
+//     this.year = year;
+//   }
+// }
 
-class Truck extends Vehicle {
-  constructor(year) {
-    super(year);
-    this.startEngine();
-  }
-  startEngine() {
-    console.log('Ready to go!')
-  }
-}
+// class Truck extends Vehicle {
+//   constructor(year) {
+//     super(year);
+//     this.startEngine();
+//   }
+//   startEngine() {
+//     console.log('Ready to go!')
+//   }
+// }
 
-let truck = new Truck(2003);
-console.log(truck.year); // 2003
+// let truck = new Truck(2003);
+// console.log(truck.year); // 2003
 
 /* When we invoke `super` within the constructor, it appears alone and must be used before the `this` keyword` is used. However, the `super` keyword can be used to call function's on the object's parent. */
+
+// class Vehicle {
+//   constructor(year) {
+//     this.year = year;
+//   }
+// }
+
+// class Truck extends Vehicle {
+//   constructor(year, bedType) {
+//     super(year);
+//     this.bedType = bedType;
+//   }
+// }
+
+// class Car extends Vehicle {}
+
+// let truck1 = new Truck(2003, 'Short');
+// console.log(truck1.year);
+// console.log(truck1.bedType);
+
+// class Vehicle {
+//   startEngine() {
+//     return 'Ready to go!';
+//   }
+// }
+
+// class Truck extends Vehicle {
+//   startEngine(speed) {
+//     return super.startEngine() + ` Drive ${speed}, please!`
+//   }
+// }
+
+// let truck1 = new Truck();
+// console.log(truck1.startEngine('fast'));
+
+// let truck2 = new Truck();
+// console.log(truck2.startEngine('slow'));
+
+/* Here we are using the `super` keyword to call the function on the object's parent. This way we are able to use some functionality from the parent class `Vehicle` in the `Truck` class. */
+
+const walkMixin = {
+  walk() {
+    return `Let's go for a walk!`;
+  }
+}
+
+class Cat {
+  constructor(name) {
+    this.name = name;
+  }
+
+  greet() {
+    return `Hello! My name is ${this.name}!`;
+  }
+}
+
+Object.assign(Cat.prototype, walkMixin);
+
+let kitty = new Cat('Sophie');
+console.log(kitty.greet());
+console.log(kitty.walk());
+
+/* Discussion
+
+Mixins are typically used to contain methods that may be useful for multiple classes, but not all classes. When you mix a module into a class, you're allowing the class to invoke the contained methods.
+
+In our solution, we create a mixin named walkMixin that contains a method named walk. We give Cat access to this method by including walkMixin in the class's prototype, like this: */
