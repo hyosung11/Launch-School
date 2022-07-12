@@ -80,6 +80,10 @@
 
 // This code throws a `TypeError` because `myNameIs` is an undefined property on `fluffy`. Since `Pet` was invoked without the `new` operator and it doesn't have an explicit return value, the return value is `undefined`. Thus, `fluffy` gets assigned to `undefined` which causes the call to `myNameIs` to throw an error because you can't call a method on `undefined`.
 
+// If you don't use the `new` keyword, the constructor function won't work as intended. Instead, it *acts like an ordinary function*. In particular, *no new objects are created*, so `this` won't point to a new object.
+
+// Furthermore, since functions that don't return an explicit value return `undefined`, calling a constructor without `new` also returns `undefined`. When you use `new`, however, the function doesn't have to return anything explicitly: it *returns the newly created object automatically*.
+
 // 5. Write some code to complete this problem.
 
 function go(klass, arg) {
