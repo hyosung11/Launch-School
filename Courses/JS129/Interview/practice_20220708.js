@@ -78,6 +78,8 @@
 // console.log(fluffy); // undefined
 // console.log(fluffy.myNameIs()); // TypeError: Cannot read properties of undefined (reading 'myNameIs')
 
+// This code throws a `TypeError` because `myNameIs` is an undefined property on `fluffy`. Since `Pet` was invoked without the `new` operator and it doesn't have an explicit return value, the return value is `undefined`. Thus, `fluffy` gets assigned to `undefined` which causes the call to `myNameIs` to throw an error because you can't call a method on `undefined`.
+
 // 5. Write some code to complete this problem.
 
 function go(klass, arg) {
