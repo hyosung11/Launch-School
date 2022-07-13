@@ -8393,3 +8393,9 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 15:29 Back from the gym and I want to watch soccer.
 
 15:54 Time to go to the MBP.
+
+## 20220713 수요일
+
+09:49 Studying while the kids go outside and jump on the trampoline.
+
+10:20 Going to go outside while the kids are in the kiddie pool.

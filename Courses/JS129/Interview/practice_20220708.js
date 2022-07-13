@@ -86,9 +86,9 @@
 
 // 5. Write some code to complete this problem.
 
-function go(klass, arg) {
-  let obj = new klass(arg);
-  return obj.foo + obj.bar() + klass.qux();
+function go(klass, arg) { // (something, 5)
+  let obj = new klass(arg); // something(5)
+  return obj.foo + obj.bar() + klass.qux(); // this.foo = arg + this.bar() + something()
 }
 
 // fill in this code
