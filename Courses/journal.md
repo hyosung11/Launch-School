@@ -8405,3 +8405,11 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 10:17 Reviewing the same problems from the interview.
 
 10:30 Got SungOh off his screen and since Sohee is with Omi at the dentist, I need to keep him busy.
+
+10:58 Continuing on with exercises.
+
+12:04 I feel itchy. Why?
+
+12:54 After a quick and light lunch working on the `Animal` class exercise.
+
+13:16 Need to go to the gym now.
