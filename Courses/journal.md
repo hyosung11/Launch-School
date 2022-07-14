@@ -8399,3 +8399,7 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 09:49 Studying while the kids go outside and jump on the trampoline.
 
 10:20 Going to go outside while the kids are in the kiddie pool.
+
+## 20220714 목요일
+
+10:17 Reviewing the same problems from the interview.

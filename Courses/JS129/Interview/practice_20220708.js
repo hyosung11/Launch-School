@@ -86,31 +86,6 @@
 
 // 5. Write some code to complete this problem.
 
-function go(klass, arg) { // (something, 5)
-  let obj = new klass(arg); // something(5)
-  return obj.foo + obj.bar() + klass.qux(); // this.foo = arg + this.bar() + something()
-}
-
-// fill in this code
-class something {
-  constructor(arg) {
-    this.foo = arg;
-  }
-
-  bar() {
-    return 3;
-  }
-
-  static qux() {
-    return 2;
-  }
-}
-
-console.log(go(something, 5)); // 10 (note: same as 5 + 3 + 2)
-console.log(go(something, 3)); // 8  (note: same as 3 + 3 + 2)
-
-// 5. Write some code to complete this problem.
-
 // function go(klass, arg) {
 //   let obj = new klass(arg);
 //   return obj.foo + obj.bar() + klass.qux();
@@ -133,3 +108,28 @@ console.log(go(something, 3)); // 8  (note: same as 3 + 3 + 2)
 
 // console.log(go(something, 5)); // 10 (note: same as 5 + 3 + 2)
 // console.log(go(something, 3)); // 8  (note: same as 3 + 3 + 2)
+
+// 5. Write some code to complete this problem.
+
+function go(klass, arg) {
+  let obj = new klass(arg);
+  return obj.foo + obj.bar() + klass.qux();
+}
+
+// fill in this code
+class something {
+  constructor(arg) {
+    this.foo = arg;
+  }
+
+  bar() {
+    return 3;
+  }
+
+  static qux() {
+    return 2;
+  }
+}
+
+console.log(go(something, 5)); // 10 (note: same as 5 + 3 + 2)
+console.log(go(something, 3)); // 8  (note: same as 3 + 3 + 2)
