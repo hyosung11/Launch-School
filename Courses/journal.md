@@ -8403,3 +8403,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 ## 20220714 목요일
 
 10:17 Reviewing the same problems from the interview.
+
+10:30 Got SungOh off his screen and since Sohee is with Omi at the dentist, I need to keep him busy.
