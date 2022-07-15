@@ -687,60 +687,235 @@ Our code first creates a `Something`, and then logs the result of `Something.dup
 
 /* Recognize that line 12 is `greeting()` method invocation on the object's parent. In our solution, we use the `super` keyword to invoke the method `greeting()` on the object's parent and we are passing uppercased text to it, same as in the original example. */
 
-const walkMixin = {
-  walk() {
-    return `${this.name} ${this.gait()} forward`
-  }
-}
+// const walkMixin = {
+//   walk() {
+//     return `${this.name} ${this.gait()} forward`
+//   }
+// }
 
-class Person {
-  constructor(name) {
-    this.name = name;
-  }
+// class Person {
+//   constructor(name) {
+//     this.name = name;
+//   }
 
-  gait() {
-    return 'strolls';
-  }
-}
+//   gait() {
+//     return 'strolls';
+//   }
+// }
 
-Object.assign(Person.prototype, walkMixin);
+// Object.assign(Person.prototype, walkMixin);
 
-class Cat {
-  constructor(name) {
-    this.name = name;
-  }
+// class Cat {
+//   constructor(name) {
+//     this.name = name;
+//   }
 
-  gait() {
-    return 'saunters';
-  }
-}
+//   gait() {
+//     return 'saunters';
+//   }
+// }
 
-Object.assign(Cat.prototype, walkMixin);
+// Object.assign(Cat.prototype, walkMixin);
 
-class Cheetah {
-  constructor(name) {
-    this.name = name;
-  }
+// class Cheetah {
+//   constructor(name) {
+//     this.name = name;
+//   }
 
-  gait() {
-    return 'runs';
-  }
-}
+//   gait() {
+//     return 'runs';
+//   }
+// }
 
-Object.assign(Cheetah.prototype, walkMixin);
+// Object.assign(Cheetah.prototype, walkMixin);
 
-let mike = new Person("Mike");
-console.log(mike.walk());
-// "Mike strolls forward"
+// let mike = new Person("Mike");
+// console.log(mike.walk());
+// // "Mike strolls forward"
 
-let kitty = new Cat("Kitty");
-console.log(kitty.walk());
-// "Kitty saunters forward"
+// let kitty = new Cat("Kitty");
+// console.log(kitty.walk());
+// // "Kitty saunters forward"
 
-let flash = new Cheetah("Flash");
-console.log(flash.walk());
-// "Flash runs forward"
+// let flash = new Cheetah("Flash");
+// console.log(flash.walk());
+// // "Flash runs forward"
 
 /* You can use the `walkMixin` with any class that defines properties `gait` and `name`. You can also define a parent class and make the other classes inherit from that class.
 
 Mixins are more appropriate in a has-a relationship. Here, we want to add the functionality of walking. */
+
+// class Pet {
+//   constructor(animal, name) {
+//     this.animal = animal;
+//     this.name = name;
+//   }
+
+//   info() {
+//     return `a ${this.animal} named ${this.name}`;
+//   }
+// }
+
+// class Owner {
+//   constructor(name) {
+//     this.name = name;
+//     this.pets = [];
+//   }
+
+//   addPet(pet) {
+//     this.pets.push(pet);
+//   }
+
+//   numberOfPets() {
+//     return this.pets.length;
+//   }
+
+//   printPets() {
+//     this.pets.forEach(pet => console.log(pet.info()));
+//   }
+// }
+
+// class Shelter {
+//   constructor() {
+//     this.owners = {};
+//   }
+
+//   adopt(owner, pet) {
+//     owner.addPet(pet);
+//     if (!this.owners[owner.name]) {
+//       this.owners[owner.name] = owner;
+//     }
+//   }
+
+//   printAdoptions() {
+//     for (let name in this.owners) {
+//       console.log(`${name} has adopted the following pets:`);
+//       this.owners[name].printPets();
+//       console.log('');
+//     }
+//   }
+// }
+
+// let butterscotch = new Pet('cat', 'Butterscotch');
+// console.log(butterscotch.info());
+// let pudding = new Pet('cat', 'Pudding');
+// let darwin = new Pet('bearded dragon', 'Darwin');
+// let kennedy = new Pet('dog', 'Kennedy');
+// let sweetie = new Pet('parakeet', 'Sweetie Pie');
+// let molly = new Pet('dog', 'Molly');
+// let chester = new Pet('fish', 'Chester');
+
+// let phanson = new Owner('P Hanson');
+// let bholmes = new Owner('B Holmes');
+
+// let shelter = new Shelter();
+// shelter.adopt(phanson, butterscotch);
+// shelter.adopt(phanson, pudding);
+// shelter.adopt(phanson, darwin);
+// shelter.adopt(bholmes, kennedy);
+// shelter.adopt(bholmes, sweetie);
+// shelter.adopt(bholmes, molly);
+// shelter.adopt(bholmes, chester);
+// shelter.printAdoptions();
+// console.log(`${phanson.name} has ${phanson.numberOfPets()} adopted pets.`);
+// console.log(`${bholmes.name} has ${bholmes.numberOfPets()} adopted pets.`);
+
+// P Hanson has adopted the following pets:
+// a cat named Butterscotch
+// a cat named Pudding
+// a bearded dragon named Darwin
+
+// B Holmes has adopted the following pets:
+// a dog named Molly
+// a parakeet named Sweetie Pie
+// a dog named Kennedy
+// a fish named Chester
+
+// P Hanson has 3 adopted pets.
+// B Holmes has 4 adopted pets.
+
+// function createGreeter(name) {
+//   return {
+//     name: name,
+//     morning: 'Good Morning',
+//     afternoon: 'Good Afternoon',
+//     evening: 'Good Evening',
+//     greet: function (timeOfDay) {
+//       let msg = '';
+//       switch (timeOfDay) {
+//         case 'morning':
+//           msg += `${this.morning} ${this.name}`;
+//           break;
+//         case 'afternoon':
+//           msg += `${this.afternoon} ${this.name}`;
+//           break;
+//         case 'evening':
+//           msg += `${this.evening} ${this.name}`;
+//           break;
+//       }
+
+//       console.log(msg);
+//     },
+//   };
+// }
+
+// let helloVictor = createGreeter('Victor');
+// helloVictor.greet('morning');
+// => Good Morning Victor
+
+/* Discussion
+
+The problem is that the code doesn't use the `this` keyword to access the properties of the object returned by the `createGreeter` function. */
+
+// let item = {
+//   name: 'Foo',
+//   description: 'Fusce consequat dui est, semper.',
+//   price: 50,
+//   quantity: 100,
+//   discount: function (percent) {
+//     let discount = (item.price * percent) / 100;
+
+//     return item.price - discount;
+//   },
+// };
+// console.log(item.discount(20));   // should return 40
+
+// console.log(item.discount(50));   // should return 25
+
+// console.log(item.discount(25));   // should return 37.5
+
+// function objectsEqual(obj1, obj2) {
+//   return Object.entries(obj1).sort().toString() === Object.entries(obj2).sort().toString();
+// }
+// console.log(objectsEqual({a: 'foo'}, {a: 'foo'}));                      // true
+// console.log(objectsEqual({a: 'foo', b: 'bar'}, {a: 'foo'}));            // false
+// console.log(objectsEqual({}, {}));                                      // true
+// console.log(objectsEqual({a: 'foo', b: undefined}, {a: 'foo', c: 1}));  // false
+
+// let person = {
+//   firstName: 'Rick ',
+//   lastName: 'Sanchez',
+//   fullName: this.firstName + this.lastName,
+// };
+
+// console.log(person.fullName);
+
+/* Discussion
+
+The code logs `NaN`. Outside of a function, the `this` keyword references the global object. If the `this` keyword is used inside a function, then its value depends on how the function is invoked. In Node, global.firstName and global.lastName are not defined. Here, the operation being performed is `undefined + undefined` which results in `fullName` having the value `NaN`. */
+
+let franchise = {
+  name: 'How to Train Your Dragon',
+  allMovies: function () {
+    let self = this;
+    return [1, 2, 3].map(function (number) {
+      return self.name + ' ' + number;
+    });
+  },
+};
+
+console.log(franchise.allMovies());
+
+/* The current implementation will not work because `this` is bound to the wrong object (`window`) when the anonymous function passed to `map` is invoked. We want to access the object `franchise` from within that anonymous function.
+
+Here, we can employ the lexical scoping of JavaScript to our advantage with the rule that a variable defined in an outer scope is available to an inner scope. */

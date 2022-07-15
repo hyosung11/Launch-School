@@ -8419,3 +8419,7 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 09:51 Working on the exercises. I asked to schedule the interview retake this morning.
 
 10:34 Repetition. Think scales. Do the problems multiple times to burn them into my brain. Feeling better about studying. This is my life. I chose this. I will be a professional software engineer soon.
+
+10:54 I still don't like the `Animal Shelter` problem. Ugh.
+
+11:48 Still gaps in my knowledge and lack of precision in my explanations.
