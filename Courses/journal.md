@@ -8413,3 +8413,9 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 12:54 After a quick and light lunch working on the `Animal` class exercise.
 
 13:16 Need to go to the gym now.
+
+## 20220715 금요일
+
+09:51 Working on the exercises. I asked to schedule the interview retake this morning.
+
+10:34 Repetition. Think scales. Do the problems multiple times to burn them into my brain. Feeling better about studying. This is my life. I chose this. I will be a professional software engineer soon.

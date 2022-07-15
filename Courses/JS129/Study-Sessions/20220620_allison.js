@@ -58,7 +58,7 @@ let instance = new SubType("st1", "st2");
 // - The function `prototype` property created by JavaScript is given a non-enumerable property called `constructor` which is assigned to a reference of the function object. 
 // - Because we want `SubType` to inherit the methods of `SuperType`, we need to somehow connect the two constructors. 
 // - This is done through `line 48`. 
-// - The `prototype` property of `SubType` is overwritten or reassigned to a completly new object created from `Object.create`. 
+// - The `prototype` property of `SubType` is overwritten or reassigned to a completely new object created from `Object.create`. 
 // - Because `Object.create` makes a new object whose `[[Prototype]]` property is assigned to the argument that is passed into `Object.create`, this new object will inherit from whatever object we pass in as an argument. 
 // - On `line 48`, we pass in the function `prototype` property on `SuperType`, `SuperType.prototype`. 
 // - This results in a new object whose `[[Prototype]]` is assigned to `SuperType.prototype`.

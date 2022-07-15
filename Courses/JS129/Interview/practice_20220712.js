@@ -589,36 +589,36 @@ As the `introduce` method in the `Cat` class is just a modification of the metho
 
 In the `Dog` class constructor method, we again use the `super` keyword to invoke the constructor method from the `Animal` class. Also, within this method, we are instantiating a new property called `master`. Then within the `greetMaster()` method, we are accessing the value of this property using the `this` keyword. */
 
-class Vehicle {
-  constructor(make, model, wheels) {
-    this.make = make;
-    this.model = model;
-    this.wheels = wheels;
-  }
+// class Vehicle {
+//   constructor(make, model, wheels) {
+//     this.make = make;
+//     this.model = model;
+//     this.wheels = wheels;
+//   }
 
-  info() {
-    return `${this.make} ${this.model}`;
-  }
-}
+//   info() {
+//     return `${this.make} ${this.model}`;
+//   }
+// }
 
-class Car extends Vehicle {
-  constructor(make, model) {
-    super(make, model, 4);
-  }
-}
+// class Car extends Vehicle {
+//   constructor(make, model) {
+//     super(make, model, 4);
+//   }
+// }
 
-class Motorcycle extends Vehicle {
-  constructor(make, model) {
-    super(make, model, 2);
-  }
-}
+// class Motorcycle extends Vehicle {
+//   constructor(make, model) {
+//     super(make, model, 2);
+//   }
+// }
 
-class Truck extends Vehicle {
-  constructor(make, model, payload) {
-    super(make, model, 6)
-    this.payload = payload;
-  }
-}
+// class Truck extends Vehicle {
+//   constructor(make, model, payload) {
+//     super(make, model, 6)
+//     this.payload = payload;
+//   }
+// }
 
 /* Further exploration
 
@@ -628,3 +628,119 @@ This implements the same requirements as the original with less redundancy. The 
 
 To answer in terms of the question asked, it makes sense to define a wheels property. It probably makes sense to do a getWheels method, although usually we would want to do this to make a read-only property and this doesn't do that. It does not make sense for all of the other methods to be overriding it, though. Better to assign the literal values to a wheels property in the superclass, and have a single getWheels method there as well.
 */
+
+// class Something {
+//   constructor() {
+//     this.data = 'Hello';
+//   }
+
+//   dupData() {
+//     return this.data + this.data;
+//   }
+
+//   static dupData() {
+//     return 'ByeBye';
+//   }
+// }
+
+// let thing = new Something();
+// console.log(Something.dupData()); // ByeBye
+// console.log(thing.dupData()); // HelloHello
+
+/* Here we see two methods named `dupData` in the `Something` class. However, one is defined as `dupData`, and is thus an instance method. The other has the `static` keyword in front of its name and so it is a static method. The two methods are different, and are completely independent of each other.
+
+Our code first creates a `Something`, and then logs the result of `Something.dupData, and then `thing.dupData`. The former invocation calls the static method `dupData`, and so logs "ByeBye". The latter invocation calls the instance method, and so prints "HelloHello". */
+
+// function Person() {}
+// Person.prototype.greeting = function(text) {
+//   console.log(text);
+// }
+
+// // define Shouter constructor function that inherits from Person
+// function Shouter() {
+//   Person.call(this);
+// }
+// // connect Shouter.prototype to Person.prototype
+// Shouter.prototype = Object.create(Person.prototype);
+// Shouter.prototype.constructor = Shouter;
+// Shouter.prototype.greeting = function(text) {
+//   Person.prototype.greeting.call(this, text.toUpperCase());
+// }
+
+// class Person {
+//   greeting(text) {
+//     console.log(text);
+//   }
+// }
+
+// class Shouter extends Person {
+//   greeting(text) {
+//     super.greeting(text.toUpperCase());
+//   }
+// }
+
+// let person = new Person();
+// let shouter = new Shouter();
+
+// person.greeting("Hello. It's very nice to meet you."); // Hello. It's very nice to meet you
+// shouter.greeting("Hello my friend."); // HELLO MY FRIEND.
+
+/* Recognize that line 12 is `greeting()` method invocation on the object's parent. In our solution, we use the `super` keyword to invoke the method `greeting()` on the object's parent and we are passing uppercased text to it, same as in the original example. */
+
+const walkMixin = {
+  walk() {
+    return `${this.name} ${this.gait()} forward`
+  }
+}
+
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  gait() {
+    return 'strolls';
+  }
+}
+
+Object.assign(Person.prototype, walkMixin);
+
+class Cat {
+  constructor(name) {
+    this.name = name;
+  }
+
+  gait() {
+    return 'saunters';
+  }
+}
+
+Object.assign(Cat.prototype, walkMixin);
+
+class Cheetah {
+  constructor(name) {
+    this.name = name;
+  }
+
+  gait() {
+    return 'runs';
+  }
+}
+
+Object.assign(Cheetah.prototype, walkMixin);
+
+let mike = new Person("Mike");
+console.log(mike.walk());
+// "Mike strolls forward"
+
+let kitty = new Cat("Kitty");
+console.log(kitty.walk());
+// "Kitty saunters forward"
+
+let flash = new Cheetah("Flash");
+console.log(flash.walk());
+// "Flash runs forward"
+
+/* You can use the `walkMixin` with any class that defines properties `gait` and `name`. You can also define a parent class and make the other classes inherit from that class.
+
+Mixins are more appropriate in a has-a relationship. Here, we want to add the functionality of walking. */
