@@ -8423,3 +8423,5 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 10:54 I still don't like the `Animal Shelter` problem. Ugh.
 
 11:48 Still gaps in my knowledge and lack of precision in my explanations.
+
+13:18 I've been reviewing the quizzes and am now going to the gym.

@@ -904,18 +904,58 @@ The problem is that the code doesn't use the `this` keyword to access the proper
 
 The code logs `NaN`. Outside of a function, the `this` keyword references the global object. If the `this` keyword is used inside a function, then its value depends on how the function is invoked. In Node, global.firstName and global.lastName are not defined. Here, the operation being performed is `undefined + undefined` which results in `fullName` having the value `NaN`. */
 
-let franchise = {
-  name: 'How to Train Your Dragon',
-  allMovies: function () {
-    let self = this;
-    return [1, 2, 3].map(function (number) {
-      return self.name + ' ' + number;
-    });
-  },
-};
+// let franchise = {
+//   name: 'How to Train Your Dragon',
+//   allMovies: function () {
+//     let self = this;
+//     return [1, 2, 3].map(function (number) {
+//       return self.name + ' ' + number;
+//     });
+//   },
+// };
 
-console.log(franchise.allMovies());
+// console.log(franchise.allMovies());
 
 /* The current implementation will not work because `this` is bound to the wrong object (`window`) when the anonymous function passed to `map` is invoked. We want to access the object `franchise` from within that anonymous function.
 
 Here, we can employ the lexical scoping of JavaScript to our advantage with the rule that a variable defined in an outer scope is available to an inner scope. */
+
+// let franchise = {
+//   name: 'How to Train Your Dragon',
+//   allMovies: function () {
+//     return [1, 2, 3].map(function (number) {
+//       return this.name + ' ' + number;
+//     }.bind(this));
+//   },
+// };
+
+// console.log(franchise.allMovies());
+
+// let franchise = {
+//   name: 'How to Train Your Dragon',
+//   allMovies() {
+//     return [1, 2, 3].map(number => `${this.name} ${number}`)
+//   }
+// }
+
+// console.log(franchise.allMovies());
+
+function myFilter(array, func, thisArg) {
+  let result = [];
+
+  array.forEach(function(value) {
+    if (func.call(thisArg, value)) {
+      result.push(value);
+    }
+  });
+
+  return result;
+}
+
+let filter = {
+  allowedValues: [5, 6, 9],
+}
+
+console.log(myFilter([2, 1, 3, 4, 5, 6, 9, 12], function(val) {
+  return this.allowedValues.indexOf(val) >= 0;
+}, filter)); // returns [5, 6, 9]
