@@ -37,7 +37,7 @@
 // // pete.pets.forEach((pet) => pet.makeNoise());
 
 // // --------------------------
-// // Factory functions; using properties of two factory functions in one instance; using Object.assign.
+// Factory functions; using properties of two factory functions in one instance; using Object.assign.
 
 // // function makePerson(name) {
 // //   const newPerson = { name }
