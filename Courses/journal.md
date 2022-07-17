@@ -8459,3 +8459,5 @@ The `new` operator:
 5. Returns the newly created object.
 
 17:52 Continuing to work on the quiz problems.
+
+18:59 I've finished reviewing the quizzes and my written assessments. I should review the study guide again.
