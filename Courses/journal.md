@@ -8425,3 +8425,28 @@ Arrow functions are permanently bound to the execution context of the enclosing 
 11:48 Still gaps in my knowledge and lack of precision in my explanations.
 
 13:18 I've been reviewing the quizzes and am now going to the gym.
+
+## 20220717 일요일
+
+11:46 I didn't study yesterday. It looks like my interview retake will be on Tuesday at 9:00 AM EST. Okay, put in the work to be ready this time to pass.
+
+14:23 Watching video of a JS129 study session. Not using a scope-safe constructor, here's an alternative way to create an instance object without the `new` keyword:
+
+```js
+function Dog(name) {
+  // let obj = {};
+  // Object.setPrototypeOf(obj, Dog.prototype);
+  let obj = Object.create(Dog.prototype);
+  obj.name = name;
+  return obj;
+}
+
+Dog.prototype.bark = function() {
+  console.log(`${this.name} says: Woof! Woof!`);
+}
+
+let fido = Dog('Fido');
+fido.bark() // 'Fido says: Woof! Woff!'
+console.log(fido instanceof Dog); // true`
+```
+
