@@ -8445,8 +8445,17 @@ Dog.prototype.bark = function() {
   console.log(`${this.name} says: Woof! Woof!`);
 }
 
-let fido = Dog('Fido');
+let fido = Dog('Fido'); // `new` missing
 fido.bark() // 'Fido says: Woof! Woff!'
 console.log(fido instanceof Dog); // true`
 ```
 
+The `new` operator:
+
+1. Creates a new object.
+2. Set the `[[Prototype]]` of the new object to the constructor's prototype object.
+3. Sets `this` to the new object.
+4. Executes the function
+5. Returns the newly created object.
+
+17:52 Continuing to work on the quiz problems.

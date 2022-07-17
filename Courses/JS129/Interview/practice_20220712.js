@@ -940,22 +940,97 @@ Here, we can employ the lexical scoping of JavaScript to our advantage with the 
 
 // console.log(franchise.allMovies());
 
-function myFilter(array, func, thisArg) {
-  let result = [];
+// function myFilter(array, func, thisArg) {
+//   let result = [];
 
-  array.forEach(function(value) {
-    if (func.call(thisArg, value)) {
-      result.push(value);
-    }
-  });
+//   array.forEach(function(value) {
+//     if (func.call(thisArg, value)) {
+//       result.push(value);
+//     }
+//   });
 
-  return result;
-}
+//   return result;
+// }
 
-let filter = {
-  allowedValues: [5, 6, 9],
-}
+// let filter = {
+//   allowedValues: [5, 6, 9],
+// }
 
-console.log(myFilter([2, 1, 3, 4, 5, 6, 9, 12], function(val) {
-  return this.allowedValues.indexOf(val) >= 0;
-}, filter)); // returns [5, 6, 9]
+// console.log(myFilter([2, 1, 3, 4, 5, 6, 9, 12], function(val) {
+//   return this.allowedValues.indexOf(val) >= 0;
+// }, filter)); // returns [5, 6, 9]
+
+// original incorrect code
+// let logResult = function(func) {
+//   let result = func();
+//   console.log(result);
+//   return result;
+// };
+
+// let foo = function() {
+//   let sue = {
+//     name: 'Sue Perkins',
+//     age: 37,
+//     myAge() {
+//       return `${this.name} is ${this.age} years old.`;
+//     },
+//   };
+//   logResult(sue.myAge);
+// };
+
+// foo(); // undefined is undefined years old.
+// Expected output: Sue Perkins is 37 years old.
+
+// let logResult = function (func) {
+//   let result = func();
+//   console.log(result);
+//   return result;
+// };
+
+// let foo = function () {
+//   let self = this;
+//   let sue = {
+//     name: 'Sue Perkins',
+//     age: 37,
+//     myAge() {
+//       return `${self.name} is ${self.age} years old`;
+//     },
+//   };
+//   logResult(sue.myAge);
+// };
+
+// foo(); // The execution context for `foo` is the global object.
+
+// let Animal = {}; // object does not have a prototype property since it isn't a constructor or class
+// let Cat = Object.create(Animal);
+// let fluffy = Object.create(Cat);
+// console.log(fluffy instanceof Animal);
+
+/* The `instanceof` operator requires the object to the right to have a `prototype` property, such as a function object. In most cases, that means that the object on the right is a constructor function or class. */
+
+// function Animal() {}
+// function Cat() {}
+// Cat.prototype = new Animal();
+// // Cat.prototype.constructor = Cat;
+// // console.log(Cat.prototype.constructor);
+
+// let fluffy = new Cat();
+// console.log(fluffy instanceof Animal);
+// console.log(fluffy instanceof Cat);
+
+// let BookPrototype = {
+//   init(author, title, isbn) {
+//     this.author = author;
+//     this.title = title;
+//     this.isbn = isbn;
+//     return this;
+//   },
+
+//   describe() {
+//     console.log(this.title + ' was written by ' + this.author + '.');
+//   }
+// }
+
+// let book = Object.create(BookPrototype).init('Neal Stephenson', 'Snow Crash', '0-553-08853-X');
+
+// book.describe();
