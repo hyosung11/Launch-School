@@ -1377,7 +1377,7 @@ let ninjaB = new ninjaA.constructor(); // <-- solution
 ninjaA.constructor === ninjaB.constructor // => true
 ```
 
-### 7.7 Hint:
+### 7.7 Hint
 
 The value assigned to `ninjaA` is an object created by a constructor function. As such, this object has a `constructor` property that points back to its constructor. Think of a way to use this property; that should help lead you to a solution.
 
@@ -1575,7 +1575,7 @@ neptune.wake();  // I am awake
 
 ### 3.3 Consider the objects created by the programs in problems 1 and 2. How do objects for the same animal differ from each other?
 
-Objects created with the OLOO have a prototype object that contains the methods associated with the created objects. Since all pets created from the prototype share a single prototype object, they all share the same methods. With the factory function, each object has a copy of all the methods. Thus, objects created by OLOO are more efficient in terms of memory use.
+Objects created with the OLOO pattern have a prototype object that contains the methods associated with the created objects. Since all pets created from the prototype share a single prototype object, they all share the same methods. With the factory function, each object has a copy of all the methods. Thus, objects created by OLOO are more efficient in terms of memory use.
 
 Objects created with the factory function can have private state. Any state stored in the body of the factory function instead of in the returned object is private to the returned object. They can't be accessed or modified unless one of the object methods exposes the state. With OLOO, there is no way to define private state. All object states can be accessed and modified by outside code.
 
@@ -1613,34 +1613,34 @@ What happens in each of the following cases? Try to answer without running the c
 
 ```js
 let hello = new Hello();
-hello.hi(); // Hello!
+hello.hi();
 ```
 
 **Case 2**
 
 ```js
 let hello = new Hello();
-hello.bye(); // TypeError: hello.bye is not a function
+hello.bye();
 ```
 
 **Case 3**
 
 ```js
 let hello = new Hello();
-hello.greet(); // undefined
+hello.greet();
 ```
 
 **Case 4**
 
 ```js
 let hello = new Hello();
-hello.greet('Goodbye'); // Goodbye
+hello.greet('Goodbye');
 ```
 
 **Case 5**
 
 ```js
-Hello.hi(); // TypeError: Hello.hi is not a function
+Hello.hi();
 ```
 
 **Solution**

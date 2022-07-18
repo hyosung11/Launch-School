@@ -8461,3 +8461,7 @@ The `new` operator:
 17:52 Continuing to work on the quiz problems.
 
 18:59 I've finished reviewing the quizzes and my written assessments. I should review the study guide again.
+
+## 20220718 월요일
+
+07:34 Looking at some code before breakfast with the kids. I think I may have my retake interview tomorrow at 9:00 AM but it hasn't been confirmed yet.
