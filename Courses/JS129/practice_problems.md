@@ -1704,6 +1704,12 @@ class Goodbye {
     this.greet('Goodbye')
   }
 }
+
+let hello = new Hello();
+hello.hi(); // Hello
+
+let goodbye = new Goodbye();
+goodbye.bye; // Goodbye
 ```
 
 ### Lesson 4 > Code Reuse with Mixins > [Practice Problems](https://launchschool.com/lessons/d5964d17/assignments/e7850b07)

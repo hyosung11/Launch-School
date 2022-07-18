@@ -8465,3 +8465,7 @@ The `new` operator:
 ## 20220718 월요일
 
 07:34 Looking at some code before breakfast with the kids. I think I may have my retake interview tomorrow at 9:00 AM but it hasn't been confirmed yet.
+
+09:35 Working on practice problems in Coderpad. I still don't have confirmation of my interview for tomorrow.
+
+09:47 I haven't completely lost all that I've learned. I want to ace this interview and move on in the curriculum. I want to rekindle the love of the feedback loop and solving problems.
