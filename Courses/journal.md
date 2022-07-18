@@ -8469,3 +8469,5 @@ The `new` operator:
 09:35 Working on practice problems in Coderpad. I still don't have confirmation of my interview for tomorrow.
 
 09:47 I haven't completely lost all that I've learned. I want to ace this interview and move on in the curriculum. I want to rekindle the love of the feedback loop and solving problems.
+
+11:15 SungOh is insistent on going to the mall. So off we go.

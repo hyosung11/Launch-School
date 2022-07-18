@@ -1776,7 +1776,7 @@ let smallCar = new Car();
 smallCar.goFast(); // => logs "I'm a Car and going super fast!"
 ```
 
-If you need to check whether an object responds to a specific method, you can use the `in` operator:
+If you need to check whether an *object responds to a specific method*, you can use the `in` operator:
 
 ```js
 'goFast' in smallCar; // => true

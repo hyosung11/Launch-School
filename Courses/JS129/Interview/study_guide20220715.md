@@ -600,7 +600,7 @@ let squaredNums = [1, 2, 3].map(function squareNum(num) {
 }); // => [1, 4, 9]
 ```
 
-The main advantage of naming a function expression occurs when the function throws an error (raises an exception). If the function has a name, the stack trace uses that name to help you determine where the error occurred. Without the name, JavaScript merely reports the location as "anonymous."
+The main advantage of naming a function expression occurs when the function throws an error (raises an exception). If the function has a name, the **stack trace** uses that name to help you determine where the error occurred. Without the name, JavaScript merely reports the location as "anonymous."
 
 The function name given to a function expression is **not visible** in the scope that includes the function expression.
 
