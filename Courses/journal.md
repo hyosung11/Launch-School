@@ -8479,3 +8479,5 @@ The `new` operator:
 09:23 There was a misunderstanding, and I am doing the interview at 9:30.
 
 10:28 Just finished the JS129 Interview retake and I'm confident that I passed this time. I want to start JS130 ASAP.
+
+10:52 I started the exercises for JS130, but since I haven't read any of the course material, I don't have the context to answer the questions.

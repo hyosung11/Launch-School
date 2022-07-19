@@ -116,29 +116,29 @@
 
 // Write code that establishes these relationships and behaviors that are written in the comments
 
-class Pet {
-  constructor(name) {
-    this.name = name;
-  }
+// class Pet {
+//   constructor(name) {
+//     this.name = name;
+//   }
 
-  info() {
-    console.log(`My name is ${this.name}`);
-  }
-}
+//   info() {
+//     console.log(`My name is ${this.name}`);
+//   }
+// }
 
-// walk mixin
-const walkMixin = {
-  walk() {
-    console.log(`Walking`);
-  },
-};
+// // walk mixin
+// const walkMixin = {
+//   walk() {
+//     console.log(`Walking`);
+//   },
+// };
 
-// swim mixin
-const swimMixin = {
-  swim() {
-    console.log(`Swimming`);
-  },
-};
+// // swim mixin
+// const swimMixin = {
+//   swim() {
+//     console.log(`Swimming`);
+//   },
+// };
 
 // class Cat extends Pet {}
 // Object.assign(Cat.prototype, walkMixin);
