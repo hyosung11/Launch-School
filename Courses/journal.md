@@ -8476,4 +8476,6 @@ The `new` operator:
 
 09:13 I guess the interview is not this morning. I messaged Srdjan to schedule the interview for Thursday at 9:00 AM EST. I want to do the interview and move on in the curriculum.
 
-09:23 There was a misunderstanding, I and I am doing the interview at 9:30.
+09:23 There was a misunderstanding, and I am doing the interview at 9:30.
+
+10:28 Just finished the JS129 Interview retake and I'm confident that I passed this time. I want to start JS130 ASAP.
