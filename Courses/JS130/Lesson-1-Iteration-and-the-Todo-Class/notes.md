@@ -192,6 +192,214 @@ In this assignment, you learned how to implement the functionality behind the bu
 
 ## 3. Practice Problems: Emulating Iteration Methods
 
+Let's get some practice emulating built-in Array methods.
+
+### 3.1 Basic Emulation Problems
+
+1. Write a function that acts like the built-in `Array.prototype.filter` method. For this problem, you only need to emulate the most basic behavior: filtering elements of an array by examining the array values. You don't have to support multiple arguments to the callback function, but feel free to add them if you like. Your function should work like this:
+
+```js
+let numbers = [1, 2, 3, 4, 5];
+console.log(filter(numbers, number => number > 3)); // => [ 4, 5 ]
+console.log(filter(numbers, number => number < 0)); // => []
+console.log(filter(numbers, () => true));           // => [ 1, 2, 3, 4, 5 ]
+
+let values = [1, "abc", null, true, undefined, "xyz"];
+console.log(filter(values, value => typeof value === "string"));
+// => [ 'abc', 'xyz' ]
+```
+
+Note that the function should not mutate the input array.
+
+Possible Solutions
+
+```js
+// My Solution
+function filter(array, callback) {
+  let result = [];
+  for (let index = 0; index < array.length; index += 1) {
+    let value = array[index];
+    if (callback(value)) {
+      result.push(value);
+    }
+  }
+
+  return result;
+}
+
+// LS Solution
+function filter(array, callback) {
+  let filteredItems = [];
+  for (let index = 0; index < array.length; index += 1) {
+    let value = array[index];
+    if (callback(value)) {
+      filteredItems.push(value);
+    }
+  }
+
+  return filteredItems;
+}
+
+let numbers = [1, 2, 3, 4, 5];
+console.log(filter(numbers, number => number > 3)); // => [ 4, 5 ]
+console.log(filter(numbers, number => number < 0)); // => []
+console.log(filter(numbers, () => true));           // => [ 1, 2, 3, 4, 5 ]
+
+let values = [1, "abc", null, true, undefined, "xyz"];
+console.log(filter(values, value => typeof value === "string"));
+// => [ 'abc', 'xyz' ]
+```
+
+2. Write a function that acts like the built-in `Array.prototype.map` method. For this problem, you only need to emulate the most basic behavior: transforming the elements of an array by using the array values. You don't have to include the `thisArg` argument or support multiple arguments to the callback function, but feel free to add them if you like. Your function should work like this:
+
+```js
+let numbers = [1, 2, 3, 4, 5];
+console.log(map(numbers, number => number * 3));  // => [ 3, 6, 9, 12, 15 ]
+console.log(map(numbers, number => number + 1));  // => [ 2, 3, 4, 5, 6 ]
+console.log(map(numbers, () => false));
+// => [ false, false, false, false, false ]
+
+let values = [1, "abc", null, true, undefined, "xyz"];
+console.log(map(values, value => String(value)));
+// => [ '1', 'abc', 'null', 'true', 'undefined', 'xyz' ]
+```
+
+Note that the function should not mutate the input array.
+
+Possible Solutions
+
+```js
+// My Solution
+function map(array, callback) {
+  let result = [];
+  for (let index = 0; index < array.length; index += 1) {
+    let value = array[index];
+    result.push(callback(value));
+  }
+
+  return result;
+}
+
+// LS Solution
+function map(array, callback) {
+  let transformedItems = [];
+  for (let index = 0; index < array.length; index += 1) {
+    transformedItems.push(callback(array[index]));
+  }
+
+  return transformedItems;
+}
+
+let numbers = [1, 2, 3, 4, 5];
+console.log(map(numbers, number => number * 3));  // => [ 3, 6, 9, 12, 15 ]
+console.log(map(numbers, number => number + 1));  // => [ 2, 3, 4, 5, 6 ]
+console.log(map(numbers, () => false));
+// => [ false, false, false, false, false ]
+
+let values = [1, "abc", null, true, undefined, "xyz"];
+console.log(map(values, value => String(value)));
+// => [ '1', 'abc', 'null', 'true', 'undefined', 'xyz' ]
+```
+
+### 3.2 Emulating and Using the `reduce` Method
+
+Before tackling the problems, you may want to read [this article](https://jrsinclair.com/articles/2019/functional-js-do-more-with-reduce/) on the `Array.prototype.reduce` method. We discussed `reduce` in the [Introduction to Programming with JavaScript book](https://launchschool.com/books/javascript/read/arrays#iterationmethods). The article will refresh your memory about `reduce`, and show you some of its power. (You can ignore the section on asynchronous functions.)
+
+1. Write a function that acts like the built-in `Array.prototype.reduce` method. For this problem, you only need to emulate the most basic behavior: reducing the elements of an array down to a single value based on the original array values. The result may be a primitive value, an object, or another array. You don't have to include the `thisArg` argument or support multiple arguments to the callback function, but feel free to add them if you like. Your function should work like this:
+
+```js
+let numbers = [1, 2, 3, 4, 5];
+console.log(reduce(numbers, (accum, number) => accum + number));   // => 15
+console.log(reduce(numbers, (prod, number) => prod * number));     // => 120
+console.log(reduce(numbers, (prod, number) => prod * number, 3));  // => 360
+console.log(reduce([], (accum, number) => accum + number, 10));    // => 10
+console.log(reduce([], (accum, number) => accum + number));
+// => undefined
+
+let stooges = ["Mo", "Larry", "Curly"];
+console.log(reduce(stooges, (reversedStooges, stooge) => {
+  reversedStooges.unshift(stooge);
+  return reversedStooges;
+}, []));
+// => ["Curly", "Larry", "Mo"]
+```
+
+Note that the function should not mutate the input array. Don't forget to account for the initialValue argument!
+
+Hint
+
+Pay attention to how `Array.prototype.reduce` deals with the initial value argument.
+
+Possible Solution
+
+```js
+function reduce(array, callback, initialValue) {
+  
+}
+```
+#### 3.2.1 The Magic of the `reduce` Array Method Video
+
+If you're a little fuzzy on how reduce works and what it's used for, check out [this optional video](https://www.youtube.com/watch?v=kC3AasLEuBA) entitled "The Magic of the `reduce` Array Method". Note that the last example in this video uses concepts we haven't seen yet, but the explanation is good.
+
+```js
+// Examples 1 & 2
+const scores = [90, 30, 20, 75, 85, 95, 0, 55, 60, 40];
+
+// Common use of `reduce` to get a total value
+var total = scores.reduce((accumulator, element) => accumulator + element, 0);
+
+console.log(total) // 550
+
+// Another use of `reduce` to get minimum and maximum
+var minMax = scores.reduce((acc, score) => [Math.min(acc[0],score), Math.max(acc[1], score)], [100, 0]);
+
+console.log(minMax) // [0, 95]
+```
+
+```js
+// Another More Complex Example
+const students = [
+  {
+    userid: 'stevenh',
+    name: 'Steven',
+    passFail: true,
+  },
+  {
+    userid: 'debbw',
+    name: 'Debbie',
+    passFail: true,
+  },
+  {
+    userid: 'maxv',
+    name: 'Max',
+    passFail: false,
+  },
+];
+
+var studentObj = students.reduce(function(acc, person) {
+  return {...acc, [person.userid]: person}
+}, {});
+
+console.log(studentObj);
+/*
+{
+  stevenh: { userid: 'stevenh', name: 'Steven', passFail: true },
+  debbw: { userid: 'debbw', name: 'Debbie', passFail: true },
+  maxv: { userid: 'maxv', name: 'Max', passFail: false }
+}
+*/
+console.log(studentObj.stevenh);
+// { userid: 'stevenh', name: 'Steven', passFail: true }
+
+console.log(studentObj.stevenh.name) // Steven
+```
+
+### 3.3 Want Some More Practice?
+
+That's it for our prepared practice problems. If you want further practice, see the [MDN Documentation for Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array). Many of the built-in Array methods are good emulation candidates.
+
+If you get bored emulating the Array methods, see if you can write some functions that *manipulate objects* instead of arrays. For instance, here's a version of `forEach` that operates on objects:
+
 ## 4. Build a TodoList Class: Getting Started
 
 ## 5. Build a TodoList Class: Add a forEach Method
