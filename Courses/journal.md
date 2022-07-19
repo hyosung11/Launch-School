@@ -8481,3 +8481,7 @@ The `new` operator:
 10:28 Just finished the JS129 Interview retake and I'm confident that I passed this time. I want to start JS130 ASAP.
 
 10:52 I started the exercises for JS130, but since I haven't read any of the course material, I don't have the context to answer the questions.
+
+11:06 Anxious to start JS130 and move more quickly and efficiently through the curriculum.
+
+13:15 Watching Codesmith's "JavaScript the Hard Parts: Closure, Scope & Execution Context" and taking notes. Now heading to the gym.
