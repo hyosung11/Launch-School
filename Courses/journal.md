@@ -8471,3 +8471,5 @@ The `new` operator:
 09:47 I haven't completely lost all that I've learned. I want to ace this interview and move on in the curriculum. I want to rekindle the love of the feedback loop and solving problems.
 
 11:15 SungOh is insistent on going to the mall. So off we go.
+
+13:27 Back from the mall and lunch there. I bought a stuffed elephant for Sohee to commemorate our 14th wedding anniversary.
