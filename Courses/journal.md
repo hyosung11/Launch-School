@@ -8471,3 +8471,9 @@ The `new` operator:
 09:47 I haven't completely lost all that I've learned. I want to ace this interview and move on in the curriculum. I want to rekindle the love of the feedback loop and solving problems.
 
 11:15 SungOh is insistent on going to the mall. So off we go.
+
+## 20220719 화요일
+
+09:13 I guess the interview is not this morning. I messaged Srdjan to schedule the interview for Thursday at 9:00 AM EST. I want to do the interview and move on in the curriculum.
+
+09:23 There was a misunderstanding, I and I am doing the interview at 9:30.
