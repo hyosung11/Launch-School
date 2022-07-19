@@ -474,6 +474,182 @@ the value of qux is 3
 
 ## 4. Build a TodoList Class: Getting Started
 
+In this assignment, we'll start working on a simple todo list project. The project contains two classes: a `TodoList` class and a `Todo` class. `TodoList` objects contain a collection (an array) of `Todo` objects. We'll finish building the project in subsequent assignments.
+
+We'll reuse this code in later lessons, so make sure that you create a git repository for it and push it to the remote repository. For best results, create a new repository just for this project. In particular, don't nest the repo inside another repo; if you already created a repo for this course, put the new repo elsewhere.
+
+### 4.1 The Todo Class
+
+Let's examine the `Todo` class first:
+
+```js
+// This class represents a todo item and its associated
+// data: the todo title and a flag that shows whether the
+// todo item is done.
+
+class Todo {
+  static DONE_MARKER = "X";
+  static UNDONE_MARKER = " ";
+
+  constructor(title) {
+    this.title = title;
+    this.done = false;
+  }
+
+  toString() {
+    let marker = this.isDone() ? Todo.DONE_MARKER : Todo.UNDONE_MARKER;
+    return `[${marker}] ${this.title}`;
+  }
+
+  markDone() {
+    this.done = true;
+  }
+
+  markUndone() {
+    this.done = false;
+  }
+
+  isDone() {
+    return this.done;
+  }
+
+  getTitle() {
+    return this.title;
+  }
+}
+```
+
+Objects created by our `Todo` class contain a title and a boolean flag that indicates whether the todo is "done." We also have some methods that we can use to set, unset, and interrogate the `done` attribute; they aren't strictly needed, but they provide a better and safer interface when working with `Todo` objects. We'll use the `Todo` class to encapsulate todo items, and our `TodoList` class to maintain the collection of `Todo` objects.
+
+#### 4.1.1 Creating and Displaying a Todo
+
+We can use the Todo constructor to create todos and the toString method to format them in a manner suitable for display:
+
+```js
+// omitted code
+
+let todo1 = new Todo("Buy milk");
+let todo2 = new Todo("Clean room");
+let todo3 = new Todo("Go to the gym");
+
+console.log(todo1.toString());
+console.log(todo2.toString());
+console.log(todo3.toString());
+```
+
+```sh
+[ ] Buy milk
+[ ] Clean room
+[ ] Go to the gym
+```
+
+Note that we use `toString` on lines 7-9 to create the string representations of our todo objects. Without `toString`, our output wouldn't look very good:
+
+```js
+// omitted code
+
+console.log(todo1);
+console.log(todo2);
+console.log(todo3);
+```
+
+```sh
+Todo { title: 'Buy milk', done: false }
+Todo { title: 'Clean room', done: false }
+Todo { title: 'Go to the gym', done: false }
+```
+
+We can also use the `String` function to accomplish the same formatting as `toString`:
+
+```js
+// omitted code
+
+console.log(String(todo1));
+console.log(String(todo2));
+console.log(String(todo3));
+```
+
+#### 4.1.2 Marking a Todo as Done or Not Done
+
+Let's say that we've bought some milk and want to mark the `Buy milk` todo as done. For that, we can use the `markDone` method:
+
+```js
+// omitted code
+
+let todo1 = new Todo("Buy milk");
+let todo2 = new Todo("Clean room");
+let todo3 = new Todo("Go to the gym");
+
+todo1.markDone();
+
+console.log(todo1.toString());
+console.log(todo2.toString());
+console.log(todo3.toString());
+```
+
+```sh
+[X] Buy milk
+[ ] Clean room
+[ ] Go to the gym
+```
+
+We can also mark a previously completed todo as not done:
+
+```js
+// omitted code
+
+todo1.markUndone();
+
+console.log(todo1.toString());
+console.log(todo2.toString());
+console.log(todo3.toString());
+```
+
+```sh
+[ ] Buy milk
+[ ] Clean room
+[ ] Go to the gym
+```
+
+#### 4.1.3 Querying a Todo's Completion Status
+
+The `isDone` method determines whether a `Todo` object is marked as done:
+
+```js
+// omitted code
+
+todo2.markDone();
+console.log(todo2.isDone() ? "The todo is done." : "The todo is not done.");
+
+todo2.markUndone();
+console.log(todo2.isDone() ? "The todo is done." : "The todo is not done.");
+```
+
+```sh
+The todo is done.
+The todo is not done.
+```
+
+#### 4.1.4 Retrieve a Todo's Title
+
+The `getTitle` method returns the title of a `Todo` object:
+
+```js
+// omitted code
+
+console.log(todo2.getTitle()); // => 'Clean room'
+```
+
+As with the methods used to manipulate and query the done status, we don't need this method. We could easily access the title directly with `todo.title`. We'll talk more about why we provide methods for such tasks in the next assignment.
+
+That's pretty much it for our `Todo` objects. We can create them, mark them as done or undone, query them, display them, and retrieve their title. That's plenty of functionality without much code.
+
+Before proceeding, delete all the testing code from your JavaScript file. We'll add more tests in a few minutes. For now, all you need is the `Todo` class.
+
+### 4.2 The TodoList Class
+
+
+
 ## 5. Build a TodoList Class: Add a forEach Method
 
 ## 6. Build a TodoList Class: Add a filter Method
@@ -482,4 +658,3 @@ the value of qux is 3
 
 ## 8. Build a TodoList Class: Final Code
 
-End
