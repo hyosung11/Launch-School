@@ -334,9 +334,56 @@ Possible Solution
 
 ```js
 function reduce(array, callback, initialValue) {
-  
+  let accumulator = initialValue;
+  let index = 0;
+
+  if (accumulator === undefined) {
+    accumulator = array[0];
+    index = 1;
+  }
+
+  while (index < array.length) {
+    accumulator = callback(accumulator, array[index]);
+    index += 1;
+  }
+
+  return accumulator;
 }
 ```
+
+2. `Array.prototype.reduce` can be an incredibly useful function. You're not limited to simple accumulation-style processing, but can perform a wide variety of different tasks with it. For instance, you can emulate many of the standard Array methods, including `filter`, `map`, and more.
+
+Let's try it. Write a function that works like the `filter` function from problem 1. This time, though, you should use `Array.prototype.reduce` to filter the input array.
+
+Possible Solution
+
+```js
+function filter(array, callback) {
+  return array.reduce((filteredItems, value) => {
+    if (callback(value)) {
+      filteredItems.push(value)
+    }
+
+    return filteredItems;
+  }, []);
+}
+```
+
+As you can see, this is very similar to the `filter` function in our solution to problem 1. The chief difference is that we now use `Array.prototype.reduce` to iterate over the array elements, and use an array as the accumulator (`filteredItems`) and the final return value.
+
+3. Let's put `reduce` to work with emulating `map` as well. Write a function that works like the `map` function from problem 2. This time, though, use `Array.prototype.reduce` to transform the input array.
+
+Possible Solution
+
+```js
+function map(array, callback) {
+  return array.reduce((transformedItems, value) => {
+    transformedItems.push(callback(value));
+    return transformedItems;
+  }, []);
+}
+```
+
 #### 3.2.1 The Magic of the `reduce` Array Method Video
 
 If you're a little fuzzy on how reduce works and what it's used for, check out [this optional video](https://www.youtube.com/watch?v=kC3AasLEuBA) entitled "The Magic of the `reduce` Array Method". Note that the last example in this video uses concepts we haven't seen yet, but the explanation is good.
@@ -399,6 +446,31 @@ console.log(studentObj.stevenh.name) // Steven
 That's it for our prepared practice problems. If you want further practice, see the [MDN Documentation for Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array). Many of the built-in Array methods are good emulation candidates.
 
 If you get bored emulating the Array methods, see if you can write some functions that *manipulate objects* instead of arrays. For instance, here's a version of `forEach` that operates on objects:
+
+Possible Solution
+
+```js
+function objForEach(object, callback) {
+  for (let property in object) {
+    if (object.hasOwnProperty(property)) {
+      callback(property, object[property]);
+    }
+  }
+}
+
+let obj = { foo: 1, bar: 2, qux: 3 };
+objForEach(obj, (property, value) => {
+  console.log(`the value of ${property} is ${value}`);
+});
+```
+
+Output
+
+```sh
+the value of foo is 1
+the value of bar is 2
+the value of qux is 3
+```
 
 ## 4. Build a TodoList Class: Getting Started
 
