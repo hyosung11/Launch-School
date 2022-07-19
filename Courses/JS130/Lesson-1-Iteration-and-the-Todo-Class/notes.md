@@ -77,8 +77,6 @@ Great! It looks like our `forEach` function behaves the same as `Array.prototype
 
 The magic behind our `forEach` function is the same magic that the built-in `forEach` method uses: it doesn't implement the action it performs on each element of the array. Do we increment every value by one? Do we output the element? None of that matters since our `forEach` function only cares about *iterating*. It doesn't care what we do with each element. Generic iteration functions let method callers pass in a callback function that takes care of the specific details of the iteration. All our function has to do is invoke the callback function with the expected arguments (the array element in this case).
 
-End
-
 ### 2.2 Defining the Execution Context
 
 Another feature of `Array.prototype.forEach` is that it lets us set the execution context for the callback function by passing in a second argument, often designated as `thisArg` in JavaScript documentation. For instance:
@@ -99,13 +97,98 @@ let foo = new Foo("Item: ");
 [4, 5, 6].forEach(foo.showItem);
 ```
 
+Output
+
+```sh
+Item:  1
+Item:  2
+Item:  3
+TypeError: Cannot read property 'prefix' of undefined
+```
+
+Our function should have similar behavior:
+
+```js
+forEach([1, 2, 3], foo.showItem, foo);
+forEach([4, 5, 6], foo.showItem);
+```
+
+Output
+
+```sh
+Item:  1
+Item:  2
+Item:  3
+TypeError: Cannot read property 'prefix' of undefined
+```
+
+Hmm... it doesn't work, does it? See if you can make the necessary adjustments on your own. Make sure your code still works with callbacks that don't need an explicit context.
+
+Solution
+
+```js
+function forEach(array, callback, thisArg) {
+  for (let index = 0; index < array.length; index += 1) {
+    callback.call(thisArg, array[index]);
+  }
+}
+
+forEach(['a', 'b', 'c'], item => console.log(item));
+forEach([1, 2, 3], foo.showItem, foo);
+forEach([4, 5, 6], foo.showItem);
+```
+
+Output
+
+```sh
+a
+b
+c
+Item:  1
+Item:  2
+Item:  3
+TypeError: Cannot read property 'prefix' of undefined
+```
+
+The most significant change to our code is that we now use `call` to invoke the callback function with the appropriate context.
+
 ### 2.3 Adding the Index and Array Arguments
+
+As we've seen, `Array.prototype.forEach` passes to the callback function the value of the current element during iteration. It also passes to the callback the element's index and a reference to the array that invoked `forEach`. The callback is free to ignore those arguments -- and often does -- but you can use them when you need them:
+
+```js
+['a', 'b', 'c'].forEach(function(value, index, arr) {
+  console.log(`After ${value} comes ${arr[index + 1]}`);
+});
+```
+
+Output
+
+```sh
+After a comes b
+After b comes c
+After c comes undefined
+```
+
+Try to modify your `forEach` function so that it passes the index and array to the callback function.
+
+Solution
+
+```js
+function forEach(array, callback, thisArg) {
+  for (let index = 0; index < array.length; index += 1) {
+    callback.call(thisArg, array[index], index, array);
+  }
+}
+
+forEach(['a', 'b', 'c'], function(value, index, array) {
+  console.log(`After ${value} comes ${array[index + 1]}`);
+});
+```
 
 ### 2.4 Summary
 
 In this assignment, you learned how to implement the functionality behind the built-in `Array.prototype.forEach` method. In the next assignment, you'll get more practice with emulating built-in methods: we'll tackle the `filter`, `map`, and `reduce` methods specifically.
-
-End
 
 ## 3. Practice Problems: Emulating Iteration Methods
 

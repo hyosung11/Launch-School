@@ -8493,3 +8493,5 @@ The `new` operator:
 Passed the interview assessment the second time around and am going to start JS130 now.
 
 15:28 Started clicking through the assignments but that doesn't really work for me, so I'm starting at the beginning and working through the lessons assignment by assignment.
+
+16:07 Finished Assignment 2.
