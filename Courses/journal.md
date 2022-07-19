@@ -8473,3 +8473,23 @@ The `new` operator:
 11:15 SungOh is insistent on going to the mall. So off we go.
 
 13:27 Back from the mall and lunch there. I bought a stuffed elephant for Sohee to commemorate our 14th wedding anniversary.
+
+## 20220719 화요일
+
+09:13 I guess the interview is not this morning. I messaged Srdjan to schedule the interview for Thursday at 9:00 AM EST. I want to do the interview and move on in the curriculum.
+
+09:23 There was a misunderstanding, and I am doing the interview at 9:30.
+
+10:28 Just finished the JS129 Interview retake and I'm confident that I passed this time. I want to start JS130 ASAP.
+
+10:52 I started the exercises for JS130, but since I haven't read any of the course material, I don't have the context to answer the questions.
+
+11:06 Anxious to start JS130 and move more quickly and efficiently through the curriculum.
+
+13:15 Watching Codesmith's "JavaScript the Hard Parts: Closure, Scope & Execution Context" and taking notes. Now heading to the gym.
+
+14:49 Back from a shortened training session at the gym where I stopped doing speed work because it made my right pinky toe feel worse. I did some barbell hip thrusts. I would like to change training to early morning.
+
+Passed the interview assessment the second time around and am going to start JS130 now.
+
+15:28 Started clicking through the assignments but that doesn't really work for me, so I'm starting at the beginning and working through the lessons assignment by assignment.

@@ -1,51 +1,53 @@
-# JS130 More JavaScript Foundations Notes
+# JS130 Notes
 
-## Summary
+## Closure
 
-This course will cover some language specific aspects of the JavaScript programming language. We'll start with some additional programming practice, with a focus on emulating JavaScript's built-in iteration methods. We'll also create a small pair of classes that implement a todo list, after which we'll move on to a variety of topics that explore the nooks and crannies of JavaScript. In particular, we'll look at the var statement, hoisting, strict mode, closures, private data, immediately invoked functions, new ES6 shorthand syntax, modules, exceptions, and garbage collection. Then we'll take a brief dive into the world of testing with Jest, and follow that up with a brief lesson on how to package code for distribution. You'll be ready to move on to more advanced topics and projects after completing this course. You will also be able to work on a solve some programming challenges, both here, as well as at other coding practice sites like Codewars and Exercism.
+[JavaScript the Hard Parts: Closure, Scope & Execution Context](https://www.youtube.com/watch?v=XTAzsODSCsM&t=6s)
 
-## Detailed Syllabus
+When our functions get called, we create a live store of data (local memory/variable environment/state) for that function's execution context.
 
-### More JavaScript Practice
+When the function finishes executing, its local memory is deleted (except the returned value).
 
-- Building your own `forEach` method
-- Build a todo list project
+But what if our functions could hold on to live data/state between executions?
 
-### More JavaScript Concepts
+This would let our function definitions have an associated cache/persistent memory.
 
-- Hoisting and the `var` statement
-- Strict mode
-- Closures
-- Private data
-- Immediately invoked function expressions (IIFE)
-- Shorthand notation
-- Modules
-- Exceptions
-- Garbage collection
-- Practice problems
+But it starts with returning a function from another function.
 
-### Introduction to Testing
+**Functions can be returned from other functions** (Higher-order Function)
 
-- Setting up Jest
-- Using Jest
-- Jest Matchers
-- SEAT Approach
-- Writing a test suite for the todo list
-- Code coverage
-- Practice Problems
+```js
+function instructionGenerator() {
+  function multiplyBy2(num) {
+    return num * 2;
+  }
 
-### Packaging Code
+  return multiplyBy2;
+}
 
-- The node toolbox
-- Setting up a project directory
-- Using npm
-- Transpilation
-- Automation with npm scripts
-- Packaging the todo list project
+const generatedFunc = instructorGenerator();
+```
 
-### Assessment
+How can we run/call `multiplyBy2` now?
 
-- Assessment Format
-- Study Guide
-- The Exam
-- Feedback
+```js
+const result = generatedFunc(3); // 6
+```
+
+**Calling a function in the same scope as it was defined**.
+
+```js
+function outer() {
+  let counter = 0;
+  function incrementCounter() {
+    counter ++;
+  }
+
+  incrementCounter();
+}
+
+outer();
+```
+
+Where you define your function determines what variables your function has access to when you call the function.
+
