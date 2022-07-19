@@ -648,7 +648,128 @@ Before proceeding, delete all the testing code from your JavaScript file. We'll 
 
 ### 4.2 The TodoList Class
 
+Let's turn our attention to our *collection* class, `TodoList`. Why build a custom class instead of using a simple array of `Todo` objects? We could do that. However, a custom collection class lets us add properties and methods that are specific to *todo lists*. For example, our todo list may have a title or a due date, and we may want to create an outstanding todos report. We can also impose specific requirements on the objects that we can put on the list. For instance, we can restrict the `TodoList` contents to just `Todo` objects. After all, it doesn't make much sense to place a `Circle` object on a todo list. With some effort, we can accomplish these tasks with arrays, but it's more natural to use a custom object type.
 
+Let's get started with the `TodoList` class:
+
+```js
+// omitted code
+
+// This class represents a collection of Todo objects.
+// You can perform typical collection-oriented actions
+// on a TodoList object, including iteration and selection.
+
+class TodoList {
+  constructor(title) {
+    this.title = title;
+    this.todos = [];
+  }
+
+  // rest of class needs implementation
+}
+
+let list = new TodoList("Today's Todos");
+console.log(list); // TodoList { title: "Today's Todos", todos: [] }
+```
+
+Our class uses an array to track `Todo` objects. However, that can change in the future without changing the `TodoList` interface. The interface consists of the methods and properties intended for use by code that isn't part of the class.
+
+We'll leave the rest of the implementation to you. Use the code below to help guide you through writing the methods that `TodoList` needs.
+
+#### 4.2.1 Creating a TodoList Object
+
+We've already completed this part for you with the `constructor` method.
+
+```js
+// The Todo class
+// Your TodoList class
+
+let list = new TodoList("Today's Todos");
+console.log(list);
+```
+
+```sh
+TodoList { title: "Today's Todos", todos: [] }
+```
+
+#### 4.2.2 Add a Todo to a TodoList Object
+
+The `add` method appends todos to the end of the list. It raises an error if the argument isn't a `Todo` object.
+
+```js
+// Omitted code
+
+let todo1 = new Todo("Buy milk");
+let todo2 = new Todo("Clean room");
+let todo3 = new Todo("Go to the gym");
+let todo4 = new Todo("Go shopping");
+
+list.add(todo1);
+list.add(todo2);
+list.add(todo3);
+list.add(todo4);
+console.log(list);
+
+list.add(1); // delete this line after testing it
+```
+
+```sh
+list: TodoList {
+  title: "Today's Todos",
+  todos: [
+    Todo { title: 'Buy milk', done: false },
+    Todo { title: 'Clean room', done: false },
+    Todo { title: 'Go to the gym', done: false },
+    Todo { title: 'Go shopping', done: false }
+  ]
+}
+
+TypeError: can only add Todo objects
+```
+
+Possible Solution
+
+```js
+class TodoList {
+  // Omitted code
+
+  add(todo) {
+    if (!(todo instanceof Todo)) {
+      throw new TypeError("can only add Todo objects");
+    }
+
+    this.todos.push(todo);
+  }
+}
+```
+
+We raise a `TypeError` exception when the argument isn't a `Todo` object to indicate that the argument has the wrong type.
+
+We had a brief discussion of exceptions in the Introduction to Programming With JavaScript book. However, in the book, we mentioned that using exceptions to prevent bad inputs may not be best practice. After all, we can avoid passing invalid data around in our program. However, we can't prevent someone else who is using our `TodoList` class from calling the method with something other than a `Todo` object.
+
+In a later assignment, we'll move the `TodoList` class into a *module* that other programs can use. We may not have control over what those programs do, so raising an exception is appropriate.
+
+We'll discuss exceptions in more detail in a later lesson.
+
+RR 20220719 19:54
+
+#### 4.2.3 How Many Todos are on the TodoList?
+
+#### 4.2.4 Get the First and Last Todos from a TodoList
+
+#### 4.2.5 Get the Todo at Index Position
+
+#### 4.2.6 Mark a Todo at Index Position as Done or Not Done
+
+#### 4.2.7 Are All Todos Done?
+
+#### 4.2.8 Remove and Return the First or Last Todo from the List
+
+#### 4.2.9 Remove and Return a Todo by Index Position
+
+#### 4.2.10 Render the Todo List as a String Suitable for Display
+
+#### 4.2.11 Our Solution
 
 ## 5. Build a TodoList Class: Add a forEach Method
 

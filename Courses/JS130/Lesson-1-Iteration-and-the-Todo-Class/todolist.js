@@ -33,30 +33,44 @@ class Todo {
   }
 }
 
-let todo1 = new Todo("Buy milk");
-let todo2 = new Todo("Clean room");
-let todo3 = new Todo("Go to the gym");
+// let todo1 = new Todo("Buy milk");
+// let todo2 = new Todo("Clean room");
+// let todo3 = new Todo("Go to the gym");
 
 // omitted code
 
-console.log(todo2.getTitle()); // => 'Clean room'
+// This class represents a collection of Todo objects.
+// You can perform typical collection-oriented actions
+// on a TodoList object, including iteration and selection.
 
-// console.log(todo1.toString());
-// console.log(todo2.toString());
-// console.log(todo3.toString());
+class TodoList {
+  constructor(title) {
+    this.title = title;
+    this.todos = [];
+  }
 
-// [ ] Buy milk
-// [ ] Clean room
-// [ ] Go to the gym
+  add(todo) {
+    if (!(todo instanceof Todo)) {
+      throw new TypeError("Can only add Todo objects.");
+    }
 
-// console.log(todo1);
-// console.log(todo2);
-// console.log(todo3);
+    this.todos.push(todo);
+  }
+}
 
-// Todo { title: 'Buy milk', done: false }
-// Todo { title: 'Clean room', done: false }
-// Todo { title: 'Go to the gym', done: false }
+let list = new TodoList("Today's Todos");
 
-// console.log(String(todo1));
-// console.log(String(todo2));
-// console.log(String(todo3));
+// Omitted code
+
+let todo1 = new Todo("Buy milk");
+let todo2 = new Todo("Clean room");
+let todo3 = new Todo("Go to the gym");
+let todo4 = new Todo("Go shopping");
+
+list.add(todo1);
+list.add(todo2);
+list.add(todo3);
+list.add(todo4);
+console.log(list);
+
+// list.add(1); // delete this line after testing it
