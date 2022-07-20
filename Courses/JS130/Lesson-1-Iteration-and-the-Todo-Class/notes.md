@@ -1357,9 +1357,217 @@ The entire goal of creating a class and encapsulating logic in it is to hide imp
 
 ## 6. Build a TodoList Class: Add a `filter` Method
 
-RR
+In this assignment, we'll continue to work with our `TodoList` and `Todo` classes. This time, we'll build a `TodoList.prototype.filter` method that works like the built-in `Array.prototype.filter` method or the `filter` method that you built earlier in this lesson. We'll use the `filter` method like this:
+
+```js
+let todo1 = new Todo("Buy milk");
+let todo2 = new Todo("Clean room");
+let todo3 = new Todo("Go to the gym");
+let todo4 = new Todo("Go shopping");
+let todo5 = new Todo("Feed the cats");
+let todo6 = new Todo("Study for Launch School");
+let list = new TodoList("Today's Todos");
+
+list.add(todo1);
+list.add(todo2);
+list.add(todo3);
+list.add(todo4);
+list.add(todo5);
+list.add(todo6);
+todo1.markDone();
+todo5.markDone();
+
+let doneTodos = list.filter(todo => todo.isDone());
+console.log(doneTodos);
+```
+
+The code, once you write the filter method, should produce this output:
+
+```sh
+[
+  Todo { title: 'Buy milk', done: true },
+  Todo { title: 'Feed the cats', done: true }
+]
+```
+
+That's an array that contains all done todos from `list`. In this case, there are two done todos, so the array has two elements.
+
+Hint
+
+Use `TodoList.prototype.forEach` from the previous lesson to iterate over the todos in the todo list. While you can use `Array.prototype.filter` inside `TodoList.prototype.filter`, that adds an additional dependency on the implementation you use for `TodoList`. If you later decide to change the implementation for `TodoList` to use something other than an array, you only need to update `forEach`, not `filter`.
+
+Possible Solution
+
+```js
+class TodoList {
+  // Omitted code
+
+  filter(callback) {
+    let selectTodos = [];
+    this.forEach(todo => {
+      if (callback(todo)) {
+        selectedTodos.push(todo);
+      }
+    });
+
+    return selectedTodos;
+  }
+}
+```
+
+### 6.1 A Better Return Value
+
+We've learned that the built-in `Array.prototype.filter` method returns an array, which is natural and expected. It also lets us chain `Array.prototype` method calls together. For instance:
+
+```js
+let arr = [1, 2, 3, 4, 5];
+arr.filter(number => number % 2 === 1)
+   .forEach(number => console.log(number));
+```
+
+Output
+
+```sh
+1
+3
+5
+```
+
+We can chain methods like this since `Array.prototype.filter` returns an `Array` object, so we can use that array to call `Array.prototype.forEach`. We can keep chaining methods as long as we understand what object we're working with at each step in the chain.
+
+Contrast how we can chain `Array.prototype.filter` with how we can use our `TodoList.prototype.filter` method:
+
+```js
+list.filter(todo => todo.isDone()).first();
+```
+
+The `filter` method returns an array, not a `TodoList` object, so this code fails when we try to call `first` on the return value. It doesn't follow the usual pattern. In other words, the `TodoList.prototype.filter` method should, in theory, return a `TodoList` object, not an `Array`.
+
+Your next task is to refine `TodoList.prototype.filter` so that it still works as intended: it should return a new `TodoList` object, not an array.
+
+Hint: Notice that `Array.prototype.filter` returns a *new* object. It's a non-destructive method that doesn't change the original array. However, keep in mind that the returned objects are the same objects as the matching objects in the original array: if you mutate one of the objects in the returned array, that mutation will show up in the original array as well.
+
+Possible Solution, Part 2
+
+```js
+class TodoList {
+  // omitted code
+
+  filter(callback) {
+    let newList = new TodoList(this.title);
+    this.forEach(todo => {
+      if (callback(todo)) {
+        newList.add(todo);
+      }
+    });
+
+    return newList;
+  }
+}
+
+// omitted code
+
+console.log(list.filter(todo => todo.isDone()).first());
+// => Todo { title: 'Buy milk', done: true }
+```
+
+Though we're creating a new `TodoList` object instead of a new `Array` object, the logic for invoking the callback remains the same.
 
 ## 7. Build a TodoList Class: More Methods
+
+At this point, your classes should have the following methods:
+
+TodoList Class  | Todo Class
+----------------|-----------
+`constructor`  | `constructor`
+`add`  | `markDone`
+`size`  | `markUndone`
+`first`  | `isDone`
+`last`  | `toString`
+`itemAt`  | `getTitle`
+`markDoneAt`  |
+`markUndoneAt`  |
+`isDone`  |
+`shift`  |
+`pop`  |
+`removeAt`  |
+`toString`  |
+`forEach`  |
+`filter`  |
+`_validateIndex`  |
+
+Let's add a few more methods that can piggy-back off the `forEach` and `filter` methods. Implement the following methods:
+
+- findByTitle(title)
+
+  Returns the first `Todo` object from the list that matches the string `title`. Returns `undefined` if there is no such todo.
+
+- allDone()
+
+  Returns a new `TodoList` object that contains all of the done todos.
+
+- allNotDone()
+
+  Returns a new `TodoList` object that contains all of the undone todos.
+
+- markDone(title)
+
+  Mark the first `Todo` object on the list that matches the string `title` as done. Do nothing if there are no matching todos on the list.
+
+- markAllDone()
+
+  Mark every todo on the list as done.
+
+- markAllUndone()
+
+  Mark every todo on the list as not done.
+
+- toArray()
+
+  Return a copy of the array of `Todo` items.
+
+With the exception of `TodoList.prototype.toArray`, you should use either `TodoList.prototype.forEach` or `TodoList.prototype.filter` or another method that uses one of those in your implementations. For `toArray`, you can use any approach that returns a copy of the array.
+
+Be sure to test your code! We'll talk more about testing in the next lesson, but for now, you can get a head start by trying to design your own tests.
+
+Possible Solution
+
+```js
+class TodoList {
+  // omitted code
+
+  findByTitle(title) {
+    return this.filter(todo => todo.getTitle() === title).first();
+  }
+
+  allDone() {
+    return this.filter(todo => todo.isDone());
+  }
+
+  allNotDone() {
+    return this.filter(todo => !todo.isDone());
+  }
+
+  markDone(title) {
+    let todo = this.findByTitle(title);
+    if (todo !== undefined) {
+      todo.markDone();
+    }
+  }
+
+  markAllDone() {
+    this.forEach(todo => todo.markDone());
+  }
+
+  markAllUndone() {
+    this.forEach(todo => todo.markUndone());
+  }
+
+  toArray() {
+    return this.todos.slice();
+  }
+}
+```
 
 ## 8. Build a TodoList Class: Final Code
 
