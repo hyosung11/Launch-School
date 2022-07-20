@@ -8511,3 +8511,5 @@ Passed the interview assessment the second time around and am going to start JS1
 10:14 Working through the TodoList methods. I am enjoying it today.
 
 10:45 I need to stop and play with SungOh now.
+
+12:08 Taking a few minutes to complete Assignment 4 while making lunch. Here's the energy and focus that I haven't had recently
