@@ -68,13 +68,6 @@ class TodoList {
     return this.todos[index];
   }
 
-  _validateIndex(index) {
-    // _ in name suggest a "private" method
-    if (!(index in this.todos)) {
-      throw new ReferenceError(`invalid index: ${index}`);
-    }
-  }
-
   markDoneAt(index) {
     this.itemAt(index).markDone();
   }
@@ -102,7 +95,7 @@ class TodoList {
 
   toString() {
     let title = `--- ${this.title} ---`;
-    let list = this.todos.map(todo => todo.toString()).join("\n");
+    let list = this.todos.map((todo) => todo.toString()).join('\n');
     return `${title}\n${list}`;
   }
 
@@ -112,13 +105,51 @@ class TodoList {
 
   filter(callback) {
     let newList = new TodoList(this.title);
-    this.forEach(todo => {
+    this.forEach((todo) => {
       if (callback(todo)) {
         newList.add(todo);
       }
     });
 
     return newList;
+  }
+
+  findByTitle(title) {
+    return this.filter((todo) => todo.getTitle() === title).first();
+  }
+
+  allDone() {
+    return this.filter((todo) => todo.isDone());
+  }
+
+  allNotDone() {
+    return this.filter((todo) => !todo.isDone());
+  }
+
+  markDone(title) {
+    let todo = this.findByTitle(title);
+    if (todo !== undefined) {
+      todo.markDone();
+    }
+  }
+
+  markAllDone() {
+    this.forEach((todo) => todo.markDone());
+  }
+
+  markAllUndone() {
+    this.forEach((todo) => todo.markUndone());
+  }
+
+  toArray() {
+    return this.todos.slice();
+  }
+
+  _validateIndex(index) {
+    // _ in name suggest a "private" method
+    if (!(index in this.todos)) {
+      throw new ReferenceError(`invalid index: ${index}`);
+    }
   }
 }
 
@@ -128,6 +159,7 @@ let todo3 = new Todo('Go to the gym');
 let todo4 = new Todo('Go shopping');
 let todo5 = new Todo('Feed the cats');
 let todo6 = new Todo('Study for Launch School');
+
 let list = new TodoList("Today's Todos");
 
 list.add(todo1);
@@ -136,12 +168,9 @@ list.add(todo3);
 list.add(todo4);
 list.add(todo5);
 list.add(todo6);
-todo1.markDone();
-todo5.markDone();
+// todo1.markDone();
+// todo5.markDone();
 
-// let doneTodos = list.filter((todo) => todo.isDone());
-// console.log(doneTodos);
-
-console.log(list.filter(todo => todo.isDone()).first());
-// => Todo { title: 'Buy milk', done: true }
+list.toArray()
+console.log(list);
 

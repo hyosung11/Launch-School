@@ -8517,3 +8517,5 @@ Passed the interview assessment the second time around and am going to start JS1
 13:14 After lunch writing a little bit more code before taking the kids to swim lessons now. I finished Lesson 1 Assignment 5.
 
 16:56 Time to get SungOh.
+
+19:28 I finished lesson, but ended copying most of the latter methods rather than trying to figure them out myself first.
