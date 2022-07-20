@@ -8509,3 +8509,5 @@ Passed the interview assessment the second time around and am going to start JS1
 09:15 Glad to have passed JS129 Interview and do have started JS130.
 
 10:14 Working through the TodoList methods. I am enjoying it today.
+
+10:45 I need to stop and play with SungOh now.

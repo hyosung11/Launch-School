@@ -985,7 +985,112 @@ class TodoList {
 
 #### 4.2.8 Remove and Return the First or Last Todo from the List
 
+The `shift` method removes and returns the first todo from a todo list, while `pop` removes and returns the last todo. Both methods return `undefined` if the todo list is empty.
+
+```js
+// Omitted code
+
+console.log(list.shift());
+console.log(list.pop());
+console.log(list);
+
+console.log(emptyList.shift());
+console.log(emptyList.pop());
+console.log(emptyList);
+```
+
+```sh
+Todo { title: 'Buy milk', done: true }
+Todo { title: 'Go shopping', done: true }
+TodoList {
+  title: "Today's Todos",
+  todos: [
+    Todo { title: 'Clean room', done: true },
+    Todo { title: 'Go to the gym', done: false }
+  ]
+}
+undefined
+undefined
+TodoList { title: 'Empty List', todos: [] }
+```
+
+Possible Solutions
+
+```js
+class TodoList {
+  // Omitted code
+
+  shift() {
+    return this.todos.shift();
+  }
+
+  pop() {
+    return this.todos.pop();
+  }
+}
+```
+
+RR 10:43
+
 #### 4.2.9 Remove and Return a Todo by Index Position
+
+The `removeAt` method removes the `Todo` object with the specified index number. It returns a single-element array that contains the deleted `Todo` object. It raises an error if the index is omitted or invalid.
+
+`removeAt` should actually return just the deleted `Todo` object, not an array. We'll ignore that error since we discovered it a bit late.
+
+```js
+// Omitted code
+
+// First, let's create some new todos.
+let todo5 = new Todo("Feed the cats");
+let todo6 = new Todo("Study for Launch School");
+list.add(todo5);
+list.add(todo6);
+console.log(list);
+
+console.log(list.removeAt(2));
+console.log(list.removeAt(0));
+console.log(list.removeAt(1));
+console.log(list);
+
+list.removeAt(100); // delete this line after testing it
+```
+
+```sh
+TodoList {
+  title: "Today's Todos",
+  todos: [
+    Todo { title: 'Clean room', done: true },
+    Todo { title: 'Go to the gym', done: false },
+    Todo { title: 'Feed the cats', done: false },
+    Todo { title: 'Study for Launch School', done: false }
+  ]
+}
+[ Todo { title: 'Feed the cats', done: false } ]
+[ Todo { title: 'Clean room', done: true } ]
+[ Todo { title: 'Study for Launch School', done: false } ]
+TodoList {
+  title: "Today's Todos",
+  todos: [ Todo { title: 'Go to the gym', done: false } ]
+}
+
+ReferenceError: invalid index: 100
+```
+
+Possible Solution
+
+We again get to use the `_validateIndex` helper method.
+
+```js
+class TodoList {
+  // Omitted code
+
+  removeAt(index) {
+    this._validateIndex(index);
+    return this.todos.splice(index, 1);
+  }
+}
+```
 
 #### 4.2.10 Render the Todo List as a String Suitable for Display
 
