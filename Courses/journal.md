@@ -8519,3 +8519,5 @@ Passed the interview assessment the second time around and am going to start JS1
 16:56 Time to get SungOh.
 
 19:28 I finished lesson, but ended copying most of the latter methods rather than trying to figure them out myself first.
+
+19:38 Started Lesson 2, but time to put the kids to bed.
