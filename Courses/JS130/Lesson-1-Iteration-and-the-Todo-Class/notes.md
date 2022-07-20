@@ -1243,10 +1243,121 @@ Feel free to play around to get a feel for the todo list behaviors, but make sur
 
 Delete any testing code before moving on.
 
-## 5. Build a TodoList Class: Add a forEach Method
+## 5. Build a TodoList Class: Add a `forEach` Method
 
+Given the code from the previous assignment, implement a `forEach` method in the `TodoList` class, that is, `TodoList.prototype.forEach`. It should behave in much the same way as the familiar `Array.prototype.forEach` works. You can use the `forEach` function that we built earlier, or you can use the built-in method instead. The method should take a callback function and call it once for each `Todo` object in the list, invoking the callback with the Todo object as an argument. For example:
 
-## 6. Build a TodoList Class: Add a filter Method
+```js
+// Omitted code
+
+let todo1 = new Todo("Buy milk");
+let todo2 = new Todo("Clean room");
+let todo3 = new Todo("Go to the gym");
+let todo4 = new Todo("Go shopping");
+let todo5 = new Todo("Feed the cats");
+let todo6 = new Todo("Study for Launch School");
+let list = new TodoList("Today's Todos");
+
+list.add(todo1);
+list.add(todo2);
+list.add(todo3);
+list.add(todo4);
+list.add(todo5);
+list.add(todo6);
+
+list.forEach(todo => console.log(todo.toString()));
+```
+
+```sh
+[ ] Buy milk
+[ ] Clean room
+[ ] Go to the gym
+[ ] Go shopping
+[ ] Feed the cats
+[ ] Study for Launch School
+```
+
+Possible Solution
+
+```js
+class TodoList {
+  forEach(callback) {
+    this.todos.forEach(todo => callback(todo));
+  }
+}
+```
+
+A slightly better way to write the above method is as follows:
+
+```js
+class TodoList {
+  forEach(callback) {
+    this.todos.forEach(callback);
+  }
+}
+```
+
+This approach avoids creating a new callback function for the `this.todos.forEach` invocation. By the time we realized there was a better way, we had already reused this code in multiple courses, so retroactively fixing the code isn't worthwhile given that this is a very small improvement.
+
+Feel free to use this "improved" version of `forEach` in your own code.
+
+We could also use the `for` loop version we wrote earlier:
+
+```js
+forEach(callback) {
+  for (let index = 0; index < this.size(); index += 1) {
+    callback(this.todos[index]);
+  }
+}
+```
+
+However, since the `todos` property is an array, the `Array.prototype.forEach` method makes the most sense. Each `Todo` object in the `TodoList` gets passed to the callback function.
+
+Don't confuse the call to `Array.prototype.forEach` with the definition of `TodoList.prototype.forEach`. They're similar methods, but the `TodoList` version only works with the `Todo` objects maintained by the list. The `Array.prototype` version works with all arrays.
+
+### 5.1 What Does That Give Us?
+
+We now have a standard way to iterate through the todos on a todo list:
+
+```js
+list.forEach(todo => {
+  // Do something with each todo
+});
+```
+
+### 5.2 What's the Point?
+
+Why go through all that trouble? Why don't we iterate through the list using `Array.prototype.forEach` on `list.todos` directly?
+
+```js
+list.todos.forEach(todo => {
+  // Do something
+});
+```
+
+Look carefully at the difference between these last two method calls. In the first, we use `list.forEach` to invoke the `forEach` method from `TodoList.prototype`. In the second, we reach into the `TodoList` object and pull out the array that contains the `Todo` items, then invoke `Array.prototype.forEach` on that array.
+
+There's not much difference in terms of functionality or system resource usage. However, in most cases, it's easier to work with methods defined by the `TodoList` class. More importantly, we don't have to access the internal state of the `TodoList` object. That's the idea behind **encapsulation**: we should hide implementation details from users of the class. We should neither encourage them to manipulate or use its internal state nor let them become dependent on its implementation. Instead, we want users to use the interface (i.e., the methods) that we provided for them.
+
+For example, when we want to add a new todo to the list, it's better to use `TodoList.prototype.add` rather than pushing a `Todo` to the `todos` instance property directly. If everybody uses the `add` method to add new todos, we can enforce the requirement that only `Todo` objects are present on the todo list. If we don't supply the `add` method and everybody updates the array directly, we can't enforce that rule.
+
+For much the same reason that we prefer to use the `add` method, we should also prefer to use `TodoList.prototype.forEach` in favor of reaching into the `TodoList` object to access the `todos` array. If we later decide to use something other than an array -- perhaps a database -- our users may not be able to use `list.todos.forEach` anymore. However, we can update our version of `forEach` to behave as though we had an array; we only have to determine a way to iterate over the todo objects. Our users won't see any change at all if they use `TodoList.prototype.forEach`.
+
+### 5.3 Private Data
+
+It's possible to create private data in JavaScript. That is, you can define data in an object that is not accessible from outside that object. Unfortunately, defining and using private data can be awkward and complicated. The concept of private data in JavaScript isn't built-in to JavaScript. It is something that you can only accomplish by using other features, such as "closure" and "immediately invoked function expressions." We'll see a little bit of this in the next lesson.
+
+The fact that private data is not a language feature makes the discussion of encapsulation somewhat hypothetical. Unless you employ one of the messy data-hiding techniques, all of your implementation details are public. You can't prevent other developers from using the private parts of your implementation.
+
+Nevertheless, we'll treat methods as one way to hide implementation details. They don't hide things particularly well in JavaScript but instead rely on trust rather than concealing and preventing access.
+
+When a class has methods that provide the behaviors and actions you need, you should use those methods instead of accessing the properties directly. Even if it's easier or produces cleaner code to use the properties, you should choose to use the methods that are provided by the interface. For instance, suppose the `Array` type had a `size()` method to determine the length of an array. It doesn't, but if it did, it would be better practice to use that method instead of accessing the `length` property directly. Likewise, the users of your classes should use the methods that you provide. They should refrain from using the object's properties.
+
+The entire goal of creating a class and encapsulating logic in it is to hide implementation details and contain ripple effects when things change. Keep in mind that JavaScript doesn't implement encapsulation in a way that directly supports private data and methods. Use the provided interface -- the methods -- instead whenever possible.
+
+## 6. Build a TodoList Class: Add a `filter` Method
+
+RR
 
 ## 7. Build a TodoList Class: More Methods
 
