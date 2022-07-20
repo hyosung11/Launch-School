@@ -8503,3 +8503,9 @@ Passed the interview assessment the second time around and am going to start JS1
 19:25 Making good progress through Assignment 4.
 
 19:54 RR after saying good night to SungOh and my BCSOA meeting.
+
+## 20220720 수요일
+
+09:15 Glad to have passed JS129 Interview and do have started JS130.
+
+10:14 Working through the TodoList methods. I am enjoying it today.

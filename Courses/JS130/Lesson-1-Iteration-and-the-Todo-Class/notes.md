@@ -751,17 +751,237 @@ In a later assignment, we'll move the `TodoList` class into a *module* that othe
 
 We'll discuss exceptions in more detail in a later lesson.
 
-RR 20220719 19:54
-
 #### 4.2.3 How Many Todos are on the TodoList?
+
+The `size` method returns the number of todos on the list.
+
+```js
+// Omitted code
+
+console.log(list.size()); // 4
+```
+
+Possible Solution
+
+```js
+class TodoList {
+  // Omitted cde
+
+  size() {
+    return this.todos.length;
+  }
+}
+```
 
 #### 4.2.4 Get the First and Last Todos from a TodoList
 
+The `first` and `last` methods return the first and last todo items from a todo list. If the list is empty, they each return `undefined`.
+
+```js
+// Omitted code
+
+console.log(list.first());
+console.log(list.last());
+
+let emptyList = new TodoList("Empty List");
+console.log(emptyList.first());
+console.log(emptyList.last());
+```
+
+```sh
+Todo { title: 'Buy milk', done: false }
+Todo { title: 'Go shopping', done: false }
+undefined
+undefined
+```
+
+Possible Solution
+
+```js
+class TodoList {
+  // Omitted code
+
+  first() {
+    return this.todos[0];
+  }
+
+  last() {
+    return this.todos[this.size() - 1];
+  }
+}
+```
+
 #### 4.2.5 Get the Todo at Index Position
+
+The `itemAt` method returns the todo item at a given index position in the todo list. It raises an error if the argument is missing, invalid, or out of range.
+
+```js
+// Omitted code
+
+console.log(list.itemAt(1));
+```
+
+```sh
+Todo { title: 'Clean room', done: false }
+```
+
+```js
+// Omitted code
+
+console.log(list.itemAt("a")); // delete this line after testing it
+```
+
+```sh
+ReferenceError: invalid index: a
+```
+
+```js
+// Omitted code
+
+console.log(list.itemAt(55)); // delete this line after testing it
+```
+
+```sh
+ReferenceError: invalid index: 55
+```
+
+Possible Solution
+
+```js
+class TodoList {
+  // Omitted code
+
+  itemAt(index) {
+    this._validateIndex(index)
+    return this.todos[index];
+  }
+
+  _validateIndex(index) { // _ in name suggests a "private" method
+    if (!(index in this.todos)) {
+      throw new ReferenceError(`invalid index: ${index}`);
+    }
+  }
+}
+```
 
 #### 4.2.6 Mark a Todo at Index Position as Done or Not Done
 
+The `markDoneAt` method marks the todo item at a given index position as done. `markUndoneAt` does the opposite: it marks the item as not done. Both methods raise an error if the argument is missing, invalid, or out of range.
+
+```js
+// Omitted code
+
+list.markDoneAt(1);
+console.log(list);
+
+list.markUndoneAt(1);
+console.log(list);
+```
+
+```sh
+TodoList {
+  title: "Today's Todos",
+  todos: [
+    Todo { title: 'Buy milk', done: false },
+    Todo { title: 'Clean room', done: true },
+    Todo { title: 'Go to the gym', done: false },
+    Todo { title: 'Go shopping', done: false }
+  ]
+}
+TodoList {
+  title: "Today's Todos",
+  todos: [
+    Todo { title: 'Buy milk', done: false },
+    Todo { title: 'Clean room', done: false },
+    Todo { title: 'Go to the gym', done: false },
+    Todo { title: 'Go shopping', done: false }
+  ]
+}
+```
+
+```js
+// Omitted code
+
+list.markDoneAt(); // delete this line after testing it
+```
+
+```sh
+ReferenceError: invalid index: undefined
+```
+
+```js
+// Omitted code
+
+list.markUndoneAt(55); // delete this line after testing it
+```
+
+```sh
+ReferenceError: invalid index: 55
+```
+
+Possible Solution
+
+```js
+class TodoList {
+  // Omitted code
+
+  markDoneAt(index) {
+    this.itemAt(index).markDone();
+  }
+
+  markUndoneAt(index) {
+    this.itemAt(index).markUndone();
+  }
+}
+```
+
+Since `itemAt` already handles index validation, we don't need to check the index in these two methods explicitly.
+
 #### 4.2.7 Are All Todos Done?
+
+The `isDone` method returns `true` if all of the todos in a todo list are done, `false` if any are not.
+
+```js
+// Omitted code
+
+console.log(list.isDone()); // false
+
+list.markDoneAt(0);
+list.markDoneAt(1);
+list.markDoneAt(2);
+list.markDoneAt(3);
+console.log(list.isDone()); // true
+
+list.markUndoneAt(2);
+console.log(list.isDone()); // false
+```
+
+Possible Solutions
+
+There are several ways to write this method. One way is to filter the todo list for todos that aren't done; if there are no undone todos, then all todos are done:
+
+```js
+class TodoList {
+  // Omitted code
+
+  isDone() {
+    let done = this.todos.filter(todo => !todo.isDone());
+    return done.length === 0;
+  }
+}
+```
+
+That's not particularly elegant, and the negated condition makes it a little hard to follow. Instead, we can use `Array.prototype.every`; this method returns true if the callback returns true for every element in the array. That makes for code that is easier to read:
+
+```js
+class TodoList {
+  // Omitted code
+
+  isDone() {
+    return this.todos.every(todo => todo.isDone());
+  }
+}
+```
 
 #### 4.2.8 Remove and Return the First or Last Todo from the List
 

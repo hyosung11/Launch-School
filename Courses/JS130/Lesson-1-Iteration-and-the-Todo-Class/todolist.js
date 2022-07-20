@@ -56,21 +56,64 @@ class TodoList {
 
     this.todos.push(todo);
   }
+
+  size() {
+    return this.todos.length;
+  }
+
+  first() {
+    return this.todos[0]
+  }
+
+  last() {
+    return this.todos[this.size() - 1];
+  }
+
+  itemAt(index) {
+    this._validateIndex(index);
+    return this.todos[index];
+  }
+
+  _validateIndex(index) { // _ in name suggest a "private" method
+    if (!(index in this.todos)) {
+      throw new ReferenceError(`invalid index: ${index}`);
+    }
+  }
+
+  markDoneAt(index) {
+    this.itemAt(index).markDone();
+  }
+
+  markUndoneAt(index) {
+    this.itemAt(index).markUndone();
+  }
+
+  isDone() {
+    return this.todos.every(todo => todo.isDone());
+  }
 }
-
-let list = new TodoList("Today's Todos");
-
-// Omitted code
 
 let todo1 = new Todo("Buy milk");
 let todo2 = new Todo("Clean room");
 let todo3 = new Todo("Go to the gym");
 let todo4 = new Todo("Go shopping");
 
+let list = new TodoList("Today's Todos");
+
 list.add(todo1);
 list.add(todo2);
 list.add(todo3);
 list.add(todo4);
-console.log(list);
 
-// list.add(1); // delete this line after testing it
+// Omitted code
+
+console.log(list.isDone()); // false
+
+list.markDoneAt(0);
+list.markDoneAt(1);
+list.markDoneAt(2);
+list.markDoneAt(3);
+console.log(list.isDone()); // true
+
+list.markUndoneAt(2);
+console.log(list.isDone()); // false
