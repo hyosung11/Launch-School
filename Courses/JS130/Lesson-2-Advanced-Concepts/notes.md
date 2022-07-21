@@ -1080,9 +1080,404 @@ Pet = function(name, image) {
 // Omitted code ...
 ```
 
-## 6. Strict Mode
+## 6. Strict Mode (Modern JavaScript: Strict Mode)
 
-RR
+Please take some time to read through the Launch School Gist [Modern JavaScript: Strict Mode](https://launchschool.com/gists/406ba491). Using strict mode will help you find and fix errors before they become mysterious bugs that plague your application for years.
+
+By now, you're well familiar with JavaScript's quirks, and in particular, the booby traps that arise from making simple mistakes, such as these:
+
+* You forget to declare a variable before assigning it.
+* You forget to use `this` when assigning an object property.
+* You use a number that begins with `0`.
+* You attempt to assign a value to a JavaScript keyword or value.
+
+Issues such as these, and more, can't be fixed without breaking a lot of existing code. Fortunately, we're not stuck with **sloppy mode** (an unofficial term); instead, JavaScript ES5 introduced **strict mode**, which is an optional mode that modifies the semantics of JavaScript and prevents certain kinds of errors and syntax.
+
+### 6.1 What to Focus On
+
+Conceptually, strict mode is both easy to understand and use. However, you must be aware of how it changes the behavior of JavaScript and your code. There isn't much to master, but you do need to know how to use strict mode in your code. Going forward, *you should try to use strict mode whenever possible*.
+
+You should focus on the following:
+
+* What is strict mode? How does it differ from sloppy mode?
+* How do you enable strict mode at the global or function level?
+* Describe how code behaves under both strict and sloppy mode.
+* When is strict mode enabled automatically?
+* When should you use (or not use) strict mode?
+
+### 6.2 What Does Strict Mode Do?
+
+Strict mode makes three significant changes to JavaScript semantics:
+
+1. Strict mode *eliminates some **silent errors*** that occur in sloppy mode by changing them to throw errors instead. Silent errors occur when a program does something that is unintended, but continues to run as though nothing is wrong. This can lead to incorrect results or errors much later in execution that are subsequently difficult to track down.
+2. Strict mode *prevents* some code that can inhibit JavaScript's ability to optimize a program so that it runs faster.
+3. Strict mode *prohibits using names and syntax* that may conflict with future versions of JavaScript.
+
+These changes offer several **benefits** to JavaScript developers:
+
+* They prevent or mitigate bugs.
+* They help make debugging easier.
+* They help your code run faster.
+* They help you avoid conflicts with future changes to the language.
+
+In a few moments, we'll take a closer look at some of the specific changes that strict mode enables. We won't cover them all in detail, just the ones that you're most likely to encounter. First, though, let's learn how to enable strict mode.
+
+### 6.3 Enabling Strict Mode
+
+Strict mode is easy to turn on either at the global level of a program or at the individual function level. To enable it, add this weird bit of code to the beginning of the program file or function definition:
+
+```js
+"use strict";
+```
+
+Yes, those quotes are required. They can be **single** or **double** quotes, but one way or the other, you must include them. Note that you can't use backticks. Note also that *nested functions inherit strict mode from the surrounding scope*.
+
+The `"use strict"` statement is an example of a **pragma**, *a language construct that tells a compiler, interpreter, or other translator to process the code in a different way*. Pragmas aren't part of the language, and often use odd syntax like `"use strict"` does.
+
+You must specify the `"use strict"` pragma *at the very beginning of the file or function*. You can't enable it partway through a program or function:
+
+```js - global strict mode
+"use strict";
+
+// The rest of the program. Everything from here to the end of
+// the file runs in strict mode.
+
+function foo() {
+  // strict mode is enabled here too.
+}
+
+// Strict mode is still enabled
+foo();
+```
+
+```js - function strict mode
+function foo() {
+  'use strict';
+
+  // The rest of the function. Everything from here to the end of
+  // the function runs in strict mode.
+}
+
+// Strict mode is disabled unless you defined it globally.
+foo();
+```
+
+In particular, note that you can not enable strict mode for a block. You can only enable strict mode at the very beginning of a file or function.
+
+Once you enable strict mode, ***you can't disable it later*** in the same program or function.
+
+JavaScript enables strict mode automatically within the body of a `class`; there is no way to prevent that behavior. The same thing happens with JavaScript modules, which we'll discuss in a later assignment.
+
+If you haven't encountered JavaScript classes yet, you will do so later.
+
+*Strict mode is lexically scoped*; that is, it only applies to the code that enables it. For instance:
+
+```js
+function foo() {
+  "use strict";
+  // All code here runs in strict mode
+}
+
+function bar() {
+  // All code here runs in sloppy mode
+  foo(); // This invocation is sloppy mode, but `foo` runs in strict mode
+  // All code here runs in sloppy mode
+}
+```
+
+In this example, even though `bar` runs in sloppy mode and calls `foo`, `foo` runs in strict mode. Similar behavior applies when calling a sloppy mode function from a strict mode function:
+
+```js
+function foo() {
+  // All code here runs in sloppy mode
+}
+
+function bar() {
+  "use strict";
+  // All code here runs in strict mode
+  foo(); // This invocation is strict mode, but `foo` runs in sloppy mode
+  // All code here runs in strict mode
+}
+```
+
+Here, `foo` runs in sloppy mode even though we call it from a strict mode function.
+
+#### 6.3.1 Implicit Global Variables
+
+Anybody with even minimal experience with JavaScript is aware that JavaScript automatically creates a variable for you when you assign it to a value without first declaring the variable. For instance:
+
+```js
+function foo() {
+  bar = 3.1415;
+}
+
+foo();
+console.log(bar); // 3.1415
+```
+
+JavaScript defines undeclared variables like `bar` as **global variable**s. No matter where your code initializes an undeclared variable, it becomes a global variable.
+
+Note that we're using the term *global variable a little loosely here*. In actuality, JavaScript defines undeclared variables as properties of the global object. Such properties act like global variables, though -- you can access them from anywhere in your program.
+
+Creating global variables in such a willy-nilly fashion can easily lead to bugs; it's far too easy to overwrite a variable that is intended to be globally available.
+
+Strict mode disables this feature by not letting you create variables without explicitly declaring them. For instance, the following program raises an error when we try to assign `bar`:
+
+```js
+"use strict";
+
+function foo() {
+  bar = 3.1415; // ReferenceError: bar is not defined
+}
+
+foo();
+console.log(bar);
+```
+
+Raising an error like this may seem like a nuisance. Why would you want to make your program raise errors? Errors prevent your program from running to completion. However, they also alert you to something that may be wrong.
+
+Suppose you do want to define `bar` as a global variable. How would you do that in strict mode? The answer is easy: declare it explicitly:
+
+```js
+"use strict";
+
+let bar;
+
+function foo() {
+  bar = 3.1415;
+}
+
+foo();
+console.log(bar); // 3.1415
+```
+
+This behavior also helps identify misspelled names. If you declare a variable with one name, then later try to reassign it with a misspelled name, sloppy mode will create a new global variable. Consider this code:
+
+```js
+let aVariableWithALongName = 2.71828;
+
+// a bunch of omitted code here
+
+aVariab1eWithALongName = 3.14159; // line 5
+console.log(aVariableWithALongName); // 2.71828; should be 3.13159
+```
+
+Can you see why that code doesn't produce the expected result? Look closely at the variable name on line 5. Look closer if you don't see it. The problem here is that the variable name on line 5 has a typo, and it's a typo that is difficult to see with most fonts: the digit `1` in the variable name should be the letter `l`. Thus, line 5 creates a global variable instead of reassigning the variable as intended. Misspellings can be especially hard to find in large programs that use the same name repeatedly. If you've been burned by this problem before, you know what we mean.
+
+Strict mode may help you identify this problem:
+
+```js
+"use strict";
+
+let aVariableWithALongName = 2.71828;
+
+// a bunch of omitted code here
+
+aVariab1eWithALongName = 3.14159; // ReferenceError: aVariab1eWithALongName is not defined
+console.log(aVariableWithALongName);
+```
+
+With the addition of strict mode, it's easy to see where the problem lies. You may still have difficulty seeing the typo, but at least you know that there's a problem with that name.
+
+Note that strict mode can't help you if both spellings are the names of declared variables:
+
+```js
+"use strict";
+
+let all = 42;
+let a11 = false;
+
+all = true; // Did we mean a11? There's no way to tell, so no error.
+```
+
+#### 6.3.2 Implicit Context in Functions
+
+You can skip this section if you are currently in course JS210 or JS211. We don't discuss this and execution context until JS225.
+
+Consider the following code:
+
+```js
+let obj = {
+  a: 5,
+  go() {
+    this.a = 42;
+  },
+};
+
+let doIt = obj.go;
+doIt();
+console.log(obj.a); // 5
+```
+
+In sloppy mode, this code fails to set `obj.a` to `42` since we invoke the `go` method with function call syntax. Thus, the implicit execution context, `this`, is set to the global object.
+
+In strict mode, using function call syntax on a method sets `this` to `undefined`. Thus, `this.a` raises an exception:
+
+```js
+"use strict";
+
+let obj = {
+  a: 5,
+  go() {
+    this.a = 42; // TypeError: Cannot set property 'a' of undefined
+  },
+};
+
+let doIt = obj.go;
+doIt();
+console.log(obj.a); // 5
+```
+
+This change to JavaScript's semantics may be the most significant change of all under strict mode. It probably won't break your code, but it should help you spot bugs caused by context loss much sooner.
+
+#### 6.3.3 Forgetting to Use `this`
+
+We discuss `this` and context in JS225. You can skip this section if you haven't finished course JS225.
+
+Consider the following code:
+
+```js
+function Child(age) {
+  this.age = age;
+};
+
+Child.prototype.setAge = function(newAge) {
+  age = newAge; // line 6
+}
+
+let leigh = new Child(5);
+leigh.setAge(6);
+console.log(leigh.age) // 5; expected 6
+```
+
+In this code, we forgot to use `this` on line 6 when we tried to assign a new age to the object. Instead of updating the `age` instance property on `leigh`, though, we created a global variable named `age`. Once again, strict mode comes to the rescue:
+
+```js
+"use strict";
+
+function Child(age) {
+  this.age = age;
+};
+
+Child.prototype.setAge = function(newAge) {
+  age = newAge; // ReferenceError: age is not defined
+}
+
+let leigh = new Child(5);
+leigh.setAge(6);
+console.log(leigh.age);
+```
+
+#### 6.3.4 Leading Zeros
+
+If you use a literal integer that begins with `0` but doesn't contain the digits `8` or `9`, sloppy mode JavaScript interprets it as an octal number:
+
+```js
+console.log(1234567);  // 1234567
+console.log(01234567); // 342391 (the same as octal 0o1234567)
+```
+
+This behavior is often undesirable, though its less troublesome now that modern versions of JavaScript default to decimal when using `parseInt`. In some older versions, `parseInt("01234567")` would return `342391`, which could be a problem if the string came from an external source (such as the keyboard).
+
+With strict mode, numbers that look like octal numbers raise an error:
+
+```js
+"use strict";
+
+console.log(1234567);   // 1234567
+console.log(0);         // This is okay
+console.log(0.123);     // So is this
+console.log(-0.123);    // So is this
+console.log(01234567);  // SyntaxError: Octal literals are not allowed in strict mode.
+console.log(089);       // SyntaxError: Numbers can't begin with 0
+console.log(01.23);     // SyntaxError: Numbers can't begin with 0
+console.log(-01234567); // SyntaxError: Octal literals are not allowed in strict mode.
+console.log(-089);      // SyntaxError: Numbers can't begin with 0
+console.log(-01.23);    // SyntaxError: Numbers can't begin with 0
+```
+
+Note that strict mode also prevents any number literal from beginning with `0` or `-0` except for `0` itself (or `0` with a decimal component, e.g., `0.123`).
+
+#### 6.3.5 Other Strict Mode Differences
+
+In addition to the changes described above, strict mode:
+
+* (*) prevents you from using function declarations in blocks.
+* (*) prevents declaring two properties with the same name in an object.
+* prevents declaring two function parameters with the same name.
+* prevents using some newer reserved keywords, such as `let` and `static`, as variable names.
+* prevents you from using the `delete` operator on a variable name.
+* forbids binding of `eval` and `arguments` in any way.
+* disables access to some properties of the `arguments` object in functions.
+* disables the `with` statement, a statement whose use is not recommended even in sloppy mode.
+
+(*) These prohibitions were in effect for ES5, but both are now allowed. However, we recommend that you avoid declaring functions inside blocks and declaring multiple properties with the same name. ESLint will flag these problems.
+
+### 6.4 When Should I Use Strict Mode
+
+Use strict mode in any new code that you write. If you're adding new functions to an old codebase, *it's safe to use function-level strict mode in the new functions*, and you probably should do so. However, if you're not creating a new function in that old codebase, you probably shouldn't try to use strict mode. The changes in semantics, particularly those having to do with variable declarations, `this`, and silent failures, can easily break code that otherwise works well.
+
+For brevity, most of the shorter examples in the rest of this course won't show the `"use strict"`; pragma. We'll show the pragma in some longer examples as well as any code where the pragma is needed to run properly. *You, however, should use the pragma in your code so you can get in the habit of using it.*
+
+### 6.5 Practice Problem
+
+If you haven't completed JS130 or JS225 yet, you may have a bit of trouble with this problem. Do the best you can, but don't spend a huge amount of time trying to fix everything.
+
+The following code runs in sloppy mode:
+
+```js
+SUITS = ["Clubs", "Diamonds", "Hearts", "Spades"];
+RANKS = ["2", "3", "4", "5", "6", "7", "8", "9",
+         "10", "Jack", "Queen", "King", "Ace"];
+
+function createDeck() {
+  allCards = () => {
+    return this.SUITS.reduce((deck, suit) => {
+      this.RANKS.forEach(rank => deck.push(`${rank} of ${suit}`));
+      return deck;
+    }, []);
+  };
+
+  deck = allCards();
+  shuffle(deck);
+
+  return deck;
+}
+
+function shuffle(deck) {
+  for (counter = 0; counter < 0400; counter += 1) {
+    randomIndex1 = randomCardIndex();
+    randomIndex2 = randomCardIndex();
+    tempCard = deck[randomIndex1];
+    deck[randomIndex1] = deck[randomIndex2];
+    deck[randomIndex2] = tempCard;
+  }
+
+  function randomCardIndex() {
+    return Math.floor(Math.random() * this.deck.length);
+  }
+}
+
+console.log(createDeck());
+```
+
+
+### 6.6 Summary
+
+In this assignment, we introduced strict mode and compared it with the traditional JavaScript semantics unofficially known as sloppy mode. You should use strict mode in any new code or functions that you write, but avoid using it when you're merely updating old code.
+
+In our discussion, we looked at some of the semantic changes that occur when using strict mode. In particular:
+
+* You cannot create global variables implicitly.
+* Functions *won't use* the global object as their implicit context.
+* Forgetting to use `this` in a method raises an error.
+* Leading zeros on numeric integers are illegal.
+
+Strict mode makes other changes as well, but the above changes are the most important for most JavaScript developers.
+
+Strict mode gets enabled automatically inside ES6 classes.
+
+In the next assignment, we'll talk about closure.
 
 ## 7. Closures
 
