@@ -286,7 +286,7 @@ function xyzzy() {  // declared scope is function scope
 Note that the declared scope of each variable above is determined solely by which keyword was used to declare it: `let` or `var`.
 
 Block Scope | Function Scope
----------|----------|---------
+---------|----------
  `let` | `var`
  `const` | `function`
  `class` | -
