@@ -201,6 +201,110 @@ Coming up next, we'll look more deeply at the concept of scope and how it applie
 
 ## 3. More About Scope
 
+Now that we know about the `var` statement, let's take a closer look at scope. Our primary purpose in this assignment is to reduce the ambiguity involved in the language surrounding scope in JavaScript. To do that, we'll describe scope as three separate but related concepts.
+
+Run the examples in this assignment with Node and a JavaScript file, e.g.:
+
+```sh
+node example.js
+```
+
+Do not use the Node REPL as it may interfere with the behaviors we want to demonstrate.
+
+### 3.1 What to Focus On
+
+Scope is a fundamental concept in all computer languages. However, the terminology can sometimes be a little confusing, especially in JavaScript. Thus, you should focus on understanding scope:
+
+* What do we mean by declared scope, visibility scope, and lexical scope?
+* What do we mean by global scope and local scope?
+* What do we mean by inner scope and outer scope?
+* What do we mean by function scope and block scope when talking about declared scope?
+* What do we mean by function scope and block scope when talking about visibility scope?
+
+### 3.2 Declared Scope vs Visibility Scope vs Lexical Scope
+
+We use terms like global scope, local scope, function scope, block scope, inner scope, and outer scope when we talk about scope. Unfortunately, the terminology can be fluid and confusing. For instance, a variable can be declared with block scope by using the `let` keyword. If that declaration is inside a function, it has local scope. It can also have function scope if the declaration isn't inside a block. The variable can also have global scope if the declaration is at the topmost level of the program, outside all functions and blocks. To make matters worse, we can also talk about inner scope and outer scope. For instance, if you have a function that declares a variable, that variable is in the function's inner scope. However, the function can also reference variables from the surrounding scope, i.e., the function's outer scope.
+
+What's a new developer to do? One way to help keep things straight is to look at scope as having *three subtly different but related meanings.*
+
+In one sense, scope refers to where a particular identifier -- a variable, function, or class name -- is available for use by your code. We can call this the **visibility scope**. If a variable is available throughout your code, then it has global scope. Otherwise, it has local scope.
+
+In another sense, scope refers to how a particular identifier is declared. We'll call this the **declared scope**. For instance, we use the `let` keyword to declare variables with block scope, and use `var` to declare variables with function scope. Knowing the declared scope lets us determine where a variable is available.
+
+Finally, scope can refer to the lexical structure of your code. We'll call this the **lexical scope**. The lexical scope distinguishes between variables that are declared inside a function or block and the variables that are declared outside of that function or block. Lexical scope is especially important with **closure**, as we'll learn later.
+
+The terms **visibility scope** and **declared scope** *are terms of convenience*. You probably won't find either term used outside of Launch School. **Lexical scope** *is widely used*.
+
+Though the visibility, declared, and lexical scopes have different meanings, there is considerable overlap. For instance, if we use `let` to declare variables with block scope at the topmost level of the program, then those variables also have global scope:
+
+```js
+// `let` used to declare variables with block scope at the topmost level of the program also have global scope
+let foo = 1;
+let bar = 2;
+console.log(foo, bar); //  1 2
+```
+
+However, if we rearrange that code *so part of it is inside a block*, we get something different:
+
+```js
+let bar = 2;
+
+if (true) {
+  let foo = 1;
+  console.log(foo, bar); //  1 2
+}
+```
+
+Here, both `foo` and `bar` are again declared with block scope. However, `foo` now has local scope for its visibility scope. Confusingly, we can also say that its visibility is block scope. Furthermore, `foo` in this example is in the block's inner scope, while `bar` is in its outer scope.
+
+Let's explore these scopes in some more detail.
+
+#### 3.2.1 Declared Scope
+
+Declared scope concerns how a variable is declared: `let`, `const`, `class`, `var`, or `function`. The first three declare variables with **block scope** while the other two declare variables with **function scope**. *Even if the variable is declared outside of a function or block, it has either block or function scope:*
+
+```js
+let foo1 = 1;        // declared scope is block scope
+var bar1 = 2;        // declared scope is function scope
+
+if (true) {
+  let foo2 = 3;      // declared scope is block scope
+  var bar2 = 4;      // declared scope is function scope
+}
+
+function xyzzy() {  // declared scope is function scope
+  let foo3 = 5;     // declared scope is block scope
+  var bar3 = 6;     // declared scope is function scope
+
+  if (true) {
+    let foo4 = 7;   // declared scope is block scope
+    var bar4 = 8;   // declared scope is function scope
+  }
+}
+```
+
+Note that the declared scope of each variable above is determined solely by which keyword was used to declare it: `let` or `var`.
+
+Block Scope | Function Scope
+---------|----------|---------
+ `let` | `var`
+ `const` | `function`
+ `class` | -
+
+RR
+
+#### 3.2.2 Visibility Scope
+
+#### 3.2.3 Lexical Scope
+
+### 3.3 How to Talk About Scope
+
+### 3.4 Summary
+
+In this assignment, we refined the concept of scope to include declared scope, visibility scope, and lexical scope. This refinement lets us discuss scope with a bit less fuzziness.
+
+In the next assignment, we'll talk about hoisting. Hoisting is an important mental model that lets JavaScript better understand how scope works.
+
 ## 4. Hoisting
 
 ## 5. Practice Problems: Hoisting and the `var` Statement
