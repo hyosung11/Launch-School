@@ -8531,3 +8531,7 @@ Passed the interview assessment the second time around and am going to start JS1
 09:39 Made table of block scope and function scope variables based on declaration.
 
 09:58 Finished Assignment 3 > More About Scope.
+
+10:33 Humming along through hoisting. Feeling pretty good today about studying. What word did Miles use to talk about going through the material quickly?
+
+11:31 I finished Assignment 4 on Hoisting. I'm going to take a study break and see about using this REI coupon before it expires.
