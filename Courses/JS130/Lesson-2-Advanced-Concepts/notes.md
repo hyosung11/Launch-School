@@ -797,6 +797,32 @@ In the next assignment, we'll get some practice dealing with hoisting and `var`.
 
 ## 5. Practice Problems: Hoisting and the `var` Statement
 
+Let's get some practice working with hoisting and `var`.
+
+1. Consider the following code:
+
+```js
+var foo = function() {
+  console.log("Bye");
+};
+
+function foo() { // line 5
+  console.log("Hello");
+}
+
+foo();
+```
+
+Without running this code, what will it display? Explain your reasoning.
+
+Solution
+
+```sh
+Bye
+```
+
+The code first defines a variable whose value is a function expression.
+
 ## 6. Strict Mode
 
 ## 7. Closures
