@@ -1607,7 +1607,296 @@ In the next assignment, we'll talk about closure.
 
 ## 7. Closures
 
-RR
+In this assignment, we'll learn about a crucial concept in JavaScript: closures. Closures let a function access a variable that was in lexical scope at the function's definition point even when that variable is no longer in scope. You may not realize it, but you've been using closures every time you've defined a function that accesses a variable from its outer scope.
+
+### 7.1 What to Focus On
+
+*Mastery of closures is essential*. The concept is one of the most important in JavaScript. Once you have a firm grasp on variable scope, closures are conceptually simple. In practice, though, they can be tricky, especially if you think of them as a runtime feature. Technically, they are a mix of lexical and runtime features, but it's easier to understand them as a purely lexical feature for now. *They're an artifact of the code's structure, not how the code runs.*
+
+You should focus on the following:
+
+* What is a closure?
+* What is in a closure?
+* When is a closure created?
+* What is the relationship between closures and scope?
+* What do we mean when we say that closures are defined lexically?
+* What is partial function application?
+
+### 7.2 A Brief Review of Scope
+
+Before we dive into closures, let's take a few minutes to review scope. You may also want to review the More About Scope assignment earlier in this lesson.
+
+By now, you're well-acquainted with scope. It's nearly impossible to program in any language without understanding how scope works in that language. You have to know what variables you can access from any point in your code, and perhaps more importantly, which ones you can't.
+
+As you may recall, there are different terms we use when discussing scope. We're going to focus on lexical scope in this section.
+
+Back in the [JS101 assignment on Variable Scope](https://launchschool.com/lessons/64655364/assignments/7c0087dd), we learned that code in a function's body could access variables declared in the function's surrounding scope. That is, a function has access to its **outer scope**. We also learned that variables declared within a function's body aren't accessible outside the function. Code that isn't part of the function body can't access variables declared in the function's **inner scope**.
+
+Together, these behaviors mean that a function can access any variable in its inner or outer scope. This behavior follows lexical rules based on the structure of the code; you can see at a glance whether a variable is in scope at some point in the program:
+
+```js
+let foo0 = 1;
+console.log(foo0);        // in scope
+// console.log(foo1);     // not in scope; would fail
+// console.log(foo2);     // not in scope; would fail
+// console.log(foo3);     // not in scope; would fail
+
+function bar1() {
+  let foo1 = 2;
+  console.log(foo0);      // in scope
+  console.log(foo1);      // in scope
+  // console.log(foo2);   // not in scope; would fail
+  // console.log(foo3);   // not in scope; would fail
+
+  function bar2() {
+    let foo2 = 3;
+    console.log(foo0);    // in scope
+    console.log(foo1);    // in scope
+    console.log(foo2);    // in scope
+    // console.log(foo3); // not in scope; would fail
+  }
+
+  function bar3() {
+    let foo3 = 4;
+    console.log(foo0);    // in scope
+    console.log(foo1);    // in scope
+    // console.log(foo2); // not in scope; would fail
+    console.log(foo3);    // in scope
+  }
+}
+```
+
+In this example, we can see that `foo0` in the outermost scope is available everywhere in the program, including the nested `bar2` and `bar3` functions; however, the remaining variables are not accessible. Similarly, `foo1` is available in the inner scopes of `bar1`, `bar2`, and `bar3`, but not from the outermost scope. Finally, `foo2` is available inside `bar2` and `foo3` is available inside `bar3`, but neither variable is accessible elsewhere.
+
+Keep in mind that `bar1`, `bar2`, and `bar3` are variables as well. The scope of `bar1` is the same as `foo0`. Meanwhile, `bar2` and `bar3` have the same scope as `foo1`. That is, `bar1` is accessible everywhere, just like `foo0` is accessible everywhere. Similarly, both `bar2` and `bar3` are accessible from anywhere inside `bar1`, `bar2`, or `bar3`, just like `foo1` is accessible anywhere in `bar1`, `bar2`, or `bar3`. The idea that you can access a function's name from within that function may seem a little odd at first, but recall that functions can call themselves via [recursion](https://launchschool.com/books/javascript/read/loops_iterating#recursion). Thus, it makes sense that `bar1`, for instance, is in scope in the inner scope of `bar1`.
+
+Note that hoisting plays a part in determining the scope of names. In our example, "bar2" and "bar3" are in scope everywhere inside "bar1" since function declarations get hoisted to the top of the enclosing scope. Since JavaScript hoists variable declarations, the name would still be in scope had we used function expressions. However, they would be unusable, uninitialized variables:
+
+```js
+// go2 is a function declaration
+function go1() {
+  go2(); // go2 is in scope, initialized, and usable
+  function go2() {
+    console.log(go2);
+  }
+}
+```
+
+```js
+// go2 is a function expression
+function go1() {
+  go2(); // go2 is in scope but uninitialized and unusable
+  let go2 = function() {
+    console.log(go2);
+  }
+}
+```
+
+Thus, the second example above throws an error even though `go2` is in scope.
+
+### 7.3 Closures
+
+Why spend so much time talking about scope when we're supposed to be learning about closures? What is a closure anyway?
+
+The reason behind the discussion on scope is that closures and lexical scope are intimately related. Closures use the lexical scope in effect at a function's definition point to determine what variables that function can access. What variables are in scope during a function's execution depend on the closure formed by the function's definition. It's somewhat circular reasoning, but it's impossible to separate the two.
+
+[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) defines **closure** as "the combination of a function and the lexical environment within which that function was [defined]." You can think of closure as a function combined with any variables from its lexical scope that the function needs. In other words, if a function uses a variable that is not declared or initialized in that function, then that variable will be part of the closure (provided it exists).
+
+Note that the MDN definition of closure uses the term "declared" where we say "defined." Since closure occurs with both function declarations and function expressions, the term "declared" as used on MDN is incorrect. Please use our modified version of the quote.
+
+Closures are created when you define a function or method. The closure essentially *closes over* its environment -- what's in lexical scope. In effect, the function definition and all the identifiers in its lexical scope become a single entity called a closure. When the function is invoked, it can access any variables it needs from that environment. That is, the function can use variables from the lexical scope where the function was defined. ***Even if those variables aren't in the lexical scope where you invoke the function, it can still access them.***
+
+ Note that closures only close over the variables that the function needs. If the function uses the variable `foo`, but the outer scope contains both `foo` and `bar`, only `foo` will be included in the closure.
+
+Wait a minute. How can you use variables that aren't in scope? Doesn't scope govern what variables you can use? Yes, that's true, but it's a little imprecise. When we say that a variable is no longer in scope, we mean that it isn't in scope at the point in your program where you invoke the function. However, closure and scope are lexical concepts. Where you invoke a function is unimportant; where you define the function is. A closure includes the variables it needs from the scope where you defined the function. Those variables may not be in scope when you invoke the function, but they're still available to the function.
+
+#### 7.3.1 A Helpful Mental Model
+
+Let's try to describe a more helpful mental model. When you define a function, JavaScript finds all of the variable names it needs from the lexical scope that contains the function definition. It then takes those names and places them inside a special "envelope" object that it attaches to the function object. Each name in the envelope is a pointer to the original variable, not the value it contains.
+
+"Envelope" is not a term that you're likely to encounter elsewhere. It's just our word for how this mental model of closure works. We won't use it after the next assignment.
+
+The phrase "pointer to the ... variable" may seem odd. We usually think of variables as pointers to objects, not as something that we can point to. We can point to the object that a variable references, but we can't point to the variable. That's the way JavaScript is defined. However, internally, it can do anything it needs to do, including pointing to variables. In this case, it needs a pointer to the variable so that it can see any changes made to what the variable references or contains:
+
+```js
+let numbers = [1, 2, 3];
+
+function printNumbers() {
+  console.log(numbers);
+}
+
+printNumbers(); // => [ 1, 2, 3 ]
+
+numbers = [4, 5]; // line 9
+printNumbers(); // => [ 4, 5 ]
+```
+
+If the closure pointed to the value instead of the variable, it can't tell that we reassigned `numbers` on line 9. This is also true for primitive values: we need a pointer to the variable so the closure can see any changes.
+
+```js
+let number = 42;
+
+function printNumber() {
+  console.log(number);
+}
+
+printNumber(); // => 42
+
+number = 3.1415;
+printNumber(); // => 3.1415
+```
+
+We'll return to this concept in a few minutes.
+
+When a function encounters a variable name during execution, it first looks inside its local scope for that name. If it can't find the name, it peeks inside the envelope to see whether the variable is mentioned there. If it is, JavaScript can follow the pointer and get the current value of the variable. In fact, this is how scope works in JavaScript: it first checks for local variables by a given name, then it looks to the closure if it can't find it. All that stuff about looking at outer scopes until you reach the global scope all happens when the closure is defined.
+
+What about variables that are in scope when you invoke a function? Can the function access them? If those variables were in scope at the definition point, then yes, it can. However, if those variables weren't in scope when you defined the function, then the function cannot access them. They're not listed in the envelope since it was created when the function was defined. Only variables that are in scope when you define the function are available to the function.
+
+Karis wrote a very short article on the envelope model of closure, complete with helpful diagrams. [Check it out!](https://karistobias.medium.com/javascript-closures-a-mental-model-66b7a9f02781)
+
+#### 7.3.2 Examples of Closure
+
+Okay, then, how can we invoke a function in a way that lets it access something that isn't in scope? Recall that, in JavaScript, functions are first-class objects. We can assign them to variables, pass them as function arguments, and use them as function return values. That means that we don't have to execute a function in the same scope in which we defined it; we can call it from a completely different part of the program. This is easiest to see with a higher-order function that returns a function object. For instance:
+
+```js
+function foo() {
+  let name = "Pete";
+  return function() {
+    console.log(name);
+  };
+}
+
+let printPete = foo();
+printPete(); // Pete
+```
+
+In this example, we first call `foo` and capture its return value, a function that logs the value of the `name` variable defined in the lexical scope of `foo`. At a minimum, the closure formed by the returned function's definition contains a pointer to `name` in its envelope. That pointer means that `name`'s value won't get discarded when `foo` is done.
+
+Though `name` is out of scope when `foo` finishes, the returned function has an envelope that contains a pointer to `name`. Thus, the function can still follow the pointer to the original variable, and find its current value, and that lets `printPete()` print ``Pete'`.
+
+Functions that return functions are perhaps the most powerful feature of closure in JavaScript.
+
+Let's consider a simpler example of closure:
+
+```js
+let counter = 0;
+
+function incrementCounter() {
+  counter += 1;
+}
+
+incrementCounter();
+incrementCounter();
+console.log(counter); // 2
+```
+
+At first glance, this code seems to illustrate variable scope: a function can access a variable in its surrounding scope. However, the reason why it can do that is that the function definition forms a closure that includes the variables it needs from the outer scope: namely, `counter`. Thus, `incrementCounter` can access and update the `counter` variable.
+
+If a job interviewer asks you to provide an example of closure, this simple example may be a risky choice. Many JavaScript developers see this as a pure scoping issue. However, it really is closure at work, just in an unfamiliar context for some developers. If you use an example like this one, you may be challenged on it. You will have to defend your statement that it really is a closure. If your explanation isn't accepted, you may be in a spot of trouble.
+
+Even at Launch School, we may not accept an example that can be explained entirely with scope. Be safe and use a more complete example, such as the next one below. There's no way to explain the behavior in that code by relying entirely on scope. You have to bring closure into it.
+
+A closure is not a snapshot of the program state. As we saw a little earlier, each time you invoke a function, it sees the most recent values of the variables in its envelope. Thus, if a variable's value changes, the closure ensures that the function sees the new value, not the old one. Thus, `incrementCounter` increments the `counter` variable from `1` to `2` during its second invocation.
+
+In most programs, you would probably return the `incrementCounter` function from another function:
+
+```js
+function makeCounter() {
+  let counter = 0;
+
+  return function() {
+    counter += 1;
+    return counter;
+  }
+}
+
+let incrementCounter = makeCounter();
+console.log(incrementCounter()); // 1
+console.log(incrementCounter()); // 2
+```
+
+Note that `counter` is now a private variable in the sense that we can not access it directly. The only way to determine its value is to call the function that `makeCounter` returns, but that also increments the variable. This form of data protection is a big reason why returning a function from another function is so powerful.
+
+What happens if we create two functions from `makeCounter`?
+
+```js
+let incrementCounter1 = makeCounter();
+let incrementCounter2 = makeCounter();
+
+console.log(incrementCounter1()); // 1
+console.log(incrementCounter1()); // 2
+console.log(incrementCounter1()); // 3
+
+console.log(incrementCounter2()); // 1
+console.log(incrementCounter2()); // 2
+
+console.log(incrementCounter1()); // 4
+```
+
+As you can see, each of the closures gets its own copy of `counter`. This happens because each invocation of `makeCounter` creates a new local variable named `counter`. Thus, each returned closure has its own variable.
+
+Let's look at a more subtle example. What happens if we return two functions that close over the same variable at the same time?
+
+```js
+function makeCounter() {
+  let counter = 0;
+
+  const fun1 = function() {
+    counter += 1;
+    return counter;
+  }
+
+  const fun2 = function() {
+    counter += 2;
+    return counter;
+  }
+
+  return [fun1, fun2];
+}
+
+let funs = makeCounter();
+let fun1 = funs[0];
+let fun2 = funs[1];
+console.log(fun1()); // line 20 => 1
+console.log(fun2()); // line 21 => 3
+```
+
+Here, both of the functions returned by `makeCounter` close over the same `counter` variable, so they share it. On line 20, we call the first function, which increments `counter` by 1. On line 21, we increment that same counter by 2, so the result is 3.
+
+Let's look at one final example:
+
+```js
+let oddNumbers = [];
+let array = [1, 2, 3, 4, 5, 6, 7];
+array.forEach(number => {
+  if (number % 2 === 1) {
+    oddNumbers.push(number);
+  }
+});
+
+// My addition to understand what's being logged
+console.log(oddNumbers) // => [ 1, 3, 5, 7 ]
+```
+
+You've seen code like this before. It may not be obvious, but you're using closure when you pass the callback function to `Array.prototype.forEach`. The callback gets invoked somewhere in the heart of JavaScript's implementation of `forEach`. However, it still has access to the `oddNumbers` array since the callback forms a closure with its surrounding scope. The closure also provides access to `array` though the callback doesn't use it in this example.
+
+It's important to remember that *closure definitions are purely lexical*. Closures are based on your program's structure, not by what happens when you execute it. Even if you never call a particular function, that function forms a closure with its surrounding scope.
+
+### 7.4 Partial Function Application
+
+#### 7.4.1 Recognizing Partial Function Application
+
+### 7.5 What are Closures Good for?
+
+### 7.6 Optional Reading
+
+### 7.7 Summary
+
+In this assignment, we've introduced the crucial concept of closures. Though closures and scope are distinct concepts, closures are entangled intimately with scope. You can understand scope well enough to use it without understanding closures, but a complete understanding requires understanding both.
+
+We also learned about partial function application, a technique that can be useful when you need to call a function many times with the same arguments.
+
+In our next assignment, we'll give you some practice working with closures. Afterward, we'll *learn how to leverage closures to define private data and methods in objects.*
 
 ## 8. Practice Problems: Closures
 

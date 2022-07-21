@@ -8541,3 +8541,5 @@ Passed the interview assessment the second time around and am going to start JS1
 14:51 Working on the Practice Problem for Strict Mode but leaving now to play ping pong.
 
 16:28 Back from playing ping pong. I finished Strict Mode and am starting Closures now.
+
+17:22 Studying closures right before we leave for dinner in Oakland.
