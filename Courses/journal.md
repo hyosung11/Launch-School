@@ -8521,3 +8521,9 @@ Passed the interview assessment the second time around and am going to start JS1
 19:28 I finished lesson, but ended copying most of the latter methods rather than trying to figure them out myself first.
 
 19:38 Started Lesson 2, but time to put the kids to bed.
+
+## 20220721 목요일
+
+08:33 I will be a professional software engineer soon!
+
+08:55 Completed Assignment 2 > The `var` Statement.
