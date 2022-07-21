@@ -799,7 +799,7 @@ In the next assignment, we'll get some practice dealing with hoisting and `var`.
 
 Let's get some practice working with hoisting and `var`.
 
-1. Consider the following code:
+### 5.1 Consider the following code
 
 ```js
 var foo = function() {
@@ -815,15 +815,274 @@ foo();
 
 Without running this code, what will it display? Explain your reasoning.
 
-Solution
+### 5.1 Solution
 
 ```sh
 Bye
 ```
 
-The code first defines a variable whose value is a function expression.
+The code first defines a variable whose value is a function expression, then declares a function whose name, `foo`, is the same as the variable. Since function declarations get hoisted above `var` variables in the code, this code is equivalent to the following:
+
+```js
+function foo() {
+  console.log("Hello");
+}
+
+foo = function() { // reassignment
+  console.log("Bye");
+}
+
+foo(); // Bye
+```
+
+Thus, `foo` ends up with the first function from the original code as its value, and that displays `Bye` when invoked.
+
+### 5.2 Consider the following code
+
+```js
+for (var index = 0; index < 2; index += 1) {
+  console.log(foo);
+  if (index === 0) {
+    var foo = "Hello";
+  } else {
+    foo = "Bye";
+  }
+}
+
+console.log(foo);
+console.log(index);
+```
+
+Without running this code, what does it print?
+
+### 5.2 Solution
+
+```sh
+undefined
+Hello
+Bye
+2
+```
+
+This code uses `var` to declare the `foo` variable inside the `if` statement's truthy block, which, in turn, is nested within the `for` loop's block. Despite the declarations's depth, *the variable has function scope*. Thus, it is available both before the declaration on line 4 and in the code after the `for` loop. On the first execution of line 2, `foo` is defined due to hoisting, but its value is still `undefined`. On the second execution of line 2, `foo` has been set to `"Hello"`. Finally, when the loop exits, `foo` is `"Bye"`.
+
+The code also uses `var` for the `index` loop variable. As with `foo`, the variable has function scope, so line 11 shows its value after the loop has ended: `2`.
+
+Here's the hoisted equivalent of the above code:
+
+```js
+var index;
+var foo;
+
+for (index = 0; index < 2; index += 1) {
+  console.log(foo);
+  if (index === 0) {
+    foo = "Hello";
+  } else {
+    foo = "Bye";
+  }
+}
+
+console.log(foo);
+console.log(index);
+```
+
+### 5.3 The following code doesn't work
+
+```js
+bar();
+
+var bar = function() {
+  console.log("foo!");
+};
+```
+
+Without changing the order of the invocation and function definition, update this code so that it works:
+
+### 5.3 Solution
+
+```js
+bar();
+
+function bar() {
+  console.log("foo!");
+};
+```
+
+If we want to call a function before its body is defined, we need to use a function declaration.
+
+### 5.4 Without running the following code, determine what it logs to the console
+
+```js
+var bar = 82;
+function foo() {
+  var bar = bar - 42;
+  console.log(bar);
+}
+
+foo();
+```
+
+### 5.4 Solution
+
+```sh
+NaN
+```
+
+**Hoisting** treats this code as though we wrote it like this:
+
+```js
+function foo() {
+  var bar;
+  bar = bar - 42;
+  console.log(bar);
+}
+
+var bar;
+bar = 82;
+
+foo();
+```
+
+This rewritten code helps us see that `bar` is `undefined` when we try to subtract `42` from it. That operation reassigns bar to `NaN`, which is what gets logged to the console.
+
+### 5.5 Rewrite the code below using `let` instead of `var`. Your goal here is to change the way the variables are declared without altering the output of the program
+
+```js
+function foo(condition) {
+  console.log(bar);
+
+  qux = 0.5772;
+
+  if (condition) {
+    var qux = 3.1415;
+    console.log(qux);
+  } else {
+    var bar = 24;
+
+    var xyzzy = function() {
+      var qux = 2.7183;
+      console.log(qux);
+    };
+
+    console.log(qux);
+    console.log(xyzzy());
+  }
+
+  qux = 42;
+  console.log(qux);
+}
+
+foo(true);
+foo(false);
+```
+
+### 5.5 Solution
+
+```js
+function foo(condition) {
+  let bar;
+
+  console.log(bar);
+
+  let qux = 0.5772;
+
+  if (condition) {
+    qux = 3.1415;
+    console.log(qux);
+  } else {
+    bar = 24;
+
+    let xyzzy = function() {
+      let qux = 2.7183;
+      console.log(qux);
+    };
+
+    console.log(qux);
+    console.log(xyzzy());
+  }
+
+  qux = 42;
+  console.log(qux);
+}
+
+foo(true);
+foo(false);
+```
+
+### 5.6 Practice Problem 6
+
+In a process called hoisting, JavaScript appears to reorganize code in such a way that certain declarations and definitions appear to be moved around. While this organization doesn't really occur, it's a useful mental model for understanding scope in a JavaScript program.
+
+Rewrite the following code in a way that shows what the code would look like if hoisting were a real process that actually reorganized your code. The intent here is to clearly show how and when the various identifiers in this program are defined with respect to the code that actually gets executed.
+
+```js
+Pet.prototype.walk = function() {
+  console.log(`${this.name} is walking.`);
+};
+
+function Pet(name, image) {
+  this.name = name;
+  this.image =  image;
+}
+
+class Image {
+  constructor(file) {
+    this.file = file;
+  }
+}
+
+var catImage = new Image("cat.png");
+var pudding = new Pet("Pudding", catImage);
+```
+
+### 5.6 Solution
+
+```js
+function Pet(name, image) {
+  this.name = name;
+  this.image = image;
+}
+
+let Image;
+var catImage;
+var pudding;
+
+Pet.prototype.walk = function() {
+  console.log(`${this.name} is walking.`);
+};
+
+Image = class {
+  constructor(file) {
+    this.file = file;
+  }
+};
+
+catImage = new Image("cat.png");
+pudding = new Pet("Pudding", catImage);
+```
+
+You may have struggled a bit with the way that the `Image` class got hoisted. However, recall that *only the class's name gets hoisted*; the class doesn't get defined until the definition is executed. Thus, we have to create a variable for the class name, then later assign it a class expression.
+
+There are other ways to depict the effect of hoisting with this code. For instance, the following code is also correct:
+
+```js
+var Pet;
+let Image;
+var catImage;
+var pudding;
+
+Pet = function(name, image) {
+  this.name = name;
+  this.image = image;
+};
+
+// Omitted code ...
+```
 
 ## 6. Strict Mode
+
+RR
 
 ## 7. Closures
 

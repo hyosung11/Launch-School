@@ -8535,3 +8535,5 @@ Passed the interview assessment the second time around and am going to start JS1
 10:33 Humming along through hoisting. Feeling pretty good today about studying. What word did Miles use to talk about going through the material quickly?
 
 11:31 I finished Assignment 4 on Hoisting. I'm going to take a study break and see about using this REI coupon before it expires.
+
+13:34 I had lunch and have continued to study. I decided not to go to the gym and keep the momentum of this energy to study going until I go and play ping pong with Louis at 3 PM. I also don't want to put undue stress on my right pinky toe as it heals. I want to be as close to 100% healed as I can be for Saturday's soccer game.
