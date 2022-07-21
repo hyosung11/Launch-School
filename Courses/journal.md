@@ -8539,3 +8539,5 @@ Passed the interview assessment the second time around and am going to start JS1
 13:34 I had lunch and have continued to study. I decided not to go to the gym and keep the momentum of this energy to study going until I go and play ping pong with Louis at 3 PM. I also don't want to put undue stress on my right pinky toe as it heals. I want to be as close to 100% healed as I can be for Saturday's soccer game.
 
 14:51 Working on the Practice Problem for Strict Mode but leaving now to play ping pong.
+
+16:28 Back from playing ping pong. I finished Strict Mode and am starting Closures now.
