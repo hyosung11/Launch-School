@@ -8529,3 +8529,5 @@ Passed the interview assessment the second time around and am going to start JS1
 08:55 Completed Assignment 2 > The `var` Statement.
 
 09:39 Made table of block scope and function scope variables based on declaration.
+
+09:58 Finished Assignment 3 > More About Scope.

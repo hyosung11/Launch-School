@@ -291,13 +291,99 @@ Block Scope | Function Scope
  `const` | `function`
  `class` | -
 
-RR
-
 #### 3.2.2 Visibility Scope
+
+Visibility scope concerns *where a variable is visible*. This can be either **global scope** or **local scope** (inside a function or a block). We will sometimes also talk about local function scope and local block scope when discussing the local visibility scope. However, we will often omit the word "local".
+
+Let's revisit the previous example to see how it applies to visibility scope:
+
+```js
+let foo1 = 1;        // visibility scope is global
+var bar1 = 2;        // visibility scope is global
+
+if (true) {
+  let foo2 = 3;      // visibility scope is local (local block)
+  var bar2 = 4;      // visibility scope is global
+}
+
+function xyzzy() {  // visibility scope is global
+  let foo3 = 5;     // visibility scope is local (local function)
+  var bar3 = 6;     // visibility scope is local (local function)
+
+  if (true) {
+    let foo4 = 7;   // visibility scope is local (local block)
+    var bar4 = 8;   // visibility scope is local (local function)
+  }
+}
+```
+
+The visibility scope is determined as a combination of *how each variable is declared* and on the *lexical location of each declaration.*
+
+We usually talk about the visibility scope when we talk about the scope of a particular variable. Thus, we can say the `foo1` and `bar1` have global scope, but `foo3` and `bar3` have local scope.
 
 #### 3.2.3 Lexical Scope
 
+Lexical scope concerns how the structure of your code determines what variables are accessible or inaccessible at any point in the program. Lexical scope includes both **inner scope** and **outer scope**.
+
+Let's use two simplified examples to see how lexical scope works. It'll be easier to see what's happening and to explain. We'll start with some code that uses `let`:
+
+```js
+let foo1 = 1; // outer scope of xyzzy, outer scope of if block on line 3
+
+if (true) { // line 3
+  let foo2 = 3;   // inner scope of if block on line 3
+}
+
+function xyzzy() { // line 7
+  let foo3 = 5;   // inner scope of xyzzy, outer scope of if block on line 10
+
+  if (true) { // line 10
+    let foo4 = 7; // inner scope of if block on line 10
+  }
+}
+```
+
+Here, `foo1` is in the outer scope with respect to both the `if` statement on line 3 and the function declaration on line 7. On the other hand, `foo2` is in the inner scope of the `if` statement on line 3. The `foo3` variable is in the inner scope of the function, but it is also in the outer scope of the `if` statement on line 10. Meanwhile, `foo4` is in the inner scope of the `if` statement on line 10.
+
+Let's see what happens when we use `var` instead of `let`.
+
+```js
+var bar1 = 1; // outer scope of xyzzy, outer scope of if block on line 3
+
+if (true) { // line 3
+  var bar2 = 3;   // outer scope of xyzzy, outer scope of if block on line 3
+}
+
+function xyzzy() {
+  var bar3 = 5;   // inner scope of xyzzy, outer scope of if block on line 10
+
+  if (true) { // line 10
+    var bar4 = 7; // inner scope of xyzzy, outer scope of if block on line 10
+  }
+}
+```
+
+Here, both `bar1` and `bar2` are in the outer scope with respect to both the `if` statement on line 3 and the function declaration on line 7. Even though `bar2` is declared inside the `if` block, *it uses the `var` statement to do so, which creates a function-scoped variable*. In the same way, both `bar3` and `bar4` are in the inner scope of the function.
+
+We usually talk about **lexical scope** when we want to talk about what variables can be accessed from any specific place in the program.
+
 ### 3.3 How to Talk About Scope
+
+Don't stress! As confusing as scope terminology can be, it usually isn't as difficult to talk about as you might think. It's usually a matter of *understanding your frame of reference*:
+
+* Use declared scope when you're talking about how an identifier is declared.
+* Use visibility scope when you're talking about the visibility of a specific identifier.
+* Use lexical scope when you want to talk about whether something is "in scope" -- that is, whether it is available for use.
+
+Think of it a little bit like giving directions to your home:
+
+* "Go to 37373 SW Couch St"
+* "Turn right at the mailbox, and I'm the 3rd house on the right."
+* "Catch the #77 bus from downtown."
+* "Buy a plane ticket to Seattle."
+* "Set your controls for the heart of the sun, but stop at the 3rd rock."
+
+These are all valid directions to where you might live, just using different frames of reference.
 
 ### 3.4 Summary
 
