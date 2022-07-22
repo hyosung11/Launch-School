@@ -8545,3 +8545,7 @@ Passed the interview assessment the second time around and am going to start JS1
 17:22 Studying closures right before we leave for dinner in Oakland.
 
 20:32 Working through the closures problems. Now going to watch Veronica Mars with Sohee.
+
+## 20220722 금용일
+
+08:00 I'm having some thoughts about my studying process. Is there a better way than just copying and reading the notes on the first pass? I kind of like doing it this way though. Hm.
