@@ -8549,3 +8549,5 @@ Passed the interview assessment the second time around and am going to start JS1
 ## 20220722 금용일
 
 08:00 I'm having some thoughts about my studying process. Is there a better way than just copying and reading the notes on the first pass? I kind of like doing it this way though. Hm.
+
+08:54 After breakfast and I'm sipping my coffee and working through the closure problems. It's 85 degrees in the dining room and I'm sweating as I study.

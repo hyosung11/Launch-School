@@ -2194,7 +2194,7 @@ function foo(start) {
   };
 }
 
-let bar = foo(2);
+let bar = foo(2); // line 9
 let result = bar(3);
 result += bar(4);
 result += bar(5);
@@ -2203,7 +2203,84 @@ console.log(result);
 
 ### 8.7 Solution 7
 
+```sh
+150
+```
 
+On line 9, we create a function that we assign to the `bar` variable. This function takes a single argument, multiplies it with a variable named `prod`, and returns the result. Even though `prod` is out of scope when we call `bar`, closure lets `bar` retain access to `prod`.
+
+On line 10, we call the returned function with a value of `3`. Due to closure, the function has access to `prod`, which is currently set to `2`. It multiplies `prod` by `3`, and returns the new value of `prod`, i.e., `6`. We assign the return value to `result`.
+
+On line 11, we again call the returned function, but this time with an argument of `4`. Since we set `prod` to `6` in the previous call, we end up multiplying `6` by `4`, and setting `prod` to the result, `24`. We then return that value and add it to the previous result, `6`, which produces a result of `30`.
+
+Line 12 is similar. This time, we multiply `prod` (whose value is `24`) by `5`, and set `prod` to the result, `120`. We then return `120` and add it to the previous result value of `30`, which produces the final value of `150`.
+
+### 8.8 Problem 8
+
+Write a function named `later` that takes two arguments: a function and an argument for that function. The return value should be a new function that calls the input function with the provided argument, like this:
+
+```js
+const logger = message => console.log(message);
+let logWarning = later(logger, "The system is shutting down!");
+logWarning(); // The system is shutting down!
+```
+
+### 8.8 Solution 8
+
+```js
+function later(func, argument) {
+  return () => func(argument);
+}
+```
+
+### 8.9 Problem 9
+
+Write a function named `later2` that takes two arguments: a function and an argument for that function. The return value should be a new function that also takes an argument. The new function should call the input function with the argument provided to `later2` and the argument provided to the returned function. For example:
+
+```js
+const notify = function(message, when) {
+  console.log(`${message} in ${when} minutes!`);
+};
+
+let shutdownWarning = later2(notify, "The system is shutting down");
+shutdownWarning(30); // The system is shutting down in 30 minutes!
+```
+
+### 8.9 Solution 9
+
+```js
+function later2(func, argument) {
+  return secondArgument => func(argument, secondArgument);
+}
+```
+
+In this code, we create a new function called `shutdownWarning` that issues the shutdown warning specified by the argument to `later2`. The new function takes an argument that it passes to the original function as its second argument.
+
+### 8.10 Problem 10
+
+The built-in `Function.prototype.bind` method performs partial function application by allowing you to specify some of the function's arguments when you invoke `bind`. It also permanently binds the new function to a specific execution context with its first argument. That binding is, in a sense, also an example of partial function application. Here, the "argument" we're applying to the function is the function's execution context.
+
+Write a function that emulates the context binding aspect of bind. That is, your version of `bind` should merely call the function with the desired context; it doesn't need to pass any arguments to the function. Here's how you can use your function:
+
+```js
+"use strict";
+
+let obj = {};
+let boundFunc = bind(obj, function() {
+  this.foo = "bar";
+});
+
+boundFunc();
+console.log(obj); // { foo: 'bar' }
+```
+
+### 8.10 Solution 10
+
+```js
+function bind(context, func) {
+  return () => func.call(context);
+}
+```
 
 ## 9. Closures and Private Data
 
