@@ -8569,3 +8569,7 @@ Passed the interview assessment the second time around and am going to start JS1
 15:25 Finished Exceptions Assignment.
 
 15:41 Blitzed my way through garbage collection.
+
+16:51 Finished Assignment 17 > Side Effects and Pure Functions.
+
+Finish Assignment 17 > Side Effects and Pure Functions.
