@@ -3876,6 +3876,246 @@ let { first, last, middle } = qux(...arr);
 
 ## 14. Modules
 
+In this assignment, we'll learn about modules and their benefits. Specifically, we'll focus primarily on one of the two module systems: CommonJS modules, also known as Node modules. We'll also touch on JS modules, also known as "ES modules" and "ECMAScript modules."
+
+### 14.1 What To Focus On
+
+Going forward, we'll use CommonJS modules, though you will probably meet JS modules after completing Core. Thus, this assignment will focus on the CommonJS module system. You should be able to answer questions about the following topics:
+
+* The benefits of using modules.
+* How to use and create CommonJS modules.
+* How CommonJS modules pass exported items to the importing module.
+
+We'll also have a brief discussion of JS modules, but you're not expected to remember the details of that discussion.
+
+We discuss modules in detail in our Gist, [Modern JavaScript: Modules](https://launchschool.com/gists/e7d0531f).
+
+In this Gist, we'll learn about modules and their benefits. Specifically, we'll focus primarily on one of the two module systems: CommonJS modules, also known as **Node modules**. We'll also touch on JS modules, also known as "ES modules" and "ECMAScript modules."
+
+### 14.2 Benefits of Modules
+
+As programs grow in size and complexity, they become harder to understand. If a program is contained entirely in one file, even just 100 lines of code can take time to understand fully. If you could somehow split the program up into **self-contained pieces**, it becomes much easier to understand each component.
+
+Large single-file programs also tend to lose cohesion. That is, the different parts of the program tend to become entangled as you make more and more changes to the code. If you make a change someplace, there's a ripple effect that often occurs with older, larger programs. The original code may have been simple, easy to follow, and had a well-defined purpose, but after a few years of enhancements, that may no longer be the case.
+
+By the time you've got a few hundred lines of code, working on the code becomes unwieldy. Programming often involves looking at several parts of your code. With different parts scattered throughout a single file, you may find yourself having to jump around a lot. Modern editors make this process less tedious, but you may still spend too much time trying to find what you need.
+
+Over time, your program grows and grows. Before you know it, it's so big that you need a team of developers to work on it. If it's all in one file, with each developer working on different tasks, you may have conflicts when you try to combine your efforts. Git, which we discuss in the Git Book, can make that relatively painless. However, you may still need to resolve some conflicts manually. Furthermore, if you want to reuse some of the code elsewhere, you must disentangle it from your project, preferably without using a copy and paste approach.
+
+Another issue that arises with large programs is **encapsulation**. We've seen several ways to define private data in objects and functions. However, the additional work needed to encapsulate your data and methods is often too much bother. It can also lead to messy code.
+
+The solution to all these problems is to *split up a program into multiple files*, commonly called **modules**. Each module can focus on a particular part of the problem, and a team of developers can work on separate parts without fear of conflicts. With well-defined modules, you probably don't need to chase down all the function calls. Furthermore, modules help keep a program's concerns separated; the different parts don't become entangled in the face of many enhancements and bug fixes. Modules can also make it easier to work with private data, which helps maintain encapsulation. You must explicitly export the items you want to make available; everything else is private to the module. Best of all, you can easily use a module elsewhere without first having to disentangle it from the program.
+
+### 14.3 CommonJS Modules
+
+#### 14.3.1 Using CommonJS Modules
+
+Using CommonJS Modules
+
+From its earliest days, Node has supported modules. It's this capability that lets us **require** (or **import**) some code into a program. For instance, we've seen how to use the `readline-sync` module:
+
+```js
+const readline = require('readline-sync');
+let choice = readline.question("Do you want to run this program? (y/n)");
+```
+
+Importing modules in this manner uses the **CommonJS module** syntax. To use a CommonJS module, all you have to do is import it with the `require` function. You may have to install the module first with the Node Package Manager, NPM, but once it's installed, you only need to `require` it.
+
+Not all flavors of JavaScript support CommonJS modules. In particular, browsers don't support them since they're *loaded synchronously*. We'll discuss synchronous vs. asynchronous code in a later course. For now, though, synchronous loading makes CommonJS modules unsuitable for the browser environment -- it takes too long to load them. They're suitable for Node applications where everything resides on the same machine, but not the browser.
+
+Browsers don't natively support CommonJS modules, but you can use a **transpiler** like [Babel](https://babeljs.io/) to *transpile code that uses CommonJS modules into a format that can be used by browsers*.
+
+#### 14.3.2 Creating CommonJS Modules
+
+Creating modules is reasonably straightforward. First, create a file with the code that you want to modularize, then add some additional code to export the items that you want other modules to use:
+
+```js - logit.js
+function logIt(string) {
+  console.log(string);
+}
+
+module.exports = logIt;
+```
+
+Once you have the module file, you can import it into your main program (or another module). The names that it exports then become available to your program:
+
+```js - main.js
+const logIt = require("./logit");
+logIt("You rock!");
+```
+
+When importing modules that weren't installed by NPM, you need to specify the path to the file that contains the module. Typically, such paths start with `./`, which tells Node to look inside your project folder. If you installed a package with NPM, you can usually require it without the `./` or any other qualification.
+
+Finally, you can run the code with the `node` command:
+
+```sh
+$ node main.js
+You rock!
+```
+
+You can export any values you want from a module: functions, constants, variables, and classes are all eligible for export.
+
+You can export multiple items at once:
+
+```js - logit.js
+let prefix = ">> ";
+
+function logIt(string) {
+  console.log(`${prefix}${string}`);
+}
+
+function setPrefix(newPrefix) {
+  prefix = newPrefix;
+}
+
+module.exports = {
+  logIt,
+  setPrefix,
+};
+```
+
+```js - main.js
+const { logIt, setPrefix } = require("./logit");
+logIt("You rock!"); // >> You rock!
+setPrefix("++ ");
+logIt("You rock!"); // ++ You rock!
+```
+
+Note that we're using object destructuring to extract the two functions from the object returned by `require`.
+
+#### 14.3.3 CommonJS Variables
+
+In Node, all code is part of a CommonJS module, including your main program. Each module provides several variables that you can use in your code:
+
+* `module`: an object that represents the current module
+* `exports`: the name(s) exported by the module (same as `module.exports`)
+* `require(moduleName)`: the function that loads a module
+* `__dirname`: the absolute pathname of the directory that contains the module
+* `__filename`: the absolute pathname of the file that contains the module
+
+Not all of these names are defined when using the Node REPL, but they all exist in the main program and inside each module:
+
+```js
+console.log(module);
+// Module {
+//   id: '<repl>',
+//   path: '.',
+//   exports: {},
+//   filename: null,
+//   loaded: false,
+//   children: [],
+//   paths: [
+//     '/Users/hyosungbidol-lee/Launch-School/Courses/JS130/Lesson-2-Advanced-Concepts/repl/node_modules',
+//     '/Users/hyosungbidol-lee/Launch-School/Courses/JS130/Lesson-2-Advanced-Concepts/node_modules',
+//     '/Users/hyosungbidol-lee/Launch-School/Courses/JS130/node_modules',
+//     '/Users/hyosungbidol-lee/Launch-School/Courses/node_modules',
+//     '/Users/hyosungbidol-lee/Launch-School/node_modules',
+//     '/Users/hyosungbidol-lee/node_modules',
+//     '/Users/node_modules',
+//     '/node_modules',
+//     '/Users/hyosungbidol-lee/.node_modules',
+//     '/Users/hyosungbidol-lee/.node_libraries',
+//     '/usr/local/Cellar/node/18.6.0/lib/node'
+//   ]
+// }
+// undefined
+
+console.log(exports);
+// {}
+// (no exports at the main program level)
+
+console.log(require);
+// [Function: require] {
+//   resolve: [Function: resolve] { paths: [Function: paths] },
+//   main: undefined,
+//   extensions: [Object: null prototype] {
+//     '.js': [Function (anonymous)],
+//     '.json': [Function (anonymous)],
+//     '.node': [Function (anonymous)]
+//   },
+//   cache: [Object: null prototype] {}
+// }
+// undefined
+
+console.log(__dirname);  // /Users/wolfy/JS
+console.log(__filename); // /Users/wolfy/JS/main.js
+```
+
+### 14.4 JS Modules
+
+#### 14.4.1 Some History
+
+Built-in support for JavaScript modules in your browser is a relatively new feature. The lack of modules wasn't a problem in the early days when JavaScript programs were usually minimal, often performing only one or two simple tasks.
+
+Over time, though, JavaScript developers have learned to implement more and more functionality. Today, entire Web applications are written using JavaScript. For instance, use your browser's "View Source" or "Page Source" command to look at the source code for Google's home page and search results. JavaScript code manages almost the entire page. Even Google's powerful Google Docs application is written almost entirely with JavaScript.
+
+Such programs aren't small. They have a great deal of code, and a module system is a necessity. However, there was no built-in support for modules in the browsers of the day. Furthermore, Node's module system wasn't suitable due to its synchronous nature. For instance, assume your program has something like the following in it:
+
+```js
+const ask = require("ask");
+```
+
+When Node encounters this code, it stops what it is doing and loads the indicated module into memory. That's not a problem in Node since the module is stored locally. However, if we could run this code in a browser, the `ask` module would probably be stored as a resource on a remote server. The browser would need to issue a request for the resource, wait for the server's response, convert the response body into something it can use, and then load the module. During all that, the browser can't do anything else. It has to wait for the module to finish loading. If the `ask` module itself needs to require several other modules, the browser needs to wait for those to load as well. *This synchronous approach is much too slow for the browser environment*.
+
+Developers created some sophisticated ways to work around this problem, including RequireJS and Browserify. RequireJS lets you download a bunch of modules asynchronously, but you have to download the code for RequireJS before you can load other modules. Browserify was a slightly better solution. Developers can run this program to build a single large JavaScript file that contains all of the modules that the web application needs. The browser only has to download this single file. Many similar solutions abound, often with better or more powerful features. However, the proliferation of different tools means that developers have to learn new tools frequently.
+
+With ES6, JavaScript now supports modules natively. It adds the `export` and `import` keywords to the language, and most modern browsers now support them. If you must support older browsers, you can use tools like **Babel** and **Webpack**. Babel *transpiles* (converts) ES6 code to ES5 code. Webpack consolidates all of the modules you need into a single file. We won't discuss Webpack in this course, but we'll talk about Babel in a later lesson.
+
+#### 14.4.2 Using JS Modules
+
+If your browser supports JS modules, using them is not difficult. For instance, your module file might look like this:
+
+```js - foo.js
+import { bar } from "./bar";
+
+let xyz = 1; // not exported
+
+export function foo() {
+  console.log(xyz);
+  xyz += 1;
+  bar();
+}
+```
+
+```js - bar.js
+export let items = [];
+export let counter = 0;
+
+export function bar() {
+  counter += 1;
+  items.push(`item ${counter}`);
+}
+
+export function getCounter() {
+  return counter;
+}
+```
+
+```js - main.js
+import { foo } from "./foo";
+import { bar, getCounter, items, counter } from "./bar";
+
+foo();
+console.log(items);          // ["item 1"]
+console.log(getCounter());   // 1
+console.log(counter);        // 1
+
+bar();
+console.log(items);          // ["item 1", "item 2"]
+console.log(getCounter());   // 2
+console.log(counter);        // 2
+```
+
+Notice that exporting is as simple as preceding each declaration with the word `export`. Anything that you don't export explicitly is local to the module. Thus, the `xyz` variable in the `foo` modules is local to `foo`.
+
+Note that, by default, Node does not support ES6 modules directly. However, recent versions of Node do provide ways to use ES modules by either renaming the modules or by updating `package.json`. If you're using an older version of Node, you can use something like Babel to transpile ES6 modules into a form that Node understands.
+
+### 14.3 Summary
+
+The initial release of Node came equipped with the CommonJS module system. It's still in widespread use today. However, the CommonJS module's synchronous nature makes it unsuitable for use in a browser, which led to the development of JS modules. In recent years, Node has added support for JS modules, but older versions of Node don't have direct support for them. However, even if you're using an older version of Node, you can use a transpiler to emulate the JS modules.
+
+In the next assignment, we'll take a look at exceptions.
+
 ## 15. Exceptions
 
 ## 16. Garbage Collection
