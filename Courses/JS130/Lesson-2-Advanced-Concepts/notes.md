@@ -3357,17 +3357,522 @@ For more information on object destructuring, see the [MDN Documentation](https:
 
 ### 12.5 Array Destructuring
 
-RR
+Destructuring works with arrays:
+
+```js
+let foo = [1, 2, 3];
+let [ first, second, third ] = foo;
+```
+
+The code is equivalent to the following:
+
+```js
+let foo = [1, 2, 3];
+let first = foo[0];
+let second = foo[1];
+let third = foo[2];
+```
+
+The spaces inside the brackets aren't required. However, it's easier to read and more clearly distinguishes between destructuring and array literals.
+
+If you don't need all of the elements, you can skip them:
+
+```js
+let bar = [1, 2, 3, 4, 5, 6, 7];
+let [ first, , , fourth, fifth, , seventh ] = bar;
+```
+
+Array destructuring lets you perform multiple assignments in a single expression:
+
+```js
+let one = 1;
+let two = 2;
+let three = 3;
+
+let [ num1, num2, num3, ] = [one, two, three];
+
+console.log(num1); // 1
+console.log(num2); // 2
+console.log(num3); // 3
+```
+
+Note that the left-hand side of the "=" uses destructuring syntax, while the right-hand side uses literal array syntax.
+
+This syntax is handy when you need to swap the values in two variables:
+
+```js
+let one = 1;
+let two = 2;
+
+[ one, two ] = [two, one];
+
+console.log(one); // 2
+console.log(two); // 1
+```
+
+Finally, you can use rest syntax (discussed below) in array destructuring to assign a variable to the rest of an array:
+
+```js
+let foo = [1, 2, 3, 4];
+let [ bar, ...qux ] = foo;
+
+console.log(bar); // 1
+console.log(qux); // [2, 3, 4]
+```
+
+For more information on array destructuring, see the[ MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#array_destructuring).
 
 ### 12.6 Spread Syntax
 
+The final bits of shorthand we'll discuss both use `...`. Though they look identical, the *meaning varies based on context*; each works in a distinctly different manner. The different usages are spread syntax and rest syntax.
+
+The **spread syntax** uses `...` to "spread" the elements of an array or object into separate items. Consider this code:
+
+```js
+function add3(item1, item2, item3) {
+  return item1 + item2 + item3;
+}
+
+let foo = [3, 7, 11];
+add(foo[0], foo[1], foo[2]);
+```
+
+That's somewhat tedious and error-prone, especially if you need to pass a large number of arguments to a function, but they're all stored in an array. You can, of course, use `Function.prototype.apply`:
+
+```js
+add3.apply(null, foo); // => 21
+```
+
+That works great, but it's even easier to use the spread syntax:
+
+```js
+add3(...foo); // => 21
+```
+
+In many cases, spread syntax can entirely *replace* the apply method.
+
+Here are some common use-cases for the spread syntax:
+
+```js
+// Create a clone of an array
+let foo = [1, 2, 3];
+let bar = [...foo];
+console.log(bar);         // [1, 2, 3]
+console.log(foo === bar); // false -- bar is a new array
+```
+
+```js
+// Concatenate arrays
+let foo = [1, 2, 3];
+let bar = [4, 5, 6];
+let qux = [...foo, ...bar];
+qux;  // => [1, 2, 3, 4, 5, 6]
+```
+
+```js
+// Insert an array into another array
+let foo = [1, 2, 3]
+let bar = [...foo, 4, 5, 6, ...foo];
+bar; // => [1, 2, 3, 4, 5, 6, 1, 2, 3]
+```
+
+Spread syntax also works with objects:
+
+```js
+// Create a clone of an object
+let foo = { qux: 1, baz: 2 };
+let bar = { ...foo };
+console.log(bar);         // { qux: 1, baz: 2 }
+console.log(foo === bar); // false -- bar is a new object
+```
+
+```js
+// Merge objects
+let foo = { qux: 1, baz: 2 };
+let xyz = { baz: 3, sup: 4 };
+let obj = { ...foo, ...xyz };
+obj;  // => { qux: 1, baz: 3, sup: 4 }
+```
+
+Using the spread syntax can help eliminate some messy looking code, and can also eliminate the need to use `apply`. The result is easier to type and read.
+
+Note that spread syntax with objects only returns the properties that `Object.keys` would return. That is, it only returns enumerable "own" properties. That means, in part, that it's not the right choice when you need to duplicate objects that inherit from some other object. It also means that you lose the object prototype.
+
+For now, all you need to know about enumerable properties is that *the object prototype is not enumerable*. Also, the `length` property of an array is not enumerable.
+
+For more information on spread syntax, see the [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax).
+
 ### 12.7 Rest Syntax
+
+In some ways, you can think of **rest syntax** as *the opposite of spread syntax*. Instead of spreading an array or object out into separate items, it instead *collects multiples items into an array or object*. We saw an example of this in the section on destructuring arrays:
+
+```js
+let foo = [1, 2, 3, 4];
+let [ bar, ...otherStuff ] = foo;
+console.log(bar);        // 1
+console.log(otherStuff); // [2, 3, 4]
+```
+
+Here, `...otherStuff` uses rest syntax to collect the remaining elements of `foo` into a new array called `otherStuff`.
+
+You can also use rest syntax with objects:
+
+```js
+let foo = {bar: 1, qux: 2, baz: 3, xyz: 4};
+let { bar, baz, ...otherStuff } = foo;
+console.log(bar);        // 1
+console.log(baz);        // 3
+console.log(otherStuff); // {qux: 2, xyz: 4}
+```
+
+Note that the rest element (`otherStuff` in both examples) *must be the **last** item in any expression that uses rest syntax*.
+
+Rest syntax is used most often when working with functions that take an arbitrary number of parameters. For instance, in classical JavaScript, a function that determines the maximum value in a list of numbers may use *the built-in variable* `arguments` like this:
+
+```js
+function maxItem() {
+  let maximum = arguments[0];
+  [].forEach.call(arguments, value => {
+    if (value > maximum) {
+      maximum = value;
+    }
+  });
+
+  return maximum;
+}
+
+console.log(maxItem(2, 6, 10, 4, -3));
+```
+
+This code uses the `arguments` object to access the arguments passed to `maxItems`. Since `arguments` is not an array -- it's an array-like object -- we need to use the messy `[].forEach.call` syntax to iterate over the arguments (we could also use an ordinary `for` loop). Note also that the function's parameter list doesn't indicate that it takes any arguments at all, which hurts readability.
+
+With rest syntax, we can write this code more clearly:
+
+```js
+function maxItem(first, ...moreArgs) {
+  let maximum = first;
+  moreArgs.forEach(value => {
+    if (value > maximum) {
+      maximum = value;
+    }
+  });
+
+  return maximum;
+}
+
+console.log(maxItem(2, 6, 10, 4, -3));
+```
+
+For more information on rest syntax, see the [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters).
 
 ### 12.8 Summary
 
 Phew! That's a lot of different syntax shortcuts. As stated earlier, you don't have to use these shortcuts in your code, but you do need to be familiar with them. You can expect to see them show up from time to time as you advance through the curriculum.
 
 ## 13. Practice Problems: Shorthand Notation
+
+Let's get some practice understanding the various kinds of shorthand notation.
+
+### 13.1 Problem 1
+
+Rewrite the following code using classic JavaScript syntax. That is, write it without using any of the shorthand notations described in the previous assignment.
+
+```js
+function foo(bar, qux, baz) {
+  return {
+    bar,
+    baz,
+    qux,
+  };
+}
+```
+
+### 13.1 Solution 1
+
+```js
+function foo(bar, qux, baz) {
+  return {
+    bar: bar,
+    qux: qux,
+    baz: baz,
+  };
+}
+```
+
+### 13.2 Problem 2
+
+Rewrite the following code using classic JavaScript syntax:
+
+```js
+function foo() {
+  return {
+    bar() {
+      console.log("bar");
+    },
+    qux(arg1) {
+      console.log("qux");
+      console.log(arg1);
+    },
+    baz(arg1, arg2) {
+      console.log("baz");
+      console.log(arg1);
+      console.log(arg2);
+    },
+  };
+}
+```
+
+### 13.2 Solution 2
+
+```js
+function foo() {
+  return {
+    bar: function() {
+      console.log("bar");
+    },
+    qux: function(arg1) {
+      console.log("qux");
+      console.log(arg1);
+    },
+    baz: function(arg1, arg2) {
+      console.log("baz");
+      console.log(arg1);
+      console.log(arg2);
+    },
+  };
+}
+```
+
+### 13.3 Problem 3
+
+Rewrite the following code using classic JavaScript syntax:
+
+```js
+function foo(one, two, three) {
+  return {
+    bar: one,
+    baz: two,
+    qux: three,
+  };
+}
+
+let { baz, qux, bar } = foo(1, 2, 3);
+```
+
+### 13.3 Solution 3
+
+```js
+function foo(one, two, three) {
+  return {
+    bar: one,
+    baz: two,
+    qux: three,
+  };
+}
+
+let obj = foo(1, 2, 3);
+let baz = obj.baz;
+let qux = obj.qux;
+let bar = obj.bar;
+```
+
+### 13.4 Problem 4
+
+Rewrite the following code using classic JavaScript syntax:
+
+```js
+function foo([ one, , three ]) {
+  return [
+    three,
+    5,
+    one,
+  ];
+}
+
+let array = [1, 2, 3];
+let result = foo(array);
+let [ bar, qux, baz ] = result;
+```
+
+### 13.4 Solution 4
+
+```js
+function foo(arr) {
+  return [
+    arr[2],
+    5,
+    arr[0],
+  ];
+}
+
+let array = [1, 2, 3];
+let result = foo(array);
+let bar = result[0];
+let qux = result[1];
+let baz = result[2];
+```
+
+### 13.5 Problem 5
+
+Rewrite the following code using classic JavaScript syntax:
+
+```js
+function product(num1, num2, num3) {
+  return num1 * num2 * num3;
+}
+
+let array = [2, 3, 5];
+let result = product(...array);
+```
+
+### 13.5 Solution 5
+
+```js
+function product(num1, num2, num3) {
+  return num1 * num2 * num3;
+}
+
+let array = [2, 3, 5];
+let result = product(array[0], array[1], array[2]);
+```
+
+### 13.6 Problem 6
+
+Rewrite the following code using classic JavaScript syntax:
+
+```js
+function product(...numbers) {
+  return numbers.reduce((total, number) => total * number);
+}
+
+let result = product(2, 3, 4, 5);
+```
+
+Hint
+
+You need the built-in [arguments](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) object to convert this code to classic syntax.
+
+### 13.6 Solution 6
+
+```js
+function product() {
+  let args = Array.from(arguments);
+  return args.reduce((total, number) => total * number);
+}
+
+let result = product(2, 3, 4, 5);
+```
+
+Note that the new function definition has no parameters.
+
+### 13.7 Problem 7
+
+Replace the word HERE in the following code so the program prints the results shown:
+
+```js
+const HERE = { foo: 42, bar: 3.1415, qux: "abc" };
+console.log(foo);         // 42
+console.log(rest);        // { bar: 3.1415, qux: 'abc' }
+```
+
+### 13.7 Solution 7
+
+`HERE` should be replaced by `{ foo, ...rest }`.
+
+```js
+const { foo, ...rest } = { foo: 42, bar: 3.1415, qux: "abc" };
+```
+
+### 13.8 Problem 8
+
+Rewrite the final line of code in the following snippet using classic JavaScript syntax:
+
+```js
+const obj = {
+  first: "I am the first",
+  second: "I am the second",
+  third: [1, 2, 3],
+  rest: { a: 'a', b: 'b' },
+};
+
+const { first, second, ...rest } = obj;
+```
+
+### 13.8 Solution 8
+
+```js
+const first = obj.first;
+const second = obj.second;
+const rest = {
+  third: [1, 2, 3],
+  rest: { a: 'a', b: 'b' },
+}
+```
+
+Note that the name used in `...rest` is not treated as the name of a property. Instead, `rest` will be set to an object that contains all of the properties that have not been previously extracted from the object.
+
+### 13.9 Problem 9
+
+OPTIONAL Assume that you have some code that looks like this:
+
+```js
+function qux() {
+  let animalType = "cat";
+  let age = 9;
+  let colors = ["black", "white"];
+  // missing code
+}
+
+let { type, age, colors } = qux();
+console.log(type);    // cat
+console.log(age);     // 9
+console.log(colors);  // [ 'black', 'white' ]
+```
+
+Using shorthand notation, what is the missing code?
+
+### 13.9 Solution 9
+
+```js
+function qux() {
+  let animalType = "cat";
+  let age = 9;
+  let colors = ["black", "white"];
+  // missing code added below
+  return {
+    type: animalType,
+    age,
+    colors,
+  }
+};
+```
+
+### 13.10 Problem 10
+
+OPTIONAL Write a function that takes 5 string arguments, and returns an object with 3 properties:
+
+* `first`: the first argument
+* `last`: the last argument
+* `middle`: the middle 3 arguments as a sorted array
+
+After writing the function, write some code to call the function. The arguments you provide should come from an array. You should create local variables named `first`, `last`, and `middle` from the return value.
+
+Use shorthand syntax wherever you can.
+
+### 13.10 Solution 10
+
+```js
+function qux(first, middle1, middle2, middle3, last) {
+  return {
+    first,
+    last,
+    middle: [middle1, middle2, middle3].sort(),
+  };
+}
+
+let arr = ["Fluffy", "Pudding", "Mister", "Ben", "Butterscotch"];
+let { first, last, middle } = qux(...arr);
+```
 
 ## 14. Modules
 
