@@ -2284,6 +2284,57 @@ function bind(context, func) {
 
 ## 9. Closures and Private Data
 
+Now that we know what closures are, we're ready to put them to work. In this assignment, we'll focus on how we can use closures to *define private data* in JavaScript objects.
+
+### 9.1 What to Focus On
+
+This assignment is relatively short, though it does have some exercises practice problems that may take some time to work through. However, there are only a few concepts of importance. In particular, you should be able to:
+
+* Write code that uses closure to create private data.
+* Explain why private data is desirable.
+* Be able to identify code that gives users of your code a way to alter private data.
+
+### 9.2 Private Data
+
+As we've learned, functions combine with the environment at their definition point to form closures. A closure lets a function access its definition environment regardless of when and where the program invokes the function. For instance, here's some code that uses a closure to increment and log a number with each call:
+
+```js
+function makeCounter() {
+  var count = 0;       // declare a new variable
+  return function() {
+    count += 1; // references count from the outer scope
+    console.log(count);
+  };
+}
+```
+
+We're using `var` in this example merely for a change of pace. It makes no difference whether we use `var` or `let` in this code. Actually, we're using `var` so we don't have to change the image below.
+
+Since `makeCounter` returns a function, we use it like this:
+
+```js
+var counter = makeCounter();
+counter(); // 1
+counter(); // 2
+counter(); // 3
+```
+
+Let's take a closer look at that code:
+
+![function_scope](function_scope1.png)
+
+### 9.3 Practice Problems
+
+### 9.4 Improving the API
+
+### 9.5 More Practice Problems
+
+### 9.6 Why Do We Need Private Data?
+
+### 9.7 Summary
+
+In this lesson, we've learned how to use closures to create functions and objects that use private data, and we've talked about why that ability is useful. In the next lesson, we'll examine the concept of immediately invokable function expressions, better known as IIFEs.
+
 ## 10. Immediately Invoked Function Expressions
 
 ## 11. Practice Problems: Immediately Invoked Function Expressions
