@@ -8557,3 +8557,5 @@ Passed the interview assessment the second time around and am going to start JS1
 10:16 I finished Assignment 9 > Closures and Private Data.
 
 11:15 I blew through IIFEs and am going to start the practice problems next.
+
+11:55 Blitzed through the IIFEs practice problems.

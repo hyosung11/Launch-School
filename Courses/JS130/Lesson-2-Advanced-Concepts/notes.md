@@ -2970,6 +2970,202 @@ In the next assignment, you'll get some practice working with IIFEs. Afterward, 
 
 ## 11. Practice Problems: Immediately Invoked Function Expressions
 
+Let's get some practice working with IIFEs.
+
+### 11.1 Problem 1
+
+Will the following code execute without error? Try to answer without running it.
+
+```js
+function() {
+  console.log("Sometimes, syntax isn't intuitive!");
+}();
+```
+
+### 11.1 Solution 1
+
+```sh
+Uncaught SyntaxError: Unexpected token ')'
+```
+
+No, the code won't execute. Instead, it raises a syntax error. A function declaration must be converted to a function expression before you can invoke it with immediate invocation syntax.
+
+### 11.2 Problem 2
+
+Rewrite the example from the previous so that it executes without error.
+
+### 11.2 Solution 2
+
+```js
+(function() {
+  console.log("Sometimes, syntax isn't intuitive!");
+})();
+```
+
+### 11.3 Problem 3
+
+The code below throws an error:
+
+```js
+var sum = 0;
+sum += 10;
+sum += 31;
+
+let numbers = [1, 7, -3, 3];
+
+function sum(arr) {
+  return arr.reduce((sum, number) => {
+    sum += number;
+    return sum;
+  }, 0);
+}
+
+sum += sum(numbers);  // ?
+```
+
+Why does this code produce an error? Correct the problem by using an IIFE.
+
+### 11.3 Solution 3
+
+The last line in the example shows a variable naming conflict. We intend to invoke the `sum` function we declared on line 7, but `sum` actually references the variable defined on line 1. Since the variable doesn't reference a function, our code throws a `TypeError` when we try to invoke one.
+
+We can solve this problem with an IIFE:
+
+```js
+var sum = 0;
+sum += 10;
+sum += 31;
+
+let numbers = [1, 7, -3, 3];
+
+sum += (function(arr) {
+  return arr.reduce((sum, number) => {
+    sum += number;
+    return sum;
+  }, 0);
+})(numbers);
+
+console.log(sum) // => 49
+```
+
+Note that, in the original code, we use `var` to declare the `sum` variable. If we use `let`, JavaScript won't let us redefine the name as a function. We could change `var` to `let` in the solution, but we didn't.
+
+### 11.4 Problem 4
+
+Consider the following code and output:
+
+```sh
+> countdown(7)
+7
+6
+5
+4
+3
+2
+1
+0
+```
+
+Replace the invocation of countdown with an IIFE that produces the same results.
+
+### 11.4 Solution 4
+
+```js
+(function(number) {
+  for (let currentNumber = number; currentNumber >= 0; currentNumber -= 1) {
+    console.log(currentNumber);
+  }
+})(7);
+```
+
+### 11.5 Problem 5
+
+Is the named function inside this IIFE accessible in the global scope?
+
+```js
+(function foo() {
+  console.log('Bar');
+})();
+
+foo() // ?
+```
+
+### 11.5 Solution 5
+
+No. Even though the function is named, it isn't visible outside the scope created by the IIFE.
+
+### 11.6 Problem 6
+
+Consider the following code from a practice problem in an earlier lesson:
+
+```js
+function foo(start) {
+  let prod = start;
+  return function (factor) {
+    prod *= factor;
+    return prod;
+  };
+}
+
+let bar = foo(2);
+let result = bar(3);
+result += bar(4);
+result += bar(5);
+console.log(result);
+```
+
+Rewrite this code using an IIFE. Your solution should no longer need the name `foo`.
+
+### 11.6 Solution 6
+
+```js
+let bar = (function(start) {
+  let product = start;
+  return function(factor) {
+    product *= factor;
+    return product
+  };
+})(2);
+
+let result = bar(3);
+result += bar(4);
+result += bar(5);
+console.log(result); // 150
+```
+
+### 11.7 Problem 7
+
+For an extra challenge, refactor the solution to problem 4 using **recursion**. Bear in mind that named functions created as IIFEs can be referenced by those same functions. That is, you can call a function's name in the body of the IIFE. Don't worry if you can't solve this problem; it's a bit tricky.
+
+```js - Problem 4 Solution
+(function(number) {
+  for (let currentNumber = number; currentNumber >= 0; currentNumber -= 1) {
+    console.log(currentNumber);
+  }
+})(7);
+```
+
+### 11.7 Solution 7
+
+```js
+(function recursiveCounter(number) {
+  console.log(number);
+
+  if (number !== 0) {
+    recursiveCounter(number - 1);
+  }
+})(7);
+
+// 7
+// 6
+// 5
+// 4
+// 3
+// 2
+// 1
+// 0
+```
+
 ## 12. Shorthand Notation
 
 ## 13. Practice Problems: Shorthand Notation
