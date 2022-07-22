@@ -4764,6 +4764,8 @@ Note that function 2 implicitly returns `undefined` for all possible arguments. 
 
 ## 18. JS130 Exercises
 
+Before moving on, please spend some time working the [JS130 JavaScript Exercises](https://launchschool.com/exercises#js130_javascript_exercises).
+
 ## 19. Summary
 
 ## 20. Lesson 2 Quiz 1
