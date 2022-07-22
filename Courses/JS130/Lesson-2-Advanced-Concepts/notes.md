@@ -2671,6 +2671,303 @@ In this lesson, we've learned how to use closures to create functions and object
 
 ## 10. Immediately Invoked Function Expressions
 
+We're now ready to learn about one of JavaScript's most unusual features: immediately invoked function expressions. *These expressions let you define and execute a function in a single step*. They let you use variable and function names that won't conflict with other names in your code.
+
+### 10.1 What to Focus On
+
+This assignment is also a short one. However, the concepts discussed are needed often. In particular, you should be able to answer these questions:
+
+* What are IIFEs?
+* How do you use them?
+* How do you use IIFEs to create private scopes?
+* How do you use blocks to create private scopes?
+* How do you use IIFEs to create private data?
+
+### 10.2 What are IFFEs and How Do You Use Them?
+
+An **IIFE** or **immediately invoked function expression** is a function that you define and invoke simultaneously. In JavaScript we use a special syntax to create and execute an IIFE:
+
+```js
+(function() {
+  console.log('hello');
+})(); // => hello
+```
+
+In this code, we've added a pair of parentheses around a function definition. We then invoke the function by appending a second pair of parentheses. Without the parentheses around the function definition, we may get a syntax error when we try to invoke the function:
+
+```js - Invalid Syntax
+function() {
+  console.log('hello');
+}(); // SyntaxError: Unexpected token
+```
+
+A little later, we'll show you an example where the surrounding parentheses aren't necessary. However, you should *always use them to more clearly show that you're running an IIFE*.
+
+### 10.3 Parentheses
+
+In JavaScript, surrounding a value with parentheses `( )` doesn't change the value. You're well familiar with using parentheses to invoke functions and define a function's parameters, but they can show up elsewhere. When they do, they *act as a grouping control*; they control the order of evaluation in an expression:
+
+```sh
+> (3)
+= 3
+
+> (['apple', 'carrot'])
+= ["apple", "carrot"]
+```
+
+In these two examples, the parentheses didn't affect the results. However, in more complex code, they can:
+
+```sh
+> (3 + 5) * 2
+= 16
+
+> 3 + (5 * 2)
+= 13
+```
+
+In the first example, the parentheses tell JavaScript to evaluate `3 + 5` first, then multiply the result by `2`. In the second, they evaluate `5 * 2` first, then add that result to `3`. Note that these expressions produce different results.
+
+With IIFEs, the parentheses around the function definition tell JavaScript that we first want to evaluate the function as an expression. We then take the return value of the expression and use function call parentheses to invoke the function.
+
+All functions, including IIFEs, can take arguments and return values:
+
+```js
+(function(number) {
+  return number + 1;
+})(2);                    // 3
+```
+
+### 10.4 IIFE Style Issues
+
+You may sometimes see a slightly different style for IIFEs:
+
+```js
+(function() {
+  console.log('hello');
+}());
+```
+
+Here, the argument list is inside the outer set of parentheses. As with the original style, they let JavaScript distinguish between an ordinary function declaration and an IIFE. JavaScript handles this style the same as with the earlier approach. However, the style makes what is happening less apparent. You should *use the style that we showed earlier.*
+
+We can omit the parentheses around an IIFE when the function definition is an expression that doesn't occur at the beginning of a line (recall the earlier invalid syntax example):
+
+```js
+let foo = function() {
+  return function() {
+    return 10;
+  }() + 5;
+}();
+
+console.log(foo); // => 15
+```
+
+Again, this style makes it less apparent that we're working with an IIFE. Use parentheses here as well:
+
+```js
+let foo = (function() {
+  return (function() {
+    return 10;
+  })() + 5;
+})();
+
+console.log(foo); // => 15
+```
+
+Note: We're using IIFEs to invoke both functions at the same time.
+
+### 10.5 Using IIFEs with Arrow Functions
+
+IIFEs work with all kinds of functions, including arrow functions:
+
+```js
+((first, second) => first * second)(5, 6); // => 30
+```
+
+### 10.6 Creating Private Scope with IIFEs
+
+The world is full of messy code; you must learn how to work with it. Suppose you're working with a messy JavaScript program and need to add some code to the program. The program, together with your changes, looks something like this:
+
+```js
+// thousands of lines of messy JavaScript code!
+
+// here you need to find and log the largest even number in an array
+
+// more messy JavaScript code
+```
+
+This task seems simple, so let's take a stab at it:
+
+```js
+// thousands of lines of messy JavaScript code!
+
+let array = [5, 10, 12, 7, 9, 6, 24, -10, -200, 37];
+let largest = -Infinity;
+for (let index = 0; index < array.length; index += 1) {
+  if ((array[index] % 2) === 0 && (array[index] > largest)) {
+    largest = array[index];
+  }
+}
+console.log(largest); // 24
+
+// more messy JavaScript code
+```
+
+This code has a subtle problem. Can you spot it?
+
+Solution
+
+We don't know whether `array` and `largest` are already in use in the code before or after our loop. If one is already in use, we're going to get an error since we can't declare it twice. We could, of course, just remove the `let` keyword, but suppose the code after our loop depends on a previously determined value for `array` or `largest`. Our code will overwrite both of those values. We could also use a different name, but that's an annoyance; naming variables is hard enough without being forced to use alternative names.
+
+It could be worse: suppose our application requires that we use `var` instead of `let`. Multiple `let` declarations for the same name raise an error, but multiple `var` declarations do not. That might lead to an error that may be difficult to isolate.
+
+Since functions create new lexical scopes, let's try to put the variable inside a function. That should hide it from the rest of the program since the outer scope doesn't have access to the inner scope:
+
+```js
+// thousands of lines of messy JavaScript code!
+
+function findLargest() {
+  let array = [5, 10, 12, 7, 9, 6, 24, -10, -200, 37];
+  let largest = -Infinity;
+  for (let index = 0; index < array.length; index += 1) {
+    if ((array[index] % 2) === 0 && (array[index] > largest)) {
+      largest = array[index];
+    }
+  }
+
+  return largest;
+}
+
+console.log(findLargest()); // 24
+
+// more messy JavaScript code
+```
+
+This function works, and it successfully isolates `array` and `largest` from any other declarations in the program. However, it too has a problem. Can you identify it?
+
+Solution
+
+We can solve this dilemma by converting the function declaration into an IIFE:
+
+```js
+// thousands of lines of messy JavaScript code!
+
+console.log((function() {
+  let array = [5, 10, 12, 7, 9, 6, 24, -10, -200, 37];
+  let largest = -Infinity;
+  for (let index = 0; index < array.length; index += 1) {
+    if ((array[index] % 2) === 0 && (array[index] > largest)) {
+      largest = array[index];
+    }
+  }
+
+  return largest;
+})()); // 24
+
+// more messy JavaScript code
+```
+
+This code works! It has a private scope for `array` and `largest` so that they don't clash with any other variables. Since the function is unnamed, it also doesn't clash with any other names.
+
+We can also pass values into the IIFE as arguments during invocation:
+
+```js
+// thousands of lines of messy JavaScript code!
+
+console.log((function(array) {
+  let largest = -Infinity;
+  for (let index = 0; index < array.length; index += 1) {
+    if ((array[index] % 2) === 0 && (array[index] > largest)) {
+      largest = array[index];
+    }
+  }
+
+  return largest;
+})([5, 10, 12, 7, 9, 6, 24, -10, -200, 37])); // 24
+
+// more messy JavaScript code
+```
+
+### 10.7 Using Blocks for Private Scope
+
+In ES6 JavaScript and later, you can use blocks to create private scopes. For instance:
+
+```js
+// thousands of lines of messy JavaScript code!
+
+{
+  let array = [5, 10, 12, 7, 9, 6, 24, -10, -200, 37];
+  let largest = -Infinity;
+  for (let index = 0; index < array.length; index += 1) {
+    if ((array[index] % 2) === 0 && (array[index] > largest)) {
+      largest = array[index];
+    }
+  }
+  console.log(largest); // 24
+}
+
+// more messy JavaScript code
+```
+
+Within the block created by the outer braces, `array`, `largest`, and `index` all have a private, local scope. They won't interfere with any other variables by the same name.
+
+Although **blocks** are a more straightforward way to create private scopes, existing code often relies on **IIFEs** to achieve that result. Thus, *you need to understand both techniques.*
+
+### 10.8 Using IIFEs to Define Private Data
+
+IIFEs also let us create functions with private data. Of course, we can already do that without IIFEs. In some cases, though, IIFEs lead to simpler code that is more convenient to use.
+
+Consider this code:
+
+```js
+function makeUniqueIdGenerator() {
+  let count = 0;
+  return function() {
+    count += 1;
+    return count;
+  }
+};
+
+let makeUniqueId = makeUniqueIdGenerator();
+makeUniqueId(); // => 1
+makeUniqueId(); // => 2
+makeUniqueId(); // => 3
+```
+
+With IIFEs, we can rewrite this code as:
+
+```js
+const makeUniqueId = (function() {
+  let count = 0;
+  return function() {
+    ++count;
+    return count;
+  };
+})();
+
+makeUniqueId(); // => 1
+makeUniqueId(); // => 2
+makeUniqueId(); // => 3
+```
+
+The IIFE lets us eliminate the `makeUniqueIdGenerator` function and also eliminates the separate invocation of the function.
+
+How does that code work? First, we define a function that creates and returns a function that relies on closure to keep `count` private. We then invoke the first function to create the function that uses `count`. We then assign `makeUniqueId` to the new function so we can invoke it as needed.
+
+It may be a little hard to understand this pattern at first, but you should learn it well. It's used often in real-world JavaScript code.
+
+In the What To Focus On section above, we mentioned that you should be able to answer these two very similar questions:
+
+1. How do you use IIFEs to create private scopes?
+2. How do you use IIFEs to create private data?
+
+As similar as those two questions sound, they refer to different concepts. When we talk about private scope, we're talking about how you can use scope to prevent some code from making accidental changes to variables in its outer scope. When we discuss private data, we're talking about encapsulation: making local data inaccessible from the code's outer scope.
+
+### 10.9 Summary
+
+In this assignment, we've introduced one of JavaScript's oddest features: immediately invoked function expressions. They may be odd, but that doesn't mean that they aren't useful. For instance, we learned how we could use an IIFE to create a private scope and avoid conflicts with existing names. We also learned how to create private data with IIFEs.
+
+In the next assignment, you'll get some practice working with IIFEs. Afterward, we'll move on and look at some handy shorthand notation that modern JavaScript provides.
+
 ## 11. Practice Problems: Immediately Invoked Function Expressions
 
 ## 12. Shorthand Notation

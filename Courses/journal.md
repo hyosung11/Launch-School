@@ -8555,3 +8555,5 @@ Passed the interview assessment the second time around and am going to start JS1
 09:34 Working on the Closure and Private Data practice problems. Good to think of doing scales like a musician to grease the groove of the work.
 
 10:16 I finished Assignment 9 > Closures and Private Data.
+
+11:15 I blew through IIFEs and am going to start the practice problems next.
