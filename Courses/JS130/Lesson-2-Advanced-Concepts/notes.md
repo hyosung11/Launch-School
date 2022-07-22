@@ -2380,13 +2380,290 @@ function makeCounterLogger(start) {
 
 #### 9.3.2 Problem 2
 
+In this problem, we'll build a simple todo list program that uses the techniques we've seen in this assignment.
+
+Write a `makeList` function that creates and returns a new function that implements a todo list. The returned function should have the following behavior:
+
+  1. When called with an argument that is not already on the list, it adds that argument to the list.
+  2. When called with an argument that is already on the list, it removes the element from the list.
+  3. When called without arguments, it prints all of the items on the list. If the list is empty, it prints an appropriate message.
+
+```js
+> let list = makeList();
+> list();
+The list is empty.
+
+> list("make breakfast");
+make breakfast added!
+
+> list("read book");
+read book added!
+
+> list();
+make breakfast
+read book
+
+> list("make breakfast");
+make breakfast removed!
+
+> list();
+read book
+```
+
 #### 9.3.1 Solution 2
+
+```js
+function makeList() {
+  let items = [];
+
+  return function(newItem) {
+    let index;
+    if (newItem) {
+      index = items.indexOf(newItem);
+      if (index === -1) {
+        items.push(newItem);
+        console.log(newItem + " added!");
+      } else {
+        items.splice(index, 1);
+        console.log(newItem + " removed!");
+      }
+    } else if (items.length === 0) {
+      console.log("The list is empty.");
+    } else {
+      items.forEach(item => console.log(item));
+    }
+  };
+}
+```
 
 ### 9.4 Improving the API
 
+We resume our discussion of closures and private data by taking another look at the `makeList` function we wrote in the practice problems.
+
+Our solution provides a concise but somewhat unclear interface for developers:
+
+```js
+> let list = makeList();
+> list("make breakfast"); // add an item to the list
+make breakfast added!
+
+> list(); // log the list's items
+make breakfast
+
+> list("make breakfast"); // remove an item from the list
+make breakfast removed!
+
+> list();
+The list is empty.
+```
+
+The function returned by `makeList` lets the user perform three different actions (adding, removing, and listing) by calling the function with appropriate arguments. It works, *but the interface isn't clear*. Astonishingly, the single call list('make breakfast') performs two entirely different operations based on the current state of the list!
+
+We can improve the interface by returning an Object from `makeList` instead of a function. That lets us create an API that is easy to use and understand:
+
+```js
+> let list = makeList();
+> list.add("peas");
+peas added!
+
+> list.list();
+peas
+
+> list.add("corn");
+corn added!
+
+> list.list();
+peas
+corn
+
+> list.remove("peas");
+peas removed!
+
+> list.list();
+corn
+```
+
 ### 9.5 More Practice Problems
 
+#### 9.5.1 Problem 1
+
+Modify the `makeList` function so that it returns an object that provides the interface shown above, including `add`, `list`, and `remove` methods.
+
+#### 9.5.1 Solution 1
+
+```js
+function makeList() {
+  return {
+    items: [],
+
+    add: function (item) {
+      let index = this.items.indexOf(item);
+      if (index === -1) {
+        this.items.push(item);
+        console.log(item + " added!");
+      }
+    },
+
+    list: function () {
+      if (this.items.length === 0) {
+        console.log("The list is empty.");
+      } else {
+        this.items.forEach(function(item) {
+          console.log(item);
+        });
+      }
+    },
+
+    remove: function (item) {
+      let index = this.items.indexOf(item);
+      if (index !== -1) {
+        this.items.splice(index, 1);
+        console.log(item + " removed!");
+      }
+    },
+  };
+}
+```
+
+```js - My tweaked version
+function makeList() {
+  return {
+    items: [],
+
+    add(item) {
+      let index = this.items.indexOf(item);
+      if (index === -1) {
+        this.items.push(item);
+        console.log(item + " added");
+      }
+    },
+
+    list() {
+      if (this.items.length === 0) {
+        console.log("The list is empty.");
+      } else {
+        this.items.forEach(item => {
+          console.log(item);
+        });
+      }
+    },
+
+    remove(item) {
+      let index = this.items.indexOf(item);
+      if (index !== -1) {
+        this.items.splice(index, 1);
+        console.log(item + " removed!");
+      }
+    },
+  };
+}
+
+let list = makeList();
+list.list()
+// The list is empty.
+
+list.add("make breakfast");
+// make breakfast added!
+
+list.add("read book");
+// read book added!
+
+list.list();
+// make breakfast
+// read book
+
+list.remove("make breakfast");
+// make breakfast removed!
+
+list.list();
+// read book
+```
+
+This code is much easier to understand since it uses the property names of methods to reveal the intent. The interface and implementation are easier to understand and use since each well-named method does one thing.
+
+#### 9.5.1 Problem 2
+
+Notice that our solution to the previous problem lets us access the array of items through the `items` property:
+
+```sh
+> list.items  // items is accessible from outside the object
+['corn']       // since it is an object property
+```
+
+That wasn't the case in the single-function implementation:
+
+```sh
+> list.items;  // items isn't accessible from outside the function
+undefined      // since it is within a closure.
+```
+
+Update the implementation from problem 1 so that it retains the use of an object with methods but prevents outside access to the items the object stores internally.
+
+#### 9.5.1 Solution 2
+
+```js
+function makeList() {
+  let items = [];
+
+  return {
+    // items: [], -- this line removed
+
+    add: function(item) {
+      let index = items.indexOf(item);
+      if (index === -1) {
+        items.push(item);
+        console.log(item + " added!");
+      }
+    },
+
+    list: function() {
+      if (items.length === 0) {
+        console.log("The list is empty.");
+      } else {
+        items.forEach(function(item) {
+          console.log(item);
+        });
+      }
+    },
+
+    remove: function(item) {
+      let index = items.indexOf(item);
+      if (index !== -1) {
+        items.splice(index, 1);
+        console.log(item + " removed!");
+      }
+    },
+  };
+}
+```
+
+Note: removed all the `this` keywords! This prevents outside access to the items the object stores internally.
+
 ### 9.6 Why Do We Need Private Data?
+
+As we've seen, you have choices about how to organize your code and data. Using closures to restrict data access is an excellent way to force other developers to use the intended interface. By keeping the collections private, we enforce access via the provided methods.
+
+Restricting access helps protect data integrity since developers must use the interface. In this simple case, data integrity isn't a huge concern. However, the code forces you to use `add` to add an item to the list, which ensures that we can log every addition.
+
+Private data also helps prevent the user of an object from becoming dependent on the implementation. Other developers shouldn't care that a todo-list object stores todos in an array, and your code shouldn't encourage them to depend on it. Instead, your object should supply an API that lets other developers manipulate the todo-list regardless of its implementation. If you later change the implementation, your API should remain the same.
+
+Be careful though. Even when you restrict access, it's easy to expose data by returning references to that data. For instance, if you return a reference to the todos array from our todo-list, that reference can now be used to store invalid data in the todo-list:
+
+```js
+let arr = todoList.getAllTodos();
+arr[0] = undefined;
+```
+
+If you're lucky, the invalid data is benign; however, bad actors often use such opportunities to make malicious changes to data.
+
+```js
+let arr = todoList.getAllTodos();
+while (arr.length > 0) {
+  arr.pop();
+}
+```
+
+You shouldn't rely on private data to keep sensitive information hidden. **Encryption** is the only reasonably safe way to protect such data. Modern debuggers, such as the ones built-in to your browser, let you step through a program and inspect data at every step, and that makes even private data visible. Program errors can also expose private data, quite by accident.
 
 ### 9.7 Summary
 
