@@ -1884,11 +1884,124 @@ It's important to remember that *closure definitions are purely lexical*. Closur
 
 ### 7.4 Partial Function Application
 
+In the last section, we saw several ways in which closures play a part in our programs. Let's take a brief look at a more useful application of closures.
+
+Consider the following code:
+
+```js
+function add(first, second) {
+  return first + second;
+}
+
+function makeAdder(firstNumber) {
+  return function(secondNumber) {
+    return add(firstNumber, secondNumber);
+  };
+}
+
+let addFive = makeAdder(5);
+let addTen = makeAdder(10);
+
+console.log(addFive(3));  // 8
+console.log(addFive(55)); // 60
+console.log(addTen(3));   // 13
+console.log(addTen(55));  // 65
+```
+
+In this program, the `makeAdder` function creates and returns a new function that, in turn, calls and returns the return value of calling `add` with two arguments. What's interesting here is that we define the first number when we call `makeAdder`. We don't provide the second number until later when we call the function that `makeAdder` returns.
+
+A function such as `makeAdder` is said to use **partial function application**. It applies some of the function's arguments (the `add` function's `first` argument here) when called, and applies the remaining arguments when you call the returned function. Partial function application *refers to the creation of a function that can call a second function with fewer arguments than the second function expects*. The created function applies the remaining arguments.
+
+Partial function application is most useful when you need to pass a function to another function that won't call the passed function with enough arguments. It lets you create a function that fills in the gaps by applying the missing elements. For instance, suppose you have a function that downloads an arbitrary file from the Internet. The download may fail, so the function also expects a callback function that it can call when an error occurs:
+
+```js
+function download(locationOfFile, errorHandler) {
+  // try to download the file
+  if (gotError) {
+    errorHandler(reasonCode);
+  }
+}
+
+function errorDetected(url, reason) {
+  // handle the error
+}
+
+download("https://example.com/foo.txt", /* ??? */);
+```
+
+Our error handling function, `errorDetected`, takes two arguments, but download only passes one argument to the error handler. Suppose the `download` function is part of a 3rd party library that you can't modify. You can turn to partial function application to get around the single-argument limitation:
+
+```js
+function makeErrorHandlerFor(locationOfFile) {
+  return function(reason) {
+    errorDetected(locationOfFile, reason);
+  };
+}
+
+let url = "https://example.com/foo.txt";
+download(url, makeErrorHandlerFor(url));
+```
+
+The `download` function now calls the partially applied function returned by `makeErrorHandlerFor`, and `errorDetected` gets both arguments it needs.
+
+In this simple example, partial function application may be overkill. However, if you need to use `errorDetected` in several different locations, partial function application can save you a lot of time and effort. You don't have to create an error handler function for each situation.
+
+Rather than creating a `makeErrorHandlerFor` function, you can use `bind` to perform partial function application. In most cases, `bind` is all you need.
+
+```js
+let url = "https://example.com/foo.txt";
+download(url, errorDetected.bind(null, url));
+```
+
+You may encounter the term **partial function** *as an alternative to partial function application or partially applied function*. In some cases, this usage may refer to partial function application, but it can also refer to a completely different and unrelated concept. Try not to get confused by this verbal similarity.
+
 #### 7.4.1 Recognizing Partial Function Application
+
+Partial function application *requires a reduction* in the **number of arguments** you have to provide when you call a function. If the number of arguments isn't reduced, it isn't partial function application. For instance, consider this code:
+
+```js
+function makeLogger(identifier) {
+  return function(msg) {
+    console.log(identifier + ' ' + msg);
+  };
+}
+```
+
+Here, `console.log` takes exactly one argument and the function returned by `makeLogger` also takes exactly one argument. Since there is no difference in the number of arguments, *we don't have partial function application*.
+
+However, if we change the code to use two arguments when calling `console.log`, *we do have partial function application:*
+
+```js
+function makeLogger(identifier) {
+  return function(msg) {
+    console.log(identifier, msg);
+  };
+}
+```
+
+In this case, we only need to pass one argument to the function returned by `makeLogger`. That function, in turn, calls `console.log` with two arguments, so it is partial function application.
 
 ### 7.5 What are Closures Good for?
 
+We've seen several examples in this assignment, including callbacks, partial function application, and creating private data. In addition, here are some other things made possible by closures: we'll meet most (but not all) of these later in the curriculum:
+
+* Currying (a special form of partial function application)
+* Emulating private methods
+* Creating functions that can only be executed once
+* Memoization (avoiding repetitive resource-intensive operations)
+* Iterators and generators
+* The module pattern (putting code and data into modules)
+* Asynchronous operations
+
 ### 7.6 Optional Reading
+
+If you're feeling a little uncertain about closures, we've found an article that may help. In [I never understood JavaScript closures](https://medium.com/dailyjs/i-never-understood-javascript-closures-9663703368e8), the author walks you through all the steps in understanding closure.
+
+The author claims that his final example is partial function application, but it doesn't quite fit with our definition. You can ignore that.
+
+The author also uses the term "backpack" for what we call an envelope.
+
+Also, he sometimes uses argument and parameter interchangeably.
 
 ### 7.7 Summary
 
@@ -1899,6 +2012,198 @@ We also learned about partial function application, a technique that can be usef
 In our next assignment, we'll give you some practice working with closures. Afterward, we'll *learn how to leverage closures to define private data and methods in objects.*
 
 ## 8. Practice Problems: Closures
+
+Let's get some practice working with closures.
+
+### 8.1 Problem 1
+
+What do the 4 `console.log` statements at the end of this program print? Try to answer without running the code:
+
+```js
+let counter = 0;
+
+function makeCounter() {
+  return function() {
+    counter += 1;
+    return counter;
+  }
+}
+
+let incrementCounter = makeCounter();
+console.log(incrementCounter());
+console.log(incrementCounter());
+
+incrementCounter = makeCounter();
+console.log(incrementCounter());
+console.log(incrementCounter());
+```
+
+### 8.1 Solution
+
+The four `console.log` calls print `1`, `2`, `3`, and `4` respectively. Since `counter` has global scope, its value gets set to `0` only once, and closure ensures that the function returned by `makeCounter` contains an envelope with a pointer to that variable. Each invocation of `incrementerCounter` assigns `counter` to a new value that is the previous value plus 1.
+
+### 8.2 Problem 2
+
+Let's modify our program a little by moving the `let` statement into the function returned by `makeCounter`. What do the 4 `console.log` statements at the end of this program print? Try to answer without running the code:
+
+```js
+function makeCounter() {
+  return function() {
+    let counter = 0;
+    counter += 1;
+    return counter;
+  }
+}
+
+let incrementCounter = makeCounter();
+console.log(incrementCounter());
+console.log(incrementCounter());
+
+incrementCounter = makeCounter();
+console.log(incrementCounter());
+console.log(incrementCounter());
+```
+
+### 8.2 Solution
+
+All four `console.log` calls print `1`. Since `counter` is declared and initialized in the function returned by `makeCounter`, closure plays no part in its execution. Instead, `counter` gets created and initialized to `0` each time we call `incrementCounter`.
+
+### 8.3 Problem 3
+
+Let's move the variable declaration into `makeCounter` now. What do the 4 `console.log` statements at the end of this program print? Try to answer without running the code:
+
+```js
+function makeCounter() {
+  let counter = 0;
+
+  return function() {
+    counter += 1;
+    return counter;
+  }
+}
+
+let incrementCounter = makeCounter();
+console.log(incrementCounter());
+console.log(incrementCounter());
+
+incrementCounter = makeCounter();
+console.log(incrementCounter());
+console.log(incrementCounter());
+```
+
+### 8.3 Solution 3
+
+In this case, the first call to `console.log` prints `1`, the second prints `2`, and the third and fourth print `1` and `2` again. This time, the two invocations of `makeCounter` each return a function that has access to a local variable named counter, but, in both cases, *the variable is distinct*. See the next problem to understand why.
+
+### 8.4 Problem 4
+
+We'll now make some changes to how we create the output. What do the 4 `console.log` statements at the end of this program print? Try to answer without running the code:
+
+```js
+function makeCounter() {
+  let counter = 0;
+
+  return function() {
+    counter += 1;
+    return counter;
+  }
+}
+
+let incrementCounter1 = makeCounter();
+let incrementCounter2 = makeCounter();
+
+console.log(incrementCounter1());
+console.log(incrementCounter1());
+
+console.log(incrementCounter2());
+console.log(incrementCounter2());
+```
+
+### 8.4 Solution 4
+
+Curiously, the results are the same as in the previous problem: `1`, `2`, `1`,`2`. It demonstrates that each returned function has an **independent** copy of the `counter` variable. They are, in fact, two different variables entirely; they just have the same name. When we increment the `counter` variable from `incrementCounter1`'s envelope, it has no effect on the one in `incrementCounter2`'s envelope.
+
+### 8.5 Problem 5
+
+Write a function named `makeMultipleLister` that you can call with a number as an argument. The function should return a new function that, when invoked, logs every positive integer multiple of that number less than 100. It should work like this:
+
+```js
+let lister = makeMultipleLister(17);
+lister();
+```
+
+Output
+
+```sh
+17
+34
+51
+68
+85
+```
+
+### 8.5 Solution 5
+
+```js
+function makeMultipleLister(number) {
+  return () => {
+    for (let multiple = number; multiple < 100; multiple += number) {
+      console.log(multiple);
+    }
+  }
+}
+```
+
+### 8.6 Problem 6
+
+Write a program that uses two functions, `add` and `subtract`, to manipulate a running total. When you invoke either function with a number, it should add or subtract that number from the running total and log the new total to the console. It should work like this:
+
+```js
+add(1);       // 1
+add(42);      // 43
+subtract(39); // 4
+add(6);       // 10
+```
+
+### 8.6 Solution 6
+
+```js
+let total = 0;
+
+function add(number) {
+  total = total + number;
+  console.log(total);
+}
+
+function subtract(number) {
+  total = total - number;
+  console.log(total);
+}
+```
+
+### 8.7 Problem 7
+
+Without running the following code, determine what value it logs on the last line. Explain how the program arrived at that final result.
+
+```js
+function foo(start) {
+  let prod = start;
+  return function (factor) {
+    prod *= factor;
+    return prod;
+  };
+}
+
+let bar = foo(2);
+let result = bar(3);
+result += bar(4);
+result += bar(5);
+console.log(result);
+```
+
+### 8.7 Solution 7
+
+
 
 ## 9. Closures and Private Data
 
