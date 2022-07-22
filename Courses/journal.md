@@ -8567,3 +8567,5 @@ Passed the interview assessment the second time around and am going to start JS1
 14:37 Completed section on Modules. I remember them a little from GA.
 
 15:25 Finished Exceptions Assignment.
+
+15:41 Blitzed my way through garbage collection.

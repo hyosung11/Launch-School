@@ -4358,6 +4358,120 @@ In the next assignment, we'll finish out this lesson with a quick discussion of 
 
 ## 16. Garbage Collection
 
+Let's talk about garbage, and the collection of same. I bet you never expected that throwing out the trash was part of life as a developer. Fortunately, JavaScript makes it automatic. It's not a chore, and you don't even have to pay a waste disposal company.
+
+### 16.1 What To Focus On
+
+Think of this assignment as background information only. We don't expect you to master the concepts of garbage collection.
+
+### 16.2 What Is Garbage Collection?
+
+Every value in JavaScript requires a certain amount of memory. The precise amount varies based on its type and the specific data stored in each value. For instance, the string `"cat"` requires 3 bytes of memory, 1 for each character, while `"Aequeosalinocalcalinoceraceoaluminoscupreovitriolic"` requires 51 bytes of memory. Both strings also require some additional memory for overhead, such as the length of the string.
+
+JavaScript allocates memory for each value your program creates. Suppose that your program no longer needs the value. What happens then? Does the value live on in memory wasting space? Do you have to do something special to make the wasted space go away? Do the unused values somehow vanish on their own?
+
+As developers, we don't usually have to worry about the wasted space allocated to unused values. Instead, JavaScript uses a process called **garbage collection** (**GC** for short) to free up the memory. Garbage collection happens automatically and is usually completely invisible to the developer.
+
+Some programming languages, such as C and C++, don't have garbage collection. Instead, the developer has to write code to deallocate (unclaim or release) memory when the program no longer needs those values. This process is messy and error-prone and often leads to bugs and *memory leaks*.
+
+Suppose that we have a fictional version of JavaScript that doesn't allocate memory automatically and doesn't do GC. Programs written with this strange JavaScript make the developer manage memory allocation and deallocation for every object. The code might look something like this:
+
+```js
+let name = claim(5);   // Claim 5 bytes of memory for use by name
+if (memoryNotAllocated(name)) {
+  throw new Error("Memory allocation error!");
+}
+
+copy(name, "Sarah");  // Copies "Sarah" into claimed memory referenced by name
+console.log(name);    // Do something with object referenced by name
+release(name);        // Release memory for use by others
+```
+
+Here, you must first request a chunk of memory from the system before you can store anything in it. When you're done and no longer need the value, you must release it. You can't directly assign values to variables, but must copy them into the allocated memory. In some languages, you also need to verify that each memory allocation worked, as we do above.
+
+Of course, JavaScript handles all this for us. In particular, it allocates memory automatically and has GC, so this intricate dance of claim/test/copy/use/release is unnecessary. You can write the above code in a simpler, more familiar way:
+
+```js
+let name = "Sarah";   // Declare a variable and set its value. The JavaScript
+                      // runtime automatically allocates the memory.
+console.log(name);    // Do something with name
+// when we no longer need `"Sarah"`, it becomes eligible for GC
+```
+
+Notice that we don't need code to claim and release memory; the JavaScript runtime handles that for us. It gets memory from the system when we create new values and releases it when the program no longer needs them.
+
+### 16.3 How Does Garbage Collection Work?
+
+How does JavaScript know when a given value is no longer needed? The details are implementation-specific. One of the simplest implementations uses a "reference count" to track how many references to the value exist in the program. When the reference gets removed, it decrements the reference counter. When the reference count drops to 0, the value becomes eligible for GC.
+
+Reference counting is easy to understand, but it's a naive approach to garbage collection. Early versions of Internet Explorer used the technique, but modern browsers now use a different approach. Nevertheless, we'll pretend that the JS garbage collector uses reference counting.
+
+### 16.4 The Stack and Heap
+
+The above discussion is somewhat simplified -- we assume that all values in JavaScript participate in garbage collection. However, that is not the case.
+
+What does get garbage collected, then? This question isn't as simple as it sounds; it depends on the different ways that programming languages define variables and where the language stores the values assigned to those variables. Most programming languages divide memory into two principal regions: the stack and the heap. JavaScript stores most primitive values as well as references on the stack, and everything else on the heap. You can think of references as pointers to the actual value of an object, array, or string that lives in the heap.
+
+The stack doesn't participate in garbage collection. That means that *primitive values don't get involved in garbage collection when they are stored on the stack*. When a function or block begins executing in a JavaScript program, JavaScript allocates memory on the stack for the variables defined in that block or function. Since each item has fixed size, JavaScript can calculate the amount of memory it needs during the creation phase of execution without knowing the specific values. That means it can determine how much stack space it needs when hoisting occurs. When the block or function is done running, the allocated stack memory gets returned to the system automatically. This process is somewhat similar to garbage collection, but it is considered distinct.
+
+Some primitive values can't be stored on the stack. Stack values typically must have a fixed size (say, 64 bits). Values that don't fit in that size must be stored elsewhere, typically the heap. Strings and BigInts, for instance, usually can't be stored in 64 bits, so they get placed in the heap or somewhere else. However, exactly where these values get stored is an implementation detail. As far as you, as a programmer, are concerned, they act like they are on the stack, so that's where they are. Since they act like they are on the stack, they probably don't participate in garbage collection, but, again, that is an implementation detail.
+
+There are other situations where primitive values may be stored in the heap. For instance, an array of primitive values will likely have its elements stored as part of the `Array` object on the heap. Individually, these element values aren't subject to garbage collection, but the array as a whole is.
+
+The heap is much trickier to deal with since each value has a different size that can't be determined ahead of time. Instead, new values must be added to the heap when they get created. Since the program can retain references to the values on the heap, it can't use the same allocate and release scheme used with the stack. Instead, it needs to rely on garbage collection to detect when a value's reference count reaches 0.
+
+Garbage collection can occur at any time; it often occurs at periodic intervals during a program's lifetime. In particular, the programmer usually has no control over when GC occurs. (It used to be possible to trigger garbage collection in JavaScript, but that is no longer possible in modern versions of JavaScript.)
+
+All the garbage collector must do is look for and deallocate values that are eligible for garbage collection. If it uses a reference counting system, it needs to look for values with a reference count of 0.
+
+Note that GC doesn't happen when a variable goes out of scope. That's a common misconception. A variable can go out of scope, but there can be many other references. Closures, arrays, and objects are a significant source of persistent references.
+
+### 16.5 Why Do You Need To Know About Garbage Collection
+
+Garbage collection isn't a cure-all for the problem of releasing the memory that you no longer need. For a simple case, consider a reference counting garbage collector with this code:
+
+```js
+function go() {
+  let foo = {};
+  let bar = { qux: foo };
+  foo.xyz = bar;
+}
+
+go();
+// Neither `foo` nor `bar` is eligible for GC
+```
+
+In this code, we create two objects in `go` that we assign to the `foo` and `bar` local variables. Furthermore, `bar` holds a reference to `foo` in its `qux` property, while `foo` holds a reference to `bar` in its `xyz` property. Both objects have reference counts of 2: one reference is to the variable to which each object is assigned, and the other reference is in a property of the other object.
+
+When we exit the `go` function, the reference counts of both objects get decremented by 1 since both `foo` and `bar` have gone out of scope, so they no longer hold references to the objects. However, the two objects still exist and are not eligible for garbage collection since they still reference each other. These two objects will never go away until the program ends.
+
+Now let's add a loop:
+
+```js
+function go() {
+  let foo = {};
+  let bar = { qux: foo };
+  foo.xyz = bar;
+}
+
+for (let count = 0; count < 1000000; count += 1) {
+  go();
+}
+// There are now 2000000 objects still on the heap but ineligible for GC
+```
+
+When this code runs, none of those objects ever get garbage collected. As can be seen in the comments, we now have 2000000 unused objects that aren't going to go away.
+
+Modern JavaScript engines use what is called a mark and sweep algorithm to do GC. That eliminates the reference cycle problem described above, but also introduces other problems, including the potential for fragmented memory. Fragmented memory means that your program's memory isn't contiguous, but is broken up into discontiguous chunks. If there are enough such chunks, your system will have a harder time allocating large chunks of memory.
+
+### 16.6 Some Light, Optional Reading
+
+MDN has a short but interesting article on [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management). Of particular interest to the curious developer is some information on how JavaScript implements GC.
+
+### 16.7 Summary
+
+In this assignment, we've taken a brief look at the concept of garbage collection. While the information isn't crucial to your journey as a developer, it's useful to be aware of what GC is. Someday, you may need more information, but for now, a basic understanding is sufficient.
+
 ## 17. Side Effects and Pure Functions
 
 ## 18. JS130 Exercises
