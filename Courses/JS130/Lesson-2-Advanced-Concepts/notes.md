@@ -4118,6 +4118,244 @@ In the next assignment, we'll take a look at exceptions.
 
 ## 15. Exceptions
 
+You've no doubt encountered many errors when trying to run your JavaScript programs. Typical errors include messages that look like this:
+
+```sh
+ReferenceError: foo is not defined
+TypeError: Cannot read property 'filter' of undefined
+SyntaxError: Unexpected token (
+```
+
+If you read these messages carefully, they usually point you to the place where the error occurred, and what happened at that location to cause the error. However, what are those names `ReferenceError`, `TypeError`, and `SyntaxError`? Those names are the names of exceptions; they are the focus of this assignment.
+
+### 15.1 What To Focus On
+
+In this assignment, you should concentrate on the following:
+
+* What are exceptions?
+* Given an exception error message, identify the exception type and understand the meaning.
+* Understand the terms raise, throw, re-throw, and catch.
+* Know the syntax for the `throw` and `try/catch` statements.
+* Understand the program flow for an exception.
+
+### 15.2 What Are Exceptions?
+
+When JavaScript encounters an error that it cannot recover from, it issues an error message and usually terminates the program. Developers talk about such errors by saying that the program **threw an error** or **raised an exception**. You can use the terms throw and raise interchangeably, but the word **exception** is more specific than the more generic term, **error**.
+
+An exception is an event that occurs during program execution to indicate an anomalous or exceptional condition. Exceptions disrupt the normal flow of a program. By default, exceptions terminate the program, but a program can catch and handle exceptions with an **exception handler**. JavaScript implements exception handlers in the form of `try/catch` statements. The `try` block runs the code that might raise an exception, while the `catch` block tries to do something in response.
+
+Not all errors are exceptions. For instance, your program may display an error message when the user enters some invalid information. However, it probably won't throw an exception when it does. Instead, it will validate the inputs to see whether there is a problem. If there is, it will display an error message and ask the user to try again.
+
+In JavaScript, a typical exception is an object of the Error type or an object that inherits from the `Error` type. In the messages we saw above, `ReferenceError`, `TypeError`, and `SyntaxError` are all the names of exception objects that inherit from `Error`. The documentation describes several other built-in exception types.
+
+### 15.3 Throwing Exceptions
+
+Most exceptions that you've seen thus far were raised internally by JavaScript. Your code doesn't have to do anything special. It only has to do something that JavaScript treats as an error. For instance, try to run this program without first defining a:
+
+```js
+let x = a;
+```
+
+This program raises an exception:
+
+```sh
+ReferenceError: a is not defined
+```
+
+Your program didn't do anything special to raise the exception. All it did was try to perform an invalid operation. The precise message shown may vary depending on whether you use Node or a browser, but the `ReferenceError` name should be present no matter where you run the code.
+
+You can also raise exceptions yourself. For instance, you may have noticed that JavaScript doesn't treat division by zero as an error:
+
+```js
+function div(first, second) {
+  return first / second;
+}
+
+let result = div(1, 0);
+console.log(result); // => Infinity
+```
+
+This code doesn't throw an error; it just sets `result` to `Infinity` and continues on its merry way. However, in most programs, dividing by zero probably should be an error. We can raise an appropriate exception by using the `throw` statement:
+
+```js
+function div(first, second) {
+  if (second === 0) {
+    throw new Error("Divide by zero!");
+  }
+
+  return first / second;
+}
+
+let result = div(1, 0); // Error: Divide by zero!
+console.log(result);    // not run
+```
+
+Most JavaScript code throws a `new Error` to raise an exception rather than one of the 7 built-in types that inherit from `Error`. However, you can throw any type you want, including the built-in error types, primitive values, and other objects. If you want, you can even define a custom error type that inherits from `Error`:
+
+```js
+class DivideByZeroError extends Error {}
+
+function div(first, second) {
+  if (second === 0) {
+    throw new DivideByZeroError("Divide by zero!");
+  }
+
+  return first / second;
+}
+
+let result = div(1, 0); // DivideByZeroError: Divide by zero!
+console.log(result);    // not run
+```
+
+This can be useful when you need to *catch* an exception, which we'll discuss next.
+
+### 15.4 Catching Exceptions
+
+It's possible to **catch an exception**; that is, you can detect when an exception occurs and attempt to recover from the error. For example:
+
+```js
+class DivideByZeroError extends Error {}
+
+function div(first, second) {
+  if (second === 0) {
+    throw new DivideByZeroError("Divide by zero!");
+  }
+
+  return first / second;
+}
+
+function divideOneBy(divisor) {
+  try {
+    let result = div(1, divisor);
+    console.log(result);
+  } catch (error) {
+    if (error instanceof DivideByZeroError) {
+      console.log(`${error.message} ignored`);
+    } else {
+      throw error;
+    }
+  }
+}
+
+divideOneBy(1); // 1
+divideOneBy(0); // Divide by zero! ignored
+```
+
+The first thing you should notice about this code is that the code follows the "happy path" when we call `divideOneBy(1)`. It runs the code on lines 13 and 14. First, it calls `div(1, 1)`, which returns `1` as expected, then it logs that value. Since no exceptions occur, the `catch` block gets skipped.
+
+When we call `divideOneBy(0)`, though, we start down the happy path, but this time we call `div(1, 0)`. That raises an exception, which causes the `try` block to terminate. However, since we have a catch block, it does not terminate the program. Instead, it begins executing the `catch` block. The `error` variable is set to reference the exception object thrown by `div`, namely `DivideByZeroError`.
+
+Note that the catch block doesn't know whether any other errors can occur in the `try` block. Thus, it's good practice to check for the specific exceptions that you want to handle. After all, you don't want to catch and ignore an `InternalError`, for instance. There's no telling what might happen if you do.
+
+In this example, we check for a `DivideByZeroError` since that's the only exception we want to catch. If we detect one, we display a message that says we ignored it. Afterward, the program exits the `catch` block when it reaches the end. If the exception is **not** a `DivideByZeroError`, we "re-throw" the error by merely throwing the `error` value passed to the `catch` block.
+
+### 15.5 What Happens When A Program Throws An Exception
+
+When a JavaScript program throws an exception, the exception bubbles up through the program looking for a `try` block that contains the code that eventually led to the exception. The exception acts a bit like a `return` statement in that it starts bubbling back up through the program. However, there are some additional stops along the way: it stops at each block it encounters and again looks for a `try` block. If it never finds a `try` block, JavaScript issues an appropriate error message, then terminates the program.
+
+If the exception does encounter a `try` block, it then exits from the `try` block without executing any remaining code and executes the `catch` block. If the `catch` block re-throws the exception, the bubbling process resumes as before, again looking for another `try` block.
+
+If a re-throw does not occur in the `catch` block and the `catch` block does not throw an exception of its own, the program discards the exception object and resumes execution with the code after the `try/catch` statement. If the `catch` block does raise a new exception, the program still discards the original exception object. However, the new exception object begins to bubble up through the program.
+
+Every exception terminates the program unless a `catch` block handles it without re-throwing it.
+
+### 15.6 When Should I Use Exceptions?
+
+When students first learn about exceptions, they're often tempted to use them to handle every unhappy-path condition in their program. However, that's not a great idea. Exceptions should be used to handle exceptional conditions, not normal and expected conditions. Another way to say that is that you should not use exceptions for flow control. If there's a better way to handle the error, use it instead of raising an exception. For instance, consider the most recent code from above. This code uses exceptions for flow control; dividing by zero is an error, but it isn't that exceptional. We should write something like this instead:
+
+```js
+function div(first, second) {
+  return first / second;
+}
+
+function divideOneBy(divisor) {
+  if (divisor !== 0) {
+    let result = div(1, divisor);
+    console.log(result);
+  } else {
+    console.log("Divide by zero ignored!");
+  }
+}
+
+divideOneBy(1); // 1
+divideOneBy(0); // Divide by zero ignored!
+```
+
+Okay, then, what's an exceptional condition? When would an exception be appropriate? Actually, that's a two-part question. When is it appropriate to throw an exception? When is it appropriate to catch one?
+
+You should throw an exception when an event occurs that should not be ignored or when the condition is truly anomalous or exceptional. You should not throw an exception if you can handle the problem in your local code, or if it's a normal or expected part of the control flow.
+
+Consider the case of trying to load a file that your program uses. Perhaps it lives somewhere out on your network. The file should be available at all times, but there's a small chance that it might get deleted or be temporarily offline. You have no way to detect this other than attempting to load the file and seeing whether there's a problem:
+
+```js
+let data = IO.fileRead(file); // returns null on error
+
+if (data === null) {
+  throw new Error(`Can't open required file ${file}!`);
+}
+```
+
+You probably don't want to throw an exception every time you get a file load error. You can safely recover from some file load failures, but when the file is crucial to the operation of your program, you can't ignore a failure.
+
+**It's easier to ask forgiveness than it is to get permission.**
+
+-- Computer programming pioneer Admiral Grace Hopper
+
+Exceptions are sometimes likened to the "ask forgiveness" approach to error handling. Rather than asking whether we can do something, we just go ahead and try it. If an exception does occur, then we have to ask forgiveness -- handle the exception or just accept the cost of an error.
+
+In contrast to the "ask forgiveness" approach, the "get permission" approach involves determining beforehand whether something is going to work. For instance, if we expect a user to input a number, we can test whether they really did enter a number before we try to use it as a number. This is often harder to do than allowing an exception to be raised, but once permission is granted, we know things will work.
+
+Much as you don't want to throw an exception for every error condition, you also don't want to catch every exception that occurs. In particular, you should only try to handle exceptions that you know how to handle -- re-throw the error if you don't.
+
+Think carefully about what you want to do when you do catch an exception. Can you successfully recover from the problem? Can you do so without raising another exception? If the answer to either question is maybe or no, then don't bother. Your recovery attempt may cause other, more severe problems.
+
+In general, an exception handler in a `catch` block should do as little as possible. For instance, you can:
+
+* Ignore the exception.
+* Return an error value (e.g., `undefined`, `null`) to the calling function.
+* Set a flag that the program can test after the handler finishes running.
+* Log a simple error message
+* Throw another exception with an explicit `throw` statement.
+
+This isn't a complete list of everything you can do in a `catch` block, but *the less you do, the better*.
+
+The final item on that list implies that you should not do anything in your `catch` block that might unexpectedly raise an exception. You can use the `throw` statement to throw an explicit exception, but be careful about calling some other function that can raise an exception.
+
+For instance, this is okay:
+
+```js
+try {
+  // ...
+} catch (error) {
+  if (error instanceof ReferenceError) {
+    throw AnotherException(...);
+  }
+}
+```
+
+This is fine since we're essentially converting the `ReferenceError` exception to `AnotherException`.
+
+However, something like the following code would probably not be wise if `saveToDatabase` can raise an unexpected exception.
+
+```js
+try {
+  // ...
+} catch (error) {
+  if (error instanceof ReferenceError) {
+    saveToDatabase(data); // May raise exception if database is down
+    // do more stuff after saving to database
+  }
+}
+```
+
+Potentially having to deal with a secondary exception is unwise since we're still trying to handle the original exception. If we haven't finished recovering from it, we never will if another exception occurs.
+
+### 15.7 Summary
+
+In this assignment, we've taken a whirlwind tour of the world of exceptions. Most exceptions occur in response to errors made by the developer, so you don't have to do anything special to make them happen. Where things get a little more exceptional is when you need to handle exceptional conditions. In general, you should throw exceptions when you can't ignore the problem and can't recover from it in your local code. You should catch exceptions on those rare occasions when you can do something to recover from the error. Mostly, though, your program should avoid doing anything that raises an exception. If one does occur, terminate the program.
+
+In the next assignment, we'll finish out this lesson with a quick discussion of garbage collection.
+
 ## 16. Garbage Collection
 
 ## 17. Side Effects and Pure Functions

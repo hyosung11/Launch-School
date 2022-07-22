@@ -8565,3 +8565,5 @@ Passed the interview assessment the second time around and am going to start JS1
 14:00 Finished the Shorthand Syntax problems, but I don't understand the point of the last problem.
 
 14:37 Completed section on Modules. I remember them a little from GA.
+
+15:25 Finished Exceptions Assignment.
