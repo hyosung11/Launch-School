@@ -2323,7 +2323,64 @@ Let's take a closer look at that code:
 
 ![function_scope](function_scope1.png)
 
+We mention garbage collection in the above image. That isn't technically correct, so *please ignore it*. We'll talk about garbage collection a little later.
+
+Note that `count` is private data for the function returned by `makeCounter()`. The closure makes it *impossible* to access the value of count from elsewhere:
+
+```js
+var counter = makeCounter();
+console.log(counter.count); // undefined
+console.log(count);         // ReferenceError: count is not defined
+```
+
+On the other hand, the function returned by makeCounter() can access and update counter without any problems.
+
+Let's get some practice.
+
 ### 9.3 Practice Problems
+
+#### 9.3.1 Problem 1
+
+Create a function named `makeCounterLogger` that takes a number as an argument and returns a function. When we invoke the returned function with a second number, it should count up or down from the first number to the second number, logging each number to the console:
+
+```js
+> let countlog = makeCounterLogger(5);
+> countlog(8);
+5
+6
+7
+8
+
+> countlog(2);
+5
+4
+3
+2
+```
+
+#### 9.3.1 Solution 1
+
+```js
+function makeCounterLogger(start) {
+  return (finish) => {
+    let number;
+
+    if (start < finish) {
+      for (number = start; number <= finish; number += 1) {
+        console.log(number);
+      }
+    } else {
+      for (number = start; number >= finish; number -= 1) {
+        console.log(number);
+      }
+    }
+  }
+}
+```
+
+#### 9.3.2 Problem 2
+
+#### 9.3.1 Solution 2
 
 ### 9.4 Improving the API
 
