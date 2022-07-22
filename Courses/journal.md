@@ -8559,3 +8559,5 @@ Passed the interview assessment the second time around and am going to start JS1
 11:15 I blew through IIFEs and am going to start the practice problems next.
 
 11:55 Blitzed through the IIFEs practice problems.
+
+12:31 Finished Object Destructuring and now we are having lunch. Then I will continue with Array Destructuring.

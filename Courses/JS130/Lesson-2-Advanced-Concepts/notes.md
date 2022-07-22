@@ -3168,6 +3168,205 @@ For an extra challenge, refactor the solution to problem 4 using **recursion**. 
 
 ## 12. Shorthand Notation
 
+ES6 introduced several shorthand notations that are very handy when working with objects and arrays. We take a brief look at these notations in [this Gist](https://launchschool.com/gists/2edcf7d7) Modern JavaScript: Syntactic Sugar.
+
+In the next assignment, we'll work on some practice problems. Afterward, we'll discuss the two flavors of modules that are in widespread use: node modules and JS modules.
+
+Modern JavaScript: Syntactic Sugar
+
+ES6 introduced several shorthand notations that are very handy when working with objects and arrays. We'll take a brief look at these notations in this document.
+
+### 12.1 What to Focus On
+
+While you don't have to use the shorthand features in your code, you will encounter them. The notations we discuss in this assignment are enjoying widespread use in new JavaScript code.
+
+We don't expect you to master all these different shorthands, so don't try to memorize every last detail. However, you should be able to recognize them when you encounter them and understand what they do. We'll use them without further comment as we move through the curriculum.
+
+You can pick and choose which shorthands you want to use in your code. The more you often you use them, though, the better you'll understand them, so try to use them when you can.
+
+### 12.2 Concise Property Initializers
+
+Thus far, you've seen that we can use the following syntax to initialize object properties:
+
+```js
+let obj = {
+  foo: "foo",
+  bar: "bar",
+  qux: 42,
+};
+```
+
+That syntax is straightforward and easy to understand, but sometimes you need to initialize an object from a bunch of variables, often using the same name:
+
+```js
+function xyzzy(foo, bar, qux) {
+  return {
+    foo: foo,
+    bar: bar,
+    qux: qux,
+  };
+}
+```
+
+That gets a little tedious and error-prone. ES6 introduced a new concise syntax that simplifies initializations of this nature:
+
+```js
+function xyzzy(foo, bar, qux) {
+  return {
+    foo,
+    bar,
+    qux,
+  };
+}
+```
+
+In each case, we merely use the name of the property we want to initialize, and *JavaScript looks for a variable with the same name to use as the initial value*.
+
+You can *mix* this concise notation with ordinary initializers:
+
+```js
+function xyzzy(foo, bar, qux) {
+  return {
+    foo,
+    bar,
+    answer: qux,
+  };
+}
+```
+
+In this case, we create a property named `answer` for the `qux` variable.
+
+For more information on concise initializers, see the [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer)
+
+### 12.3 Concise Methods
+
+As you may have seen in some previous material, you can also define methods with a concise notation. In classic JavaScript, you would write:
+
+```js
+let obj = {
+  foo: function() {
+    // do something
+  },
+
+  bar: function(arg1, arg2) {
+    // do something else with arg1 and arg2
+  },
+}
+```
+
+The new concise method shorthand lets you eliminate the `:` and the word `function`:
+
+```js
+let obj = {
+  foo() {
+    // do something
+  },
+
+  bar(arg1, arg2) {
+    // do something else with arg1 and arg2
+  },
+}
+```
+
+You can mix and match the different styles in a single object. However, you should use a consistent style within each object definition.
+
+There are some subtle differences between concise method definitions and the corresponding classic definitions. We won't go into them now since they're not hugely important. An explanation would probably be more confusing than helpful.
+
+For more information on concise method definitions, see the [MDN Documentation on Object Initializers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer).
+
+### 12.4 Object Destructuring
+
+One of the most useful new features in ES6 is **destructuring**, a shorthand syntax that lets you perform multiple assignments in a single expression. For instance, consider this code:
+
+```js
+let obj = {
+  foo: "foo",
+  bar: "bar",
+  qux: 42,
+};
+
+let foo = obj.foo;
+let bar = obj.bar;
+let qux = obj.qux;
+```
+
+This code is straightforward and easy to understand, but it's already starting to get tedious with just 3 assignments. Destructuring of objects lets us deal with this more easily:
+
+```js
+let { foo, bar, qux } = obj;
+```
+
+This shorthand is equivalent to the last 3 lines of the example. The spaces inside the braces aren't required. However, it's easier to read if you use the spaces.
+
+Note that the *order of the names between the braces is not important*:
+
+```js
+let { qux, foo, bar } = obj;
+```
+
+The result from this code is identical: `qux` is assigned `obj.qux`, `foo` is assigned `obj.foo`, and `bar` is assigned `obj.bar`.
+
+You can *omit* any names that you don't need:
+
+```js
+let { foo } = obj;
+let { bar, qux } = obj;
+```
+
+You can even use different names for the result:
+
+```js
+let { qux: myQux, foo, bar } = obj;
+```
+
+This example creates a `myQux` variable that receives the value of `obj.qux`.
+
+Destructuring also works with function parameters:
+
+```js
+function xyzzy({ foo, bar, qux }) {
+  console.log(qux); // 3
+  console.log(bar); // 2
+  console.log(foo); // 1
+}
+
+let obj = {
+  foo: 1,
+  bar: 2,
+  qux: 3,
+};
+
+xyzzy(obj);
+```
+
+In this code, we pass an object to the function. The function's definition uses destructuring to pull out the needed properties and store them in local variables.
+
+If you need to use destructuring elsewhere -- an assignment, for instance -- you can do so. However, you may need to enclose the expression in parentheses. For instance:
+
+```js
+{ foo, bar, qux } = obj;
+```
+
+This code produces a syntax error since, in this context, `{` *marks the beginning of a block* rather than destructuring. The fix is easy, but not obvious -- add parentheses:
+
+```js
+({ foo, bar, qux } = obj);
+```
+
+For more information on object destructuring, see the [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#object_destructuring).
+
+### 12.5 Array Destructuring
+
+RR
+
+### 12.6 Spread Syntax
+
+### 12.7 Rest Syntax
+
+### 12.8 Summary
+
+Phew! That's a lot of different syntax shortcuts. As stated earlier, you don't have to use these shortcuts in your code, but you do need to be familiar with them. You can expect to see them show up from time to time as you advance through the curriculum.
+
 ## 13. Practice Problems: Shorthand Notation
 
 ## 14. Modules
