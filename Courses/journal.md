@@ -8585,3 +8585,5 @@ Passed the interview assessment the second time around and am going to start JS1
 13:48 I took a nap, made fried rice with Omi, ate lunch, and now reviewing, editing, and condensing the Lesson 2 notes before I take the quiz. It's useful to do this for me.
 
 16:01 Took a look at a few more notes at the half of UEFA Women's Euro England 2022 of the quarterfinal match between France and Netherlands.
+
+19:42 Second reading through closure and it makes more sense with the envelope metaphor. Time to put the kids to bed and relax with Sohee.

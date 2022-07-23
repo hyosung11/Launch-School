@@ -1104,7 +1104,7 @@ In a few moments, we'll take a closer look at some of the specific changes that 
 
 ### 6.3 Enabling Strict Mode
 
-Strict mode is easy to turn on either at the global level of a program or at the individual function level. To enable it, add this weird bit of code to the beginning of the program file or function definition:
+Strict mode is easy to turn on either at the global level of a program or at the individual function level. To enable it, add this code to the beginning of the program file or function definition:
 
 ```js
 "use strict";
@@ -1119,8 +1119,7 @@ You must specify the `"use strict"` pragma *at the very beginning of the file or
 ```js - global strict mode
 "use strict";
 
-// The rest of the program. Everything from here to the end of
-// the file runs in strict mode.
+// The rest of the program. Everything from here to the end of the file runs in strict mode.
 
 function foo() {
   // strict mode is enabled here too.
@@ -1134,8 +1133,7 @@ foo();
 function foo() {
   'use strict';
 
-  // The rest of the function. Everything from here to the end of
-  // the function runs in strict mode.
+  // The rest of the function. Everything from here to the end of the function runs in strict mode.
 }
 
 // Strict mode is disabled unless you defined it globally.
@@ -1147,8 +1145,6 @@ In particular, note that you can not enable strict mode for a block. You can onl
 Once you enable strict mode, ***you can't disable it later*** in the same program or function.
 
 JavaScript enables strict mode automatically within the body of a `class`; there is no way to prevent that behavior. The same thing happens with JavaScript modules, which we'll discuss in a later assignment.
-
-If you haven't encountered JavaScript classes yet, you will do so later.
 
 *Strict mode is lexically scoped*; that is, it only applies to the code that enables it. For instance:
 
@@ -1184,7 +1180,7 @@ Here, `foo` runs in sloppy mode even though we call it from a strict mode functi
 
 #### 6.3.1 Implicit Global Variables
 
-Anybody with even minimal experience with JavaScript is aware that JavaScript automatically creates a variable for you when you assign it to a value without first declaring the variable. For instance:
+JavaScript automatically creates a variable for you when you assign it to a value without first declaring the variable. For instance:
 
 ```js
 function foo() {
@@ -1195,7 +1191,7 @@ foo();
 console.log(bar); // 3.1415
 ```
 
-JavaScript defines undeclared variables like `bar` as **global variable**s. No matter where your code initializes an undeclared variable, it becomes a global variable.
+JavaScript defines undeclared variables like `bar` as **global variables**. No matter where your code initializes an undeclared variable, it becomes a global variable.
 
 Note that we're using the term *global variable a little loosely here*. In actuality, JavaScript defines undeclared variables as properties of the global object. Such properties act like global variables, though -- you can access them from anywhere in your program.
 
@@ -1242,7 +1238,7 @@ aVariab1eWithALongName = 3.14159; // line 5
 console.log(aVariableWithALongName); // 2.71828; should be 3.13159
 ```
 
-Can you see why that code doesn't produce the expected result? Look closely at the variable name on line 5. Look closer if you don't see it. The problem here is that the variable name on line 5 has a typo, and it's a typo that is difficult to see with most fonts: the digit `1` in the variable name should be the letter `l`. Thus, line 5 creates a global variable instead of reassigning the variable as intended. Misspellings can be especially hard to find in large programs that use the same name repeatedly. If you've been burned by this problem before, you know what we mean.
+The problem here is that the variable name on line 5 has a typo, and it's a typo that is difficult to see with most fonts: the digit `1` in the variable name should be the letter `l`. Thus, line 5 creates a global variable instead of reassigning the variable as intended.
 
 Strict mode may help you identify this problem:
 
@@ -1271,8 +1267,6 @@ all = true; // Did we mean a11? There's no way to tell, so no error.
 ```
 
 #### 6.3.2 Implicit Context in Functions
-
-You can skip this section if you are currently in course JS210 or JS211. We don't discuss this and execution context until JS225.
 
 Consider the following code:
 
@@ -1311,8 +1305,6 @@ console.log(obj.a); // 5
 This change to JavaScript's semantics may be the most significant change of all under strict mode. It probably won't break your code, but it should help you spot bugs caused by context loss much sooner.
 
 #### 6.3.3 Forgetting to Use `this`
-
-We discuss `this` and context in JS225. You can skip this section if you haven't finished course JS225.
 
 Consider the following code:
 
@@ -1359,7 +1351,7 @@ console.log(01234567); // 342391 (the same as octal 0o1234567)
 
 This behavior is often undesirable, though its less troublesome now that modern versions of JavaScript default to decimal when using `parseInt`. In some older versions, `parseInt("01234567")` would return `342391`, which could be a problem if the string came from an external source (such as the keyboard).
 
-With strict mode, numbers that look like octal numbers raise an error:
+With strict mode, *numbers that look like octal numbers raise an error*:
 
 ```js
 "use strict";
@@ -1497,7 +1489,7 @@ console.log(createDeck());
 
 Rewrite this code to run in strict mode.
 
-Solution
+### 6.5 Practice Problem Solution
 
 ```js
 "use strict";
@@ -1583,11 +1575,9 @@ Strict mode makes other changes as well, but the above changes are the most impo
 
 Strict mode gets enabled automatically inside ES6 classes.
 
-In the next assignment, we'll talk about closure.
-
 ## 7. Closures
 
-In this assignment, we'll learn about a crucial concept in JavaScript: closures. Closures let a function access a variable that was in lexical scope at the function's definition point even when that variable is no longer in scope. You may not realize it, but you've been using closures every time you've defined a function that accesses a variable from its outer scope.
+In this assignment, we'll learn about a crucial concept in JavaScript: closures. *Closures let a function access a variable that was in lexical scope at the function's definition point even when that variable is no longer in scope*. You may not realize it, but you've been using closures every time you've defined a function that accesses a variable from its outer scope.
 
 ### 7.1 What to Focus On
 
@@ -1604,9 +1594,7 @@ You should focus on the following:
 
 ### 7.2 A Brief Review of Scope
 
-Before we dive into closures, let's take a few minutes to review scope. You may also want to review the More About Scope assignment earlier in this lesson.
-
-By now, you're well-acquainted with scope. It's nearly impossible to program in any language without understanding how scope works in that language. You have to know what variables you can access from any point in your code, and perhaps more importantly, which ones you can't.
+It's nearly impossible to program in any language without understanding how scope works in that language. You have to know what variables you can access from any point in your code, and perhaps more importantly, which ones you can't.
 
 As you may recall, there are different terms we use when discussing scope. We're going to focus on lexical scope in this section.
 
@@ -1676,13 +1664,11 @@ Thus, the second example above throws an error even though `go2` is in scope.
 
 ### 7.3 Closures
 
-Why spend so much time talking about scope when we're supposed to be learning about closures? What is a closure anyway?
-
 The reason behind the discussion on scope is that closures and lexical scope are intimately related. Closures use the lexical scope in effect at a function's definition point to determine what variables that function can access. What variables are in scope during a function's execution depend on the closure formed by the function's definition. It's somewhat circular reasoning, but it's impossible to separate the two.
 
-[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) defines **closure** as "the combination of a function and the lexical environment within which that function was [defined]." You can think of closure as a function combined with any variables from its lexical scope that the function needs. In other words, if a function uses a variable that is not declared or initialized in that function, then that variable will be part of the closure (provided it exists).
+[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) defines a **closure** as "the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.
 
-Note that the MDN definition of closure uses the term "declared" where we say "defined." Since closure occurs with both function declarations and function expressions, the term "declared" as used on MDN is incorrect. Please use our modified version of the quote.
+You can think of closure as a function combined with any variables from its lexical scope that the function needs. In other words, *if a function uses a variable that is not declared or initialized in that function*, then that variable will be part of the closure (provided it exists).
 
 Closures are created when you define a function or method. The closure essentially *closes over* its environment -- what's in lexical scope. In effect, the function definition and all the identifiers in its lexical scope become a single entity called a closure. When the function is invoked, it can access any variables it needs from that environment. That is, the function can use variables from the lexical scope where the function was defined. ***Even if those variables aren't in the lexical scope where you invoke the function, it can still access them.***
 
@@ -1692,7 +1678,7 @@ Wait a minute. How can you use variables that aren't in scope? Doesn't scope gov
 
 #### 7.3.1 A Helpful Mental Model
 
-Let's try to describe a more helpful mental model. When you define a function, JavaScript finds all of the variable names it needs from the lexical scope that contains the function definition. It then takes those names and places them inside a special "envelope" object that it attaches to the function object. Each name in the envelope is a pointer to the original variable, not the value it contains.
+When you define a function, JavaScript finds all of the variable names it needs from the lexical scope that contains the function definition. It then takes those names and places them inside a special "envelope" object that it attaches to the function object. Each name in the envelope is *a pointer to the original variable*, not the value it contains.
 
 "Envelope" is not a term that you're likely to encounter elsewhere. It's just our word for how this mental model of closure works. We won't use it after the next assignment.
 
@@ -1726,8 +1712,6 @@ number = 3.1415;
 printNumber(); // => 3.1415
 ```
 
-We'll return to this concept in a few minutes.
-
 When a function encounters a variable name during execution, it first looks inside its local scope for that name. If it can't find the name, it peeks inside the envelope to see whether the variable is mentioned there. If it is, JavaScript can follow the pointer and get the current value of the variable. In fact, this is how scope works in JavaScript: it first checks for local variables by a given name, then it looks to the closure if it can't find it. All that stuff about looking at outer scopes until you reach the global scope all happens when the closure is defined.
 
 What about variables that are in scope when you invoke a function? Can the function access them? If those variables were in scope at the definition point, then yes, it can. However, if those variables weren't in scope when you defined the function, then the function cannot access them. They're not listed in the envelope since it was created when the function was defined. Only variables that are in scope when you define the function are available to the function.
@@ -1736,7 +1720,11 @@ Karis wrote a very short article on the envelope model of closure, complete with
 
 #### 7.3.2 Examples of Closure
 
-Okay, then, how can we invoke a function in a way that lets it access something that isn't in scope? Recall that, in JavaScript, functions are first-class objects. We can assign them to variables, pass them as function arguments, and use them as function return values. That means that we don't have to execute a function in the same scope in which we defined it; we can call it from a completely different part of the program. This is easiest to see with a higher-order function that returns a function object. For instance:
+Okay, then, how can we invoke a function in a way that lets it access something that isn't in scope? Recall that, in JavaScript, functions are first-class objects. We can assign them to variables, pass them as function arguments, and use them as function return values. That means that *we don't have to execute a function in the same scope in which we defined it*; we can call it from a completely different part of the program.
+
+#### 7.3.2.1 Example 1
+
+This is easiest to see with a higher-order function that returns a function object. For instance:
 
 ```js
 function foo() {
@@ -1756,6 +1744,8 @@ Though `name` is out of scope when `foo` finishes, the returned function has an 
 
 Functions that return functions are perhaps the most powerful feature of closure in JavaScript.
 
+#### 7.3.2.2 Example 2
+
 Let's consider a simpler example of closure:
 
 ```js
@@ -1770,7 +1760,7 @@ incrementCounter();
 console.log(counter); // 2
 ```
 
-At first glance, this code seems to illustrate variable scope: a function can access a variable in its surrounding scope. However, the reason why it can do that is that the function definition forms a closure that includes the variables it needs from the outer scope: namely, `counter`. Thus, `incrementCounter` can access and update the `counter` variable.
+At first glance, this code seems to illustrate variable scope: a function can access a variable in its surrounding scope. However, the reason why it can do that is that *the function definition forms a closure that includes the variables it needs from the outer scope*: namely, `counter`. Thus, `incrementCounter` can access and update the `counter` variable.
 
 If a job interviewer asks you to provide an example of closure, this simple example may be a risky choice. Many JavaScript developers see this as a pure scoping issue. However, it really is closure at work, just in an unfamiliar context for some developers. If you use an example like this one, you may be challenged on it. You will have to defend your statement that it really is a closure. If your explanation isn't accepted, you may be in a spot of trouble.
 
@@ -1815,6 +1805,8 @@ console.log(incrementCounter1()); // 4
 
 As you can see, each of the closures gets its own copy of `counter`. This happens because each invocation of `makeCounter` creates a new local variable named `counter`. Thus, each returned closure has its own variable.
 
+#### 7.3.2.3 Example 3
+
 Let's look at a more subtle example. What happens if we return two functions that close over the same variable at the same time?
 
 ```js
@@ -1843,6 +1835,8 @@ console.log(fun2()); // line 21 => 3
 
 Here, both of the functions returned by `makeCounter` close over the same `counter` variable, so they share it. On line 20, we call the first function, which increments `counter` by 1. On line 21, we increment that same counter by 2, so the result is 3.
 
+#### 7.3.2.4 Example 4
+
 Let's look at one final example:
 
 ```js
@@ -1858,7 +1852,7 @@ array.forEach(number => {
 console.log(oddNumbers) // => [ 1, 3, 5, 7 ]
 ```
 
-You've seen code like this before. It may not be obvious, but you're using closure when you pass the callback function to `Array.prototype.forEach`. The callback gets invoked somewhere in the heart of JavaScript's implementation of `forEach`. However, it still has access to the `oddNumbers` array since the callback forms a closure with its surrounding scope. The closure also provides access to `array` though the callback doesn't use it in this example.
+It may not be obvious, but you're using closure when you pass the callback function to `Array.prototype.forEach`. The callback gets invoked somewhere in the heart of JavaScript's implementation of `forEach`. However, it still has access to the `oddNumbers` array since the callback forms a closure with its surrounding scope. The closure also provides access to `array` though the callback doesn't use it in this example.
 
 It's important to remember that *closure definitions are purely lexical*. Closures are based on your program's structure, not by what happens when you execute it. Even if you never call a particular function, that function forms a closure with its surrounding scope.
 
