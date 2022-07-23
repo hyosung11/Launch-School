@@ -8575,3 +8575,7 @@ Passed the interview assessment the second time around and am going to start JS1
 17:16 Blitzing through the Exercises before dinner.
 
 21:02 I just need to finish the exercises and the quiz for lesson 2 tomorrow.
+
+## 20220723 토요일
+
+09:26 Back from soccer where our team got crushed 6-2. Ate breakfast. Took a bath. Blisters on both heels where I put in the new speed grip soles with the heel cup. It made my ankles rub during the game. I want to finish the exercises and take the quiz now.
