@@ -8573,3 +8573,5 @@ Passed the interview assessment the second time around and am going to start JS1
 16:51 Finished Assignment 17 > Side Effects and Pure Functions.
 
 17:16 Blitzing through the Exercises before dinner.
+
+21:02 I just need to finish the exercises and the quiz for lesson 2 tomorrow.

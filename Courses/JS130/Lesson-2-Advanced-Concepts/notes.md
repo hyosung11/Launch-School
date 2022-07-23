@@ -4768,4 +4768,28 @@ Before moving on, please spend some time working the [JS130 JavaScript Exercises
 
 ## 19. Summary
 
+This lesson has touched on a number of topics ranging from material that focuses on the oldest parts of JavaScript to material that introduces the latest parts. While some of this material isn't as important to learn as others, you will likely encounter them all at different stages of your career. In that respect, they're all about fundamental concepts.
+
+Before moving on to the next lesson, be sure that you're comfortable with the following topics:
+
+1. `var` vs `let` vs `const`
+2. Declared scope (function vs block), visibility scope (global vs local), and lexical scope (inner vs outer)
+3. Hoisting and its role in determining the scope of names, including those of variables, functions, and classes
+4. Strict mode vs. sloppy mode JavaScript
+5. Closures, including both conceptual and practical considerations
+6. The relationship between closures and scope
+7. Partial function application
+8. Private data
+9. Immediately invokable function expressions (IIFEs)
+10. Shorthand notation (primarily focus on understanding shorthand notation when you see it)
+11. Modules (focus on CommonJS modules)
+12. Throwing and catching exceptions
+13. Garbage Collection (high-level view)
+
+In the next lesson, after a short break for a quiz, we'll introduce you to the concepts behind testing your code.
+
 ## 20. Lesson 2 Quiz 1
+
+A reminder: the quizzes can be difficult, and low scores are commonplace. Don't let a low score leave you feeling frustrated or demoralized. The quizzes are intended to highlight concepts that you might need to review, but they are not used in any way to evaluate your performance. Use the questions you missed to focus your attention on topics where you might need a bit more study. For more information, please review the Quiz Guide.
+
+Please read this quiz guide before starting the quiz. It gives you an idea of what quizzes are and how to use them.
