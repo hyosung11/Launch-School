@@ -8579,3 +8579,5 @@ Passed the interview assessment the second time around and am going to start JS1
 ## 20220723 토요일
 
 09:26 Back from soccer where our team got crushed 6-2. Ate breakfast. Took a bath. Blisters on both heels where I put in the new speed grip soles with the heel cup. It made my ankles rub during the game. I want to finish the exercises and take the quiz now.
+
+10:48 Basically copied the answers from the exercises. This stuff is going over my head at the moment. I'm tired from soccer and getting up early.
