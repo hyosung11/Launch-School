@@ -196,7 +196,7 @@ In this assignment, we introduced the `var` statement. Though the `var` statemen
 
 ## 3. More About Scope
 
-Now that we know about the `var` statement, let's take a closer look at scope. Our primary purpose in this assignment is to reduce the ambiguity involved in the language surrounding scope in JavaScript. To do that, we'll describe scope as three separate but related concepts.
+Our primary purpose in this assignment is to *reduce the ambiguity involved in the language surrounding scope in JavaScript*. To do that, we'll describe scope as three separate but related concepts.
 
 Run the examples in this assignment with Node and a JavaScript file, e.g.:
 
@@ -220,11 +220,11 @@ Scope is a fundamental concept in all computer languages. However, the terminolo
 
 We use terms like global scope, local scope, function scope, block scope, inner scope, and outer scope when we talk about scope. Unfortunately, the terminology can be fluid and confusing. For instance, a variable can be declared with block scope by using the `let` keyword. If that declaration is inside a function, it has local scope. It can also have function scope if the declaration isn't inside a block. The variable can also have global scope if the declaration is at the topmost level of the program, outside all functions and blocks. To make matters worse, we can also talk about inner scope and outer scope. For instance, if you have a function that declares a variable, that variable is in the function's inner scope. However, the function can also reference variables from the surrounding scope, i.e., the function's outer scope.
 
-What's a new developer to do? One way to help keep things straight is to look at scope as having *three subtly different but related meanings.*
+One way to help keep things straight is to look at scope as having *three subtly different but related meanings.*
 
-In one sense, scope refers to where a particular identifier -- a variable, function, or class name -- is available for use by your code. We can call this the **visibility scope**. If a variable is available throughout your code, then it has global scope. Otherwise, it has local scope.
+In one sense, scope refers to where a particular identifier -- a variable, function, or class name -- is *available* for use by your code. We can call this the **visibility scope**. If a variable is available throughout your code, then it has global scope. Otherwise, it has local scope.
 
-In another sense, scope refers to how a particular identifier is declared. We'll call this the **declared scope**. For instance, we use the `let` keyword to declare variables with block scope, and use `var` to declare variables with function scope. Knowing the declared scope lets us determine where a variable is available.
+In another sense, scope refers to how a particular identifier is *declared*. We'll call this the **declared scope**. For instance, we use the `let` keyword to declare variables with block scope, and use `var` to declare variables with function scope. Knowing the declared scope lets us determine where a variable is available.
 
 Finally, scope can refer to the lexical structure of your code. We'll call this the **lexical scope**. The lexical scope distinguishes between variables that are declared inside a function or block and the variables that are declared outside of that function or block. Lexical scope is especially important with **closure**, as we'll learn later.
 
@@ -233,7 +233,7 @@ The terms **visibility scope** and **declared scope** *are terms of convenience*
 Though the visibility, declared, and lexical scopes have different meanings, there is considerable overlap. For instance, if we use `let` to declare variables with block scope at the topmost level of the program, then those variables also have global scope:
 
 ```js
-// `let` used to declare variables with block scope at the topmost level of the program also have global scope
+// `let` used to declare the variables `foo` and `bar` with block scope at the topmost level of the program also have global scope.
 let foo = 1;
 let bar = 2;
 console.log(foo, bar); //  1 2
@@ -242,17 +242,15 @@ console.log(foo, bar); //  1 2
 However, if we rearrange that code *so part of it is inside a block*, we get something different:
 
 ```js
-let bar = 2;
+let bar = 2; // `bar` in outer scope
 
 if (true) {
-  let foo = 1;
+  let foo = 1; // `foo` has local scope for its visibility scope and is in the block's inner scope
   console.log(foo, bar); //  1 2
 }
 ```
 
 Here, both `foo` and `bar` are again declared with block scope. However, `foo` now has local scope for its visibility scope. Confusingly, we can also say that its visibility is block scope. Furthermore, `foo` in this example is in the block's inner scope, while `bar` is in its outer scope.
-
-Let's explore these scopes in some more detail.
 
 #### 3.2.1 Declared Scope
 
@@ -278,7 +276,7 @@ function xyzzy() {  // declared scope is function scope
 }
 ```
 
-Note that the declared scope of each variable above is determined solely by which keyword was used to declare it: `let` or `var`.
+Note that the declared scope of each variable above is *determined solely by which keyword was used to declare it*: `let` or `var` (or `function`).
 
 Block Scope | Function Scope
 ------------|---------------
@@ -320,7 +318,7 @@ We usually talk about the visibility scope when we talk about the scope of a par
 
 Lexical scope concerns how the structure of your code determines what variables are accessible or inaccessible at any point in the program. Lexical scope includes both **inner scope** and **outer scope**.
 
-Let's use two simplified examples to see how lexical scope works. It'll be easier to see what's happening and to explain. We'll start with some code that uses `let`:
+Let's use two simplified examples to see how lexical scope works. We'll start with some code that uses `let`:
 
 ```js
 let foo1 = 1; // outer scope of xyzzy, outer scope of if block on line 3
@@ -346,11 +344,11 @@ Let's see what happens when we use `var` instead of `let`.
 var bar1 = 1; // outer scope of xyzzy, outer scope of if block on line 3
 
 if (true) { // line 3
-  var bar2 = 3;   // outer scope of xyzzy, outer scope of if block on line 3
+  var bar2 = 3; // outer scope of xyzzy, outer scope of if block on line 3
 }
 
-function xyzzy() {
-  var bar3 = 5;   // inner scope of xyzzy, outer scope of if block on line 10
+function xyzzy() { // line 7
+  var bar3 = 5; // inner scope of xyzzy, outer scope of if block on line 10
 
   if (true) { // line 10
     var bar4 = 7; // inner scope of xyzzy, outer scope of if block on line 10
@@ -364,21 +362,11 @@ We usually talk about **lexical scope** when we want to talk about what variable
 
 ### 3.3 How to Talk About Scope
 
-Don't stress! As confusing as scope terminology can be, it usually isn't as difficult to talk about as you might think. It's usually a matter of *understanding your frame of reference*:
+It's usually a matter of *understanding your frame of reference*:
 
 * Use declared scope when you're talking about how an identifier is declared.
 * Use visibility scope when you're talking about the visibility of a specific identifier.
 * Use lexical scope when you want to talk about whether something is "in scope" -- that is, whether it is available for use.
-
-Think of it a little bit like giving directions to your home:
-
-* "Go to 37373 SW Couch St"
-* "Turn right at the mailbox, and I'm the 3rd house on the right."
-* "Catch the #77 bus from downtown."
-* "Buy a plane ticket to Seattle."
-* "Set your controls for the heart of the sun, but stop at the 3rd rock."
-
-These are all valid directions to where you might live, just using different frames of reference.
 
 ### 3.4 Summary
 
@@ -400,7 +388,7 @@ Do not use the Node REPL as it may interfere with the behaviors we want to demon
 
 ### 4.1 What to Focus On
 
-Hoisting is vital for JavaScript developers to understand, particularly in programs that use `var` statements and function declarations. In your career, you will undoubtedly encounter such code, so you must understand the role that hoisting plays. In particular, you should be able to answer these questions:
+Hoisting is vital for JavaScript developers to understand, particularly in programs that use **`var` statements** and **function declarations**. In particular, you should be able to answer these questions:
 
 * What is hoisting?
 * How do `var`, `let`, and `const` interact with hoisting? How do they differ?
@@ -410,11 +398,11 @@ Hoisting is vital for JavaScript developers to understand, particularly in progr
 
 ### 4.2 What is Hoisting?
 
-JavaScript engines operate in two main phases: a **creation phase** and an **execution phase**. The execution phase occurs when the program runs code line-by-line. That's what most people mean when they talk about a program's execution. However, before the execution phase begins, the creation phase does some preliminary work. One of those work items is to find all of the variable, function, and class *declarations*. When it encounters each of these identifiers, it records the name and designates its scope.
+JavaScript engines operate in two main phases: a **creation phase** and an **execution phase**. The execution phase occurs when the program runs code line-by-line. That's what most people mean when they talk about a program's execution. However, before the execution phase begins, *the creation phase does some preliminary work*. One of those work items is to find all of the variable, function, and class *declarations*. When it encounters each of these identifiers, it records the name and designates its scope.
 
 The creation phase is sometimes *erroneously called* the compilation phase.
 
-When the execution phase begins, JavaScript knows what variables exist and where they are in scope. From the developer's perspective, the code acts like the declarations were moved to the top of their respective scope. In particular, function-scoped declarations are moved to the function's beginning, and block-scoped declarations are moved to the block's start. We call this process **hoisting**.
+When the execution phase begins, JavaScript knows what variables exist and where they are in scope. From the developer's perspective, *the code acts like the declarations were moved to the top of their respective scope*. In particular, function-scoped declarations are moved to the function's beginning, and block-scoped declarations are moved to the block's start. We call this process **hoisting**.
 
 The effect of hoisting is that all the declarations get hoisted -- raised, lifted, moved -- to the top of their defined scope. That's why the following code works:
 
@@ -440,7 +428,7 @@ It's important to realize that *hoisting doesn't change the program*. It merely 
 
 ### 4.3 The Temporal Dead Zone
 
-Variables declared with the `let`, `const`, and `var` statements are also hoisted. There is one significant difference between how hoisting works with `var` compared to how it works with `let` and `const`.
+Variables declared with the `let`, `const`, and `var` statements are *also hoisted*. There is one significant difference between how hoisting works with `var` compared to how it works with `let` and `const`.
 
 When a `var` variable is hoisted, *JavaScript gives it an initial value of* **`undefined`**. If you try to access the value assigned to a `var` variable before the original statement with the `var` declaration gets executed, JavaScript returns `undefined`.
 
@@ -470,11 +458,11 @@ It's interesting to note that the error message differs *if you don't declare th
 console.log(baz); // ReferenceError: baz is not defined
 ```
 
-This demonstrates that JavaScript is aware of the `foo` variable in the first snippet and recognizes that it hasn't been set to a value yet. JavaScript can tell that `baz` hasn't been declared in the third snippet, so the error message is different.
+This demonstrates that *JavaScript is aware of the `foo` variable in the first snippet and recognizes that it hasn't been set to a value yet*. JavaScript can tell that `baz` hasn't been declared in the third snippet, so the error message is different.
 
 ### 4.4 Hoisting for Function Declarations
 
-JavaScript also hoists function declarations to the top of the scope. In fact, it hoists the entire function declaration, including the function body:
+JavaScript also hoists function declarations to the top of the scope. In fact, it *hoists the entire function declaration, including the function body*:
 
 ```js
 console.log(hello());
@@ -491,7 +479,7 @@ function hello() {
   return 'hello world';
 }
 
-console.log(hello());      // logs "hello world"
+console.log(hello()); // logs "hello world"
 ```
 
 Function declarations *have function scope*. That's another way of saying that *hoisting also occurs with nested functions:*
@@ -530,6 +518,7 @@ function foo() {
   console.log(qux);
   qux();
 }
+
 foo();
 ```
 
@@ -642,7 +631,7 @@ bar = 'hello';
 bar(); // TypeError: bar is not a function
 ```
 
-Notice that we no longer have a declaration for the `bar` variable. Instead, the function declaration is at the top of the hoisted code, and the reassignments to `bar` both replace the function object with a string value. In the first snippet, we call `bar` before we reassign it to a string, so the code logs `world`. However, in the second snippet, `bar` is no longer a function when we try to invoke it, so we get an error.
+Notice that we no longer have a declaration for the `bar` variable. Instead, the function declaration is at the top of the hoisted code, and the *reassignments* to `bar` both replace the function object with a string value. In the first snippet, we call `bar` before we reassign it to a string, so the code logs `world`. However, in the second snippet, `bar` is no longer a function when we try to invoke it, so we get an error.
 
 ### 4.8 Best Practice to Avoid Confusion
 
@@ -662,18 +651,16 @@ function foo() {
 }
 ```
 
-* If you can use `let` and `const`, declare them as close to their first usage as possible:
+* If you can use `let` and `const`, *declare them as close to their first usage as possible*:
 
 ```js
-function foo() {
-  console.log("Hello World");
-
+function foo(bar) {
   let result;
   if (bar) {
     let squaredBar = bar * bar;
     result = squaredBar + bar;
   } else {
-    result = "bar hasn't been set:;
+    result = "bar hasn't been set";
   }
 
   return result;
@@ -695,9 +682,7 @@ foo();
 
 ### 4.9 Hoisting Isn't Real
 
-WHAT!!!? After all that, you're telling me that hoisting isn't real? Yup.
-
-Hoisting is really just a mental model that almost all JavaScript developers use to explain how scope works. There is no actual hoisting process in JavaScript. It wasn't even mentioned in the ECMAScript standards until recently. Even now, it's barely mentioned in passing. What's more, the mental model of hoisting is not perfect. There are edge cases for which hoisting doesn't provide a satisfactory explanation for how JavaScript works.
+Hoisting is really just a mental model that almost all JavaScript developers use to explain how scope works. *There is no actual hoisting process in JavaScript*. It wasn't even mentioned in the ECMAScript standards until recently. Even now, it's barely mentioned in passing. What's more, the mental model of hoisting is not perfect. There are edge cases for which hoisting doesn't provide a satisfactory explanation for how JavaScript works.
 
 In fact, hoisting breaks down in some situations. Consider this code:
 
@@ -836,9 +821,9 @@ Thus, `foo` ends up with the first function from the original code as its value,
 
 ```js
 for (var index = 0; index < 2; index += 1) {
-  console.log(foo);
+  console.log(foo); // line 2
   if (index === 0) {
-    var foo = "Hello";
+    var foo = "Hello"; // line 4
   } else {
     foo = "Bye";
   }
@@ -904,7 +889,7 @@ function bar() {
 };
 ```
 
-If we want to call a function before its body is defined, we need to use a function declaration.
+If we want to call a function before its body is defined, we need to *use a function declaration*.
 
 ### 5.4 Without running the following code, determine what it logs to the console
 
@@ -928,7 +913,7 @@ NaN
 
 ```js
 function foo() {
-  var bar;
+  var bar; // set to undefined
   bar = bar - 42;
   console.log(bar);
 }
@@ -1077,7 +1062,7 @@ Pet = function(name, image) {
 
 ## 6. Strict Mode (Modern JavaScript: Strict Mode)
 
-Please take some time to read through the Launch School Gist [Modern JavaScript: Strict Mode](https://launchschool.com/gists/406ba491). Using strict mode will help you find and fix errors before they become mysterious bugs that plague your application for years.
+Using strict mode will help you find and fix errors before they become mysterious bugs that plague your application for years.
 
 By now, you're well familiar with JavaScript's quirks, and in particular, the booby traps that arise from making simple mistakes, such as these:
 
